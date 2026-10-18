@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{Quadratic \((n,n+2,n)\) mass-action networks with \(n+1\) positive nondegenerate equilibria}
 \newcommand*{\PaperTitlePlain}{Quadratic (n,n+2,n) mass-action networks with n+1 positive nondegenerate equilibria}
 \newcommand*{\PaperShortTitle}{Quadratic \((n,n+2,n)\) networks with \(n+1\) equilibria}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} verified; independent rediscovery of an earlier answer}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} Independent verification and corrections: Claude Opus 5.5 (effort xhigh)}
 \newcommand*{\PaperKeywords}{chemical reaction networks, multistationarity, mass-action kinetics, Gale duality, quadratic networks}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -28,6 +28,11 @@ explicit quadratic \((n,n+2,n)\) network whose sources are \(0,2X_1,X_1+X_2,\dot
 the count to the zeros of an explicit one-variable function; geometrically separated kernel ratios then force the
 maximal number of equilibria. For \(n=1\) the network is \(0\to X,\ X\to0,\ 2X\to3X\), which shows that the bound is
 attained for \(n=1\) as well, contrary to Remark~5.6 of the same paper.
+\emph{The answer is not new} (Section~\ref{sec:prior}): the equilibrium equations of these networks are, up to
+scaling, the extremal fewnomial chain of Phillipson and Rojas \autocite[Theorem~1.6]{PhillipsonRojas2013}, and a
+mass-action realization of that chain answering Remark~5.8 for every \(n\ge2\) was posted, unrefereed, on 4 October
+2026 \autocite{Anon2026}. The present note is an apparently independent rediscovery, with a short self-contained
+proof.
 \end{paperabstract}
 
 \section*{The question}
@@ -55,13 +60,15 @@ them nondegenerate. Hence the bound of \autocite[Theorem~5.5]{BanajiFeliu2026} i
 Remark~5.6 of \autocite{BanajiFeliu2026} states that for \(n=1\) the bound is not optimal, because ``by [5, Lemma 20],
 quadratic rank-one networks do not admit multiple positive nondegenerate equilibria''. Lemma~20 of the cited paper
 \autocite{BBH2024ND} says the opposite: a quadratic rank-one network admits multiple positive nondegenerate equilibria
-if and only if it contains one of four small networks, the first being \(0\to X,\ X\to0,\ 2X\to3X\). The statement
-quoted in Remark~5.6 holds for \emph{bimolecular} rank-one networks \autocite[Corollary~19]{BBH2024ND}. Indeed
-\(\dot x=\kappa_1-\kappa_3x+\kappa_2x^2\) has the two positive simple roots \((3\pm\sqrt5)/2\) for
-\(\kappa=(1,1,3)\). This network is \(\Net_1\) below.
+if and only if it has at most two nontrivial species and, after removal of trivial species, contains three reactions
+forming a network simply equivalent to one of four small networks, the first being \(0\to X,\ X\to0,\ 2X\to3X\). The
+statement quoted in Remark~5.6 holds for \emph{bimolecular} rank-one networks \autocite[Corollary~19]{BBH2024ND}.
+Indeed, with rate constants \(1\), \(3\), \(1\) for \(0\to X\), \(X\to0\), \(2X\to3X\) respectively,
+\(\dot x=1-3x+x^2\) has the two positive simple roots \((3\pm\sqrt5)/2\). This network is \(\Net_1\) below. (The
+same discrepancy is pointed out in the prior-art notes accompanying \autocite{Anon2026}.)
 \end{remark}
 
-\section{The networks}
+\section{The networks}\label{sec:networks}
 
 Fix \(n\ge1\), species \(X_1,\dots,X_n\), and positive integers \(\alpha_2,\dots,\alpha_{n+1}\) and
 \(\beta_2,\dots,\beta_{n+1}\). Write \(\alpha=(1,0,\alpha_2,\dots,\alpha_{n+1})\) and \(\beta=(0,1,\beta_2,\dots,\beta_{n+1})\).
@@ -139,11 +146,12 @@ For any \(c\), \(f-c\) has at most \(n+1\) zeros in \((0,\infty)\), and if it ha
 \begin{proof}
 \(f'(u)=1/u+\sum_{j=2}^{n+1}w_j\beta_j/(\alpha_j+\beta_ju)\). Multiplying by \(u\prod_{j\ge2}(\alpha_j+\beta_ju)\) gives a
 polynomial of degree at most \(n\) whose coefficient of \(u^n\) is \(\prod_j\beta_j\cdot(1+\sum_{j\ge2}w_j)=\pm\prod_j\beta_j\neq0\).
-So \(f'\) has at most \(n\) zeros. By Rolle's theorem, \(n+1\) zeros of \(f-c\) force \(n\) zeros of \(f'\) strictly between
-them, so none of the zeros of \(f-c\) is a zero of \(f'\).
+So \(f'\) has at most \(n\) zeros, and by Rolle's theorem \(f-c\) has at most \(n+1\) zeros. If it has \(n+1\), Rolle's
+theorem gives \(n\) zeros of \(f'\) strictly between them, which are then all the zeros of \(f'\); so none of the zeros
+of \(f-c\) is a zero of \(f'\).
 \end{proof}
 
-\section{Geometrically separated kernels}
+\section{Geometrically separated kernels}\label{sec:geom}
 
 Fix \(R\ge64\) and take \(\alpha_j=R^{j-1}\), \(\beta_j=1\) for \(2\le j\le n+1\); write \(L=\log R\). Then
 \(f(u)=\log u+\sum_{m=1}^{n}2(-1)^m\log(R^m+u)\).
@@ -175,7 +183,9 @@ Take \(\Net_n(\alpha,\beta)\) with \(\alpha_j=64^{j-1}\), \(\beta_j=1\), and rat
 \(\kappa_1=e^c\) with \(c\) as in \zcref{prop:signs} (\(w_1=1\), so \(\sum_jw_j\log\kappa_j=c\)). By
 \zcref{lem:bijection,prop:signs,lem:nondeg} the network has exactly \(n+1\) positive equilibria, all nondegenerate. By
 \zcref{lem:structure} it is a full-rank quadratic \((n,n+2,n)\) network with \(n+2\) distinct sources, dynamically nontrivial
-and not source deficient. The set of admissible \(c\) is open, so \(\kappa_1\) may be taken rational.
+and not source deficient. In fact \(\kappa_1\) is rational: \(\sum_{m=1}^n(-1)^mm\) equals \(-(n+1)/2\) for odd \(n\) and
+\(n/2\) for even \(n\), so \(M_1=-nL\) or \((n+1)L\), and \(\kappa_1=e^c=64^{\mp(n+1/2)}=2^{\mp(6n+3)}\) (upper sign for odd
+\(n\)).
 \end{proof}
 
 \section{Small explicit examples}
@@ -183,12 +193,47 @@ and not source deficient. The set of admissible \(c\) is open, so \(\kappa_1\) m
 The separation \(R=64\) is convenient for a uniform proof but far from necessary. For \(n=3\), the network
 \(\Net_3(\alpha,\beta)\) with \((\alpha_2,\alpha_3,\alpha_4)=(1,3,16)\) and \((\beta_2,\beta_3,\beta_4)=(14,3,1)\),
 \[
-0\to X_1+3X_2+16X_3,\quad 2X_1\to16X_1+3X_2+X_3,\quad X_1+X_2\to X_2,\quad X_2+X_3\to X_3,\quad X_3\to0,
+0\to X_1+3X_2+16X_3,\ \ 2X_1\to16X_1+3X_2+X_3,\ \ X_1+X_2\to X_2,\ \ X_2+X_3\to X_3,\ \ X_3\to0,
 \]
-whose products have molecularity at most 20, has four positive nondegenerate equilibria for a suitable rational
-\(\kappa_1\) (all other rate constants equal to 1); the certificate is described below. A quadratic \((3,5,3)\) network
+whose products have molecularity at most 20, has four positive nondegenerate equilibria for \(\kappa_1=1/1600\) (all
+other rate constants equal to 1); the certificate is described below. A quadratic \((3,5,3)\) network
 outside this family, found by a computer search, is \(Z\to78Y,\ 2Z\to Z,\ 2Y\to X+Y,\ X\to0,\ X+Y\to24X+20Z\); it also has
-four positive nondegenerate equilibria (\texttt{scripts/other\_example\_n3.py}).
+four positive nondegenerate equilibria, for instance with rate constant \(9971888893/778\) for \(2Z\to Z\) and \(1\) for
+the other reactions (\texttt{scripts/other\_example\_n3.py}). Neither example has minimal product molecularity: the
+\((3,5,3)\) example of \autocite{Anon2026}, \(X\to0,\ Y\to6X+4Z,\ 2X\to6Y+4Z,\ 2Z\to4Y,\ Y+Z\to0\) with rate constant
+\(2/3137\) for \(2Z\to4Y\) and \(1\) otherwise, has products of molecularity at most 10 and four positive nondegenerate
+equilibria (checked in \texttt{verification/prior\_art\_check.py}).
+
+\section{Prior work}\label{sec:prior}
+
+The question of Remark~5.8 had already been answered when this note was written, and the algebraic core of the
+construction is older.
+\begin{itemize}
+\item \emph{Circuits.} A system of \(n\) real polynomial equations in \(n\) variables whose supports lie in a set of
+\(n+2\) monomials (a circuit) has at most \(n+1\) nondegenerate positive solutions, and this bound is attained
+\autocite{Bihan2007}; this is the polynomial counterpart of Theorem~5.5 of \autocite{BanajiFeliu2026}. The reduction
+to one variable used in Lemmas~\ref{lem:bijection}--\ref{lem:degree} is the standard Gale-duality argument for circuits.
+\item \emph{The same polynomial system.} Phillipson and Rojas \autocite[Theorem~1.6]{PhillipsonRojas2013} prove that
+the system \(G_\varepsilon\): \(x_1x_2=\varepsilon+x_1^2\), \(x_ix_{i+1}=1+\varepsilon^{2i-3}x_1^2\) (\(2\le i\le n-1\)), \(x_n=1+\varepsilon^{2n-3}x_1^2\) has
+exactly \(n+1\) positive roots, all nondegenerate, for \(\varepsilon=1/4\). After dividing the \(i\)-th equilibrium equation by
+\(\kappa_{i+1}\), this is precisely the equilibrium system of \(\Net_n(\alpha,\beta)\) with \(\alpha_j=16^{j-2}\), \(\beta_j=1\)
+and rate constants \(\kappa_0=1/4\), \(\kappa_1=\kappa_2=1\), \(\kappa_{i+1}=4^{2i-3}\) (\(2\le i\le n\)), i.e.\ geometric ratio
+\(R=16\) instead of \(64\) (checked exactly for \(n=2,\dots,6\) in \texttt{verification/prior\_art\_check.py}). In the
+same way, \(\Net_n\) with \(\alpha_j=64^{j-1}\), \(\beta_j=1\), \(\kappa_0=1/512\), \(\kappa_1=\kappa_2=1\), \(\kappa_{i+1}=8^{2i-3}\)
+(\(2\le i\le n\)) has equilibrium equations \(G_{1/8}\), and these rate constants give the same constant
+\(c=\sum_jw_j\log\kappa_j=\mp(6n+3)\log2\) as those used in the proof of \zcref{thm:main}. So the \(R=64\) networks of
+\zcref{thm:main} are, through the bijection of \zcref{lem:bijection}, the Phillipson--Rojas systems with \(\varepsilon=1/8\),
+and \zcref{thm:main} is essentially \autocite[Theorem~1.6]{PhillipsonRojas2013} plus the observation that
+\(\Net_n(\alpha,\beta)\) realizes \(G_\varepsilon\) as a mass-action network. Section~\ref{sec:geom} gives a short
+self-contained proof over \(\mathbb R\).
+\item \emph{The chemical answer.} An anonymous, unrefereed manuscript posted on Zenodo and GitHub on 4 October 2026
+\autocite{Anon2026} realizes the Phillipson--Rojas chain as a quadratic \((n,n+2,n)\) mass-action network for every
+\(n\ge2\) (with sources \(0,X_1,X_i+X_{i+1},2X_n\), the same support as \(\Net_n\) after reversing the order of the species)
+and explicitly answers Remark~5.8; it also gives the \((3,5,3)\) example with product molecularity 10 quoted above. Its
+explicit networks for \(n=2,\dots,6\) were re-checked exactly for this note (\texttt{verification/prior\_art\_check.py}).
+\end{itemize}
+The construction and proof in Sections~\ref{sec:networks}--\ref{sec:geom} do not rely on these works, which were not
+cited in the first version of this note and were identified during its independent verification.
 
 \section{Computer verification}
 
@@ -199,7 +244,18 @@ arithmetic: quadratic distinct sources, nonnegative products, \(\operatorname{ra
 zeros, and that for an explicit rational \(C\) the polynomial
 \(\prod_{w_j>0}v_j^{w_j}-C\prod_{w_j<0}v_j^{-w_j}\) has exactly \(n+1\) positive roots, all simple (Sturm sequences and
 \(\gcd(P,P')=1\)); it also computes the corresponding equilibria to 80 digits and checks \(\Gamma\rho(x)=0\) and
-\(\det J(x)\neq0\) (101 checks, all pass).
+\(\det J(x)\neq0\) (100 checks, all pass).
+
+\paragraph{Independent verification.} The scripts in \texttt{verification/} do not use the reduction to one variable.
+\texttt{direct\_check.py} writes each network as a list of reactions, solves the mass-action equations with exact
+rational rate constants by msolve (exact Gr\"obner basis and certified real root isolation), and shows with Singular
+that the ideal generated by the equations, \(\det Dg\) and \(t\,x_1\cdots x_n-1\) is the unit ideal, so that no equilibrium
+with nonzero coordinates is degenerate; a Sturm count (PARI/GP) on the eliminant in \(x_1\) cross-checks the number of
+positive equilibria. It confirms \(n+1\) positive nondegenerate equilibria for the \(R=64\) family with exactly the rate
+constants of the proof (\(\kappa_1=2^{\mp(6n+3)}\)), \(n=1,\dots,10\), and four for the two \((3,5,3)\) examples of this note
+(\(\Net_3\) with \(\kappa_1=1/1600\), and the computer-found network). \texttt{prior\_art\_check.py} applies the same
+pipeline to the networks of \autocite{Anon2026} and to the realizations of \(G_{1/4}\) and \(G_{1/8}\), and
+\texttt{uniform\_signs\_arb.py} checks the sign pattern of \zcref{prop:signs} in ball arithmetic for \(n\le300\).
 
 \paperreferences
 \end{document}

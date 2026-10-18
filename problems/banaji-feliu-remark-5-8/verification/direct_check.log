@@ -1,0 +1,260 @@
+--- n = 1: 0 -> X, 2X -> 3X, X -> 0 ---
+reactions: 0 -> X1; 2X1 -> 3X1; X1 -> 0
+rate constants: ['1', '1', '3']
+PASS (n, m) = (1, 3) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 3)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (2 real solutions in (R*)^n)
+PASS msolve: exactly 2 positive equilibria (expected 2)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (2 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 2) squarefree, nonzero at 0, Sturm count of positive roots = 2
+   x = ['2.61803398875']  det Dg = 2.23607
+   x = ['0.38196601125']  det Dg = -2.23607
+--- small n = 3 example (1,3,16)/(14,3,1), k(2X1 -> ...) = 1/1600 ---
+reactions: 0 -> X1 + 3X2 + 16X3; 2X1 -> 16X1 + 3X2 + X3; X1 + X2 -> X2; X2 + X3 -> X3; X3 -> 0
+rate constants: ['1', '1/1600', '1', '1', '1']
+PASS (n, m) = (3, 5) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 20)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (4 real solutions in (R*)^n)
+PASS msolve: exactly 4 positive equilibria (expected 4)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (4 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 4) squarefree, nonzero at 0, Sturm count of positive roots = 4
+   x = ['247.843356265', '2.17266417388', '54.3914557778']  det Dg = 54.2102
+   x = ['64.0995650407', '0.576471923992', '18.567971399']  det Dg = -2.32254
+   x = ['22.8571428571', '0.24375', '16.3265306122']  det Dg = 0.75102
+   x = ['8.05707869473', '0.194613902132', '16.0405728232']  det Dg = -1.08766
+(negative control, a FAIL on the count is expected and NOT counted:)
+--- negative control: same network, k(2X1 -> ...) = 1/100 ---
+reactions: 0 -> X1 + 3X2 + 16X3; 2X1 -> 16X1 + 3X2 + X3; X1 + X2 -> X2; X2 + X3 -> X3; X3 -> 0
+rate constants: ['1', '1/100', '1', '1', '1']
+PASS (n, m) = (3, 5) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 20)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (0 real solutions in (R*)^n)
+FAIL msolve: exactly 0 positive equilibria (expected 4)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (4 complex solutions in (C*)^n)
+FAIL PARI: eliminant in x1 (degree 4) squarefree, nonzero at 0, Sturm count of positive roots = 0
+PASS negative control has 0 < 4 positive equilibria (the test discriminates)
+--- R = 64 family, n = 1, kappa_1 = 1/512 ---
+reactions: 0 -> 64X1; 2X1 -> 3X1; X1 -> 0
+rate constants: ['1', '1/512', '1']
+PASS (n, m) = (1, 3) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 64)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (2 real solutions in (R*)^n)
+PASS msolve: exactly 2 positive equilibria (expected 2)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (2 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 2) squarefree, nonzero at 0, Sturm count of positive roots = 2
+   x = ['437.019335984']  det Dg = 0.707107
+   x = ['74.9806640162']  det Dg = -0.707107
+--- R = 64 family, n = 2, kappa_1 = 32768 ---
+reactions: 0 -> 64X1 + 4096X2; 2X1 -> 3X1 + X2; X1 + X2 -> X2; X2 -> 0
+rate constants: ['1', '32768', '1', '1']
+PASS (n, m) = (2, 4) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 4160)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (3 real solutions in (R*)^n)
+PASS msolve: exactly 3 positive equilibria (expected 3)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (3 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 3) squarefree, nonzero at 0, Sturm count of positive roots = 3
+   x = ['0.856762745781', '28149.101447']  det Dg = 20106.5
+   x = ['0.125', '4608.0']  det Dg = -2560.0
+   x = ['0.0182372542188', '4106.89855296']  det Dg = 2933.5
+--- R = 64 family, n = 3, kappa_1 = 1/2097152 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3; 2X1 -> 3X1 + X2 + X3; X1 + X2 -> X2; X2 + X3 -> X3; X3 -> 0
+rate constants: ['1', '1/2097152', '1', '1', '1']
+PASS (n, m) = (3, 5) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 266304)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (4 real solutions in (R*)^n)
+PASS msolve: exactly 4 positive equilibria (expected 4)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (4 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 4) squarefree, nonzero at 0, Sturm count of positive roots = 4
+   x = ['1796657.1171', '0.856748495693', '1801363.28235']  det Dg = 1.1022e+6
+   x = ['263059.907667', '0.125680029399', '295141.376929']  det Dg = -20750.8
+   x = ['32653.9101613', '0.0175305467694', '262652.440899']  det Dg = 2575.81
+   x = ['4781.06507372', '0.0156659281389', '262154.899822']  det Dg = -2933.04
+--- R = 64 family, n = 4, kappa_1 = 134217728 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3 + 16777216X4; 2X1 -> 3X1 + X2 + X3 + X4; X1 + X2 -> X2; X2 + X3 -> X3; X3 + X4 -> X4; X4 -> 0
+rate constants: ['1', '134217728', '1', '1', '1', '1']
+PASS (n, m) = (4, 6) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 17043520)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (5 real solutions in (R*)^n)
+PASS msolve: exactly 5 positive equilibria (expected 5)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (5 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 5) squarefree, nonzero at 0, Sturm count of positive roots = 5
+   x = ['0.856713653327', '114986234.8', '0.856748718394', '115287429.298']  det Dg = 8.11123e+15
+   x = ['0.12542994308', '16835432.2284', '0.125669437971', '18888819.3061']  det Dg = -2.23537e+13
+   x = ['0.015625', '2101248.0', '0.0175438596491', '16809984.0']  det Dg = 3.491e+11
+   x = ['0.00194643016655', '294126.141664', '0.0156548342451', '16777724.496']  det Dg = -4.32122e+10
+   x = ['0.000284973426129', '262830.829733', '0.0156256395272', '16777226.8998']  det Dg = 4.92084e+10
+--- R = 64 family, n = 5, kappa_1 = 1/8589934592 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3 + 16777216X4 + 1073741824X5; 2X1 -> 3X1 + X2 + X3 + X4 + X5; X1 + X2 -> X2; X2 + X3 -> X3; X3 + X4 -> X4; X4 + X5 -> X5; X5 -> 0
+rate constants: ['1', '1/8589934592', '1', '1', '1', '1', '1']
+PASS (n, m) = (5, 7) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 1090785344)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (6 real solutions in (R*)^n)
+PASS msolve: exactly 6 positive equilibria (expected 6)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (6 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 6) squarefree, nonzero at 0, Sturm count of positive roots = 6
+   x = ['7359114141.55', '0.856713649847', '7359118847.91', '0.856748714914', '7378395295.85']  det Dg = 2.84631e+19
+   x = ['1077435919.13', '0.125430108674', '1077468064.52', '0.125669603475', '1208884664.43']  det Dg = -1.14845e+16
+   x = ['134210456.766', '0.0156246303799', '134468510.87', '0.0175436521519', '1075838748.78']  det Dg = 2.23373e+13
+   x = ['16778124.9535', '0.00195704530672', '18838373.6285', '0.0156550430792', '1073774595.55']  det Dg = -3.49096e+11
+   x = ['2089961.70789', '0.000273926135453', '16809258.1829', '0.0156254661732', '1073742332.5']  det Dg = 4.32123e+10
+   x = ['305987.890712', '0.000244780282569', '16777902.8574', '0.0156250099926', '1073741834.9']  det Dg = -4.92084e+10
+--- R = 64 family, n = 6, kappa_1 = 549755813888 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3 + 16777216X4 + 1073741824X5 + 68719476736X6; 2X1 -> 3X1 + X2 + X3 + X4 + X5 + X6; X1 + X2 -> X2; X2 + X3 -> X3; X3 + X4 -> X4; X4 + X5 -> X5; X5 + X6 -> X6; X6 -> 0
+rate constants: ['1', '549755813888', '1', '1', '1', '1', '1', '1']
+PASS (n, m) = (6, 8) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 69810262080)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (7 real solutions in (R*)^n)
+PASS msolve: exactly 7 positive equilibria (expected 7)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (7 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 7) squarefree, nonzero at 0, Sturm count of positive roots = 7
+   x = ['0.85671364134', '470983305239.0', '0.856713649901', '470983606446.0', '0.856748714969', '472217299114.0']  det Dg = 5.49095e+34
+   x = ['0.125430047614', '68955898422.3', '0.125430106086', '68957955727.4', '0.125669600889', '77368618294.4']  det Dg = -3.24373e+30
+   x = ['0.0156241667445', '8589480601.15', '0.0156246361559', '8605996057.73', '0.0175436553942', '68853680149.2']  det Dg = 7.85886e+26
+   x = ['0.001953125', '1073774592.0', '0.00195687997803', '1205641647.16', '0.0156550398242', '68721573888.0']  det Dg = -1.53507e+24
+   x = ['0.000244153645312', '134487016.012', '0.000274134234662', '1075806878.23', '0.0156254694364', '68719509507.5']  det Dg = 2.39897e+22
+   x = ['3.04129460061e-5', '18824060.886', '0.000244606898332', '1073773867.12', '0.015625007284', '68719477244.5']  det Dg = -2.96952e+21
+   x = ['4.45270984556e-6', '16821172.9361', '0.000244150620052', '1073742510.86', '0.0156250001561', '68719476746.9']  det Dg = 3.38158e+21
+--- R = 64 family, n = 7, kappa_1 = 1/35184372088832 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3 + 16777216X4 + 1073741824X5 + 68719476736X6 + 4398046511104X7; 2X1 -> 3X1 + X2 + X3 + X4 + X5 + X6 + X7; X1 + X2 -> X2; X2 + X3 -> X3; X3 + X4 -> X4; X4 + X5 -> X5; X5 + X6 -> X6; X6 + X7 -> X7; X7 -> 0
+rate constants: ['1', '1/35184372088832', '1', '1', '1', '1', '1', '1', '1']
+PASS (n, m) = (7, 9) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 4467856773184)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (8 real solutions in (R*)^n)
+PASS msolve: exactly 8 positive equilibria (expected 8)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (8 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 8) squarefree, nonzero at 0, Sturm count of positive roots = 8
+   x = ['3.01429315304e+13', '0.856713641339', '3.01429315351e+13', '0.8567136499', '3.01429508123e+13', '0.856748714968', '3.02219071431e+13']  det Dg = 1.23317e+40
+   x = ['4.41317746728e+12', '0.125430047654', '4.41317749943e+12', '0.125430106127', '4.41330916696e+12', '0.125669600929', '4.95159157107e+12']  det Dg = -1.06656e+35
+   x = ['549726489044.0', '0.0156241666542', '549726747106.0', '0.0156246360656', '550783736333.0', '0.0175436553436', '4.40663552932e+12']  det Dg = 3.21882e+30
+   x = ['68719534914.6', '0.00195312758486', '68721599295.8', '0.0019568825615', '77161079684.1', '0.0156550398751', '4.39818072906e+12']  det Dg = -7.85962e+26
+   x = ['8589927319.69', '0.000244147868895', '8606441901.68', '0.000274130991183', '68851625887.4', '0.0156254693856', '4.39804860825e+12']  det Dg = 1.53507e+24
+   x = ['1073799102.14', '3.05788075331e-5', '1205655126.8', '0.000244610162159', '68721541851.3', '0.0156250073349', '4.39804654388e+12']  det Dg = -2.39897e+22
+   x = ['133757551.047', '4.28009590973e-6', '1075792515.92', '0.000244147910735', '68719508779.1', '0.0156250001138', '4.39804651161e+12']  det Dg = 2.96952e+21
+   x = ['19583225.0013', '3.82469191573e-6', '1073785782.71', '0.000244140781173', '68719477422.9', '0.0156250000024', '4.39804651111e+12']  det Dg = -3.38158e+21
+--- R = 64 family, n = 8, kappa_1 = 2251799813685248 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3 + 16777216X4 + 1073741824X5 + 68719476736X6 + 4398046511104X7 + 281474976710656X8; 2X1 -> 3X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8; X1 + X2 -> X2; X2 + X3 -> X3; X3 + X4 -> X4; X4 + X5 -> X5; X5 + X6 -> X6; X6 + X7 -> X7; X7 + X8 -> X8; X8 -> 0
+rate constants: ['1', '2251799813685248', '1', '1', '1', '1', '1', '1', '1', '1']
+PASS (n, m) = (8, 10) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 285942833483840)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (9 real solutions in (R*)^n)
+PASS msolve: exactly 9 positive equilibria (expected 9)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (9 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 9) squarefree, nonzero at 0, Sturm count of positive roots = 9
+   x = ['0.856713641337', '1.92914761795e+15', '0.85671364134', '1.92914761825e+15', '0.8567136499', '1.92914885199e+15', '0.856748714968', '1.93420205716e+15']  det Dg = 6.23632e+60
+   x = ['0.12543004764', '2.82443357906e+14', '0.125430047654', '2.82443359963e+14', '0.125430106126', '2.82451786685e+14', '0.125669600929', '3.16901860548e+14']  det Dg = -7.89691e+54
+   x = ['0.015624166541', '3.51824953102e+13', '0.0156241666556', '3.51825118261e+13', '0.015624636067', '3.52501591367e+13', '0.0175436553444', '2.82024673877e+14']  det Dg = 2.96868e+49
+   x = ['0.0019531266277', '4.39805020912e+12', '0.00195312754447', '4.39818232952e+12', '0.00195688252113', '4.93830908552e+12', '0.0156550398743', '2.8148356666e+14']  det Dg = -9.06153e+44
+   x = ['0.000244140625', '549756076032.0', '0.000244147959162', '550813008889.0', '0.000274131041866', '4.40650407111e+12', '0.0156254693864', '2.81475110928e+14']  det Dg = 2.21228e+41
+   x = ['3.05175526922e-5', '68721516620.3', '3.05762242728e-5', '77161015156.7', '0.000244610111288', '4.39817866417e+12', '0.0156250073342', '2.81474978808e+14']  det Dg = -4.32085e+38
+   x = ['3.81490075767e-6', '8607169136.44', '4.28334746019e-6', '68851639704.9', '0.000244147961735', '4.39804857622e+12', '0.0156250001146', '2.81474976743e+14']  det Dg = 6.75251e+36
+   x = ['4.75202281248e-7', '1204739896.51', '3.82198278687e-6', '68721527488.2', '0.00024414073884', '4.39804654315e+12', '0.0156250000018', '2.81474976711e+14']  det Dg = -8.35847e+35
+   x = ['6.95735913372e-8', '1076555067.91', '3.81485343832e-6', '68719520694.7', '0.00024414062744', '4.39804651179e+12', '0.015625', '2.81474976711e+14']  det Dg = 9.51829e+35
+--- R = 64 family, n = 9, kappa_1 = 1/144115188075855872 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3 + 16777216X4 + 1073741824X5 + 68719476736X6 + 4398046511104X7 + 281474976710656X8 + 18014398509481984X9; 2X1 -> 3X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8 + X9; X1 + X2 -> X2; X2 + X3 -> X3; X3 + X4 -> X4; X4 + X5 -> X5; X5 + X6 -> X6; X6 + X7 -> X7; X7 + X8 -> X8; X8 + X9 -> X9; X9 -> 0
+rate constants: ['1', '1/144115188075855872', '1', '1', '1', '1', '1', '1', '1', '1', '1']
+PASS (n, m) = (9, 11) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 18300341342965824)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (10 real solutions in (R*)^n)
+PASS msolve: exactly 10 positive equilibria (expected 10)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (10 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 10) squarefree, nonzero at 0, Sturm count of positive roots = 10
+   x = ['1.23465447548e+17', '0.856713641337', '1.23465447548e+17', '0.85671364134', '1.23465447568e+17', '0.8567136499', '1.23465526527e+17', '0.856748714968', '1.23788931658e+17']  det Dg = 8.96363e+67
+   x = ['1.80763749059e+16', '0.12543004764', '1.8076374906e+16', '0.125430047654', '1.80763750376e+16', '0.125430106126', '1.80769143478e+16', '0.125669600929', '2.02817190751e+16']  det Dg = -1.6618e+61
+   x = ['2.25167969958e+15', '0.015624166541', '2.25167969984e+15', '0.0156241666556', '2.25168075686e+15', '0.015624636067', '2.25601018473e+15', '0.0175436553443', '1.80495791281e+16']  det Dg = 7.78179e+54
+   x = ['2.81475211345e+14', '0.00195312662833', '2.81475213409e+14', '0.0019531275451', '2.81483669115e+14', '0.00195688252176', '3.16051781488e+14', '0.0156550398743', '1.80149482662e+16']  det Dg = -2.96928e+49
+   x = ['3.51843716234e+13', '0.000244140623589', '3.51843881385e+13', '0.000244147957751', '3.52520318417e+13', '0.000274131041074', '2.82016260537e+14', '0.0156254693863', '1.80144070994e+16']  det Dg = 9.06151e+44
+   x = ['4.39804656928e+12', '3.05175930806e-5', '4.39817868979e+12', '3.05762646395e-5', '4.93830588305e+12', '0.000244610112083', '2.81483434521e+14', '0.0156250073342', '1.80143986437e+16']  det Dg = -2.21228e+41
+   x = ['549755355619.0', '3.81481050116e-6', '550812288853.0', '4.28329678083e-6', '4.40650402469e+12', '0.00024414796094', '2.81475108864e+14', '0.0156250001146', '1.80143985116e+16']  det Dg = 4.32085e+38
+   x = ['68723142523.1', '4.77793867607e-7', '77161928102.7', '3.82203378417e-6', '4.39817867798e+12', '0.000244140739637', '2.81474978776e+14', '0.0156250000018', '1.80143985095e+16']  det Dg = -6.75251e+36
+   x = ['8560483267.02', '6.68764985898e-8', '68850721019.1', '3.81481110524e-6', '4.39804856186e+12', '0.000244140626779', '2.81474976743e+14', '0.015625', '1.80143985095e+16']  det Dg = 8.35847e+35
+   x = ['1253326400.08', '5.97608111833e-8', '68722290093.3', '3.81469970582e-6', '4.39804655506e+12', '0.000244140625038', '2.81474976711e+14', '0.015625', '1.80143985095e+16']  det Dg = -9.51829e+35
+--- R = 64 family, n = 10, kappa_1 = 9223372036854775808 ---
+reactions: 0 -> 64X1 + 4096X2 + 262144X3 + 16777216X4 + 1073741824X5 + 68719476736X6 + 4398046511104X7 + 281474976710656X8 + 18014398509481984X9 + 1152921504606846976X10; 2X1 -> 3X1 + X2 + X3 + X4 + X5 + X6 + X7 + X8 + X9 + X10; X1 + X2 -> X2; X2 + X3 -> X3; X3 + X4 -> X4; X4 + X5 -> X5; X5 + X6 -> X6; X6 + X7 -> X7; X7 + X8 -> X8; X8 + X9 -> X9; X9 + X10 -> X10; X10 -> 0
+rate constants: ['1', '9223372036854775808', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1']
+PASS (n, m) = (10, 12) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 1171221845949812800)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (11 real solutions in (R*)^n)
+PASS msolve: exactly 11 positive equilibria (expected 11)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (11 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 11) squarefree, nonzero at 0, Sturm count of positive roots = 11
+   x = ['0.856713641337', '7.9017886431e+18', '0.856713641337', '7.9017886431e+18', '0.85671364134', '7.90178864434e+18', '0.8567136499', '7.90179369775e+18', '0.856748714968', '7.92249162612e+18']  det Dg = 1.18831e+94
+   x = ['0.12543004764', '1.15688799398e+18', '0.12543004764', '1.15688799398e+18', '0.125430047654', '1.15688800241e+18', '0.125430106126', '1.15692251826e+18', '0.125669600929', '1.29803002081e+18']  det Dg = -3.22545e+86
+   x = ['0.015624166541', '1.44107500773e+17', '0.015624166541', '1.4410750079e+17', '0.0156241666556', '1.44107568439e+17', '0.015624636067', '1.44384651823e+17', '0.0175436553443', '1.1551730642e+18']  det Dg = 1.88142e+79
+   x = ['0.00195312662809', '1.8014413526e+16', '0.00195312662832', '1.80144136582e+16', '0.00195312754509', '1.80149548233e+16', '0.00195688252175', '2.02273140152e+16', '0.0156550398743', '1.15295668904e+18']  det Dg = -8.97412e+72
+   x = ['0.000244140621821', '2.25179978463e+15', '0.000244140623611', '2.25180084159e+15', '0.000244147957773', '2.2561300386e+15', '0.000274131041086', '1.80490406744e+16', '0.0156254693863', '1.15292205436e+18']  det Dg = 3.42334e+67
+   x = ['3.0517578125e-5', '2.81474978808e+14', '3.05175924495e-5', '2.81483434521e+14', '3.05762640088e-5', '3.16051575602e+14', '0.00024461011207', '1.80149398093e+16', '0.0156250073342', '1.1529215132e+18']  det Dg = -1.04472e+63
+   x = ['3.8146973153e-6', '3.51843893242e+13', '3.81481191157e-6', '3.52520330262e+13', '4.28329757275e-6', '2.82016258497e+14', '0.000244147960953', '1.80144069673e+16', '0.0156250001146', '1.15292150474e+18']  det Dg = 2.55059e+59
+   x = ['4.76836760719e-7', '4.3981770628e+12', '4.77753504166e-7', '4.93830496924e+12', '3.8220329893e-6', '2.81483434474e+14', '0.000244140739624', '1.80143986416e+16', '0.0156250000018', '1.15292150461e+18']  det Dg = -4.9816e+56
+   x = ['5.96078243388e-8', '550858824734.0', '6.69273040657e-8', '4.4065049411e+12', '3.81481190212e-6', '2.81475108878e+14', '0.000244140626791', '1.80143985115e+16', '0.015625', '1.15292150461e+18']  det Dg = 7.78511e+54
+   x = ['7.4250356445e-9', '77103353376.9', '5.97184810448e-8', '4.39817775924e+12', '3.81469904437e-6', '2.81474978761e+14', '0.000244140625028', '1.80143985095e+16', '0.015625', '1.15292150461e+18']  det Dg = -9.63666e+53
+   x = ['1.08708736464e-9', '68899524346.0', '5.96070849738e-8', '4.39804932446e+12', '3.81469730375e-6', '2.81474976755e+14', '0.000244140625001', '1.80143985095e+16', '0.015625', '1.15292150461e+18']  det Dg = 1.09738e+54
+--- second (3,5,3) example, k(2Z -> Z) = 9971888893/778 ---
+reactions: X3 -> 78X2; 2X3 -> X3; 2X2 -> X1 + X2; X1 -> 0; X1 + X2 -> 24X1 + 20X3
+rate constants: ['1', '9971888893/778', '1', '1', '1']
+PASS (n, m) = (3, 5) with m = n+2
+PASS n+2 distinct sources, all of molecularity <= 2 (quadratic)
+PASS products nonnegative (max product molecularity 78)
+PASS each reaction has product != source
+PASS rank Gamma = n (full rank, single stoichiometric class R^n_{>0})
+PASS rank [A|1] = n+1, source rank n = r (not source deficient)
+PASS msolve: every real-solution box is strictly positive or has a negative coordinate (4 real solutions in (R*)^n)
+PASS msolve: exactly 4 positive equilibria (expected 4)
+PASS Singular: <g, det Dg, t*x1*...*xn-1> = <1>: no degenerate equilibrium in (C*)^n (4 complex solutions in (C*)^n)
+PASS PARI: eliminant in x1 (degree 4) squarefree, nonzero at 0, Sturm count of positive roots = 4
+   x = ['0.120697847592', '0.042817837994', '8.97613863446e-5']  det Dg = -95.2734
+   x = ['0.00638899385159', '0.0350960814531', '1.8666199769e-5']  det Dg = 3.07628
+   x = ['0.0002116244959', '0.0123158031197', '1.97801707833e-6']  det Dg = -0.136089
+   x = ['4.68867622442e-7', '0.000679368342355', '5.92128049249e-9']  det Dg = 0.000629313
+ALL PASS

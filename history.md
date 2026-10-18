@@ -30,3 +30,8 @@
 - Result 1 independently verified: CONFIRMED WITH CORRECTIONS (equilibria recounted by Gröbner bases for
   n = 3..6; the displayed instance of N_4 in the manuscript had wrong signs and was replaced, N_5 added; check count
   corrected to 300; minimality statement made precise for n = 2).
+- Result 7 independently verified: proof CONFIRMED WITH CORRECTIONS, but the verifier found prior work: an
+  anonymous unrefereed manuscript (Zenodo, GitHub ipitchford, 4 Oct 2026) answering Remark 5.8 for every n >= 2,
+  built on the Phillipson–Rojas (2013) extremal fewnomial system, which is also the equilibrium system of our family.
+  Status changed to "already solved". The novelty check in PROTOCOL.md now includes Evidence Press and Zenodo; a scan of
+  its 166 repositories found no overlap with the other results.

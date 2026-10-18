@@ -1,0 +1,1 @@
+PASS R = 64, n = 1..300: (-1)^(i+1)(f(R^i) - c) > log 2 - 4/63 for all i, and e^c = 2^(+-(6n+3)); smallest certified value [0.69314718 +/- 5.61e-10] (log 2 - 4/63 = [0.62965512 +/- 2.94e-9])
