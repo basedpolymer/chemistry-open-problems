@@ -1,0 +1,21 @@
+PASS exact derivative f_(1,0)
+PASS exact derivative f_(2,0)
+PASS exact derivative f_(3,0)
+PASS exact derivative f_(0,1)
+PASS exact derivative f_(1,1)
+PASS exact derivative f_(2,1)
+PASS exact unperturbed Gelfand solution
+PASS exact sublinearity identity
+PASS complex initial denominator exceeds one
+PASS complex forcing bound exp(8) < 10000
+PASS initial contraction 10000 exp(-60) < 1
+PASS exact reduced derivative order 1
+PASS exact reduced derivative order 2
+PASS exact reduced derivative order 3
+PASS exact transformed exponent
+PASS reduced complex half-plane bound (exact rationals)
+PASS reduced complex Lipschitz bound
+PASS reduced origin contraction and ball
+PASS flat derivative envelope monotonicity through order three
+PASS alpha >= 24 and epsilon >= .24 imply transformed a > 8/5
+Runtime seconds: 0.605

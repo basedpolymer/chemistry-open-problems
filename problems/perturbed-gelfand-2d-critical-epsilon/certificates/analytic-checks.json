@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "reduced_initial_lipschitz_upper": "18",
+  "uniform_tail_conversion": {
+    "epsilon_lower": "0.24",
+    "alpha_lower": "24",
+    "transformed_a_lower": "1.6224"
+  },
+  "tail_exclusion_also_requires_reduced_cover_and_limiting_problem_theorem": true,
+  "runtime_seconds": 0.611
+}

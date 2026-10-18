@@ -1,0 +1,9 @@
+a = 0.05390218  E(a) in [0.0499999, 0.05]_trv_NG   (direct-shooting eps = 0.05)   z = [-156.485, -156.484]_trv_NG
+a = 1.39642155  E(a) in [0.0499999, 0.0500001]_trv_NG   (direct-shooting eps = 0.05)   z = [0.372197, 0.372198]_trv_NG
+a = 0.19885668  E(a) in [0.149999, 0.150001]_trv_NG   (direct-shooting eps = 0.15)   z = [-8.41088, -8.41087]_trv_NG
+a = 1.11213391  E(a) in [0.149999, 0.150001]_trv_NG   (direct-shooting eps = 0.15)   z = [0.372132, 0.372133]_trv_NG
+a = 0.43624794  E(a) in [0.23, 0.230001]_trv_NG   (direct-shooting eps = 0.23)   z = [-0.692159, -0.692158]_trv_NG
+a = 0.76177042  E(a) in [0.229999, 0.23]_trv_NG   (direct-shooting eps = 0.23)   z = [0.255244, 0.255245]_trv_NG
+a = 0.57534657  E(a) in [0.241999, 0.242001]_trv_NG   (direct-shooting eps = 0.242)   z = [-0.0392047, -0.0392046]_trv_NG
+a = 0.60574651  E(a) in [0.241999, 0.242001]_trv_NG   (direct-shooting eps = 0.242)   z = [0.0357584, 0.0357585]_trv_NG
+EXIT 0

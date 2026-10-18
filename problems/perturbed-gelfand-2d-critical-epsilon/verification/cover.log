@@ -1,0 +1,21 @@
+PASS cover starts at 1/2
+PASS cover reaches past 8/5
+PASS no gaps
+PASS at least one C box
+PASS pattern N* C+ P*
+PASS N block nonempty and P block nonempty
+leaves: 564  N: 46  C: 1  P: 517
+C region: [0.58984375, 0.591796875]
+max z on N boxes: -0.0008093061226810212   min z on P boxes: 0.002527175272100452   min D on C boxes: 1.716742536492273   min q on N/C boxes: 0.2379671319698707
+min leaf width: 0.001953125
+E(1/2) in [0.238114, 0.238115]_trv_NG   z = [-0.309704, -0.309703]_trv_NG   window [1.0293030097382143, 1.0293030098546296]
+PASS window at a = 1/2
+PASS E(1/2) > 0.238
+E(3/2) in [0.0078977, 0.00789771]_trv_NG   z = [0.366674, 0.366675]_trv_NG   window [1.4281442367937416, 1.428144236910157]
+PASS window at a = 3/2
+PASS E(3/2) > 0.0078 (so a_m > 3/2)
+E(8/5) in [-0.0351864, -0.0351863]_trv_NG   z = [0.360078, 0.360079]_trv_NG   window [1.4769521376583725, 1.4769521377747878]
+PASS window at a = 8/5
+PASS event level at 8/5 negative (so a_m < 8/5)
+Runtime seconds: 227.2
+EXIT 0

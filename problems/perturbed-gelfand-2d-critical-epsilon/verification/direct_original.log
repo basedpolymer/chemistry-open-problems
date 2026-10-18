@@ -1,0 +1,21 @@
+eps = 0.05: 2 fold(s); lambda_alpha > 0 at alpha=1e-3: True, at alpha=1500: True
+    alpha = 1.5608737219  (max of lambda, lambda = 2.1185866657)   a = eps+eps^2 alpha = 0.05390218
+    alpha = 538.5686204971  (min of lambda, lambda = 0.0000130563)   a = eps+eps^2 alpha = 1.39642155
+eps = 0.15: 2 fold(s); lambda_alpha > 0 at alpha=1e-3: True, at alpha=200: True
+    alpha = 2.1714079480  (max of lambda, lambda = 2.4400648659)   a = eps+eps^2 alpha = 0.19885668
+    alpha = 42.7615069634  (min of lambda, lambda = 0.7709892932)   a = eps+eps^2 alpha = 1.11213391
+eps = 0.23: 2 fold(s); lambda_alpha > 0 at alpha=1e-3: True, at alpha=60: True
+    alpha = 3.8988268124  (max of lambda, lambda = 2.8879788163)   a = eps+eps^2 alpha = 0.43624794
+    alpha = 10.0523707975  (min of lambda, lambda = 2.7936041442)   a = eps+eps^2 alpha = 0.76177042
+eps = 0.242: 2 fold(s); lambda_alpha > 0 at alpha=1e-3: True, at alpha=30: True
+    alpha = 5.6920047599  (max of lambda, lambda = 3.0049522121)   a = eps+eps^2 alpha = 0.57534657
+    alpha = 6.2110940455  (min of lambda, lambda = 3.0048750411)   a = eps+eps^2 alpha = 0.60574651
+eps = 0.2422: 0 fold(s); lambda_alpha > 0 at alpha=1e-3: True, at alpha=30: True
+eps = 0.245: 0 fold(s); lambda_alpha > 0 at alpha=1e-3: True, at alpha=30: True
+second fold, transformed amplitude, small eps:
+    eps = 0.08: folds with a in (1.4,1.7): 
+    eps = 0.04: folds with a in (1.4,1.7): alpha = 863.5239, a = 1.421638
+    eps = 0.02: folds with a in (1.4,1.7): alpha = 3627.2263, a = 1.470891
+    eps = 0.01: folds with a in (1.4,1.7): alpha = 14849.7848, a = 1.494978
+    eps = 0.005: folds with a in (1.4,1.7): alpha = 60075.9188, a = 1.506898
+EXIT 0

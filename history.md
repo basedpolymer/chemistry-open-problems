@@ -54,3 +54,9 @@
   the mathematical specification before reading the solver's; all five certificates pass (K = 18 in 151 s), with the
   same exact ratios; tampered certificates rejected; Pönitz–Tittmann table reproduced by an independent
   implementation; corrections editorial (certificate-format documentation, a file size in SHA256SUMS).
+- Result 10 (combustion theory): the Korman–Li–Ouyang conjecture on the perturbed Gelfand equation in the unit
+  disk is proved: a unique eps_0 = 0.2421061655952..., exactly S-shaped curve below, monotone above. Du–Lou change of
+  variables (eps becomes a stopping level), analytic Wronskian argument for small amplitudes, Arb cover of a compact
+  interval, Du–Lou/KLO qualitative theorems for the tail. Solver GPT-6-Astra via Codex CLI (xhigh), two runs.
+  Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS, with an independent Julia cover;
+  the published estimate eps_0 ~ 0.2385 of KLO is wrong for the disk (close to the 3D value 0.2388).
