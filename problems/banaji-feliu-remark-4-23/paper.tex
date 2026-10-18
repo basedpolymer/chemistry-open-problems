@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{Sharp equilibrium bounds for \((n,n,n-1)\) mass-action networks: an answer to a question of Banaji and Feliu}
 \newcommand*{\PaperTitlePlain}{Sharp equilibrium bounds for (n,n,n-1) mass-action networks: an answer to a question of Banaji and Feliu}
 \newcommand*{\PaperShortTitle}{Sharp equilibrium bounds for \((n,n,n-1)\) networks}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} \(n=3\) case and computer searches: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026 \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} \(n=3\) case and computer searches: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026 \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (confirmed with corrections)}
 \newcommand*{\PaperKeywords}{chemical reaction networks, multistationarity, mass-action kinetics, Descartes' rule of signs}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -26,9 +26,9 @@ Banaji and Feliu proved that a mass-action network with \(n\) species, \(n\) rea
 most \(n\) positive nondegenerate equilibria on each stoichiometric class, and left open whether this bound is
 attained for general \(n\) and, if so, what source molecularity is needed. We construct, for every \(n\ge3\), an
 explicit \((n,n,n-1)\) network with sources \(X_1\) and \(2X_{i-1}+X_i\) that has exactly \(n\) positive
-nondegenerate equilibria on one stoichiometric class for suitable rate constants. Together with their bound of two
-equilibria for quadratic networks, this shows that the minimum source molecularity is exactly~3 for every
-\(n\ge2\). The proof is short and computer-free: the reaction vectors form a path through the species, the
+nondegenerate equilibria on one stoichiometric class for suitable rate constants. Together with their results on
+quadratic networks (at most two such equilibria, and at most one when \(n=2\)), this shows that the minimum source
+molecularity is exactly~3 for every \(n\ge2\). The proof is short and computer-free: the reaction vectors form a path through the species, the
 equilibria lie on a monomial curve, and the conservation law becomes a signomial with alternating coefficient signs.
 \end{paperabstract}
 
@@ -65,7 +65,8 @@ For \(n=2\) this is the content of Remark~4.23 itself: the network \(X+2Y\to3Y,\
 and quadratic \((2,2,1)\) networks admit at most one positive nondegenerate equilibrium per class. For \(n\ge3\),
 Corollary~5.16 of~\autocite{BanajiFeliu2026} states that quadratic \((n,n,n-1)\) networks (all sources of
 molecularity at most~2) admit no more than two positive nondegenerate equilibria on each stoichiometric class, fewer
-than \(n\). \zcref[S]{thm:A} provides networks of source molecularity~3.
+than \(n\). \zcref[S]{thm:A} provides networks of source molecularity~3. (The case \(n=1\) is vacuous: a reaction
+has a nonzero reaction vector, so there is no \((1,1,0)\) network.)
 \end{proof}
 
 \section{Notation}
@@ -83,9 +84,11 @@ Following~\autocite[§2]{BanajiFeliu2026}, a positive equilibrium \(x\) is \emph
 nonsingular transformation on \(\im\Gamma\), i.e.\ \(\ker J(x)\cap\im\Gamma=\{0\}\). Stoichiometric classes are the
 sets \((x_0+\im\Gamma)\cap\mathbb R^n_{\ge0}\). For \(\lambda>0\) and \(q\in\mathbb R^n\) we write
 \(\lambda^q=(\lambda^{q_1},\dots,\lambda^{q_n})\); \(\circ\) is the componentwise product and \(e_i\) the \(i\)-th unit
-vector.
+vector. The molecularity of a complex \(a\) is \(a_1+\dots+a_n\). As in~\autocite{BanajiFeliu2026}, where a network is
+\emph{quadratic} if all its sources have molecularity at most~2, the \emph{source molecularity} of a network is the
+largest molecularity of its source complexes.
 
-\section{The family of networks}
+\section{The family of networks}\label{sec:family}
 
 Fix \(n\ge3\), define the signs
 \[
@@ -127,8 +130,14 @@ All products are nonnegative; the sources are \(a_1=e_1\) and \(a_j=2e_{j-1}+e_j
 molecularity is~3 and the product molecularity is at most~5. For instance
 \begin{align*}
 \Net_3&:\ X_1\to 2X_1+X_3,\quad 2X_1+X_2\to X_1+2X_2,\quad 2X_2+X_3\to X_2;\\
-\Net_4&:\ X_1\to X_4,\quad 2X_1+X_2\to 3X_1,\quad 2X_2+X_3\to 3X_2+2X_3,\quad 2X_3+X_4\to X_3+2X_4.
+\Net_4&:\ X_1\to 2X_1+X_4,\quad 2X_1+X_2\to X_1+2X_2,\quad 2X_2+X_3\to X_2,\\
+&\phantom{:}\ \ 2X_3+X_4\to 3X_3;\\
+\Net_5&:\ X_1\to X_5,\quad 2X_1+X_2\to 3X_1,\quad 2X_2+X_3\to 3X_2+2X_3,\\
+&\phantom{:}\ \ 2X_3+X_4\to X_3+2X_4,\quad 2X_4+X_5\to X_4.
 \end{align*}
+(For \(n=4\), \(\varepsilon=(+,+,-,-)\) and \(s=+1\), \(c_1=+1\), \(d_1=-1\), \(c_2=-1\). The signs matter: for
+instance \(X_1\to X_4,\ 2X_1+X_2\to 3X_1,\ 2X_2+X_3\to 3X_2+2X_3,\ 2X_3+X_4\to X_3+2X_4\) has stoichiometric
+matrix of rank~4, so it is not a \((4,4,3)\) network.)
 
 \begin{lemma}[note=stoichiometry]\label{lem:stoich}
 \(\Net_n\) is an \((n,n,n-1)\) network with \(\im\Gamma=\varepsilon^\perp\) (so \(\ker\Gamma^{\mathsf T}=\spn(\varepsilon)\))
@@ -235,7 +244,9 @@ with multiplicity, so the \(\lambda_r\) are all of them and each is simple.
 \section{Proof of the main theorem}
 
 \begin{proof}[of \zcref{thm:A}]
-The case \(n=2\) is in~\autocite[Remark~4.23]{BanajiFeliu2026}. Let \(n\ge3\), choose
+The case \(n=2\) is in~\autocite[Remark~4.23]{BanajiFeliu2026}. (The formulas of \zcref{sec:family} also make
+sense for \(n=2\): they give \(\Net_2=\{X_1\to X_2,\ 2X_1+X_2\to3X_1\}\), which is that network with \(X\) and \(Y\)
+interchanged, and the argument below applies to it verbatim, with \(q=(1,-1)\).) Let \(n\ge3\), choose
 \(0<\lambda_1<\dots<\lambda_n\), and list the \(n+1\) distinct exponents \(\{q_1,\dots,q_n,0\}\) in increasing order
 (\zcref{lem:exponents}):
 \(q_{2\lfloor n/2\rfloor}<\dots<q_4<q_2<0<q_1<q_3<\dots\).
@@ -286,13 +297,17 @@ equilibria and a saddle.
 
 \section{Computer verification}
 
-The proof above needs no computer. As an independent consistency check, \texttt{scripts/certify\_family.py} builds
+The proof above needs no computer. As an independent consistency check, the script \texttt{scripts/\allowbreak certify\_family.py} builds
 \(\Net_n\) for \(n=3,\dots,12\) and verifies in exact rational arithmetic (python-flint): the rank and kernels of
 \(\Gamma\); the exponent formula; the strict sign alternation of the generalized-Vandermonde kernel vector for
 \(\lambda_r=r\); the positivity of \(C\), \(T\) and \(\kappa\); that the \(n\) points \(x(r)\) satisfy \(\Gamma v(x)=0\) and
 \(\varepsilon\cdot x=T\) exactly; that the restricted Jacobian has nonzero determinant at each of them; and that \(F\)
-has exactly \(n\) sign changes (301 checks, all pass). \texttt{scripts/example\_n3.py} checks the instance of the
-previous section with sympy.
+has exactly \(n\) sign changes (300 checks, all pass). \texttt{scripts/example\_n3.py} checks the instance of the
+previous section with sympy. The independent verification (\texttt{verification/}) recounts the equilibria without
+the monomial curve: for \(n=2,\dots,6\) and several choices of \(\lambda_r\) it saturates the full equilibrium system
+plus the conservation law by \(x_1\cdots x_n\) in Singular, computes a lex Gröbner basis in shape-lemma form and counts
+the positive roots of the eliminant with Sturm sequences, finding exactly \(n\) positive equilibria, all
+nondegenerate.
 
 \paperreferences
 \end{document}

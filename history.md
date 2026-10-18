@@ -27,3 +27,6 @@
 - Result 3 independently verified: CONFIRMED WITH CORRECTIONS (weak reversibility edge by edge, invariance,
   absence of equilibria by Sturm and an exact lower bound, divergence integral by two other rigorous methods;
   hypotheses of the network definition (2.1) stated and proof details added).
+- Result 1 independently verified: CONFIRMED WITH CORRECTIONS (equilibria recounted by Gröbner bases for
+  n = 3..6; the displayed instance of N_4 in the manuscript had wrong signs and was replaced, N_5 added; check count
+  corrected to 300; minimality statement made precise for n = 2).

@@ -1,0 +1,43 @@
+=== A. structural lemmas, n = 2..80 ===
+PASS n = 2..80: rank n-1, Gamma 1 = 0, eps^T Gamma = 0, S bidiagonal unit, q formula and order, source molecularity 3, products nonnegative of molecularity <= 5
+=== B. Groebner/Sturm: n = 2 and the displayed N_4 ===
+--- n = 2, N_2 from Table 1 (authors' example, X <-> Y): lambda = ['1', '3'] ---
+  R1: X1 -> X2
+  R2: 2X1 + X2 -> 3X1
+PASS products nonnegative
+PASS source molecularity (max over sources) = 3
+PASS n distinct reactions, source != product
+PASS n species, n reactions, rank Gamma = n-1
+PASS ker Gamma = span of positive vector [1, 1]
+PASS left kernel spanned by z = [1, 1]
+PASS q = S^-1 1 = [1, -1]
+PASS generalized Vandermonde kernel 1-dim
+PASS C_i > 0, T > 0 (sign pattern of z matches)
+  kappa = ['1', '1/3']
+PASS saturated ideal has shape-lemma lex basis (|GB| = 2, vdim = 2)
+PASS deg g(x1) = vdim = 2 (= max q - min q = 2)
+PASS g squarefree: all torus solutions simple
+PASS g has exactly 2 positive real roots (Sturm)
+PASS the n positive roots of g give n points with all coordinates > 0
+PASS these points coincide with x(lambda_r) = C o lambda_r^q of the manuscript
+PASS   equilibrium 1: Gamma v = 0, z.x = T, det(J|imGamma) = e_(n-1)(J) = 0.666667 != 0, rank[J; z] = n
+PASS   equilibrium 2: Gamma v = 0, z.x = T, det(J|imGamma) = e_(n-1)(J) = -2.00000 != 0, rank[J; z] = n
+  N_4 from the definitions / Table 1: X1 -> 2X1 + X4; 2X1 + X2 -> X1 + 2X2; 2X2 + X3 -> X2; 2X3 + X4 -> 3X3
+  network displayed as N_4 at line 130 of the original paper.tex: X1 -> X4; 2X1 + X2 -> 3X1; 2X2 + X3 -> 3X2 + 2X3; 2X3 + X4 -> X3 + 2X4
+  its stoichiometric matrix has rank 4 and kernel []
+PASS the originally displayed 'N_4' is NOT N_4: it has rank 4, i.e. it is a (4,4,4) network with no positive flux vector (display error, corrected in paper.tex)
+PASS corrected display of N_4 (X1 -> 2X1+X4, 2X1+X2 -> X1+2X2, 2X2+X3 -> X2, 2X3+X4 -> 3X3) agrees with Table 1 and the solver's script
+=== C. proof construction with non-integer lambdas, n = 2..12 ===
+PASS n = 2: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-), Sturm: 2 positive roots
+PASS n = 3: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+), Sturm: 3 positive roots
+PASS n = 4: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-), Sturm: 4 positive roots
+PASS n = 5: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+), Sturm: 5 positive roots
+PASS n = 6: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+-), Sturm: 6 positive roots
+PASS n = 7: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+-+), Sturm: 7 positive roots
+PASS n = 8: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+-+-)
+PASS n = 9: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+-+-+)
+PASS n = 10: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+-+-+-)
+PASS n = 11: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+-+-+-+)
+PASS n = 12: alternating c, C>0, T>0, n positive equilibria on eps.x = T, all with det(J|imGamma) != 0 (signs +-+-+-+-+-+-)
+ALL PASS
+elapsed 192.67 s, maxrss 109048 kB
