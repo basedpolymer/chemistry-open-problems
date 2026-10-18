@@ -1,0 +1,201 @@
+== SHA-256 (against certificates/SHA256SUMS.txt)
+PASS sha256 d3_k8.cert
+PASS sha256 d3_k10.cert
+PASS sha256 d3_k12.cert
+PASS sha256 d3_k14.cert
+PASS sha256 d3_k16.cert
+PASS sha256 d4_k14.cert
+PASS sha256 d5_k10.cert
+PASS sha256 d5_k12.cert
+PASS sha256 d5_k14.cert
+PASS sha256 d6_k10.cert
+PASS sha256 d6_k12.cert
+PASS sha256 d3_k12_explicit.cert2
+PASS sha256 d3_k18.cert
+PASS sha256 d3_k18.cert2
+== independent checker on every certificate
+file small/d3_k8.cert magic SAWCERT1 d=3 K=8 N=206 P=4771090 Q=1000000 (P/Q=4.771090000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 2685884408524563/562949953421312 = 4.771089138921... (state 0)
+PASS: mu_3 <= 4771090/1000000
+wall 0.00 s, maxRSS 4224 kB
+file small/d3_k10.cert magic SAWCERT1 d=3 K=10 N=2723 P=4753601 Q=1000000 (P/Q=4.753601000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 579596341418677/121927864778779 = 4.753600355999... (state 1689)
+PASS: mu_3 <= 4753601/1000000
+wall 0.02 s, maxRSS 4352 kB
+file small/d3_k12.cert magic SAWCERT1 d=3 K=12 N=41425 P=4741773 Q=1000000 (P/Q=4.741773000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 1971676015178709/415809901234900 = 4.741772644958... (state 33392)
+PASS: mu_3 <= 4741773/1000000
+wall 0.19 s, maxRSS 6272 kB
+file small/d3_k12_explicit.cert2 magic SAWCERT2 d=3 K=12 N=41425 P=4741773 Q=1000000 (P/Q=4.741773000) threads=4 mode=explicit
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 55211756701651/11643695445633 = 4.741772657954... (state 25840)
+PASS: mu_3 <= 4741773/1000000
+wall 0.14 s, maxRSS 102784 kB
+file small/d3_k14.cert magic SAWCERT1 d=3 K=14 N=678730 P=4733327 Q=1000000 (P/Q=4.733327000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 2664625960743543/562949953421312 = 4.733326549810... (state 0)
+PASS: mu_3 <= 4733327/1000000
+wall 7.07 s, maxRSS 39168 kB
+file small/d5_k10.cert magic SAWCERT1 d=5 K=10 N=5732 P=8858371 Q=1000000 (P/Q=8.858371000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 6602374288228685/745326036768363 = 8.858370649247... (state 86)
+PASS: mu_5 <= 8858371/1000000
+wall 0.06 s, maxRSS 4608 kB
+file small/d5_k12.cert magic SAWCERT1 d=5 K=12 N=187011 P=8853752 Q=1000000 (P/Q=8.853752000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 4984219070383935/562949953421312 = 8.853751634745... (state 0)
+PASS: mu_5 <= 8853752/1000000
+wall 1.63 s, maxRSS 13056 kB
+file small/d6_k10.cert magic SAWCERT1 d=6 K=10 N=5732 P=10887669 Q=1000000 (P/Q=10.887669000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 8873828103941960/815034755979641 = 10.887668334187... (state 86)
+PASS: mu_6 <= 10887669/1000000
+wall 0.08 s, maxRSS 4480 kB
+file small/d6_k12.cert magic SAWCERT1 d=6 K=12 N=192224 P=10885008 Q=1000000 (P/Q=10.885008000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 4428155100988748/406812324202497 = 10.885007256526... (state 94)
+PASS: mu_6 <= 10885008/1000000
+wall 2.02 s, maxRSS 13184 kB
+file ~/work/cubic-saw/cert/d3_k16.cert magic SAWCERT1 d=3 K=16 N=11641894 P=4726984 Q=1000000 (P/Q=4.726984000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 129653733242276/27428428361269 = 4.726983680383... (state 9560481)
+PASS: mu_3 <= 4726984/1000000
+wall 354.48 s, maxRSS 578944 kB
+file ~/work/cubic-saw/hd/d4_k14.cert magic SAWCERT1 d=4 K=14 N=4235309 P=6801078 Q=1000000 (P/Q=6.801078000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 433123876427845/63684594277489 = 6.801077738528... (state 3389635)
+PASS: mu_4 <= 6801078/1000000
+wall 82.16 s, maxRSS 266752 kB
+file ~/work/cubic-saw/hd/d5_k14_p4.cert magic SAWCERT1 d=5 K=14 N=7787256 P=8850674 Q=1000000 (P/Q=8.850674000) threads=4 mode=search-full
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 622810764598795/70368744177664 = 8.850673290777... (state 0)
+PASS: mu_5 <= 8850674/1000000
+wall 177.17 s, maxRSS 322304 kB
+file ~/work/cubic-saw/cert/d3_k18.cert2 magic SAWCERT2 d=3 K=18 N=206118560 P=4722048 Q=1000000 (P/Q=4.722048000) threads=4 mode=explicit
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 73151633491513/15491508107156 = 4.722047265218... (state 180715238)
+PASS: mu_3 <= 4722048/1000000
+wall 163.93 s, maxRSS 3322880 kB
+== c_n by brute force vs Clisby-Liang-Slade tables
+PASS c_n d=3 n<=16
+PASS c_n d=4 n<=12
+PASS c_n d=5 n<=10
+PASS c_n d=6 n<=9
+== a_n (checked automata) >= c_n
+d3_k8            n <= 30 compared; a_n = c_n for n <= 9; first excess a_n/c_n - 1 at n=10: 3.514e-03; at n=30: 1.2209; PASS (a_n >= c_n)
+d3_k10           n <= 30 compared; a_n = c_n for n <= 10; first excess a_n/c_n - 1 at n=11: 3.434e-06; at n=30: 1.1316; PASS (a_n >= c_n)
+d3_k12           n <= 30 compared; a_n = c_n for n <= 12; first excess a_n/c_n - 1 at n=13: 1.162e-05; at n=30: 1.0807; PASS (a_n >= c_n)
+d3_k12_explicit  n <= 30 compared; a_n = c_n for n <= 12; first excess a_n/c_n - 1 at n=13: 1.162e-05; at n=30: 1.0807; PASS (a_n >= c_n)
+d3_k14           n <= 30 compared; a_n = c_n for n <= 13; first excess a_n/c_n - 1 at n=14: 1.504e-07; at n=30: 1.0498; PASS (a_n >= c_n)
+d5_k10           n <= 24 compared; a_n = c_n for n <= 10; first excess a_n/c_n - 1 at n=11: 2.887e-06; at n=24: 1.0142; PASS (a_n >= c_n)
+d5_k12           n <= 24 compared; a_n = c_n for n <= 11; first excess a_n/c_n - 1 at n=12: 1.388e-08; at n=24: 1.0075; PASS (a_n >= c_n)
+d6_k10           n <= 24 compared; a_n = c_n for n <= 10; first excess a_n/c_n - 1 at n=11: 6.368e-07; at n=24: 1.0064; PASS (a_n >= c_n)
+d6_k12           n <= 24 compared; a_n = c_n for n <= 11; first excess a_n/c_n - 1 at n=12: 1.462e-08; at n=24: 1.0033; PASS (a_n >= c_n)
+== Ponitz-Tittmann automaton (independent implementation; floating point, comparison with Table 2)
+d=2 k=4 reachable states=4  CW bracket [2.8311772072, 2.8311772072]  (gen 0.0 s, total 0.0 s)
+d=2 k=6 reachable states=13  CW bracket [2.7755911424, 2.7755911424]  (gen 0.0 s, total 0.0 s)
+d=2 k=8 reachable states=57  CW bracket [2.7444582102, 2.7444582102]  (gen 0.0 s, total 0.0 s)
+d=2 k=10 reachable states=277  CW bracket [2.7247990176, 2.7247990176]  (gen 0.0 s, total 0.0 s)
+d=2 k=12 reachable states=1437  CW bracket [2.7112523387, 2.7112523387]  (gen 0.0 s, total 0.0 s)
+d=2 k=14 reachable states=7795  CW bracket [2.7013742680, 2.7013742680]  (gen 0.0 s, total 0.1 s)
+d=2 k=16 reachable states=43743  CW bracket [2.6938489216, 2.6938489216]  (gen 0.2 s, total 0.4 s)
+d=2 k=18 reachable states=252051  CW bracket [2.6879244100, 2.6879244100]  (gen 1.4 s, total 2.6 s)
+d=2 k=20 reachable states=1483361  CW bracket [2.6831388655, 2.6831388655]  (gen 10.1 s, total 21.4 s)
+d=2 k=22 reachable states=8880776  CW bracket [2.6791926494, 2.6791926494]  (gen 67.4 s, total 162.0 s)
+d=3 k=4 reachable states=4  CW bracket [4.8645365123, 4.8645365123]  (gen 0.0 s, total 0.0 s)
+d=3 k=6 reachable states=21  CW bracket [4.8074108580, 4.8074108580]  (gen 0.0 s, total 0.0 s)
+d=3 k=8 reachable states=206  CW bracket [4.7779698931, 4.7779698931]  (gen 0.0 s, total 0.0 s)
+d=3 k=10 reachable states=2723  CW bracket [4.7598376153, 4.7598376153]  (gen 0.0 s, total 0.0 s)
+d=3 k=12 reachable states=41425  CW bracket [4.7475250923, 4.7475250923]  (gen 0.3 s, total 0.5 s)
+d=3 k=14 reachable states=678730  CW bracket [4.7386307749, 4.7386307749]  (gen 6.3 s, total 10.4 s)
+d=3 k=16 reachable states=11641894  CW bracket [4.7319085545, 4.7319085545]  (gen 132.0 s, total 264.0 s)
+d=4 k=4 reachable states=4  CW bracket [6.8916709382, 6.8916709382]  (gen 0.0 s, total 0.0 s)
+d=4 k=6 reachable states=21  CW bracket [6.8512155282, 6.8512155282]  (gen 0.0 s, total 0.0 s)
+d=4 k=8 reachable states=258  CW bracket [6.8302904883, 6.8302904883]  (gen 0.0 s, total 0.0 s)
+d=4 k=10 reachable states=5267  CW bracket [6.8178558565, 6.8178558565]  (gen 0.1 s, total 0.1 s)
+d=4 k=12 reachable states=139267  CW bracket [6.8096952141, 6.8096952141]  (gen 2.2 s, total 2.3 s)
+d=4 k=14 reachable states=4235309  CW bracket [6.8039596969, 6.8039596969]  (gen 83.2 s, total 92.4 s)
+d=5 k=4 reachable states=4  CW bracket [8.9104203640, 8.9104203640]  (gen 0.0 s, total 0.0 s)
+d=5 k=6 reachable states=21  CW bracket [8.8815540115, 8.8815540115]  (gen 0.0 s, total 0.0 s)
+d=5 k=8 reachable states=258  CW bracket [8.8678880660, 8.8678880660]  (gen 0.0 s, total 0.0 s)
+d=5 k=10 reachable states=5732  CW bracket [8.8601588343, 8.8601588343]  (gen 0.1 s, total 0.1 s)
+d=6 k=10 reachable states=5732  CW bracket [10.8885689231, 10.8885689231]  (gen 0.2 s, total 0.2 s)
+== falsification tests (both checkers)
+certificate d3_k12.cert: SAWCERT1 d=3 K=12 N=41425 P/Q=4741773/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=INVALID  rejected | rejected
+  start_weight_minus_10pct               truth=INVALID  rejected | rejected
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_plus_1                       truth=INVALID  rejected | rejected
+  one_step_state_removed                 truth=INVALID  rejected | rejected
+  start_state_removed                    truth=INVALID  rejected | rejected
+PASS (every INVALID copy rejected by every checker)
+brute-force check of (1) on 3187 sampled states of the untouched file: 0 violations
+certificate d3_k12_explicit.cert2: SAWCERT2 d=3 K=12 N=41425 P/Q=4741773/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=VALID    accepted | accepted
+  start_weight_minus_10pct               truth=VALID    accepted | accepted
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_plus_1                       truth=INVALID  rejected | rejected
+  child_redirected_to_longest_walk       truth=INVALID  rejected | rejected
+  child_set_to_none                      truth=INVALID  rejected | rejected
+  child_out_of_range                     truth=INVALID  rejected | rejected
+  child_to_start_state(incl_ok)          truth=INVALID  rejected | rejected
+  children_of_two_directions_swapped     truth=INVALID  rejected | rejected
+  one_step_state_children_removed        truth=INVALID  rejected | rejected
+  pointer_on_forbidden_direction         truth=VALID    accepted | accepted
+PASS (every INVALID copy rejected by every checker)
+certificate d5_k10.cert: SAWCERT1 d=5 K=10 N=5732 P/Q=8858371/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=INVALID  rejected | rejected
+  start_weight_minus_10pct               truth=INVALID  rejected | rejected
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_plus_1                       truth=INVALID  rejected | rejected
+  one_step_state_removed                 truth=INVALID  rejected | rejected
+  start_state_removed                    truth=INVALID  rejected | rejected
+PASS (every INVALID copy rejected by every checker)
+certificate d6_k10.cert: SAWCERT1 d=6 K=10 N=5732 P/Q=10887669/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=INVALID  rejected | rejected
+  start_weight_minus_10pct               truth=INVALID  rejected | rejected
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_6_to_5                       truth=VALID    accepted | accepted
+  one_step_state_removed                 truth=INVALID  rejected | rejected
+  start_state_removed                    truth=INVALID  rejected | rejected
+PASS (every INVALID copy rejected by every checker)
+ALL PASS

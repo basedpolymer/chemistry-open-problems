@@ -1,9 +1,12 @@
 # Rigorous upper bound for the connective constant of the simple cubic lattice
 
-**Status: record (preliminary): new rigorous bounds with exact certificates, awaiting independent verification.**
+**Status: record: new rigorous bounds with exact certificates, independently verified (`verification.md`, verdict
+CONFIRMED WITH CORRECTIONS; the corrections are editorial and change no bound).**
 
 **Attribution.** Method, certificates, checker and write-up: Claude Opus 5.5 (effort xhigh), sub-agent of the
-orchestrator, 18 Oct 2026. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+orchestrator, 18 Oct 2026. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5
+(effort xhigh), fresh context, no access to the solver's reasoning (`verification.md`, own checker
+`verification/sawcheck.cpp`).
 
 ## Problem
 
@@ -22,8 +25,8 @@ gives the weaker bound µ ≤ 4.7626"). Novelty search: `references.md`.
 
 ## Status
 
-**Record (preliminary): new rigorous bounds with exact certificates, checked by a separate checker; awaiting the
-independent verification of PROTOCOL §4.**
+**Record: new rigorous bounds with exact certificates, checked by the solver's checker and re-checked by the
+independent verifier's own checker (PROTOCOL §4), with identical exact maximal ratios.**
 
 | lattice | previous bound | new bound (certified) | memory K | states |
 |---|---|---|---|---|
@@ -36,7 +39,10 @@ independent verification of PROTOCOL §4.**
 (Numerical estimate \(\mu_3\approx4.68404\): the rigorous gap shrinks from 0.0547 to 0.0380, i.e. by 30 %.)
 
 All five certificates passed `src/verify_cert.cpp` (logs in `certificates/`): K = 18 in 4 min 47 s on the
-explicit-automaton file (8.2 GB), K = 16 in 13 min, d = 4..6 in 32 min or less (one thread).
+explicit-automaton file (8.2 GB), K = 16 in 13 min, d = 4..6 in 32 min or less (one thread). The independent
+verifier's checker (`verification/sawcheck.cpp`, written from the mathematical specification) passes all of them
+with 4 threads: K = 18 in 151 s (3.3 GB, streamed), K = 16 in 384 s, d = 4, K = 14 in 91 s, d = 5, K = 14 in 193 s,
+d = 6, K = 12 in 2 s; see `verification.md`.
 
 ## Result in one paragraph
 
@@ -48,8 +54,9 @@ comes from letting the automaton choose, when it must forget, among all sub-walk
 remembered walk, the choice being optimised against the Perron vector (min-sum value / policy iteration, after
 Couronné's idea for \(\mathbb Z^2\)). At equal memory this gains about 0.005 in \(d=3\); with K = 16 (Pönitz–Tittmann
 stopped at 14) the bound becomes 4.726984, and with K = 18 (2.06·10⁸ states) 4.722048. The method reproduces
-every value of the Pönitz–Tittmann table (d = 2..5) and Noonan's d = 6 value when restricted to their forgetting
-rule.
+the Pönitz–Tittmann table (d = 2..5) and Noonan's d = 6 value when restricted to their forgetting rule; the
+verifier's independent implementation of the P–T automaton reproduces every entry of their Table 2, including
+d = 4, k = 14 (6.8039597 → 6.8040).
 
 ## How to reproduce
 
@@ -61,6 +68,7 @@ bash scripts/check_small.sh     # ~10 min
 bash scripts/reproduce_k16.sh   # ~20 min, 3.5 GB
 bash scripts/reproduce_hd.sh    # ~45 min, 3.6 GB
 bash scripts/reproduce_k18.sh   # ~3.5 h, 10.5 GB, ~45 GB temporary disk
+bash verification/run_all.sh    # independent verifier's checks on all certificates, ~35 min, 4 threads, 3.4 GB
 ```
 
 The large certificates (K = 16, K = 18, d = 4 and 5 with K = 14; up to 8.2 GB) are not stored in the repository;
@@ -77,6 +85,9 @@ go to `~/work/cubic-saw/`.
 * `paper.tex`, `paper.pdf` — manuscript (generated from `notes.md`).
 * `notes.md` — full write-up: lemmas and proofs, automaton, certificate formats, checks, results, what to verify.
 * `references.md` — sources and novelty search.
+* `verification.md` — independent verification report; `verification/` — the verifier's programs (independent
+  checker `sawcheck.cpp`, `count_saw.cpp`, `pt_auto.cpp`, `tamper.py`, `compare_counts.py`, `patch_k18.py`,
+  `run_all.sh`) and logs.
 * `src/saw_prod.cpp` — generator storing all candidate children (K ≤ 16, d ≤ 6). `src/saw_big.cpp` — generator for
   K = 18 (policy iteration, candidates cached on disk, explicit-automaton certificate). `src/verify_cert.cpp` —
   checker. `src/saw_automaton.cpp`, `src/count_states.cpp` — exploration tools (Pönitz–Tittmann reproduction,

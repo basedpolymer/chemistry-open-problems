@@ -1,7 +1,9 @@
 # New rigorous upper bounds for the connective constant of self-avoiding walks on \(\mathbb Z^3\) (and \(\mathbb Z^4,\mathbb Z^5,\mathbb Z^6\))
 
-Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. Status: **record (preliminary)** — complete argument and
-exact certificates checked by a separate checker; not yet verified by an independent agent (PROTOCOL.md §4).
+Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. Independent verification: Claude Opus 5.5
+(effort xhigh), fresh context. Status: **record** — complete argument and exact certificates, independently verified
+(PROTOCOL.md §4; `verification.md`, verdict CONFIRMED WITH CORRECTIONS, editorial corrections only): every
+certificate re-checked by a separately written checker, with the same exact maximal ratios.
 
 ## 1. Results
 
@@ -134,10 +136,14 @@ give 4.72323, 4.72215, 4.72205, 4.72204, 4.72204, 4.72204 (float brackets); the 
 
 ## 5. Certificates and how they are checked
 
-Formats (little endian): `SAWCERT1` = magic, \(d,K\) (u32), \(N,P,Q\) (u64), \(N\) sorted state codes, \(N\) weights
-\(V\) (u64). `SAWCERT2` = the same followed by the explicit automaton: for each state and each of the \(2d\)
-directions the index of the chosen child (u32, \(2^{32}-1\) = none). The checker `src/verify_cert.cpp` (written
-separately from the generators, no shared code) verifies:
+Formats (little endian): `SAWCERT1` = magic (8 ASCII bytes), \(d,K\) (u32), \(N,P,Q\) (u64) — a 40-byte header —,
+\(N\) sorted state codes, \(N\) weights \(V\) (u64). In a code, step \(t_i\) occupies bits \([b\,i,\,b\,i+b)\) with
+\(b=3\) for \(d\le4\) and \(b=4\) for \(d=5,6\) (newest step \(t_0\) in the lowest bits; bits above the last step are
+zero), the length \(l\) bits 57–62, and bit 63 is set. `SAWCERT2` = the same followed by the explicit automaton:
+\(N\cdot2d\) u32 entries, entry \(2d\,s+j\) being the index of the chosen child of state \(s\) for direction \(j\)
+(same direction code as the steps: \(2a\mapsto+e_a\), \(2a+1\mapsto-e_a\), in the state's own frame); \(2^{32}-1\) =
+none, used for the forbidden directions, whose entries are ignored. File size \(40+16N\) (+\(8dN\) for `SAWCERT2`).
+The checker `src/verify_cert.cpp` (written separately from the generators, no shared code) verifies:
 
 * (C0) codes strictly increasing and decodable (at most 57 payload bits, step values \(<2d\)); all
   \(1\le V\le2^{60}\); the empty walk (\(F=\emptyset\)) is listed;
@@ -166,7 +172,11 @@ Further checks (`scripts/check_small.sh`, `scripts/check_counts.py`):
   \(d=2\): 2.724799, 2.711252, 2.701374, 2.693849 for \(K=10..16\) (published 2.7248, 2.7113, 2.7014, 2.6939);
   \(d=4\): 6.891671, 6.851216, 6.830290, 6.817856, 6.809695 (\(K=4..12\); published 6.8917, 6.8513, 6.8303,
   6.8179, 6.8097); \(d=5\): 8.910420, 8.881554, 8.867888, 8.860159 (\(K=4..10\); published 8.9105, 8.8816,
-  8.8679, 8.8602); \(d=6\), \(K=10\): 10.888569 (Noonan's 10.8886);
+  8.8679, 8.8602); \(d=6\), \(K=10\): 10.888569 (Noonan's 10.8886). The independent verifier's own implementation
+  of the P–T automaton (`verification/pt_auto.cpp`) reproduces every entry of P–T's Table 2, including the ones not
+  recomputed above: \(d=4\), \(k=14\): 6.8039597 (published 6.8040, with exactly the 4 235 309 states of our
+  \(d=4\), \(K=14\) certificate) and \(d=2\), \(k=4,6,8,18,20,22\): 2.8311772, 2.7755911, 2.7444582, 2.6879244,
+  2.6831389, 2.6791926 (published 2.8312, 2.7756, 2.7445, 2.6880, 2.6832, 2.6792);
 * path counts: \(a_n\ge c_n\) for \(n\le24\) in every run (\(c_n\) from the Clisby–Liang–Slade tables, = OEIS A001412
   for \(d=3\)), with equality for \(n\le K-1\) at least (\(n\le K+1\) with the Pönitz–Tittmann child).
 
@@ -188,7 +198,7 @@ d = 5, K = 14 in 32 min, the others in under 30 s; logs `certificates/d*_k*.veri
 | \(d\) | \(K\) | states | P–T child | certified \(\bar\lambda\) | previous record |
 |---|---|---|---|---|---|
 | 4 | 12 | 139 267 | 6.8096952 | 6.806500 | |
-| 4 | 14 | 4 235 309 | (6.8040 publ.) | **6.801078** | 6.8040 |
+| 4 | 14 | 4 235 309 | 6.8039597 (verifier) | **6.801078** | 6.8040 |
 | 5 | 10 | 5 732 | 8.8601588 | 8.858371 | 8.8602 |
 | 5 | 12 | 187 011 | | 8.853752 | |
 | 5 | 14 | 7 787 256 | | **8.850674** | |
@@ -214,7 +224,10 @@ d = 5, K = 14 in 32 min, the others in under 30 s; logs `certificates/d*_k*.veri
   ≈4.722 at K = 18 — obtained: 4.722048. \(K=20\) would need ≈3.5·10⁹ states, beyond 14 GB with this design.
 * For \(d\ge5\) the "previous record" column relies on CLS 2007 §7.2 and our searches; the computer-assisted
   lace-expansion papers (Hara–Slade 1992) were not read; Slade's 1995 survey (Table 1) lists only Alm's upper bounds
-  (4.756, 6.832, 8.881, 10.903 for d = 3..6), the lace expansion being used there for lower bounds.
+  (4.756, 6.832, 8.881, 10.903 for d = 3..6), the lace expansion being used there for lower bounds. The independent
+  verifier read Slade 1995 and CLS 2007 §7.2 directly (Slade is a co-author of both and lists no lace-expansion upper
+  bound) and repeated the novelty search (`verification.md` §6); the \(d=6\) value 10.8886 is attributed to Noonan
+  1998 because CLS cite [Noonan, P–T] jointly and P–T have no \(d=6\) column (Noonan's paper itself was not read).
 
 ## 8. What an independent verifier should examine
 
@@ -229,3 +242,7 @@ d = 5, K = 14 in 32 min, the others in under 30 s; logs `certificates/d*_k*.veri
 4. Large certificates are not in the repository (\(d=3\): K = 16, 186 MB; K = 18, 3.3/8.2 GB; \(d=4\) K = 14,
    68 MB; \(d=5\) K = 14, 125 MB): SHA-256 in `certificates/SHA256SUMS.txt`, deterministic regeneration scripts.
 5. Novelty for \(d=4,5,6\) (see §7).
+
+Done: see `verification.md` (independent checker `verification/sawcheck.cpp`, written from §3 and §5 only; all
+certificates PASS with the same exact maximal ratios; tamper tests on both checkers; \(a_n\ge c_n\) cross-check;
+independent reproduction of P–T's Table 2; novelty search).

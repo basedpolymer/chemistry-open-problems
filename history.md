@@ -50,3 +50,7 @@
   for all M <= 200 and samples up to 1e5, subcritical M = 15 and supercritical M = 16 confirmed by periodic-orbit
   shooting; the stability claim was overstated and is now rigorous only for 16 <= M <= 160 (spectral hypothesis
   certified there, plus M = 250, 300) and conditional beyond; "first crossing" proved for 15 <= M <= 57.
+- Result 9 independently verified: CONFIRMED WITH CORRECTIONS. The verifier wrote its own certificate checker from
+  the mathematical specification before reading the solver's; all five certificates pass (K = 18 in 151 s), with the
+  same exact ratios; tampered certificates rejected; Pönitz–Tittmann table reproduced by an independent
+  implementation; corrections editorial (certificate-format documentation, a file size in SHA256SUMS).

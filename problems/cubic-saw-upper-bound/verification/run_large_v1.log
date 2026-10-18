@@ -1,0 +1,42 @@
+file ~/work/cubic-saw/cert/d3_k16.cert magic SAWCERT1 d=3 K=16 N=11641894 P=4726984 Q=1000000 (P/Q=4.726984000) threads=4 mode=search-full
+format OK; start state index 0; Lmax=15, max(l+|p_l|_1)=16; minV=1 V[start]=1125899906842624
+codes not in my canonical form: 0
+pairs (s,e) checked: 47840352; non-SAW listed walks: 0; pointers on forbidden directions: 0
+candidates found: 10270481386, search nodes: 10938740044
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 129653733242276/27428428361269 = 4.726983680383... (state 9560481)
+time 384.0 s
+PASS: mu_3 <= 4726984/1000000
+wall 384.08 s, maxRSS 579072 kB, user 1527.50 s
+
+file ~/work/cubic-saw/hd/d4_k14.cert magic SAWCERT1 d=4 K=14 N=4235309 P=6801078 Q=1000000 (P/Q=6.801078000) threads=4 mode=search-full
+format OK; start state index 0; Lmax=13, max(l+|p_l|_1)=14; minV=112759179730253 V[start]=1125899906842624
+codes not in my canonical form: 0
+pairs (s,e) checked: 25879397; non-SAW listed walks: 0; pointers on forbidden directions: 0
+candidates found: 2947741770, search nodes: 3054634466
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 433123876427845/63684594277489 = 6.801077738528... (state 2391936)
+time 91.2 s
+PASS: mu_4 <= 6801078/1000000
+wall 91.27 s, maxRSS 266880 kB, user 361.71 s
+
+file ~/work/cubic-saw/hd/d5_k14_p4.cert magic SAWCERT1 d=5 K=14 N=7787256 P=8850674 Q=1000000 (P/Q=8.850674000) threads=4 mode=search-full
+format OK; start state index 0; Lmax=13, max(l+|p_l|_1)=14; minV=298599198738700 V[start]=1125899906842624
+codes not in my canonical form: 0
+pairs (s,e) checked: 63256620; non-SAW listed walks: 0; pointers on forbidden directions: 0
+candidates found: 6245950886, search nodes: 6397479132
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 622810764598795/70368744177664 = 8.850673290777... (state 0)
+time 193.3 s
+PASS: mu_5 <= 8850674/1000000
+wall 193.32 s, maxRSS 322048 kB, user 767.67 s
+
+file ~/work/cubic-saw/cert/d3_k18.cert2 magic SAWCERT2 d=3 K=18 N=206118560 P=4722048 Q=1000000 (P/Q=4.722048000) threads=4 mode=explicit
+format OK; start state index 0; Lmax=17, max(l+|p_l|_1)=18; minV=1 V[start]=5316552575937072
+pairs (s,e) checked: 845870117; non-SAW listed walks: 0; pointers on forbidden directions: 0
+failures: child 0, inclusion 0, inequality 0
+exact max ratio = 73151633491513/15491508107156 = 4.722047265218... (state 180715238)
+time 150.8 s
+PASS: mu_3 <= 4722048/1000000
+wall 151.20 s, maxRSS 3322880 kB, user 544.29 s
+

@@ -1,0 +1,14 @@
+P 4722048 -> 4722047
+failures: child 0, inclusion 0, inequality 206054038
+exact max ratio = 73151633491513/15491508107156 = 4.722047265218... (state 180715238)
+time 227.0 s
+FAIL: mu_3 <= 4722047/1000000
+Command exited with non-zero status 1
+wall 227.44 s maxRSS 3322880 kB
+exit=1
+FAIL (C2) Q*sum_e V(child) <= P*V(s) for all states (violations: 206054038); max ratio = 146303266983026/30983016214312 = 4.722047265219
+FAIL
+Command exited with non-zero status 1
+wall 435.01 s maxRSS 8055552 kB
+
+[exited with code 0]

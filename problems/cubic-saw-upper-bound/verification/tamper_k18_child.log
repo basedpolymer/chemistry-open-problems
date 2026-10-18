@@ -1,0 +1,15 @@
+P restored
+state 180715238 dir 2 old child 85633739 new child 206118559 condition (1) holds for new pair: False
+patched
+pairs (s,e) checked: 845870117; non-SAW listed walks: 0; pointers on forbidden directions: 0
+failures: child 0, inclusion 1, inequality 0
+exact max ratio = 73151633491513/15491508107156 = 4.722047265218... (state 157500320)
+time 200.7 s
+FAIL: mu_3 <= 4722048/1000000
+Command exited with non-zero status 1
+wall 201.08 s maxRSS 3322880 kB
+FAIL (C1b) every chosen child satisfies g(F(t)) in (F(s) u {0}) - e for some signed permutation g (violations: 1)
+FAIL (C2) Q*sum_e V(child) <= P*V(s) for all states (violations: 1); max ratio = 577100203495700/30983016214312 = 18.626340298951
+FAIL
+Command exited with non-zero status 1
+wall 413.99 s maxRSS 8055296 kB

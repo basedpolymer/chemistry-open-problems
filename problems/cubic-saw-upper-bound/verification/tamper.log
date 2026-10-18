@@ -1,0 +1,77 @@
+certificate d3_k12.cert: SAWCERT1 d=3 K=12 N=41425 P/Q=4741773/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=INVALID  rejected | rejected
+  start_weight_minus_10pct               truth=INVALID  rejected | rejected
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_plus_1                       truth=INVALID  rejected | rejected
+  one_step_state_removed                 truth=INVALID  rejected | rejected
+  start_state_removed                    truth=INVALID  rejected | rejected
+PASS (every INVALID copy rejected by every checker)
+
+brute-force check of (1) on 3187 sampled states of the untouched file: 0 violations
+certificate d3_k12_explicit.cert2: SAWCERT2 d=3 K=12 N=41425 P/Q=4741773/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=VALID    accepted | accepted
+  start_weight_minus_10pct               truth=VALID    accepted | accepted
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_plus_1                       truth=INVALID  rejected | rejected
+  child_redirected_to_longest_walk       truth=INVALID  rejected | rejected
+  child_set_to_none                      truth=INVALID  rejected | rejected
+  child_out_of_range                     truth=INVALID  rejected | rejected
+  child_to_start_state(incl_ok)          truth=INVALID  rejected | rejected
+  children_of_two_directions_swapped     truth=INVALID  rejected | rejected
+  one_step_state_children_removed        truth=INVALID  rejected | rejected
+  pointer_on_forbidden_direction         truth=VALID    accepted | accepted
+PASS (every INVALID copy rejected by every checker)
+
+certificate d5_k10.cert: SAWCERT1 d=5 K=10 N=5732 P/Q=8858371/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=INVALID  rejected | rejected
+  start_weight_minus_10pct               truth=INVALID  rejected | rejected
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_plus_1                       truth=INVALID  rejected | rejected
+  one_step_state_removed                 truth=INVALID  rejected | rejected
+  start_state_removed                    truth=INVALID  rejected | rejected
+PASS (every INVALID copy rejected by every checker)
+
+certificate d6_k10.cert: SAWCERT1 d=6 K=10 N=5732 P/Q=10887669/1000000
+  untouched                              truth=VALID    accepted | accepted
+  P_minus_1                              truth=INVALID  rejected | rejected
+  Q_plus_1                               truth=INVALID  rejected | rejected
+  P_equals_zero                          truth=INVALID  rejected | rejected
+  one_step_weight_plus_10pct             truth=INVALID  rejected | rejected
+  start_weight_minus_10pct               truth=INVALID  rejected | rejected
+  zero_weight                            truth=INVALID  rejected | rejected
+  weight_above_2^60                      truth=INVALID  rejected | rejected
+  magic_corrupted                        truth=INVALID  rejected | rejected
+  truncated_by_one_byte                  truth=INVALID  rejected | rejected
+  two_codes_swapped(order)               truth=INVALID  rejected | rejected
+  stray_payload_bit_last_code            truth=NEUTRAL  rejected | accepted
+  dimension_6_to_5                       truth=VALID    accepted | accepted
+  one_step_state_removed                 truth=INVALID  rejected | rejected
+  start_state_removed                    truth=INVALID  rejected | rejected
+PASS (every INVALID copy rejected by every checker)
