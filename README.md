@@ -62,5 +62,9 @@ python templates/build_tex.py problems/<slug>/paper.tex
 
 ## License
 
-Manuscripts and scripts: to be decided before the repository is made public. The PDF template is derived from
-[TeXtured](https://github.com/jdujava/TeXtured) (CC0).
+- **Code** (`scripts/`, `verification/`, `templates/*.py` and the LaTeX preamble code in `templates/`): [MIT](LICENSE).
+- **Manuscripts, reports, documentation and certificate data** (`paper.tex`, `paper.pdf`, `*.md`, `certificates/`):
+  [CC BY 4.0](LICENSE-CC-BY-4.0). Please cite the repository and the problem folder.
+- **Exceptions.** Verbatim quotations of the source papers remain the property of their authors and are reproduced
+  for citation only. The PDF template is derived from [TeXtured](https://github.com/jdujava/TeXtured), which is
+  CC0 (`templates/textured-cr/LICENSE-TeXtured`).
