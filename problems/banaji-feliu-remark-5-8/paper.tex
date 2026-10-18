@@ -1,0 +1,205 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Quadratic \((n,n+2,n)\) mass-action networks with \(n+1\) positive nondegenerate equilibria}
+\newcommand*{\PaperTitlePlain}{Quadratic (n,n+2,n) mass-action networks with n+1 positive nondegenerate equilibria}
+\newcommand*{\PaperShortTitle}{Quadratic \((n,n+2,n)\) networks with \(n+1\) equilibria}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{chemical reaction networks, multistationarity, mass-action kinetics, Gale duality, quadratic networks}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand{\Net}{\mathcal N}
+\providecommand{\im}{\operatorname{im}}
+\providecommand{\spn}{\operatorname{span}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Banaji and Feliu proved that a full-rank quadratic mass-action network with \(n\) species and \(n+2\) distinct
+sources has at most \(n+1\) positive nondegenerate equilibria, and wrote that they could not find a quadratic
+\((3,5,3)\) network with four, leaving open whether the bound is attained for \(n\ge3\). We give, for every \(n\ge1\), an
+explicit quadratic \((n,n+2,n)\) network whose sources are \(0,2X_1,X_1+X_2,\dots,X_{n-1}+X_n,X_n\) and which has exactly
+\(n+1\) positive nondegenerate equilibria for suitable rate constants. Its kernel can be prescribed freely, which reduces
+the count to the zeros of an explicit one-variable function; geometrically separated kernel ratios then force the
+maximal number of equilibria. For \(n=1\) the network is \(0\to X,\ X\to0,\ 2X\to3X\), which shows that the bound is
+attained for \(n=1\) as well, contrary to Remark~5.6 of the same paper.
+\end{paperabstract}
+
+\section*{The question}
+
+A network is \emph{quadratic} if all its sources have molecularity at most two (products are unrestricted), and an
+\((n,m,r)\) network has \(n\) species, \(m\) reactions and rank \(r\) \autocite{BanajiFeliu2026}. Theorem~5.5 of
+\autocite{BanajiFeliu2026} states that a dynamically nontrivial quadratic \((n,n+k,n)\) network with \(n+2\) distinct
+sources which is not source deficient admits no more than \(n+1\) positive nondegenerate equilibria. In Remark~5.8 the
+authors write (arXiv:2409.06877v5, p.~41):
+
+\begin{openquote}
+``However, we were not able to find a quadratic \((3,5,3)\) network admitting four positive nondegenerate equilibria,
+and thus achieving the bound in Theorem 5.5. We leave open the question of whether the bound in Theorem 5.5 can be
+achieved by quadratic \((n, n+2, n)\) networks for \(n\ge3\).''
+\end{openquote}
+
+\begin{theorem}\label{thm:main}
+For every \(n\ge1\) there is a quadratic \((n,n+2,n)\) mass-action network with \(n+2\) distinct sources, dynamically
+nontrivial and not source deficient, which for suitable rate constants has exactly \(n+1\) positive equilibria, all of
+them nondegenerate. Hence the bound of \autocite[Theorem~5.5]{BanajiFeliu2026} is attained for every \(n\ge1\) (with
+\(k=2\)).
+\end{theorem}
+
+\begin{remark}[note=on Remark~5.6 of \autocite{BanajiFeliu2026}]
+Remark~5.6 of \autocite{BanajiFeliu2026} states that for \(n=1\) the bound is not optimal, because ``by [5, Lemma 20],
+quadratic rank-one networks do not admit multiple positive nondegenerate equilibria''. Lemma~20 of the cited paper
+\autocite{BBH2024ND} says the opposite: a quadratic rank-one network admits multiple positive nondegenerate equilibria
+if and only if it contains one of four small networks, the first being \(0\to X,\ X\to0,\ 2X\to3X\). The statement
+quoted in Remark~5.6 holds for \emph{bimolecular} rank-one networks \autocite[Corollary~19]{BBH2024ND}. Indeed
+\(\dot x=\kappa_1-\kappa_3x+\kappa_2x^2\) has the two positive simple roots \((3\pm\sqrt5)/2\) for
+\(\kappa=(1,1,3)\). This network is \(\Net_1\) below.
+\end{remark}
+
+\section{The networks}
+
+Fix \(n\ge1\), species \(X_1,\dots,X_n\), and positive integers \(\alpha_2,\dots,\alpha_{n+1}\) and
+\(\beta_2,\dots,\beta_{n+1}\). Write \(\alpha=(1,0,\alpha_2,\dots,\alpha_{n+1})\) and \(\beta=(0,1,\beta_2,\dots,\beta_{n+1})\).
+The network \(\Net_n(\alpha,\beta)\) has the \(n+2\) reactions
+\[
+\begin{aligned}
+R_0&:\ 0\ \longrightarrow\ \textstyle\sum_{i=1}^n\alpha_{i+1}X_i, &
+R_1&:\ 2X_1\ \longrightarrow\ 2X_1+\textstyle\sum_{i=1}^n\beta_{i+1}X_i,\\
+R_{i+1}&:\ X_i+X_{i+1}\ \longrightarrow\ X_{i+1}\quad(1\le i\le n-1), &
+R_{n+1}&:\ X_n\ \longrightarrow\ 0 .
+\end{aligned}
+\]
+Its sources \(\sigma_0=0\), \(\sigma_1=2X_1\), \(\sigma_{i+1}=X_i+X_{i+1}\), \(\sigma_{n+1}=X_n\) are distinct and quadratic,
+and the products are nonnegative. Let \(\Gamma\in\mathbb Z^{n\times(n+2)}\) be the stoichiometric matrix (columns indexed
+\(0,\dots,n+1\)) and \(S\in\mathbb Z^{(n+2)\times n}\) the source matrix. The \(i\)-th row of \(\Gamma\) is
+\(\alpha_{i+1}e_0+\beta_{i+1}e_1-e_{i+1}\).
+
+\begin{lemma}\label{lem:structure}
+\(\Net_n(\alpha,\beta)\) is a full-rank \((n,n+2,n)\) network with \(\ker\Gamma=\spn(\alpha,\beta)\) and
+\(\ker\Gamma\cap\mathbb R^{n+2}_{>0}=\{s\alpha+t\beta:s,t>0\}\); in particular it is dynamically nontrivial. Moreover
+\(\operatorname{rank}[S\,|\,\mathbf 1]=n+1\), and the left kernel of \([S\,|\,\mathbf 1]\) is spanned by
+\(w=(w_0,w_1,\dots,w_{n+1})\) with
+\[
+w_1=1,\qquad w_j=2(-1)^{j-1}\ (2\le j\le n+1),\qquad w_0=-\textstyle\sum_{j\ge1}w_j .
+\]
+\end{lemma}
+
+\begin{proof}
+Row \(i\) applied to \(\alpha\) gives \(\alpha_{i+1}\cdot1+\beta_{i+1}\cdot0-\alpha_{i+1}=0\), and to \(\beta\) gives
+\(0+\beta_{i+1}-\beta_{i+1}=0\). The entries \(-1\) sit in distinct columns \(2,\dots,n+1\), so \(\operatorname{rank}\Gamma=n\) and
+\(\ker\Gamma\) is the two-dimensional space \(\spn(\alpha,\beta)\). Since \(\alpha_1=\beta_0=0\) and all other entries are
+positive, \(s\alpha+t\beta>0\) iff \(s,t>0\). The sources \(X_n,X_{n-1}+X_n,\dots,X_1+X_2\) span \(\mathbb R^n\) and \(\sigma_0=0\),
+so \(\operatorname{rank}[S|\mathbf1]=n+1\). Finally \(\sum_jw_j\sigma_j=0\): the coefficient of \(X_1\) is \(2w_1+w_2=2-2=0\), and
+that of \(X_i\) (\(2\le i\le n\)) is \(w_i+w_{i+1}=0\); and \(\sum_jw_j=0\) by the choice of \(w_0\).
+\end{proof}
+
+\section{Equilibria as roots of one function}
+
+Put \(v(u)=\alpha+u\beta\) for \(u>0\), so \(v_0=1\), \(v_1=u\), \(v_j=\alpha_j+u\beta_j\) (\(j\ge2\)), and
+\[
+f(u)=\sum_{j=0}^{n+1}w_j\log v_j(u)=\log u+\sum_{j=2}^{n+1}2(-1)^{j-1}\log(\alpha_j+\beta_ju).
+\]
+
+\begin{lemma}\label{lem:bijection}
+Let \(\kappa\in\mathbb R^{n+2}_{>0}\) and \(c=\sum_jw_j\log\kappa_j\). The positive equilibria of \(\Net_n(\alpha,\beta)\) with rate
+constants \(\kappa\) are in bijection with the solutions \(u>0\) of \(f(u)=c\).
+\end{lemma}
+
+\begin{proof}
+\(x>0\) is an equilibrium iff the rate vector \(\rho_j=\kappa_jx^{\sigma_j}\) lies in \(\ker\Gamma\cap\mathbb R^{n+2}_{>0}\), i.e.\
+\(\rho=s\,v(u)\) for unique \(s,u>0\) (\zcref{lem:structure}). Taking logarithms, this is the linear system
+\(\sigma_j\cdot\log x-\log s=\log v_j(u)-\log\kappa_j\) (\(0\le j\le n+1\)) in the \(n+1\) unknowns \((\log x,\log s)\), whose
+coefficient matrix \([S|-\mathbf1]\) has rank \(n+1\) and left kernel \(\spn(w)\). It is solvable iff
+\(\sum_jw_j(\log v_j(u)-\log\kappa_j)=0\), i.e.\ \(f(u)=c\), and then its solution is unique.
+\end{proof}
+
+\begin{lemma}\label{lem:nondeg}
+The equilibrium corresponding to \(u\) is nondegenerate (its Jacobian is nonsingular) iff \(f'(u)\neq0\).
+\end{lemma}
+
+\begin{proof}
+The Jacobian is \(J=\Gamma D_\rho SD_{1/x}\) with \(\rho=s\,v(u)\). As \(S\) is injective, \(J\) is singular iff
+\(\im S\cap D_\rho^{-1}\ker\Gamma\neq\{0\}\). The left kernel of \(S\) is two-dimensional and contains \(w\); since
+\(\mathbf1\notin\im S\), it also contains some \(w'\) with \(w'\cdot\mathbf1=1\), and \(\im S=\{q:w\cdot q=w'\cdot q=0\}\). For
+\(a\alpha+b\beta=a\,v(u)+(b-au)\beta\) we get
+\(q=D_\rho^{-1}(a\alpha+b\beta)=s^{-1}\bigl(a\mathbf1+(b-au)(\beta_j/v_j)_j\bigr)\), hence
+\(w\cdot q=s^{-1}(b-au)f'(u)\) and \(w'\cdot q=s^{-1}\bigl(a+(b-au)\textstyle\sum_jw'_j\beta_j/v_j\bigr)\). If \(f'(u)\ne0\),
+both vanish only for \(a=b=0\); if \(f'(u)=0\), \(b-au=1\), \(a=-\sum_jw'_j\beta_j/v_j\) gives a nonzero \(q\in\im S\).
+\end{proof}
+
+\begin{lemma}\label{lem:degree}
+For any \(c\), \(f-c\) has at most \(n+1\) zeros in \((0,\infty)\), and if it has \(n+1\) they are all simple.
+\end{lemma}
+
+\begin{proof}
+\(f'(u)=1/u+\sum_{j=2}^{n+1}w_j\beta_j/(\alpha_j+\beta_ju)\). Multiplying by \(u\prod_{j\ge2}(\alpha_j+\beta_ju)\) gives a
+polynomial of degree at most \(n\) whose coefficient of \(u^n\) is \(\prod_j\beta_j\cdot(1+\sum_{j\ge2}w_j)=\pm\prod_j\beta_j\neq0\).
+So \(f'\) has at most \(n\) zeros. By Rolle's theorem, \(n+1\) zeros of \(f-c\) force \(n\) zeros of \(f'\) strictly between
+them, so none of the zeros of \(f-c\) is a zero of \(f'\).
+\end{proof}
+
+\section{Geometrically separated kernels}
+
+Fix \(R\ge64\) and take \(\alpha_j=R^{j-1}\), \(\beta_j=1\) for \(2\le j\le n+1\); write \(L=\log R\). Then
+\(f(u)=\log u+\sum_{m=1}^{n}2(-1)^m\log(R^m+u)\).
+
+\begin{proposition}\label{prop:signs}
+Let \(M_1=f\)'s ``main value'' at \(u=R\), namely \(M_1=L\bigl(1+2\sum_{m=1}^n(-1)^m\max(m,1)\bigr)\), and \(c=M_1-L/2\). Then
+\(f(R^i)-c>0\) for odd \(i\) and \(f(R^i)-c<0\) for even \(i\) (\(1\le i\le n\)). Moreover \(f(u)\to-\infty\) as \(u\to0^+\), and
+\(f(u)\to-\infty\) (\(n\) odd) or \(+\infty\) (\(n\) even) as \(u\to\infty\). Consequently \(f-c\) has exactly \(n+1\) zeros in
+\((0,\infty)\), all simple.
+\end{proposition}
+
+\begin{proof}
+For \(1\le i\le n\), \(\log(R^m+R^i)=\max(m,i)L+\log(1+R^{-|m-i|})\). Hence
+\(f(R^i)=M_i+2(-1)^i\log2+\varepsilon_i\) with \(M_i=L\bigl(i+2\sum_{m=1}^n(-1)^m\max(m,i)\bigr)\) and
+\(|\varepsilon_i|\le\sum_{d\ge1}2\cdot2\log(1+R^{-d})\le 4/(R-1)\) (each \(d=|m-i|\ge1\) occurs at most twice). A direct
+computation gives \(M_{i+1}-M_i=L\bigl(1+2\sum_{m=1}^i(-1)^m\bigr)\), which is \(-L\) for odd \(i\) and \(+L\) for even \(i\); so
+\(M_i=M_1\) for odd \(i\) and \(M_i=M_1-L\) for even \(i\). Therefore
+\[
+f(R^i)-c=\begin{cases}L/2-2\log2+\varepsilon_i, & i\text{ odd},\\ -(L/2-2\log2)+\varepsilon_i, & i\text{ even},\end{cases}
+\]
+and \(L/2-2\log2\ge\log2>4/63\ge|\varepsilon_i|\) for \(R\ge64\). As \(u\to0^+\), \(f(u)=\log u+O(1)\to-\infty\). As
+\(u\to\infty\), \(f(u)=(1+\sum_{m=1}^n2(-1)^m)\log u+o(\log u)\) with \(1+\sum_{m=1}^n 2(-1)^m=-1\) (\(n\) odd) or \(+1\) (\(n\) even).
+So \(f-c\) takes alternating signs at \(n+2\) points \(0^+<R<R^2<\dots<R^n<\infty\), has at least \(n+1\) zeros, hence exactly
+\(n+1\), all simple, by \zcref{lem:degree}.
+\end{proof}
+
+\begin{proof}[of \zcref{thm:main}]
+Take \(\Net_n(\alpha,\beta)\) with \(\alpha_j=64^{j-1}\), \(\beta_j=1\), and rate constants \(\kappa_j=1\) for \(j\ne1\) and
+\(\kappa_1=e^c\) with \(c\) as in \zcref{prop:signs} (\(w_1=1\), so \(\sum_jw_j\log\kappa_j=c\)). By
+\zcref{lem:bijection,prop:signs,lem:nondeg} the network has exactly \(n+1\) positive equilibria, all nondegenerate. By
+\zcref{lem:structure} it is a full-rank quadratic \((n,n+2,n)\) network with \(n+2\) distinct sources, dynamically nontrivial
+and not source deficient. The set of admissible \(c\) is open, so \(\kappa_1\) may be taken rational.
+\end{proof}
+
+\section{Small explicit examples}
+
+The separation \(R=64\) is convenient for a uniform proof but far from necessary. For \(n=3\), the network
+\(\Net_3(\alpha,\beta)\) with \((\alpha_2,\alpha_3,\alpha_4)=(1,3,16)\) and \((\beta_2,\beta_3,\beta_4)=(14,3,1)\),
+\[
+0\to X_1+3X_2+16X_3,\quad 2X_1\to16X_1+3X_2+X_3,\quad X_1+X_2\to X_2,\quad X_2+X_3\to X_3,\quad X_3\to0,
+\]
+whose products have molecularity at most 20, has four positive nondegenerate equilibria for a suitable rational
+\(\kappa_1\) (all other rate constants equal to 1); the certificate is described below. A quadratic \((3,5,3)\) network
+outside this family, found by a computer search, is \(Z\to78Y,\ 2Z\to Z,\ 2Y\to X+Y,\ X\to0,\ X+Y\to24X+20Z\); it also has
+four positive nondegenerate equilibria (\texttt{scripts/other\_example\_n3.py}).
+
+\section{Computer verification}
+
+The proof above needs no computer. As a check, \texttt{scripts/certify\_family.py} builds \(\Net_n(\alpha,\beta)\) for the
+small \(n=3\) example, for \(0\to X,\ 2X\to3X,\ X\to0\), and for the \(R=64\) family with \(n=1,\dots,8\), and verifies in exact
+arithmetic: quadratic distinct sources, nonnegative products, \(\operatorname{rank}\Gamma=n\),
+\(\operatorname{rank}[S|\mathbf1]=n+1\), \(\Gamma\alpha=\Gamma\beta=0\), the dependency \(w\), that \(f'\) has exactly \(n\) positive
+zeros, and that for an explicit rational \(C\) the polynomial
+\(\prod_{w_j>0}v_j^{w_j}-C\prod_{w_j<0}v_j^{-w_j}\) has exactly \(n+1\) positive roots, all simple (Sturm sequences and
+\(\gcd(P,P')=1\)); it also computes the corresponding equilibria to 80 digits and checks \(\Gamma\rho(x)=0\) and
+\(\det J(x)\neq0\) (101 checks, all pass).
+
+\paperreferences
+\end{document}

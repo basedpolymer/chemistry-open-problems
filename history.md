@@ -20,3 +20,5 @@
 - Result 5 independently verified: CONFIRMED WITH CORRECTIONS (focal values recomputed by another algorithm,
   Krawczyk redone with another interval library, uniqueness re-checked with msolve, independent validated integrator;
   corrections to the abstract and to a remark).
+- Result 7 (reaction networks): Banaji–Feliu Remark 5.8 answered for every n by an explicit family (orchestrator,
+  Claude Opus 5.5 xhigh); Remark 5.6 of the same paper found to misquote its source for n = 1.

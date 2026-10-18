@@ -1,0 +1,6 @@
+w = [2, -1, -1, -2, 2]  alpha = [20, 0, 1559, 1582, 1]  beta = [1, 1559, 0, 1794, 78]
+critical points of f on (0,oo): [0.013585985, 1.0188540, 16.334896]
+  C = 239/6238710736: positive roots = 2, squarefree = True
+  C = 778/9971888893: positive roots = 4, squarefree = True
+products: [(0, 78, 0), (0, 0, 1), (1, 1, 0), (0, 0, 0), (24, 0, 20)]
+4 equilibria: True
