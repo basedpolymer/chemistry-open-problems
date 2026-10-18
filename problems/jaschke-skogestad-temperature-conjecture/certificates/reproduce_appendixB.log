@@ -1,0 +1,12 @@
+# python -I reproduce_appendixB.py
+Sun Oct 18 07:42:55 AM UTC 2026
+PASS  B1 corrected CV * w0 + 2 dJ/du == 0 identically
+      dJ/du: numerator degree 8, roots in (0,1): [0.7141194663, 0.7141194665]; denominator roots near (0,1): 0
+PASS  B2 unique optimum u_opt in (0,1), certified in [0.71411, 0.71413]
+      paper CV (B.1): numerator degree 8, roots in (0,1): [0.0028293781, 0.0028293784], [0.7167062190, 0.7167062200]; denominator roots near (0,1): 0
+PASS  B3 paper CV root u_P certified in [0.71670, 0.71671], disjoint from u_opt; its only other root in (0,1) lies where c_11 > 1 (unphysical AMTD region)
+      u_opt ~ 0.71411947: J = -3938.816667 $/s, Tend = 158.773751 C
+      u_P   ~ 0.71670622: J = -3938.798257 $/s, Tend = 158.774471 C
+      paper Table B.7: optimized u = 0.7141, J = -3.9388 (x1000), Tend = 158.7738; equal Jaschke temp. u = 0.7152, Tend = 158.7741
+ALL PASS
+exit=0

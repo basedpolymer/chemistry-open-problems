@@ -1,0 +1,21 @@
+# python -I random_fd_tests.py
+Sun Oct 18 07:42:59 AM UTC 2026
+seed = 20261018, mp.dps = 60
+PASS  A  M=1: corrected formula vs finite differences, worst rel. error 4.66e-37 (< 1e-30); model residual 2.55e-57
+PASS  A  M=2: corrected formula vs finite differences, worst rel. error 1.16e-36 (< 1e-30); model residual 1.75e-57
+PASS  A  M=3: corrected formula vs finite differences, worst rel. error 4.09e-37 (< 1e-30); model residual 1.75e-57
+PASS  B  M=3: paper recursion wrong in all 25 draws; smallest rel. error of 2*d(sum Q)/dw vs paper T_J = 0.00281 (> 1e-6)
+PASS  A  M=4: corrected formula vs finite differences, worst rel. error 2.43e-37 (< 1e-30); model residual 3.19e-57
+PASS  B  M=4: paper recursion wrong in all 25 draws; smallest rel. error of 2*d(sum Q)/dw vs paper T_J = 0.0274 (> 1e-6)
+PASS  A  M=5: corrected formula vs finite differences, worst rel. error 3.91e-37 (< 1e-30); model residual 1.91e-57
+PASS  B  M=5: paper recursion wrong in all 25 draws; smallest rel. error of 2*d(sum Q)/dw vs paper T_J = 0.0746 (> 1e-6)
+PASS  A  M=6: corrected formula vs finite differences, worst rel. error 4.27e-37 (< 1e-30); model residual 2.27e-57
+PASS  B  M=6: paper recursion wrong in all 25 draws; smallest rel. error of 2*d(sum Q)/dw vs paper T_J = 0.246 (> 1e-6)
+PASS  A  M=7: corrected formula vs finite differences, worst rel. error 7.14e-37 (< 1e-30); model residual 2.2e-57
+PASS  B  M=7: paper recursion wrong in all 25 draws; smallest rel. error of 2*d(sum Q)/dw vs paper T_J = 0.55 (> 1e-6)
+PASS  A  M=8: corrected formula vs finite differences, worst rel. error 2.55e-37 (< 1e-30); model residual 2.49e-57
+PASS  B  M=8: paper recursion wrong in all 25 draws; smallest rel. error of 2*d(sum Q)/dw vs paper T_J = 0.291 (> 1e-6)
+PASS  C  LMTD: marginal cost from the 4 temperatures of each exchanger vs finite differences, worst rel. error 4.46e-36 (< 1e-25); LMTD model residual 6.05e-55
+      (info) corrected AMTD formula applied to an LMTD plant: rel. error of the branch marginal cost median 0.0927, max 1.21 -- an approximation only
+ALL PASS
+exit=0

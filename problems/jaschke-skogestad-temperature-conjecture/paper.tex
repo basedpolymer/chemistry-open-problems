@@ -1,0 +1,341 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{The Jäschke--Skogestad temperature conjecture for heat-exchanger networks is false: disproof and corrected theorem}
+\newcommand*{\PaperTitlePlain}{The Jaschke-Skogestad temperature conjecture for heat-exchanger networks is false: disproof and corrected theorem}
+\newcommand*{\PaperShortTitle}{Jäschke temperatures: disproof and correction}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; citing-works search by a nested read-only Claude Opus 5.5 sub-agent (effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{heat exchanger networks, stream split, self-optimizing control, Jäschke temperature, counterexample}
+\input{chemop-preamble}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Jäschke and Skogestad (Comput.\ Chem.\ Eng.\ 2014) showed that optimal operation of a heat-exchanger network with
+stream splits only requires temperature measurements: with an arithmetic-mean temperature-difference model, the
+marginal heat recovered by a split branch is a sum \(\sum_i p_{ij}a_{ij}\) of recursively defined ``Jäschke
+temperatures''. They proved this for branches with \(M_j\le2\) exchangers and conjectured it for \(M_j\ge4\) (the case
+\(M_j=3\) being proved only for constant hot-stream temperatures). We show that the conjectured recursion is false for
+every \(M_j\ge3\), including the published proof of \(M_j=3\), where a term is lost in a manual simplification; an exact
+rational counterexample has the paper's controlled variable equal to zero while the true gradient is
+\(-4972391424/1518467647\). We prove the corrected recursion \(a_i=c_i(\theta_i+\theta_{i-1}-\sum_{l<i}a_l)\) for every
+\(M_j\), with a half-page proof based on the affine structure of each exchanger, and show that it explains the
+discrepancy that the paper attributed to round-off in its own validation case.
+\end{paperabstract}
+
+\section{Source and exact statement}
+
+J. Jäschke, S. Skogestad, \emph{Optimal operation of heat exchanger networks with stream split: Only temperature
+measurements are required}, Computers and Chemical Engineering 70 (2014) 35--49, doi:10.1016/j.compchemeng.2014.03.020
+(Manfred Morari special issue). Read in full: the publisher PDF self-archived at
+\texttt{https://skoge.folk.ntnu.no/publications/2014/jaschke-hen-paper-cce-morari-issue/impress.pdf}, plus the older preprint
+\texttt{.../old-version/HenCCE.pdf}. Page numbers below are journal page numbers.
+
+\textbf{Model (Section 3.1, p.~37--38).} \(N\) parallel branches split from a cold feed (temperature \(T_0\), heat-capacity
+flow rate \(w_0\)); branch \(j\) carries \(w_j = F_j c_{p0}\), \(\sum_j w_j = w_0\), and \(M_j\) heat exchangers in series.
+For exchanger \(i\) on branch \(j\): cold outlet \(T_{i,j}\) (cold inlet \(T_{i-1,j}\), \(T_{0,j} = T_0\)), hot inlet
+\(T_{hi,j}\), hot outlet \(T^{out}_{hi,j}\), hot heat-capacity flow rate \(w_{hi,j}\), conductance \(UA_{i,j}\):
+
+\[Q_{i,j} = w_j (T_{i,j} - T_{i-1,j}) \quad (9), \qquad Q_{i,j} = w_{hi,j}(T_{hi,j} - T^{out}_{hi,j}) \quad (10),\]
+\[Q_{i,j} = UA_{i,j}\,\frac{(T_{hi,j} - T_{i,j}) + (T^{out}_{hi,j} - T_{i-1,j})}{2} \quad (12,\ \text{Assumption 3, AMTD}).\]
+
+Assumptions 1--2: single phase, constant heat capacities. Cost (14): \(J = -\sum_j \sum_i p_{i,j} Q_{i,j}\).
+Shifted temperatures (15): \(\theta = T - T_0\).
+
+\textbf{Theorem 2 (p.~39), verbatim.} ``\emph{Under Assumptions 1--3, and equal prices \(p_{i,j} = 1\) in the cost function (14),
+the marginal costs for each branch \(j = 1 \dots N\) can be expressed as}
+\[\frac{\partial J}{\partial w_j} = T_{J,j} \quad (16)\]
+\emph{where \(T_{J,j}\) is the Jäschke Temperature on branch \(j\), defined as \(T_{J,j} = \sum_{i=1}^{M_j} a_{i,j}\) (17), with the
+parameter \(a_{i,j}\) defined recursively as}
+\[a_{i,j} = \frac{(\theta_{i,j} - \theta_{i-1,j})(\theta_{i,j} + \theta_{i-1,j} - a_{i-1,j})}{\theta_{hi,j} - \theta_{i-1,j}},
+\qquad a_{0,j} = 0. \quad (18)\text{"}\]
+
+\textbf{Theorem 3 (p.~39)} is the same with arbitrary prices: \(\partial J/\partial w_j = T^e_{J,j} = \sum_i p_{i,j} a_{i,j}\)
+(19)--(20), same \(a_{i,j}\).
+
+\textbf{The open statement, verbatim.}
+- p.~39, after Theorem 2: ``\emph{In Appendix A we provide a proof of Theorem 2 for \(M_j = 1\) and \(M_j = 2\). Moreover, we
+prove the case \(M_j = 3\) for heat exchangers with constant hot stream temperatures (this corresponds to very large hot
+stream heat capacities). For \(M_j \ge 4\) we conjecture that the Theorem is true.}'' The same sentence is repeated
+after Theorem 3.
+- p.~47, end of A.3: ``\emph{Although this expression was derived under the assumption of a constant hot stream temperature
+\(T_{hi,j} = T^{out}_{hi,j}\), we conjecture that it is true for the case with a finite heat capacity (non-constant hot
+streams).}''
+- p.~47, A.4 ``Conjecture for the general case (\(M \ge 4\))'': ``\emph{Unfortunately it was computationally not feasible to
+perform the elimination for the case with \(M_j > 3\). From the recurring pattern, that coefficients of the previous
+prices appear in a fixed structure in the coefficients of the next price, we conjecture the general formula for the
+case with more than three heat exchangers on a line as}'' (A.14)--(A.16), identical to (18)--(20).
+- p.~45, Conclusions: ``\emph{For the case with 1--3 heat exchangers per line, we have proven {[}\ldots{]} that the Jäschke
+Temperatures are equal to the marginal costs. The more general case with more than 3 heat exchangers is conjectured.}''
+- p.~49, Appendix B: ``\emph{In conclusion, the numerical results for this case study strongly suggest that the conjecture is
+true.}''
+
+The recursion is unambiguous: (A.13) and (B.1) write it out for \(M_j = 3, 4\), and each new term subtracts only the
+previous \(a_{i-1,j}\).
+
+The scout's summary (rapports/scout\_E\_mining.md §2) is accurate, except that the conjecture concerns Theorems 2 \textbf{and}
+3 and also covers \(M_j = 3\) with finite hot heat capacities.
+
+\section{Results}
+
+Fix one branch and drop the index \(j\). Write \(w\) for its cold heat-capacity flow rate, \(\theta_0 = 0\), and
+\(\Delta_i = \theta_i - \theta_{i-1}\). For each exchanger define
+\[k_i = \frac{2}{UA_i} + \frac{1}{w_{h,i}} \ \ (1/\infty := 0), \qquad c_i = \frac{\theta_i - \theta_{i-1}}{\theta_{h,i} - \theta_{i-1}}\]
+(the paper's ``efficiency'', eq. 27).
+
+\textbf{Theorem A (corrected Jäschke temperature; all \(M \ge 1\)).} Under Assumptions 1--3, for every exchanger \(i\) of
+the branch,
+\[\frac{\partial Q_i}{\partial w} = \frac{a_i}{2}, \qquad
+   a_i = c_i\Big(\theta_i + \theta_{i-1} - \sum_{l<i} a_l\Big),\]
+where \(\partial/\partial w\) holds \(T_0\), the hot inlet temperatures, the \(w_{h,i}\) and the \(UA_i\) fixed. Hence
+\[\frac{\partial J_j}{\partial w_j} = -\tfrac12 \sum_{i=1}^{M_j} p_{i,j}\, a_{i,j}, \qquad
+   \text{and for } p_{i,j}\equiv 1:\ \frac{\partial J_j}{\partial w_j} = -\tfrac12\, T^*_{J,j},\]
+where \(T^*_{J,j} = A_{M_j}\) is given by the affine recursion
+\[A_0 = 0, \qquad A_i = (1 - c_i)\,A_{i-1} + c_i\,(\theta_i + \theta_{i-1}).\]
+This is the same form as the cold-stream recursion \(\theta_i = (1-c_i)\theta_{i-1} + c_i\theta_{h,i}\). The formula
+uses only the cold temperatures \(\theta_0,\dots,\theta_M\) and the hot inlet temperatures \(\theta_{h,i}\). Because the
+factor \(-\tfrac12\) is common to all branches, equal marginal costs (Theorem 1 of the paper) is \textbf{exactly} equivalent to
+\(T^{e*}_{J,1} = \dots = T^{e*}_{J,N}\).
+
+\textbf{Corollary B (the conjecture is false).} Let \(a^P_i\) denote the paper's recursion (18), and \(d_i = a^P_i - a_i\).
+Then \(d_1 = d_2 = 0\) and \(d_i = c_i\,(A_{i-2} - d_{i-1})\) for \(i \ge 3\). In particular \(d_3 = c_3\,a_1 =
+c_3\,\theta_1^2/\theta_{h,1}\), which is nonzero whenever exchangers 1 and 3 both transfer heat. Consequently:
+1. The paper's formula is correct for \(M_j \le 2\) up to the harmless common factor \(-\tfrac12\) (Section 4.4). So
+Examples 1--2 and Case studies 1--3 of the paper are unaffected.
+2. \textbf{Theorem 3 (prices) is false for every \(M_j \ge 3\), even up to any normalisation constant.} Suppose
+\(\sum_i p_i a^P_i = \lambda \sum_i p_i a_i\) for all prices. Then \(a^P_i = \lambda a_i\) for every \(i\). The case
+\(i = 1\) (\(a^P_1 = a_1 \ne 0\)) forces \(\lambda = 1\), but \(a^P_3 = a_3 + c_3a_1 \ne a_3\).
+3. \textbf{Theorem 2 (\(p \equiv 1\)) is false for every \(M_j \ge 3\).} Section 3.4 gives an exact rational counterexample
+for \(M_1 = 3, M_2 = 1\): the paper's controlled variable is exactly \(0\) while the true gradient is not. This is
+independent of any normalisation. For \(M \ge 4\), append to branch 1 of that example \(M-3\) exchangers with
+conductance \(\varepsilon\) and hot inlet temperatures different from \(\theta_3\). As \(\varepsilon \to 0^+\),
+\(c_i = 2/(1 + w(2/\varepsilon + 1/w_{h,i})) \to 0\) for \(i \ge 4\), so \(d_i \to 0\) for \(i \ge 4\). Hence
+\(T^P_J - T^*_J = \sum_i d_i \to c_3 a_1 \ne 0\), and the difference is nonzero for small \(\varepsilon > 0\). The
+computer-algebra checks for \(M = 3,\dots,8\) and the random tests for \(M \le 8\) find the difference to be a nonzero
+rational function / nonzero in every draw.
+4. The case the paper reports as \textbf{proved}, \(M_j = 3\) with constant hot temperatures, is also wrong as printed. The
+first line of the paper's (A.12), the raw Maple coefficient of \(p_{3,1}\), equals our \(a_3\) exactly. The
+``simplification'' in the next lines of (A.12) silently drops \(-a_{1,1}\) (checked symbolically, claim S4). The
+paper's elimination was right; the hand simplification and the extrapolated pattern (A.15) are wrong.
+
+\textbf{Proposition C (any exchanger law that is linear in temperatures; LMTD).} Suppose every exchanger satisfies
+\(\Delta_i = \varepsilon_i\,(\theta_{h,i} - \theta_{i-1})\), where the cold-side effectiveness \(\varepsilon_i\) depends on
+\(w\) and on the exchanger parameters but not on the temperatures. This holds for AMTD and for LMTD/ε--NTU models of any
+flow arrangement. Put \(\varphi_i = w\,\partial\varepsilon_i/\partial w\). Then
+\[\frac{\partial Q_i}{\partial w} = \Big(1 + \frac{\varphi_i}{\varepsilon_i}\Big)\Delta_i + \varepsilon_i\Big(\theta_{i-1} - \sum_{l<i}\frac{\partial Q_l}{\partial w}\Big).\]
+- For AMTD, \(\varphi = -\varepsilon(2-\varepsilon)/2\), so \(1 + \varphi/\varepsilon = \varepsilon/2\); this gives Theorem A.
+- For a counter-current exchanger with the logarithmic mean (LMTD), \(\varepsilon = (1-E)/(1-RE)\) with
+\(E = e^{-N(1-R)}\), \(N = UA/w\), \(R = w/w_h\), and \(\varphi = -N\,\partial_N\varepsilon + R\,\partial_R\varepsilon\).
+Now \(\varepsilon\) and \(R = (\theta_h - \theta^{out}_h)/\Delta\) are fixed by the four terminal temperatures, and
+\(N = \ln\!\big((1 - R\varepsilon)/(1-\varepsilon)\big)/(1-R)\). So the exact LMTD marginal cost is again a function of
+temperatures only, but it needs the \textbf{hot outlet} temperatures as well.
+- For condensing hot streams (\(R = 0\)), \(\varphi = (1-\varepsilon)\ln(1-\varepsilon)\) and no hot outlet temperature is
+needed.
+- Under AMTD the \(R\)-dependence cancels exactly: \(\varepsilon = 2/(1 + 2/N + R)\) depends on \(w\) only through
+\(w k_i\). This is why the AMTD formula needs no heat capacities and no hot outlet temperatures.
+- Applied to an LMTD plant, the (corrected) AMTD formula is only an approximation. In our random tests its relative
+error on the branch marginal cost has median ≈ 9\%, with large errors for very unbalanced exchangers, consistent with
+the paper's own discussion.
+
+\section{Proofs}
+
+\subsection{3.1 Lemma 1 (each exchanger is an affine map of the cold temperature)}
+
+For given \(\theta_{i-1}\), the three equations (9), (10), (12) have the unique solution
+\[\theta_i = \theta_{i-1} + c_i(\theta_{h,i} - \theta_{i-1}), \qquad c_i = \frac{2}{1 + w k_i}, \qquad
+   Q_i = w\,\Delta_i, \qquad \theta^{out}_{h,i} = \theta_{h,i} - Q_i/w_{h,i}.\]
+For \(w_{h,i} = \infty\), take \(\theta^{out}_{h,i} = \theta_{h,i}\) and drop (10).
+
+\emph{Proof.} Substitute \(\theta^{out}_{h,i} = \theta_{h,i} - Q_i/w_{h,i}\) and \(\theta_i = \theta_{i-1} + Q_i/w\) into (12):
+\[Q_i = UA_i\Big(\theta_{h,i} - \theta_{i-1} - \frac{Q_i}{2w} - \frac{Q_i}{2w_{h,i}}\Big)
+   \iff Q_i\Big(\frac{1}{UA_i} + \frac{1}{2w} + \frac{1}{2w_{h,i}}\Big) = \theta_{h,i} - \theta_{i-1}.\]
+The bracket is positive, so \(Q_i\) is unique. Dividing by \(w\) gives
+\(\Delta_i = 2(\theta_{h,i} - \theta_{i-1})/(1 + w k_i)\). \(\square\)
+
+Remarks.
+- \(c_i\) is the temperature ratio \(c_i\) of Section 2 whenever \(\theta_{h,i} \ne \theta_{i-1}\).
+- \((UA_i, w_{h,i})\) enter only through \(k_i\). So, on the cold side, an exchanger with finite \(w_{h,i}\) is identical
+to a constant-hot-temperature exchanger with \(UA' = (1/UA_i + 1/(2w_{h,i}))^{-1}\). This makes the paper's reduction
+to constant hot temperatures in A.3 rigorous, and explains why the conjectured extension ``to finite heat capacity'' is
+automatic.
+- The paper's (A.5), \(\theta_j = \theta_{hj}/(1 - w_j(1/w_{hj} + 2/UA_j))\), has a sign error and a missing factor 2.
+Section 4.4 explains why this does not affect the controlled variable.
+
+\subsection{3.2 Lemma 2}
+
+\[w\,\frac{\partial c_i}{\partial w} = -\frac{c_i(2-c_i)}{2}.\]
+\emph{Proof.} \(\partial c_i/\partial w = -2k_i/(1+wk_i)^2\), and \(wk_i = (2-c_i)/c_i\), so
+\(w\,\partial c_i/\partial w = -2\,\frac{2-c_i}{c_i}\,\frac{c_i^2}{4} = -\frac{c_i(2-c_i)}{2}\). \(\square\)
+
+\subsection{3.3 Proof of Proposition C (and so of Theorem A)}
+
+Let \(D_i = w\,\partial\theta_i/\partial w\), with \(D_0 = 0\) because \(T_0\) is fixed.
+
+\textbf{Step 1 (cumulative balance).} Summing (9) over \(l \le i\) gives \(\sum_{l\le i} Q_l = w\theta_i\). Differentiating,
+\[\sum_{l \le i} \frac{\partial Q_l}{\partial w} = \theta_i + D_i \qquad (i = 0,\dots,M). \tag{$*$}\]
+
+\textbf{Step 2 (chain rule through the affine maps).} From \(\theta_i = \theta_{i-1} + \varepsilon_i(\theta_{h,i} - \theta_{i-1})\)
+with \(\theta_{h,i}\) fixed,
+\[D_i = (1-\varepsilon_i)D_{i-1} + \varphi_i(\theta_{h,i} - \theta_{i-1}) = (1-\varepsilon_i)D_{i-1} + \frac{\varphi_i}{\varepsilon_i}\Delta_i .\]
+For \(\theta_{h,i} = \theta_{i-1}\), read \(\frac{\varphi_i}{\varepsilon_i}\Delta_i\) as \(\varphi_i(\theta_{h,i}-\theta_{i-1}) = 0\).
+
+\textbf{Step 3.} Taking the difference of \((*)\) at \(i\) and \(i-1\),
+\[\frac{\partial Q_i}{\partial w} = \Delta_i + D_i - D_{i-1} = \Big(1 + \frac{\varphi_i}{\varepsilon_i}\Big)\Delta_i - \varepsilon_i D_{i-1}.\]
+Eliminating \(D_{i-1}\) with \((*)\) at \(i-1\), namely \(D_{i-1} = \sum_{l<i}\partial Q_l/\partial w - \theta_{i-1}\), gives
+Proposition C.
+
+\textbf{AMTD.} With \(\varepsilon_i = c_i\), Lemma 2 gives \(1 + \varphi_i/c_i = c_i/2\), so
+\[\frac{\partial Q_i}{\partial w} = \frac{c_i}{2}\Big(\Delta_i + 2\theta_{i-1} - 2\sum_{l<i}\frac{\partial Q_l}{\partial w}\Big)
+   = \frac{c_i}{2}\Big(\theta_i + \theta_{i-1} - \sum_{l<i} 2\frac{\partial Q_l}{\partial w}\Big).\]
+Setting \(a_i := 2\,\partial Q_i/\partial w\) gives exactly the recursion of Theorem A, which determines the \(a_i\)
+uniquely from \(a_1\) on. The statements about \(J_j\) follow from \(J_j = -\sum_i p_{i,j} Q_{i,j}\). Since
+\(A_i = \sum_{l\le i} a_l\), we get \(A_i = A_{i-1} + c_i(\theta_i + \theta_{i-1} - A_{i-1})\), which is the affine form.
+\(\square\)
+
+\textbf{Corollary B, the recursion for \(d_i\).}
+\(a^P_i - a_i = c_i\big(\sum_{l<i} a_l - a^P_{i-1}\big) = c_i\big(A_{i-2} + a_{i-1} - a^P_{i-1}\big) = c_i(A_{i-2} - d_{i-1})\),
+with \(d_1 = 0\) (both equal \(c_1\theta_1\)) and \(d_2 = c_2(A_0 - d_1) = 0\).
+
+\subsection{\texorpdfstring{3.4 Exact counterexample (\(M_1 = 3\), \(M_2 = 1\), prices 1)}{3.4 Exact counterexample (M\_1 = 3, M\_2 = 1, prices 1)}}
+
+Produced and checked by \texttt{scripts/counterexample\_exact.py}; data in \texttt{certificates/counterexample.json}. All values are
+exact rationals.
+
+\textbf{Data.}
+- \(T_0 = 20\) °C, \(w_0 = 100\) kW/K, split \(w_1 = w_2 = 50\) kW/K.
+- Branch 1: \(UA = (56, 34, 28)\) kW/K, \(w_h = (88, 51, 78)\) kW/K, \(\theta_h = (48, 52, 60)\) K, i.e.~hot inlets at
+68, 72 and 80 °C.
+- Branch 2: \(UA_{1,2} = 200\), \(w_{h1,2} = 50\), \(\theta_{h1,2} = 13184889712830714450/136131266865364681 \approx 96.854\) K.
+This value is chosen as \(T^P_{J,1}/c^2\) with \(c = 4/5\).
+
+\textbf{What the operating point satisfies.}
+- It is physical: in every exchanger the cold stream is heated, the cold outlet stays below the hot inlet, the hot
+outlet stays above the cold inlet, and \(0 < c_i < 1\). The largest ratio of terminal temperature differences is 1.64,
+so AMTD is a reasonable approximation of LMTD here.
+- Branch-1 temperatures: \(\theta_1 \approx 28.623\), \(\theta_2 \approx 38.123\), \(\theta_3 \approx 46.517\).
+- The paper's controlled variable vanishes exactly: \(T_{J,1} - T_{J,2} = 0\), with \(T_{J,1} = T_{J,2} \approx 61.98671\).
+- The exact gradient of the recovered heat, computed by exact forward-mode differentiation of the raw model (no formula
+used), is
+\[\frac{dQ_{tot}}{dw_1}\Big|_{w_2 = w_0 - w_1} = -\frac{4972391424}{1518467647} \approx -3.2746 \ne 0.\]
+This equals \((T^*_{J,1} - T^*_{J,2})/2 = -c_3a_1/2\), with \(T^*_{J,1} \approx 55.43749\).
+- The split \(w_1' = 99/2\) recovers strictly more heat: by about 1.47 kW, exactly.
+
+So the point where the paper's controller settles is not optimal. Numerically (illustration only), the true optimum is
+\(w_1^\star \approx 47.504\) (\(u^\star \approx 0.4750\) instead of 0.5), and the loss is ≈ 4.08 kW (0.066 \% of
+6204 kW). The loss is small because the optimum is flat; the split error is about 5 \% of \(w_0\).
+
+\subsection{3.5 The paper's own validation case (Appendix B)}
+
+\texttt{scripts/reproduce\_appendixB.py} uses Table B.6: \(M_1 = 4\), \(M_2 = 1\), prices 1, 1.2, 1.3, 1.5 / 1.5. All functions
+are exact rational functions of \(u = w_1/w_0\), and real roots are isolated exactly.
+- (B1) The corrected controlled variable equals \(-\frac{2}{w_0}\,dJ/du\) identically.
+- (B2) \(dJ/du\) has a unique root in \((0,1)\): \(u_{opt} \in [0.7141194663, 0.7141194665]\), with
+\(J = -3938.8167\) and \(T_{end} = 158.77375\) °C. This matches the paper's ``Optimized'' column (0.7141, −3.9388,
+158.7738).
+- (B3) The paper's controlled variable (B.1), with the misprints of the printed (B.1) corrected, vanishes at
+\(u_P \in [0.7167062190, 0.7167062200] \ne u_{opt}\). Its only other root in \((0,1)\), \(u \approx 0.0028\), lies in
+the unphysical AMTD region \(c_{1,1} > 1\).
+
+The paper reports \(u = 0.7152\) for ``Equal Jäschke Temp.''. We could not reproduce this number from (B.1), with or
+without the printing typos (\(\theta^2_{h1,1}\) for \(\theta^2_{1,1}\), and \(\theta_{h3,1}-\theta_{2,1}\) for
+\(\theta_{h2,1}-\theta_{1,1}\) inside the \(p_{3,1}\) term). Either way, the split discrepancy that the paper attributes
+to ``flatness of the optimum and numerical round-off errors'' is real and is explained by Corollary B.
+
+\section{Verification summary, scope and limitations}
+
+\subsection{\texorpdfstring{4.1 Computer algebra (\texttt{scripts/verify\_symbolic.py}, python-flint)}{4.1 Computer algebra (scripts/verify\_symbolic.py, python-flint)}}
+
+\begin{itemize}
+\tightlist
+\item
+  The raw model of Section 1 is solved by Cramer's rule in \(\mathbb{Q}(w, UA_i, w_{h,i}, \theta_{h,i})\) with fully
+  generic symbols, and \(\partial Q_i/\partial w\) is computed symbolically.
+\item
+  \textbf{S1:} it equals \(a_i/2\) (corrected recursion) as an identity of rational functions for every \(i \le M\). This is
+  checked for \(M = 1,\dots,5\) with finite \(w_{h,i}\), all symbols generic (up to 16 indeterminates), and for
+  \(M = 1,\dots,8\) with \(w_{h,i} = \infty\).
+\item
+  \textbf{L1:} a single exchanger with a generic inlet temperature gives the same outlet as a constant-hot-temperature
+  exchanger with \(UA' = (1/UA + 1/(2w_h))^{-1}\). This is the symbolic form of the remark after Lemma 1. Because
+  \(UA'\) does not depend on \(w\), the \(w_{h,i} = \infty\) checks carry over to finite \(w_{h,i}\) for all
+  \(M \le 8\).
+\item
+  The raw finite-\(w_h\) model at \(M = 6\) (19 indeterminates) exceeded the 4 GB memory cap after passing S0 and
+  S1 for \(i \le 5\) (\texttt{certificates/verify\_symbolic\_M6\_raw\_partial.log}).
+\item
+  \textbf{S2, S3:} the paper's recursion is identical for \(i \le 2\), which is a symbolic identity. It differs for every
+  \(i \ge 3\), its branch total differs from \(2\,\partial\sum_i Q_i/\partial w\), and \(d_3 = c_3a_1\). Non-vanishing
+  is certified by exact evaluation at a rational point where no denominator vanishes.
+\item
+  \textbf{S4:} the paper's printed Maple numerator in (A.12) equals the corrected \(a_3\).
+\item
+  These checks are redundant with the proof of Section 3, which does not rely on them.
+\end{itemize}
+
+\subsection{\texorpdfstring{4.2 Numerical evidence (\texttt{scripts/random\_fd\_tests.py})}{4.2 Numerical evidence (scripts/random\_fd\_tests.py)}}
+
+This is independent evidence, not the proof.
+- 60-digit central finite differences on random data, \(M = 1..8\), with random prices: the corrected formula agrees to
+relative error \textless{} 1e−30.
+- The paper's \(T_J\) is off by at least 0.28 \% in every draw with \(M \ge 3\).
+- The LMTD form of Proposition C agrees to \textless{} 1e−25.
+
+\subsection{4.3 Domain of validity}
+
+\begin{itemize}
+\tightlist
+\item
+  Theorem A is an identity of rational functions. It holds wherever the model is defined (\(1 + wk_i \ne 0\),
+  automatically true for positive parameters). There is no sign restriction: it also holds for exchangers that cool the
+  branch, and in the unphysical AMTD regime \(c_i > 1\) (small \(w\)).
+\item
+  The temperature-only expression of \(c_i\) needs \(\theta_{h,i} \ne \theta_{i-1}\). At \(\theta_{h,i} = \theta_{i-1}\)
+  the exchanger transfers no heat, yet \(\partial Q_i/\partial w = a_i/2 = \tfrac{c_i}{2}(2\theta_{i-1} - A_{i-1})\) is
+  generally nonzero, with \(c_i = 2/(1+wk_i)\) no longer measurable. So the paper's regularisation in §6.6.1 (setting
+  \(a_{i,j} = 0\) near this singularity) is itself only approximate.
+\item
+  The model assumes that the hot-side data (\(\theta_{h,i}, w_{h,i}, UA_i\)) do not depend on the split, i.e.~no stream
+  crossovers between branches. This is the same restriction as in the paper (§6.5).
+\item
+  With LMTD and finite hot heat capacities, \(\varphi_i/\varepsilon_i\) depends on \(R_i\) as well as on
+  \(\varepsilon_i\). We have not proved that no exact formula in cold temperatures and hot inlet temperatures alone
+  exists, but Proposition C gives an exact one that also uses the hot outlet temperatures. In the paper's §5 simulations the AMTD-based
+  controlled variable is a (good) heuristic for LMTD plants. For \(M_j \ge 3\) the corrected formula should be used.
+\end{itemize}
+
+\subsection{\texorpdfstring{4.4 The factor \(-\tfrac12\)}{4.4 The factor -\textbackslash tfrac12}}
+
+\begin{itemize}
+\tightlist
+\item
+  Literally, (16) and (19) are off by the factor \(-\tfrac12\) even for \(M_j = 1\). For a single exchanger the
+  correct relation is \(\partial J_j/\partial w_j = -\theta_{1,j}^2/(2\theta_{h1,j})\).
+\item
+  The sign comes from \(J = -\sum pQ\), written as ``\(\partial J_j/\partial w_j = p_j\,\partial Q_j/\partial w_j\)'' in
+  (A.6). The 2 comes from the mis-solved (A.5).
+\item
+  The factor is the same for every branch, so the optimality condition ``equal Jäschke temperatures'' is unaffected. We
+  regard this as a normalisation slip, not as part of the conjecture.
+\end{itemize}
+
+\subsection{4.5 Points a referee should check first}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Lemma 1: the solution of the AMTD exchanger equations and the factor 2.
+\item
+  Step 1, \(\sum_{l\le i} Q_l = w\theta_i\), which is the source of the cumulative sum.
+\item
+  The comparison with the paper's (A.12): the transcription of the 12-term numerator from the rendered page 47
+  (claim S4).
+\item
+  That the paper's recursion really subtracts only \(a_{i-1}\): (18), (A.13), (A.15) and (B.1) all write it that way.
+\end{enumerate}
+
+\end{document}

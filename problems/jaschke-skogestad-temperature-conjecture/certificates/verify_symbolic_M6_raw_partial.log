@@ -1,0 +1,48 @@
+# INFORMATIVE ONLY: earlier run of the raw finite-wh model up to M=6 under ulimit -v 4 GB.
+# M=1..5 complete PASS; M=6: S0 and S1 for i=1..5 PASS, then out of memory at i=6.
+# The finite-wh M=6 case is covered instead by L1 + the constant-hot-temperature check (verify_symbolic.log).
+# python -I verify_symbolic.py 6
+Sun Oct 18 08:04:35 AM UTC 2026
+PASS  S4 paper (A.12) line 1 (Maple output) == corrected a_3
+PASS  S4 paper (A.12) last line - line 1 == c_3 * a_1 (nonzero)
+PASS  S0 [M=1] model equations satisfied
+PASS  S1 [M=1] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S2 [M=1] paper recursion == corrected (identity, M<=2)
+      (M=1: 0.0 s)
+PASS  S0 [M=2] model equations satisfied
+PASS  S1 [M=2] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=2] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S2 [M=2] paper recursion == corrected (identity, M<=2)
+      (M=2: 0.0 s)
+PASS  S0 [M=3] model equations satisfied
+PASS  S1 [M=3] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=3] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=3] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S2 [M=3] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+      (M=3: 0.0 s)
+PASS  S0 [M=4] model equations satisfied
+PASS  S1 [M=4] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=4] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=4] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=4] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S2 [M=4] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+      (M=4: 0.7 s)
+PASS  S0 [M=5] model equations satisfied
+PASS  S1 [M=5] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_5/dw == a_5/2 (corrected, cumulative recursion)
+PASS  S2 [M=5] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+      (M=5: 21.4 s)
+PASS  S0 [M=6] model equations satisfied
+PASS  S1 [M=6] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=6] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=6] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=6] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S1 [M=6] dQ_5/dw == a_5/2 (corrected, cumulative recursion)
+FLINT exception (General error):
+    Unable to allocate memory (1233233280).
+bash: line 1: 35065 Aborted                    timeout 5400 python -I /path/to/chemistry-open-problems/problems/jaschke-skogestad-temperature-conjecture/scripts/verify_symbolic.py 6
+exit=134
+Sun Oct 18 08:23:41 AM UTC 2026
