@@ -1,0 +1,496 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Criticality of the Hopf bifurcations in the Becker--Döring equations with atomization}
+\newcommand*{\PaperTitlePlain}{Criticality of the Hopf bifurcations in the Becker-Doring equations with atomization}
+\newcommand*{\PaperShortTitle}{Hopf criticality in Becker--Döring with atomization}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} partial result, preliminary}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; citing-works search by a nested Claude Opus 5.5 sub-agent (effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{Becker--Döring equations, nucleation, Hopf bifurcation, first Lyapunov coefficient, interval arithmetic}
+\input{chemop-preamble}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Pego and Velázquez proved that the Becker--Döring equations with atomization undergo Andronov--Hopf bifurcations
+at \(\kappa=\kappa_j(M)\) for large maximal cluster size \(M\), and wrote that they had not managed to determine
+analytically whether the bifurcating periodic solutions are stable. We evaluate the first Lyapunov coefficient
+\(\ell_1\) in exact closed form at a cost independent of \(M\), enclose the Hopf points by a Krawczyk operator in ball
+arithmetic, and certify the sign of \(\ell_1\) for every integer \(M\) in \(15\le M\le10^5\) on the first branch
+(\(44\le M\le10^5\) and \(87\le M\le10^5\) on the second and third): the bifurcation is supercritical, with stable
+periodic orbits, except at \(M=15\) on the first branch, where it is subcritical. A formal reduction for
+\(M\to\infty\) to a scalar renewal equation predicts a negative Landau coefficient on every branch, and certified values up
+to \(M=10^8\) approach the predicted limit. The infinite range \(M>10^5\) remains unproved.
+\end{paperabstract}
+
+\section{Problem and source}
+
+R. L. Pego, J. J. L. Velázquez, \emph{Temporal oscillations in Becker--Döring equations with atomization},
+Nonlinearity 33 (2020) 1812--1846, doi:10.1088/1361-6544/ab6815, arXiv:1905.02605 (v2 read in full, LaTeX source).
+
+Theorem 3.3 of the paper states that for \(k\in\mathbb N\) and \(M>M_{0,k}\) the system admits a Hopf bifurcation
+as \(\kappa=K\sqrt M\) passes through each \(\kappa_j(M)\), \(j=1,\dots,k\). Immediately after it the authors write
+(verbatim, §3.3):
+
+\begin{quote}
+``We have not managed to determine analytically whether the bifurcating solutions are stable (the supercritical
+case) or not. Many of our numerical computations, as in Fig. 1, are consistent with the presence of stable
+periodic solutions, however.''
+\end{quote}
+
+The constant \(M_{0,k}\) is not explicit.
+
+Novelty check (2026-10-18): 20 citing works (OpenAlex and Semantic Scholar) were checked; every arXiv full text was
+grepped. Later work by the authors and searches on key phrases were also checked. Nothing settles the question.
+The closest work is Niethammer--Pego--Schlichting--Velázquez (SIAM J. Appl. Math. 2022, arXiv:2102.06751). It
+carries out a \emph{formal} direction-of-bifurcation computation for a \emph{different} model (Becker--Döring with injection
+and depletion). Details are in \texttt{references.md}.
+
+\section{Model, linearization, exact quadratic structure}
+
+The unknowns are \(n_\ell\ge0\), \(1\le\ell\le M\), with \(N=M-1\) and \(J_\ell=n_\ell n_1-n_{\ell+1}\) for
+\(1\le\ell\le N\) (paper (1)--(4)):
+\[\dot n_\ell=J_{\ell-1}-J_\ell\ (2\le\ell\le N),\qquad \dot n_M=J_N-Kn_M,\qquad
+\dot n_1=-J_1-\sum_{\ell=1}^N J_\ell+MKn_M .\]
+The mass \(\sum_\ell \ell n_\ell\) is conserved.
+
+The constant state \(n_\ell\equiv A:=1+K\) is an equilibrium. Write \(n=A\mathbb 1+v\). A direct expansion
+(checked in \texttt{scripts/01\_check\_model.py}, claims M1--M3) gives the \textbf{exact} identity
+\[\dot v = Bv + v_1\,Sv ,\tag{2.1}\]
+with no cubic or higher terms. Here \(B\) is the paper's matrix (27). The linear map \(S\) is
+\[(Sv)_1=-2v_1-\sum_{\ell=2}^{N}v_\ell,\qquad (Sv)_\ell=v_{\ell-1}-v_\ell\ (2\le\ell\le N),\qquad (Sv)_M=v_N .\]
+Equivalently, \(f(n)=(n_1-1)\,Sn+Tn\) with \(T\) linear. The nonlinearity is the product of the ``transport speed''
+\(c=n_1-1\) and a fixed linear operator.
+
+Mass conservation: \(\boldsymbol\ell=(1,2,\dots,M)\) satisfies \(\boldsymbol\ell B=0\) and \(\boldsymbol\ell S=0\).
+Hence the hyperplane \(H=\{\boldsymbol\ell\cdot v=0\}\) is invariant under (2.1), and \(\mathrm{Ran}\,B=H\).
+
+By paper Lemma 3.1, \(0\) is a simple eigenvalue of \(B\), with eigenvector \(\bar v\notin H\). Hence \(B|_H:H\to H\)
+is invertible.
+
+Kuznetsov's multilinear forms for (2.1) are
+\[\mathcal B(x,y)=x_1Sy+y_1Sx,\qquad \mathcal C\equiv0 .\]
+
+\section{Hopf setting and first Lyapunov coefficient}
+
+\textbf{Setting.} As in the paper, the bifurcation parameter is \(\kappa\), and the dynamics is restricted to the
+invariant affine hyperplane through \(A\mathbb 1\). In the coordinate \(v\) this is \(H\), a fixed space, and the
+equilibrium is \(v=0\) for every \(\kappa\).
+
+\textbf{Eigenvalues.} The eigenvalues of \(B|_H\) are those of \(B\) except the simple eigenvalue 0. At a Hopf point
+\(\kappa_j\), \(B\) has eigenvalues \(\pm i\omega\) with \(\omega>0\), and \(\mathrm{Re}\,d\lambda/d\kappa>0\)
+(paper (33), re-certified in §5).
+
+\textbf{Coefficient.} Let \(Bq=i\omega q\), let \(u\) be a row vector with \(uB=i\omega u\), normalized by
+\(uq=1\), and set \(\langle p,x\rangle:=ux\). Kuznetsov's formula (\emph{Elements of Applied Bifurcation Theory}, 3rd
+ed., §3.5), with \(\mathcal C=0\), reads
+\[\ell_1=\frac1{2\omega}\,\mathrm{Re}\Big[-2\,u\,\mathcal B\big(q,w_{11}\big)+u\,\mathcal B\big(\bar q,w_{20}\big)\Big],\]
+\[w_{11}=(B|_H)^{-1}\mathcal B(q,\bar q)\in H,\qquad w_{20}=(2i\omega-B)^{-1}\mathcal B(q,q). \tag{3.1}\]
+
+\textbf{Why the full-space objects may be used.}
+- \(q\in H\), because \(\boldsymbol\ell q=\boldsymbol\ell Bq/(i\omega)=0\).
+- \(\mathcal B(x,y)\in H\) for all \(x,y\), because \(\boldsymbol\ell S=0\).
+- \(u|_H\) is the adjoint eigenvector of \(B|_H\).
+- \(w_{20}\in H\) automatically, because \(H\) is invariant under \(B\) and \(2i\omega\notin\mathrm{spec}\,B\).
+- \(w_{11}\) must be taken as the unique solution of \(Bw=\mathcal B(q,\bar q)\) \textbf{in \(H\)}. Adding a multiple of
+\(\bar v\) would change \(\ell_1\).
+
+Formula (3.1) is basis-free (projection method), so it is the first Lyapunov coefficient of the restricted system.
+
+\textbf{Sign convention.} \(\ell_1\) depends on the normalization of \(q\) only through a positive factor. Two
+normalizations are used: \(q^Hq=1\) (``unit'') and \(q_1=1\).
+
+Since \(\mathrm{Re}\,\lambda'(\kappa_j)>0\):
+- \(\ell_1<0\) means \textbf{supercritical}: periodic orbits exist for \(\kappa>\kappa_j\), \(\kappa\approx\kappa_j\),
+with amplitude \(\propto(\kappa-\kappa_j)^{1/2}\), and they attract within the centre manifold.
+- \(\ell_1>0\) means \textbf{subcritical}.
+
+For \(j=1\) a supercritical orbit is orbitally asymptotically stable within \(H\). For \(j\ge2\) the equilibrium
+already has \(j-1\) unstable pairs, so the bifurcating orbits are unstable in the full system whatever the sign.
+The criticality is then a centre-manifold statement.
+
+\textbf{Remark (intrinsic).} \(\ell_1\) depends only on the vector field at the critical point. The conclusion therefore
+holds for any one-parameter path through the Hopf point in the \((K,\text{mass})\) plane that crosses transversally.
+An example is \(K\) varying at fixed total mass, where the equilibria are the non-constant ones of paper (15).
+
+\section{\texorpdfstring{Exact closed-form evaluation of \(\ell_1\) for any \(M\)}{Exact closed-form evaluation of \textbackslash ell\_1 for any M}}
+
+All vectors occurring in (3.1) have the form
+\[v_\ell=\sum_{e} c_e\,\beta_e^{\ell}+\sum_{k\in P}d_k\,\delta_{\ell k},\qquad P\subset\{1,2,N,M\},\tag{4.1}\]
+with finitely many bases \(\beta_e\). Each base is a monomial \(\varphi^{e_0}\bar\varphi^{e_1}A^{e_2}s^{e_3}\bar s^{e_4}\)
+with integer exponents; \(\varphi\) and \(s\) are defined below. All operations on such vectors are exact and cost
+\(O(1)\) in \(M\). Implementation: \texttt{scripts/bdlib.py}, classes \texttt{Problem} and \texttt{Seq}.
+
+\textbf{Right eigenvector} (paper §5). For \(\lambda=(A-\varphi^{-1})(\varphi-1)\) and \(\psi=1/(A\varphi)\):
+\[q_\ell=c_1\varphi^{M-\ell}+c_2\psi^{M-\ell},\qquad (c_1,c_2)=(f(\psi),-f(\varphi)),\qquad f(\varphi)=A\varphi^{M-1}+1-\varphi^{-1},\]
+valid for \(1\le\ell\le M\) whenever \(\varphi\) is a root of the paper's \(F\) (eqs. (71), (76)).
+
+\textbf{Left eigenvector.} The transposed equations, columns \(2\le k\le N\) of \(uB=\lambda u\), read
+\[u_{k-1}-(A+1+\lambda)u_k+Au_{k+1}=Ku_1 .\]
+Hence \(u_k=a_1\varphi^k+a_2\psi^k+u_c\), with \(u_c=-Ku_1/\lambda\) and
+\(u_1=(a_1\varphi+a_2\psi)\lambda/(\lambda+K)\). Columns 1 and \(M\) give a singular \(2\times2\) system for
+\((a_1,a_2)\); one row of it fixes the null vector.
+
+\textbf{Linear maps.} \(B\) and \(S\) act on a term \(\beta^\ell\) as multiplication by \(A/\beta-(A+1)+\beta\) (bulk rows
+of \(B\)) or \(1/\beta-1\) (bulk rows of \(S\)). Rows \(1\) and \(M\), and the neighbours of point corrections, are
+evaluated exactly. The full sums in row 1 are geometric sums. The differences are stored as point corrections.
+
+\textbf{Solving \((B-\mu)w=r\)} for \(r\) of the form (4.1) (here \(\mu=0\) or \(2i\omega\)). Ansatz:
+\[w=\sum_e \frac{c_e}{A/\beta_e-(A+1)+\beta_e-\mu}\,\beta_e^\ell+h_1s_1^\ell+h_2s_2^\ell+e_1\delta_{\ell1}+e_M\delta_{\ell M},\]
+where \(s_{1,2}\) are the roots of \(s^2-(A+1+\mu)s+A=0\):
+- for \(\mu=0\): \(s\in\{1,A\}\);
+- for \(\mu=2i\omega\): one new generator \(s\), the other root being \(A/s\).
+
+The bulk rows \(3\le\ell\le N-1\) hold identically. Rows \(2,N\) (which involve \(w_1,w_M\)) and rows \(1,M\) give
+four linear equations for \((h_1,h_2,e_1,e_M)\).
+
+\emph{Why this family contains the true solution.} Rows \(2,\dots,N\) form a three-term recurrence. Their solution set
+is an affine space of dimension 2, and it is the 2-dimensional subfamily of the ansatz fixed by rows \(2\) and
+\(N\).
+
+\emph{The case \(\mu=0\).} Row 1 is redundant, since \(\boldsymbol\ell\,(Bw-r)=0\) whenever rows \(2,\dots,M\) hold. It
+is replaced by the condition \(\sum_\ell \ell w_\ell=0\), which selects \(w_{11}\in H\). The \(4\times4\) system is
+solved in ball arithmetic (\texttt{acb\_mat.solve}). Success proves that it is nonsingular, so the computed ball contains
+the exact solution. The resulting point corrections are numerically zero (\(\sim10^{-35}\)), as they should be when
+\(r\) has no correction at rows 2 and \(N\).
+
+\textbf{Inner products.} \(\sum_{\ell=1}^M u_\ell v_\ell\) is computed with exact geometric sums
+\(\sum\beta^\ell=(\beta^{M+1}-\beta)/(\beta-1)\). A base that is identically 1 (zero exponent vector, e.g.
+\(\psi\cdot A\varphi\)) contributes the exact count \(M\). Products \(\beta^\ell\) of size \(A^{\pm M}\) are harmless
+in Arb's arbitrary-exponent balls.
+
+\textbf{Cross-checks.}
+- The closed form agrees with a dense floating-point implementation of (3.1) to \(10^{-12}\)--\(10^{-14}\) relative
+error for \(M=20,\dots,200\), \(j\le4\) (\texttt{01\_check\_model.py}, M6).
+- The eigenvector residuals are at rounding level.
+
+\section{Certification}
+
+\textbf{Hopf points.} Unknowns \(\kappa=K\sqrt M\) and \(z=M(\varphi-1)\) (the paper's scaling). The system is
+\[Q^\varepsilon(z;\kappa):=K^{-3}F(1+z/M)=0\ (\text{complex}),\qquad \mathrm{Re}\,\Lambda=0,\quad \Lambda=M\lambda/K .\]
+This is 3 real equations in 3 real unknowns, with \(F=f_1g_2-g_1f_2\) exactly as in the paper, eqs. (71)--(76).
+- Derivatives come from forward-mode dual numbers over Arb balls.
+- The Krawczyk operator \(\mathcal K(X)=m-Yf(m)+(I-YJ(X))(X-m)\) is evaluated on a box \(X\) of relative radius
+\(10^{-25}\). The inclusion \(\mathcal K(X)\subset\mathrm{int}\,X\) proves existence and uniqueness of a zero in
+\(X\).
+- By paper Prop. 5.3 a zero is an eigenvalue \(\lambda=(A-\varphi^{-1})(\varphi-1)\) of \(B\), which is purely
+imaginary at the zero (\(\mathrm{Re}\,\Lambda=0\)). It is not spurious, since \(\mathrm{Im}\,\varphi\neq0\).
+
+\textbf{Nondegeneracy (certified at every point).}
+- \emph{Simplicity:} \(0\notin\partial_zQ^\varepsilon\) on the box. Then \(\varphi\) is a simple root of \(F\), and by
+paper Lemma 5.4 \(i\omega\) is a simple eigenvalue of \(B\).
+- \emph{Transversality:} \(\mathrm{Re}\big(\Lambda+\kappa\,d\Lambda/d\kappa\big)>0\) along the root curve, with
+\(dz/d\kappa=-\partial_\kappa Q^\varepsilon/\partial_zQ^\varepsilon\). This equals \(M^{3/2}\,\mathrm{Re}\,d\lambda/d\kappa\).
+
+\textbf{Sign of \(\ell_1\).} The closed form of §4 is evaluated with \(K=\kappa/\sqrt M\) and \(\varphi=1+z/M\) given as
+the Krawczyk enclosure. The formulas are exact identities at the true Hopf point, so the output ball contains the
+true \(\ell_1\). Precision is 192 bits. The Krawczyk boxes have relative radius \(10^{-25}\), and the resulting
+\(\ell_1\) balls relative radius \(10^{-36}\)--\(10^{-29}\) (measured at \(M=15\) and \(M=10^5\)). The sign is
+therefore never in doubt.
+
+\textbf{Remaining hypothesis H2} (no other eigenvalue of \(B|_H\) on \(i\mathbb R\)).
+- For \(M\le120\) it is certified with Arb's rigorous eigensolver (\texttt{acb\_mat.eig}, \texttt{07\_spectrum\_H2.py}). All \(M\)
+eigenvalues of \(B(K)\), with \(K\) the certified ball, are enclosed and proved simple. Exactly one enclosure
+contains 0, exactly two meet \(i\mathbb R\) (at \(\pm i\omega\)), \(2(j-1)\) have positive real part and the rest
+negative real part.
+- This also proves rigorously that the point is the \(j\)-th crossing.
+- Result: all 217 points with \(M\le120\) PASS (106 for \(j=1\), 77 for \(j=2\), 34 for \(j=3\));
+log in \texttt{certificates/logs/07\_spectrum\_H2.log}.
+- For larger \(M\), H2 and the branch label \(j\) are supported by floating-point eigenvalue counts: at
+\(\kappa_j(1\mp10^{-7})\), \(j-1\) resp. \(j\) unstable pairs, for all \(M\le300\) and every 50th \(M\le2000\).
+The paper's Theorem 3.2 gives H2 for \(M>M_{0,k}\).
+
+\textbf{Generation and independent re-check.}
+- The sweep files are generated by \texttt{03\_certify\_range.py} (continuation in \(M\)).
+- \texttt{04\_verify\_certificates.py} then re-proves every line from the stored midpoints alone, without continuation:
+Krawczyk, \(\ell_1\) enclosure, simplicity, transversality. It also checks that every integer \(M\) of the range is
+present.
+- Done for every line of all six files (\(3\times(\approx10^4+9\cdot10^4)\) Hopf points). Logs are in
+\texttt{certificates/logs/04\_verify\_*.log}.
+
+\section{Results on the finite range}
+
+\textbf{Theorem A (computer-assisted; certificates in \texttt{certificates/}).} For every pair \((M,j)\) in
+\[\mathcal S=\{(M,1):15\le M\le 10^5\}\cup\{(M,2):44\le M\le10^5\}\cup\{(M,3):87\le M\le10^5\}\]
+the scaled Hopf system has a unique zero \((\kappa_j(M),z_j(M))\) in an explicit box. There:
+- \(\pm i\omega\) is a simple pair of eigenvalues of \(B\);
+- \(\mathrm{Re}\,d\lambda/d\kappa>0\);
+- the first Lyapunov coefficient of the system restricted to the mass hyperplane satisfies
+\[\boxed{\ \ell_1<0\ \text{ for all }(M,j)\in\mathcal S\setminus\{(15,1)\},\qquad \ell_1>0\ \text{ for }(M,j)=(15,1).\ }\]
+
+Consequences:
+- Wherever the remaining hypothesis H2 holds, the Hopf bifurcation at \(\kappa_j(M)\) is \textbf{supercritical}, except
+for \(M=15\) where it is \textbf{subcritical}. H2 is certified for \(M\le120\), proved by the paper for
+\(M>M_{0,k}\), and observed numerically everywhere in \(\mathcal S\).
+- In particular, for every \(M\in[M_{0,1},10^5]\) (and \(M\ge16\)) the first Hopf bifurcation of Theorem 3.3 is
+supercritical. Its bifurcating periodic orbits are orbitally asymptotically stable (within the mass hyperplane).
+
+Remarks.
+- The first branch exists from \(M=15\), at \(K\approx212.9\), \(\kappa\approx824.5\). For \(M\le14\) no crossing
+was found for \(K\le10^5\) (floating-point scan). Branch 2 starts at \(M=44\) (\(K\approx232\)) and branch 3 at
+\(M=87\) (\(K\approx265\)). At each onset the crossing comes in from \(K=\infty\).
+- \(M=15\) is a genuine exception. \(\ell_1=+1.1952\times10^{-9}\) (unit normalization), certified, with tight
+radius. The dense floating-point formula gives the same value. BifurcationKit, an independent code with automatic
+differentiation, reports \texttt{SubCritical} there and \texttt{SuperCritical} at \(M=16,17,30\).
+- The scale-free value \(\ell_1/M\) (with \(q_1=1\)) is tiny at \(M=15\) (\(+5.8\times10^{-10}\)), against
+\(-6.3\times10^{-6}\) at \(M=16\). This suggests that an analytic continuation in \(M\) would have a degenerate
+(Bautin) point between 15 and 16; that continuation is not computed here. For the integer problem the first
+branch is subcritical exactly at its first value \(M=15\).
+
+Representative certified values. The unit column uses \(q^Hq=1\); the last column is
+\(\ell_1/M\) with the normalization \(q_1=1\).
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(M\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(j\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\kappa_j(M)\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\omega\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\ell_1\) (unit)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\ell_1/M\) (\(q_1=1\))
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+15 & 1 & 824.53962734 & 87.797 & \(+1.195\times10^{-9}\) & \(+5.8\times10^{-10}\) \\
+16 & 1 & 83.095251377 & 8.0421 & \(-1.296\times10^{-5}\) & \(-6.27\times10^{-6}\) \\
+30 & 1 & 9.2400641499 & 0.34187 & \(-6.723\times10^{-3}\) & \\
+100 & 1 & 3.9348822214 & 2.174e-2 & \(-3.001\times10^{-2}\) & \\
+100 & 2 & 15.746601845 & 0.18808 & \(-2.477\times10^{-3}\) & \\
+100 & 3 & 121.37739313 & 2.1986 & \(-1.033\times10^{-5}\) & \\
+\(10^4\) & 1 & 2.0375686900 & 9.36e-6 & \(-1.542\times10^{-3}\) & \(-0.011015\) \\
+\(10^4\) & 2 & 3.7981676429 & & \(-4.525\times10^{-3}\) & \(-0.007971\) \\
+\(10^4\) & 3 & 5.5155380850 & & \(-3.798\times10^{-3}\) & \(-0.003637\) \\
+\(10^5\) & 1 & 1.9413727095 & 2.778e-7 & \(-4.028\times10^{-4}\) & \(-0.009236\) \\
+\(10^5\) & 2 & 3.3593351327 & 1.162e-6 & \(-1.443\times10^{-3}\) & \(-0.007509\) \\
+\(10^5\) & 3 & 4.5144663668 & 2.465e-6 & \(-1.347\times10^{-3}\) & \(-0.003525\) \\
+\end{longtable}
+}
+
+Full data: \texttt{certificates/sweep\_j\{1,2,3\}*.csv.gz} (one line per \(M\)).
+
+\section{\texorpdfstring{The limit \(M\to\infty\)}{The limit M\textbackslash to\textbackslash infty}}
+
+\subsection{7.1 Formal limit problem}
+
+Notation: \(\varepsilon=M^{-1/2}\), \(K=\varepsilon\kappa\), \(x=\ell/M\), \(\tau=\varepsilon^3t\) (paper (35)).
+Write \(n_1=1+c\), \(c=\varepsilon\gamma\), \(\gamma=\kappa+\Gamma\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Bulk.} Exactly, \(\dot n_\ell=c\,(n_{\ell-1}-n_\ell)+(n_{\ell-1}-2n_\ell+n_{\ell+1})\) for \(2\le\ell\le N\):
+  upwind transport with speed \(c\) plus diffusion. With \(n_\ell\approx 1+\varepsilon\kappa+\varepsilon V(x,\tau)\),
+  at leading order
+  \[V_\tau+\gamma V_x=0 \quad (0<x<1),\qquad V(0,\tau)=\Gamma(\tau).\]
+  The inflow value comes from \(n_1=1+\varepsilon\gamma\). Diffusion contributes \(\varepsilon V_{xx}\).
+\item
+  \textbf{Boundary layer at \(\ell=M\)}, of width \(\ell\)-scale \(1/c=\sqrt M/\gamma\). It is quasi-static: its
+  relaxation time is \(O(M)\ll M^{3/2}\). The flux \(J_\ell=cn_\ell-(n_{\ell+1}-n_\ell)\) is constant across it and
+  equals \(Kn_M\) at \(\ell=N\). Solving the recurrence gives \(n_\ell=a+C(1+c)^\ell\), where \(a\) is the outer
+  value and \(C(1+c)^M=a(\gamma-\kappa)/\kappa\). Its excess mass is
+  \(\sum\ell(n_\ell-a)\approx M^2\varepsilon\,a\,\Gamma/(\kappa\gamma)\).
+\item
+  \textbf{Monomers} relax on the fast time scale \(1/(A(M+2))\). Their equation is replaced by mass conservation,
+  \(\sum\ell(n_\ell-A)=0\). With \(a=1+O(\varepsilon)\) this gives
+  \[\int_0^1xV\,dx+\frac{\Gamma}{\kappa(\kappa+\Gamma)}=0 .\]
+\end{enumerate}
+
+\textbf{Lagrangian clock.} Let \(dT=\gamma\,d\tau\). Along characteristics \(V\) carries its inflow value, so
+\(V(x,\cdot)=G(T-x)\) with \(G(T)=\Gamma\). The problem becomes the scalar \emph{renewal equation}
+\[\boxed{\ \frac{G(T)}{\kappa(\kappa+G(T))}+\int_0^1 s\,G(T-s)\,ds=0\ }\tag{R}\]
+\((R)\) is autonomous, and its only nonlinearity is the boundary-layer term. A monotone time change preserves
+orbits, their stability and the side of bifurcation, so criticality can be read on \((R)\).
+
+\textbf{Check against the paper.} With \(G=e^{\zeta T}\), linearizing (R) gives
+\(\Delta(\zeta)=\kappa^{-2}+E(\zeta)=0\), where \(E(\zeta)=\int_0^1se^{-\zeta s}ds=(1-e^{-\zeta}(1+\zeta))/\zeta^2\).
+Since \(\zeta^2e^\zeta\Delta(\zeta)=Q(\zeta;\kappa)\), this is exactly the paper's limit function \(Q\)
+(eq. (87)). Its purely imaginary roots are \(\zeta=\pm it_j\), where \(\tan t_j=t_j\), \(\cos t_j<0\) and
+\(\kappa_j^0{}^2=\sqrt{1+t_j^2}-1\).
+
+\subsection{7.2 Landau coefficient of (R) (multiple scales)}
+
+Multiply (R) by \(\kappa^2\):
+\[G+\kappa^2LG-G^2/\kappa+G^3/\kappa^2+O(G^4)=0,\qquad (LG)(T)=\int_0^1sG(T-s)ds .\]
+Expand with \(\kappa=\kappa_c+\eta^2\tilde\kappa\), \(G=\eta G_1+\eta^2G_2+\eta^3G_3\),
+\(G_1=\mathcal A(\eta^2T)e^{i\omega T}+\text{c.c.}\), \(\omega=t_j\), \(D(\zeta):=1+\kappa_c^2E(\zeta)\).
+- Order \(\eta\): \(D(i\omega)=0\).
+- Order \(\eta^2\): \(G_2=\alpha\mathcal A^2e^{2i\omega T}+\text{c.c.}+\beta|\mathcal A|^2\), with
+\(\alpha=1/(\kappa D(2i\omega))\) and \(\beta=2/(\kappa D(0))\).
+- Order \(\eta^3\): solvability of the \(e^{i\omega T}\) component, using \(L[\mathcal A(\eta^2T)e^{i\omega T}]
+  =e^{i\omega T}(E(i\omega)\mathcal A+\eta^2E'(i\omega)\mathcal A')\) and \(E(i\omega)=-1/\kappa^2\).
+Explicitly, using \(\kappa^2=\kappa_c^2+2\kappa_c\eta^2\tilde\kappa+\dots\), the \(e^{i\omega T}\) component of the
+order-\(\eta^3\) equation reads
+\[\kappa_c^2E'(i\omega)\mathcal A'+2\kappa_c\tilde\kappa E(i\omega)\mathcal A-\frac2{\kappa_c}(\alpha+\beta)|\mathcal A|^2\mathcal A+\frac3{\kappa_c^2}|\mathcal A|^2\mathcal A=0 .\]
+Here \((G_1G_2)_{e^{i\omega T}}=(\alpha+\beta)|\mathcal A|^2\mathcal A\) and
+\((G_1^3)_{e^{i\omega T}}=3|\mathcal A|^2\mathcal A\).
+
+The result is the amplitude equation
+\[\mathcal A'=\sigma\tilde\kappa\mathcal A+\ell\,|\mathcal A|^2\mathcal A,\qquad
+\sigma=\frac{2}{\kappa^3E'(i\omega)},\qquad
+\ell=\frac{b}{\kappa^4E'(i\omega)},\qquad b=\frac2{D(2i\omega)}+\frac4{D(0)}-3 .\]
+
+\textbf{Exact evaluation at the Hopf points} (\texttt{05\_limit\_coefficient.py}, C1--C3, sympy). Set \(R=\sqrt{1+t^2}=1+\kappa^2\).
+The Hopf conditions give \(e^{it}=-(1+it)/R\), and then:
+\[E'(it)=\frac1R-i\frac{R+1}{tR(R-1)},\qquad E(2it)=\frac{1-it}{2R^2},\qquad D(0)=\frac{R+1}2,\]
+\[\mathrm{Re}\big(b\,\overline{E'(it)}\big)=-\frac{7R^2-34R+23}{R(R+1)(5R-3)} .\]
+The last identity is checked exactly in the rational parametrization \(t=(s^2-1)/(2s)\), \(R=(s^2+1)/(2s)\).
+
+\textbf{Signs.}
+- \(\mathrm{Re}\,\sigma>0\), since \(\mathrm{Re}\,E'(it)=1/R>0\). This is the transversal crossing, consistent with
+paper Lemma 7.3.
+- \(7R^2-34R+23>0\) iff \(R>(17+8\sqrt2)/7\approx4.0448\). Every Hopf point has \(t_j\ge t_1>3.92\) (interval
+check: \(\tan t-t\) is increasing on \((\pi,3\pi/2)\) and negative at \(3.92\)), hence \(R_j>4.0455\).
+- Therefore \(\mathrm{Re}\,\ell_j<0\) \textbf{for every \(j\)}. Equivalently, the sign is that of
+\(-(7\kappa^4-20\kappa^2-4)\), negative since \(\kappa_j^0\ge\kappa_{\rm cr}=1.8982>1.7449\).
+
+\textbf{Proposition B.} Every Hopf bifurcation of the limit equation (R), at \(\kappa=\kappa_j^0\), \(j\ge1\), has a
+negative Landau coefficient. Hence it is supercritical in the multiple-scales sense.
+- The algebra is exact.
+- The multiple-scales coefficient is the standard first Lyapunov coefficient, up to a positive factor; the rigorous
+Hopf theory for renewal equations is in Diekmann, Getto and Gyllenberg (2008).
+- A direct simulation of (R) confirms the amplitude law. At \(\kappa=\kappa_1^0+\tilde\kappa\), a stable cycle forms
+with amplitude ratio (simulation/prediction) \(1.038\) at \(\tilde\kappa=0.004\) and \(1.018\) at \(0.002\)
+(claim C4b).
+
+\textbf{Prediction for the discrete \(\ell_1\)} (heuristic matching of normalizations; confirmed numerically in §8).
+Normalize \(q_1=1\), so \(v_1=2\,\mathrm{Re}\,z_{\rm Kuz}\). Use \(v_1=\varepsilon G\), \(T\approx\kappa\tau\) and
+\(\tau=\varepsilon^3t\). Then \(c_1=\varepsilon\kappa\ell\) and \(\omega=\varepsilon^3\kappa t_j\), so
+\[\frac{\ell_1(q_1=1)}{M}\ \longrightarrow\ L_j:=\frac{\mathrm{Re}\,\ell_j}{t_j}
+=-\frac{R(R-1)(7R^2-34R+23)}{t\,(R+1)(5R-3)\big((R-1)^3+R+1\big)}\Big|_{t=t_j}.\]
+Values: \(L_1=-0.0093114\), \(L_2=-0.0079410\), \(L_3=-0.0037777\), \(L_4=-0.0021661\), \(L_5=-0.0013977\).
+Also \(L_j\sim-7/(5t_j^2)\to0^-\).
+
+\section{Convergence evidence (Observation C)}
+
+At sample points \(M=10^4,3\cdot10^4,\dots,10^8\) and \(j=1,2,3\), the Hopf point and \(\ell_1\) are certified as in
+§5 (\texttt{06\_large\_M\_samples.py}):
+- \(\ell_1<0\) at every sample point;
+- the relative deviation of \(\ell_1(q_1=1)/M\) from \(L_j\) at \(M=10^8\) is \(1.3\times10^{-3}\) (\(j=1\)),
+\(3.6\times10^{-3}\) (\(j=2\)) and \(6.7\times10^{-3}\) (\(j=3\));
+- the deviation decays like \(M^{-0.44}\), consistent with an \(O(M^{-1/2})=O(\varepsilon)\) correction.
+
+So the discrete coefficient converges to the limit value predicted by §7, which independently confirms both the
+formal limit and the closed form.
+
+\section{\texorpdfstring{Validation of the machinery (\texttt{02\_validate\_l1.py})}{Validation of the machinery (02\_validate\_l1.py)}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{V1.} The generic Kuznetsov routine reproduces the Guckenheimer--Holmes coefficient on a planar test system to
+  \(10^{-12}\).
+\item
+  \textbf{V2.} Direct stiff simulation of the full system at \(M=30\), \(K=K_c(1+\delta)\). A small perturbation converges
+  to a small stable cycle. The \(n_1\) half-amplitude divided by the normal-form prediction
+  \(2|q_1|\sqrt{-\mu/(\omega\ell_1)}\) is \(1.0096,1.0047,1.0024,1.0012\) for \(\delta=4,2,1,0.5\%\): the ratio tends
+  to 1 linearly in \(\delta\).
+\item
+  \textbf{V3.} BifurcationKit 0.8 (Julia) classifies the Hopf points as follows: \(M=15\) SubCritical (\(\mathrm{Re}\,b=
+  +1.22\times10^{-7}\)); \(M=16\), \(17\) and \(30\) SuperCritical. Its \(K_c\) agree with ours to \(10^{-9}\). This
+  code is independent: reduced coordinates, automatic differentiation, its own normal-form code.
+\item
+  \textbf{V4} (\texttt{bk\_po\_branch.jl}, log in \texttt{certificates/logs/bk\_po\_branch.log}). The branch of periodic orbits from the
+  Hopf point is continued by orthogonal collocation (BifurcationKit).
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(M=16\): the branch leaves towards \(K>K_c\) with amplitude\(^2\propto K-K_c\): supercritical.
+  \item
+    \(M=15\): the branch leaves towards \(K<K_c\) with amplitude\(^2\propto K_c-K\) (ratios 12.4 vs 12.8):
+    subcritical. It then folds back towards \(K>K_c\) at \(n_M\)-amplitude \(\approx1.2\), a saddle-node of cycles,
+    consistent with the tiny \(\ell_1\).
+  \end{itemize}
+\end{itemize}
+
+\section{What is proved, what is not, and points for the verifier}
+
+\textbf{Proved (computer-assisted, ball arithmetic).}
+- Theorem A: the sign of \(\ell_1\) for every \((M,j)\in\mathcal S\), with simplicity and transversality.
+- H2 and the branch label for \(M\le120\).
+
+\textbf{Exact (symbolic).}
+- The Landau coefficient of the limit equation (R) and its sign for every \(j\) (Proposition B, algebraic part).
+
+\textbf{Formal or not proved.}
+1. \emph{Large \(M\) is not covered rigorously.} There is no proof that \(\ell_1(q_1=1)/M\to L_j\); §8 is numerical
+evidence plus certified samples. A complete answer for all \(M>M_{0,k}\) needs this convergence with an explicit
+rate, together with Theorem A up to the resulting threshold. An \(\varepsilon\)-graded interval evaluation of the
+closed form is not directly possible: the inner products contain an exact cancellation of relative order
+\(\varepsilon^{-3}\) between the row-1 term and the bulk sum (mass conservation). A proof would have to reorganize
+the computation around the continuum structure of §7.
+2. \emph{Derivation of (R)} (§7.1): formal (quasi-static boundary layer, slaved monomers, neglected diffusion). It
+reproduces the paper's \(Q\) at linear order. The match of §8 (to \(10^{-3}\) at \(M=10^8\)) supports it at
+cubic order.
+3. \emph{Multiple-scales coefficient as the Lyapunov coefficient of (R):} standard but not re-proved here (renewal
+equations: sun-star calculus).
+4. \emph{H2 for \(120<M\)} and the branch label \(j\) for \(M>300\): floating-point evidence only, plus continuation.
+The paper covers H2 for \(M>M_{0,k}\).
+5. \emph{Onset values} \(M=15,44,87\): floating-point scans with \(K\le10^5\). This affects only the \emph{existence} of the
+branch below these values, not the certified signs.
+6. \(j\ge4\) is not certified. Floating point gives \(\ell_1<0\) for \(j\le6\) at \(M=150\)--\(300\), and the limit
+coefficient is negative for every \(j\).
+
+\textbf{Points for an independent verifier.}
+- (a) Re-derive (2.1) and the role of \(H\) in (3.1): the choice \(w_{11}\in H\).
+- (b) Check the ansatz argument in §4, in particular the completeness of the family and row 1 versus the mass
+condition.
+- (c) Re-run \texttt{04\_verify\_certificates.py\ 1\ ...}. It re-proves every line from the stored midpoints alone.
+- (d) Re-derive the boundary-layer mass \(\Gamma/(\kappa(\kappa+\Gamma))\) and the Lagrangian reduction to (R).
+- (e) Check the multiple-scales algebra (signs of \(c_3\)), using \texttt{05\_limit\_coefficient.py}, claims C2 and C4b.
+- (f) Confirm \(M=15\) independently. Already done here by BifurcationKit's normal form (V3) and its periodic-orbit
+continuation (V4); a third, independent code would be welcome.
+
+\section{Reproduction}
+
+From the project root in Git Bash: \texttt{outils/wsl\ "cd\ chemistry-open-problems/problems/becker-doring-atomization-hopf/scripts\ \&\&\ python\ \textless{}script\textgreater{}"}.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+script
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+content
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+runtime
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{01\_check\_model.py} & model identities, paper's eigenvalues and Table 1, closed form = dense & 1 min \\
+\texttt{02\_validate\_l1.py} & planar test, stiff simulation (M = 30), BifurcationKit cross-check & 10 min \\
+\texttt{03\_certify\_range.py\ J\ MMIN\ MMAX\ OUT.csv\ {[}SEED.csv{]}} & certified sweep (Theorem A) & 12--30 ms per \(M\) \\
+\texttt{04\_verify\_certificates.py\ STRIDE\ files...} & independent re-check of the sweep files & 20 ms per line \\
+\texttt{05\_limit\_coefficient.py} & limit problem, exact algebra, simulation of (R) & 1 min \\
+\texttt{06\_large\_M\_samples.py} & certified samples up to \(M=10^8\), convergence to \(L_j\) & 2 min \\
+\texttt{07\_spectrum\_H2.py\ MMAX\ files...} & rigorous spectra, H2 and branch label for \(M\le\) MMAX & 15 min \\
+\texttt{bk\_check.jl\ M\ Kc\ ...} & BifurcationKit normal form (independent) & 2 min \\
+\texttt{bk\_po\_branch.jl} & BifurcationKit periodic-orbit branch at \(M=15,16\) (direction of bifurcation) & 3 min \\
+\end{longtable}
+}
+
+\end{document}

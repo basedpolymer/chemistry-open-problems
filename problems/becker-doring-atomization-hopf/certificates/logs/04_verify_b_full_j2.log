@@ -1,0 +1,2 @@
+../certificates/sweep_j2_b.csv: j=2, M in [10001, 100000], 90000 lines re-checked, coverage True: PASS (1113s)
+SUMMARY: PASS

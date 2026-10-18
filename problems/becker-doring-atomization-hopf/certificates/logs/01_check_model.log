@@ -1,0 +1,22 @@
+M1  PASS max rel. error 1.8e-10
+M2  PASS max residual 5.5e-14
+M3  PASS max |l B|, |l S| = 4.2e-15
+M4  PASS unstable: ['0.05836+0.2014i', '0.02585+0.3618i'] ; min eigenvalue -410.94
+     M=1e+02 kappa_1 = 3.934882 (paper 3.9349)  Im lambda = 2.173957e-02 (paper 2.1740e-02)  True
+     M=1e+03 kappa_1 = 2.372202 (paper 2.3722)  Im lambda = 3.617641e-04 (paper 3.6176e-04)  True
+     M=1e+04 kappa_1 = 2.037569 (paper 2.0376)  Im lambda = 9.359613e-06 (paper 9.3596e-06)  True
+     M=1e+05 kappa_1 = 1.941373 (paper 1.9414)  Im lambda = 2.777651e-07 (paper 2.7777e-07)  True
+     M=1e+06 kappa_1 = 1.911794 (paper 1.9118)  Im lambda = 8.609135e-09 (paper 8.6091e-09)  True
+M5  PASS Table 1 reproduced
+     M=20 j=1  l1 dense = -7.7730491274e-04   closed form = -7.7730491274e-04   rel.diff 2.3e-14
+     M=50 j=1  l1 dense = -1.8960600677e-02   closed form = -1.8960600677e-02   rel.diff 2.2e-15
+     M=50 j=2  l1 dense = -2.0720081033e-05   closed form = -2.0720081033e-05   rel.diff 4.6e-14
+     M=100 j=1  l1 dense = -3.0012116779e-02   closed form = -3.0012116779e-02   rel.diff 2.3e-13
+     M=100 j=2  l1 dense = -2.4773334119e-03   closed form = -2.4773334119e-03   rel.diff 3.2e-13
+     M=100 j=3  l1 dense = -1.0331050296e-05   closed form = -1.0331050296e-05   rel.diff 2.9e-13
+     M=200 j=1  l1 dense = -2.8669573353e-02   closed form = -2.8669573353e-02   rel.diff 6.3e-12
+     M=200 j=2  l1 dense = -7.4902489479e-03   closed form = -7.4902489479e-03   rel.diff 5.4e-13
+     M=200 j=3  l1 dense = -1.0532546977e-03   closed form = -1.0532546977e-03   rel.diff 6.1e-13
+     M=200 j=4  l1 dense = -5.8045277605e-05   closed form = -5.8045277605e-05   rel.diff 1.8e-13
+M6  PASS closed form = dense formula
+SUMMARY: PASS

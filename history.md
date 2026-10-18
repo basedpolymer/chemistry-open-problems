@@ -22,3 +22,5 @@
   corrections to the abstract and to a remark).
 - Result 7 (reaction networks): Banaji–Feliu Remark 5.8 answered for every n by an explicit family (orchestrator,
   Claude Opus 5.5 xhigh); Remark 5.6 of the same paper found to misquote its source for n = 1.
+- Result 8 (nucleation kinetics, partial): Becker–Döring with atomization, sign of the first Lyapunov coefficient
+  certified for 15 ≤ M ≤ 10^5 (supercritical except M = 15), solver sub-agent Claude Opus 5.5 (xhigh).

@@ -1,0 +1,13 @@
+V1  PASS l1 = -0.210059171598, 2 a_GH/omega = -0.210059171598
+     delta=0.020  n_1 half-amplitude: simulation 3.947161e-01, normal form 3.928501e-01, ratio 1.00475
+     delta=0.010  n_1 half-amplitude: simulation 2.783810e-01, normal form 2.777234e-01, ratio 1.00237
+     delta=0.005  n_1 half-amplitude: simulation 1.965891e-01, normal form 1.963573e-01, ratio 1.00118
+V2  PASS ratios ['1.00475', '1.00237', '1.00118'] (-> 1, error ~ delta)
+     RESULT M=15 Kc=212.89521630278838 omega=87.79711202550054 real(b)=1.216427477200864e-7 type=SubCritical
+     RESULT M=16 Kc=20.77381285151987 omega=8.042102792560254 real(b)=-0.00011973565584605179 type=SuperCritical
+     RESULT M=17 Kc=11.012175321758027 omega=4.014395442811256 real(b)=-0.0003692210879185648 type=SuperCritical
+     RESULT M=30 Kc=1.6869971916602926 omega=0.34186721294019257 real(b)=-0.0024605140802013425 type=SuperCritical
+V3  PASS BifurcationKit: M=15 SubCritical; M=16,17,30 SuperCritical
+SUMMARY: PASS
+
+[exited with code 0]

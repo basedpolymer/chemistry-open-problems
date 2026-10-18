@@ -1,0 +1,4 @@
+../certificates/sweep_j1_b.csv: j=1, M in [10001, 100000], 9000 lines re-checked, coverage True: PASS (105s)
+../certificates/sweep_j2_b.csv: j=2, M in [10001, 100000], 9000 lines re-checked, coverage True: PASS (96s)
+../certificates/sweep_j3_b.csv: j=3, M in [10001, 100000], 9000 lines re-checked, coverage True: PASS (95s)
+SUMMARY: PASS
