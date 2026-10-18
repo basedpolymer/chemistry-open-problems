@@ -1,4 +1,4 @@
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; one nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; one nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification and corrections: Claude Opus 5.5 (effort xhigh), fresh context, no access to the solver's reasoning. Verdict: CONFIRMED WITH CORRECTIONS (`verification.md`).
 
 # Becker–Döring equations with atomization: is the Hopf bifurcation supercritical?
 
@@ -14,10 +14,10 @@ and \(M>M_{0,k}\). Right after it, §3.3 says (verbatim):
 > case) or not. Many of our numerical computations, as in Fig. 1, are consistent with the presence of stable
 > periodic solutions, however."
 
-**Novelty check (2026-10-18).** 20 citing works (OpenAlex and Semantic Scholar) were checked, along with the
+**Novelty check (2026-10-18; redone independently by the verifier the same day, see `verification.md`).** 20 citing works (OpenAlex and Semantic Scholar) were checked, along with the
 authors' later papers and web and arXiv searches. None settles the question; see `references.md`.
 
-## Status: partial result, not yet independently verified
+## Status: partial result, independently verified (confirmed with corrections)
 
 **Answer.** The bifurcation is **supercritical**: the first Lyapunov coefficient is \(\ell_1<0\). There is one
 exception: at \(M=15\), the first value of \(M\) where the first branch exists, it is **subcritical** (\(\ell_1>0\)).
@@ -30,11 +30,19 @@ The scope of each claim is as follows.
    - the first Lyapunov coefficient of the system restricted to the mass hyperplane is certified **negative**,
      except for \((M,j)=(15,1)\), where it is certified **positive**.
 
-   One spectral hypothesis of the Hopf theorem says no other eigenvalue lies on \(i\mathbb R\). It is certified
-   for \(M\le120\) with Arb's rigorous eigensolver. For larger \(M\) it is checked in floating point, and the paper
-   proves it for \(M>M_{0,k}\). Consequently the first Hopf bifurcation is supercritical, with orbitally stable
-   periodic solutions, for every \(16\le M\le10^5\). In particular this holds for every \(M\) in Theorem 3.3's
-   range \(M>M_{0,k}\) up to \(10^5\).
+   One spectral hypothesis of the Hopf theorem (H2) says no other eigenvalue lies on \(i\mathbb R\). It is
+   certified with Arb's rigorous eigensolver for \(M\le120\) by the solver, and for \(M\le160\) and
+   \(M=250,300\) by the verifier's independent code. Beyond that it is checked only in floating point: for
+   \(M\le300\) and every 50th \(M\le2000\), and not at all for \(M>2000\). The paper proves it for
+   \(M>M_{0,k}\), but \(M_{0,k}\) is not explicit. Consequently:
+   - the Hopf bifurcation at \(\kappa_1(M)\) is supercritical, with orbitally stable periodic solutions (within the
+     mass hyperplane), rigorously for every \(16\le M\le160\);
+   - for \(160<M\le10^5\) the same holds *conditionally on H2*. The sign \(\ell_1<0\) itself is certified on the
+     whole range.
+   - (verifier, exact algebra) For \(3\le M\le14\) no eigenvalue ever reaches \(i\mathbb R\) for \(K>0\). For
+     \(15\le M\le43\) there is exactly one crossing and for \(44\le M\le57\) exactly two. So \(\kappa_1(M)\) is
+     the first loss of stability for \(15\le M\le57\), and the onsets \(M=15\) (branch 1) and \(M=44\)
+     (branch 2) are exact.
 
 2. **Limit \(M\to\infty\) (formal derivation + exact algebra).** In a Lagrangian "clock" time the system reduces
    to the scalar renewal equation
@@ -53,7 +61,8 @@ The scope of each claim is as follows.
 **Not proved.**
 - The convergence \(\ell_1(q_1=1)/M\to L_j\) for \(M\to\infty\), so \(M>10^5\) is not rigorously covered.
 - The derivation of the limit equation (formal).
-- The spectral hypothesis for \(120<M\le10^5\) (floating point).
+- The spectral hypothesis H2 for \(160<M\le10^5\), except \(M=250,300\) (floating point up to \(M=2000\), unchecked beyond), hence the orbital stability for \(M>160\).
+- The branch label for \(M>300\) (continuation in \(M\)); "first" crossing for \(M>57\).
 - \(j\ge4\) (floating point only, \(M\le300\); the limit coefficient is negative for all \(j\)).
 
 The full list of gaps and the points for a verifier are in `paper.pdf` (section "What is proved, what is not, and points for the verifier").
@@ -87,12 +96,22 @@ Run the other scripts the same way. Every script prints PASS/FAIL per claim and 
 
 `bdlib.py` is the shared library: model, closed-form ball evaluation of \(\ell_1\), Krawczyk operator.
 
+**Verifier's scripts** (`verification/`, run the same way from that folder; details and logs in `verification.md`):
+`v01_audit_csv.py` (audit of all certificate lines), `v02_dense_certify.py` (independent dense ball-arithmetic
+certificate in reduced coordinates, \(M\le300\), with H2), `v03_sparse_float.py` / `v04_sparse_arb.py` (independent
+\(O(M)\) cross-checks up to \(M=10^5\), double precision / 320 bits), `v05_recheck_sample.py` (re-proof of 1360 lines
+with the solver's library plus extra checks), `v06_limit_algebra.py` (limit problem), `v07_first_crossing.py` (exact
+location of all imaginary-axis crossings, PARI/GP, \(M\le57\)), `v08_simulate.py` (direct simulation, \(M=16,50\)),
+`v09_po_shooting.py` (periodic orbits by shooting, \(M=15,16\)).
+
 ## Files
 
 - `paper.tex`, `paper.pdf`: manuscript, full technical write-up (model, Lyapunov coefficient on the mass hyperplane, closed form, certificate,
   limit problem and its Landau coefficient, limitations).
 - `references.md`: sources and what was read.
 - `PROGRESS.md`: log of the work.
+- `verification.md`: independent verification report (verdict, what was recomputed, corrections, reservations).
+- `verification/`: the verifier's scripts and logs (`v01`–`v09`, see `verification.md`).
 - `scripts/`: see the table above.
 - `certificates/`:
   - `sweep_j{1,2,3}.csv.gz` (\(M\le10^4\)) and `sweep_j{1,2,3}_b.csv.gz` (\(10^4<M\le10^5\)): one line per

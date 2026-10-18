@@ -1,0 +1,37 @@
+M=210 j=1 kappa=3.10061417757 l1_unit=-2.8227096970e-02 (+-1.9e-39) solver=-2.8227096970e-02 agree=True label=(0, 1) simple=True dRe/dK>0.0107 eig=None tri= PASS 8.9s
+M=220 j=1 kappa=3.06461370246 l1_unit=-2.7777144885e-02 (+-3.0e-39) solver=-2.7777144885e-02 agree=True label=(0, 1) simple=True dRe/dK>0.0103 eig=None tri= PASS 10.5s
+M=230 j=1 kappa=3.03147036649 l1_unit=-2.7323994900e-02 (+-4.8e-39) solver=-2.7323994900e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00985 eig=None tri= PASS 12.4s
+M=240 j=1 kappa=3.00083387799 l1_unit=-2.6870943542e-02 (+-7.4e-39) solver=-2.6870943542e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00946 eig=None tri= PASS 15.7s
+M=250 j=1 kappa=2.97241050999 l1_unit=-2.6420523749e-02 (+-1.1e-38) solver=-2.6420523749e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00911 eig=None tri= PASS 17.8s
+M=260 j=1 kappa=2.94595196761 l1_unit=-2.5974671628e-02 (+-1.5e-38) solver=-2.5974671628e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00877 eig=None tri= PASS 21.7s
+M=270 j=1 kappa=2.9212468065 l1_unit=-2.5534855061e-02 (+-2.2e-38) solver=-2.5534855061e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00846 eig=None tri= PASS 20.1s
+M=280 j=1 kappa=2.89811374172 l1_unit=-2.5102173464e-02 (+-3.0e-38) solver=-2.5102173464e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00817 eig=None tri= PASS 22.4s
+M=290 j=1 kappa=2.87639637593 l1_unit=-2.4677435610e-02 (+-4.0e-38) solver=-2.4677435610e-02 agree=True label=(0, 1) simple=True dRe/dK>0.0079 eig=None tri= PASS 24.9s
+SUMMARY: 9 points, PASS (0 failures), 156s
+M=210 j=2 kappa=9.01090936586 l1_unit=-7.8174086529e-03 (+-4.2e-41) solver=-7.8174086529e-03 agree=True label=(1, 2) simple=True dRe/dK>0.0115 eig=None tri= PASS 9.2s
+M=220 j=2 kappa=8.79434229917 l1_unit=-8.1195476637e-03 (+-6.7e-41) solver=-8.1195476637e-03 agree=True label=(1, 2) simple=True dRe/dK>0.0111 eig=None tri= PASS 11.2s
+M=230 j=2 kappa=8.59873757211 l1_unit=-8.3985892889e-03 (+-9.7e-41) solver=-8.3985892889e-03 agree=True label=(1, 2) simple=True dRe/dK>0.0108 eig=None tri= PASS 13.8s
+M=240 j=2 kappa=8.42102787998 l1_unit=-8.6563334874e-03 (+-1.4e-40) solver=-8.6563334874e-03 agree=True label=(1, 2) simple=True dRe/dK>0.0104 eig=None tri= PASS 16.4s
+M=250 j=2 kappa=8.25872739194 l1_unit=-8.8944508841e-03 (+-2.1e-40) solver=-8.8944508841e-03 agree=True label=(1, 2) simple=True dRe/dK>0.0101 eig=None tri= PASS 18.0s
+M=260 j=2 kappa=8.10979909175 l1_unit=-9.1144834044e-03 (+-3.0e-40) solver=-9.1144834044e-03 agree=True label=(1, 2) simple=True dRe/dK>0.00974 eig=None tri= PASS 17.9s
+M=270 j=2 kappa=7.97255700113 l1_unit=-9.3178488418e-03 (+-4.3e-40) solver=-9.3178488418e-03 agree=True label=(1, 2) simple=True dRe/dK>0.00944 eig=None tri= PASS 20.4s
+M=280 j=2 kappa=7.84559300928 l1_unit=-9.5058476298e-03 (+-5.9e-40) solver=-9.5058476298e-03 agree=True label=(1, 2) simple=True dRe/dK>0.00915 eig=None tri= PASS 22.3s
+M=290 j=2 kappa=7.72772135693 l1_unit=-9.6796707107e-03 (+-8.6e-40) solver=-9.6796707107e-03 agree=True label=(1, 2) simple=True dRe/dK>0.00889 eig=None tri= PASS 24.6s
+SUMMARY: 9 points, PASS (0 failures), 155s
+M=210 j=3 kappa=21.640284801 l1_unit=-1.1918107548e-03 (+-4.0e-42) solver=-1.1918107548e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00932 eig=None tri= PASS 10.0s
+M=220 j=3 kappa=20.6577913578 l1_unit=-1.3292963046e-03 (+-6.3e-42) solver=-1.3292963046e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00918 eig=None tri= PASS 11.4s
+M=230 j=3 kappa=19.8058352097 l1_unit=-1.4649688944e-03 (+-1.0e-41) solver=-1.4649688944e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00904 eig=None tri= PASS 13.5s
+M=240 j=3 kappa=19.0592907091 l1_unit=-1.5982702781e-03 (+-1.4e-41) solver=-1.5982702781e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00888 eig=None tri= PASS 16.1s
+M=250 j=3 kappa=18.3991395929 l1_unit=-1.7287885805e-03 (+-2.1e-41) solver=-1.7287885805e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00871 eig=None tri= PASS 18.5s
+M=260 j=3 kappa=17.8107167009 l1_unit=-1.8562278277e-03 (+-2.9e-41) solver=-1.8562278277e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00855 eig=None tri= PASS 18.5s
+M=270 j=3 kappa=17.2825281916 l1_unit=-1.9803835415e-03 (+-4.0e-41) solver=-1.9803835415e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00838 eig=None tri= PASS 20.7s
+M=280 j=3 kappa=16.8054354192 l1_unit=-2.1011232489e-03 (+-6.5e-41) solver=-2.1011232489e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00822 eig=None tri= PASS 24.3s
+M=290 j=3 kappa=16.3720788663 l1_unit=-2.2183709443e-03 (+-8.6e-41) solver=-2.2183709443e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00805 eig=None tri= PASS 25.4s
+SUMMARY: 9 points, PASS (0 failures), 160s
+M=250 j=1 kappa=2.97241050999 l1_unit=-2.6420523749e-02 (+-1.1e-38) solver=-2.6420523749e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00911 eig=(2, 0, 247) tri= PASS 46.5s
+M=300 j=1 kappa=2.85595900573 l1_unit=-2.4261220645e-02 (+-6.0e-38) solver=-2.4261220645e-02 agree=True label=(0, 1) simple=True dRe/dK>0.00765 eig=(2, 0, 297) tri= PASS 83.2s
+M=250 j=2 kappa=8.25872739194 l1_unit=-8.8944508841e-03 (+-2.1e-40) solver=-8.8944508841e-03 agree=True label=(1, 2) simple=True dRe/dK>0.0101 eig=(2, 2, 245) tri= PASS 48.2s
+M=300 j=2 kappa=7.61793598441 l1_unit=-9.8404078012e-03 (+-1.2e-39) solver=-9.8404078012e-03 agree=True label=(1, 2) simple=True dRe/dK>0.00863 eig=(2, 2, 295) tri= PASS 82.4s
+M=250 j=3 kappa=18.3991395929 l1_unit=-1.7287885805e-03 (+-2.1e-41) solver=-1.7287885805e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00871 eig=(2, 4, 243) tri= PASS 51.9s
+M=300 j=3 kappa=15.9764635468 l1_unit=-2.3320947111e-03 (+-1.3e-40) solver=-2.3320947111e-03 agree=True label=(2, 3) simple=True dRe/dK>0.00789 eig=(2, 4, 293) tri= PASS 84.8s
+SUMMARY: 6 points, PASS (0 failures), 401s

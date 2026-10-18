@@ -1,0 +1,100 @@
+M=3 deg_K(resultant)=1 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.4s)
+M=4 deg_K(resultant)=3 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=5 deg_K(resultant)=6 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=6 deg_K(resultant)=10 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=7 deg_K(resultant)=15 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=8 deg_K(resultant)=21 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=9 deg_K(resultant)=28 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=10 deg_K(resultant)=36 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=11 deg_K(resultant)=45 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=12 deg_K(resultant)=55 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=13 deg_K(resultant)=66 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=14 deg_K(resultant)=78 positive roots of det(A_hat)=0 positive real roots of resultant: 0
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, inf): exact Routh count of eigenvalues with Re>0 at K = 1 : 0
+  (0.1s)
+M=15 deg_K(resultant)=91 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 212.89521633152287735504042570954348935   eigenvalue closest to iR at K*: [|Re|, |Im|] = [6.5459855878021640109239194994382847354 E-37, 87.797112034992191000917965033552474304]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 212.89521633152287): exact Routh count of eigenvalues with Re>0 at K = 93461/878 : 0
+  interval (212.89521633152287, inf): exact Routh count of eigenvalues with Re>0 at K = 187361/439 : 2
+  (0.1s)
+M=16 deg_K(resultant)=105 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 20.773812844135307454946682986491365502   eigenvalue closest to iR at K*: [|Re|, |Im|] = [3.1753033419403794661348194825590140693 E-38, 8.0421027892889729250210044149621995406]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 20.773812844135307): exact Routh count of eigenvalues with Re>0 at K = 1745/168 : 0
+  interval (20.773812844135307, inf): exact Routh count of eigenvalues with Re>0 at K = 1787/42 : 2
+  (0.1s)
+M=17 deg_K(resultant)=120 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 11.012175316454025938388565168905832345   eigenvalue closest to iR at K*: [|Re|, |Im|] = [3.5441248114411551048791884903173388943 E-38, 4.0143954407417280946070281690376235608]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 11.012175316454027): exact Routh count of eigenvalues with Re>0 at K = 7235/1314 : 0
+  interval (11.012175316454027, inf): exact Routh count of eigenvalues with Re>0 at K = 14183/616 : 2
+  (0.2s)
+M=18 deg_K(resultant)=136 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 7.5322416500183608436555568567052390567   eigenvalue closest to iR at K*: [|Re|, |Im|] = [1.6525062491621598408687739330507593328 E-38, 2.5930246323876012945865300963548169961]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 7.532241650018361): exact Routh count of eigenvalues with Re>0 at K = 7359/1954 : 0
+  interval (7.532241650018361, inf): exact Routh count of eigenvalues with Re>0 at K = 15695/977 : 2
+  (0.2s)
+M=19 deg_K(resultant)=153 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 5.7456352092885451444178884138421291145   eigenvalue closest to iR at K*: [|Re|, |Im|] = [1.2723030784392862476627974707162821881 E-38, 1.8728176022803871243990141758778870344]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 5.745635209288545): exact Routh count of eigenvalues with Re>0 at K = 1152/401 : 0
+  interval (5.745635209288545, inf): exact Routh count of eigenvalues with Re>0 at K = 5009/401 : 2
+  (0.2s)
+M=20 deg_K(resultant)=171 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 4.6577426524715169357815494187350943900   eigenvalue closest to iR at K*: [|Re|, |Im|] = [1.6311332127659224224585754606819263717 E-38, 1.4409729098778480016116720041658628944]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 4.657742652471517): exact Routh count of eigenvalues with Re>0 at K = 4001/1718 : 0
+  interval (4.657742652471517, inf): exact Routh count of eigenvalues with Re>0 at K = 7128/691 : 2
+  (0.2s)
+M=25 deg_K(resultant)=276 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 2.4414154241805654857897427095026876655   eigenvalue closest to iR at K*: [|Re|, |Im|] = [8.5749445779948006484165809607626972489 E-39, 0.59958111256530426766579974844979710098]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 2.4414154241805655): exact Routh count of eigenvalues with Re>0 at K = 2417/1980 : 0
+  interval (2.4414154241805655, inf): exact Routh count of eigenvalues with Re>0 at K = 5071/862 : 2
+  (0.5s)
+M=30 deg_K(resultant)=406 positive roots of det(A_hat)=0 positive real roots of resultant: 1
+  K* = 1.6869971892378328358228848239050397162   eigenvalue closest to iR at K*: [|Re|, |Im|] = [3.9579912827848289132828281168462730573 E-39, 0.34186721240709689973153216906248918860]
+stderr: ***   Warning: new stack size = 400000000 (381.470 Mbytes).
+  interval (0.0, 1.6869971892378328): exact Routh count of eigenvalues with Re>0 at K = 733/869 : 0
+  interval (1.6869971892378328, inf): exact Routh count of eigenvalues with Re>0 at K = 3263/746 : 2
+  (1.4s)
+
+real	0m4.357s
+user	0m4.093s
+sys	0m0.582s

@@ -46,3 +46,7 @@
   self-avoiding walks, improving 4.7387 (Pönitz–Tittmann 2000), plus new bounds for d = 4, 5, 6; optimised
   forbidden-set automata with exact Collatz–Wielandt certificates (largest: 2.06e8 states), solver sub-agent
   Claude Opus 5.5 (xhigh). Independent verification pending.
+- Result 8 independently verified: CONFIRMED WITH CORRECTIONS. Signs of l1 re-certified in other coordinates
+  for all M <= 200 and samples up to 1e5, subcritical M = 15 and supercritical M = 16 confirmed by periodic-orbit
+  shooting; the stability claim was overstated and is now rigorous only for 16 <= M <= 160 (spectral hypothesis
+  certified there, plus M = 250, 300) and conditional beyond; "first crossing" proved for 15 <= M <= 57.

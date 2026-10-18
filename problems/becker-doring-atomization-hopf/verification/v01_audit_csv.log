@@ -1,0 +1,7 @@
+../certificates/sweep_j1.csv.gz: j=1 M=[14,10000] lines=9986 no_cross=[14] errors=0 cover=True | Im z window True, kappa decreasing True, max|d2 kappa|/|d1 kappa| (M>=first+6) = 0.279, max|d2 y| = 0.00098 | PASS
+../certificates/sweep_j1_b.csv.gz: j=1 M=[10001,100000] lines=90000 no_cross=[] errors=0 cover=True | Im z window True, kappa decreasing True, max|d2 kappa|/|d1 kappa| (M>=first+6) = 0.000153, max|d2 y| = 6.92e-10 | PASS
+../certificates/sweep_j2.csv.gz: j=2 M=[43,10000] lines=9957 no_cross=[43] errors=0 cover=True | Im z window True, kappa decreasing True, max|d2 kappa|/|d1 kappa| (M>=first+6) = 0.272, max|d2 y| = 0.000106 | PASS
+../certificates/sweep_j2_b.csv.gz: j=2 M=[10001,100000] lines=90000 no_cross=[] errors=0 cover=True | Im z window True, kappa decreasing True, max|d2 kappa|/|d1 kappa| (M>=first+6) = 0.000151, max|d2 y| = 6.82e-10 | PASS
+../certificates/sweep_j3.csv.gz: j=3 M=[86,10000] lines=9914 no_cross=[86] errors=0 cover=True | Im z window True, kappa decreasing True, max|d2 kappa|/|d1 kappa| (M>=first+6) = 0.263, max|d2 y| = 2.32e-05 | PASS
+../certificates/sweep_j3_b.csv.gz: j=3 M=[10001,100000] lines=90000 no_cross=[] errors=0 cover=True | Im z window True, kappa decreasing True, max|d2 kappa|/|d1 kappa| (M>=first+6) = 0.000151, max|d2 y| = 6.62e-10 | PASS
+SUMMARY: PASS

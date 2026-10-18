@@ -1,0 +1,147 @@
+=== 01_check_model.py
+M1  PASS max rel. error 1.8e-10
+M2  PASS max residual 5.5e-14
+M3  PASS max |l B|, |l S| = 4.2e-15
+M4  PASS unstable: ['0.05836+0.2014i', '0.02585+0.3618i'] ; min eigenvalue -410.94
+     M=1e+02 kappa_1 = 3.934882 (paper 3.9349)  Im lambda = 2.173957e-02 (paper 2.1740e-02)  True
+     M=1e+03 kappa_1 = 2.372202 (paper 2.3722)  Im lambda = 3.617641e-04 (paper 3.6176e-04)  True
+     M=1e+04 kappa_1 = 2.037569 (paper 2.0376)  Im lambda = 9.359613e-06 (paper 9.3596e-06)  True
+     M=1e+05 kappa_1 = 1.941373 (paper 1.9414)  Im lambda = 2.777651e-07 (paper 2.7777e-07)  True
+     M=1e+06 kappa_1 = 1.911794 (paper 1.9118)  Im lambda = 8.609135e-09 (paper 8.6091e-09)  True
+M5  PASS Table 1 reproduced
+     M=20 j=1  l1 dense = -7.7730491274e-04   closed form = -7.7730491274e-04   rel.diff 2.3e-14
+     M=50 j=1  l1 dense = -1.8960600677e-02   closed form = -1.8960600677e-02   rel.diff 2.2e-15
+     M=50 j=2  l1 dense = -2.0720081033e-05   closed form = -2.0720081033e-05   rel.diff 4.6e-14
+     M=100 j=1  l1 dense = -3.0012116779e-02   closed form = -3.0012116779e-02   rel.diff 2.3e-13
+     M=100 j=2  l1 dense = -2.4773334119e-03   closed form = -2.4773334119e-03   rel.diff 3.2e-13
+     M=100 j=3  l1 dense = -1.0331050296e-05   closed form = -1.0331050296e-05   rel.diff 2.9e-13
+     M=200 j=1  l1 dense = -2.8669573353e-02   closed form = -2.8669573353e-02   rel.diff 6.3e-12
+     M=200 j=2  l1 dense = -7.4902489479e-03   closed form = -7.4902489479e-03   rel.diff 5.4e-13
+     M=200 j=3  l1 dense = -1.0532546977e-03   closed form = -1.0532546977e-03   rel.diff 6.1e-13
+     M=200 j=4  l1 dense = -5.8045277605e-05   closed form = -5.8045277605e-05   rel.diff 1.8e-13
+M6  PASS closed form = dense formula
+SUMMARY: PASS
+
+real	0m58.099s
+user	0m57.344s
+sys	0m0.400s
+exit=0
+=== 05_limit_coefficient.py
+C1   PASS (E(it)=-1/kappa^2: True, E'(it): True, E(2it): True)
+C1'  PASS (E'(z) = e^-z/z - 2E(z)/z checked at z=0.3+4.1i)
+C2   PASS Re(b conj E') = -(7R^2-34R+23)/(R(R+1)(5R-3))
+C3   PASS t_1 > 3.92 and sqrt(1+3.92^2) = [4.0455408 +/- 4.51e-8] > R* = [4.0448155 +/- 1.48e-10]; so 7R_j^2-34R_j+23 > 0 for all j
+   j      t_j            kappa_j^0        Re sigma      Re ell        L_j = Re ell / t_j   (closed form)
+   1  4.4934094579  1.8982462561  +1.202038e+00  -4.183993e-02  -0.0093113984  -0.0093113984
+   2  10.9041216594  3.1543430171  +6.894070e-01  -8.658982e-02  -0.0079410173  -0.0079410173
+   3  17.2207552719  4.0310997963  +5.244442e-01  -6.505479e-02  -0.0037776968  -0.0037776968
+   4  23.5194524987  4.7477049085  +4.390042e-01  -5.094489e-02  -0.0021660747  -0.0021660747
+   5  29.8115987909  5.3692053482  +3.849204e-01  -4.166628e-02  -0.0013976535  -0.0013976535
+   6  36.1006222444  5.9257463467  +3.468246e-01  -3.518938e-02  -0.0009747584  -0.0009747584
+   7  42.3879135681  6.4342604659  +3.181496e-01  -3.043358e-02  -0.0007179778  -0.0007179778
+   8  48.6741442320  6.9053903251  +2.955672e-01  -2.680058e-02  -0.0005506123  -0.0005506123
+   9  54.9596782879  7.3463443367  +2.771900e-01  -2.393764e-02  -0.0004355491  -0.0004355491
+  10  61.2447302604  7.7622737445  +2.618582e-01  -2.162470e-02  -0.0003530867  -0.0003530867
+C4a  PASS closed form of L_j agrees with Re ell/t_j; cos t_j < 0
+   simulation of (R), kappa = kappa_1^0 + 0.004 : cycle half-amplitude 0.70409, predicted 2|A| = 0.67799, ratio 1.0385
+   simulation of (R), kappa = kappa_1^0 + 0.002 : cycle half-amplitude 0.48821, predicted 2|A| = 0.47941, ratio 1.0184
+C4b  PASS (stable cycle; amplitude ratio -> 1 as kappa -> kappa_1^0)
+SUMMARY: PASS
+
+real	0m15.345s
+user	0m13.518s
+sys	0m0.994s
+exit=0
+=== 06_large_M_samples.py
+j=1  limit: t_j=4.49340946 kappa_j^0=1.89824626 L_j=-0.0093113984
+  M=1e+04 kappa=2.0375686900 z=0.1032895+4.5888203i  l1 in [-1.542483e-03, -1.542483e-03]  l1(q1=1)/M=-0.0110147775  rel.dev=1.829e-01  PASS
+  M=3e+04 kappa=1.9776218528 z=0.0604005+4.5489554i  l1 in [-7.720418e-04, -7.720418e-04]  l1(q1=1)/M=-0.0096360830  rel.dev=3.487e-02  PASS
+  M=1e+05 kappa=1.9413727095 z=0.0333357+4.5239885i  l1 in [-4.028242e-04, -4.028242e-04]  l1(q1=1)/M=-0.0092364454  rel.dev=8.050e-03  PASS
+  M=3e+05 kappa=1.9230437487 z=0.0193201+4.5111100i  l1 in [-2.306213e-04, -2.306213e-04]  l1(q1=1)/M=-0.0091897283  rel.dev=1.307e-02  PASS
+  M=1e+06 kappa=1.9117943302 z=0.0106068+4.5031199i  l1 in [-1.264325e-04, -1.264325e-04]  l1(q1=1)/M=-0.0092177579  rel.dev=1.006e-02  PASS
+  M=3e+06 kappa=1.9060582224 z=0.0061311+4.4990204i  l1 in [-7.316460e-05, -7.316460e-05]  l1(q1=1)/M=-0.0092492995  rel.dev=6.669e-03  PASS
+  M=1e+07 kappa=1.9025216656 z=0.0033606+4.4964842i  l1 in [-4.015606e-05, -4.015606e-05]  l1(q1=1)/M=-0.0092746585  rel.dev=3.946e-03  PASS
+  M=3e+07 kappa=1.9007136675 z=0.0019410+4.4951851i  l1 in [-2.321267e-05, -2.321267e-05]  l1(q1=1)/M=-0.0092893796  rel.dev=2.365e-03  PASS
+  M=1e+08 kappa=1.8995973757 z=0.0010634+4.4943822i  l1 in [-1.272456e-05, -1.272456e-05]  l1(q1=1)/M=-0.0092990650  rel.dev=1.325e-03  PASS
+  S2 (observation): deviation at M=1e8 = 1.325e-03 (<1%: True), fitted exponent of the deviation in M: -0.442
+j=2  limit: t_j=10.90412166 kappa_j^0=3.15434302 L_j=-0.0079410173
+  M=1e+04 kappa=3.7981676429 z=0.3188224+11.0094260i  l1 in [-4.524712e-03, -4.524712e-03]  l1(q1=1)/M=-0.0079708726  rel.dev=3.760e-03  PASS
+  M=3e+04 kappa=3.5270903204 z=0.1968287+10.9674857i  l1 in [-2.598235e-03, -2.598235e-03]  l1(q1=1)/M=-0.0076066906  rel.dev=4.210e-02  PASS
+  M=1e+05 kappa=3.3593351327 z=0.1126477+10.9398564i  l1 in [-1.442475e-03, -1.442475e-03]  l1(q1=1)/M=-0.0075094235  rel.dev=5.435e-02  PASS
+  M=3e+05 kappa=3.2730344652 z=0.0665767+10.9250903i  l1 in [-8.530151e-04, -8.530151e-04]  l1(q1=1)/M=-0.0075864933  rel.dev=4.464e-02  PASS
+  M=1e+06 kappa=3.2194868799 z=0.0370095+10.9157277i  l1 in [-4.785715e-04, -4.785715e-04]  l1(q1=1)/M=-0.0077044614  rel.dev=2.979e-02  PASS
+  M=3e+06 kappa=3.1919968480 z=0.0215324+10.9108594i  l1 in [-2.806354e-04, -2.806354e-04]  l1(q1=1)/M=-0.0077907539  rel.dev=1.892e-02  PASS
+  M=1e+07 kappa=3.1749820815 z=0.0118504+10.9078249i  l1 in [-1.553805e-04, -1.553805e-04]  l1(q1=1)/M=-0.0078538708  rel.dev=1.097e-02  PASS
+  M=3e+07 kappa=3.1662635964 z=0.0068587+10.9062635i  l1 in [-9.023956e-05, -9.023956e-05]  l1(q1=1)/M=-0.0078892364  rel.dev=6.521e-03  PASS
+  M=1e+08 kappa=3.1608737688 z=0.0037624+10.9052961i  l1 in [-4.961287e-05, -4.961287e-05]  l1(q1=1)/M=-0.0079121529  rel.dev=3.635e-03  PASS
+  S2 (observation): deviation at M=1e8 = 3.635e-03 (<1%: True), fitted exponent of the deviation in M: -0.458
+j=3  limit: t_j=17.22075527 kappa_j^0=4.03109980 L_j=-0.0037776968
+  M=1e+04 kappa=5.5155380850 z=0.5440634+17.3328065i  l1 in [-3.798111e-03, -3.798111e-03]  l1(q1=1)/M=-0.0036366127  rel.dev=3.735e-02  PASS
+  M=3e+04 kappa=4.9002499089 z=0.3520723+17.2903229i  l1 in [-2.370677e-03, -2.370677e-03]  l1(q1=1)/M=-0.0036057352  rel.dev=4.552e-02  PASS
+  M=1e+05 kappa=4.5144663668 z=0.2086711+17.2610621i  l1 in [-1.347291e-03, -1.347291e-03]  l1(q1=1)/M=-0.0035249099  rel.dev=6.692e-02  PASS
+  M=3e+05 kappa=4.3130567524 z=0.1258773+17.2448101i  l1 in [-8.053646e-04, -8.053646e-04]  l1(q1=1)/M=-0.0035318672  rel.dev=6.507e-02  PASS
+  M=1e+06 kappa=4.1866736551 z=0.0709426+17.2342267i  l1 in [-4.584300e-04, -4.584300e-04]  l1(q1=1)/M=-0.0035936802  rel.dev=4.871e-02  PASS
+  M=3e+06 kappa=4.1212886338 z=0.0415820+17.2286266i  l1 in [-2.721000e-04, -2.721000e-04]  l1(q1=1)/M=-0.0036536649  rel.dev=3.283e-02  PASS
+  M=1e+07 kappa=4.0806291483 z=0.0229930+17.2250994i  l1 in [-1.521087e-04, -1.521087e-04]  l1(q1=1)/M=-0.0037031091  rel.dev=1.974e-02  PASS
+  M=3e+07 kappa=4.0597353800 z=0.0133405+17.2232733i  l1 in [-8.883750e-05, -8.883750e-05]  l1(q1=1)/M=-0.0037325583  rel.dev=1.195e-02  PASS
+  M=1e+08 kappa=4.0467978320 z=0.0073293+17.2221379i  l1 in [-4.902443e-05, -4.902443e-05]  l1(q1=1)/M=-0.0037522509  rel.dev=6.736e-03  PASS
+  S2 (observation): deviation at M=1e8 = 6.736e-03 (<1%: True), fitted exponent of the deviation in M: -0.432
+SUMMARY: PASS
+
+real	0m0.802s
+user	0m0.586s
+sys	0m0.081s
+exit=0
+=== 04_verify_certificates.py 1 (small files, all lines)
+../certificates/sweep_j1.csv.gz: j=1, M in [14, 10000], 9986 lines re-checked, coverage True: PASS (90s)
+../certificates/sweep_j2.csv.gz: j=2, M in [43, 10000], 9957 lines re-checked, coverage True: PASS (84s)
+../certificates/sweep_j3.csv.gz: j=3, M in [86, 10000], 9914 lines re-checked, coverage True: PASS (86s)
+SUMMARY: PASS
+
+real	4m20.461s
+user	4m18.545s
+sys	0m0.284s
+exit=0
+=== 04_verify_certificates.py 450 (_b files)
+../certificates/sweep_j1_b.csv.gz: j=1, M in [10001, 100000], 200 lines re-checked, coverage True: PASS (7s)
+../certificates/sweep_j2_b.csv.gz: j=2, M in [10001, 100000], 200 lines re-checked, coverage True: PASS (6s)
+../certificates/sweep_j3_b.csv.gz: j=3, M in [10001, 100000], 200 lines re-checked, coverage True: PASS (6s)
+SUMMARY: PASS
+
+real	0m18.502s
+user	0m6.854s
+sys	0m0.132s
+exit=0
+=== 07_spectrum_H2.py 120
+M=119 j=3  (zero, hopf, Re>0, Re<0) = (1, 2, 4, 112)  PASS
+M=120 j=3  (zero, hopf, Re>0, Re<0) = (1, 2, 4, 113)  PASS
+SUMMARY: 217 points, PASS (0 failures), 313s
+
+real	5m13.035s
+user	5m11.097s
+sys	0m1.058s
+exit=0
+=== 03_certify_range.py 1 14 80 (regenerated, compared with stored sweep_j1 lines)
+SUMMARY j=1 M in [14,80]: FAIL (1 failures) in 37s
+
+real	0m37.495s
+user	0m31.622s
+sys	0m0.392s
+regenerated lines M=14..80: 67  identical to stored file in ['kappa_mid', 'x_mid', 'y_mid', 'l1_unit_lo', 'l1_unit_hi', 'l1_q1_lo', 'simple', 'status'] : all
+=== 02_validate_l1.py
+V1  PASS l1 = -0.210059171598, 2 a_GH/omega = -0.210059171598
+     delta=0.020  n_1 half-amplitude: simulation 3.947161e-01, normal form 3.928501e-01, ratio 1.00475
+     delta=0.010  n_1 half-amplitude: simulation 2.783810e-01, normal form 2.777234e-01, ratio 1.00237
+     delta=0.005  n_1 half-amplitude: simulation 1.965891e-01, normal form 1.963573e-01, ratio 1.00118
+V2  PASS ratios ['1.00475', '1.00237', '1.00118'] (-> 1, error ~ delta)
+     RESULT M=15 Kc=212.89521630278838 omega=87.79711202550054 real(b)=1.216427477200864e-7 type=SubCritical
+     RESULT M=16 Kc=20.77381285151987 omega=8.042102792560254 real(b)=-0.00011973565584605179 type=SuperCritical
+     RESULT M=17 Kc=11.012175321758027 omega=4.014395442811256 real(b)=-0.0003692210879185648 type=SuperCritical
+     RESULT M=30 Kc=1.6869971916602926 omega=0.34186721294019257 real(b)=-0.0024605140802013425 type=SuperCritical
+V3  PASS BifurcationKit: M=15 SubCritical; M=16,17,30 SuperCritical
+SUMMARY: PASS
+
+real	3m26.587s
+user	2m22.183s
+sys	0m9.727s
+exit=0

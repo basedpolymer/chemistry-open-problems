@@ -1,0 +1,8 @@
+j=1: 487 lines re-proved (all M<=300, 200 random in (300,1e5], boundaries), NO_CROSSING only at M=[14]: True ; failures: none
+j=2: 458 lines re-proved (all M<=300, 200 random in (300,1e5], boundaries), NO_CROSSING only at M=[43]: True ; failures: none
+j=3: 415 lines re-proved (all M<=300, 200 random in (300,1e5], boundaries), NO_CROSSING only at M=[86]: True ; failures: none
+SUMMARY: 1360 lines, PASS, 14s
+
+real	0m14.451s
+user	0m13.465s
+sys	0m0.635s

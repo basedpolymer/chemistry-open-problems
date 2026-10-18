@@ -1,0 +1,17 @@
+M=16 K_c=20.7738128441 omega=8.0421 l1(unit)=-1.296329e-05  |Re lam(K_c)|=9.0e-15
+   K=K_c(1+0.04): mu=8.296e-03  a_pred=6.4159e+00  a_sim(start 0.3x)=6.4156e+00  a_sim(start 3x)=6.4156e+00  ratios 1.0000 1.0000 (50s)
+   K=K_c(1+0.02): mu=4.148e-03  a_pred=4.5365e+00  a_sim(start 0.3x)=4.5358e+00  a_sim(start 3x)=4.5358e+00  ratios 0.9998 0.9998 (93s)
+   K=K_c(1+0.01): mu=2.074e-03  a_pred=3.2078e+00  a_sim(start 0.3x)=3.2073e+00  a_sim(start 3x)=3.2073e+00  ratios 0.9999 0.9999 (176s)
+   K=K_c(1-0.02): mu=-4.147e-03  initial n_1 amplitude 4.536e+00 -> final 3.020e-14
+   M=16: same limit from inside/outside True, ratio -> 1 True, decay below K_c True: PASS
+M=50 K_c=0.804566873179 omega=0.094226 l1(unit)=-1.896060e-02  |Re lam(K_c)|=8.0e-16
+   K=K_c(1+0.04): mu=1.093e-03  a_pred=2.9270e-01  a_sim(start 0.3x)=2.9712e-01  a_sim(start 3x)=2.9712e-01  ratios 1.0151 1.0151 (16s)
+   K=K_c(1+0.02): mu=5.453e-04  a_pred=2.0679e-01  a_sim(start 0.3x)=2.0835e-01  a_sim(start 3x)=2.0835e-01  ratios 1.0076 1.0076 (22s)
+   K=K_c(1+0.01): mu=2.724e-04  a_pred=1.4615e-01  a_sim(start 0.3x)=1.4670e-01  a_sim(start 3x)=1.4670e-01  ratios 1.0038 1.0038 (20s)
+   K=K_c(1-0.02): mu=-5.433e-04  initial n_1 amplitude 2.064e-01 -> final 1.343e-08
+   M=50: same limit from inside/outside True, ratio -> 1 True, decay below K_c True: PASS
+SUMMARY: PASS
+
+real	12m47.178s
+user	12m18.743s
+sys	0m28.189s

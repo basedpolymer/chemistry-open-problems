@@ -1,0 +1,6 @@
+selftest: polarisation vs D^2J assembly 9.1e-15 ; reduced Jacobian 7.1e-15
+84 points (25 random per branch, seed 7, + 9 extra): max rel. diff l1 (unit) = 8.96e-05 ; PASS ; 837s
+
+real	14m1.587s
+user	12m36.279s
+sys	1m24.283s
