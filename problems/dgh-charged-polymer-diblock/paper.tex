@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{The critical temperature of the directed charged di-block polymer}
 \newcommand*{\PaperTitlePlain}{The critical temperature of the directed charged di-block polymer}
 \newcommand*{\PaperShortTitle}{Critical temperature of the charged di-block polymer}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
-\newcommand*{\PaperCredits}{Solver: GPT-6-Astra via Codex CLI (effort xhigh) \textperiodcentered{} Internal review: GPT-6-Astra sub-agent launched by the solver (effort not recorded) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
+\newcommand*{\PaperCredits}{Solver: GPT-6-Astra via Codex CLI (effort xhigh) \textperiodcentered{} Internal review: GPT-6-Astra sub-agent launched by the solver (effort not recorded) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (confirmed with minor corrections)}
 \newcommand*{\PaperKeywords}{charged polymers, Derrida--Griffiths--Higgs model, polyampholytes, phase transition, renewal theory}
 \input{chemop-preamble}
 
@@ -84,11 +84,16 @@ Thus both the endpoint of the uniformly positive-cut regime and the onset of ful
 No assumption about monotonicity of individual cut probabilities is needed.
 
 The certified numerical enclosure is
-\[0.69813170079919943909134137018011279700848771234773
-<\beta_*<
-0.69813170079919943909134137018011279700848771234774.
-\tag{7}\]
+\[\ell<\beta_*<\ell+10^{-50},\tag{7}\]
+where
+\[\ell=0.69813170079919943909134137018011279700848771234773.\]
 In particular \(\beta_*\ne2\pi/9\); their positive difference is approximately \(1.4676083218650628\times10^{-12}\). Numerical values are certificates for the root of (1); the proof of criticality is Sections 3--7.
+
+\textbf{Remark (added by the independent verifier).} Equation (1) reads \(\vartheta_3(0,e^{-\beta/2})=3\), and the near-coincidence with \(2\pi/9\) has an analytic explanation. Poisson summation gives
+\[\Theta_\beta:=\sum_{\ell\in\mathbb Z}e^{-\beta\ell^2/2}=\sqrt{\frac{2\pi}{\beta}}\sum_{k\in\mathbb Z}e^{-2\pi^2k^2/\beta},
+ \qquad \Theta_{2\pi/9}=3\bigl(1+2e^{-9\pi}+2e^{-36\pi}+\cdots\bigr)>3.\]
+Since (1) is equivalent to \(\Theta_\beta=3\) and \(\Theta_\beta\) is strictly decreasing, this proves \(\beta_*>2\pi/9\) without numerics, and expanding gives
+\(\beta_*-2\pi/9=\tfrac{8\pi}{9}e^{-9\pi}\bigl(1+O(e^{-9\pi})\bigr)\approx1.46761\times10^{-12}\). In temperature units, \(T_c=1/\beta_*=1.4323944878240\ldots\), which is DGH's value \(1.43\); in Poisat's notation (3.23), \(\beta_*=2\beta_0\) with \(\beta_0=0.34906585039959\ldots\).
 
 \section{Compositions and homogeneous renewal coefficients}
 
@@ -120,7 +125,7 @@ Finally \(W_\beta(1)\) is continuous and strictly decreasing in \(\beta>0\), ten
  r_{\beta_*}=1,\quad r_\beta>1\iff\beta>\beta_*.
  \tag{11}\]
 
-\section{The matching high-temperature bound (arbitrary binary charges)}
+\section{Matching high-temperature bound (arbitrary charges)}
 
 Two elementary inequalities are the main point. For every binary word \(v\) of length \(m\),
 \[Q_\beta(v)\geq A_m,
@@ -150,6 +155,8 @@ Taking \(p_i=(1+Q_{\rm no\ cut}/Q_{\rm cut})^{-1}\) proves (2), for example with
  \tag{15}\]
 
 An elementary alternative to the complex-analysis step suffices for (14). If \(W_\beta(1)>1\), choose finite \(L\) with \(\sum_{\ell=1}^Lw_\ell>1\), and the root \(r_L<1\) of \(\sum_{\ell=1}^Lw_\ell r_L^\ell=1\). The truncated composition coefficients \(B_m\) satisfy \(B_m r_L^m\geq\min_{0\leq j<L}B_jr_L^j>0\) by induction on their finite recurrence. Since \(A_m\geq B_m\), the series of reciprocals in (14) converges. Thus the threshold proof itself requires only positive finite recurrences and geometric-series bounds.
+
+\textbf{Remark (added by the independent verifier).} Poisat's Lemma 3.5 (\(Z_n\geq Z_{n-1}\), \(Z_n\geq(1+e^{-\beta})Z_{n-2}\)) is exactly the case of lengths one and two of (12), since \(e^{\beta/2}A_1=1\) and \(e^{\beta}A_2=1+e^{-\beta}\). Gluing only blocks of length one and two is what produces the threshold \(\log\frac{1+\sqrt5}{2}\) of Poisat's Proposition 3.4 and of DGH's bound \(T_c\leq2.08\); using all homogeneous lengths gives \(\beta_*\). Because (2) holds for \emph{every} binary sequence, Poisat's empirical distribution function (3.2) satisfies \(\mathcal F_n^{\beta,\omega}(p)=0\) for all \(p<\delta_\beta\), all \(n\) and all \(\omega\). Hence, for random charges, any limit \(\mathcal F_\beta\) is in the high-temperature regime of Conjecture 3.1(3) whenever \(\beta<\beta_*\), and any random-charge freezing point satisfies \(\beta_c\geq\beta_*\). DGH's heuristic exponent (Poisat's (3.3)) diverges exactly as \(\beta\downarrow\beta_*\). The existence of a low-temperature regime for random charges, Poisat's question (2), is \emph{not} addressed here.
 
 \section{Exact diblock decomposition and collapse}
 
@@ -229,6 +236,8 @@ python scripts/verify_exact.py
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/verify_intervals.py
 \end{verbatim}
 
+\texttt{scripts/verify\_independent.py} (written by the solver's internal-review sub-agent, not by the independent verifier of the protocol) re-derives the original pair Hamiltonian and the odds bound (14) for all words through length seven, and gives a coarser rational root bracket. The independent verifier's own checks are in \texttt{verification/} (see \texttt{verification.md}).
+
 \texttt{verify\_exact.py} checks the polynomial identity (16) against independent exhaustive path enumeration through \(N=16\), with integer coefficients in \(q=e^{-\beta/2}\). It also checks (8), (12), and (13) for every binary word through length eight at the exact rational \(q=4/5\). These finite checks detect indexing/normalization errors; they do not prove the universal theorem.
 
 \texttt{verify\_intervals.py} uses Arb at 256 bits, one thread, for all certificate acceptance decisions. Mpmath only proposes rational brackets for \(r_\beta\); every bracket is checked by Arb. For any positive \(z\) and cutoff \(L\), the tail satisfies
@@ -252,7 +261,7 @@ The double sum in (16) is accumulated along diagonals \(|i-j|\leq D=32\). All om
  \tag{28}\]
 Equations (26)--(28) account for every truncation. Arb propagates rounding errors, including those in the input decimal parameters. At \texttt{critical\_interval}, the parameter ball encloses the true \(\beta_*\), so all reported finite-volume intervals also apply to that value. Symmetric balls may extend outside the tight one-sided mathematical bounds; this is harmless over-enclosure.
 
-The certified results are stored as outward-rounded ball strings in \texttt{certificates/finite\_volumes.json}. The default run verifies stored intervals against recomputation; \texttt{-\/-write} regenerates them. A short, untruncated full-chain DP at \(N=20\) is also compared to the accelerated method at every temperature. The asymptotic formula (5) is proved in Section 7, separately from its finite-size check.
+The certified results are stored as outward-rounded ball strings in the file \texttt{finite\_volumes.json} of the directory \texttt{certificates}. The default run verifies stored intervals against recomputation; \texttt{-\/-write} regenerates them. A short, untruncated full-chain DP at \(N=20\) is also compared to the accelerated method at every temperature. The asymptotic formula (5) is proved in Section 7, separately from its finite-size check.
 
 \section{Limitations and first checks for a referee}
 
@@ -267,7 +276,7 @@ The certified results are stored as outward-rounded ball strings in \texttt{cert
 \item
   The root equation and collapse criterion were already in DGH (1992). Priority for the complete argument has not been established exhaustively; a 2026 open-question list is evidence, not proof of novelty.
 \item
-  This text and the finite certificates are not a formal proof in a proof assistant. Independent verification is a separate protocol stage and must be recorded honestly.
+  This text and the finite certificates are not a formal proof in a proof assistant. An independent fresh-context verification (Claude Opus 5.5) re-derived Sections 3--8 and confirmed the theorem with minor editorial corrections; see \texttt{verification.md}.
 \end{itemize}
 
 \end{document}

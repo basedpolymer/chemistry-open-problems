@@ -1,0 +1,59 @@
+PASS N=2: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=3: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=4: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=5: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=6: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=7: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=8: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=9: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=10: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=11: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=12: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=13: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS N=14: brute-force pair Hamiltonian == site-charge transfer matrix (diblock + 3 random words)
+PASS Poisat (2.13) convention identity (direct ordered double sum) for word (1, 1, -1, -1)
+PASS Poisat (2.13) convention identity (direct ordered double sum) for word (1, -1, -1, 1, 1)
+PASS Poisat (2.13) convention identity (direct ordered double sum) for word (1, 1, 1, -1, -1, -1)
+PASS Poisat (2.13) convention identity (direct ordered double sum) for word (1, -1, 1, 1, -1, -1, 1)
+PASS (16) exact integer-polynomial identity for all 2n <= 40 (transfer-matrix side)
+PASS mpmath root of sum e^(-b l^2/2)=1: 0.6981317007991994390913413701801127970085
+PASS theta_3(0,e^(-b/2)) = 3 gives the same root
+INFO beta_* - 2pi/9 = 1.4676083218650627847e-12;  (8pi/9) e^(-9pi) = 1.4676083217770595807e-12
+PASS beta_* - 2pi/9 = (8pi/9)e^(-9pi)(1+O(e^(-9pi)))-type agreement (<1%)
+PASS difference ~ 1.4676083e-12 as claimed
+PASS Poisson summation identity at 2pi/9 (Theta(2pi/9) = 3(1+2e^{-9pi}+...))
+PASS Arb: 0.698131700799199439091341370180112797008487712347 < beta_* < ...348
+PASS Arb: sum at 2pi/9 strictly > 1, hence beta_* > 2pi/9 (strict monotonicity)
+INFO beta=0.3: r=0.706130, c=0.607772, delta_beta(15)=6.013e-02, min p over test words=2.5104e-01
+PASS beta=0.3: every computed cut probability >= delta_beta of (15)
+INFO beta=0.5: r=0.848236, c=0.660606, delta_beta(15)=1.378e-02, min p over test words=1.1500e-01
+PASS beta=0.5: every computed cut probability >= delta_beta of (15)
+INFO beta=0.65: r=0.961975, c=0.695053, delta_beta(15)=7.543e-04, min p over test words=2.6170e-02
+PASS beta=0.65: every computed cut probability >= delta_beta of (15)
+INFO beta=0.69: r=0.993521, c=0.703631, delta_beta(15)=2.106e-05, min p over test words=4.6922e-03
+PASS beta=0.69: every computed cut probability >= delta_beta of (15)
+PASS beta=0.69: no-cut/cut odds <= (sum 1/A_a)(sum 1/A_b) for all 4096 words of length 12, all cuts
+PASS beta=0.75: no-cut/cut odds <= (sum 1/A_a)(sum 1/A_b) for all 4096 words of length 12, all cuts
+PASS beta=0.500000, 2n=600: full-chain DP == formula (16)/(17) (p_mid=1.150044e-01)
+PASS beta=0.698132, 2n=600: full-chain DP == formula (16)/(17) (p_mid=1.111688e-03)
+PASS beta=0.900000, 2n=600: full-chain DP == formula (16)/(17) (p_mid=2.709905e-42)
+INFO beta_*: n=1000, 3n p_mid = 1.00015564, D_n/(3 a^2 n) = 0.99984438
+INFO beta_*: n=10000, 3n p_mid = 1.00001556, D_n/(3 a^2 n) = 0.99998444
+INFO beta_*: n=100000, 3n p_mid = 1.00000156, D_n/(3 a^2 n) = 0.99999844
+PASS critical: 3 n p_{n,2n} -> 1 (n=1e5 within 1e-3)
+INFO beta=0.6: p_mid(2n=3000)=0.05454701, 1/K=0.05454701; F_3000=0.380571, F_lim=0.379817
+PASS beta=0.6: p_mid -> 1/K_beta (23)
+PASS beta=0.6: finite-volume free energy close to (4)
+INFO beta=0.69: p_mid(2n=3000)=0.00434305, 1/K=0.00434305; F_3000=0.353114, F_lim=0.351501
+PASS beta=0.69: p_mid -> 1/K_beta (23)
+PASS beta=0.69: finite-volume free energy close to (4)
+INFO beta=0.75: r=1.04187, p_mid=9.851e-56, p_10=3.405e-01, p_100=2.116e-04; F_3000=0.376011 vs beta/2=0.375
+PASS beta=0.75: cut probabilities decay exponentially away from the ends (3)
+PASS beta=0.75: free energy close to beta/2 (4)
+INFO beta=1.0: r=1.25784, p_mid=2.014e-300, p_10=9.286e-03, p_100=1.085e-20; F_3000=0.500475 vs beta/2=0.5
+PASS beta=1.0: cut probabilities decay exponentially away from the ends (3)
+PASS beta=1.0: free energy close to beta/2 (4)
+INFO d/dbeta(-log r_beta) at beta_*^- ~ -0.798218 (non-zero => first-order kink of F_db)
+PASS F_db has a kink (first-order non-analyticity) at beta_*
+INFO elapsed 7.1s
+PASS all verifier checks

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Independent source-convention and rational-root checks, added by verifier.
+"""Source-convention and rational-root checks, added by the solver's internal-review sub-agent
+(GPT-6-Astra); despite its name it is not the PROTOCOL.md section 4 independent verification.
 Environment: Python >=3.10 standard library only; one thread, <100 MB RAM.
 Runtime: approximately 5 seconds. No network or floating-point arithmetic.
 PASS/FAIL is printed for each claim; any failed claim exits nonzero.

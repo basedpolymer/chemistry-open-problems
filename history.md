@@ -39,3 +39,6 @@
 - Result 2 independently verified: CONFIRMED WITH CORRECTIONS (typo in the third reaction of the subfamily fixed:
   Y -> c3 X + Y; the Dulac threshold shown to coincide with the Hopf curve, hence optimal; theorem numbering of the
   published version noted).
+- Result 4 independently verified: CONFIRMED WITH CORRECTIONS (proof re-derived line by line; own transfer-matrix
+  and dynamic-programming checks; the free energy has a first-order kink at beta_*; analytic proof that
+  beta_* > 2 pi / 9 by Poisson summation; DGH 1992 only predicted the value by a one-line free-energy argument).

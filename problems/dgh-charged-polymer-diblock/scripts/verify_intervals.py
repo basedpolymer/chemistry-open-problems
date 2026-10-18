@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Certified threshold and finite-volume DP (including all omitted-tail errors).
 Environment: Python >=3.10, python-flint, mpmath; WSL sci environment.
-Runtime: about 1-3 minutes, one thread, <250 MB RAM, no network.
+Runtime: about 15-20 seconds measured (verifier rerun 16 s), one thread, <250 MB RAM, no network.
 Default verifies stored certificates; --write creates/refreshes numerical data.
-Every claim prints PASS/FAIL; any failure exits nonzero. See notes.md for bounds.
+Every claim prints PASS/FAIL; any failure exits nonzero. See paper.tex, Section 9, for the bounds (notes.md is not shipped).
 """
 from pathlib import Path
 import argparse
