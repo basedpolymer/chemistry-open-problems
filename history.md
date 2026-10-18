@@ -17,3 +17,6 @@
   argument completed, three further exact counterexamples including M = 3 with constant hot temperatures).
 - Under investigation: Becker–Döring equations with atomization (Hopf criticality); upper bound for the
   connective constant of self-avoiding walks on the cubic lattice.
+- Result 5 independently verified: CONFIRMED WITH CORRECTIONS (focal values recomputed by another algorithm,
+  Krawczyk redone with another interval library, uniqueness re-checked with msolve, independent validated integrator;
+  corrections to the abstract and to a remark).

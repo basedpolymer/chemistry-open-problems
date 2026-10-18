@@ -8,10 +8,10 @@ as polynomials with rational coefficients in the variables (a, c, w), where
     c = 1 + b,   w = omega/a,   omega^2 = det J(1,1) = a^2 (d-1)/(1+bd),
     equivalently  d = (1+w^2)/(1-(c-1)w^2),  K = a(1-(c-1)w^2)/c.
 
-Environment: Python 3.12, python-flint 0.9.0 (fmpq_mpoly). Runtime: ~1-3 min for kmax = 4.
-Usage: python focal_exact.py [kmax] [outdir]      (writes outdir/Vtilde_k.txt)
+Environment: Python 3.12, python-flint 0.9.0 (fmpq_mpoly). Runtime: < 1 s for kmax = 4.
+Usage: python focal_exact.py [kmax] [outdir]      (writes outdir/Vtilde_k.json)
 
-Derivation (see notes.md, Sec. 3).
+Derivation (see paper.tex, Sec. 3-4).
   u = x-1, v = y-1, and the linear change + time rescaling
       u = c X,   v = a (w Y - X),   tau = omega t
   turn the system into X' = -Y + P, Y' = X + Q with

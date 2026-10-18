@@ -56,8 +56,8 @@
   611–615; A. Neumaier, *Interval Methods for Systems of Equations*, Cambridge Univ. Press, 1990.
 - F. Johansson, *Arb: efficient arbitrary-precision midpoint-radius interval arithmetic*, IEEE Trans. Comput.
   66(8) (2017) 1281–1292; FLINT / python-flint 0.9.0 (exact multivariate polynomials, Arb balls).
-- PARI/GP (cross-check of the gcd over the number field in §7 of notes.md); mpmath 1.3.0; SciPy 1.18 (DOP853).
+- PARI/GP (cross-check of the gcd over the number field, paper.tex §7); mpmath 1.3.0; SciPy 1.18 (DOP853).
 
-(The background references are cited from general knowledge for context; none of the proofs in `notes.md`
+(The background references are cited from general knowledge for context; none of the proofs in `paper.tex`
 relies on a specific theorem number from them. Lemmas 4.2, 6.1, 6.2 and the successive-perturbation argument
-are proved in `notes.md`.)
+are proved in `paper.tex` (§§4.2, 6.1–6.3). [Stale references to a non-existent `notes.md` replaced by the verifier.])

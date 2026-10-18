@@ -1,0 +1,9 @@
+PASS  E1 a u' + c v' == a s [(c-1) I + E - c] on tr J = 0 (sympy)
+PASS  E1' tr J(1,1) = 0 and det J(1,1) = a^2 s
+PASS  E2 linear part of the transformed field is (-eta, xi)
+PASS  E3 Vhat_1 (verifier, real method) == w*G_1(a,c,w^2) (solver's certificate)  [9 terms]
+PASS  E3 Vhat_2 (verifier, real method) == w*G_2(a,c,w^2) (solver's certificate)  [48 terms]
+PASS  E3 Vhat_3 (verifier, real method) == w*G_3(a,c,w^2) (solver's certificate)  [136 terms]
+PASS  E3 Vhat_4 (verifier, real method) == w*G_4(a,c,w^2) (solver's certificate)  [296 terms]
+PASS  E4 G_1 gives exactly the paper's closed form of L_1  [simplified ratio = 1, max |diff| at 20 random points = 0]
+ALL PASS

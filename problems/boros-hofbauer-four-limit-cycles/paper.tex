@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{Four limit cycles in a planar three-reaction mass-action system: a proof of the Boros--Hofbauer conjecture}
 \newcommand*{\PaperTitlePlain}{Four limit cycles in a planar three-reaction mass-action system: a proof of the Boros-Hofbauer conjecture}
 \newcommand*{\PaperShortTitle}{Four limit cycles with three reactions}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; literature check by a nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; literature check by a nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, verdict CONFIRMED WITH CORRECTIONS (minor; see verification.md)}
 \newcommand*{\PaperKeywords}{mass-action systems, limit cycles, focal values, Bautin bifurcation, interval arithmetic}
 \input{chemop-preamble}
 
@@ -21,7 +21,8 @@ equilibrium surrounded by four limit cycles, after locating numerically a point 
 vanish and the fourth is negative; they could not handle \(L_2,L_3,L_4\) analytically. We prove the conjecture by two
 independent computer-assisted arguments. First, we compute the focal values exactly as polynomials over
 \(\mathbb Q\) in a square-root-free parametrisation, certify with a Krawczyk operator in ball arithmetic a simple
-common zero of \(L_1,L_2,L_3\) with \(L_4\in[-2.58012649949\cdot10^{-6}\pm10^{-34}]\), and conclude by successive
+common zero of \(L_1,L_2,L_3\) with \(L_4=-2.580126499494\ldots\cdot10^{-6}<0\) (rigorous enclosure of radius
+\(10^{-34}\)), and conclude by successive
 perturbations. Second, for explicit decimal parameters, validated Taylor integration of the first-return map brackets
 four sign changes of the displacement function, giving four nested limit cycles with alternating stability. We also
 show that this order-four weak focus is the only point of the parameter domain where \(L_1=L_2=L_3=0\).
@@ -156,7 +157,7 @@ status
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-exact polynomials \(G_k\) (\(k\le4\)) defining \(L_k\) & exact rational arithmetic (FLINT) & proved, modulo correctness of a \textasciitilde250-line program (validated in §4.4, §8) \\
+exact polynomials \(G_k\) (\(k\le4\)) defining \(L_k\) & exact rational arithmetic (FLINT) & proved, modulo correctness of a \textasciitilde250-line program (validated in §4.4, §8; recomputed exactly by the independent verifier with a different algorithm) \\
 \(L_1=L_2=L_3=0\) at a unique point of a box, Jacobian nonsingular & Krawczyk operator in Arb ball arithmetic & proved (computer-assisted) \\
 \(L_4<0\) there & Arb enclosure & proved (computer-assisted) \\
 sign lemma, return map, successive perturbations & pen-and-paper (§4.2, §6) & proved \\
@@ -394,7 +395,9 @@ in any prescribed neighbourhood of \((1,1)\) if \(\varepsilon\) is small. \(\squ
 
 \emph{Validated integrator.} With \(E=x^ay^b\), \(I=1/y\), \(J=1/x\), (BH) lifts to the polynomial system
 \(x'=I-E\), \(y'=K(-(d-1)-I+dE)\), \(E'=E(aJx'+bIy')\), \(I'=-I^2y'\), \(J'=-J^2x'\); from consistent initial data
-its solution projects onto that of (BH). One step of length \(h\) from a ball enclosure \(Z_k\) of the state:
+its solution projects onto that of (BH) (indeed \(q=Iy\) and \(p=Jx\) satisfy \(q'=Iy'(1-q)\), \(p'=Jx'(1-p)\), so
+\(q\equiv p\equiv1\) and \(y,x\) stay positive; then \(E'=E(ax'/x+by'/y)\) gives \(E\equiv x^ay^b\)). One step of length
+\(h\) from a ball enclosure \(Z_k\) of the state:
 (i) find a box \(B\) with \(Z_k+[0,h]\,F(B)\subset\operatorname{int}B\) (then every solution starting in \(Z_k\)
 exists on \([0,h]\) and stays in \(B\): if it left \(B\) at a first time \(t_1\le h\), then
 \(z(t_1)\in z_0+t_1\operatorname{conv}F(B)\subset\operatorname{int}B\), a contradiction); (ii) Taylor
@@ -458,9 +461,11 @@ The parameters \(p^\sharp\) were found with the focal values (targets
 ray \(Y=0\), see §8.2), but the proof of Theorem C does not depend on how they were found.
 
 \textbf{Remarks.} (a) Only the network parameters \((a,b,d)\) and \(K=\bar x/\bar y\) are varied, exactly as in the
-paper's §§4.1 and 5.1; the conjecture is about ``parameter values'' of (16), including the exponents. (By
-arXiv:2406.13451, rate constants alone cannot unfold a codimension \(>1\) bifurcation in a three-reaction
-network without conservation laws, so varying the network parameters is necessary.) (b) The perturbation
+paper's §§4.1 and 5.1; the conjecture is about ``parameter values'' of (16), including the exponents. (For a
+fixed network the rate constants enter the scaled system (BH) only through \(K\) --- the scaled constants
+\(\overline\kappa_i\) are fixed up to the factor \(\lambda\), which is absorbed by a time rescaling --- so a fixed
+network only gives a one-parameter family and the network parameters must be varied, as the paper does; compare
+arXiv:2406.13451 for a general statement in the quadratic setting.) (b) The perturbation
 directions are the paper's: first \(L_3\), then \(L_2\), \(L_1\), finally the trace via \(K\).
 
 \section{\texorpdfstring{Proof of Theorem B (\texttt{scripts/uniqueness.py})}{Proof of Theorem B (scripts/uniqueness.py)}}
@@ -540,6 +545,12 @@ Hence \(\{G_1=G_2=G_3=0\}\cap\mathcal D=\{\mu^*\}\), which is Theorem B (the ord
   \(L_3\) of three different systems), and an independent method (polar expansion) at the degenerate points,
   including \(u_9(2\pi)=\pi V_4\) at \(p^*\). A verifier should re-derive \(\tilde R=N_f+iw(cN_I-N_f)\) and, ideally,
   recompute \(L_1,\dots,L_4\) at \(p^*\) with an independent CAS/algorithm (e.g.~Singular/Maple normal form).
+  \emph{Done in the independent verification} (\texttt{verification.md}, scripts in \texttt{verification/}): the
+  focal values were recomputed exactly with a different algorithm (real-coordinate Lyapunov function, homogeneous
+  linear algebra with the circle-average normalisation, independently derived vector field), giving
+  \(w\,G_k(a,c,w^2)\) \emph{exactly} for \(k=1,\dots,4\); the Krawczyk certificate was re-done with another interval
+  library (mpmath.iv), Theorem B with msolve, and the displacements of Theorem C with an independent validated
+  integrator (polar coordinates, angle as time), which reproduces the enclosures of §6.4.
 \item
   \textbf{Sign lemma (§4.2) and successive perturbations (§6)}: classical; the proof given is self-contained.
   Check that every perturbed parameter stays on \(\mathcal T_0\) when Lemma 4.2 is used (it does: \(\Phi\) maps into

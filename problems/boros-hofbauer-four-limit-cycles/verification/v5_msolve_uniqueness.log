@@ -1,0 +1,11 @@
+     g_1: 9 terms, removed monomial a^2 c^2 s^0
+     g_2: 48 terms, removed monomial a^4 c^4 s^0
+     g_3: 136 terms, removed monomial a^6 c^6 s^0
+     msolve: 5 real solutions of the saturated system (variables z, a, c, s)
+       a in [-1.000832125896, -1.000832125896], c in [-0.366296085645, -0.366296085645], s in [-0.641397198093, -0.641397198093]  in domain: False
+       a in [0.588329830879, 0.588329830879], c in [0.949593600592, 0.949593600592], s in [-0.472655443938, -0.472655443938]  in domain: False
+       a in [0.291174943095, 0.291174943095], c in [0.393239523877, 0.393239523877], s in [-0.435635723656, -0.435635723656]  in domain: False
+       a in [-20.927495015855, -20.927495015855], c in [8.609558386304, 8.609558386304], s in [0.119240325537, 0.119240325537]  in domain: False
+       a in [1.012821998680, 1.012821998680], c in [1.654625621104, 1.654625621104], s in [0.725895762273, 0.725895762273]  in domain: True
+PASS  Theorem B via msolve: exactly one real solution in the domain, and it is the certified zero  [1 solution(s) in the domain]
+ALL PASS

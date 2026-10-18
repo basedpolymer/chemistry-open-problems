@@ -1,0 +1,12 @@
+PASS  quadrangle L_1 at K=0.3 matches the paper's closed form  [ours 0.48011578224, paper 0.48011578224]
+PASS  quadrangle L_1 at K=1.7 matches the paper's closed form  [ours 4.68451545552, paper 4.68451545552]
+PASS  quadrangle L_2 at K_0=0.0686218 is ~0.01293 (paper)  [ours L_1 = -6.11e-62, L_2 = 0.012933567]
+PASS  chain L_1 at (q,r)=(0.3,2.2) matches the paper's closed form  [ours -0.179843271054, paper -0.179843271054]
+PASS  chain L_2 on {L_1=0} at q=0.1 matches the paper's closed form  [ours -0.153667822242, paper -0.153667822242]
+PASS  chain L_2 on {L_1=0} at q=0.4 matches the paper's closed form  [ours 0.0305016667259, paper 0.0305016667259]
+PASS  chain L_3 at q=1/4, r=15/8 equals -625 pi/110592 sqrt(7/2) (paper)  [ours -0.0332154545495464, paper -0.0332154545495464]
+PASS  BH checkpoint (a,d)=(1,165/49): L1 = L2 = 0, L3 < 0  [b = 0.636363636364, L = ['-3.05472e-61', '3.20745e-60', '-5.45774e-5']]
+PASS  BH checkpoint (a,d)=((1+sqrt3961)/60,3): L1 = L2 = 0, L3 > 0  [L = ['-1.22189e-61', '3.66566e-60', '0.00021524']]
+PASS  BH at p*: |L1|,|L2|,|L3| < 1e-35 and L4 = -2.580126499494e-6  [L = ['-2.1170977e-40', '1.2314092e-39', '-9.9850258e-39', '-2.5801265e-6'], omega = 0.862919446528679]
+     at the paper's (1.01282, 0.65463, 3.28862): L = ['-5.68758e-6', '3.32835e-5', '-0.000270154', '0.00327988']
+ALL PASS

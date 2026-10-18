@@ -1,0 +1,9 @@
+PASS  M1 g_1: integral primitive, irreducible over Q, degrees (2, 2, 2), 9 terms  [factor_list constant 1]
+PASS  M1 g_2: integral primitive, irreducible over Q, degrees (4, 4, 5), 48 terms  [factor_list constant 1]
+PASS  M1 g_3: integral primitive, irreducible over Q, degrees (6, 6, 8), 136 terms  [factor_list constant 1]
+PASS  M1 g_4: integral primitive, irreducible over Q, degrees (8, 8, 11), 296 terms  [factor_list constant 1]
+PASS  M2 appendix g_1 of paper.tex == certificate
+PASS  M2 appendix g_2 of paper.tex == certificate
+PASS  M3 Corollary: (K,1) is an equilibrium and x=KX, y=Y, t=K tau gives (BH)
+PASS  M4 Theorem C parameters: tr J < 0 < det J, tr^2 < 4 det, in the domain  [tr J = -1.90240e-22, K - a/(1+bd) = -6.03397e-23]
+ALL PASS

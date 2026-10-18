@@ -1,0 +1,12 @@
+PASS  T1 rho=0.002: sign(delta) = -1 (expected -1)  [delta in [-4.6043873099906e-25 +/- 1.38e-39] ; solver [-4.60438730999e-25 +/- 6.14e-38] ; |ours-solver|/|solver| = [1.33e-13 +/- 2.90e-16] ; max remainder/step 1.7e-59 ; 99s]
+PASS  T1 rho=0.004: sign(delta) = +1 (expected +1)  [delta in [1.2735661359982e-24 +/- 9.05e-39] ; solver [1.27356613600e-24 +/- 1.81e-36] ; |ours-solver|/|solver| = [1.42e-12 +/- 4.53e-16] ; max remainder/step 4.2e-59 ; 118s]
+PASS  T1 rho=0.006: sign(delta) = -1 (expected -1)  [delta in [-3.5491458181055e-24 +/- 2.45e-39] ; solver [-3.54914581811e-24 +/- 4.50e-36] ; |ours-solver|/|solver| = [1.27e-12 +/- 2.78e-15] ; max remainder/step 7.8e-59 ; 129s]
+PASS  T1 rho=0.012: sign(delta) = +1 (expected +1)  [delta in [1.4112630991155e-22 +/- 3.12e-36] ; solver [1.41126309912e-22 +/- 4.47e-34] ; |ours-solver|/|solver| = [3.17e-12 +/- 3.46e-15] ; max remainder/step 3.1e-58 ; 128s]
+PASS  T1 rho=0.024: sign(delta) = -1 (expected -1)  [delta in [-3.0291128765253e-20 +/- 4.30e-34] ; solver [-3.02911287653e-20 +/- 4.75e-32] ; |ours-solver|/|solver| = [1.57e-12 +/- 4.22e-15] ; max remainder/step 2.3e-57 ; 134s]
+     prediction eta_9 = L4 (1+1/s)^4 = [-8.24521917700e-5 +/- 1.66e-17]
+     rho = 0.0005 delta in [-1.604495114e-34 +/- 1.56e-45]   delta/rho^9 in [-8.215014984e-5 +/- 2.67e-15]  (max rem/step 3.5e-60)
+     rho = 0.001  delta in [-8.184962034e-32 +/- 2.17e-42]   delta/rho^9 in [-8.184962034e-5 +/- 2.17e-15]  (max rem/step 7.5e-60)
+     rho = 0.002  delta in [-4.160156683e-29 +/- 2.22e-39]   delta/rho^9 in [-8.125306021e-5 +/- 5.17e-16]  (max rem/step 1.7e-59)
+     rho = 0.004  delta in [-2.099188082e-26 +/- 9.36e-37]   delta/rho^9 in [-8.007767036e-5 +/- 8.13e-16]  (max rem/step 4.2e-59)
+PASS  T2 near p* (tr J = 0 exactly): delta < 0 at all test radii and delta/rho^9 -> L4 (1+1/s)^4  [Richardson(0.0005, 0.001) = [-8.245067933e-5 +/- 3.03e-15] vs prediction [-8.245219177e-5 +/- 1.8e-17]]
+ALL PASS

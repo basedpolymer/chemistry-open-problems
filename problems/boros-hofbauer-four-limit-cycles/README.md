@@ -1,9 +1,9 @@
 # Boros–Hofbauer: four limit cycles in a planar three-reaction mass-action system
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) was used, only for the
-literature/novelty check (read-only web search). LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+literature/novelty check (read-only web search). LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5 (effort xhigh), fresh context — **CONFIRMED WITH CORRECTIONS** (minor, editorial; see `verification.md`).
 
-**Status: solved (preliminary): complete computer-assisted proof, awaiting independent verification.**
+**Status: solved: complete computer-assisted proof, independently verified (`verification.md`).**
 
 ## Problem
 
@@ -87,3 +87,5 @@ outils/wsl "cd chemistry-open-problems/problems/boros-hofbauer-four-limit-cycles
 | `certificates/run_all.log`, `certificates/illustrate_cycles.log` | Outputs of the scripts |
 | `references.md` | Sources (what was read) and novelty check |
 | `PROGRESS.md` | Work log |
+| `verification.md` | Independent verification report (verdict, what was recomputed, corrections) |
+| `verification/` | Verifier's own scripts and logs: `v1_focal_real_exact.py` (exact focal values, different algorithm), `v2_focal_numeric.py` (normalisation vs the paper's printed values), `v3_polar_validated.py` (independent validated integrator), `v4_krawczyk_mpmath_iv.py` (Krawczyk with mpmath.iv), `v5_msolve_uniqueness.py` (Theorem B with msolve), `v6_misc_checks.py` |

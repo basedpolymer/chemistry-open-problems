@@ -2,7 +2,7 @@
 validated_cycles.py -- Theorem C: four limit cycles at EXPLICIT rational parameters, proved by validated
 (interval) Taylor integration of the ODE.  Independent of the focal-value computations.
 
-Environment: Python 3.12, python-flint 0.9.0 (Arb).  Runtime: ~1-3 min.  Deterministic.
+Environment: Python 3.12, python-flint 0.9.0 (Arb).  Runtime: ~10 s.  Deterministic.
 Usage: python validated_cycles.py        (reads ../certificates/explicit_params.json)
 
 System (BH):  x' = 1/y - x^a y^b,  y' = K(-(d-1) - 1/y + d x^a y^b), with exact rational a, b, d, K.
@@ -27,7 +27,7 @@ Claims checked (PASS/FAIL):
       half-line {x < 1, y = 1} before it, the polar angle around (1,1) (coordinates u = x-1, v = y-1) is
       strictly increasing along the whole arc (u v' - v u' > 0 on every enclosure box), and the displacement
       delta(rho_i) = P(rho_i) - rho_i has the sign  -, +, -, +, -  for rho = 0.002, 0.004, 0.006, 0.012, 0.024.
-Mathematical conclusion (notes.md, Sec. "Theorem C"): at least four limit cycles crossing Sigma in
+Mathematical conclusion (paper.tex, Sec. 6.4, proof of Theorem C): at least four limit cycles crossing Sigma in
 (0.002,0.004), (0.004,0.006), (0.006,0.012), (0.012,0.024); unstable/stable/unstable/stable; (1,1) stable.
 """
 import sys
