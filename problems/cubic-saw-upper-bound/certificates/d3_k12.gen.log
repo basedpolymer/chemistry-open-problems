@@ -1,0 +1,30 @@
+d=3 K=12 policy=4 states=41425  fingerprint=074b10a28c32ce49a2d6fde5006e164a  enum 0.0s
+groups=171454 candidates=717935  children 1.2s
+value iteration: it=44  lambda in [4.7417726448, 4.7417726450]  1.3s
+integer CW: max ratio = 1971676015178709/415809901234900 = 4.741772644959  => certified lambda_bar = 4741773/1000000
+path counts a_n (automaton) :
+  n= 1 a_n=6
+  n= 2 a_n=30
+  n= 3 a_n=150
+  n= 4 a_n=726
+  n= 5 a_n=3534
+  n= 6 a_n=16926
+  n= 7 a_n=81390
+  n= 8 a_n=387966
+  n= 9 a_n=1853886
+  n=10 a_n=8809878
+  n=11 a_n=41934150
+  n=12 a_n=198842742
+  n=13 a_n=943985478
+  n=14 a_n=4475156214
+  n=15 a_n=21227203422
+  n=16 a_n=100641088806
+  n=17 a_n=477262919790
+  n=18 a_n=2262948110238
+  n=19 a_n=10730727252750
+  n=20 a_n=50881721436702
+  n=21 a_n=241272354724134
+  n=22 a_n=1144051798920630
+  n=23 a_n=5424855126169278
+  n=24 a_n=25723380296577414
+RESULT d=3 K=12 policy=4 states=41425 lambda_float=[4.7417726448,4.7417726450] certified<=4741773/1000000 total 1.3s

@@ -1,0 +1,15 @@
+PASS C++ checker d3_k10.cert: PASS  => mu(Z^3) <= lambda_bar = 4753601/1000000 = 4.753601000
+PASS C++ checker d3_k12.cert: PASS  => mu(Z^3) <= lambda_bar = 4741773/1000000 = 4.741773000
+PASS C++ checker d3_k14.cert: PASS  => mu(Z^3) <= lambda_bar = 4733327/1000000 = 4.733327000
+PASS C++ checker d3_k8.cert: PASS  => mu(Z^3) <= lambda_bar = 4771090/1000000 = 4.771090000
+PASS C++ checker d5_k10.cert: PASS  => mu(Z^5) <= lambda_bar = 8858371/1000000 = 8.858371000
+PASS C++ checker d5_k12.cert: PASS  => mu(Z^5) <= lambda_bar = 8853752/1000000 = 8.853752000
+PASS C++ checker d6_k10.cert: PASS  => mu(Z^6) <= lambda_bar = 10887669/1000000 = 10.887669000
+PASS C++ checker d6_k12.cert: PASS  => mu(Z^6) <= lambda_bar = 10885008/1000000 = 10.885008000
+PASS C++ checker d3_k12_explicit.cert2: PASS  => mu(Z^3) <= lambda_bar = 4741773/1000000 = 4.741773000
+PASS brute-force Python checker d3_k8.cert: PASS  => mu(Z^3) <= 4771090/1000000
+PASS brute-force Python checker d3_k10.cert: PASS  => mu(Z^3) <= 4753601/1000000
+PASS tamper test on d3_k12.cert (all corrupted copies rejected)
+PASS tamper test on d3_k12_explicit.cert2 (all corrupted copies rejected)
+ALL PASS
+exit=0

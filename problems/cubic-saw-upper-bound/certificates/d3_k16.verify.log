@@ -1,0 +1,32 @@
+certificate: d=3 K=16 states=11641894 claimed lambda_bar=4726984/1000000 = 4.726984000
+PASS (C0a) codes strictly increasing
+PASS (C0b) all weights in [1, 2^60]
+PASS (C0c) the empty walk is a listed state
+PASS (C0d) every code decodes to a valid step sequence (bad: 0)
+PASS (C1a) every allowed step has a listed child (missing: 0)
+PASS (C1b) every chosen child satisfies g(F(t)) in (F(s) u {0}) - e for some signed permutation g (violations: 0)
+PASS (C2) Q*sum_e V(child) <= P*V(s) for all states (violations: 0); max ratio = 2333767198360968/493711710502842 = 4.726983680383
+PASS  => mu(Z^3) <= lambda_bar = 4726984/1000000 = 4.726984000
+	Command being timed: "~/work/cubic-saw/bin/verify_cert d3_k16.cert 6"
+	User time (seconds): 4704.42
+	System time (seconds): 1.02
+	Percent of CPU this job got: 598%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 13:06.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 317312
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 78431
+	Voluntary context switches: 11
+	Involuntary context switches: 9746
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

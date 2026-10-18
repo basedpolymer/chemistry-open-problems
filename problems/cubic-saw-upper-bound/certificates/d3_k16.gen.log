@@ -1,0 +1,54 @@
+d=3 K=16 policy=4 states=11641894  fingerprint=ad983d29667b81bbb2c44d7559baa170  enum 2.3s
+groups=47840352 candidates=316303355  children 339.6s
+  it 50  [4.7269836785, 4.7269836835]
+value iteration: it=58  lambda in [4.7269836803, 4.7269836804]  409.8s
+integer CW: max ratio = 2333767198360968/493711710502842 = 4.726983680383  => certified lambda_bar = 4726984/1000000
+path counts a_n (automaton) :
+  n= 1 a_n=6
+  n= 2 a_n=30
+  n= 3 a_n=150
+  n= 4 a_n=726
+  n= 5 a_n=3534
+  n= 6 a_n=16926
+  n= 7 a_n=81390
+  n= 8 a_n=387966
+  n= 9 a_n=1853886
+  n=10 a_n=8809878
+  n=11 a_n=41934150
+  n=12 a_n=198842742
+  n=13 a_n=943974510
+  n=14 a_n=4468911678
+  n=15 a_n=21175146054
+  n=16 a_n=100121941446
+  n=17 a_n=473735980326
+  n=18 a_n=2239208485374
+  n=19 a_n=10588352530686
+  n=20 a_n=50046323584398
+  n=21 a_n=236595253342014
+  n=22 a_n=1118313091562334
+  n=23 a_n=5286450495477006
+  n=24 a_n=24988172989367886
+RESULT d=3 K=16 policy=4 states=11641894 lambda_float=[4.7269836803,4.7269836804] certified<=4726984/1000000 total 419.8s
+	Command being timed: "~/work/cubic-saw/bin/saw_prod 3 16 d3_k16 5000 4"
+	User time (seconds): 2313.22
+	System time (seconds): 11.12
+	Percent of CPU this job got: 553%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 7:00.12
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 3414936
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1234133
+	Voluntary context switches: 363
+	Involuntary context switches: 6304
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 545776
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
