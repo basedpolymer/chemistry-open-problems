@@ -1,0 +1,33 @@
+PASS C3 single exchanger: dJ/dw == -p th1^2/(2 thh1) (paper (16)/(A.7) says +p th1^2/thh1)
+PASS C3b model solution th1 == 2 thh1/(1 + w(1/wh1 + 2/UA1))  [paper's (A.5) differs]
+PASS C1 corrected recursion 2 dQ_i/dw == a_i for all i (M=1, finite wh)
+PASS C2a published recursion correct for i<=2 (M=1, finite wh)
+   [M=1, finite wh: 0.0 s]
+PASS C1 corrected recursion 2 dQ_i/dw == a_i for all i (M=2, finite wh)
+PASS C2a published recursion correct for i<=2 (M=2, finite wh)
+   [M=2, finite wh: 0.7 s]
+PASS C1 corrected recursion 2 dQ_i/dw == a_i for all i (M=3, finite wh)
+PASS C2a published recursion correct for i<=2 (M=3, finite wh)
+PASS C2b published recursion wrong at i=3 (M=3, finite wh)
+PASS C2c published branch total sum a^P != 2 dQ_tot/dw (M=3, finite wh)
+PASS C2d a3^P - a3 == c3*a1 (M=3, finite wh)
+   [M=3, finite wh: 195.1 s]
+PASS C1 corrected recursion 2 dQ_i/dw == a_i for all i (M=1, wh=oo)
+PASS C2a published recursion correct for i<=2 (M=1, wh=oo)
+   [M=1, wh=oo: 0.1 s]
+PASS C1 corrected recursion 2 dQ_i/dw == a_i for all i (M=2, wh=oo)
+PASS C2a published recursion correct for i<=2 (M=2, wh=oo)
+   [M=2, wh=oo: 0.5 s]
+PASS C1 corrected recursion 2 dQ_i/dw == a_i for all i (M=3, wh=oo)
+PASS C2a published recursion correct for i<=2 (M=3, wh=oo)
+PASS C2b published recursion wrong at i=3 (M=3, wh=oo)
+PASS C2c published branch total sum a^P != 2 dQ_tot/dw (M=3, wh=oo)
+PASS C2d a3^P - a3 == c3*a1 (M=3, wh=oo)
+   [M=3, wh=oo: 4.4 s]
+PASS C1 corrected recursion 2 dQ_i/dw == a_i for all i (M=4, wh=oo)
+PASS C2a published recursion correct for i<=2 (M=4, wh=oo)
+PASS C2b published recursion wrong at i=3 (M=4, wh=oo)
+PASS C2c published branch total sum a^P != 2 dQ_tot/dw (M=4, wh=oo)
+PASS C2d a3^P - a3 == c3*a1 (M=4, wh=oo)
+   [M=4, wh=oo: 83.3 s]
+ALL PASS

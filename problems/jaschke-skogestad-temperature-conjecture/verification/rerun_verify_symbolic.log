@@ -1,0 +1,85 @@
+PASS  S4 paper (A.12) line 1 (Maple output) == corrected a_3
+PASS  S4 paper (A.12) last line - line 1 == c_3 * a_1 (nonzero)
+PASS  L1 finite-wh exchanger == constant-hot-temperature exchanger with UA' = (1/UA+1/(2wh))^-1 == tin + 2 (thh - tin)/(1 + w k)
+PASS  S0 [M=1] model equations satisfied
+PASS  S1 [M=1] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S2 [M=1] paper recursion == corrected (identity, M<=2)
+PASS  S0 [M=2] model equations satisfied
+PASS  S1 [M=2] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=2] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S2 [M=2] paper recursion == corrected (identity, M<=2)
+PASS  S0 [M=3] model equations satisfied
+PASS  S1 [M=3] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=3] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=3] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S2 [M=3] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=4] model equations satisfied
+PASS  S1 [M=4] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=4] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=4] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=4] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S2 [M=4] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=5] model equations satisfied
+PASS  S1 [M=5] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S1 [M=5] dQ_5/dw == a_5/2 (corrected, cumulative recursion)
+PASS  S2 [M=5] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=1, wh=inf] model equations satisfied
+PASS  S1 [M=1, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S3 [M=1, wh=inf] paper recursion == corrected (identity, M<=2)
+PASS  S0 [M=2, wh=inf] model equations satisfied
+PASS  S1 [M=2, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=2, wh=inf] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S3 [M=2, wh=inf] paper recursion == corrected (identity, M<=2)
+PASS  S0 [M=3, wh=inf] model equations satisfied
+PASS  S1 [M=3, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=3, wh=inf] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=3, wh=inf] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S3 [M=3, wh=inf] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=4, wh=inf] model equations satisfied
+PASS  S1 [M=4, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=4, wh=inf] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=4, wh=inf] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=4, wh=inf] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S3 [M=4, wh=inf] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=5, wh=inf] model equations satisfied
+PASS  S1 [M=5, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=5, wh=inf] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=5, wh=inf] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=5, wh=inf] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S1 [M=5, wh=inf] dQ_5/dw == a_5/2 (corrected, cumulative recursion)
+PASS  S3 [M=5, wh=inf] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=6, wh=inf] model equations satisfied
+PASS  S1 [M=6, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=6, wh=inf] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=6, wh=inf] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=6, wh=inf] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S1 [M=6, wh=inf] dQ_5/dw == a_5/2 (corrected, cumulative recursion)
+PASS  S1 [M=6, wh=inf] dQ_6/dw == a_6/2 (corrected, cumulative recursion)
+PASS  S3 [M=6, wh=inf] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=7, wh=inf] model equations satisfied
+PASS  S1 [M=7, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=7, wh=inf] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=7, wh=inf] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=7, wh=inf] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S1 [M=7, wh=inf] dQ_5/dw == a_5/2 (corrected, cumulative recursion)
+PASS  S1 [M=7, wh=inf] dQ_6/dw == a_6/2 (corrected, cumulative recursion)
+PASS  S1 [M=7, wh=inf] dQ_7/dw == a_7/2 (corrected, cumulative recursion)
+PASS  S3 [M=7, wh=inf] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+PASS  S0 [M=8, wh=inf] model equations satisfied
+PASS  S1 [M=8, wh=inf] dQ_1/dw == a_1/2 (corrected, cumulative recursion)
+PASS  S1 [M=8, wh=inf] dQ_2/dw == a_2/2 (corrected, cumulative recursion)
+PASS  S1 [M=8, wh=inf] dQ_3/dw == a_3/2 (corrected, cumulative recursion)
+PASS  S1 [M=8, wh=inf] dQ_4/dw == a_4/2 (corrected, cumulative recursion)
+PASS  S1 [M=8, wh=inf] dQ_5/dw == a_5/2 (corrected, cumulative recursion)
+PASS  S1 [M=8, wh=inf] dQ_6/dw == a_6/2 (corrected, cumulative recursion)
+PASS  S1 [M=8, wh=inf] dQ_7/dw == a_7/2 (corrected, cumulative recursion)
+PASS  S1 [M=8, wh=inf] dQ_8/dw == a_8/2 (corrected, cumulative recursion)
+PASS  S3 [M=8, wh=inf] paper recursion == corrected for i<=2 (identity); != for every i>=3 and paper T_J != 2 d(sum Q)/dw (exact evaluation at a rational point); d_3 == c_3 a_1
+total 54.5 s
+ALL PASS
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:54.62
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 225376

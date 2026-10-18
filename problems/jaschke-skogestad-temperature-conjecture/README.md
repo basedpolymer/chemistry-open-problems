@@ -1,9 +1,11 @@
 # Jäschke–Skogestad "Jäschke temperature" conjecture (heat exchanger networks with stream splits)
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One read-only nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search; its findings are marked [sub] in references.md. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One read-only nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search; its findings are marked [sub] in references.md. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification
+and corrections: Claude Opus 5.5 (effort xhigh), fresh context, verdict CONFIRMED WITH CORRECTIONS (`verification.md`).
 
-**Status: solved (preliminary): the conjecture is FALSE as stated for every \(M_j \ge 3\). A corrected formula is
-proved for every \(M_j\).** Not yet independently verified (PROTOCOL §4).
+**Status: solved (independently verified): the published recursion is wrong for every \(M_j \ge 3\), so the conjecture
+is FALSE, and so is the \(M_j = 3\) constant-hot-temperature case that the paper reports as proved. A corrected formula
+is proved for every \(M_j\).**
 
 ## Problem
 
@@ -37,22 +39,31 @@ the general formula for the case with more than three heat exchangers on a line"
      \(c_i = 2/(1+w(2/UA_i+1/w_{hi}))\) and \(w\,\partial c_i/\partial w = -c_i(2-c_i)/2\); add the cumulative energy
      balance \(\sum_{l\le i}Q_l = w\theta_i\) and the chain rule.
    - Equal corrected Jäschke temperatures are therefore exactly the optimality condition under AMTD.
+   - So the paper's qualitative claim (under AMTD, temperature measurements suffice) holds for every \(M_j\); what is
+     false is the specific recursion (18)/(A.15) that the authors conjectured.
 2. **The conjecture is false for every \(M_j \ge 3\).** The paper's recursion agrees for \(i \le 2\), but
    \(a^{paper}_3 - a_3 = c_3a_1 \ne 0\).
    - An exact rational counterexample (\(M_1=3\), \(M_2=1\), physical operating point): the paper's controlled
      variable is exactly 0, but the gradient is \(-4972391424/1518467647 \ne 0\), and a nearby split recovers strictly
      more heat.
+   - For \(M_1 \ge 4\): the same construction (branch 2's hot inlet tuned so that the paper's controlled variable is
+     exactly 0) works for any branch 1 on which the two recursions differ. Explicit exact instances for \(M_1 = 4, 5\)
+     are in `verification/v2_exact.py`, and the paper's own Appendix B data are an \(M_1 = 4\) instance (item 3).
    - The case the paper reports as proved (\(M_j = 3\), constant hot temperatures) is also wrong as printed. The raw
-     Maple output in the first line of the paper's (A.12) equals the corrected \(a_3\); the hand "simplification" drops
-     \(a_1\).
+     Maple output in the first line of the paper's (A.12) equals the corrected \(a_3\); the hand "simplification" in
+     the next line drops \(a_1\).
 3. **The paper's own validation case (Appendix B, \(M_1=4\)).**
    - The AMTD optimum is \(u = 0.714119\), which agrees with the paper.
-   - The paper's controlled variable vanishes at \(u = 0.716706\) (certified by exact root isolation).
-   - The split discrepancy the paper attributes to "flatness of the optimum and numerical round-off errors" is in fact
-     the error in the recursion. The reported 0.7152 could not be reproduced.
+   - The paper's controlled variable vanishes at \(u = 0.716706\) (certified by exact root isolation), where the
+     gradient is nonzero: an exact \(M_1 = 4\) counterexample on the paper's own data.
+   - So the published recursion by itself produces a split error of 0.0026; the discrepancy that the paper attributed
+     to "the flatness of the optimum and numerical round-off errors" cannot be blamed on round-off. The paper's reported
+     0.7152 could not be reproduced: the AMTD model at \(u = 0.7152\) does give the reported \(T_{end} = 158.7741\), but
+     neither the paper's nor the corrected controlled variable vanishes there, so the origin of that number is unknown.
 4. **Side results.**
-   - (16) and (19) carry a common normalisation slip \(-\tfrac12\), from a mis-solved (A.5). It does not affect the
-     controlled variables.
+   - (16) and (19) carry a common normalisation slip \(-\tfrac12\), from a mis-solved (A.5) and a sign dropped in
+     (A.6). It does not affect the controlled variables, but taken literally (16) and (19) are false for every
+     \(M_j\), including \(M_j = 1, 2\).
    - For general exchanger laws, including LMTD, the exact marginal cost is
      \((1+\varphi_i/\varepsilon_i)\Delta_i + \varepsilon_i(\theta_{i-1}-\sum_{l<i}\partial Q_l/\partial w)\). With LMTD
      it is still a function of temperatures, but it needs the hot outlet temperatures.
@@ -73,15 +84,29 @@ outils/wsl "cd chemistry-open-problems/problems/jaschke-skogestad-temperature-co
   python -I reproduce_appendixB.py && python -I random_fd_tests.py"
 ```
 
+Note: `counterexample_exact.py` builds the counterexample from its hard-coded parameters, checks it, and (re)writes
+the JSON file given as argument (deterministically, so the content does not change). The JSON is checked from its raw
+parameters alone by the verifier's script below.
+
+Independent verifier's scripts (no code shared with `scripts/`; about 6 minutes in total, mostly `v1_symbolic.py`):
+
+```
+outils/wsl "cd chemistry-open-problems/problems/jaschke-skogestad-temperature-conjecture/verification && \
+  python -I v1_symbolic.py && python -I v2_exact.py ../certificates/counterexample.json && \
+  python -I v3_paper_formulas.py && python -I v4_appendixB.py"
+```
+
 ## Files
 
 | File | Content |
 |---|---|
-| `paper.tex`, `paper.pdf` | Manuscript: statement (verbatim), model, Theorem A / Corollary B / Proposition C, full proofs, counterexample, Appendix B analysis, limitations |
+| `paper.tex`, `paper.pdf` | Manuscript: statement (verbatim), model, Theorem A / Corollary B / Proposition C, full proofs, counterexample, Appendix B analysis, verification summary, limitations |
 | `scripts/verify_symbolic.py` | python-flint exact rational-function check of the raw AMTD model with generic symbols: finite hot capacities for M = 1..5, constant hot temperatures for M = 1..8, plus the exchanger-equivalence lemma L1 covering finite capacities up to M = 8, and the paper's (A.12). About 65 s |
 | `scripts/counterexample_exact.py` | Exact rational counterexample (Fractions + exact dual numbers, standard library only) |
 | `scripts/reproduce_appendixB.py` | The paper's M1 = 4 validation case with exact root isolation (sympy) |
 | `scripts/random_fd_tests.py` | 60-digit finite-difference tests, M = 1..8, prices, plus the LMTD Proposition C (numerical evidence only) |
 | `certificates/` | `counterexample.json` (exact data) and the logs of all runs |
-| `references.md` | Sources and literature/novelty check |
+| `verification.md` | Independent verification report (verdict, what was recomputed, corrections made) |
+| `verification/` | Verifier's own scripts `v1`–`v4` with their logs, and logs of the re-run of `scripts/` |
+| `references.md`, `references.bib` | Sources and literature/novelty check; bibliography of the manuscript |
 | `PROGRESS.md` | Work log |

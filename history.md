@@ -13,5 +13,7 @@
 - Result 6 (chemical engineering): Jäschke–Skogestad temperature conjecture disproved for M_j ≥ 3 and corrected
   recursion proved, solver sub-agent Claude Opus 5.5 (xhigh).
 - Independent verification started (Claude Opus 5.5, xhigh) for results 5 and 6.
+- Result 6 independently verified: CONFIRMED WITH CORRECTIONS (wording of the Appendix B claim softened, M ≥ 4
+  argument completed, three further exact counterexamples including M = 3 with constant hot temperatures).
 - Under investigation: Becker–Döring equations with atomization (Hopf criticality); upper bound for the
   connective constant of self-avoiding walks on the cubic lattice.

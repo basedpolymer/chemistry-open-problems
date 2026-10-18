@@ -1,0 +1,23 @@
+PASS  E1 operating point physically meaningful (positive terminal driving forces, 0<c<1)
+      max ratio of terminal temperature differences = 1.6379 (AMTD = LMTD when 1)
+PASS  E2 paper's controlled variable T_J,1 - T_J,2 == 0 exactly
+PASS  E3 exact gradient dQ/dw1 != 0
+PASS  E3 dQ/dw1 == (T*_J,1 - T*_J,2)/2 (corrected recursion)
+PASS  E3 dQ/dw1 == -c_3 a_1 / 2
+PASS  E4 split w1' = 99/2 gives strictly more heat than w1 = 50
+PASS  E5 dJ_1/dw1 == -(1/2) T*_J,1 (corrected) exactly
+PASS  E5 dJ_1/dw1 + (1/2) T_J,1 (paper) != 0
+
+--- exact data ---
+w1 = 50
+w2 = 50
+branch 2: UA12 = 200  wh12 = 50  theta_h12 = 13184889712830714450/136131266865364681 (~96.854235)
+theta (branch 1) ~ ['0.000000', '28.623427', '38.123070', '46.517170']
+T_J,1 paper     = 61.9867104047   T_J,2 = 61.9867104047
+T*_J,1 corrected= 55.4374876619
+dQ/dw1 exact    = -4972391424/1518467647 (~-3.274611e+00 K)
+Q(w1) = 6200.0278869194  Q(w1') = 6201.4999605975  gain = 1.472e+00 kW
+NUMERICAL: optimum w1* ~ 47.5037115926 (u* ~ 0.47503712), Q* ~ 6204.10365366; loss at paper point ~ 4.0758e+00 kW (0.0657 %)
+certificate written to ../certificates/counterexample.json
+ALL PASS
+EXIT=0

@@ -1,0 +1,14 @@
+PASS B1 corrected CV == -(2/w0) dJ/du identically
+PASS B2 dJ/du has exactly one root in (0,1), in [0.71411,0.71413]: [(0.7141194664671039, 0.7141194664724022)]
+   paper-CV roots in (0,1): [(0.0028293781515629055, 0.0028293781540643117), (0.7167062190385823, 0.7167062190390393)]
+PASS B3 paper CV vanishes at u_P in (0.716, 0.718) where dJ/du != 0 (exact root counting)
+   optimum: u = 0.7141194665  J = -3938.816667  Tend = 158.773751
+   paper-CV root: u = 0.7167062190  J = -3938.798257  Tend = 158.774471
+   prices 1: dQ/du roots [0.7226688384396637]  paper-CV roots [0.0017559341367517913, 0.7250494923544266]
+PASS B4 prices 1: no root of the paper CV in (0,1) coincides with the root of dQtot/du (isolating intervals disjoint)
+
+Exploratory (not a certificate):
+   literal printed (B.1), all roots in (0,1) (exact isolation): [0.903944]
+   at the paper's reported u = 0.7152: Tend = 158.7741  paper CV = 0.1683  corrected CV = -0.1187
+   LMTD model optimum u = 0.701403, J = -3917.1332
+ALL PASS

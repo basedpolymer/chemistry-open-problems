@@ -1,0 +1,7 @@
+PASS P1 (A.8) raw p11 coefficient == a1 = t1^2/h1
+PASS P2 (A.10) raw p21 coefficient == a2
+PASS P3 (A.12) raw p31 coefficient == corrected a3
+PASS P4 (A.12) raw p31 coefficient != published a3, difference == c3*a1
+PASS P5 (A.12) middle line == published a3 (term lost between line 1 and line 2)
+PASS P6 P3 is not an accident of transcription: each of the 12 single sign flips breaks it
+ALL PASS

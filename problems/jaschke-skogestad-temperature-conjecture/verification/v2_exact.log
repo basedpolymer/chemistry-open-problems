@@ -1,0 +1,17 @@
+PASS R1 2 dQ_i/dw == corrected a_i exactly, M=1..8, 40 random draws each (finite and infinite wh mixed)
+PASS R2a published recursion exact for i<=2 in every draw
+PASS R2b published branch total != 2 dQ_tot/dw in every draw with M>=3
+PASS X1a counterexample operating point is physical (both branches)
+PASS X1b paper's controlled variable T_J1^P - T_J2^P == 0 exactly
+PASS X1c dQtot/dw1 == -4972391424/1518467647 (recomputed by dual numbers)
+PASS X1d dQtot/dw1 == -(1/2)*... consistency: dQtot/dw1 == (T_J1^corr - T_J2^corr)/2
+PASS X1e Qtot(w1=99/2) > Qtot(w1=50) exactly
+   gradient = -3.274611, Qtot gain at 99/2 = 1.472074 kW
+PASS X1f stored temperatures in the json agree with the recomputation
+PASS X2 M1=3, constant hot temperatures (wh=oo): physical, paper CV == 0, exact gradient != 0
+   theta_h(branch 2) = 105.8116, dQtot/dw1 = -20/11 ~ -1.81818
+PASS X3a M1=4, finite wh: physical, paper CV == 0, exact gradient != 0
+   theta_h(branch 2) = 152.4895, dQtot/dw1 = -319979/52864 ~ -6.05287
+PASS X3b M1=5, finite wh: physical, paper CV == 0, exact gradient != 0
+   theta_h(branch 2) = 239.0026, dQtot/dw1 = -2134817879/144809600 ~ -14.74224
+ALL PASS
