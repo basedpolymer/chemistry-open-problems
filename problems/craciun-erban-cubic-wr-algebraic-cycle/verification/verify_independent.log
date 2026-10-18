@@ -1,0 +1,77 @@
+========== N10 ==========
+10 reactions
+PASS A1 all rate constants > 0
+PASS A2 every reactant and every product complex has molecularity <= 3 (Definition 2, M_3)
+PASS A3 order (2.2) = max reactant molecularity = 3 (cubic)
+PASS A4 no trivial reaction (source != product)
+PASS A5 no repeated reaction
+PASS A6 both species change in some reaction
+PASS A7 weak reversibility: each reaction u->v lies on a directed cycle (u reachable from v)
+   complexes = 8, linkage classes = 1, rank = 2, deficiency = 5
+   f = -56*x**3 + 216*x**2*y - 250*x*y**2 + 22*y**3 + 448
+   g = 56*x**3 - 216*x**2*y + 250*x*y**2 + 328*x*y - 410*y**3 + 1728*y**2 - 3374*y + 1316
+PASS B1 mass-action field equals the polynomials printed in the manuscript
+PASS B2 field has degree <= 3
+PASS C1 f h_x + g h_y = s h exactly
+   cofactor s = -112*x**2 + 544*x*y - 448*x - 820*y**2 + 1728*y - 1008
+PASS C2 cofactor equals the one printed in the manuscript
+PASS C3 f h_x + g h_y vanishes identically on the rational parametrisation of the circle
+PASS D1 Q(t) = (1+t^2)^4 P(circle(t)) (degree 8) has no real root (Sturm)
+PASS D2 P(1,2) = 520 > 0 (point t = oo); hence P > 0 on the whole circle
+PASS D3 exact bound: P > 18759/50 on the circle (sampled min 375.190669)
+   factorisation of Q: (4, [(t**2 + 1, 2), (130*t**4 + 135*t**3 + 522*t**2 + 329*t + 198, 1)])
+   div F = -384*x**2 + 932*x*y + 328*x - 1480*y**2 + 3456*y - 3374
+   E1 mpmath-iv  Lambda in [-3.684757352177228709118791390352044, -3.684746907272753816875452758515929]
+   E1 mpmath-iv  T      in [0.01033203957468342532178730075689887, 0.01033204870668262316168084591727209]
+PASS E1 rigorous interval enclosure: oint div F dt < 0
+PASS E1 rigorous interval enclosure: period T > 0
+PASS E2 [Lambda] reduced integrand num/den: deg num = 4 <= deg den - 2 = 4, den squarefree, no real pole, 3 simple poles with Im > 0
+PASS E2 [period] reduced integrand num/den: deg num = 2 <= deg den - 2 = 2, den squarefree, no real pole, 2 simple poles with Im > 0
+   E2 residues   Lambda = -3.68475192932675673060446238361  (imag -4.4e-45)
+   E2 residues   T      = 0.0103320434082921426180773721031  (imag -2.69e-49)
+PASS E3 residue values lie inside the rigorous interval enclosures
+   multiplier exp(Lambda) = 0.025103401368736327043
+   F  return error |u(T)-u(0)| = 3.12e-14; det(monodromy) = 0.025103401369; eigenvalues = [0.0251034 1.       ]
+PASS F  (numerical) orbit closes after T and det(monodromy) = exp(Lambda)
+   F  start (2.8, 2): h after 40 periods = 4.050e-12
+   F  start (3.2, 2): h after 40 periods = 4.184e-12
+========== G: uniqueness on the N10 support ==========
+   linear system: 15 equations, 16 unknowns, nullity 1
+PASS G1 solution space (rates, cofactor) on the 10-reaction support is one-dimensional
+PASS G2 its positive generator is the stated integer rate vector
+========== N17 ==========
+17 reactions
+PASS A1 all rate constants > 0
+PASS A2 every reactant and every product complex has molecularity <= 3 (Definition 2, M_3)
+PASS A3 order (2.2) = max reactant molecularity = 3 (cubic)
+PASS A4 no trivial reaction (source != product)
+PASS A5 no repeated reaction
+PASS A6 both species change in some reaction
+PASS A7 weak reversibility: each reaction u->v lies on a directed cycle (u reachable from v)
+   complexes = 10, linkage classes = 1, rank = 2, deficiency = 7
+   f = -401419*x**3/1000000 + 7477489*x**2*y/56000000 + 7497783*x**2/5600000 - 213551*x*y**2/400000 + 55541*x*y/28000000 + 12967049*x/14000000 + 801/1000000
+   g = 22419651*x**3/56000000 - 7477489*x**2*y/56000000 + 213551*x*y**2/400000 - 748283*x*y/560000 - 2979033*y**3/11200000 + 14893029*y**2/14000000 - 104261883*y/56000000
+PASS B2 field has degree <= 3
+PASS C1 f h_x + g h_y = s h exactly
+   cofactor s = -401419*x**2/500000 + 213551*x*y/200000 - 5293*x/10000 - 2979033*y**2/5600000 + 14890893*y/14000000 - 801/1750000
+PASS C3 f h_x + g h_y vanishes identically on the rational parametrisation of the circle
+PASS D1 Q(t) = (1+t^2)^4 P(circle(t)) (degree 8) has no real root (Sturm)
+PASS D2 P(1,2) = 111999989/56000000 > 0 (point t = oo); hence P > 0 on the whole circle
+PASS D3 exact bound: P > 99/50 on the circle (sampled min 1.995262)
+   factorisation of Q: (1/56000000, [(t**2 + 1, 2), (111999989*t**4 + 14865256*t**3 + 433044978*t**2 + 44535960*t + 291135033, 1)])
+   div F = -74915881*x**2/56000000 + 37374629*x*y/28000000 + 33539*x/25000 - 14916527*y**2/11200000 + 59627657*y/28000000 - 52393687/56000000
+   E1 mpmath-iv  Lambda in [-0.6365400656965586252463494984626772, -0.6365392799528308282472149758044544]
+   E1 mpmath-iv  T      in [1.915981595555203479191679250925511, 1.91598195235167104026522359767398]
+PASS E1 rigorous interval enclosure: oint div F dt < 0
+PASS E1 rigorous interval enclosure: period T > 0
+PASS E2 [Lambda] reduced integrand num/den: deg num = 4 <= deg den - 2 = 4, den squarefree, no real pole, 3 simple poles with Im > 0
+PASS E2 [period] reduced integrand num/den: deg num = 2 <= deg den - 2 = 2, den squarefree, no real pole, 2 simple poles with Im > 0
+   E2 residues   Lambda = -0.63653966838147780143944228848  (imag -1.1e-45)
+   E2 residues   T      = 1.91598175982332208134287493322  (imag 1.72e-47)
+PASS E3 residue values lie inside the rigorous interval enclosures
+   multiplier exp(Lambda) = 0.52912019120663502957
+   F  return error |u(T)-u(0)| = 6.98e-14; det(monodromy) = 0.529120191207; eigenvalues = [0.52912019 1.        ]
+PASS F  (numerical) orbit closes after T and det(monodromy) = exp(Lambda)
+   F  start (2.8, 2): h after 40 periods = 9.230e-13
+   F  start (3.2, 2): h after 40 periods = 1.396e-11
+ALL PASS

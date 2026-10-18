@@ -1,8 +1,8 @@
 # Craciun–Erban: can a cubic weakly reversible system have an algebraic limit cycle?
 
-**Status: solved (preliminary): rigorous certificate, awaiting independent verification.**
+**Status: solved: rigorous certificate, confirmed with minor corrections by an independent verifier (see `verification.md`).**
 
-**Attribution.** 17-reaction network: Claude Opus 5.5 exploration agent (effort high), 17 Oct 2026. Rigorous Arb certificate, 10-reaction integer network and manuscript: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+**Attribution.** 17-reaction network: Claude Opus 5.5 exploration agent (effort high), 17 Oct 2026. Rigorous Arb certificate, 10-reaction integer network and manuscript: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5 (effort xhigh), 18 Oct 2026.
 
 ## Problem
 
@@ -30,7 +30,9 @@ ball-arithmetic integration: the circle is a hyperbolic, stable, algebraic limit
 ## Reproduce
 
 ```bash
-python scripts/certify_cycle.py    # exact identities (sympy) + Arb enclosures (python-flint), ~3 s
+python scripts/certify_cycle.py               # solver: exact identities (sympy) + Arb enclosures (python-flint), ~5 s
+python verification/verify_independent.py     # verifier: independent methods (Sturm, mpmath intervals, residues), ~3 min
+python verification/milp_min_support.py       # verifier: side check, 10 reactions is minimal (bounded, sampled MILP), ~20 s
 ```
 
 ## Files
@@ -41,9 +43,14 @@ python scripts/certify_cycle.py    # exact identities (sympy) + Arb enclosures (
 | `scripts/certify_cycle.py` | Certificate for the 10-reaction network and for the 17-reaction network of the exploration phase |
 | `certificates/certify_cycle.log` | Output, all PASS |
 | `references.md` | Sources and novelty check |
+| `verification.md` | Independent verification report (verdict, what was recomputed, corrections, reservations) |
+| `verification/verify_independent.py`, `.log` | Verifier's independent certificate for both networks, all PASS |
+| `verification/milp_min_support.py`, `.log` | Verifier's side check on the minimal number of reactions (not used in the proof) |
 
 ## History
 
 A 17-reaction network with rational rates was found by linear programming during exploration (17 Oct 2026); on 18 Oct
 2026 the hyperbolicity integral was certified with Arb, and a mixed-integer search produced the 10-reaction network
 with integer rate constants.
+On 18 Oct 2026 an independent verifier (fresh context) re-derived every step by different methods and confirmed the
+result, with minor editorial corrections to the manuscript (see `verification.md`).

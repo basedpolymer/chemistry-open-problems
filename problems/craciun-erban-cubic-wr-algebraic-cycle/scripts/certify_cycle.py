@@ -17,7 +17,8 @@ rigorous ball arithmetic with python-flint/Arb):
   4. The characteristic exponent  Lambda = oint s dt = int_0^{2 pi} s(theta)/P(theta) d theta  is enclosed by
      rigorous Arb integration and is nonzero; the same holds for oint div F dt (which equals Lambda).
      Hence the periodic orbit is hyperbolic, thus isolated: an algebraic limit cycle (stable iff Lambda < 0).
-Runtime ~ 1 min. Environment: Python 3.12, sympy 1.14, python-flint 0.9. Exits 1 on any failure.
+Runtime ~ 5 s (measured by the verifier, WSL Fedora). Environment: Python 3.12, sympy 1.14, python-flint 0.9. Exits 1 on
+any failure.
 """
 import sys
 import sympy as sp

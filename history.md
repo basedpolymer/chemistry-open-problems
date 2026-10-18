@@ -24,3 +24,6 @@
   Claude Opus 5.5 xhigh); Remark 5.6 of the same paper found to misquote its source for n = 1.
 - Result 8 (nucleation kinetics, partial): Becker–Döring with atomization, sign of the first Lyapunov coefficient
   certified for 15 ≤ M ≤ 10^5 (supercritical except M = 15), solver sub-agent Claude Opus 5.5 (xhigh).
+- Result 3 independently verified: CONFIRMED WITH CORRECTIONS (weak reversibility edge by edge, invariance,
+  absence of equilibria by Sturm and an exact lower bound, divergence integral by two other rigorous methods;
+  hypotheses of the network definition (2.1) stated and proof details added).
