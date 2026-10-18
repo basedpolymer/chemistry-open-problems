@@ -1,0 +1,18 @@
+parameters (60 digits are needed to reproduce):
+  a = 1.01282282756688503867785684703002815917702655531627846629837
+  b = 0.654626809470286327709996401918672391083172153706469077547131
+  d = 3.28860546617690429718388741565996541608656487798103447854874
+  K = 0.321244556816175423011532938999913745383501015965226302231941   (K - a/(1+bd) = -6.034e-23 )
+  trace = -1.9024e-22  omega = 0.8629191259
+  G-targets V1..V3 = ['1.83e-17', '-3.0023e-13', '1.1169e-9']  V4 = -8.2127977e-7
+  rho = 0.002 : delta = -9.56312e-25   (truncated prediction -9.55002e-25)
+  rho = 0.006 : delta = 1.88595e-24   (truncated prediction 1.88434e-24)
+  rho = 0.012 : delta = -3.1209e-23   (truncated prediction -3.1248e-23)
+  rho = 0.024 : delta = 2.41121e-21   (truncated prediction 2.5453e-21)
+  rho = 0.045 : delta = -7.00779e-19   (truncated prediction -8.09977e-19)
+sign pattern [mpf('-1.0'), mpf('1.0'), mpf('-1.0'), mpf('1.0'), mpf('-1.0')] expected [-1, 1, -1, 1, -1] -> OK
+  limit cycle crossing the ray at rho ~ 0.0040058594
+  limit cycle crossing the ray at rho ~ 0.0080185547
+  limit cycle crossing the ray at rho ~ 0.016142578
+  limit cycle crossing the ray at rho ~ 0.03229541
+exit=0

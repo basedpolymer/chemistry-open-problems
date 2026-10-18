@@ -1,0 +1,84 @@
+=================== focal_exact.py 4 /tmp/tmp.GaHyi0PJer ===================
+R~ built (degree <= 9) in 0.0s
+degree 3 done (0.0s)
+degree 4 done (0.0s)  -> V~_1 has 9 terms
+degree 5 done (0.0s)
+degree 6 done (0.0s)  -> V~_2 has 48 terms
+degree 7 done (0.0s)
+degree 8 done (0.1s)  -> V~_3 has 136 terms
+degree 9 done (0.1s)
+degree 10 done (0.2s)  -> V~_4 has 296 terms
+V~_1: 9 terms, total degree 12, degrees (a,c,w) = (4, 4, 5)
+V~_2: 48 terms, total degree 26, degrees (a,c,w) = (8, 8, 11)
+V~_3: 136 terms, total degree 40, degrees (a,c,w) = (12, 12, 17)
+V~_4: 296 terms, total degree 54, degrees (a,c,w) = (16, 16, 23)
+=================== crosscheck.py ===================
+PASS  V~_1 == closed form of the paper (exact polynomial identity)
+PASS  V~_1 is w times a polynomial in (a, c, w^2)
+PASS  V~_2 is w times a polynomial in (a, c, w^2)
+PASS  V~_3 is w times a polynomial in (a, c, w^2)
+PASS  V~_4 is w times a polynomial in (a, c, w^2)
+PASS  exact vs generic float implementation at (a,b,d)=(1.2,0.3,2.5)  max rel. diff 4.5e-61
+PASS  exact vs generic float implementation at (a,b,d)=(0.7,-0.2,4.0)  max rel. diff 7.95e-57
+PASS  exact vs generic float implementation at (a,b,d)=(1.01282,0.65463,3.28862)  max rel. diff 1.2e-55
+PASS  exact vs generic float implementation at (a,b,d)=(2.5,1.7,1.3)  max rel. diff 2.51e-61
+PASS  checkpoint 1: w^2 = 58/77
+PASS  checkpoint 1 (a,d)=(1,165/49): L1 = 0 exactly
+PASS  checkpoint 1: L2 = 0 exactly
+PASS  checkpoint 1: L3 < 0 (exact rational sign)  V~_3/w = -3826763314019505000/1213578315426804344171 ~ -3.153289e-03
+PASS  checkpoint 2 (a,d)=((1+sqrt 3961)/60, 3): |V~_1|,|V~_2| < 1e-50  (0.0, -1.12e-59)
+PASS  checkpoint 2: L3 > 0  V~_3 = 0.0179346
+ALL PASS
+=================== certify.py ===================
+PASS  C0 recomputed G_1..G_4 == certificates/G_k.json  [terms: 9, 48, 136, 296]
+box centre (a, c, s) = ['[1.01282199868031460006820826889905182097435201 +/- 3.39e-45]', '[1.65462562110423821072725903343591570969214057 +/- 4.34e-45]', '[0.725895762272599802189165078217186008546586314 +/- 3.07e-46]']  radius = 1/10000000000000000000000000000000000000000
+PASS  C0' the Arb balls X_i contain the exact box [m_i - r, m_i + r]
+PASS  C1 domain a>0, b>-1, s>0, 1-(c-1)s>0, d>1, 1+bd>0, K>0 on X  [a in [1.0128219986803146001 +/- 3.18e-20], b in [0.65462562110423821073 +/- 2.75e-21], d in [3.2886104393099357877 +/- 2.42e-20], K in [0.32124436039896080961 +/- 3.59e-21]]
+PASS  C2 Krawczyk K(X) in int(X)  (unique zero of (G1,G2,G3) in X)  [max |K_i - m_i| <= [3.6172e-61 +/- 1.10e-66], radius 1/10000000000000000000000000000000000000000]
+PASS  C3 ||I - C J(X)||_inf < 1  (all Jacobians in J(X) nonsingular)  [norm <= [1.3697e-32 +/- 2.67e-37]]
+PASS  C3' det dG/d(a,c,s) on X excludes 0  [det in [-0.208483123515217 +/- 4.02e-16]]
+PASS  C4 G_4 < 0 on X  (L_4 < 0 at the zero)  [G_4 in [-0.000935431443753641 +/- 4.19e-19] ; L_4 in [-2.58012649949442e-6 +/- 4.49e-21]]
+PASS  C5 det d(L1,L2,L3)/d(a,b,d) at the zero is nonzero  [det dG/d(a,b,d) in [-0.03470367143 +/- 3.64e-12]]
+     G_1(centre) in [1.1688e-61 +/- 1.34e-66]
+     G_2(centre) in [-3.9784e-60 +/- 3.30e-66]
+     G_3(centre) in [1.8156e-58 +/- 3.54e-63]
+ALL PASS
+=================== uniqueness.py ===================
+PASS  step 1: G_1 vanishes identically on the parametrisation of {G_1 = 0}
+PASS  step 2: H_2 = const * (domain-nonvanishing factors) * h_2  [h_2 degrees (t,s) = (6, 4), 24 terms]
+PASS  step 2: H_3 = const * (domain-nonvanishing factors) * h_3  [h_3 degrees (t,s) = (10, 8), 68 terms]
+     deg R_t = (58, 0), deg R_s = (0, 56)
+     candidate t-roots (Re possibly > 0, Im possibly 0): ['[0.33333333 +/- 3.34e-9]', '[0.61211551 +/- 4.38e-9]', '[0.61955960 +/- 4.92e-10]', '[0.74045188 +/- 4.20e-9]', '[2.7323036 +/- 3.40e-8]', '0.50000000']
+     candidate s-roots (Re possibly > 0, Im possibly 0): ['[0.11924033 +/- 4.47e-9]', '[0.72589576 +/- 2.28e-9]']
+PASS  step 4: exactly one candidate pair (t, s) survives the interval exclusion  [surviving: [('[0.612115505623800 +/- 1.77e-16]', '[0.725895762272600 +/- 1.98e-16]')]]
+     survivor in (a,c,s): a in [1.0128219986803146001 +/- 3.18e-20], c in [1.6546256211042382107 +/- 2.73e-20], s in [0.72589576227259980219 +/- 8.36e-22]
+PASS  step 5: the surviving pair lies in the Krawczyk box (zero unique there)
+ALL PASS
+=================== validated_cycles.py ===================
+PASS  V1 (1,1) is a hyperbolic stable focus: tr J < 0 < det J, tr^2 < 4 det (exact)  [tr J = -1.902397e-22]
+PASS  V1' parameters in the domain a > 0, b > -1, d > 1, 1+bd > 0, K > 0
+PASS  V2 rho = 1/500: first return enclosed, one left crossing, angle increasing, sign(delta) = -1 (expected -1)  [delta in [-4.6043873e-25 +/- 1.00e-33], 146 steps, return time [7.281328288 +/- 1.93e-11]]
+PASS  V2 rho = 1/250: first return enclosed, one left crossing, angle increasing, sign(delta) = +1 (expected +1)  [delta in [1.2735661e-24 +/- 3.60e-32], 146 steps, return time [7.281370240 +/- 4.69e-10]]
+PASS  V2 rho = 3/500: first return enclosed, one left crossing, angle increasing, sign(delta) = -1 (expected -1)  [delta in [-3.5491458e-24 +/- 1.82e-32], 146 steps, return time [7.281439738 +/- 4.22e-10]]
+PASS  V2 rho = 3/250: first return enclosed, one left crossing, angle increasing, sign(delta) = +1 (expected +1)  [delta in [1.4112631e-22 +/- 8.87e-32], 146 steps, return time [7.281810158 +/- 3.37e-10]]
+PASS  V2 rho = 3/125: first return enclosed, one left crossing, angle increasing, sign(delta) = -1 (expected -1)  [delta in [-3.0291129e-20 +/- 2.35e-28], 146 steps, return time [7.283251113 +/- 1.33e-10]]
+ALL PASS
+=================== polar_check.py ===================
+== generic (a,b,d)=(1.2,0.3,2.5)  (a,b,d) = 1.2 0.3 2.5
+   u_j(2pi), j=2..9: -1.086e-15 8.639e-01 -4.744e-01 2.625e+00 -3.620e+00 1.180e+01 -2.379e+01 6.617e+01
+   pi*V_1..V_1: 8.6390848951e-01
+   u_3(2pi) = 8.6390848951e-01  vs  pi V_1 = 8.6390848951e-01  rel.err 5.65e-15 ; max|u_j|, j<3: 1.09e-15  -> PASS
+== on L1=0: a=1.1, d=2.7  (a,b,d) = 1.1 0.80172968566 2.7
+   u_j(2pi), j=2..9: -5.863e-16 -6.089e-16 1.845e-15 -1.159e-03 1.336e-03 -3.124e-03 4.666e-03 -9.015e-03
+   pi*V_1..V_2: -4.5079643761e-41 -1.1590532725e-03
+   u_5(2pi) = -1.1590532725e-03  vs  pi V_2 = -1.1590532725e-03  rel.err 1.31e-11 ; max|u_j|, j<5: 1.84e-15  -> PASS
+== on L1=L2=0: d=3.1  (a,b,d) = 1.04617644086 0.703240921098 3.1
+   u_j(2pi), j=2..9: -1.229e-15 7.738e-17 -8.052e-16 -6.587e-15 3.775e-15 1.378e-04 -2.609e-04 6.613e-04
+   pi*V_1..V_3: -9.0159287521e-42 4.9587608137e-41 1.3780476555e-04
+   u_7(2pi) = 1.3780476556e-04  vs  pi V_3 = 1.3780476555e-04  rel.err 7.66e-11 ; max|u_j|, j<7: 6.59e-15  -> PASS
+== triple zero L1=L2=L3=0  (a,b,d) = 1.01282199868 0.654625621104 3.28861043931
+   u_j(2pi), j=2..9: 2.142e-16 -2.591e-15 1.301e-17 -4.964e-15 6.586e-15 1.430e-14 -4.225e-15 -2.580e-06
+   pi*V_1..V_4: -2.7047786256e-41 3.0654157757e-40 -1.9113768955e-39 -2.5801264995e-06
+   u_9(2pi) = -2.5801263743e-06  vs  pi V_4 = -2.5801264995e-06  rel.err 4.85e-08 ; max|u_j|, j<9: 1.43e-14  -> PASS
+
+RUN_ALL: ALL PASS
