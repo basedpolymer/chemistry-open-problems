@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{No limit cycle in the Banaji--Boros--Hofbauer three-reaction example}
 \newcommand*{\PaperTitlePlain}{No limit cycle in the Banaji-Boros-Hofbauer three-reaction example}
 \newcommand*{\PaperShortTitle}{No limit cycle in the BBH example}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
-\newcommand*{\PaperCredits}{Dulac argument and subfamily: Claude Opus 5.5 exploration agents (scout and verifier, effort high), 17 Oct 2026 \textperiodcentered{} Certificate and manuscript: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
+\newcommand*{\PaperCredits}{Dulac argument and subfamily: Claude Opus 5.5 exploration agents (scout and verifier, effort high), 17 Oct 2026 \textperiodcentered{} Certificate and manuscript: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (confirmed with corrections)}
 \newcommand*{\PaperKeywords}{mass-action kinetics, limit cycles, Bendixson--Dulac criterion, Andronov--Hopf bifurcation}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -21,14 +21,16 @@ Andronov--Hopf bifurcation, and asked whether the networks of their cases 9 and 
 nevertheless have a limit cycle; as an example they asked about the network
 \(2X\to3X+2Y,\ X+Y\to0,\ Y\to X+Y\). We show that this system has no periodic orbit for any rate constants, using a
 Dulac function that turns the divergence into a negative definite quadratic form. The same argument shows that in
-the subfamily \(2X\to(2+c_1)X+d_1Y,\ X+Y\to0,\ Y\to(1+c_3)X+Y\), periodic orbits can only occur in the
+the subfamily \(2X\to(2+c_1)X+d_1Y,\ X+Y\to0,\ Y\to c_3X+Y\), periodic orbits can only occur in the
 Andronov--Hopf region \(c_1<d_1<2c_1\).
 \end{paperabstract}
 
 \section*{The question}
 
 Banaji, Boros and Hofbauer~\autocite{BBH2024} classify the three-reaction, planar, quadratic mass-action systems that
-admit an Andronov--Hopf bifurcation (their Theorem~9, cases~9 and~10). In their Conclusions (§6) they write:
+admit an Andronov--Hopf bifurcation (their Theorem~9, cases~9 and~10). Throughout, theorem numbers refer to the arXiv
+version (arXiv:2304.02303v1); in the published version this classification is Theorem~3, with the same case numbering
+and the same notation. In their Conclusions (§6, identical in both versions) they write:
 
 \begin{openquote}
 ``However, we leave it open whether the networks in cases 9 and 10 admitting no Andronov--Hopf bifurcations can
@@ -51,16 +53,17 @@ has no periodic orbit in the closed positive quadrant. In particular it has no l
 \begin{theorem}\label{thm:family}
 Let \(c_1,c_3,d_1\) be positive integers and consider the networks
 \[
-2X\xrightarrow{\kappa_1}(2+c_1)X+d_1Y,\qquad X+Y\xrightarrow{\kappa_2}0,\qquad Y\xrightarrow{\kappa_3}(1+c_3)X+Y,
+2X\xrightarrow{\kappa_1}(2+c_1)X+d_1Y,\qquad X+Y\xrightarrow{\kappa_2}0,\qquad Y\xrightarrow{\kappa_3}c_3X+Y,
 \]
-i.e.\ case~9 of~\autocite[Theorem~9]{BBH2024} with reaction vectors \(c=(c_1,-1,c_3)\), \(d=(d_1,-1,0)\). The
-mass-action system
+i.e.\ case~9 of~\autocite[Theorem~9]{BBH2024} with, in the notation of~\autocite[(13)]{BBH2024},
+\(c=(c_1,c_2,c_3)=(c_1,-1,c_3)\) and \(d=(d_1,d_2,d_3)=(d_1,-1,0)\) (the \(X\)- and \(Y\)-components of the three
+reaction vectors). The mass-action system
 \[
 \dot x=c_1\kappa_1x^2-\kappa_2xy+c_3\kappa_3y,\qquad \dot y=d_1\kappa_1x^2-\kappa_2xy
 \]
-has a periodic orbit for some \(\kappa\) only if \(c_1<d_1<2c_1\), which is exactly the region where it undergoes an
-Andronov--Hopf bifurcation~\autocite[Theorem~9]{BBH2024}. For \(d_1\le c_1\) or \(d_1\ge 2c_1\) it has no periodic
-orbit for any \(\kappa>0\).
+has a periodic orbit in the closed positive quadrant for some \(\kappa\) only if \(c_1<d_1<2c_1\), which is exactly
+the region where it undergoes an Andronov--Hopf bifurcation~\autocite[Theorem~9]{BBH2024}. For \(d_1\le c_1\) or
+\(d_1\ge 2c_1\) it has no periodic orbit in \(\mathbb R^2_{\ge0}\) for any \(\kappa>0\).
 \end{theorem}
 
 The example of \zcref{thm:example} is the case \(c_1=c_3=1\), \(d_1=2\), on the boundary \(d_1=2c_1\) of the Hopf
@@ -84,13 +87,15 @@ a quadratic form with \(y^2\) coefficient \(-\kappa_2<0\) and discriminant
 \]
 (The exponent \(b\) minimises \(\Delta\) among Dulac functions \(y^{-b}\).) If \(d_1\ge 2c_1\), then
 \(\kappa_1(2c_1-d_1)-\kappa_2\le-\kappa_2<0\), so \(\Delta<0\) and \(Q\) is negative definite: \(\operatorname{div}(BF)<0\)
-on the open quadrant. Since \(\mathbb R^2_{>0}\) is simply connected, the Bendixson--Dulac criterion excludes periodic
-orbits contained in it.
+on the open quadrant. Since \(\mathbb R^2_{>0}\) is simply connected and \(B\) is smooth on it, the Bendixson--Dulac
+criterion excludes periodic orbits contained in it.
 
 On \(\{y=0,\ x>0\}\) we have \(\dot y=d_1\kappa_1x^2>0\), on \(\{x=0,\ y>0\}\) we have \(\dot x=c_3\kappa_3y>0\), and the
-origin is an equilibrium. A periodic orbit in the closed quadrant cannot contain an equilibrium, and cannot touch a
-boundary point where the field points strictly into the open quadrant (it would have to reach that point from the
-inside). Hence every periodic orbit would lie in the open quadrant, which is impossible.
+origin is an equilibrium. A periodic orbit cannot contain an equilibrium. If a solution \(\gamma\) of a periodic orbit
+in the closed quadrant passed through a point \(p=\gamma(t_0)\) with \(p=(x_0,0)\), \(x_0>0\), then
+\(y(t)=\dot y(t_0)(t-t_0)+o(t-t_0)<0\) for \(t<t_0\) close to \(t_0\), so the orbit would leave the closed quadrant;
+the same holds on the positive \(y\)-axis. Hence every periodic orbit in the closed quadrant would lie in the open
+quadrant, which is impossible.
 \end{proof}
 
 \begin{proof}[of \zcref{thm:family}, case \(d_1\le c_1\)]
@@ -112,23 +117,45 @@ In the example, the unique positive equilibrium is \((2\kappa_3/\kappa_2,\ 4\kap
 \(\det J=4\kappa_1\kappa_3^2/\kappa_2>0\) and \(\operatorname{tr}J=-2\kappa_3<0\).
 
 For case~9 with \(c_3>0\), \autocite[Theorem~9]{BBH2024} gives an Andronov--Hopf bifurcation iff
+\(c_1>0\), \(c_2=-1\), \(d_1>0\), \(d_2\ge-1\), \(d_3\ge-1\) (all satisfied in the subfamily) and
 \(\tfrac12(d_3/c_3+d_1/c_1)<d_2/c_2<d_1/c_1\). In the subfamily, \(d_2/c_2=1\) and \(d_3=0\), so the condition reads
 \(c_1<d_1<2c_1\); for the example, \(\tfrac12(0+2)=1<1<2\) fails by equality. \zcref[S]{thm:family} shows that in this
 subfamily ``no Andronov--Hopf bifurcation'' implies ``no periodic orbit''.
 \end{remark}
 
+\begin{remark}[added at verification]
+(i) \emph{Sharpness.} For \(c_1<d_1<2c_1\) the positive equilibrium satisfies \(y^*/x^*=d_1\kappa_1/\kappa_2\), and
+\(\operatorname{tr}J\) has the sign of \(\kappa_1(2c_1-d_1)-\kappa_2\), while \(\det J>0\). So the Hopf curve
+\(\operatorname{tr}J=0\) is exactly the curve \(\Delta=0\). On it, \(Q=-\kappa_2\,(y-rx)^2\) with
+\(r=d_1/(2c_1-d_1)\): \(\operatorname{div}(BF)\le0\) vanishes only on a ray, and the Bendixson--Dulac argument (Green's
+formula) still applies. Hence, in the whole subfamily, there is no periodic orbit in \(\mathbb R^2_{\ge0}\) whenever
+\(\kappa_2\ge\kappa_1(2c_1-d_1)\), i.e.\ whenever \(\operatorname{tr}J\le0\) at the positive equilibrium (if there is
+one). For \(c_1<d_1<2c_1\) and \(\kappa_2<\kappa_1(2c_1-d_1)\) the equilibrium is a repellor, and limit cycles do occur
+near the supercritical Hopf curve~\autocite[Theorem~9]{BBH2024}.
+
+(ii) \emph{Other values of \(c_1\).} The proof of the case \(d_1\ge2c_1\) uses neither \(c_1\ge1\) nor integrality.
+For the admissible values \(c_1\in\{-2,-1,0\}\) (target \((2+c_1)X+d_1Y\)) with \(d_1\ge1\), the same Dulac function
+gives \(\Delta=-4d_1\kappa_1(\kappa_2+\kappa_1(d_1-2c_1))<0\), so these networks have no periodic orbit either. These
+networks are also in case~9 without an Andronov--Hopf bifurcation, since that requires \(c_1>0\).
+\end{remark}
+
 \section{What remains open}
 
 The general question of~\autocite{BBH2024}, for all case-9 and case-10 networks without an Andronov--Hopf
-bifurcation (case~9 with \(d_2\neq-1\) or \(d_3\neq0\), including the branch \(c_3=0\), and all of case~10), is not
-settled here. The same strategy with Dulac functions \(x^\alpha y^\beta\) reduces it to sign conditions on a
+bifurcation, is not settled here: case~9 outside the family \(c_2=d_2=-1\), \(d_3=0\) (in particular \(d_2\neq-1\)
+or \(d_3\neq0\), including the branch \(c_3=0\)), and all of case~10, remain open. The same strategy with Dulac
+functions \(x^\alpha y^\beta\) reduces it to sign conditions on a
 cubic-plus-quadratic form.
 
 \section{Computer verification}
 
 \texttt{scripts/certify\_dulac.py} checks every identity above symbolically (sympy): the Dulac computation, the
 coefficients and discriminant in the subfamily and in the example, the vector \(u=c\times d\), the equilibrium and its
-Jacobian, and the boundary behaviour.
+Jacobian, and the boundary behaviour. The independent verifier's scripts (\texttt{verification/}) recheck these
+identities with separate code, and also check: the ODEs against the networks via a generic mass-action constructor,
+the optimality of \(b\), the sign claims, the statements of the remark added at verification, and the specialisation of the Hopf
+condition of~\autocite[Theorem~9]{BBH2024}. A numerical sanity check (not part of the proof) finds no cycles for
+\(d_1\ge2c_1\), and finds the predicted small stable limit cycles just beyond the Hopf curve for \(c_1<d_1<2c_1\).
 
 \paperreferences
 \end{document}

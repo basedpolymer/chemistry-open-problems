@@ -1,0 +1,39 @@
+PASS V1 example ODE from network: xdot = k1*x**2 - k2*x*y + k3*y, ydot = 2*k1*x**2 - k2*x*y
+PASS V2 sources (2X, X+Y, Y) positively oriented (det = 1)
+   subfamily targets: [(c1 + 2, d1), (0, 0), (c3, 1)]
+PASS V2 third target is c3 X + Y (so the example c3 = 1 gives Y -> X + Y)
+PASS V2 first two targets (2+c1)X + d1Y and 0
+PASS V2 subfamily ODE from network (c1,c3,d1)=(1,1,2): xdot=k1*x**2 - k2*x*y + k3*y, ydot=2*k1*x**2 - k2*x*y
+PASS V2 subfamily ODE from network (c1,c3,d1)=(2,3,5): xdot=2*k1*x**2 - k2*x*y + 3*k3*y, ydot=5*k1*x**2 - k2*x*y
+PASS V2 subfamily ODE from network (c1,c3,d1)=(3,1,1): xdot=3*k1*x**2 - k2*x*y + k3*y, ydot=k1*x**2 - k2*x*y
+PASS V2 subfamily ODE from network (c1,c3,d1)=(1,4,7): xdot=k1*x**2 - k2*x*y + 4*k3*y, ydot=7*k1*x**2 - k2*x*y
+PASS V2 target (1+c3)X+Y with c3=1 (i.e. Y -> 2X+Y) does NOT give the BBH example
+   x^(1-a) y^(1-b) div(x^a y^b F) = alpha*c3*k3*y**2 + beta*d1*k1*x**3 + x**2*(alpha*c1*k1*y - beta*k2*y + 2*c1*k1*y - k2*y) + x*(-alpha*k2*y**2 - k2*y**2)
+PASS V3 y^(b+1) div(y^-b F) = -b*d1*k1*x**2 - k2*y**2 + x*(b*k2*y + 2*c1*k1*y - k2*y)
+PASS V3 direct computation agrees
+PASS V4 Delta(b) is a convex quadratic in b
+PASS V4 argmin b* = [(-2*c1*k1 + 2*d1*k1 + k2)/k2]
+PASS V4 Delta(b*) = 4*d1*k1*(2*c1*k1 - d1*k1 - k2)
+PASS V5 -Delta/4 with d1 = 2c1+e: 2*c1*e*k1**2 + 2*c1*k1*k2 + e**2*k1**2 + e*k1*k2 has positive coefficients
+PASS V5 at e = 0: -Delta/4 = 2 c1 k1 k2 > 0
+PASS V5 b* > 0 for d1 >= 2c1 (x^2 coefficient -b d1 k1 < 0)
+PASS V5 400 random exact rational samples with d1 >= 2c1: Q(x,y) < 0
+PASS V6 example: Delta = -8 k1 k2
+PASS V7 u = c x d = [c3, c3*d1, -c1 + d1] in ker Gamma
+PASS V7 rank Gamma = 2 (generic c1,d1 with c3 = 1)
+PASS V7 unique positive equilibrium (for d1 > c1): [{mu: c3*d1**2*k1*k3**2/(k2**2*(c1 - d1)**2), x: -c3*d1*k3/(k2*(c1 - d1)), y: -c3*d1**2*k1*k3/(k2**2*(c1 - d1))}]
+PASS V7 it is an equilibrium
+   tr J = -c3*d1*k3*(2*c1*k1 - d1*k1 - k2)/(k2*(c1 - d1)) ; tr J / (k1(2c1-d1)-k2) = -c3*d1*k3/(k2*(c1 - d1))
+PASS V8 sign tr J = sign(k1 (2c1 - d1) - k2) at the positive equilibrium (d1 = c1 + e > c1)
+   det J (d1 = c1+e) = c3**2*k1*k3**2*(c1 + e)**2/(e*k2)
+PASS V8 det J > 0 at the positive equilibrium
+PASS V9 at k2 = k1(2c1-d1): Q = -k2 (y - r x)^2 with r = d1/(2*c1 - d1)
+PASS V10 example equilibrium (2k3/k2, 4k1k3/k2^2)
+PASS V10 tr J = -2k3, det J = 4k1k3^2/k2
+PASS V10 only positive equilibrium of the example: [{x: 2*k3/k2, y: 4*k1*k3/k2**2}]
+PASS V11 ydot|_{y=0} = d1 k1 x^2 > 0 (x>0), xdot|_{x=0} = c3 k3 y > 0 (y>0)
+PASS V12 Hopf condition 1/2(d3/c3 + d1/c1) < d2/c2 < d1/c1 becomes c1 < d1 < 2c1
+PASS V13 for c1 in {-2,-1,0}, d1 in 1..5: -Delta(b*) has positive coefficients in (k1,k2) (Delta < 0)
+PASS V13 c1 = -m <= 0: -Delta(b*)/4 = d1 k1 (k2 + k1 (d1 + 2m)) > 0
+PASS V13 targets (2+c1)X + d1Y are admissible complexes for c1 >= -2
+ALL PASS

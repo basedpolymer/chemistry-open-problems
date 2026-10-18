@@ -35,3 +35,7 @@
   built on the Phillipson–Rojas (2013) extremal fewnomial system, which is also the equilibrium system of our family.
   Status changed to "already solved". The novelty check in PROTOCOL.md now includes Evidence Press and Zenodo; a scan of
   its 166 repositories found no overlap with the other results.
+- Repository made public; history scrubbed of local paths; licenses added (MIT for code, CC BY 4.0 for texts and data).
+- Result 2 independently verified: CONFIRMED WITH CORRECTIONS (typo in the third reaction of the subfamily fixed:
+  Y -> c3 X + Y; the Dulac threshold shown to coincide with the Hopf curve, hence optimal; theorem numbering of the
+  published version noted).

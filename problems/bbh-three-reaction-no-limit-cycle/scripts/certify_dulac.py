@@ -4,12 +4,12 @@
 Example (BBH 2024, Section 6):  2X -> 3X + 2Y (k1),  X + Y -> 0 (k2),  Y -> X + Y (k3)
     xdot = k1 x^2 - k2 x y + k3 y,   ydot = 2 k1 x^2 - k2 x y.
 Subfamily (case 9 with c2 = d2 = -1, d3 = 0):
-    2X -> (2+c1) X + d1 Y,  X + Y -> 0,  Y -> (1+c3) X + Y,   c1, c3 >= 1, d1 >= 1 integers,
+    2X -> (2+c1) X + d1 Y,  X + Y -> 0,  Y -> c3 X + Y,   c1, c3 >= 1, d1 >= 1 integers,
     xdot = c1 k1 x^2 - k2 x y + c3 k3 y,   ydot = d1 k1 x^2 - k2 x y.
 Claim: with the Dulac function B = y^(-b), b = 1 + 2 k1 (d1 - c1)/k2, the divergence of B F times y^(b+1) is the
 quadratic form Q(x,y) = A x^2 + Bc x y + C y^2 with C = -k2 < 0 and discriminant 4 d1 k1 (k1 (2 c1 - d1) - k2),
 negative for all k > 0 whenever d1 >= 2 c1; hence Q < 0 on the open quadrant. The example is c1 = c3 = 1, d1 = 2.
-All checks are exact symbolic identities (sympy). Runtime < 10 s. Prints PASS/FAIL, exits 1 on failure.
+All checks are exact symbolic identities (sympy). Environment: Python 3 + sympy (WSL Fedora). Runtime < 10 s. Prints PASS/FAIL, exits 1 on failure.
 """
 import sys
 import sympy as sp
@@ -62,7 +62,7 @@ check(sp.simplify(J.det() - 4 * k1 * k3 ** 2 / k2) == 0 and sp.simplify(J.trace(
 f = c1 * k1 * x ** 2 - k2 * x * y + c3 * k3 * y
 g = d1 * k1 * x ** 2 - k2 * x * y
 disc = analyse(f, g, "subfamily", d1, c1)
-# Theorem 9 (case 9, c3 > 0): Hopf iff (1/2)(d3/c3 + d1/c1) < d2/c2 < d1/c1, here d2/c2 = 1, d3 = 0: c1 < d1 < 2 c1
+# BBH Theorem 9 of arXiv:2304.02303v1 = Theorem 3 of the journal version (case 9, c3 > 0): Hopf iff (1/2)(d3/c3 + d1/c1) < d2/c2 < d1/c1, here d2/c2 = 1, d3 = 0: c1 < d1 < 2 c1
 # positive kernel u = c x d: u1 = c2 d3 - c3 d2 = c3, u2 = c3 d1 - c1 d3 = c3 d1, u3 = c1 d2 - c2 d1 = d1 - c1
 cv = sp.Matrix([c1, -1, c3]); dv = sp.Matrix([d1, -1, 0])
 u = cv.cross(dv)
