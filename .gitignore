@@ -1,0 +1,12 @@
+# Python / build artefacts
+__pycache__/
+*.pyc
+*.aux
+*.log.tmp
+# Process files that are not part of the results
+BRIEF-*.md
+PROGRESS.md
+verification-request.md
+codex-*.md
+# Third-party sources (copyrighted PDFs, page images, extracted text, web snapshots): kept locally only
+**/certificates/sources/

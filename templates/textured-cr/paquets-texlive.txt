@@ -1,0 +1,14 @@
+# Paquets TeX Live chargés par le gabarit des comptes rendus (cr.tex) lors de la compilation d'un CR,
+# relevés le 08/10/2026 avec pdflatex -recorder (TeX Live 2026) sur « CR TP3 … (groupe F) ».
+# Inutile avec une installation complète (MacTeX, TeX Live « full »). Avec BasicTeX ou une installation minimale :
+#   sudo tlmgr update --self
+#   sudo tlmgr install $(grep -v '^#' paquets-texlive.txt)
+latex-bin pdftex hyphen-french hyph-utf8 babel-french
+adjustbox amscls amsfonts amsmath auxhook babel biblatex biblatex-ext bigintcalc bitset bookmark booktabs caption
+carlisle catchfile censor cm codehigh collectbox colorprofiles colortbl csquotes delimset ec environ epstopdf-pkg
+etexcmds etoolbox fancyhdr floatrow geometry gettitlestring graphics graphics-cfg graphics-def hycolor hyperref iftex
+infwarerr intcalc keytheorems kpathsea kvdefinekeys kvoptions kvsetkeys l3kernel l3packages latex latexconfig lm
+logreq ltxcmds mathfixs mathtools microtype mptopdf ninecolors oberdiek paralist parskip pbox pdfcol pdfescape
+pdfmanagement pdftexcmds pdfx pgf pgfopts physics refcount romanbar scalerel silence siunitx stmaryrd stringenc
+tabularray tagpdf tcolorbox tensind tex-gyre tikz-cd tikzfill titlesec tocbibind tokcycle tools translations
+trimspaces url varwidth was xcolor xkeyval xurl ytableau zref zref-clever

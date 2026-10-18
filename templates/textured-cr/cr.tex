@@ -1,0 +1,81 @@
+%% Gabarit pandoc pour les comptes rendus et notes de M2SU, d'après TeXtured 1.5.1
+%% (https://github.com/jdujava/TeXtured, CC0, préambule copié dans preamble/).
+%% Utilisé par cr_pdf.py ; ne pas compiler à la main.
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+
+\documentclass[11pt,a4paper]{report}
+
+\input{preamble/toggles}
+\WIPfalse
+\CENSORfalse
+\LINKBOXESfalse
+
+%% Données du document (remplacent preamble/data.tex)
+\newcommand*{\ThesisTitle}{$title$}
+\newcommand*{\ThesisTitlePlaintext}{$title-plain$}
+\newcommand*{\ThesisAuthor}{$author-meta$}
+\newcommand*{\ThesisAuthorPlaintext}{$author-meta$}
+\newcommand*{\Subject}{$subject$}
+\newcommand*{\Keywords}{$keywords$}
+\newcommand*{\KeywordsPlaintext}{$keywords$}
+\newcommand*{\ShortTitle}{$short-title$}
+
+%% Préambule TeXtured sans data.tex (biblatex reste chargé : les boîtes de renvoi en dépendent)
+\input{preamble/debug/commands}
+\input{preamble/debug/silence}
+\input{preamble/general/colors}
+\input{preamble/general/typesetting}
+\input{preamble/general/floats}
+\input{preamble/general/hyperref}
+\input{preamble/misc/macros}
+\input{preamble/misc/packages-macros}
+\input{preamble/misc/tikz}
+\input{preamble/layout/geometry}
+\input{preamble/layout/numbering}
+\input{preamble/layout/headers}
+\input{preamble/layout/titles}
+\input{preamble/layout/toc}
+\input{preamble/references/biblatex}
+\input{preamble/math/packages}
+\input{preamble/math/fonts}
+\input{preamble/math/macros}
+\input{preamble/math/spacing}
+\input{preamble/environments/init}
+\input{preamble/environments/theorem-like}
+\input{preamble/environments/remark-like}
+\input{preamble/environments/todo-like}
+\input{preamble/hacks/custom-reference-boxes}
+\input{preamble/hacks/fix-qed}
+\input{preamble/hacks/fix-hyperref}
+\input{preamble/hacks/floatrow-parskip}
+
+%% Ajouts M2SU : français, sorties de pandoc, caractères Unicode du texte
+\input{cr-extra}
+$if(cr-structured)$
+\input{cr-structure}
+$endif$
+$if(numbered)$
+\setcounter{secnumdepth}{2}
+$else$
+\setcounter{secnumdepth}{-1}
+$endif$
+\graphicspath{{$figdir$/}}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\begin{document}
+\pagenumbering{arabic}
+\chapter*{$title$}
+\markboth{\ShortTitle}{\ShortTitle}
+$if(subtitle)$
+\vspace*{-12pt}
+{\sffamily\large\color{Gray40} $subtitle$\par}
+\vspace{14pt}
+$endif$
+
+$body$
+
+\end{document}

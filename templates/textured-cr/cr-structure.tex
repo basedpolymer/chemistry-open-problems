@@ -1,0 +1,68 @@
+%% Comptes rendus structurés : activé par « cr-structured: true » dans le Markdown.
+%% Les autres notes conservent leur gabarit et leurs compteurs historiques.
+
+%% TeXtured partage les compteurs ; un CR garde des séries distinctes.
+\newcounter{crfigure}
+\newcounter{crtable}
+\newcounter{crequation}
+\makeatletter
+\let\c@figure\c@crfigure
+\let\c@table\c@crtable
+\let\c@equation\c@crequation
+\makeatother
+\renewcommand*{\thefigure}{\arabic{figure}}
+\renewcommand*{\thetable}{\arabic{table}}
+\renewcommand*{\theequation}{\arabic{equation}}
+\renewcommand*{\theHfigure}{\arabic{figure}}
+\renewcommand*{\theHtable}{\arabic{table}}
+\renewcommand*{\theHequation}{\arabic{equation}}
+
+%% Numéro calculé par LaTeX, lien discret vers sa cible ; noms en français.
+\NewDocumentCommand{\CRref}{m m}{\hyperref[#2]{#1~\ref*{#2}}}
+\NewDocumentCommand{\CRsection}{m}{\hyperref[#1]{\ref*{#1}}}
+\hypersetup{linkcolor=black}
+\raggedbottom % éviter l'étirement des paragraphes avant un tableau indivisible
+
+%% Tables courtes non flottantes : légende et données restent sur la même page.
+\NewDocumentEnvironment{CRtable}{m m}{%
+  \par\addvspace{0.7\baselineskip}\noindent
+  \begin{minipage}{\linewidth}
+  \captionsetup{type=table,position=top,name=Table,skip=0.5\baselineskip}
+  \caption{#1}\label{#2}
+  \small
+}{%
+  \end{minipage}\par\addvspace{0.7\baselineskip}
+}
+\newcounter{crappendix}
+\NewDocumentCommand{\CRappendix}{}{%
+  \stepcounter{crappendix}\setcounter{table}{0}%
+  \renewcommand*{\thetable}{\Alph{crappendix}\arabic{table}}%
+  \renewcommand*{\theHtable}{\Alph{crappendix}.\arabic{table}}%
+}
+
+%% siunitx est chargé par TeXtured ; français et conservation des décimales saisies.
+\sisetup{
+  locale=UK,
+  output-decimal-marker={.},
+  uncertainty-mode=separate,
+  per-mode=power,
+  exponent-product=\cdot,
+  range-phrase={\,--\,},
+  range-units=single,
+  list-units=single,
+  list-final-separator={ et },
+  list-pair-separator={ et },
+  list-separator={ ; },
+}
+
+%% Encadrés sans numérotation, pour ne pas décaler figures et tableaux.
+\tcbset{crbox/.style={
+  enhanced,breakable,sharp corners,boxrule=0pt,
+  colback=black!2,colframe=black!25,leftrule=1.2pt,
+  left=0.8em,right=0.8em,top=0.6ex,bottom=0.6ex,
+  before skip=0.7\baselineskip,after skip=0.7\baselineskip,
+  coltitle=black,fonttitle=\sffamily\bfseries\small,
+  attach title to upper={\par\smallskip},fontupper=\small,
+}}
+\NewTColorBox{CRremarque}{m}{crbox,breakable=false,title={#1}}
+\NewTColorBox{CRcalcul}{m}{crbox,title={#1}}

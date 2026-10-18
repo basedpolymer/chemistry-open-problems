@@ -1,0 +1,85 @@
+{
+  "retrieved": "2026-10-18",
+  "files": [
+    {
+      "file": "collapse-page10.png",
+      "sha256": "94afe089e6cb5f473bc0f96a132f135dc55e18b65c92df39460c84b83b9e0cef",
+      "bytes": 285377
+    },
+    {
+      "file": "dgh-1992.pdf",
+      "sha256": "d9f421dfdceaef33ed6301bf0a2764b79044e55196ec7db69cab0a5a0f3ead1b",
+      "bytes": 349411
+    },
+    {
+      "file": "dgh-1992.txt",
+      "sha256": "3b60a17d2c554cb767f752dd9a5bec98c2e2990a7efe6f1c7d0851bd02124435",
+      "bytes": 13958
+    },
+    {
+      "file": "dh-1994.pdf",
+      "sha256": "d22afc13d28a409a65631553b6a1b183507852688f42b90d0af200e9a3d89e4c",
+      "bytes": 364575
+    },
+    {
+      "file": "dh-1994.txt",
+      "sha256": "ea0d492083b48fbf0f9348f2edd9ab9bc9740b4c4498fbcb47dd3244bff75050",
+      "bytes": 20875
+    },
+    {
+      "file": "formal-conjectures-tree.txt",
+      "sha256": "05046c08335404f1ffe7b351c5ae24af75077c47bceb22d8fbf7fb2216965905",
+      "bytes": 555243
+    },
+    {
+      "file": "mmislan-gh.json",
+      "sha256": "824b261e5c1fa3b4ec7f39b9b84ca1f2a27b40e51a8987d50ad2d8755fcffde8",
+      "bytes": 149676
+    },
+    {
+      "file": "mmislan-repos.txt",
+      "sha256": "9c878ae099fc8b99df09a8d2d0089f7fe2a077419c0533ceb15bc66f6908a109",
+      "bytes": 147675
+    },
+    {
+      "file": "model-page6.png",
+      "sha256": "70fc92ce42a34e5574ec53998f405c4eefc91885cfd44b6fac5f49ca1a2c5f91",
+      "bytes": 299805
+    },
+    {
+      "file": "open-question-page21.png",
+      "sha256": "94f6dcd559716b1eb892ed6991c7bff5299a8f483cff81f810345127de232ab0",
+      "bytes": 382324
+    },
+    {
+      "file": "openalex-citing.json",
+      "sha256": "45155897457e5bc68e76ba8610d8bebc92e87aa5eea03587b3dfde047bb7e7b9",
+      "bytes": 912
+    },
+    {
+      "file": "openalex-doi.json",
+      "sha256": "ffd5e953fb94661095796d382ba2207c6bf128dbbf1bc68c8191889ef43cde8f",
+      "bytes": 16380
+    },
+    {
+      "file": "poisat-2502.18964.pdf",
+      "sha256": "f32596fac3de6d847c26b80c8e71046952ead5781ba9d23b97b347316388f76d",
+      "bytes": 524048
+    },
+    {
+      "file": "poisat-2502.18964.txt",
+      "sha256": "a58d4752f58d7c100eb48ff8604e7a5cb75e1dfaba52e3cd96d34330ffcef08e",
+      "bytes": 85579
+    },
+    {
+      "file": "poisat-home.txt",
+      "sha256": "94e65aae7fdb443613c27dd3fd93b21ac4a8d4e6922be38b1efe2a1ee4aa16c5",
+      "bytes": 12174
+    },
+    {
+      "file": "poisat-research.html",
+      "sha256": "5bdd8bd252c4f7d859185d2fa6a5ffff5eb4790b579dfae603f88cf3c4a942a1",
+      "bytes": 14003
+    }
+  ]
+}

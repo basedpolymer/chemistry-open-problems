@@ -1,0 +1,37 @@
+# Sources and novelty audit
+
+Audit date: 18 October 2026. “Not found” means not found in the searches below, not proof of absence. Source downloads are in `certificates/sources/` and are for local verification.
+
+## Primary mathematical sources
+
+1. **Julien Poisat**, *Variational representation and estimates for the free energy of a quenched charged polymer model*. [arXiv:2502.18964v2](https://arxiv.org/abs/2502.18964v2), DOI [10.48550/arXiv.2502.18964](https://doi.org/10.48550/arXiv.2502.18964). First submitted 26 February 2025; v2 submitted 8 October 2026, PDF dated 9 October 2026. **Read in full: all 27 PDF pages, including appendices A--C.** Relevant sections: original/alternative models, pp. 3--5; (3.4), p. 6; high-temperature proof, pp. 7--9; collapse proof and homogeneous-chain generating function, pp. 9--11; open question (3), Section 7, p. 21. The verbatim question is in README.md. PDF and page-21 image are archived. The older [v1 HTML](https://arxiv.org/html/2502.18964v1) was initially consulted for mathematical expressions before identifying v2; all final locations refer to v2. Endpoint error in (3.4) is discussed in notes.md.
+
+2. **Bernard Derrida, Robert B. Griffiths, Paul G. Higgs**, *A Model of Directed Walks with Random Self-Interactions*, Europhysics Letters **18**(4), 361--366 (1992). DOI [10.1209/0295-5075/18/4/014](https://doi.org/10.1209/0295-5075/18/4/014). [Author-hosted PDF](https://www.phys.ens.psl.eu/~derrida/PAPIERS/1992/heteropolym-92-epl.pdf). **Read in full: six pages.** Pages 364--365 give the homogeneous eigenvalue and state the diblock collapse temperature, approximately 1.43 in temperature units, through the eigenvalue criterion. That criterion is algebraically equivalent to our root equation. This is an essential priority qualification: the candidate number and the cold-phase mechanism are not new. The short discussion does not supply the uniform hot-phase argument proved here. Poisat continues to list the exact diblock critical temperature as an unsettled question in October 2026. We therefore distinguish an existing candidate/criterion from a complete matching-bound proof and do not claim discovery of the candidate.
+
+3. **Bernard Derrida, Paul G. Higgs**, *Low-temperature properties of directed walks with random self-interactions*, J. Phys. A: Math. Gen. **27** (1994), 5485--5493. [Author-hosted PDF](https://www.phys.ens.psl.eu/~derrida/PAPIERS/1994/higgs.pdf). No arXiv identifier located; journal coordinates used instead of guessing a DOI. **Read: abstract, introduction, conclusion and passages returned by searches for diblock/critical/transition/lower bound; not a full proof audit.** The inspected discussion concerns low-temperature random-chain exponents, not a matching diblock threshold proof. PDF and text archived.
+
+4. **F. Caravenna, F. den Hollander, N. Pétrélis, J. Poisat**, *Annealed scaling for a charged polymer*, Math. Phys. Anal. Geom. **19** (2016), article 2; [arXiv:1509.02204](https://arxiv.org/abs/1509.02204). [Author-hosted text](https://fcaraven.github.io/download/papers/Annealed_Charged_Polymer_final.pdf). **Read: indexed directed-model discussion and bibliographic listing only.** This is not a 2025--2026 resolution and is not used in the proof.
+
+The proof in notes.md supplies its own elementary gluing, generating-function, and coefficient arguments. No uninspected theorem is needed as a black box.
+
+## Current sources and citation search
+
+- [Poisat's research/publications page](https://www.ceremade.dauphine.fr/~poisat/recherche.html): **read publication list**, including 2025--2026 entries. It lists the primary paper as forthcoming in a Cambridge University Press special volume (2026+). The adjacent work concerns interacting partially directed self-avoiding walks, Swiss-cheese deviations, empirical measures, and sparse-environment pinning; no later diblock resolution was listed. Snapshot: `poisat-research.html`.
+- [Caravenna's research page](https://fcaraven.github.io/research.html): **read recent preprint/publication list**. No matching charged-diblock resolution found; recent work listed concerns, among other topics, two-dimensional stochastic heat flow.
+- [Poisat's 29 September 2026 I2M seminar](https://www.i2m.univ-amu.fr/evenements/tba-308/): **read abstract only**. It describes the broader quenched freezing conjecture, which should not be confused with the deterministic problem treated here.
+- OpenAlex DOI lookup: [API query](https://api.openalex.org/works?filter=doi:10.48550/arXiv.2502.18964), work [W4414926404](https://openalex.org/W4414926404). The response reports **zero indexed citing works**. A separate [cites query](https://api.openalex.org/works?filter=cites:W4414926404&per-page=100) also returns count zero. Both responses are archived as `openalex-doi.json` and `openalex-citing.json`. The first broad-title search returned HTTP 503; the narrower DOI lookup succeeded. Zero indexed citations does not exclude citations to another version or unindexed papers.
+- Semantic Scholar Graph API lookup of `ARXIV:2502.18964`: attempted; **HTTP 429**, no citation data obtained. No claim of a successful Semantic Scholar citation audit is made.
+- General web searches: `"2502.18964"`, `"2502.18964" citations`, `"Poisat" "di-block" critical temperature`, `"di-block polymer" critical temperature solution`, `"charged polymer" "0.698"`, and author/model searches with 2025/2026 and Caravenna/den Hollander. These returned the primary paper, older papers, seminar listings, and irrelevant polymer-chemistry material. No later complete resolution was identified. Search results were used to locate primary sources, not as mathematical evidence.
+
+## AI campaign audit requested by PROTOCOL.md
+
+- Executed `gh api 'users/mmislan/repos?per_page=100'` and separately retrieved the public GitHub API response. **Read repository names/descriptions**, including the binary-polymer RAF projects, which concern autocatalytic sets rather than the DGH charged-path model. No charged-diblock project was identified. Snapshots: `mmislan-gh.json`, `mmislan-repos.txt`. Repository contents were not all audited.
+- Retrieved [google-deepmind/formal-conjectures recursive main tree](https://api.github.com/repos/google-deepmind/formal-conjectures/git/trees/main?recursive=1) and searched paths for `polymer`, `poisat`, `diblock`, `derrida`, `charged`: no match. Snapshot: `formal-conjectures-tree.txt`. This is a filename audit, not a full-content or all-branches search.
+
+## Internal task context
+
+Read the supplied BRIEF-codex.md, chemistry-open-problems/PROTOCOL.md, workspace-root HANDOFF.md (especially E4 and working preferences), and rapports/scout_E_mining.md (Top 4, item 4). The scout's conjectured root equation was treated as unverified until proved. Those internal reports are not independent mathematical evidence.
+
+## Novelty conclusion
+
+The October 2026 primary source still explicitly asks the question. No later complete proof was found in this limited audit. The number and eigenvalue criterion were already present in 1992, and collapse above the candidate is already rigorously covered by Poisat. The defensible proposed contribution is the matching hot-phase bound, the self-contained synthesis, and explicit free-energy/critical asymptotics. An independent verifier should revisit priority, especially the interpretation of the brief 1992 assertion. The status remains preliminary, not a priority claim or peer-reviewed solution.

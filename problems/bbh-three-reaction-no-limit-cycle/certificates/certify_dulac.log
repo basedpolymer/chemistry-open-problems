@@ -1,0 +1,20 @@
+PASS example: y^(b+1) div(B F) is a quadratic form in (x, y)
+   coefficients: x^2: 2*k1*(-2*k1 - k2)/k2,  xy: 4*k1,  y^2: -k2
+   discriminant: -8*k1*k2
+PASS example: coefficient of y^2 is -k2 < 0
+PASS example: discriminant = 4 d1 k1 (k1 (2 c1 - d1) - k2)
+PASS example: discriminant = -8 k1 k2 < 0 for all k > 0
+PASS example: on y = 0, ydot = 2 k1 x^2 > 0 (axis not invariant)
+PASS example: on x = 0, xdot = k3 y > 0 (axis not invariant)
+PASS example: unique positive equilibrium [{x: 2*k3/k2, y: 4*k1*k3/k2**2}]
+PASS example: det J = 4*k1*k3**2/k2 > 0, tr J = -2*k3 < 0
+PASS subfamily: y^(b+1) div(B F) is a quadratic form in (x, y)
+   coefficients: x^2: d1*k1*(2*c1*k1 - 2*d1*k1 - k2)/k2,  xy: 2*d1*k1,  y^2: -k2
+   discriminant: 4*d1*k1*(2*c1*k1 - d1*k1 - k2)
+PASS subfamily: coefficient of y^2 is -k2 < 0
+PASS subfamily: discriminant = 4 d1 k1 (k1 (2 c1 - d1) - k2)
+PASS subfamily: u = c x d = [c3, c3*d1, -c1 + d1]
+   => periodic orbits require u > 0, i.e. d1 > c1; Hopf region is c1 < d1 < 2 c1;
+      for d1 >= 2 c1 the discriminant is < 0 for every k > 0 (2 c1 - d1 <= 0), so Q is negative definite.
+PASS subfamily: both axes are crossed inwards (ydot > 0 on y = 0, xdot > 0 on x = 0)
+ALL PASS

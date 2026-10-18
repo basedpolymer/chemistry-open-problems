@@ -1,0 +1,396 @@
+--- n = 3 ---
+  R1: X1 -> 2X1 + X3
+  R2: 2X1 + X2 -> X1 + 2X2
+  R3: 2X2 + X3 -> X2
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.556e-02 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -4.444e-03 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 6.667e-03 != 0
+PASS F has 3 sign changes: no other positive equilibrium on this class
+  T = 60
+--- n = 4 ---
+  R1: X1 -> 2X1 + X4
+  R2: 2X1 + X2 -> X1 + 2X2
+  R3: 2X2 + X3 -> X2
+  R4: 2X3 + X4 -> 3X3
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.813e-04 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -6.137e-04 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 2.844e-03 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -2.685e-02 != 0
+PASS F has 4 sign changes: no other positive equilibrium on this class
+  T = 36900/167
+--- n = 5 ---
+  R1: X1 -> X5
+  R2: 2X1 + X2 -> 3X1
+  R3: 2X2 + X3 -> 3X2 + 2X3
+  R4: 2X3 + X4 -> X3 + 2X4
+  R5: 2X4 + X5 -> X4
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.541e-23 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -4.902e-26 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 3.569e-27 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -1.383e-27 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 2.331e-27 != 0
+PASS F has 5 sign changes: no other positive equilibrium on this class
+  T = 8211031171200/16873
+--- n = 6 ---
+  R1: X1 -> X6
+  R2: 2X1 + X2 -> 3X1
+  R3: 2X2 + X3 -> 3X2 + 2X3
+  R4: 2X3 + X4 -> X3 + 2X4
+  R5: 2X4 + X5 -> X4
+  R6: 2X5 + X6 -> 3X5
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.923e-36 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -8.725e-34 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.400e-31 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -1.106e-29 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 7.770e-28 != 0
+PASS   r=6: first n-1 reaction vectors span im Gamma
+PASS   r=6: x^(r) is a positive equilibrium on eps.x = T, restricted det = -8.149e-26 != 0
+PASS F has 6 sign changes: no other positive equilibrium on this class
+  T = 39541775134916492071265775352176000/5061805041628806557685127
+--- n = 7 ---
+  R1: X1 -> 2X1 + X7
+  R2: 2X1 + X2 -> X1 + 2X2
+  R3: 2X2 + X3 -> X2
+  R4: 2X3 + X4 -> 3X3
+  R5: 2X4 + X5 -> 3X4 + 2X5
+  R6: 2X5 + X6 -> X5 + 2X6
+  R7: 2X6 + X7 -> X6
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.968e-173 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -2.030e-183 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.308e-188 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -5.841e-192 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 3.480e-194 != 0
+PASS   r=6: first n-1 reaction vectors span im Gamma
+PASS   r=6: x^(r) is a positive equilibrium on eps.x = T, restricted det = -1.674e-195 != 0
+PASS   r=7: first n-1 reaction vectors span im Gamma
+PASS   r=7: x^(r) is a positive equilibrium on eps.x = T, restricted det = 8.872e-196 != 0
+PASS F has 7 sign changes: no other positive equilibrium on this class
+  T = <rational with 120 characters>
+--- n = 8 ---
+  R1: X1 -> 2X1 + X8
+  R2: 2X1 + X2 -> X1 + 2X2
+  R3: 2X2 + X3 -> X2
+  R4: 2X3 + X4 -> 3X3
+  R5: 2X4 + X5 -> 3X4 + 2X5
+  R6: 2X5 + X6 -> X5 + 2X6
+  R7: 2X6 + X7 -> X6
+  R8: 2X7 + X8 -> 3X7
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 5.939e-233 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -1.390e-221 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 1.213e-212 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -9.929e-206 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 5.003e-200 != 0
+PASS   r=6: first n-1 reaction vectors span im Gamma
+PASS   r=6: x^(r) is a positive equilibrium on eps.x = T, restricted det = -5.232e-195 != 0
+PASS   r=7: first n-1 reaction vectors span im Gamma
+PASS   r=7: x^(r) is a positive equilibrium on eps.x = T, restricted det = 2.706e-190 != 0
+PASS   r=8: first n-1 reaction vectors span im Gamma
+PASS   r=8: x^(r) is a positive equilibrium on eps.x = T, restricted det = -1.849e-185 != 0
+PASS F has 8 sign changes: no other positive equilibrium on this class
+  T = <rational with 489 characters>
+--- n = 9 ---
+  R1: X1 -> X9
+  R2: 2X1 + X2 -> 3X1
+  R3: 2X2 + X3 -> 3X2 + 2X3
+  R4: 2X3 + X4 -> X3 + 2X4
+  R5: 2X4 + X5 -> X4
+  R6: 2X5 + X6 -> 3X5
+  R7: 2X6 + X7 -> 3X6 + 2X7
+  R8: 2X7 + X8 -> X7 + 2X8
+  R9: 2X8 + X9 -> X8
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=6: first n-1 reaction vectors span im Gamma
+PASS   r=6: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=7: first n-1 reaction vectors span im Gamma
+PASS   r=7: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=8: first n-1 reaction vectors span im Gamma
+PASS   r=8: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=9: first n-1 reaction vectors span im Gamma
+PASS   r=9: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS F has 9 sign changes: no other positive equilibrium on this class
+  T = <rational with 733 characters>
+--- n = 10 ---
+  R1: X1 -> X10
+  R2: 2X1 + X2 -> 3X1
+  R3: 2X2 + X3 -> 3X2 + 2X3
+  R4: 2X3 + X4 -> X3 + 2X4
+  R5: 2X4 + X5 -> X4
+  R6: 2X5 + X6 -> 3X5
+  R7: 2X6 + X7 -> 3X6 + 2X7
+  R8: 2X7 + X8 -> X7 + 2X8
+  R9: 2X8 + X9 -> X8
+  R10: 2X9 + X10 -> 3X9
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=6: first n-1 reaction vectors span im Gamma
+PASS   r=6: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=7: first n-1 reaction vectors span im Gamma
+PASS   r=7: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=8: first n-1 reaction vectors span im Gamma
+PASS   r=8: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=9: first n-1 reaction vectors span im Gamma
+PASS   r=9: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=10: first n-1 reaction vectors span im Gamma
+PASS   r=10: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS F has 10 sign changes: no other positive equilibrium on this class
+  T = <rational with 2622 characters>
+--- n = 11 ---
+  R1: X1 -> 2X1 + X11
+  R2: 2X1 + X2 -> X1 + 2X2
+  R3: 2X2 + X3 -> X2
+  R4: 2X3 + X4 -> 3X3
+  R5: 2X4 + X5 -> 3X4 + 2X5
+  R6: 2X5 + X6 -> X5 + 2X6
+  R7: 2X6 + X7 -> X6
+  R8: 2X7 + X8 -> 3X7
+  R9: 2X8 + X9 -> 3X8 + 2X9
+  R10: 2X9 + X10 -> X9 + 2X10
+  R11: 2X10 + X11 -> X10
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=6: first n-1 reaction vectors span im Gamma
+PASS   r=6: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=7: first n-1 reaction vectors span im Gamma
+PASS   r=7: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=8: first n-1 reaction vectors span im Gamma
+PASS   r=8: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=9: first n-1 reaction vectors span im Gamma
+PASS   r=9: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=10: first n-1 reaction vectors span im Gamma
+PASS   r=10: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=11: first n-1 reaction vectors span im Gamma
+PASS   r=11: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS F has 11 sign changes: no other positive equilibrium on this class
+  T = <rational with 4119 characters>
+--- n = 12 ---
+  R1: X1 -> 2X1 + X12
+  R2: 2X1 + X2 -> X1 + 2X2
+  R3: 2X2 + X3 -> X2
+  R4: 2X3 + X4 -> 3X3
+  R5: 2X4 + X5 -> 3X4 + 2X5
+  R6: 2X5 + X6 -> X5 + 2X6
+  R7: 2X6 + X7 -> X6
+  R8: 2X7 + X8 -> 3X7
+  R9: 2X8 + X9 -> 3X8 + 2X9
+  R10: 2X9 + X10 -> X9 + 2X10
+  R11: 2X10 + X11 -> X10
+  R12: 2X11 + X12 -> 3X11
+PASS products are nonnegative
+PASS maximum source molecularity is 3
+PASS n distinct sources
+PASS rank Gamma = n - 1
+PASS Gamma (1,...,1)^T = 0 (positive flux vector)
+PASS eps^T Gamma = 0 with eps = (+,+,-,-,...)
+PASS source matrix A invertible
+PASS q = A^{-1} 1 has entries (1 + 2(-2)^{i-1})/3
+PASS exponents distinct and nonzero
+PASS generalized Vandermonde kernel is one-dimensional
+PASS kernel vector strictly alternates in sign
+PASS coefficient signs match eps_i for every species
+PASS C_i > 0 and T > 0
+PASS kappa_j > 0
+PASS   r=1: first n-1 reaction vectors span im Gamma
+PASS   r=1: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=2: first n-1 reaction vectors span im Gamma
+PASS   r=2: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=3: first n-1 reaction vectors span im Gamma
+PASS   r=3: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=4: first n-1 reaction vectors span im Gamma
+PASS   r=4: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=5: first n-1 reaction vectors span im Gamma
+PASS   r=5: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=6: first n-1 reaction vectors span im Gamma
+PASS   r=6: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=7: first n-1 reaction vectors span im Gamma
+PASS   r=7: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=8: first n-1 reaction vectors span im Gamma
+PASS   r=8: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=9: first n-1 reaction vectors span im Gamma
+PASS   r=9: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=10: first n-1 reaction vectors span im Gamma
+PASS   r=10: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS   r=11: first n-1 reaction vectors span im Gamma
+PASS   r=11: x^(r) is a positive equilibrium on eps.x = T, restricted det = 0.000e+00 != 0
+PASS   r=12: first n-1 reaction vectors span im Gamma
+PASS   r=12: x^(r) is a positive equilibrium on eps.x = T, restricted det = -0.000e+00 != 0
+PASS F has 12 sign changes: no other positive equilibrium on this class
+  T = <rational with 13880 characters>
+ALL PASS

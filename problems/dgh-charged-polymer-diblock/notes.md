@@ -1,0 +1,307 @@
+# Exact threshold for the directed charged diblock
+
+Status: complete argument, **solved (preliminary)**; independent verification pending.
+Date: 18 October 2026. This text is a self-contained proof, not an inference from the numerical experiments.
+
+## 1. Source, convention, and scope
+
+Julien Poisat, *Variational representation and estimates for the free energy of a quenched charged polymer model*, arXiv:2502.18964v2, submitted 8 October 2026 (PDF dated 9 October), Section 7, p. 21, question (3), asks for the diblock critical temperature. The verbatim question is transcribed in [README.md](README.md).
+
+The surrounding text gives the inverse-temperature bounds \(\log((1+\sqrt5)/2)\leq\beta_c^{\rm di-block}\leq2\log2\). The parameter used below is **the original inverse temperature** in that paper's (2.3)--(2.5). Its alternative parameter is \(t=\beta/2\).
+
+For \(N\geq1\), paths have \(s_0=0,s_1=1\) and \(s_{i+1}-s_i\in\{0,1\}\) for \(1\leq i<N\). For prescribed charges \(\omega_i\in\{-1,1\}\), set
+\[
+ H_N^\omega(s)=\sum_{1\leq i<j\leq N}\omega_i\omega_j\mathbf1_{s_i=s_j},\quad
+ Z_N^{\beta,\omega}=\sum_s e^{-\beta H_N^\omega(s)},\quad
+ p_{i,N}^{\beta,\omega}=P_N^{\beta,\omega}(s_{i+1}-s_i=1).
+\]
+The balanced diblock means \(N=2n\), \(\omega_1=\cdots=\omega_n=1\), \(\omega_{n+1}=\cdots=\omega_{2n}=-1\).
+
+**Endpoint issue.** Poisat's displayed (3.4) instead uses \(1\leq i<n\) and \(n\leq i<2n\), omitting the final charge and shifting the interface. This cannot literally define a length-\(2n\) charge vector. The balanced definition above is stated in DGH (1992), pp. 364--365, and is the one consistent with the neutral fully collapsed state used in Poisat (3.32). Section 8 below proves robustness to bounded block-length imbalance; the threshold is unaffected by either ordinary endpoint repair.
+
+**Attribution.** The candidate value is not new: DGH (1992), pp. 364--365, already specify a collapse temperature through the homogeneous-chain eigenvalue, which gives exactly the series equation below. Poisat (2026), Proposition 3.7 and (3.23), already prove collapse above this series threshold, although question (3) quotes a coarser upper bound. The new argument offered here is the *matching uniform lower bound on cut probabilities*, using homogeneous partition functions instead of length-two gluing estimates. The independent verification and literature-priority issues must not be conflated.
+
+This result concerns the deterministic diblock. It does not settle the random-charge freezing conjecture or question (7) about the random quenched high-temperature coefficient.
+
+## 2. Theorem
+
+Define
+\[
+ W_\beta(z)=\sum_{\ell=1}^{\infty}e^{-\beta\ell^2/2}z^\ell,
+ \qquad W_{\beta_*}(1)=1.
+ \tag{1}
+\]
+There is exactly one \(\beta_*>0\) satisfying (1). The following statements hold.
+
+1. For every \(0\leq\beta<\beta_*\), there exists \(\delta_\beta>0\) such that **for every binary charge sequence**, every \(N\geq2\), and every \(1\leq i<N\),
+   \[
+   p_{i,N}^{\beta,\omega}\geq\delta_\beta.
+   \tag{2}
+   \]
+2. For a balanced diblock and \(\beta>\beta_*\), let \(L_n\) be the length of the unique occupied-site block containing both signs, or zero if there is a cut at the interface. There exist \(C<\infty\) and \(s>1\), depending only on \(\beta\), such that
+   \[
+   P(2n-L_n\geq M)\leq C s^{-M}\quad(M\geq0),\qquad
+   p_{i,2n}\leq C s^{-\min(i,2n-i)}.
+   \tag{3}
+   \]
+   In particular \(2n-L_n\) is uniformly tight, and \(L_n/(2n)\to1\) in probability.
+3. Let \(r_\beta>0\) be the unique solution of \(W_\beta(r_\beta)=1\). For \(\beta=0\), use \(r_0=1/2\). The original diblock free energy exists and is
+   \[
+   F_{\rm db}(\beta)=\lim_{n\to\infty}\frac{\log Z_{2n}^{\beta,\rm db}}{2n}
+   =\frac\beta2+\max\{0,-\log r_\beta\}.
+   \tag{4}
+   \]
+4. At \(\beta=\beta_*\),
+   \[
+   p_{n,2n}\sim\frac1{3n}.
+   \tag{5}
+   \]
+
+Thus both the endpoint of the uniformly positive-cut regime and the onset of full diblock condensation are \(\beta_c^{\rm db}=\beta_*\). More formally,
+\[
+ \sup\{\beta:\inf_{n\geq1}\min_{1\leq i<2n}p_{i,2n}^{\beta,\rm db}>0\}
+ =\inf\{\beta:L_n/(2n)\to1\text{ in probability}\}=\beta_*.
+ \tag{6}
+\]
+No assumption about monotonicity of individual cut probabilities is needed.
+
+The certified numerical enclosure is
+\[
+0.69813170079919943909134137018011279700848771234773
+<\beta_*<
+0.69813170079919943909134137018011279700848771234774.
+\tag{7}
+\]
+In particular \(\beta_*\ne2\pi/9\); their positive difference is approximately \(1.4676083218650628\times10^{-12}\). Numerical values are certificates for the root of (1); the proof of criticality is Sections 3--7.
+
+## 3. Compositions and homogeneous renewal coefficients
+
+Because paths never move left, occupied sites correspond bijectively to compositions of the monomer sequence into nonempty consecutive blocks. A block of length \(\ell\), total charge \(q\), contributes \((q^2-\ell)/2\) to the Hamiltonian. Hence write
+\[
+ Q_\beta(\omega)=e^{-\beta N/2}Z_N^{\beta,\omega}
+ =\sum_{\text{compositions}}\prod_{B}e^{-\beta(\sum_{i\in B}\omega_i)^2/2},
+ \qquad Q_\beta(\emptyset)=1.
+ \tag{8}
+\]
+For a homogeneous word of length \(m\), write \(A_m=Q_\beta(+^m)=Q_\beta(-^m)\). Then
+\[
+ A_0=1,\quad A_m=\sum_{\ell=1}^m w_\ell A_{m-\ell},\quad
+ w_\ell=e^{-\beta\ell^2/2},\quad
+ \sum_{m\geq0}A_m z^m=\frac1{1-W_\beta(z)}.
+ \tag{9}
+\]
+The generating-function identity initially holds near zero, or as an identity of formal series.
+
+For \(\beta>0\), \(W_\beta\) is entire, strictly increasing on the positive axis, starts at zero, and exceeds one for sufficiently large \(z\). Thus \(r_\beta\) exists uniquely. Set
+\[
+ \mu_\beta=\sum_{\ell\geq1}\ell w_\ell r_\beta^\ell.
+\]
+We claim that for some \(c_\beta>0\) and \(\eta_\beta\in(0,1)\),
+\[
+ c_\beta\leq A_m r_\beta^m\leq1\quad(m\geq0),\qquad
+ A_m r_\beta^m=\mu_\beta^{-1}+O(\eta_\beta^m).
+ \tag{10}
+\]
+
+Here are details so no renewal theorem is being silently invoked. Put \(p_\ell=w_\ell r_\beta^\ell\), a probability distribution on positive integers, and \(u_m=A_m r_\beta^m\). The recurrence gives \(u_0=1\) and \(u_m=\sum_{\ell\leq m}p_\ell u_{m-\ell}\), proving \(0<u_m\leq1\) by induction. There is no zero of \(1-W_\beta\) inside \(|z|<r_\beta\), by the triangle inequality. On the circle \(|z|=r_\beta\), equality \(W_\beta(z)=1\) forces every term to have argument zero; since the coefficient of \(z\) is strictly positive, \(z=r_\beta\). That zero is simple. Isolatedness of zeros and compactness give \(R>r_\beta\) such that this is the only zero in \(|z|<R\). The function
+\[
+ \frac1{1-W_\beta(z)}-\frac1{\mu_\beta(1-z/r_\beta)}
+\]
+has a removable singularity at \(r_\beta\) and is analytic on that disk. Cauchy's coefficient estimate on any circle of radius \(R'\in(r_\beta,R)\) proves the asymptotic in (10). Since all \(u_m>0\) and their limit is positive, their infimum is positive. This proves (10). For \(\beta=0\), explicitly \(A_m=2^{m-1}\) for \(m\geq1\), so the same conclusions hold with \(\mu_0=2\).
+
+Finally \(W_\beta(1)\) is continuous and strictly decreasing in \(\beta>0\), tends to infinity at zero and to zero at infinity. This proves existence/uniqueness in (1) and
+\[
+ r_\beta<1\iff\beta<\beta_*,\quad
+ r_{\beta_*}=1,\quad r_\beta>1\iff\beta>\beta_*.
+ \tag{11}
+\]
+
+## 4. The matching high-temperature bound (arbitrary binary charges)
+
+Two elementary inequalities are the main point. For every binary word \(v\) of length \(m\),
+\[
+ Q_\beta(v)\geq A_m,
+ \qquad Q_\beta(uv)\geq Q_\beta(u)Q_\beta(v).
+ \tag{12}
+\]
+For the first, compare the contribution of each composition: the absolute charge of each block is at most its length. For the second, restrict to compositions having a cut between the two words. Empty words cause no extra factor because \(Q(\emptyset)=1\).
+
+Fix a cut position \(i\) in a word of length \(N\). Suppress \(\beta\) and use \(Q(a,b]\) for a subword partition function. The total weight of paths with this cut is
+\[
+ Q_{\rm cut}=Q(0,i]Q(i,N].
+\]
+The total weight without this cut is exactly
+\[
+ Q_{\rm no\ cut}=\sum_{k=0}^{i-1}\sum_{j=i+1}^{N}
+ Q(0,k]\,e^{-\beta\Omega_{(k,j]}^2/2}\,Q(j,N].
+ \tag{13}
+\]
+There is exactly one block crossing position \(i\), and \(k,j\) are its endpoints; this proves (13), including the endpoint cases.
+
+By (12),
+\[
+ \frac{Q(0,k]}{Q(0,i]}\leq\frac1{A_{i-k}},\qquad
+ \frac{Q(j,N]}{Q(i,N]}\leq\frac1{A_{j-i}}.
+\]
+Dropping only the factor \(e^{-\beta\Omega^2/2}\leq1\) in (13) yields
+\[
+ \frac{Q_{\rm no\ cut}}{Q_{\rm cut}}
+ \leq\left(\sum_{a\geq1}\frac1{A_a}\right)^2.
+ \tag{14}
+\]
+If \(\beta<\beta_*\), (10)--(11) give
+\[
+ \sum_{a\geq1}\frac1{A_a}\leq\frac{r_\beta}{c_\beta(1-r_\beta)}<\infty.
+\]
+Taking \(p_i=(1+Q_{\rm no\ cut}/Q_{\rm cut})^{-1}\) proves (2), for example with
+\[
+ \delta_\beta=\left[1+\left(\frac{r_\beta}{c_\beta(1-r_\beta)}\right)^2\right]^{-1}.
+ \tag{15}
+\]
+
+An elementary alternative to the complex-analysis step suffices for (14). If \(W_\beta(1)>1\), choose finite \(L\) with \(\sum_{\ell=1}^Lw_\ell>1\), and the root \(r_L<1\) of \(\sum_{\ell=1}^Lw_\ell r_L^\ell=1\). The truncated composition coefficients \(B_m\) satisfy \(B_m r_L^m\geq\min_{0\leq j<L}B_jr_L^j>0\) by induction on their finite recurrence. Since \(A_m\geq B_m\), the series of reciprocals in (14) converges. Thus the threshold proof itself requires only positive finite recurrences and geometric-series bounds.
+
+## 5. Exact diblock decomposition and collapse
+
+Let \(D_n=e^{-\beta n}Z_{2n}^{\beta,\rm db}\). A composition either has a cut at the interface, or has one mixed block with \(a\geq1\) positive and \(b\geq1\) negative monomers. Therefore
+\[
+ D_n=A_n^2+\sum_{a=1}^n\sum_{b=1}^n A_{n-a}A_{n-b}e^{-\beta(a-b)^2/2}
+ =A_n^2+\sum_{i=0}^{n-1}\sum_{j=0}^{n-1}A_iA_j e^{-\beta(i-j)^2/2}.
+ \tag{16}
+\]
+Here \(i,j\) are the numbers of monomers outside the mixed block on its two sides. In particular
+\[
+ D_n\geq1,\qquad p_{n,2n}=A_n^2/D_n.
+ \tag{17}
+\]
+The first inequality uses the fully collapsed neutral path, whose reduced weight is one.
+
+Suppose \(\beta>\beta_*\), and select any \(s\in(1,r_\beta)\). Positivity and (9) give
+\[
+ G(s):=\sum_{m\geq0}A_m s^m=\frac1{1-W_\beta(s)}<\infty.
+\]
+For \(M\leq2n\), the mixed-block part of \(\{2n-L_n\geq M\}\) has reduced weight at most
+\[
+ \sum_{i+j\geq M}A_iA_j\leq s^{-M}G(s)^2.
+\]
+The no-mixed-block part has weight \(A_n^2\leq s^{-2n}G(s)^2\leq s^{-M}G(s)^2\). Divide by \(D_n\geq1\). For \(M>2n\), the event is empty. Thus (3) holds with \(C=2G(s)^2\). A cut at position \(i\) must lie outside, or at an endpoint of, the mixed block. Consequently it forces \(2n-L_n\geq\min(i,2n-i)\), proving the second inequality of (3).
+
+For \(\beta<\beta_*\), full condensation is impossible: (2) gives
+\(E\sum_{i=1}^{2n-1}\Delta S_i\geq(2n-1)\delta_\beta\), whereas
+\(\sum\Delta S_i\leq2n-L_n\). If \(L_n/(2n)\to1\) in probability, bounded convergence of \((2n-L_n)/(2n)\in[0,1]\) would contradict this lower bound. This proves the second threshold equality in (6); the first follows from (2), (3), and (5).
+
+## 6. Free energy
+
+For \(r=r_\beta<1\), (10), (16), and \(w_{a-b}\leq1\) imply
+\[
+ c_\beta^2 r^{-2n}\leq D_n\leq r^{-2n}\left[1+\left(\frac r{1-r}\right)^2\right].
+ \tag{18}
+\]
+For \(r>1\), (9), (16), and (17) imply
+\[
+ 1\leq D_n\leq1+\left(\sum_{i\geq0}A_i\right)^2
+ =1+(1-W_\beta(1))^{-2}.
+ \tag{19}
+\]
+At \(r=1\), (10) gives \(A_i\leq1\). Defining \(\Theta_\beta=\sum_{d\in\mathbb Z}e^{-\beta d^2/2}\), (16) implies
+\[
+ 1\leq D_n\leq1+n\Theta_\beta.
+ \tag{20}
+\]
+Since \(Z_{2n}=e^{\beta n}D_n\), (18)--(20) prove (4), including \(\beta=0\), where it also follows from \(Z_{2n}=2^{2n-1}\).
+
+In the alternative convention of the source,
+\[
+ \bar F_{\rm db}(t)=-\log2+\max\{0,-\log r_{2t}\},\qquad t_c=\beta_*/2.
+ \tag{21}
+\]
+
+## 7. Critical cut probability and further exact asymptotics
+
+At \(\beta_*\), write \(a=1/\mu_{\beta_*}\). By (10), \(A_i\to a\) and \(0<A_i\leq1\). For each fixed \(d\geq0\),
+\[
+ \frac1n\sum_{i=0}^{n-1-d}A_i A_{i+d}\longrightarrow a^2.
+\]
+The expression is bounded by one. Since the weights \(e^{-\beta_*d^2/2}\) are summable, dominated convergence in (16), grouped by the diagonal difference \(d\), gives
+\[
+ D_n/n\longrightarrow a^2\Theta_{\beta_*}=3a^2,
+ \tag{22}
+\]
+because \(\Theta_{\beta_*}=1+2W_{\beta_*}(1)=3\). Combining \(A_n^2\to a^2\) with (17) proves (5).
+
+For completeness, away from criticality (10) and dominated convergence also give
+\[
+ \frac{D_n}{A_n^2}\longrightarrow
+ K_\beta:=1+\sum_{a,b\geq1}r_\beta^{a+b}e^{-\beta(a-b)^2/2}
+ \quad(\beta<\beta_*),
+ \tag{23}
+\]
+and
+\[
+ D_n\longrightarrow B_\beta:=\sum_{i,j\geq0}A_iA_j e^{-\beta(i-j)^2/2}\in(0,\infty)
+ \quad(\beta>\beta_*).
+ \tag{24}
+\]
+For (23), the summand divided by \(A_n^2\) is at most \(c_\beta^{-2}r_\beta^{a+b}\); for (24), it is bounded by \(A_iA_j\), whose double sum is finite. Hence
+\(p_{n,2n}\to K_\beta^{-1}>0\) below the threshold, and
+\(p_{n,2n}\sim\mu_\beta^{-2}r_\beta^{-2n}/B_\beta\) above it.
+
+## 8. Bounded endpoint imbalance
+
+For a word \(+^m-^k\), with \(|m-k|\leq d_0\) and \(m,k\to\infty\), replace (16) by
+\[
+ D_{m,k}=A_mA_k+\sum_{i=0}^{m-1}\sum_{j=0}^{k-1}
+ A_iA_j e^{-\beta(m-k-i+j)^2/2}.
+ \tag{25}
+\]
+The fully collapsed term is at least \(e^{-\beta d_0^2/2}\), uniformly in the lengths. All upper tail estimates in Section 5 hold with their constant multiplied by \(e^{\beta d_0^2/2}\); Section 4 applies without any change. In (18) use \(r^{-(m+k)}\); in (20) there are at most \(\min(m,k)\) entries on each diagonal, and the shifted Gaussian sum is still \(\Theta_\beta\). The free energy per monomer and the threshold are consequently unchanged. This covers the ambiguity noted in Section 1 without claiming that the misprinted finite-volume definition is literally well-defined.
+
+## 9. Certification details and reproduction
+
+All exact parameters are in `certificates/parameters.json`. Run from the problem directory in the supplied WSL scientific environment:
+
+```bash
+python scripts/verify_exact.py
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/verify_intervals.py
+```
+
+`verify_exact.py` checks the polynomial identity (16) against independent exhaustive path enumeration through \(N=16\), with integer coefficients in \(q=e^{-\beta/2}\). It also checks (8), (12), and (13) for every binary word through length eight at the exact rational \(q=4/5\). These finite checks detect indexing/normalization errors; they do not prove the universal theorem.
+
+`verify_intervals.py` uses Arb at 256 bits, one thread, for all certificate acceptance decisions. Mpmath only proposes rational brackets for \(r_\beta\); every bracket is checked by Arb. For any positive \(z\) and cutoff \(L\), the tail satisfies
+\[
+ 0\leq W_\beta(z)-\sum_{\ell=1}^L e^{-\beta\ell^2/2}z^\ell
+ \leq T_{\beta,z,L}:=
+ \frac{e^{-\beta(L+1)^2/2}z^{L+1}}
+ {1-ze^{-\beta(2L+3)/2}},
+ \tag{26}
+\]
+provided the displayed denominator is positive. This follows by bounding all successive ratios in the tail by its first ratio. At the rational lower endpoint in (7), the finite sum with \(L=24\) exceeds one; at the upper endpoint, finite sum plus (26) is below one. Strict monotonicity proves (7). The finite sum at \(2\pi/9\), evaluated with Arb's enclosure for \(\pi\), is also strictly above one, proving the non-equality claimed after (7).
+
+The long-chain calculation is an exact dynamic-programming representation evaluated with rigorous interval error bounds, **not exact rational values of transcendental partition functions**. It reaches \(N=100000\). It uses \(L=32\), a certified positive \(s<r_\beta\), and the finite recurrence with scaled weights \(w_\ell s^\ell\), \(\ell\leq L\). Let \(a_m=A_m s^m\), and \(b_m\) be the truncated recurrence coefficients. Both are at most one, since the full scaled kernel has total mass below one. The resolvent identity
+\[
+ (1-W)^{-1}-(1-W_L)^{-1}
+ =(1-W_L)^{-1}(W-W_L)(1-W)^{-1}
+\]
+in scaled formal series gives
+\[
+ 0\leq a_m-b_m\leq(m+1)T_{\beta,s,L}.
+ \tag{27}
+\]
+Indeed, for every omitted step \(\ell\), the coefficient of degree \(m-\ell\) in the product of the two renewal series is at most \(m-\ell+1\), and all coefficients are nonnegative. For \(m\leq L\) the error is exactly zero. The code adds symmetric error balls containing the one-sided bounds (27), then rescales by \(s^{-m}\).
+
+The double sum in (16) is accumulated along diagonals \(|i-j|\leq D=32\). All omitted terms are nonnegative and bounded in total by
+\[
+ e^{-\beta(D+1)^2/2}\left(\sum_{i=0}^{n-1}A_i\right)^2.
+ \tag{28}
+\]
+Equations (26)--(28) account for every truncation. Arb propagates rounding errors, including those in the input decimal parameters. At `critical_interval`, the parameter ball encloses the true \(\beta_*\), so all reported finite-volume intervals also apply to that value. Symmetric balls may extend outside the tight one-sided mathematical bounds; this is harmless over-enclosure.
+
+The certified results are stored as outward-rounded ball strings in `certificates/finite_volumes.json`. The default run verifies stored intervals against recomputation; `--write` regenerates them. A short, untruncated full-chain DP at \(N=20\) is also compared to the accelerated method at every temperature. The asymptotic formula (5) is proved in Section 7, separately from its finite-size check.
+
+## 10. Limitations and first checks for a referee
+
+- Verify the cut/no-cut odds bound (14), especially the direction of homogeneous domination and the absence of spurious endpoint factors. This is the main additional step beyond the cited source.
+- Verify that the deterministic-diblock criticality in (6) is the interpretation intended in question (3). The random-charge power-law freezing statement is substantially different and remains outside this result.
+- Check the factor two between the original and alternative inverse temperatures and the source's endpoint misprint.
+- The root equation and collapse criterion were already in DGH (1992). Priority for the complete argument has not been established exhaustively; a 2026 open-question list is evidence, not proof of novelty.
+- This text and the finite certificates are not a formal proof in a proof assistant. Independent verification is a separate protocol stage and must be recorded honestly.
