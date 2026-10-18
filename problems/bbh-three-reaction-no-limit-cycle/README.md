@@ -3,6 +3,8 @@
 **Status: solved (preliminary): complete proof, awaiting independent verification.** The broader question
 (all case-9 and case-10 networks without Andronov–Hopf bifurcation) remains open beyond the subfamily below.
 
+**Attribution.** Dulac argument (scout) and subfamily (verifier): Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Certificate script and manuscript: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+
 ## Problem
 
 M. Banaji, B. Boros, J. Hofbauer, *Oscillations in three-reaction quadratic mass-action systems*, Stud. Appl. Math.
@@ -31,7 +33,7 @@ python scripts/certify_dulac.py   # symbolic identities (sympy), < 10 s
 
 | File | Content |
 |---|---|
-| `notes.md` | Theorems 1–2 and their proofs |
+| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript: Theorems 1–2 and their proofs |
 | `scripts/certify_dulac.py` | Symbolic verification of every identity |
 | `certificates/certify_dulac.log` | Output, all PASS |
 | `references.md` | Sources and novelty check |

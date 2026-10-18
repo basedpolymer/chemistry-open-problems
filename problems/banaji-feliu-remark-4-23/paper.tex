@@ -1,0 +1,298 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Sharp equilibrium bounds for \((n,n,n-1)\) mass-action networks: an answer to a question of Banaji and Feliu}
+\newcommand*{\PaperTitlePlain}{Sharp equilibrium bounds for (n,n,n-1) mass-action networks: an answer to a question of Banaji and Feliu}
+\newcommand*{\PaperShortTitle}{Sharp equilibrium bounds for \((n,n,n-1)\) networks}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} preliminary}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} \(n=3\) case and computer searches: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026 \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{chemical reaction networks, multistationarity, mass-action kinetics, Descartes' rule of signs}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand{\Net}{\mathcal N}
+\newcommand{\one}{\mathbf 1}
+\providecommand{\im}{\operatorname{im}}
+\providecommand{\spn}{\operatorname{span}}
+\providecommand{\rank}{\operatorname{rank}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Banaji and Feliu proved that a mass-action network with \(n\) species, \(n\) reactions and rank \(n-1\) has at
+most \(n\) positive nondegenerate equilibria on each stoichiometric class, and left open whether this bound is
+attained for general \(n\) and, if so, what source molecularity is needed. We construct, for every \(n\ge3\), an
+explicit \((n,n,n-1)\) network with sources \(X_1\) and \(2X_{i-1}+X_i\) that has exactly \(n\) positive
+nondegenerate equilibria on one stoichiometric class for suitable rate constants. Together with their bound of two
+equilibria for quadratic networks, this shows that the minimum source molecularity is exactly~3 for every
+\(n\ge2\). The proof is short and computer-free: the reaction vectors form a path through the species, the
+equilibria lie on a monomial curve, and the conservation law becomes a signomial with alternating coefficient signs.
+\end{paperabstract}
+
+\section*{The question}
+
+Banaji and Feliu~\autocite{BanajiFeliu2026} study positive equilibria of mass-action networks with \(n\) species,
+\(m\) reactions and stoichiometric rank \(r\), called \((n,m,r)\) networks. Their Corollary~4.21(i) states that
+\((n,n,n-1)\) networks admit no more than \(n\) positive nondegenerate equilibria on any stoichiometric class. In
+Remark~4.23 they write (arXiv:2409.06877v5, p.~30):
+
+\begin{openquote}
+``In the case \(n = 2\), both bounds in Corollary 4.21 are achieved by the \((2, 2, 1)\) network
+\(X + 2Y \to 3Y\), \(Y \to X\) [\dots]. We remark, however, that quadratic \((2, 2, 1)\) networks do not admit
+multiple positive nondegenerate equilibria [\dots]. We leave open whether the bound on positive nondegenerate
+equilibria in Corollary 4.21(i) is achieved for general \(n\) and, if so, the minimum source molecularity of a
+network needed to achieve the bound.''
+\end{openquote}
+
+We answer both parts.
+
+\begin{theorem}\label{thm:A}
+For every \(n\ge 2\) there is an \((n,n,n-1)\) mass-action network with source molecularity~3 which, for suitable
+rate constants, has exactly \(n\) positive equilibria on some stoichiometric class, all of them nondegenerate.
+Hence the bound of~\autocite[Corollary~4.21(i)]{BanajiFeliu2026} is attained for every \(n\).
+\end{theorem}
+
+\begin{corollary}\label{cor:B}
+For every \(n\ge2\), the minimum source molecularity of an \((n,n,n-1)\) network attaining the bound \(n\) is
+exactly~3.
+\end{corollary}
+
+\begin{proof}[of \zcref{cor:B} from \zcref{thm:A}]
+For \(n=2\) this is the content of Remark~4.23 itself: the network \(X+2Y\to3Y,\ Y\to X\) has source molecularity~3,
+and quadratic \((2,2,1)\) networks admit at most one positive nondegenerate equilibrium per class. For \(n\ge3\),
+Corollary~5.16 of~\autocite{BanajiFeliu2026} states that quadratic \((n,n,n-1)\) networks (all sources of
+molecularity at most~2) admit no more than two positive nondegenerate equilibria on each stoichiometric class, fewer
+than \(n\). \zcref[S]{thm:A} provides networks of source molecularity~3.
+\end{proof}
+
+\section{Notation}
+
+Species are \(X_1,\dots,X_n\) with concentrations \(x\in\mathbb R^n_{>0}\). Reaction \(R_j\) has source complex
+\(a_j\in\mathbb Z^n_{\ge0}\), product complex \(b_j\in\mathbb Z^n_{\ge0}\) and reaction vector \(\gamma_j=b_j-a_j\). We
+write \(\Gamma=[\gamma_1|\cdots|\gamma_m]\in\mathbb Z^{n\times m}\) for the stoichiometric matrix and
+\(S\in\mathbb Z^{m\times n}\) for the matrix whose \(j\)-th row is \(a_j\). Mass-action kinetics with rate constants
+\(\kappa\in\mathbb R^m_{>0}\) gives
+\[
+\dot x=\Gamma\, v(x),\qquad v_j(x)=\kappa_j\,x^{a_j}=\kappa_j\prod_i x_i^{a_{ji}},
+\]
+with Jacobian \(J(x)=\Gamma\,D_{v(x)}\,S\,D_{1/x}\), where \(D_u\) is the diagonal matrix with diagonal \(u\).
+Following~\autocite[§2]{BanajiFeliu2026}, a positive equilibrium \(x\) is \emph{nondegenerate} if \(J(x)\) acts as a
+nonsingular transformation on \(\im\Gamma\), i.e.\ \(\ker J(x)\cap\im\Gamma=\{0\}\). Stoichiometric classes are the
+sets \((x_0+\im\Gamma)\cap\mathbb R^n_{\ge0}\). For \(\lambda>0\) and \(q\in\mathbb R^n\) we write
+\(\lambda^q=(\lambda^{q_1},\dots,\lambda^{q_n})\); \(\circ\) is the componentwise product and \(e_i\) the \(i\)-th unit
+vector.
+
+\section{The family of networks}
+
+Fix \(n\ge3\), define the signs
+\[
+\varepsilon_i=(-1)^{\lfloor (i-1)/2\rfloor}\quad(i=1,\dots,n),\qquad\text{i.e. } \varepsilon=(+,+,-,-,+,+,-,-,\dots),
+\]
+and \(s=-\varepsilon_n\in\{\pm1\}\). The network \(\Net_n\) consists of the \(n\) reactions
+\[
+\begin{aligned}
+R_1&:\ X_1\ \longrightarrow\ X_1+\gamma_1,\\
+R_{2k}&:\ 2X_{2k-1}+X_{2k}\ \longrightarrow\ 2X_{2k-1}+X_{2k}+\gamma_{2k}\qquad(2k\le n),\\
+R_{2k+1}&:\ 2X_{2k}+X_{2k+1}\ \longrightarrow\ 2X_{2k}+X_{2k+1}+\gamma_{2k+1}\qquad(2k+1\le n),
+\end{aligned}
+\]
+with reaction vectors
+\[
+\begin{aligned}
+\gamma_1&=s\,e_1+e_n,\\
+\gamma_{2k}&=c_k\,(e_{2k}-e_{2k-1}), & c_k&=(-1)^{k+1}s,\\
+\gamma_{2k+1}&=d_k\,(e_{2k}+e_{2k+1}), & d_k&=(-1)^{k}s .
+\end{aligned}
+\]
+Written out, the reactions are listed in \zcref{tab:reactions}.
+
+\begin{table}[h]
+\centering\small
+\caption{The reactions of \(\Net_n\).}\label{tab:reactions}
+\begin{tabular}{lll}
+\toprule
+reaction & coefficient \(+1\) & coefficient \(-1\)\\
+\midrule
+\(R_1\) (\(s\)) & \(X_1\to 2X_1+X_n\) & \(X_1\to X_n\)\\
+\(R_{2k}\) (\(c_k\)) & \(2X_{2k-1}+X_{2k}\to X_{2k-1}+2X_{2k}\) & \(2X_{2k-1}+X_{2k}\to 3X_{2k-1}\)\\
+\(R_{2k+1}\) (\(d_k\)) & \(2X_{2k}+X_{2k+1}\to 3X_{2k}+2X_{2k+1}\) & \(2X_{2k}+X_{2k+1}\to X_{2k}\)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All products are nonnegative; the sources are \(a_1=e_1\) and \(a_j=2e_{j-1}+e_j\) (\(2\le j\le n\)), so the source
+molecularity is~3 and the product molecularity is at most~5. For instance
+\begin{align*}
+\Net_3&:\ X_1\to 2X_1+X_3,\quad 2X_1+X_2\to X_1+2X_2,\quad 2X_2+X_3\to X_2;\\
+\Net_4&:\ X_1\to X_4,\quad 2X_1+X_2\to 3X_1,\quad 2X_2+X_3\to 3X_2+2X_3,\quad 2X_3+X_4\to X_3+2X_4.
+\end{align*}
+
+\begin{lemma}[note=stoichiometry]\label{lem:stoich}
+\(\Net_n\) is an \((n,n,n-1)\) network with \(\im\Gamma=\varepsilon^\perp\) (so \(\ker\Gamma^{\mathsf T}=\spn(\varepsilon)\))
+and \(\ker\Gamma=\spn(\one)\), \(\one=(1,\dots,1)\). In particular it is dynamically nontrivial and its
+stoichiometric classes are the sets \(\{x\ge0:\varepsilon\cdot x=T\}\), \(T\in\mathbb R\).
+\end{lemma}
+
+\begin{proof}
+For \(t=1,\dots,n-1\) let \(u_t=e_{t+1}-e_t\) if \(t\) is odd and \(u_t=e_t+e_{t+1}\) if \(t\) is even. Then
+\(\gamma_{t+1}\) is a nonzero multiple of \(u_t\) (\(\gamma_{2k}=c_ku_{2k-1}\), \(\gamma_{2k+1}=d_ku_{2k}\)). If \(t\) is
+odd, \(\varepsilon_t=\varepsilon_{t+1}\); if \(t\) is even, \(\varepsilon_{t+1}=-\varepsilon_t\). Hence
+\(\varepsilon\cdot u_t=0\) for all \(t\); also \(\varepsilon\cdot\gamma_1=s+\varepsilon_n=0\). The vectors
+\(u_1,\dots,u_{n-1}\) are linearly independent: deleting the first coordinate leaves an upper bidiagonal
+\((n-1)\times(n-1)\) matrix with unit diagonal (\(u_t\) is supported on \(\{t,t+1\}\) with coefficient \(1\) at
+\(t+1\)). Therefore \(\im\Gamma=\spn(u_1,\dots,u_{n-1})=\varepsilon^\perp\) and \(\rank\Gamma=n-1\).
+
+We check \(\sum_j\gamma_j=0\) coordinatewise. Coordinate~1: \(s-c_1=0\). Coordinate \(2k\): \(c_k+d_k=0\) if \(2k<n\);
+if \(2k=n\) the coordinate is \(c_k+1\), and \(s=-\varepsilon_{2k}=-(-1)^{k-1}\) gives \(c_k=-1\). Coordinate
+\(2k+1\ge3\): \(d_k-c_{k+1}=(-1)^ks-(-1)^{k+2}s=0\) if \(2k+1<n\); if \(2k+1=n\) the coordinate is \(d_k+1\), and
+\(s=-\varepsilon_{2k+1}=-(-1)^k\) gives \(d_k=-1\). So \(\Gamma\one=0\), and since \(\rank\Gamma=n-1=m-1\),
+\(\ker\Gamma=\spn(\one)\).
+\end{proof}
+
+\begin{lemma}[note=exponents]\label{lem:exponents}
+The source matrix \(S\) is lower bidiagonal with unit diagonal, hence invertible, and \(q:=S^{-1}\one\) has entries
+\[
+q_i=\frac{1+2(-2)^{i-1}}{3}\qquad(i=1,\dots,n),\qquad q=(1,-1,3,-5,11,-21,43,\dots).
+\]
+These are pairwise distinct nonzero integers, ordered as
+\(q_{2\lfloor n/2\rfloor}<\cdots<q_4<q_2<0<q_1<q_3<q_5<\cdots\).
+\end{lemma}
+
+\begin{proof}
+\(Sq=\one\) reads \(q_1=1\) and \(2q_{i-1}+q_i=1\), i.e.\ \(q_i-\tfrac13=-2(q_{i-1}-\tfrac13)\). For odd \(i\),
+\(q_i=(1+2^i)/3>0\) increases with \(i\); for even \(i\), \(q_i=(1-2^i)/3<0\) decreases with \(i\).
+\end{proof}
+
+\section{Equilibria lie on a monomial curve}
+
+\begin{lemma}\label{lem:curve}
+Fix \(\kappa\in\mathbb R^n_{>0}\) and put \(C=\exp(-S^{-1}\log\kappa)\in\mathbb R^n_{>0}\) (componentwise). The positive
+equilibria of \(\Net_n\) are exactly the points \(x(\lambda)=C\circ\lambda^{q}\), \(\lambda>0\), and at \(x(\lambda)\)
+every reaction has rate \(v_j=\lambda\). Conversely, every \(C\in\mathbb R^n_{>0}\) arises from the rate constants
+\(\kappa_j=C^{-a_j}\).
+\end{lemma}
+
+\begin{proof}
+By \zcref{lem:stoich}, \(x>0\) is an equilibrium iff \(v(x)\in\ker\Gamma=\spn(\one)\), i.e.\
+\(\kappa_jx^{a_j}=\lambda\) for all \(j\) and some \(\lambda>0\). Taking logarithms,
+\(S\log x=(\log\lambda)\one-\log\kappa\), so \(\log x=(\log\lambda)\,q+\log C\). The converse follows from
+\(\log\kappa=-S\log C\).
+\end{proof}
+
+On the class \(\varepsilon\cdot x=T\), positive equilibria therefore correspond bijectively (\(\lambda\mapsto
+x(\lambda)\) is injective because \(q\ne0\)) to the positive zeros of
+\[
+F(\lambda)=\sum_{i=1}^n\varepsilon_iC_i\,\lambda^{q_i}-T .
+\]
+
+\begin{lemma}[note=nondegeneracy]\label{lem:nondeg}
+The equilibrium \(x(\lambda)\) is nondegenerate if and only if \(F'(\lambda)\neq0\).
+\end{lemma}
+
+\begin{proof}
+At \(x=x(\lambda)\) we have \(v=\lambda\one\), so \(J=\lambda\,\Gamma SD_{1/x}\). Then \(Jy=0\) iff
+\(SD_{1/x}y\in\ker\Gamma=\spn(\one)\) iff \(D_{1/x}y\in\spn(S^{-1}\one)=\spn(q)\) iff \(y\in\spn(x\circ q)\).
+Since \(x'(\lambda)=\lambda^{-1}\,x(\lambda)\circ q\), we get \(\ker J=\spn(x'(\lambda))\). Because
+\(J(\mathbb R^n)\subseteq\im\Gamma=\varepsilon^\perp\), \(\ker J\cap\im\Gamma=\{0\}\) iff
+\(x'(\lambda)\notin\varepsilon^\perp\) iff \(\varepsilon\cdot x'(\lambda)=F'(\lambda)\neq0\).
+\end{proof}
+
+\section{Signomials with prescribed roots}
+
+\begin{lemma}[note={Descartes' rule for real exponents}]\label{lem:descartes}
+Let \(e_0<e_1<\dots<e_N\) be real and \(c\in\mathbb R^{N+1}\setminus\{0\}\). The number of zeros of
+\(f(t)=\sum_kc_kt^{e_k}\) in \((0,\infty)\), counted with multiplicity, is at most the number of sign changes of
+\((c_0,\dots,c_N)\) (zero entries ignored).
+\end{lemma}
+
+This is classical (Laguerre; see~\autocite[Part~V, Ch.~1]{PolyaSzego} or~\autocite{Jameson2006}).
+
+\begin{proof}[note=sketch]
+Induct on the number \(V\) of sign changes. If \(V=0\), \(f\) has no positive zero. Otherwise pick \(\theta\)
+strictly between two consecutive exponents across which the sign changes, and consider
+\(g(t)=(t^{-\theta}f(t))'=\sum_kc_k(e_k-\theta)t^{e_k-\theta-1}\). Multiplication by \(e_k-\theta\) flips exactly
+the signs on one side of the chosen change, so \(g\) has \(V-1\) sign changes, while by Rolle's theorem \(g\) has at
+least \(Z(f)-1\) positive zeros counted with multiplicity.
+\end{proof}
+
+\begin{lemma}\label{lem:prescribed}
+Let \(e_0<\dots<e_N\) be real and \(0<\lambda_1<\dots<\lambda_N\). There is a nonzero \(c\in\mathbb R^{N+1}\) with
+\(f(\lambda_r)=\sum_kc_k\lambda_r^{e_k}=0\) for all \(r\). Every such \(c\) has all entries nonzero and strictly
+alternating in sign, and \(\lambda_1,\dots,\lambda_N\) are then all the positive zeros of \(f\), each of them
+simple.
+\end{lemma}
+
+\begin{proof}
+Existence: \(N\) homogeneous linear equations in \(N+1\) unknowns. By \zcref{lem:descartes}, \(f\) having at least
+\(N\) positive zeros forces at least \(N\) sign changes in \((c_0,\dots,c_N)\); with \(N+1\) entries all of them are
+nonzero and they alternate. \zcref[S]{lem:descartes} again shows that \(f\) has at most \(N\) positive zeros counted
+with multiplicity, so the \(\lambda_r\) are all of them and each is simple.
+\end{proof}
+
+\section{Proof of the main theorem}
+
+\begin{proof}[of \zcref{thm:A}]
+The case \(n=2\) is in~\autocite[Remark~4.23]{BanajiFeliu2026}. Let \(n\ge3\), choose
+\(0<\lambda_1<\dots<\lambda_n\), and list the \(n+1\) distinct exponents \(\{q_1,\dots,q_n,0\}\) in increasing order
+(\zcref{lem:exponents}):
+\(q_{2\lfloor n/2\rfloor}<\dots<q_4<q_2<0<q_1<q_3<\dots\).
+\zcref[S]{lem:prescribed} gives a strictly alternating coefficient vector \(c\) whose signomial vanishes exactly at
+the \(\lambda_r\), all simple; replacing \(c\) by \(-c\) if necessary, the coefficient of \(\lambda^{q_1}\) is
+positive. Read the signs \(\varepsilon_i\) in the same order: \(\varepsilon_{2k}=(-1)^{k-1}\) alternates along the
+negative exponents \(q_2,q_4,\dots\), \(\varepsilon_{2k+1}=(-1)^k\) alternates along the positive exponents
+\(q_1,q_3,\dots\), and \(\varepsilon_1=\varepsilon_2=+1\). So the sequence of the \(\varepsilon\)'s, with an entry \(-1\)
+inserted at exponent \(0\), alternates and starts at \(\lambda^{q_1}\) with \(+\), exactly like \(c\). Hence the
+coefficient \(c_{(q_i)}\) of \(\lambda^{q_i}\) has sign \(\varepsilon_i\) and the constant coefficient \(c_{(0)}\) is
+negative. Define
+\[
+C_i=\varepsilon_i\,c_{(q_i)}>0,\qquad T=-c_{(0)}>0,\qquad \kappa_j=C^{-a_j}.
+\]
+By \zcref{lem:curve}, the positive equilibria of \(\Net_n\) with these rate constants on the class
+\(\varepsilon\cdot x=T\) correspond to the positive zeros of \(F=f\), namely \(\lambda_1,\dots,\lambda_n\). They are
+simple, so the \(n\) equilibria \(x(\lambda_r)\) are nondegenerate by \zcref{lem:nondeg}, and there are no others on
+that class.
+\end{proof}
+
+\begin{remark}
+\begin{enumerate}
+\item If the \(\lambda_r\) are rational, \(c\) can be chosen rational, so \(C\), \(T\), \(\kappa\) and the equilibria
+\(x(\lambda_r)=C\circ\lambda_r^q\) are rational (the exponents are integers).
+\item The stoichiometric classes of \(\Net_n\) are unbounded (\(\varepsilon\) has entries of both signs), as they must
+be by~\autocite[Corollary~4.21(ii)]{BanajiFeliu2026} once \(n\ge3\).
+\item \(\Net_n\) is an \((n,n,n-1)\) network with trivial partition, so it also shows that the bound
+of~\autocite[Theorem~4.20(i)]{BanajiFeliu2026} is attained for every \(n\) when \(m=n\).
+\item The exponents \(q_i\) grow like \(2^i\), which makes the rational witnesses large. Computer searches found other
+networks with linearly growing exponents, but without a uniform proof.
+\end{enumerate}
+\end{remark}
+
+\section{A small explicit instance}
+
+For \(n=3\) take \(\lambda_r=r\). The exponents are \(q=(1,-1,3)\) and
+\(\lambda F(\lambda)=-C_3\lambda^4+C_1\lambda^2-T\lambda+C_2\) must equal
+\(-C_3(\lambda-1)(\lambda-2)(\lambda-3)(\lambda+6)=-C_3(\lambda^4-25\lambda^2+60\lambda-36)\). With \(C_3=1\):
+\(C=(25,36,1)\) and \(T=60\). The network
+\[
+X_1\xrightarrow{\,1/25\,}2X_1+X_3,\qquad 2X_1+X_2\xrightarrow{\,1/22500\,}X_1+2X_2,\qquad
+2X_2+X_3\xrightarrow{\,1/1296\,}X_2
+\]
+has, on the class \(x_1+x_2-x_3=60\), exactly the three positive equilibria \((25,36,1)\), \((50,18,8)\) and
+\((75,12,27)\). The Jacobian restricted to \(\im\Gamma\) has determinant \(7/450\), \(-1/225\) and \(1/150\)
+respectively, with eigenvalues \(\{-1.053,-0.0148\}\), \(\{-0.412,+0.0108\}\) and \(\{-0.384,-0.0174\}\): two stable
+equilibria and a saddle.
+
+\section{Computer verification}
+
+The proof above needs no computer. As an independent consistency check, \texttt{scripts/certify\_family.py} builds
+\(\Net_n\) for \(n=3,\dots,12\) and verifies in exact rational arithmetic (python-flint): the rank and kernels of
+\(\Gamma\); the exponent formula; the strict sign alternation of the generalized-Vandermonde kernel vector for
+\(\lambda_r=r\); the positivity of \(C\), \(T\) and \(\kappa\); that the \(n\) points \(x(r)\) satisfy \(\Gamma v(x)=0\) and
+\(\varepsilon\cdot x=T\) exactly; that the restricted Jacobian has nonzero determinant at each of them; and that \(F\)
+has exactly \(n\) sign changes (301 checks, all pass). \texttt{scripts/example\_n3.py} checks the instance of the
+previous section with sympy.
+
+\paperreferences
+\end{document}

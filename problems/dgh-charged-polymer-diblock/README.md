@@ -2,6 +2,8 @@
 
 **Status: solved (preliminary).** Complete analytic argument and computational certificates; no independent verifier has yet confirmed the proof. The candidate value itself was already identified in 1992. Priority for the complete argument remains qualified.
 
+**Attribution.** Solver: GPT-6-Astra via Codex CLI (effort xhigh). Internal review: a GPT-6-Astra sub-agent launched by the solver (effort not recorded). LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+
 ## Original question
 
 > What is the critical temperature for the di-block polymer from (3.4)?
@@ -17,7 +19,7 @@ For the deterministic balanced sequence \(+^n-^n\), in the original pair-interac
 \]
 Below it, every cut probability is bounded below uniformly in length and position, even for arbitrary binary charge sequences. Above it, all but a uniformly tight number of monomers occupy one site. The proof compares general charge words to homogeneous words, then uses gluing inequalities and an exact mixed-block decomposition. It also obtains the diblock free energy and the critical central-cut asymptotic \(p_{n,2n}\sim1/(3n)\). The alternative temperature convention has threshold \(\beta_c/2\). The candidate is **not exactly** \(2\pi/9\): their positive difference is about \(1.4676083\times10^{-12}\).
 
-Full assumptions, endpoint correction, proof, and limitations are in [notes.md](notes.md). The random-charge freezing conjecture and the companion high-temperature expansion question are not claimed solved.
+Full assumptions, endpoint correction, proof, and limitations are in [paper.pdf](paper.pdf). The random-charge freezing conjecture and the companion high-temperature expansion question are not claimed solved.
 
 ## Certified computations
 
@@ -54,7 +56,7 @@ Dependencies: Python 3.10+, `python-flint`, `mpmath`. One thread, under 250 MB R
 
 ## Files
 
-- [notes.md](notes.md): complete proof in English and all numerical error bounds.
+- [paper.tex](paper.tex), [paper.pdf](paper.pdf): manuscript with the complete proof and all numerical error bounds (LaTeX edition of the solver's write-up).
 - [references.md](references.md): sources, exact reading scope, novelty search and limitations.
 - [verification-codex-internal.md](verification-codex-internal.md): review by a fresh-context sub-agent launched by the solver itself (same model); not the independent verification required by PROTOCOL.md.
 - `scripts/verify_exact.py`, `scripts/verify_intervals.py`, `scripts/run_all.py`: deterministic verifiers.

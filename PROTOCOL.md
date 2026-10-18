@@ -25,8 +25,8 @@ statement.
 
 | File | Content |
 |---|---|
-| `README.md` | Problem statement (verbatim quote + full reference), status (solved / partially solved / already solved / failed), one-paragraph result, how to reproduce, list of files. |
-| `notes.md` | Full technical write-up in English: precise theorem statement, proof, every computation needed to check it, limitations. Written so that a referee can check it without the scripts' source code. LaTeX math inside `\( \)` and `\[ \]`. |
+| `README.md` | Problem statement (verbatim quote + full reference), status (solved / partially solved / already solved / failed), one-paragraph result, **attribution** (see below), how to reproduce, list of files. |
+| `paper.tex` + `references.bib` | The manuscript, written directly in LaTeX in English with the shared preamble (`\input{chemop-preamble}`, see `templates/paper-skeleton.tex`): precise theorem statement, complete proof, every computation needed to check it, limitations; readable by a referee without the scripts' source code. Compiled to `paper.pdf` by `python templates/build_tex.py problems/<slug>/paper.tex`. |
 | `scripts/` | Self-contained, deterministic scripts. Each certificate script prints `PASS` or `FAIL` for each claim and exits non-zero on failure. State the runtime and the environment at the top of each script. |
 | `certificates/` | Data that the scripts check (exact parameters, rational vectors, solver logs, interval enclosures). |
 | `references.md` | Every source used, with DOI/arXiv id, and what was read (full text / abstract only). |
@@ -36,6 +36,12 @@ with the scientific Python environment activated). Python environment: numpy, sc
 python-flint, networkx, pyomo, pyscipopt, highspy, cvxpy, ortools, numba. Julia 1.13 with
 HomotopyContinuation, IntervalArithmetic, IntervalRootFinding, Catalyst, BifurcationKit, JuMP. Also PARI/GP,
 Singular, Macaulay2, msolve, nauty, plantri, buckygen, Lean 4 (no Mathlib yet), CUDA 12.8.
+
+**Attribution.** Every piece of work is credited to the model that produced it, with its reasoning effort: solver,
+helpers, verifier, editor (for example "Solver: Claude Opus 5.5 (effort xhigh)", "Solver: GPT-6-Astra via Codex
+CLI (effort xhigh)"). The credits appear in `\PaperCredits` of `paper.tex` (printed under the title), at the top of
+the problem's `README.md`, and in the results table of the root `README.md`. Unknown efforts are written "effort not
+recorded", never guessed.
 
 ## 4. Independent verification
 

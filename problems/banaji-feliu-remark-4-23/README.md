@@ -2,6 +2,8 @@
 
 **Status: solved (preliminary): complete proof, awaiting independent verification.**
 
+**Attribution.** General family, proof and manuscript: Claude Opus 5.5 (effort xhigh), orchestrating agent. n = 3 case and computer searches for n ≤ 9: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Independent verification: pending.
+
 ## Problem
 
 M. Banaji and E. Feliu, *Positive equilibria in mass action networks: geometry and bounds*, J. Math. Biol. 93
@@ -36,7 +38,7 @@ python scripts/example_n3.py            # the n = 3 instance with sympy
 
 | File | Content |
 |---|---|
-| `notes.md` | Theorem, complete proof, explicit example |
+| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript: theorem, complete proof, explicit example |
 | `scripts/certify_family.py` | Exact (python-flint) verification for n = 3…12 |
 | `scripts/example_n3.py` | Exact (sympy) verification of the n = 3 instance |
 | `certificates/certify_family_n3-12.log` | Output: 301 checks, all PASS |

@@ -2,6 +2,8 @@
 
 **Status: solved (preliminary): rigorous certificate, awaiting independent verification.**
 
+**Attribution.** 17-reaction network: Claude Opus 5.5 exploration agent (effort high), 17 Oct 2026. Rigorous Arb certificate, 10-reaction integer network and manuscript: Claude Opus 5.5 (effort xhigh). Independent verification: pending.
+
 ## Problem
 
 G. Craciun, R. Erban, *Planar chemical reaction systems with algebraic and non-algebraic limit cycles*, J. Math.
@@ -35,7 +37,7 @@ python scripts/certify_cycle.py    # exact identities (sympy) + Arb enclosures (
 
 | File | Content |
 |---|---|
-| `notes.md` | Theorem and proof |
+| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript: theorem and proof |
 | `scripts/certify_cycle.py` | Certificate for the 10-reaction network and for the 17-reaction network of the exploration phase |
 | `certificates/certify_cycle.log` | Output, all PASS |
 | `references.md` | Sources and novelty check |

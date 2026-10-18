@@ -12,12 +12,15 @@ manuscript, and scripts that re-check every computational claim.
 
 ## Results
 
-| # | Problem (source) | Field | Answer | Status |
-|---|---|---|---|---|
-| 1 | [Sharpness of the (n, n, n−1) equilibrium bound](problems/banaji-feliu-remark-4-23/) (Banaji–Feliu, J. Math. Biol. 2026, Rem. 4.23) | Reaction networks | Bound attained for every n; minimum source molecularity is 3 | solved (preliminary) |
-| 2 | [Limit cycle in a three-reaction example](problems/bbh-three-reaction-no-limit-cycle/) (Banaji–Boros–Hofbauer, Stud. Appl. Math. 2024, §6) | Reaction networks | No periodic orbit for any rates; extends to a subfamily | solved (preliminary) |
-| 3 | [Algebraic limit cycle in a cubic weakly reversible system](problems/craciun-erban-cubic-wr-algebraic-cycle/) (Craciun–Erban, J. Math. Biol. 2025) | Reaction networks | Yes: 10-reaction network with integer rates, W^a(3) ≥ 1 | solved (preliminary) |
-| 4 | [Critical temperature of the DGH charged di-block polymer](problems/dgh-charged-polymer-diblock/) (Poisat, arXiv:2502.18964, question (3)) | Polymer physics | β_c is the root of Σ_{ℓ≥1} e^{−βℓ²/2} = 1 (value already conjectured by Derrida–Griffiths–Higgs 1992) | solved (preliminary) |
+| # | Problem (source) | Field | Answer | Credits (model, effort) | Status |
+|---|---|---|---|---|---|
+| 1 | [Sharpness of the (n, n, n−1) equilibrium bound](problems/banaji-feliu-remark-4-23/) (Banaji–Feliu, J. Math. Biol. 2026, Rem. 4.23) | Reaction networks | Bound attained for every n; minimum source molecularity is 3 | Claude Opus 5.5 (xhigh); n = 3 case: Claude Opus 5.5 (high) | solved (preliminary) |
+| 2 | [Limit cycle in a three-reaction example](problems/bbh-three-reaction-no-limit-cycle/) (Banaji–Boros–Hofbauer, Stud. Appl. Math. 2024, §6) | Reaction networks | No periodic orbit for any rates; extends to a subfamily | Claude Opus 5.5 (high); certificate: Claude Opus 5.5 (xhigh) | solved (preliminary) |
+| 3 | [Algebraic limit cycle in a cubic weakly reversible system](problems/craciun-erban-cubic-wr-algebraic-cycle/) (Craciun–Erban, J. Math. Biol. 2025) | Reaction networks | Yes: 10-reaction network with integer rates, W^a(3) ≥ 1 | Claude Opus 5.5 (high, xhigh) | solved (preliminary) |
+| 4 | [Critical temperature of the DGH charged di-block polymer](problems/dgh-charged-polymer-diblock/) (Poisat, arXiv:2502.18964, question (3)) | Polymer physics | β_c is the root of Σ_{ℓ≥1} e^{−βℓ²/2} = 1 (value already conjectured by Derrida–Griffiths–Higgs 1992) | GPT-6-Astra via Codex CLI (xhigh) | solved (preliminary) |
+
+Each problem's README and the title page of each manuscript give the detailed credits (solver, helpers, verifier,
+editor) with the reasoning effort of every model.
 
 Problems under investigation are listed in [history.md](history.md).
 
@@ -28,8 +31,8 @@ Each problem lives in `problems/<slug>/`:
 | File | Content |
 |---|---|
 | `README.md` | Verbatim open statement and source, result, status, how to reproduce |
-| `notes.md` | Full technical write-up (theorem and proof) |
-| `paper.pdf` | The same write-up typeset with the TeXtured template (`templates/build_pdf.py`) |
+| `paper.tex`, `references.bib` | The manuscript, written directly in LaTeX (TeXtured-based preamble `templates/textured-cr/chemop-preamble.tex`) |
+| `paper.pdf` | The compiled manuscript (`python templates/build_tex.py problems/<slug>/paper.tex`) |
 | `scripts/` | Deterministic scripts; each prints `PASS`/`FAIL` for every claim |
 | `certificates/` | Exact data checked by the scripts, logs |
 | `references.md` | Sources read and novelty check |
@@ -47,10 +50,10 @@ action; no author has been contacted yet.
 ## Reproducing
 
 Scripts were run under Fedora 44 (WSL) with Python 3.12 and sympy 1.14, mpmath, python-flint 0.9, numpy/scipy,
-pyscipopt/HiGHS. PDFs are built with pandoc 3 and pdflatex:
+pyscipopt/HiGHS. PDFs are built with latexmk, pdflatex and biber (MiKTeX or TeX Live):
 
 ```bash
-python templates/build_pdf.py problems/<slug>/notes.md
+python templates/build_tex.py problems/<slug>/paper.tex
 ```
 
 ## License

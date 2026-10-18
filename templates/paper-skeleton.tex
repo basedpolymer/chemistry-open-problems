@@ -1,0 +1,44 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Title, math allowed: \(W^a(3)\ge1\)}
+\newcommand*{\PaperTitlePlain}{Title in plain text for the PDF metadata}
+\newcommand*{\PaperShortTitle}{Running head}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} DD Month YYYY \textperiodcentered{} preliminary}
+\newcommand*{\PaperCredits}{Solver: Model (effort ...) \textperiodcentered{} Independent verification: Model (effort ...) or pending}
+\newcommand*{\PaperKeywords}{keyword, keyword}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+One paragraph: the open question, who asked it, the answer, the nature of the proof or certificate.
+\end{paperabstract}
+
+\section*{The question}
+Source and verbatim open statement:
+\begin{openquote}
+``Quoted sentence that makes the problem open.''
+\end{openquote}
+
+\begin{theorem}\label{thm:main}
+Statement.
+\end{theorem}
+
+\section{Proof}
+\begin{lemma}[note=optional name]\label{lem:one}
+Statement.
+\end{lemma}
+\begin{proof}
+Proof. Cite with \autocite{Key}; refer with \zcref{thm:main}.
+\end{proof}
+
+\section{Computer verification}
+What each script in \texttt{scripts/} checks, and how (exact arithmetic, intervals, solver certificates).
+
+\paperreferences
+\end{document}

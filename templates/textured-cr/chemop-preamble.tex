@@ -1,0 +1,96 @@
+%% chemop-preamble.tex: preamble of the chemistry-open-problems manuscripts.
+%% Built on TeXtured 1.5.1 (https://github.com/jdujava/TeXtured, CC0); preamble files copied in preamble/.
+%%
+%% Usage (see templates/paper-skeleton.tex):
+%%   \RequirePackage{pdfmanagement}
+%%   \SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+%%   \input{preamble/pdfA-compliance/glyphtounicode}
+%%   \documentclass[11pt,a4paper]{report}
+%%   \newcommand*{\PaperTitle}{...}        title (may contain math)
+%%   \newcommand*{\PaperTitlePlain}{...}   plain-text title for the PDF metadata
+%%   \newcommand*{\PaperShortTitle}{...}   running head
+%%   \newcommand*{\PaperSubtitle}{...}     line under the title
+%%   \newcommand*{\PaperKeywords}{...}
+%%   \newcommand*{\PaperCredits}{...}     solver and verifier models with their reasoning effort
+%%   \input{chemop-preamble}
+%%   \addbibresource{references.bib}
+%% Compile with: python templates/build_tex.py problems/<slug>/paper.tex
+
+\input{preamble/toggles}
+\WIPfalse
+\CENSORfalse
+\LINKBOXESfalse
+
+%% Document data expected by the TeXtured preamble
+\newcommand*{\ThesisTitle}{\PaperTitle}
+\newcommand*{\ThesisTitlePlaintext}{\PaperTitlePlain}
+\newcommand*{\ThesisAuthor}{}
+\newcommand*{\ThesisAuthorPlaintext}{}
+\newcommand*{\Subject}{}
+\newcommand*{\Keywords}{\PaperKeywords}
+\newcommand*{\KeywordsPlaintext}{\PaperKeywords}
+\newcommand*{\ShortTitle}{\PaperShortTitle}
+
+%% TeXtured preamble (without data.tex)
+\input{preamble/debug/commands}
+\input{preamble/debug/silence}
+\input{preamble/general/colors}
+\input{preamble/general/typesetting}
+\input{preamble/general/floats}
+\input{preamble/general/hyperref}
+\input{preamble/misc/macros}
+\input{preamble/misc/packages-macros}
+\input{preamble/misc/tikz}
+\input{preamble/layout/geometry}
+\input{preamble/layout/numbering}
+\input{preamble/layout/headers}
+\input{preamble/layout/titles}
+\input{preamble/layout/toc}
+\input{preamble/references/biblatex}
+\input{preamble/math/packages}
+\input{preamble/math/fonts}
+\input{preamble/math/macros}
+\input{preamble/math/spacing}
+\input{preamble/environments/init}
+\input{preamble/environments/theorem-like}
+\input{preamble/environments/remark-like}
+\input{preamble/environments/todo-like}
+\input{preamble/hacks/custom-reference-boxes}
+\input{preamble/hacks/fix-qed}
+\input{preamble/hacks/fix-hyperref}
+\input{preamble/hacks/floatrow-parskip}
+
+%% Shared additions (language, section layout, quotes, Unicode)
+\input{cr-extra}
+\setcounter{secnumdepth}{2}
+
+%% A paper has no chapters: number theorems, tables, figures and equations continuously
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+\counterwithout{equation}{chapter}
+\counterwithout{section}{chapter}
+\renewcommand*{\thetable}{\arabic{table}}
+\renewcommand*{\thefigure}{\arabic{figure}}
+\renewcommand*{\theequation}{\arabic{equation}}
+
+%% Title block
+\NewDocumentCommand{\makepapertitle}{}{%
+  \pagenumbering{arabic}%
+  \chapter*{\PaperTitle}%
+  \markboth{\ShortTitle}{\ShortTitle}%
+  \vspace*{-12pt}%
+  {\sffamily\large\color{Gray40}\PaperSubtitle\par}%
+  \ifdefined\PaperCredits
+    \vspace{4pt}{\sffamily\small\color{Gray40}\PaperCredits\par}%
+  \fi
+  \vspace{14pt}%
+}
+%% Attribution line (model and reasoning effort of every agent involved), e.g.
+%%   \newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verifier: \dots}
+%% Abstract: grey rule on the left, like quotations
+\NewDocumentEnvironment{paperabstract}{}{\begin{quote}\textbf{Abstract.}\ }{\end{quote}}
+%% Quotation of the open statement
+\NewDocumentEnvironment{openquote}{}{\begin{quote}\itshape}{\end{quote}}
+%% Bibliography as an unnumbered section
+\defbibheading{paper}[References]{\section*{#1}\markboth{\ShortTitle}{\ShortTitle}}
+\newcommand*{\paperreferences}{\printbibliography[heading=paper]}
