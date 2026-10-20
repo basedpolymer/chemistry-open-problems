@@ -1,0 +1,1402 @@
+[
+ {
+  "id": 0,
+  "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:HX, AB:HX",
+  "ipopt": 2.4816864462874153,
+  "ipopt_time": 0.7380316257476807,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.481686446557421,
+   "dual": 2.481686446557421,
+   "time": 0.039652109146118164,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 1,
+  "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:HX, AB:TC",
+  "ipopt": 2.4089795343180165,
+  "ipopt_time": 0.27251267433166504,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.4089795328410237,
+   "dual": 2.4089795212257856,
+   "time": 0.02401423454284668,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 2,
+  "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:TC, AB:HX",
+  "ipopt": 2.4496831547545557,
+  "ipopt_time": 0.23755979537963867,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.4496831538811867,
+   "dual": 2.4496831538811867,
+   "time": 0.04378151893615723,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 3,
+  "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:TC, AB:TC",
+  "ipopt": 2.3766238999105216,
+  "ipopt_time": 0.25362610816955566,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.376623898321864,
+   "dual": 2.376623896340598,
+   "time": 0.025057554244995117,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 4,
+  "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:HX, BC:HX",
+  "ipopt": 2.9752236684668043,
+  "ipopt_time": 0.2569301128387451,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.975223668749112,
+   "dual": 2.975223668749112,
+   "time": 0.02350139617919922,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 5,
+  "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:HX, BC:TC",
+  "ipopt": 2.9258795343186232,
+  "ipopt_time": 0.2540280818939209,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.92587953376734,
+   "dual": 2.925879521246394,
+   "time": 0.024579763412475586,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 6,
+  "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:TC, BC:HX",
+  "ipopt": 2.9709828253131954,
+  "ipopt_time": 0.2704451084136963,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.970982823887823,
+   "dual": 2.970982823887823,
+   "time": 0.031350135803222656,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 7,
+  "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:TC, BC:TC",
+  "ipopt": 2.9218104132291307,
+  "ipopt_time": 0.26998162269592285,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.921810412552592,
+   "dual": 2.921810412552592,
+   "time": 0.054323434829711914,
+   "nodes": 2
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 8,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:HX, BC:HX",
+  "ipopt": 1.7754666398827745,
+  "ipopt_time": 0.29030323028564453,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7754666383763293,
+   "dual": 1.7754666122781981,
+   "time": 0.1653001308441162,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 9,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:HX, BC:TC",
+  "ipopt": 1.7261225057152998,
+  "ipopt_time": 0.2918245792388916,
+  "scip": {
+   "status": "timelimit",
+   "primal": 1.7261225042808803,
+   "dual": 1.7261221811755003,
+   "time": 300.00027346611023,
+   "nodes": 570486
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 10,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:TC, BC:HX",
+  "ipopt": 1.7754666398849257,
+  "ipopt_time": 0.27962279319763184,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7754666383777118,
+   "dual": 1.7754666122778073,
+   "time": 0.15738368034362793,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 11,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:TC, BC:TC",
+  "ipopt": 1.7261225057166105,
+  "ipopt_time": 0.2254951000213623,
+  "scip": {
+   "status": "timelimit",
+   "primal": 1.7261225042808364,
+   "dual": 1.7261220793273875,
+   "time": 300.0015242099762,
+   "nodes": 1732834
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 12,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:HX, BC:HX",
+  "ipopt": 1.7432916262955884,
+  "ipopt_time": 0.21014738082885742,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.743291624511802,
+   "dual": 1.743291624511802,
+   "time": 0.19069981575012207,
+   "nodes": 17
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 13,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:HX, BC:TC",
+  "ipopt": 1.6941192142081998,
+  "ipopt_time": 0.22726058959960938,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.694119212502656,
+   "dual": 1.6941191011369083,
+   "time": 0.3326723575592041,
+   "nodes": 84
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 14,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:TC, BC:HX",
+  "ipopt": 1.7432916262955398,
+  "ipopt_time": 0.24084258079528809,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.7432916245153431,
+   "dual": 1.7432916245153431,
+   "time": 0.22527456283569336,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 15,
+  "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:TC, BC:TC",
+  "ipopt": 1.6941192142078103,
+  "ipopt_time": 0.2132265567779541,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6941192124972475,
+   "dual": 1.6941190505300858,
+   "time": 0.8282485008239746,
+   "nodes": 891
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 16,
+  "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:HX, BC:HX",
+  "ipopt": 2.464936029273588,
+  "ipopt_time": 0.22424626350402832,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.4649360295182055,
+   "dual": 2.4649358271747603,
+   "time": 0.020676136016845703,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 17,
+  "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:HX, BC:TC",
+  "ipopt": 2.4350940236168412,
+  "ipopt_time": 0.2258439064025879,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.435094022833423,
+   "dual": 2.4350939777133176,
+   "time": 0.033269643783569336,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 18,
+  "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:TC, BC:HX",
+  "ipopt": 2.458058112469422,
+  "ipopt_time": 0.22908234596252441,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.458058111861509,
+   "dual": 2.458058111861509,
+   "time": 0.031054019927978516,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 19,
+  "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:TC, BC:TC",
+  "ipopt": 2.43340731159933,
+  "ipopt_time": 0.21180200576782227,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.4334073098076137,
+   "dual": 2.4334073098076137,
+   "time": 0.02335214614868164,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 20,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:HX, BC:HX",
+  "ipopt": 1.7679970268794136,
+  "ipopt_time": 0.25812268257141113,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7679970244740129,
+   "dual": 1.7679970227666852,
+   "time": 0.15123271942138672,
+   "nodes": 25
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 21,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:HX, BC:TC",
+  "ipopt": 1.7455786952070824,
+  "ipopt_time": 0.23290181159973145,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7455786933583073,
+   "dual": 1.7455786803203748,
+   "time": 0.33379316329956055,
+   "nodes": 81
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 22,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:TC, BC:HX",
+  "ipopt": 1.767997026877643,
+  "ipopt_time": 0.24912786483764648,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7679970244795997,
+   "dual": 1.7679970208463889,
+   "time": 0.14587807655334473,
+   "nodes": 61
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 23,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:TC, BC:TC",
+  "ipopt": 1.7455786952077244,
+  "ipopt_time": 0.2095479965209961,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7455786933386235,
+   "dual": 1.7455786904075927,
+   "time": 0.3152339458465576,
+   "nodes": 111
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 24,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:HX, BC:HX",
+  "ipopt": 1.760975289357198,
+  "ipopt_time": 0.23463153839111328,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7609752869656445,
+   "dual": 1.760975207110249,
+   "time": 0.14847540855407715,
+   "nodes": 19
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 25,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:HX, BC:TC",
+  "ipopt": 1.743291626284145,
+  "ipopt_time": 0.20365047454833984,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7432916244183185,
+   "dual": 1.743291602240888,
+   "time": 0.3210020065307617,
+   "nodes": 21
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 26,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:TC, BC:HX",
+  "ipopt": 1.7609752893565553,
+  "ipopt_time": 0.2541811466217041,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7609752869590198,
+   "dual": 1.760975219642961,
+   "time": 0.16782450675964355,
+   "nodes": 28
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 27,
+  "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:TC, BC:TC",
+  "ipopt": 1.7432916262855367,
+  "ipopt_time": 0.24642515182495117,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7432916244229852,
+   "dual": 1.7432914855100727,
+   "time": 0.4475290775299072,
+   "nodes": 341
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 28,
+  "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:HX, BCD:HX, BC:SD",
+  "ipopt": 2.3249195864162875,
+  "ipopt_time": 0.24390673637390137,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.3249195841035504,
+   "dual": 2.3249195665136595,
+   "time": 0.4439730644226074,
+   "nodes": 361
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 29,
+  "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:HX, BCD:TC, BC:SD",
+  "ipopt": 2.324361235563193,
+  "ipopt_time": 0.23538732528686523,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.324361232361592,
+   "dual": 2.3243612169071115,
+   "time": 0.36394762992858887,
+   "nodes": 391
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 30,
+  "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:TC, BCD:HX, BC:SD",
+  "ipopt": 2.3211425579950618,
+  "ipopt_time": 0.24995040893554688,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.321142555067783,
+   "dual": 2.321142530179518,
+   "time": 0.6595120429992676,
+   "nodes": 791
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 31,
+  "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:TC, BCD:TC, BC:SD",
+  "ipopt": 2.320581425189425,
+  "ipopt_time": 0.23456072807312012,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.320581422265689,
+   "dual": 2.320581411189515,
+   "time": 0.5403139591217041,
+   "nodes": 1021
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 32,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:HX, AB:HX, BC:SD",
+  "ipopt": 1.6525005161311765,
+  "ipopt_time": 0.30278801918029785,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6525005138737572,
+   "dual": 1.652500478592136,
+   "time": 1.6648869514465332,
+   "nodes": 3701
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 33,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:HX, AB:TC, BC:SD",
+  "ipopt": 1.6499313659958972,
+  "ipopt_time": 0.29645395278930664,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6499313637301711,
+   "dual": 1.649931240240945,
+   "time": 1.1707146167755127,
+   "nodes": 861
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 34,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:TC, AB:HX, BC:SD",
+  "ipopt": 1.651680658969747,
+  "ipopt_time": 0.26807355880737305,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6516806558193058,
+   "dual": 1.6516806290294186,
+   "time": 1.966322898864746,
+   "nodes": 2071
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 35,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:TC, AB:TC, BC:SD",
+  "ipopt": 1.649139541548959,
+  "ipopt_time": 0.3174476623535156,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6491395384033918,
+   "dual": 1.6491395133762659,
+   "time": 0.6962924003601074,
+   "nodes": 641
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 36,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:HX, AB:HX, BC:SD",
+  "ipopt": 1.6328138882982408,
+  "ipopt_time": 0.26200151443481445,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.632813886430966,
+   "dual": 1.6328137297653493,
+   "time": 2.508826971054077,
+   "nodes": 2531
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 37,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:HX, AB:TC, BC:SD",
+  "ipopt": 1.6292259481796634,
+  "ipopt_time": 0.35712337493896484,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6292259463235954,
+   "dual": 1.6292259320216063,
+   "time": 4.676124572753906,
+   "nodes": 4441
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 38,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:TC, AB:HX, BC:SD",
+  "ipopt": 1.6319668581253062,
+  "ipopt_time": 0.281740665435791,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6319668562739416,
+   "dual": 1.6319666949101488,
+   "time": 50.550846576690674,
+   "nodes": 67331
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 39,
+  "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:TC, AB:TC, BC:SD",
+  "ipopt": 1.6284057995905608,
+  "ipopt_time": 0.22881031036376953,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.628405797757181,
+   "dual": 1.628405637836495,
+   "time": 50.423245668411255,
+   "nodes": 92901
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 40,
+  "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:HX, CD:HX",
+  "ipopt": 2.4612808186795183,
+  "ipopt_time": 0.2004237174987793,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.4612808189495965,
+   "dual": 2.4612808189495965,
+   "time": 0.026177167892456055,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 41,
+  "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:HX, CD:TC",
+  "ipopt": 2.4442742782082156,
+  "ipopt_time": 0.19143915176391602,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.444274277589339,
+   "dual": 2.444274276420801,
+   "time": 0.029454946517944336,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 42,
+  "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:TC, CD:HX",
+  "ipopt": 2.3925094862629983,
+  "ipopt_time": 0.2004389762878418,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.392509492345451,
+   "dual": 2.3925094839734324,
+   "time": 0.021108150482177734,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 43,
+  "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:TC, CD:TC",
+  "ipopt": 2.3755029457895294,
+  "ipopt_time": 0.194044828414917,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.375502944325238,
+   "dual": 2.375502944325238,
+   "time": 0.02410721778869629,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 44,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:HX, CD:HX",
+  "ipopt": 2.376446293511528,
+  "ipopt_time": 0.2518882751464844,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.376446292004303,
+   "dual": 2.376446292004303,
+   "time": 0.0658419132232666,
+   "nodes": 3
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 45,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:HX, CD:TC",
+  "ipopt": 2.376446293512268,
+  "ipopt_time": 0.21869730949401855,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.3764462928910537,
+   "dual": 2.3764462928910537,
+   "time": 0.06304001808166504,
+   "nodes": 2
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 46,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:TC, CD:HX",
+  "ipopt": 2.3078839291464996,
+  "ipopt_time": 0.26940035820007324,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.3078839267812596,
+   "dual": 2.3078839267812596,
+   "time": 0.07331991195678711,
+   "nodes": 3
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 47,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:TC, CD:TC",
+  "ipopt": 2.3078839291462034,
+  "ipopt_time": 0.2045903205871582,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.3078839267811952,
+   "dual": 2.3078839267811952,
+   "time": 0.0572049617767334,
+   "nodes": 2
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 48,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:HX, CD:HX",
+  "ipopt": 2.3443620097892315,
+  "ipopt_time": 0.20571589469909668,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.3443620086184174,
+   "dual": 2.3443618067477856,
+   "time": 2.2944107055664062,
+   "nodes": 3731
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 49,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:HX, CD:TC",
+  "ipopt": 2.3443620097743647,
+  "ipopt_time": 0.226729154586792,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.3443620085828596,
+   "dual": 2.344361781630509,
+   "time": 1.8713319301605225,
+   "nodes": 2531
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 50,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:TC, CD:HX",
+  "ipopt": 2.2755906773863703,
+  "ipopt_time": 0.25014257431030273,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.2755906753747968,
+   "dual": 2.2755904509141867,
+   "time": 2.309868574142456,
+   "nodes": 3611
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 51,
+  "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:TC, CD:TC",
+  "ipopt": 2.2755906773806753,
+  "ipopt_time": 0.21989822387695312,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.275590675340999,
+   "dual": 2.2755904569939127,
+   "time": 2.3643360137939453,
+   "nodes": 3901
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 52,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:HX, CD:HX",
+  "ipopt": 2.8516023706362192,
+  "ipopt_time": 0.27266383171081543,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.8516023691297114,
+   "dual": 2.851602343579575,
+   "time": 0.07330322265625,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 53,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:HX, CD:TC",
+  "ipopt": 2.8516023706364972,
+  "ipopt_time": 0.19787907600402832,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.851602370019717,
+   "dual": 2.851602342983602,
+   "time": 0.06588149070739746,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 54,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:TC, CD:HX",
+  "ipopt": 2.8247839291426984,
+  "ipopt_time": 0.2886016368865967,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.82478392674087,
+   "dual": 2.8247839068805884,
+   "time": 0.0945594310760498,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 55,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:TC, CD:TC",
+  "ipopt": 2.824783929144853,
+  "ipopt_time": 0.19969725608825684,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.8247839267622483,
+   "dual": 2.824783906801671,
+   "time": 0.08230757713317871,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 56,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:HX, CD:HX",
+  "ipopt": 2.8475049023334322,
+  "ipopt_time": 0.8180379867553711,
+  "scip": {
+   "status": "optimal",
+   "primal": 2.847504900012897,
+   "dual": 2.847504900012897,
+   "time": 0.0755162239074707,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 57,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:HX, CD:TC",
+  "ipopt": 2.8475049023333425,
+  "ipopt_time": 0.2003498077392578,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.847504900897026,
+   "dual": 2.8475047984494672,
+   "time": 0.07211112976074219,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 58,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:TC, CD:HX",
+  "ipopt": 2.8207771907135046,
+  "ipopt_time": 0.2232823371887207,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.8207771884159945,
+   "dual": 2.820777017381123,
+   "time": 0.06573104858398438,
+   "nodes": 3
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 59,
+  "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:TC, CD:TC",
+  "ipopt": 2.820777190712686,
+  "ipopt_time": 0.19451689720153809,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.820777188415881,
+   "dual": 2.8207770252245834,
+   "time": 0.0817251205444336,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 60,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:HX, CD:HX",
+  "ipopt": 1.647700794446989,
+  "ipopt_time": 0.26427555084228516,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6477007920469888,
+   "dual": 1.6477007101355197,
+   "time": 0.22582006454467773,
+   "nodes": 81
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 61,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:HX, CD:TC",
+  "ipopt": 1.647700794446989,
+  "ipopt_time": 0.25919413566589355,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6477007920447138,
+   "dual": 1.6477007678937041,
+   "time": 0.22736120223999023,
+   "nodes": 41
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 62,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:TC, CD:HX",
+  "ipopt": 1.6208823529226166,
+  "ipopt_time": 0.2600691318511963,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.620882350581713,
+   "dual": 1.6208822328421297,
+   "time": 0.7385971546173096,
+   "nodes": 425
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 63,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:TC, CD:TC",
+  "ipopt": 1.6208823529420346,
+  "ipopt_time": 0.2929832935333252,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6208823505842087,
+   "dual": 1.6208821996640745,
+   "time": 0.6799001693725586,
+   "nodes": 231
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 64,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:HX, CD:HX",
+  "ipopt": 1.6477007944469826,
+  "ipopt_time": 0.2316148281097412,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.6477007920412516,
+   "dual": 1.6477007920412516,
+   "time": 0.05112123489379883,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 65,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:HX, CD:TC",
+  "ipopt": 1.6477007944438091,
+  "ipopt_time": 0.22868776321411133,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6477007920469884,
+   "dual": 1.647700662550489,
+   "time": 0.30886316299438477,
+   "nodes": 171
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 66,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:TC, CD:HX",
+  "ipopt": 1.620882352938825,
+  "ipopt_time": 0.23357057571411133,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.6208823505814434,
+   "dual": 1.6208823505814434,
+   "time": 0.051993370056152344,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 67,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:TC, CD:TC",
+  "ipopt": 1.6208823529448906,
+  "ipopt_time": 0.2165074348449707,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6208823505720755,
+   "dual": 1.620882190552041,
+   "time": 1.26161527633667,
+   "nodes": 1157
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 68,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:HX, CD:HX",
+  "ipopt": 1.6141089974395089,
+  "ipopt_time": 0.29097938537597656,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6141089957043842,
+   "dual": 1.6141089359630976,
+   "time": 0.34454941749572754,
+   "nodes": 151
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 69,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:HX, CD:TC",
+  "ipopt": 1.614108997439509,
+  "ipopt_time": 0.3244936466217041,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.614108995704302,
+   "dual": 1.6141089692656536,
+   "time": 0.6302855014801025,
+   "nodes": 601
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 70,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:TC, CD:HX",
+  "ipopt": 1.5887980692080483,
+  "ipopt_time": 0.2295093536376953,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.5887980675422164,
+   "dual": 1.5887979105858632,
+   "time": 3.588916540145874,
+   "nodes": 3971
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 71,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:TC, CD:TC",
+  "ipopt": 1.5887980692270718,
+  "ipopt_time": 0.27332496643066406,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.5887980675509557,
+   "dual": 1.5887979103052907,
+   "time": 6.303459882736206,
+   "nodes": 5701
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 72,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:HX, CD:HX",
+  "ipopt": 1.6115932846250012,
+  "ipopt_time": 0.2592301368713379,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6115932828926576,
+   "dual": 1.611593274269163,
+   "time": 0.5613722801208496,
+   "nodes": 631
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 73,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:HX, CD:TC",
+  "ipopt": 1.6115932846322591,
+  "ipopt_time": 0.2286534309387207,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6115932829773525,
+   "dual": 1.6115931942627157,
+   "time": 0.6362216472625732,
+   "nodes": 171
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 74,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:TC, CD:HX",
+  "ipopt": 1.5887980692214652,
+  "ipopt_time": 0.21402573585510254,
+  "scip": {
+   "status": "timelimit",
+   "primal": 1.5887980675438491,
+   "dual": 1.5887978690767623,
+   "time": 300.00448536872864,
+   "nodes": 400539
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 75,
+  "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:TC, CD:TC",
+  "ipopt": 1.58879806922608,
+  "ipopt_time": 0.2124168872833252,
+  "scip": {
+   "status": "timelimit",
+   "primal": 1.5887980675481812,
+   "dual": 1.5887978023051028,
+   "time": 300.00497817993164,
+   "nodes": 333763
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 76,
+  "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:HX, CD:HX",
+  "ipopt": 2.4519658996531977,
+  "ipopt_time": 0.1777498722076416,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.4519658995999314,
+   "dual": 2.451965697256486,
+   "time": 0.011542558670043945,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 77,
+  "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:HX, CD:TC",
+  "ipopt": 2.4350940235422125,
+  "ipopt_time": 0.2103409767150879,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.435094022922609,
+   "dual": 2.435094018576097,
+   "time": 0.03516411781311035,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 78,
+  "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:TC, CD:HX",
+  "ipopt": 2.3961451987075484,
+  "ipopt_time": 0.2057502269744873,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.3961451981192816,
+   "dual": 2.3961451630649626,
+   "time": 0.02992725372314453,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 79,
+  "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:TC, CD:TC",
+  "ipopt": 2.3788260229494917,
+  "ipopt_time": 0.227494478225708,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 2.378826031812909,
+   "dual": 2.378826021707051,
+   "time": 0.04033184051513672,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 80,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:HX, CD:HX",
+  "ipopt": 1.7619941152294802,
+  "ipopt_time": 0.263516902923584,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7619941137366126,
+   "dual": 1.76199410872987,
+   "time": 0.2413036823272705,
+   "nodes": 31
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 81,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:HX, CD:TC",
+  "ipopt": 1.7455786951406576,
+  "ipopt_time": 0.19951391220092773,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7455786937039905,
+   "dual": 1.7455786744416069,
+   "time": 0.2096412181854248,
+   "nodes": 11
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 82,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:TC, CD:HX",
+  "ipopt": 1.761994115242946,
+  "ipopt_time": 0.2507791519165039,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.7619941174605274,
+   "dual": 1.7619941174605274,
+   "time": 0.036562442779541016,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 83,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:TC, CD:TC",
+  "ipopt": 1.7455786951327976,
+  "ipopt_time": 0.24988746643066406,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.7455786936316648,
+   "dual": 1.7455786892871183,
+   "time": 0.36217522621154785,
+   "nodes": 201
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 84,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:HX, CD:HX",
+  "ipopt": 1.705716878101251,
+  "ipopt_time": 0.22279787063598633,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.705716876629434,
+   "dual": 1.705716707829291,
+   "time": 2.7569000720977783,
+   "nodes": 3021
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 85,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:HX, CD:TC",
+  "ipopt": 1.6887103376276122,
+  "ipopt_time": 0.21559762954711914,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6887103361597327,
+   "dual": 1.6887101690510253,
+   "time": 3.8355424404144287,
+   "nodes": 4246
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 86,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:TC, CD:HX",
+  "ipopt": 1.7057168781092973,
+  "ipopt_time": 0.26178884506225586,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.705716876627421,
+   "dual": 1.705716876627421,
+   "time": 0.0491180419921875,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 87,
+  "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:TC, CD:TC",
+  "ipopt": 1.6887103376385897,
+  "ipopt_time": 0.2744731903076172,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.6887103361577216,
+   "dual": 1.6887103361577216,
+   "time": 0.05685925483703613,
+   "nodes": 1
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 88,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:HX, CD:HX",
+  "ipopt": 1.6472494671527431,
+  "ipopt_time": 0.3077547550201416,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6472494648813458,
+   "dual": 1.647249366245431,
+   "time": 0.4078676700592041,
+   "nodes": 31
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 89,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:HX, CD:TC",
+  "ipopt": 1.6472494671362183,
+  "ipopt_time": 0.25818419456481934,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6472494648816334,
+   "dual": 1.6472494344604023,
+   "time": 0.6046319007873535,
+   "nodes": 171
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 90,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:TC, CD:HX",
+  "ipopt": 1.647249467150854,
+  "ipopt_time": 0.36046552658081055,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6472494648811293,
+   "dual": 1.6472493657403584,
+   "time": 0.6028022766113281,
+   "nodes": 251
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 91,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:TC, CD:TC",
+  "ipopt": 1.6472494671357596,
+  "ipopt_time": 0.33853936195373535,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6472494648816332,
+   "dual": 1.6472494253900798,
+   "time": 0.6050176620483398,
+   "nodes": 271
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 92,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:HX, CD:HX",
+  "ipopt": 1.6074960435257748,
+  "ipopt_time": 0.33476853370666504,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.607496040465462,
+   "dual": 1.6074959027775981,
+   "time": 0.487091064453125,
+   "nodes": 151
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 93,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:HX, CD:TC",
+  "ipopt": 1.6074960435262724,
+  "ipopt_time": 0.32523465156555176,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6074960404739693,
+   "dual": 1.6074960284035815,
+   "time": 0.6940097808837891,
+   "nodes": 171
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 94,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:TC, CD:HX",
+  "ipopt": 1.6074960435251253,
+  "ipopt_time": 0.26397204399108887,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.607496040473969,
+   "dual": 1.6074958891710618,
+   "time": 0.5102612972259521,
+   "nodes": 171
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 95,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:TC, CD:TC",
+  "ipopt": 1.6074960435262722,
+  "ipopt_time": 0.29727673530578613,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.607496040473401,
+   "dual": 1.6074960036236834,
+   "time": 0.7095613479614258,
+   "nodes": 401
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 96,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:HX, CD:HX",
+  "ipopt": 1.6285514928744205,
+  "ipopt_time": 0.3231942653656006,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6285514911012595,
+   "dual": 1.6285514846059466,
+   "time": 0.753467321395874,
+   "nodes": 721
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 97,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:HX, CD:TC",
+  "ipopt": 1.628551492867548,
+  "ipopt_time": 0.24582886695861816,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.6285514910857395,
+   "dual": 1.6285514910857395,
+   "time": 0.5158052444458008,
+   "nodes": 165
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 98,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:TC, CD:HX",
+  "ipopt": 1.6285514928760754,
+  "ipopt_time": 0.27132558822631836,
+  "scip": {
+   "status": "optimal",
+   "primal": 1.6285514911010956,
+   "dual": 1.6285514911010956,
+   "time": 0.3493537902832031,
+   "nodes": 141
+  },
+  "VP": 1.5887980694066695
+ },
+ {
+  "id": 99,
+  "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:TC, CD:TC",
+  "ipopt": 1.6285514928750933,
+  "ipopt_time": 0.3198220729827881,
+  "scip": {
+   "status": "gaplimit",
+   "primal": 1.6285514911887988,
+   "dual": 1.628551422800283,
+   "time": 0.7162573337554932,
+   "nodes": 561
+  },
+  "VP": 1.5887980694066695
+ }
+]

@@ -1,0 +1,24 @@
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+N=4 case=P2 model=strict H=['0.933220', '1.588798', '0.786044'] V_FTC=1.5887981
+  solved 148/152 configurations; min ratio 0.9999999695 (ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:TC,CD:TC)
+  ties (ratio < 1+1e-6): 16; below 1-1e-7: 0; max cut-identity residual 9.33e-14
+    tie: 0.9999999700 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:TC,CD:HX
+    tie: 0.9999999695 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:TC,CD:TC
+    tie: 0.9999999700 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:HX
+    tie: 0.9999999695 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:TC
+    tie: 0.9999999743 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999719 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999719 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999719 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999736 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999735 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999735 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999734 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999738 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:TC,CD:HX
+    tie: 0.9999999738 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:TC,CD:TC
+    tie: 0.9999999737 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:TC,CD:HX
+    tie: 0.9999999737 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:TC,CD:TC

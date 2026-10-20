@@ -1,0 +1,217 @@
+{
+ "1": {
+  "points_with_this_dominant_peak": 35,
+  "configs": [
+   {
+    "id": 151,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:TC, BC:SD, CD:TC",
+    "tie_count": 35
+   },
+   {
+    "id": 39,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:TC, AB:TC, BC:SD",
+    "tie_count": 34
+   },
+   {
+    "id": 127,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:TC, CD:TC",
+    "tie_count": 34
+   },
+   {
+    "id": 146,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:HX, AB:TC, BC:SD, CD:HX",
+    "tie_count": 34
+   },
+   {
+    "id": 147,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:HX, AB:TC, BC:SD, CD:TC",
+    "tie_count": 34
+   },
+   {
+    "id": 150,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:TC, BC:SD, CD:HX",
+    "tie_count": 34
+   },
+   {
+    "id": 37,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:HX, AB:TC, BC:SD",
+    "tie_count": 33
+   },
+   {
+    "id": 126,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:TC, CD:HX",
+    "tie_count": 32
+   },
+   {
+    "id": 119,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:TC, BC:TC, CD:TC",
+    "tie_count": 31
+   },
+   {
+    "id": 118,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:TC, BC:TC, CD:HX",
+    "tie_count": 30
+   },
+   {
+    "id": 23,
+    "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:TC, BC:TC",
+    "tie_count": 29
+   },
+   {
+    "id": 27,
+    "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:TC, BC:TC",
+    "tie_count": 29
+   }
+  ]
+ },
+ "2": {
+  "points_with_this_dominant_peak": 60,
+  "configs": [
+   {
+    "id": 149,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:HX, BC:SD, CD:TC",
+    "tie_count": 60
+   },
+   {
+    "id": 151,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:TC, BC:SD, CD:TC",
+    "tie_count": 60
+   },
+   {
+    "id": 101,
+    "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:HX, CD:TC",
+    "tie_count": 57
+   },
+   {
+    "id": 103,
+    "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:TC, CD:TC",
+    "tie_count": 57
+   },
+   {
+    "id": 123,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:HX, BC:TC, CD:TC",
+    "tie_count": 57
+   },
+   {
+    "id": 127,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:TC, CD:TC",
+    "tie_count": 57
+   },
+   {
+    "id": 148,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:HX, BC:SD, CD:HX",
+    "tie_count": 51
+   },
+   {
+    "id": 150,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:TC, BC:SD, CD:HX",
+    "tie_count": 51
+   },
+   {
+    "id": 100,
+    "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:HX, CD:HX",
+    "tie_count": 46
+   },
+   {
+    "id": 102,
+    "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:TC, CD:HX",
+    "tie_count": 46
+   },
+   {
+    "id": 122,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:HX, BC:TC, CD:HX",
+    "tie_count": 46
+   },
+   {
+    "id": 126,
+    "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:TC, CD:HX",
+    "tie_count": 46
+   },
+   {
+    "id": 75,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:TC, CD:TC",
+    "tie_count": 43
+   },
+   {
+    "id": 71,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:TC, CD:TC",
+    "tie_count": 42
+   },
+   {
+    "id": 74,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:TC, CD:HX",
+    "tie_count": 39
+   },
+   {
+    "id": 70,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:TC, CD:HX",
+    "tie_count": 38
+   }
+  ]
+ },
+ "3": {
+  "points_with_this_dominant_peak": 144,
+  "configs": [
+   {
+    "id": 151,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:TC, BC:SD, CD:TC",
+    "tie_count": 144
+   },
+   {
+    "id": 143,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:TC, AB:TC, BC:SD, CD:TC",
+    "tie_count": 143
+   },
+   {
+    "id": 149,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:HX, BC:SD, CD:TC",
+    "tie_count": 142
+   },
+   {
+    "id": 141,
+    "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:TC, AB:HX, BC:SD, CD:TC",
+    "tie_count": 141
+   },
+   {
+    "id": 75,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:TC, CD:TC",
+    "tie_count": 132
+   },
+   {
+    "id": 71,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:TC, CD:TC",
+    "tie_count": 131
+   },
+   {
+    "id": 67,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:TC, CD:TC",
+    "tie_count": 129
+   },
+   {
+    "id": 63,
+    "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:TC, CD:TC",
+    "tie_count": 128
+   },
+   {
+    "id": 131,
+    "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX, BCD:TC, BC:SD, CD:TC",
+    "tie_count": 128
+   },
+   {
+    "id": 135,
+    "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC, BCD:TC, BC:SD, CD:TC",
+    "tie_count": 128
+   },
+   {
+    "id": 59,
+    "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:TC, CD:TC",
+    "tie_count": 94
+   },
+   {
+    "id": 55,
+    "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:TC, CD:TC",
+    "tie_count": 92
+   }
+  ]
+ }
+}

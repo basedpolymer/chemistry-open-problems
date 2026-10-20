@@ -1,0 +1,34 @@
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+N=4 case=M05 model=permissive H=['0.791880', '3.927118', '0.632406'] V_FTC=3.9271185
+  solved 152/152 configurations; min ratio 0.9999999870 (ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:TC,CD:TC)
+  ties (ratio < 1+1e-6): 16; below 1-1e-7: 0; max cut-identity residual 1.57e-13
+    tie: 0.9999999873 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:TC,CD:HX
+    tie: 0.9999999872 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:TC,CD:TC
+    tie: 0.9999999873 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:HX
+    tie: 0.9999999872 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:TC
+    tie: 0.9999999876 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999876 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999875 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999875 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999879 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999878 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999878 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999878 ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:TC
+    tie: 0.9999999873 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:TC,CD:HX
+    tie: 0.9999999873 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:TC,CD:TC
+    tie: 0.9999999870 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:TC,CD:HX
+    tie: 0.9999999870 ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:TC,CD:TC

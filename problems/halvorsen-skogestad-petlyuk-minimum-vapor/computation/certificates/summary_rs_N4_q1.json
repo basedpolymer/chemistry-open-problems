@@ -1,0 +1,1180 @@
+{
+ "files": [
+  "../certificates/runs/rs_N4_mixed_q1.jsonl"
+ ],
+ "N": 4,
+ "points": 239,
+ "global_min_ratio": 0.999999998579207,
+ "failed_solves": 1663,
+ "q_range": [
+  1.0,
+  1.0
+ ],
+ "configs": [
+  {
+   "id": 38,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:TC, AB:HX, BC:SD",
+   "min_ratio": 0.999999998579207,
+   "ties": 2,
+   "ties_by_dominant_peak": {
+    "3": 2
+   }
+  },
+  {
+   "id": 75,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:TC, CD:TC",
+   "min_ratio": 0.9999999988197504,
+   "ties": 175,
+   "ties_by_dominant_peak": {
+    "3": 132,
+    "2": 43
+   }
+  },
+  {
+   "id": 71,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:TC, CD:TC",
+   "min_ratio": 0.99999999882014,
+   "ties": 173,
+   "ties_by_dominant_peak": {
+    "3": 131,
+    "2": 42
+   }
+  },
+  {
+   "id": 151,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:TC, BC:SD, CD:TC",
+   "min_ratio": 0.9999999988374582,
+   "ties": 239,
+   "ties_by_dominant_peak": {
+    "2": 60,
+    "1": 35,
+    "3": 144
+   }
+  },
+  {
+   "id": 149,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:HX, BC:SD, CD:TC",
+   "min_ratio": 0.9999999988381587,
+   "ties": 202,
+   "ties_by_dominant_peak": {
+    "2": 60,
+    "3": 142
+   }
+  },
+  {
+   "id": 143,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:TC, AB:TC, BC:SD, CD:TC",
+   "min_ratio": 0.9999999988413732,
+   "ties": 144,
+   "ties_by_dominant_peak": {
+    "3": 143,
+    "2": 1
+   }
+  },
+  {
+   "id": 141,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:TC, AB:HX, BC:SD, CD:TC",
+   "min_ratio": 0.9999999988420157,
+   "ties": 142,
+   "ties_by_dominant_peak": {
+    "3": 141,
+    "2": 1
+   }
+  },
+  {
+   "id": 123,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:HX, BC:TC, CD:TC",
+   "min_ratio": 0.9999999988467908,
+   "ties": 57,
+   "ties_by_dominant_peak": {
+    "2": 57
+   }
+  },
+  {
+   "id": 127,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:TC, CD:TC",
+   "min_ratio": 0.9999999988467917,
+   "ties": 91,
+   "ties_by_dominant_peak": {
+    "2": 57,
+    "1": 34
+   }
+  },
+  {
+   "id": 135,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC, BCD:TC, BC:SD, CD:TC",
+   "min_ratio": 0.9999999988874473,
+   "ties": 128,
+   "ties_by_dominant_peak": {
+    "3": 128
+   }
+  },
+  {
+   "id": 131,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX, BCD:TC, BC:SD, CD:TC",
+   "min_ratio": 0.9999999988875952,
+   "ties": 128,
+   "ties_by_dominant_peak": {
+    "3": 128
+   }
+  },
+  {
+   "id": 101,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:HX, CD:TC",
+   "min_ratio": 0.9999999989222361,
+   "ties": 57,
+   "ties_by_dominant_peak": {
+    "2": 57
+   }
+  },
+  {
+   "id": 103,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:TC, CD:TC",
+   "min_ratio": 0.9999999989245695,
+   "ties": 58,
+   "ties_by_dominant_peak": {
+    "2": 57,
+    "3": 1
+   }
+  },
+  {
+   "id": 67,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:TC, CD:TC",
+   "min_ratio": 0.9999999991782493,
+   "ties": 129,
+   "ties_by_dominant_peak": {
+    "3": 129
+   }
+  },
+  {
+   "id": 63,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:TC, CD:TC",
+   "min_ratio": 0.9999999991783032,
+   "ties": 128,
+   "ties_by_dominant_peak": {
+    "3": 128
+   }
+  },
+  {
+   "id": 59,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:TC, CD:TC",
+   "min_ratio": 0.9999999991953384,
+   "ties": 94,
+   "ties_by_dominant_peak": {
+    "3": 94
+   }
+  },
+  {
+   "id": 55,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:TC, CD:TC",
+   "min_ratio": 0.9999999991995024,
+   "ties": 92,
+   "ties_by_dominant_peak": {
+    "3": 92
+   }
+  },
+  {
+   "id": 70,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:TC, CD:HX",
+   "min_ratio": 0.9999999997667648,
+   "ties": 38,
+   "ties_by_dominant_peak": {
+    "2": 38
+   }
+  },
+  {
+   "id": 74,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:TC, CD:HX",
+   "min_ratio": 0.999999999766923,
+   "ties": 39,
+   "ties_by_dominant_peak": {
+    "2": 39
+   }
+  },
+  {
+   "id": 100,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:HX, CD:HX",
+   "min_ratio": 0.9999999997676874,
+   "ties": 46,
+   "ties_by_dominant_peak": {
+    "2": 46
+   }
+  },
+  {
+   "id": 102,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:TC, AB:TC, CD:HX",
+   "min_ratio": 0.9999999997694544,
+   "ties": 46,
+   "ties_by_dominant_peak": {
+    "2": 46
+   }
+  },
+  {
+   "id": 148,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:HX, BC:SD, CD:HX",
+   "min_ratio": 0.9999999997694955,
+   "ties": 51,
+   "ties_by_dominant_peak": {
+    "2": 51
+   }
+  },
+  {
+   "id": 150,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:TC, AB:TC, BC:SD, CD:HX",
+   "min_ratio": 0.9999999997694969,
+   "ties": 85,
+   "ties_by_dominant_peak": {
+    "2": 51,
+    "1": 34
+   }
+  },
+  {
+   "id": 34,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:TC, AB:HX, BC:SD",
+   "min_ratio": 0.9999999997803231,
+   "ties": 1,
+   "ties_by_dominant_peak": {
+    "3": 1
+   }
+  },
+  {
+   "id": 126,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:TC, CD:HX",
+   "min_ratio": 0.9999999997804142,
+   "ties": 78,
+   "ties_by_dominant_peak": {
+    "2": 46,
+    "1": 32
+   }
+  },
+  {
+   "id": 122,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:HX, BC:TC, CD:HX",
+   "min_ratio": 0.9999999997804415,
+   "ties": 46,
+   "ties_by_dominant_peak": {
+    "2": 46
+   }
+  },
+  {
+   "id": 147,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:HX, AB:TC, BC:SD, CD:TC",
+   "min_ratio": 0.999999999783273,
+   "ties": 42,
+   "ties_by_dominant_peak": {
+    "1": 34,
+    "2": 8
+   }
+  },
+  {
+   "id": 146,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:HX, AB:TC, BC:SD, CD:HX",
+   "min_ratio": 0.9999999997845505,
+   "ties": 41,
+   "ties_by_dominant_peak": {
+    "1": 34,
+    "2": 7
+   }
+  },
+  {
+   "id": 37,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:HX, AB:TC, BC:SD",
+   "min_ratio": 0.9999999997870197,
+   "ties": 33,
+   "ties_by_dominant_peak": {
+    "1": 33
+   }
+  },
+  {
+   "id": 39,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:TC, AB:TC, BC:SD",
+   "min_ratio": 0.9999999997870201,
+   "ties": 34,
+   "ties_by_dominant_peak": {
+    "1": 34
+   }
+  },
+  {
+   "id": 23,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:TC, BC:TC",
+   "min_ratio": 0.9999999998379737,
+   "ties": 29,
+   "ties_by_dominant_peak": {
+    "1": 29
+   }
+  },
+  {
+   "id": 118,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:TC, BC:TC, CD:HX",
+   "min_ratio": 0.999999999840565,
+   "ties": 30,
+   "ties_by_dominant_peak": {
+    "1": 30
+   }
+  },
+  {
+   "id": 119,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:TC, BC:TC, CD:TC",
+   "min_ratio": 0.9999999998451213,
+   "ties": 31,
+   "ties_by_dominant_peak": {
+    "1": 31
+   }
+  },
+  {
+   "id": 27,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:TC, BC:TC",
+   "min_ratio": 0.9999999998463632,
+   "ties": 29,
+   "ties_by_dominant_peak": {
+    "1": 29
+   }
+  },
+  {
+   "id": 73,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:HX, CD:TC",
+   "min_ratio": 1.0000000132341127,
+   "ties": 2,
+   "ties_by_dominant_peak": {
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "id": 69,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:HX, CD:TC",
+   "min_ratio": 1.0000000132343927,
+   "ties": 2,
+   "ties_by_dominant_peak": {
+    "2": 1,
+    "3": 1
+   }
+  },
+  {
+   "id": 140,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:TC, AB:HX, BC:SD, CD:HX",
+   "min_ratio": 1.0000000319755022,
+   "ties": 1,
+   "ties_by_dominant_peak": {
+    "2": 1
+   }
+  },
+  {
+   "id": 142,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:TC, AB:TC, BC:SD, CD:HX",
+   "min_ratio": 1.0000000319755022,
+   "ties": 1,
+   "ties_by_dominant_peak": {
+    "2": 1
+   }
+  },
+  {
+   "id": 145,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:HX, AB:HX, BC:SD, CD:TC",
+   "min_ratio": 1.0000000881382278,
+   "ties": 8,
+   "ties_by_dominant_peak": {
+    "2": 8
+   }
+  },
+  {
+   "id": 144,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:TC, BCD:HX, AB:HX, BC:SD, CD:HX",
+   "min_ratio": 1.0000000881382374,
+   "ties": 7,
+   "ties_by_dominant_peak": {
+    "2": 7
+   }
+  },
+  {
+   "id": 95,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:TC, CD:TC",
+   "min_ratio": 1.0000003613516493,
+   "ties": 2,
+   "ties_by_dominant_peak": {
+    "3": 2
+   }
+  },
+  {
+   "id": 72,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:TC, BC:HX, CD:HX",
+   "min_ratio": 1.0000005651011454,
+   "ties": 1,
+   "ties_by_dominant_peak": {
+    "2": 1
+   }
+  },
+  {
+   "id": 68,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:TC, AB:HX, BC:HX, CD:HX",
+   "min_ratio": 1.000000565101149,
+   "ties": 1,
+   "ties_by_dominant_peak": {
+    "2": 1
+   }
+  },
+  {
+   "id": 121,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:HX, BC:HX, CD:TC",
+   "min_ratio": 1.0000021736801887,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 125,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:HX, CD:TC",
+   "min_ratio": 1.0000021736801887,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 111,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:TC, BC:TC, CD:TC",
+   "min_ratio": 1.000003218980741,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 139,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:HX, AB:TC, BC:SD, CD:TC",
+   "min_ratio": 1.0000035688580546,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 137,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:HX, AB:HX, BC:SD, CD:TC",
+   "min_ratio": 1.0000035688581732,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 129,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX, BCD:HX, BC:SD, CD:TC",
+   "min_ratio": 1.000003568858188,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 133,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC, BCD:HX, BC:SD, CD:TC",
+   "min_ratio": 1.0000035688581883,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 134,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC, BCD:TC, BC:SD, CD:HX",
+   "min_ratio": 1.0000055487884945,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 124,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:TC, BC:HX, CD:HX",
+   "min_ratio": 1.0000062175888356,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 85,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:HX, CD:TC",
+   "min_ratio": 1.000007483899094,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 87,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:TC, CD:TC",
+   "min_ratio": 1.000007483899094,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 79,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:TC, CD:TC",
+   "min_ratio": 1.0000085311361004,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 31,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:TC, BCD:TC, BC:SD",
+   "min_ratio": 1.0000125370052588,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 29,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:HX, BCD:TC, BC:SD",
+   "min_ratio": 1.000012537009692,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 93,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:HX, CD:TC",
+   "min_ratio": 1.000013853584803,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 99,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:TC, CD:TC",
+   "min_ratio": 1.0000192468363946,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 98,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:TC, CD:HX",
+   "min_ratio": 1.0000229371699672,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 36,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:TC, BCD:HX, AB:HX, BC:SD",
+   "min_ratio": 1.0000284130960089,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 26,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:TC, BC:HX",
+   "min_ratio": 1.0000305836305026,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 130,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX, BCD:TC, BC:SD, CD:HX",
+   "min_ratio": 1.0000311539861182,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 62,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:TC, CD:HX",
+   "min_ratio": 1.0000311540731412,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 66,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:TC, CD:HX",
+   "min_ratio": 1.0000311540731717,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 54,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:TC, CD:HX",
+   "min_ratio": 1.0000311540731721,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 58,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:TC, CD:HX",
+   "min_ratio": 1.0000311540731721,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 51,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:TC, CD:TC",
+   "min_ratio": 1.000037086911945,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 50,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:TC, CD:HX",
+   "min_ratio": 1.000037086911946,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 110,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:TC, BC:TC, CD:HX",
+   "min_ratio": 1.0000372028087439,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 138,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:HX, AB:TC, BC:SD, CD:HX",
+   "min_ratio": 1.0000377457173169,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 128,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX, BCD:HX, BC:SD, CD:HX",
+   "min_ratio": 1.000037745719403,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 132,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC, BCD:HX, BC:SD, CD:HX",
+   "min_ratio": 1.0000377457214191,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 136,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | ABC:HX, BCD:HX, AB:HX, BC:SD, CD:HX",
+   "min_ratio": 1.0000377457214966,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 47,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:TC, CD:TC",
+   "min_ratio": 1.0000423178859743,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 96,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:HX, CD:HX",
+   "min_ratio": 1.0000699617099742,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 97,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:TC, BCD:HX, AB:HX, CD:TC",
+   "min_ratio": 1.0000699617099744,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 115,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:HX, BC:TC, CD:TC",
+   "min_ratio": 1.0000708488482157,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 114,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:HX, BC:TC, CD:HX",
+   "min_ratio": 1.0000708488482315,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 57,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:HX, CD:TC",
+   "min_ratio": 1.000071939204921,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 65,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:HX, CD:TC",
+   "min_ratio": 1.0000752031194324,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 61,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:HX, CD:TC",
+   "min_ratio": 1.0000752031194517,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 94,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:TC, CD:HX",
+   "min_ratio": 1.0001052079263917,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 46,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:TC, CD:HX",
+   "min_ratio": 1.000107397386075,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 49,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:HX, CD:TC",
+   "min_ratio": 1.0001079218306557,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 45,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:HX, CD:TC",
+   "min_ratio": 1.0001079218306643,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 64,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:TC, BC:HX, CD:HX",
+   "min_ratio": 1.000117511914038,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 60,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | ABC:HX, AB:HX, BC:HX, CD:HX",
+   "min_ratio": 1.000117511914047,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 53,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:HX, CD:TC",
+   "min_ratio": 1.0001396870612216,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 120,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:TC, AB:HX, BC:HX, CD:HX",
+   "min_ratio": 1.000144879525975,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 92,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:TC, AB:HX, CD:HX",
+   "min_ratio": 1.0001675130502528,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 44,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:HX, AB:HX, CD:HX",
+   "min_ratio": 1.0001718710189689,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 48,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | ABC:TC, AB:HX, CD:HX",
+   "min_ratio": 1.0001718710190561,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 56,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC, BC:HX, CD:HX",
+   "min_ratio": 1.000176410801053,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 52,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX, BC:HX, CD:HX",
+   "min_ratio": 1.0001819958557658,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 15,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:TC, BC:TC",
+   "min_ratio": 1.0001877706978175,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 14,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:TC, BC:HX",
+   "min_ratio": 1.0001877706978177,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 109,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:TC, BC:HX, CD:TC",
+   "min_ratio": 1.000192122438668,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 3,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:TC, AB:TC",
+   "min_ratio": 1.000198135944764,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 116,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:TC, BC:HX, CD:HX",
+   "min_ratio": 1.0002592631661822,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 117,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:TC, BC:HX, CD:TC",
+   "min_ratio": 1.0002592631661842,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 43,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:TC, CD:TC",
+   "min_ratio": 1.0002658972170686,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 30,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:TC, BCD:HX, BC:SD",
+   "min_ratio": 1.0003558749571615,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 13,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:HX, BC:TC",
+   "min_ratio": 1.0004317236356537,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 33,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:HX, AB:TC, BC:SD",
+   "min_ratio": 1.0004353792789777,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 35,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:TC, AB:TC, BC:SD",
+   "min_ratio": 1.0004353792790124,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 91,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:TC, CD:TC",
+   "min_ratio": 1.000492090699214,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 90,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:TC, CD:HX",
+   "min_ratio": 1.0005066723940435,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 83,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:TC, CD:TC",
+   "min_ratio": 1.000567128037241,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 25,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:HX, BC:TC",
+   "min_ratio": 1.0005744383375221,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 84,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:HX, CD:HX",
+   "min_ratio": 1.000593359057254,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 86,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:TC, AB:TC, CD:HX",
+   "min_ratio": 1.0005933590575846,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 12,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:TC, AB:HX, BC:HX",
+   "min_ratio": 1.0006225423428792,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 81,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:HX, CD:TC",
+   "min_ratio": 1.0006228512771056,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 21,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:HX, BC:TC",
+   "min_ratio": 1.0006228513029185,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 11,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:TC, BC:TC",
+   "min_ratio": 1.0007163979725333,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 10,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:TC, BC:HX",
+   "min_ratio": 1.0007163979725573,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 7,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:TC, BC:TC",
+   "min_ratio": 1.0007287513461327,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 41,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:HX, CD:TC",
+   "min_ratio": 1.0007741381258977,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 8,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:HX, BC:HX",
+   "min_ratio": 1.0008043809109417,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 82,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:TC, CD:HX",
+   "min_ratio": 1.0008772429409627,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 80,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | BCD:HX, AB:HX, CD:HX",
+   "min_ratio": 1.000877242941022,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 22,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:TC, BC:HX",
+   "min_ratio": 1.0009705330778271,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 6,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:TC, BC:HX",
+   "min_ratio": 1.000989553046433,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 19,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:TC, BC:TC",
+   "min_ratio": 1.0011170997576397,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 89,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:HX, CD:TC",
+   "min_ratio": 1.0015728155720878,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 88,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:HX, CD:HX",
+   "min_ratio": 1.001572815572111,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 113,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:HX, BC:HX, CD:TC",
+   "min_ratio": 1.0018405240059756,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 18,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:TC, BC:HX",
+   "min_ratio": 1.0019257127041428,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 112,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | BCD:HX, AB:HX, BC:HX, CD:HX",
+   "min_ratio": 1.0019496912384702,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 107,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:HX, BC:TC, CD:TC",
+   "min_ratio": 1.0019951863295269,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 105,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:HX, BC:HX, CD:TC",
+   "min_ratio": 1.0019951863295276,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 108,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:TC, BC:HX, CD:HX",
+   "min_ratio": 1.0020339936798734,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 106,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:HX, BC:TC, CD:HX",
+   "min_ratio": 1.0020374562580028,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 104,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BCD:HX, BC:HX, CD:HX",
+   "min_ratio": 1.0020374562580086,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 24,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:TC, AB:HX, BC:HX",
+   "min_ratio": 1.0029639544638425,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 20,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | BCD:HX, AB:HX, BC:HX",
+   "min_ratio": 1.0031615237499505,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 32,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | ABC:HX, BCD:HX, AB:HX, BC:SD",
+   "min_ratio": 1.003292586615942,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 2,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:TC, AB:HX",
+   "min_ratio": 1.0033663963033297,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 9,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | ABC:HX, AB:HX, BC:TC",
+   "min_ratio": 1.0034068332104873,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 28,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:HX, BCD:HX, BC:SD",
+   "min_ratio": 1.0035231962237372,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 1,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:HX, AB:TC",
+   "min_ratio": 1.003704036735755,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 17,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:HX, BC:TC",
+   "min_ratio": 1.0037351153744218,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 0,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | ABC:HX, AB:HX",
+   "min_ratio": 1.0039042029318666,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 5,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:HX, BC:TC",
+   "min_ratio": 1.0048727167601013,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 4,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:HX, BC:HX",
+   "min_ratio": 1.0052820455167193,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 42,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:TC, CD:HX",
+   "min_ratio": 1.0075916859630791,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 78,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:TC, CD:HX",
+   "min_ratio": 1.0075916870137291,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 40,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:HX, CD:HX",
+   "min_ratio": 1.0080722006873615,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 77,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:HX, CD:TC",
+   "min_ratio": 1.0110447757479746,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 16,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BCD:HX, BC:HX",
+   "min_ratio": 1.011198379052266,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  },
+  {
+   "id": 76,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:HX, CD:HX",
+   "min_ratio": 1.0128685882060138,
+   "ties": 0,
+   "ties_by_dominant_peak": {}
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+1391 ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/E; AB->A/B; CD->C/D | ABCD:TC, BCDE:TC, ABC:TC, BCD:SD, CDE:TC, AB:TC, CD:SD j 2 min R/H_j = 0.9999999973688694
+WARNING (W1002): Setting Var 'd[1,4,3]' to a numeric value
+`-3.342716247106881e-11` outside the bounds (0, 1).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+WARNING (W1002): Setting Var 'b[1,3,3]' to a numeric value
+`-3.342716247106881e-11` outside the bounds (0, 1).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+511 ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/E; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABCD:TC, BCDE:TC, ABC:TC, BCD:SD, AB:TC, CD:TC j 2 min R/H_j = 1.0000000129609465
+2895 ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/DE; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D; DE->D/E | ABCD:TC, BCDE:TC, ABC:TC, BCD:SD, AB:TC, CD:TC, DE:TC j 2 min R/H_j = 1.0000000022307245
+5743 ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/DE; AB->A/B; CD->C/D; DE->D/E | ABCD:TC, BCDE:TC, ABC:TC, BCD:SD, CDE:TC, AB:TC, CD:SD, DE:TC j 2 min R/H_j = 0.999999998795492
+WARNING (W1002): Setting Var 'd[2,5,4]' to a numeric value
+`-2.849957728844508e-11` outside the bounds (0, 1).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+WARNING (W1002): Setting Var 'b[1,4,2]' to a numeric value
+`-9.330008946343555e-11` outside the bounds (0, 1).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+1360 ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/E; AB->A/B; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, BCD:SD, CDE:HX, AB:HX, CD:SD j 2 min R/H_j = 1.0000009388390414
+WARNING (W1002): Setting Var 'b[1,4,2]' to a numeric value
+`-3.214527791208537e-11` outside the bounds (0, 1).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+WARNING (W1002): Setting Var 'b[1,4,2]' to a numeric value
+`-9.978032160880297e-11` outside the bounds (0, 1).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+1375 ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/E; AB->A/B; CD->C/D | ABCD:HX, BCDE:TC, ABC:TC, BCD:SD, CDE:TC, AB:TC, CD:SD j 2 min R/H_j = 1.0000000088025605
+WORST (0.9999999973688694, 1391, [791.2922880967211, 202.67630010461073, 80.21877107930703, 26.6736211714105, 1.0], [0.05221429829840085, 0.08111528013764405, 0.025237465199119107, 0.014643667493274145, 0.8267892888715618], 0.8911351252843727)

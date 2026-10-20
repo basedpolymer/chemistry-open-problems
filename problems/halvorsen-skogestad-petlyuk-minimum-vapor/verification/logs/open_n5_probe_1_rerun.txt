@@ -1,0 +1,93 @@
+basic 64 j=3 trial 0 TC: ratio 1.5644868527  H=[0.4266, 1.0946, 1.1294, 0.9873] q=0.5
+basic 64 j=3 trial 0 HX: ratio 1.7071278493  H=[0.4266, 1.0946, 1.1294, 0.9873] q=0.5
+basic 64 j=3 trial 1 TC: ratio 1.4745854146  H=[0.7682, 1.663, 1.6851, 1.4593] q=1.2
+basic 64 j=3 trial 1 HX: ratio 1.7005607833  H=[0.7682, 1.663, 1.6851, 1.4593] q=1.2
+basic 64 j=3 trial 2 TC: ratio 1.3707589978  H=[0.7423, 1.4382, 1.4409, 1.1199] q=1.0
+basic 64 j=3 trial 2 HX: ratio 1.4620866876  H=[0.7423, 1.4382, 1.4409, 1.1199] q=1.0
+basic 66 j=2 trial 0 TC: ratio 1.071506863  H=[0.9539, 1.5345, 1.4375, 1.3522] q=1.2
+basic 66 j=2 trial 0 HX: ratio 1.1622582161  H=[0.9539, 1.5345, 1.4375, 1.3522] q=1.2
+basic 66 j=2 trial 1 TC: ratio 1.0573955976  H=[1.4412, 2.3305, 2.1582, 1.4852] q=1.2
+basic 66 j=2 trial 1 HX: ratio 1.2099442522  H=[1.4412, 2.3305, 2.1582, 1.4852] q=1.2
+basic 66 j=2 trial 2 TC: ratio 1.0169900179  H=[1.4844, 3.9055, 3.6535, 1.4611] q=1.2
+basic 66 j=2 trial 2 HX: ratio 1.2150375765  H=[1.4844, 3.9055, 3.6535, 1.4611] q=1.2
+basic 117 j=2 trial 0 TC: ratio 1.5818633415  H=[0.9591, 1.127, 1.1074, 0.9556] q=1.0
+basic 117 j=2 trial 0 HX: ratio 1.6895886868  H=[0.9591, 1.127, 1.1074, 0.9556] q=1.0
+basic 117 j=2 trial 1 TC: ratio 1.5430326752  H=[0.7895, 1.1954, 1.1162, 1.1103] q=1.0
+basic 117 j=2 trial 1 HX: ratio 1.5970034085  H=[0.7895, 1.1954, 1.1162, 1.1103] q=1.0
+basic 117 j=2 trial 2 TC: ratio 1.3849426896  H=[0.8678, 1.577, 1.2185, 1.5548] q=1.0
+basic 117 j=2 trial 2 HX: ratio 1.5375202374  H=[0.8678, 1.577, 1.2185, 1.5548] q=1.0
+basic 158 j=3 trial 0 TC: ratio None  H=[0.6992, 1.3432, 1.403, 1.2027] q=1.0
+basic 158 j=3 trial 0 HX: ratio None  H=[0.6992, 1.3432, 1.403, 1.2027] q=1.0
+basic 158 j=3 trial 1 TC: ratio 1.3838669662  H=[0.3217, 0.5112, 0.8139, 0.7711] q=0.5
+basic 158 j=3 trial 1 HX: ratio 1.6268357917  H=[0.3217, 0.5112, 0.8139, 0.7711] q=0.5
+basic 158 j=3 trial 2 TC: ratio 1.0571967235  H=[0.5092, 0.6163, 1.9482, 1.7912] q=1.0
+basic 158 j=3 trial 2 HX: ratio 1.3755181607  H=[0.5092, 0.6163, 1.9482, 1.7912] q=1.0
+basic 161 j=3 trial 0 TC: ratio 0.9994433849  H=[0.3344, 0.3291, 0.4699, 0.433] q=0.0
+basic 161 j=3 trial 0 HX: ratio 1.8437475852  H=[0.3344, 0.3291, 0.4699, 0.433] q=0.0
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 161 j=3 trial 1 TC: ratio 1.0000091194  H=[0.6156, 0.7941, 1.612, 1.5229] q=1.2
+basic 161 j=3 trial 1 HX: ratio 1.3374780504  H=[0.6156, 0.7941, 1.612, 1.5229] q=1.2
+basic 161 j=3 trial 2 TC: ratio 0.9999999645  H=[1.0542, 1.7406, 1.9139, 1.1462] q=1.0
+basic 161 j=3 trial 2 HX: ratio 1.1583739038  H=[1.0542, 1.7406, 1.9139, 1.1462] q=1.0
+basic 187 j=3 trial 0 TC: ratio 0.9999999728  H=[1.1555, 0.83, 1.9611, 1.7793] q=1.0
+basic 187 j=3 trial 0 HX: ratio 1.3495528363  H=[1.1555, 0.83, 1.9611, 1.7793] q=1.0
+basic 187 j=3 trial 1 TC: ratio 1.0654669676  H=[0.9461, 1.8275, 1.9862, 1.3732] q=1.2
+basic 187 j=3 trial 1 HX: ratio 1.1925245049  H=[0.9461, 1.8275, 1.9862, 1.3732] q=1.2
+basic 187 j=3 trial 2 TC: ratio 1.4703105953  H=[1.0976, 1.0919, 1.1713, 1.1522] q=1.0
+basic 187 j=3 trial 2 HX: ratio 1.5827675404  H=[1.0976, 1.0919, 1.1713, 1.1522] q=1.0
+basic 194 j=2 trial 0 TC: ratio None  H=[2.4772, 2.507, 0.8621, 0.7386] q=0.5
+basic 194 j=2 trial 0 HX: ratio None  H=[2.4772, 2.507, 0.8621, 0.7386] q=0.5
+basic 194 j=2 trial 1 TC: ratio 1.0092618029  H=[0.4329, 1.0917, 1.0086, 0.9533] q=0.5
+basic 194 j=2 trial 1 HX: ratio 1.3213248502  H=[0.4329, 1.0917, 1.0086, 0.9533] q=0.5
+basic 194 j=2 trial 2 TC: ratio 1.036496222  H=[0.8191, 1.0967, 1.0498, 1.0229] q=1.2
+basic 194 j=2 trial 2 HX: ratio 1.3194483026  H=[0.8191, 1.0967, 1.0498, 1.0229] q=1.2
+WORST (0.9994433849495868, 161, 3, 'ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/BC; BCD->BC/D; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | AB:TC,ABC:TC,ABCD:TC,BCDE:TC,CDE:TC,DE:TC')

@@ -1,0 +1,5 @@
+N = 4 configurations: 152
+ j=1: sign-hard configurations: 0
+ j=2: sign-hard configurations: 16
+   basic 13: 16 variants, e.g. ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABC:HX, BCD:HX, AB:HX, CD:HX
+ j=3: sign-hard configurations: 0

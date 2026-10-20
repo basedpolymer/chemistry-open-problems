@@ -1,0 +1,63 @@
+N = 5 configurations: 6128
+ j=1: sign-hard configurations: 0
+ j=2: sign-hard configurations: 1312
+   basic 21: 32 variants, e.g. ABCDE->ABCD/E; ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABCD:HX, ABC:HX, BCD:HX, AB:HX, CD:HX
+   basic 28: 32 variants, e.g. ABCDE->ABC/BCDE; BCDE->BCD/E; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | BCDE:HX, ABC:HX, BCD:HX, AB:HX, CD:HX
+   basic 31: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/E; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, BCD:SD, AB:HX, CD:HX
+   basic 50: 32 variants, e.g. ABCDE->ABCD/CDE; ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; CDE->CD/E; AB->A/B; CD->C/D | ABCD:HX, ABC:HX, BCD:HX, CDE:HX, AB:HX, CD:SD
+   basic 57: 32 variants, e.g. ABCDE->ABC/BCDE; BCDE->B/CDE; ABC->AB/C; CDE->CD/E; AB->A/B; CD->C/D | BCDE:HX, ABC:HX, CDE:HX, AB:HX, CD:HX
+   basic 58: 16 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->B/CDE; CDE->CD/E; AB->A/B; CD->C/D | ABCD:HX, BCDE:HX, CDE:HX, AB:HX, CD:SD
+   basic 59: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->B/CDE; ABC->AB/C; CDE->CD/E; AB->A/B; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, CD:SD
+   basic 64: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->BC/CDE; CDE->CD/E; AB->A/B; BC->B/C; CD->C/D | ABCD:HX, BCDE:HX, CDE:HX, AB:HX, BC:HX, CD:SD
+   basic 65: 16 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->A/BC; CDE->CD/E; BC->B/C; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, BC:SD, CD:SD
+   basic 66: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->AB/BC; CDE->CD/E; AB->A/B; BC->B/C; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, BC:SD, CD:SD
+   basic 69: 32 variants, e.g. ABCDE->ABC/BCDE; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/E; AB->A/B; CD->C/D | BCDE:HX, ABC:HX, BCD:HX, CDE:HX, AB:HX, CD:SD
+   basic 72: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/E; AB->A/B; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, BCD:SD, CDE:HX, AB:HX, CD:SD
+   basic 111: 64 variants, e.g. ABCDE->ABCD/DE; ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D; DE->D/E | ABCD:HX, ABC:HX, BCD:HX, AB:HX, CD:HX, DE:HX
+   basic 116: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->BC/DE; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, AB:HX, BC:HX, CD:HX, DE:HX
+   basic 117: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/DE; ABC->A/BC; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, BC:SD, CD:HX, DE:HX
+   basic 118: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/DE; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, AB:HX, BC:SD, CD:HX, DE:HX
+   basic 121: 64 variants, e.g. ABCDE->ABC/BCDE; BCDE->BCD/DE; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D; DE->D/E | BCDE:HX, ABC:HX, BCD:HX, AB:HX, CD:HX, DE:HX
+   basic 124: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/DE; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, BCD:SD, AB:HX, CD:HX, DE:HX
+   basic 146: 32 variants, e.g. ABCDE->ABC/BCDE; BCDE->B/CDE; ABC->AB/C; CDE->C/DE; AB->A/B; DE->D/E | BCDE:HX, ABC:HX, CDE:HX, AB:HX, DE:HX
+   basic 147: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/D; BCDE->B/CDE; ABC->AB/C; CDE->C/DE; AB->A/B; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, DE:HX
+   basic 172: 64 variants, e.g. ABCDE->ABCD/CDE; ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; CDE->CD/DE; AB->A/B; CD->C/D; DE->D/E | ABCD:HX, ABC:HX, BCD:HX, CDE:HX, AB:HX, CD:SD, DE:HX
+   basic 179: 64 variants, e.g. ABCDE->ABC/BCDE; BCDE->B/CDE; ABC->AB/C; CDE->CD/DE; AB->A/B; CD->C/D; DE->D/E | BCDE:HX, ABC:HX, CDE:HX, AB:HX, CD:HX, DE:HX
+   basic 180: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->B/CDE; CDE->CD/DE; AB->A/B; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, CDE:HX, AB:HX, CD:SD, DE:HX
+   basic 181: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->B/CDE; ABC->AB/C; CDE->CD/DE; AB->A/B; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, CD:SD, DE:HX
+   basic 186: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->BC/CDE; CDE->CD/DE; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, CDE:HX, AB:HX, BC:HX, CD:SD, DE:HX
+   basic 187: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->A/BC; CDE->CD/DE; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, BC:SD, CD:SD, DE:HX
+   basic 188: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->AB/BC; CDE->CD/DE; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, BC:SD, CD:SD, DE:HX
+   basic 191: 64 variants, e.g. ABCDE->ABC/BCDE; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/DE; AB->A/B; CD->C/D; DE->D/E | BCDE:HX, ABC:HX, BCD:HX, CDE:HX, AB:HX, CD:SD, DE:HX
+   basic 194: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/C; BCD->B/CD; CDE->CD/DE; AB->A/B; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, BCD:SD, CDE:HX, AB:HX, CD:SD, DE:HX
+ j=3: sign-hard configurations: 1312
+   basic 64: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->BC/CDE; CDE->CD/E; AB->A/B; BC->B/C; CD->C/D | ABCD:HX, BCDE:HX, CDE:HX, AB:HX, BC:HX, CD:SD
+   basic 65: 16 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->A/BC; CDE->CD/E; BC->B/C; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, BC:SD, CD:SD
+   basic 66: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->AB/BC; CDE->CD/E; AB->A/B; BC->B/C; CD->C/D | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, BC:SD, CD:SD
+   basic 95: 16 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/D; BCDE->BC/DE; ABC->A/BC; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, BC:SD, DE:HX
+   basic 96: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/D; BCDE->BC/DE; ABC->AB/BC; AB->A/B; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, AB:HX, BC:SD, DE:HX
+   basic 116: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->BC/DE; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, AB:HX, BC:HX, CD:HX, DE:HX
+   basic 117: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/DE; ABC->A/BC; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, BC:SD, CD:HX, DE:HX
+   basic 118: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/DE; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, AB:HX, BC:SD, CD:HX, DE:HX
+   basic 135: 32 variants, e.g. ABCDE->ABCD/CDE; ABCD->ABC/D; ABC->AB/C; CDE->C/DE; AB->A/B; DE->D/E | ABCD:HX, ABC:HX, CDE:HX, AB:HX, DE:HX
+   basic 138: 32 variants, e.g. ABCDE->ABCD/CDE; ABCD->ABC/D; ABC->A/BC; CDE->C/DE; BC->B/C; DE->D/E | ABCD:HX, ABC:HX, CDE:HX, BC:HX, DE:HX
+   basic 139: 64 variants, e.g. ABCDE->ABCD/CDE; ABCD->ABC/D; ABC->AB/BC; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | ABCD:HX, ABC:HX, CDE:HX, AB:HX, BC:HX, DE:HX
+   basic 140: 32 variants, e.g. ABCDE->ABCD/CDE; ABCD->A/BCD; BCD->BC/D; CDE->C/DE; BC->B/C; DE->D/E | ABCD:HX, BCD:HX, CDE:HX, BC:HX, DE:HX
+   basic 141: 64 variants, e.g. ABCDE->ABCD/CDE; ABCD->AB/BCD; BCD->BC/D; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | ABCD:HX, BCD:HX, CDE:HX, AB:HX, BC:HX, DE:HX
+   basic 142: 32 variants, e.g. ABCDE->ABCD/CDE; ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; CDE->C/DE; BC->B/C; DE->D/E | ABCD:HX, ABC:HX, BCD:HX, CDE:HX, BC:SD, DE:HX
+   basic 143: 64 variants, e.g. ABCDE->ABCD/CDE; ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | ABCD:HX, ABC:HX, BCD:HX, CDE:HX, AB:HX, BC:SD, DE:HX
+   basic 147: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/D; BCDE->B/CDE; ABC->AB/C; CDE->C/DE; AB->A/B; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, DE:HX
+   basic 152: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/D; BCDE->BC/CDE; ABC->A/BC; CDE->C/DE; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, BC:SD, DE:HX
+   basic 153: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/D; BCDE->BC/CDE; ABC->AB/BC; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, BC:SD, DE:HX
+   basic 154: 32 variants, e.g. ABCDE->A/BCDE; BCDE->BCD/CDE; BCD->BC/D; CDE->C/DE; BC->B/C; DE->D/E | BCDE:HX, BCD:HX, CDE:HX, BC:HX, DE:HX
+   basic 155: 64 variants, e.g. ABCDE->AB/BCDE; BCDE->BCD/CDE; BCD->BC/D; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | BCDE:HX, BCD:HX, CDE:HX, AB:HX, BC:HX, DE:HX
+   basic 156: 32 variants, e.g. ABCDE->ABC/BCDE; BCDE->BCD/CDE; ABC->A/BC; BCD->BC/D; CDE->C/DE; BC->B/C; DE->D/E | BCDE:HX, ABC:HX, BCD:HX, CDE:HX, BC:SD, DE:HX
+   basic 157: 64 variants, e.g. ABCDE->ABC/BCDE; BCDE->BCD/CDE; ABC->AB/BC; BCD->BC/D; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | BCDE:HX, ABC:HX, BCD:HX, CDE:HX, AB:HX, BC:SD, DE:HX
+   basic 158: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->A/BCD; BCDE->BCD/CDE; BCD->BC/D; CDE->C/DE; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, BCD:SD, CDE:HX, BC:HX, DE:HX
+   basic 159: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/BCD; BCDE->BCD/CDE; BCD->BC/D; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, BCD:SD, CDE:HX, AB:HX, BC:HX, DE:HX
+   basic 160: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->A/BC; BCD->BC/D; CDE->C/DE; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, BCD:SD, CDE:HX, BC:SD, DE:HX
+   basic 161: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/BCD; BCDE->BCD/CDE; ABC->AB/BC; BCD->BC/D; CDE->C/DE; AB->A/B; BC->B/C; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, BCD:SD, CDE:HX, AB:HX, BC:SD, DE:HX
+   basic 186: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->AB/CD; BCDE->BC/CDE; CDE->CD/DE; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, CDE:HX, AB:HX, BC:HX, CD:SD, DE:HX
+   basic 187: 32 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->A/BC; CDE->CD/DE; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, BC:SD, CD:SD, DE:HX
+   basic 188: 64 variants, e.g. ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->AB/BC; CDE->CD/DE; AB->A/B; BC->B/C; CD->C/D; DE->D/E | ABCD:HX, BCDE:HX, ABC:HX, CDE:HX, AB:HX, BC:SD, CD:SD, DE:HX
+ j=4: sign-hard configurations: 0

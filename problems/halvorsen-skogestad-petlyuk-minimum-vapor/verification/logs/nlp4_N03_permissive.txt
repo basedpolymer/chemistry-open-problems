@@ -1,0 +1,12 @@
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+N=4 case=N03 model=permissive H=['1.995940', '2.007471', '0.454158'] V_FTC=2.0074705
+  solved 148/152 configurations; min ratio 0.9999999753 (ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:TC)
+  ties (ratio < 1+1e-6): 4; below 1-1e-7: 0; max cut-identity residual 1.38e-13
+    tie: 0.9999999760 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:HX
+    tie: 0.9999999753 ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:TC
+    tie: 0.9999999759 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:HX
+    tie: 0.9999999759 ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:TC

@@ -1,0 +1,42 @@
+0 1
+2000 119
+4000 249
+6000 443
+8000 860
+10000 1097
+12000 1325
+14000 1652
+16000 1950
+18000 2201
+20000 2349
+22000 2518
+24000 2693
+26000 2956
+28000 3138
+30000 3273
+32000 3572
+WARNING (W1002): Setting Var 'VT[1,2]' to a numeric value `1016.4582113741989`
+outside the bounds (0, 1000.0).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+WARNING (W1002): Setting Var 'VT[1,2]' to a numeric value `1081.760909651235`
+outside the bounds (0, 1000.0).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+34000 3883
+36000 4292
+38000 4490
+WARNING (W1002): Setting Var 'VT[1,2]' to a numeric value `1045.0842326399581`
+outside the bounds (0, 1000.0).
+    See also https://pyomo.readthedocs.io/en/stable/errors.html#w1002
+40000 4807
+42000 5006
+44000 5240
+46000 5499
+48000 5847
+A {'published_optimum': 402.7, 'FTC_closed_form_x100': 402.7032189163119, 'min_ratio_over_configs': 0.9999999999292974, 'min_value_x100': 402.70321888783974, 'FTC_ratio': 0.9999999999323973, 'n_ties_1e-6': 204, 'n_failed': 255}
+B {'published_optimum': 272.5, 'FTC_closed_form_x100': 272.48485548297117, 'min_ratio_over_configs': 0.9999999998928715, 'min_value_x100': 272.48485545378026, 'FTC_ratio': 0.9999999999075416, 'n_ties_1e-6': 204, 'n_failed': 781}
+C {'published_optimum': 260.0, 'FTC_closed_form_x100': 260.0427071832614, 'min_ratio_over_configs': 0.9999999998817272, 'min_value_x100': 260.04270715250544, 'FTC_ratio': 0.9999999998884008, 'n_ties_1e-6': 136, 'n_failed': 771}
+D {'published_optimum': 896.4, 'FTC_closed_form_x100': 896.3509477774686, 'min_ratio_over_configs': 0.9999999999711061, 'min_value_x100': 896.3509477515695, 'FTC_ratio': 0.9999999999740727, 'n_ties_1e-6': 204, 'n_failed': 368}
+E {'published_optimum': 695.6, 'FTC_closed_form_x100': 695.5812911168954, 'min_ratio_over_configs': 0.9999999999589385, 'min_value_x100': 695.5812910883337, 'FTC_ratio': 0.9999999999613608, 'n_ties_1e-6': 62, 'n_failed': 585}
+F {'published_optimum': 929.1, 'FTC_closed_form_x100': 929.0983199988995, 'min_ratio_over_configs': 0.9999999999681957, 'min_value_x100': 929.0983199693502, 'FTC_ratio': 0.9999999999716163, 'n_ties_1e-6': 204, 'n_failed': 866}
+G {'published_optimum': 902.7, 'FTC_closed_form_x100': 902.7119380432049, 'min_ratio_over_configs': 0.9999999999708461, 'min_value_x100': 902.7119380168873, 'FTC_ratio': 0.999999999973384, 'n_ties_1e-6': 205, 'n_failed': 503}
+H {'published_optimum': 542.0, 'FTC_closed_form_x100': 542.0473804966375, 'min_ratio_over_configs': 0.9999999999424192, 'min_value_x100': 542.047380465426, 'FTC_ratio': 0.9999999999463263, 'n_ties_1e-6': 153, 'n_failed': 851}

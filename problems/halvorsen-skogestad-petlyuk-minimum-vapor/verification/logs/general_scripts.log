@@ -1,0 +1,25 @@
+PASS
+
+real	0m0.892s
+user	0m0.743s
+sys	0m0.110s
+   ('merge', 'branch') 4
+   ('merge', 'simple-diamonds (G8)') 4
+   ('tree', 'branch') 1
+   ('tree', 'nobranch') 49
+
+real	0m0.367s
+user	0m0.085s
+sys	0m0.066s
+   ('tree', 'branch') 38
+   ('tree', 'nobranch') 602
+
+real	0m0.357s
+user	0m0.106s
+sys	0m0.055s
+  mdef_max: 0.4447320886509862
+PASS
+
+real	0m6.144s
+user	0m4.347s
+sys	0m0.845s

@@ -1,0 +1,19 @@
+
+real	0m31.179s
+user	0m28.484s
+sys	0m1.816s
+nal thermally coupled, 8 in total (Shah-Agrawal 2010: 3 / 8)
+PASS: N=4: 18 basic configurations, 134 additional thermally coupled, 152 in total (Shah-Agrawal 2010: 18 / 152)
+PASS: N=5: 203 basic configurations, 5925 additional thermally coupled, 6128 in total (Shah-Agrawal 2010: 203 / 6128)
+PASS: cut identity, N=3, 8 configurations, all j, 5 partitions each
+PASS: cut identity, N=4, 152 configurations, all j, 5 partitions each
+PASS: cut identity, N=5, 6128 configurations, all j, 5 partitions each
+PASS: N=3: 3 basic configurations, strict-model consistent paths = 0; (info) permissive-model paths = 0 in 0 configurations
+PASS: N=4: 18 basic configurations, strict-model consistent paths = 0; (info) permissive-model paths = 1 in 1 configurations
+PASS: N=4 permissive-model exceptions = family K only: ['(1, 4)->(1, 3)/(2, 4) ; (1, 3)->(1, 2)/(3, 3) ; (2, 4)->(2, 2)/(3, 4) ; (1, 2)->(1, 1)/(2, 2) ; (3, 4)->(3, 3)/(4, 4)']
+PASS: N=5: 203 basic configurations, strict-model consistent paths = 0; (info) permissive-model paths = 70 in 48 configurations
+PASS: N=6: 4373 basic configurations, strict-model consistent paths = 0; (info) permissive-model paths = 5795 in 2300 configurations
+{'L1': 0, 'RO': 0, 'S5': 0, 'BP': 0, 'tests': 207, 'points': 69} min consecutive recovery difference 0.16954402540334806
+PASS: lemma checks, N=4, strict model, 69 points, 207 (point, j) tests
+ALL CERTIFICATES PASSED
+EXIT 0

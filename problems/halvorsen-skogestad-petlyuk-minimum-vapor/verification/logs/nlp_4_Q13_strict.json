@@ -1,0 +1,1090 @@
+{
+ "N": 4,
+ "case": "Q13",
+ "model": "strict",
+ "alpha": [
+  5,
+  2.2,
+  1.5,
+  1
+ ],
+ "z": [
+  0.2,
+  0.3,
+  0.3,
+  0.2
+ ],
+ "q": 1.3,
+ "H": [
+  0.9047159645838669,
+  2.0720010744483033,
+  2.244931448816698
+ ],
+ "V_FTC": 2.244931448816698,
+ "rows": [
+  {
+   "idx": 0,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | AB:TC,ABC:TC",
+   "R": 3.5141026029764033,
+   "ratio": 1.5653496256327493,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 1,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | AB:TC,ABC:HX",
+   "R": 3.8565084228589037,
+   "ratio": 1.717873579120497,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 2,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | AB:HX,ABC:TC",
+   "R": 3.6417792861542826,
+   "ratio": 1.6222229360606368,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 3,
+   "name": "ABCD->ABC/D; ABC->AB/C; AB->A/B | AB:HX,ABC:HX",
+   "R": 3.972674705897933,
+   "ratio": 1.7696196059759097,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 4,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:TC,CD:TC",
+   "R": 3.39031524893026,
+   "ratio": 1.510208808699835,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 5,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:TC,CD:HX",
+   "R": 3.657232495997537,
+   "ratio": 1.6291065359368821,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 6,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:HX,CD:TC",
+   "R": 3.497940910292715,
+   "ratio": 1.5581504335628946,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 7,
+   "name": "ABCD->AB/CD; AB->A/B; CD->C/D | AB:HX,CD:HX",
+   "R": 3.7648581573596505,
+   "ratio": 1.6770481607997898,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 8,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:TC,BC:TC",
+   "R": 4.108209914154711,
+   "ratio": 1.8299934798989723,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 9,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:TC,BC:HX",
+   "R": 4.254416910070344,
+   "ratio": 1.8951210792262032,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 10,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:HX,BC:TC",
+   "R": 4.156508427938535,
+   "ratio": 1.8515079514474388,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 11,
+   "name": "ABCD->ABC/D; ABC->A/BC; BC->B/C | ABC:HX,BC:HX",
+   "R": 4.321622248298242,
+   "ratio": 1.9250575560229988,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 12,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BC:TC,BCD:TC",
+   "R": 3.5571192069662754,
+   "ratio": 1.5845112815543794,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 13,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BC:TC,BCD:HX",
+   "R": 3.653212310744837,
+   "ratio": 1.6273157528575954,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 14,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BC:HX,BCD:TC",
+   "R": 3.8454246738051654,
+   "ratio": 1.7129363463780094,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 15,
+   "name": "ABCD->A/BCD; BCD->BC/D; BC->B/C | BC:HX,BCD:HX",
+   "R": 3.960386425419194,
+   "ratio": 1.7641458172394135,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 16,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:TC,CD:TC",
+   "R": 3.313392605581577,
+   "ratio": 1.4759437787412462,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 17,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:TC,CD:HX",
+   "R": 3.5898253263739295,
+   "ratio": 1.5990801537686705,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 18,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:HX,CD:TC",
+   "R": 3.6532123088349877,
+   "ratio": 1.627315752006857,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 19,
+   "name": "ABCD->A/BCD; BCD->B/CD; CD->C/D | BCD:HX,CD:HX",
+   "R": 3.8999227392097193,
+   "ratio": 1.7372123951781986,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 20,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:TC,ABC:TC,BC:TC",
+   "R": 3.2489221493430165,
+   "ratio": 1.447225549383934,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 21,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:TC,ABC:TC,BC:HX",
+   "R": 3.3951291450067154,
+   "ratio": 1.512353148598941,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 22,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:TC,ABC:HX,BC:TC",
+   "R": 3.5798175659719425,
+   "ratio": 1.5946222179117595,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 23,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:TC,ABC:HX,BC:HX",
+   "R": 3.74493138888033,
+   "ratio": 1.668171823622624,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 24,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:HX,ABC:TC,BC:TC",
+   "R": 3.2489221453242445,
+   "ratio": 1.4472255475937805,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 25,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:HX,ABC:TC,BC:HX",
+   "R": 3.395129145006716,
+   "ratio": 1.5123531485989412,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 26,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:HX,ABC:HX,BC:TC",
+   "R": 3.579817566956437,
+   "ratio": 1.5946222183503007,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 27,
+   "name": "ABCD->ABC/D; ABC->AB/BC; AB->A/B; BC->B/C | AB:HX,ABC:HX,BC:HX",
+   "R": 3.74493138888033,
+   "ratio": 1.668171823622624,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 28,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:TC,ABC:TC,CD:TC",
+   "R": 2.525698480985663,
+   "ratio": 1.1250670849290108,
+   "cut_identity_residual": 2.9976021664879227e-15
+  },
+  {
+   "idx": 29,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:TC,ABC:TC,CD:HX",
+   "R": 2.787086813558126,
+   "ratio": 1.24150196881388,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 30,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:TC,ABC:HX,CD:TC",
+   "R": 2.7088230370940725,
+   "ratio": 1.2066395339251412,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 31,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:TC,ABC:HX,CD:HX",
+   "R": 2.802143771356813,
+   "ratio": 1.2482090590489174,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 32,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:HX,ABC:TC,CD:TC",
+   "R": 2.6377885329043558,
+   "ratio": 1.1749973631910822,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 33,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:HX,ABC:TC,CD:HX",
+   "R": 2.9047057797425584,
+   "ratio": 1.2938950903260886,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 34,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:HX,ABC:HX,CD:TC",
+   "R": 2.807869956478787,
+   "ratio": 1.2507597761877378,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 35,
+   "name": "ABCD->ABC/CD; ABC->AB/C; AB->A/B; CD->C/D | AB:HX,ABC:HX,CD:HX",
+   "R": 2.9047057797424927,
+   "ratio": 1.2938950903260593,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 36,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,BC:TC,BCD:TC",
+   "R": 3.348810373799442,
+   "ratio": 1.4917205492241636,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 37,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,BC:TC,BCD:HX",
+   "R": 3.4465664172840556,
+   "ratio": 1.5352657735276232,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 38,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,BC:HX,BCD:TC",
+   "R": 3.597389301537212,
+   "ratio": 1.6024495106224264,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 39,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,BC:HX,BCD:HX",
+   "R": 3.71129336646677,
+   "ratio": 1.6531878371711488,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 40,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,BC:TC,BCD:TC",
+   "R": 3.3488103737994415,
+   "ratio": 1.4917205492241634,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 41,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,BC:TC,BCD:HX",
+   "R": 3.4465664173196746,
+   "ratio": 1.5352657735434896,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 42,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,BC:HX,BCD:TC",
+   "R": 3.597389301537212,
+   "ratio": 1.6024495106224264,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 43,
+   "name": "ABCD->AB/BCD; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,BC:HX,BCD:HX",
+   "R": 3.7112933664667778,
+   "ratio": 1.6531878371711521,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 44,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,BCD:TC,CD:TC",
+   "R": 3.1050837696684144,
+   "ratio": 1.3831530451876837,
+   "cut_identity_residual": 3.219646771412954e-15
+  },
+  {
+   "idx": 45,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,BCD:TC,CD:HX",
+   "R": 3.372001015860639,
+   "ratio": 1.5020507720349408,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 46,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,BCD:HX,CD:TC",
+   "R": 3.4465664159760827,
+   "ratio": 1.5352657729449894,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 47,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,BCD:HX,CD:HX",
+   "R": 3.68481905848511,
+   "ratio": 1.641394912271097,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 48,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,BCD:TC,CD:TC",
+   "R": 3.105083770106494,
+   "ratio": 1.3831530453828256,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 49,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,BCD:TC,CD:HX",
+   "R": 3.3720010163202865,
+   "ratio": 1.5020507722396896,
+   "cut_identity_residual": 3.9968028886505635e-15
+  },
+  {
+   "idx": 50,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,BCD:HX,CD:TC",
+   "R": 3.446566415976141,
+   "ratio": 1.5352657729450154,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 51,
+   "name": "ABCD->AB/BCD; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,BCD:HX,CD:HX",
+   "R": 3.684819058485115,
+   "ratio": 1.6413949122710991,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 52,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:TC,BCD:TC",
+   "R": 3.3039684193027323,
+   "ratio": 1.471745794752108,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 53,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:TC,BCD:HX",
+   "R": 3.393887295336653,
+   "ratio": 1.51179996927103,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 54,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:HX,BCD:TC",
+   "R": 3.3189618474551663,
+   "ratio": 1.4784245858396208,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 55,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/D; BC->B/C | ABC:HX,BCD:HX",
+   "R": 3.4075269937105013,
+   "ratio": 1.5178757442712145,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 56,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC,BC:TC,CD:TC",
+   "R": 2.951339807615653,
+   "ratio": 1.3146681201206847,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 57,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC,BC:TC,CD:HX",
+   "R": 2.9513398076156525,
+   "ratio": 1.3146681201206845,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 58,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC,BC:HX,CD:TC",
+   "R": 3.001431177570161,
+   "ratio": 1.3369812156857679,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 59,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:TC,BC:HX,CD:HX",
+   "R": 3.001431177570259,
+   "ratio": 1.3369812156858116,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 60,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX,BC:TC,CD:TC",
+   "R": 3.0088230382664127,
+   "ratio": 1.3402739045115883,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 61,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX,BC:TC,CD:HX",
+   "R": 3.0088230383525696,
+   "ratio": 1.3402739045499668,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 62,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX,BC:HX,CD:TC",
+   "R": 3.0657048567794782,
+   "ratio": 1.3656117911285932,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 63,
+   "name": "ABCD->ABC/CD; ABC->A/BC; BC->B/C; CD->C/D | ABC:HX,BC:HX,CD:HX",
+   "R": 3.0657048567794782,
+   "ratio": 1.3656117911285932,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 64,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:TC,BCD:TC,CD:TC",
+   "R": 2.559710388970258,
+   "ratio": 1.140217617923024,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 65,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:TC,BCD:TC,CD:HX",
+   "R": 2.836143109706252,
+   "ratio": 1.2633539929253437,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 66,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:TC,BCD:HX,CD:TC",
+   "R": 2.6746721416050727,
+   "ratio": 1.1914270892391352,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 67,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:TC,BCD:HX,CD:HX",
+   "R": 2.9213825713141697,
+   "ratio": 1.3013237321139712,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 68,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:HX,BCD:TC,CD:TC",
+   "R": 2.5781307966574625,
+   "ratio": 1.148422949848377,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 69,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:HX,BCD:TC,CD:HX",
+   "R": 2.836143109706252,
+   "ratio": 1.2633539929253437,
+   "cut_identity_residual": 3.219646771412954e-15
+  },
+  {
+   "idx": 70,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:HX,BCD:HX,CD:TC",
+   "R": 2.907096857028455,
+   "ratio": 1.294960190682341,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 71,
+   "name": "ABCD->A/BCD; BCD->BC/CD; BC->B/C; CD->C/D | BC:HX,BCD:HX,CD:HX",
+   "R": 2.9213825713141754,
+   "ratio": 1.3013237321139737,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 72,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,ABC:TC,BCD:TC",
+   "R": null,
+   "ratio": null,
+   "cut_identity_residual": null
+  },
+  {
+   "idx": 73,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,ABC:TC,BCD:HX",
+   "R": 2.512756051762357,
+   "ratio": 1.1193019070078196,
+   "cut_identity_residual": 2.646561426122851e-07
+  },
+  {
+   "idx": 74,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,ABC:HX,BCD:TC",
+   "R": 2.709576504509544,
+   "ratio": 1.206975164403243,
+   "cut_identity_residual": 3.98507870147391e-07
+  },
+  {
+   "idx": 75,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:TC,ABC:HX,BCD:HX",
+   "R": null,
+   "ratio": null,
+   "cut_identity_residual": null
+  },
+  {
+   "idx": 76,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,ABC:TC,BCD:TC",
+   "R": 2.4654626281216636,
+   "ratio": 1.0982351507531367,
+   "cut_identity_residual": 4.785309241639446e-07
+  },
+  {
+   "idx": 77,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,ABC:TC,BCD:HX",
+   "R": 2.5127639325719913,
+   "ratio": 1.1193054174979231,
+   "cut_identity_residual": 2.554333557447386e-07
+  },
+  {
+   "idx": 78,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,ABC:HX,BCD:TC",
+   "R": 2.8086232050991247,
+   "ratio": 1.2510953092040065,
+   "cut_identity_residual": 3.453378133455587e-07
+  },
+  {
+   "idx": 79,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/D; AB->A/B; BC->B/C | AB:HX,ABC:HX,BCD:HX",
+   "R": 2.8086237902741282,
+   "ratio": 1.251095569868983,
+   "cut_identity_residual": 1.986249267282858e-07
+  },
+  {
+   "idx": 80,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:TC,CD:TC",
+   "R": 2.2449314100475974,
+   "ratio": 0.9999999827303856,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 81,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:TC,CD:HX",
+   "R": 2.511848656867233,
+   "ratio": 1.1188977098571216,
+   "cut_identity_residual": 3.9968028886505635e-15
+  },
+  {
+   "idx": 82,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:HX,CD:TC",
+   "R": 2.385583365575442,
+   "ratio": 1.0626531009812712,
+   "cut_identity_residual": 3.635980405647388e-15
+  },
+  {
+   "idx": 83,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BC:HX,CD:HX",
+   "R": 2.6525006122349293,
+   "ratio": 1.1815508280366693,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 84,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BC:TC,CD:TC",
+   "R": 2.4150128150710892,
+   "ratio": 1.0757623874635642,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 85,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BC:TC,CD:HX",
+   "R": 2.511848656867235,
+   "ratio": 1.1188977098571224,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 86,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BC:HX,CD:TC",
+   "R": 2.5000997636455846,
+   "ratio": 1.1136641900416986,
+   "cut_identity_residual": 3.3861802251067274e-15
+  },
+  {
+   "idx": 87,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BC:HX,CD:HX",
+   "R": 2.767017010305044,
+   "ratio": 1.2325619170970843,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 88,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:TC,CD:TC",
+   "R": 2.2449314100485767,
+   "ratio": 0.9999999827308218,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 89,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:TC,CD:HX",
+   "R": 2.5118486568672136,
+   "ratio": 1.118897709857113,
+   "cut_identity_residual": 3.219646771412954e-15
+  },
+  {
+   "idx": 90,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:HX,CD:TC",
+   "R": 2.3855833655754823,
+   "ratio": 1.0626531009812892,
+   "cut_identity_residual": 4.0245584642661925e-15
+  },
+  {
+   "idx": 91,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BC:HX,CD:HX",
+   "R": 2.652500612234947,
+   "ratio": 1.1815508280366773,
+   "cut_identity_residual": 3.608224830031759e-15
+  },
+  {
+   "idx": 92,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BC:TC,CD:TC",
+   "R": 2.415012815507785,
+   "ratio": 1.0757623876580895,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 93,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BC:TC,CD:HX",
+   "R": 2.5118486568672336,
+   "ratio": 1.1188977098571218,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 94,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BC:HX,CD:TC",
+   "R": 2.500099763645584,
+   "ratio": 1.1136641900416984,
+   "cut_identity_residual": 3.885780586188048e-15
+  },
+  {
+   "idx": 95,
+   "name": "ABCD->ABC/CD; ABC->AB/BC; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BC:HX,CD:HX",
+   "R": 2.7670170103050444,
+   "ratio": 1.2325619170970845,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 96,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:TC",
+   "R": 2.3770406555118715,
+   "ratio": 1.0588477687213158,
+   "cut_identity_residual": 3.191891195797325e-15
+  },
+  {
+   "idx": 97,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:HX",
+   "R": 2.6414144509961375,
+   "ratio": 1.1766125207914147,
+   "cut_identity_residual": 3.941291737419306e-15
+  },
+  {
+   "idx": 98,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:HX,CD:TC",
+   "R": 2.6963951507490025,
+   "ratio": 1.2011035580486304,
+   "cut_identity_residual": 4.3804574012540343e-07
+  },
+  {
+   "idx": 99,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:TC,BCD:HX,CD:HX",
+   "R": 2.7870957331963986,
+   "ratio": 1.241505942048019,
+   "cut_identity_residual": 3.5538382103794675e-07
+  },
+  {
+   "idx": 100,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:HX,BCD:TC,CD:TC",
+   "R": 2.3848134494259763,
+   "ratio": 1.0623101434491509,
+   "cut_identity_residual": 3.608224830031759e-15
+  },
+  {
+   "idx": 101,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:HX,BCD:TC,CD:HX",
+   "R": 2.647085270707605,
+   "ratio": 1.1791385755243806,
+   "cut_identity_residual": 2.4313884239290928e-14
+  },
+  {
+   "idx": 102,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:HX,BCD:HX,CD:TC",
+   "R": 2.9675418903976727,
+   "ratio": 1.3218853038750302,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 103,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:TC,ABC:HX,BCD:HX,CD:HX",
+   "R": 2.8028985845735566,
+   "ratio": 1.2485452890113695,
+   "cut_identity_residual": 3.3303059154832226e-07
+  },
+  {
+   "idx": 104,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:TC",
+   "R": 2.4325028366410737,
+   "ratio": 1.0835532808466133,
+   "cut_identity_residual": 3.497202527569243e-15
+  },
+  {
+   "idx": 105,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:HX",
+   "R": 2.699420083145056,
+   "ratio": 1.2024510078327422,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 106,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:HX,CD:TC",
+   "R": 2.783105359772583,
+   "ratio": 1.2397284385853102,
+   "cut_identity_residual": 2.973835344644016e-07
+  },
+  {
+   "idx": 107,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:TC,BCD:HX,CD:HX",
+   "R": 2.9054595062859576,
+   "ratio": 1.2942308362321815,
+   "cut_identity_residual": 2.6170489753063464e-07
+  },
+  {
+   "idx": 108,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:HX,BCD:TC,CD:TC",
+   "R": 2.4325028366410737,
+   "ratio": 1.0835532808466133,
+   "cut_identity_residual": 3.635980405647388e-15
+  },
+  {
+   "idx": 109,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:HX,BCD:TC,CD:HX",
+   "R": 2.699420083145056,
+   "ratio": 1.2024510078327422,
+   "cut_identity_residual": 3.2751579226442118e-15
+  },
+  {
+   "idx": 110,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:HX,BCD:HX,CD:TC",
+   "R": 2.9675418903976736,
+   "ratio": 1.3218853038750307,
+   "cut_identity_residual": 3.1086244689504383e-15
+  },
+  {
+   "idx": 111,
+   "name": "ABCD->ABC/BCD; ABC->AB/C; BCD->B/CD; AB->A/B; CD->C/D | AB:HX,ABC:HX,BCD:HX,CD:HX",
+   "R": 2.905460248360139,
+   "ratio": 1.2942311667875674,
+   "cut_identity_residual": 4.0706110304711274e-07
+  },
+  {
+   "idx": 112,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:TC",
+   "R": 2.405290159943177,
+   "ratio": 1.07143145115233,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 113,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:TC,CD:HX",
+   "R": 2.6722074063177748,
+   "ratio": 1.1903291780808247,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 114,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:HX,CD:TC",
+   "R": 2.519194225900331,
+   "ratio": 1.1221697781587927,
+   "cut_identity_residual": 3.497202527569243e-15
+  },
+  {
+   "idx": 115,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:TC,BCD:HX,CD:HX",
+   "R": 2.7574468677930515,
+   "ratio": 1.2282989172103675,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 116,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:HX,BCD:TC,CD:TC",
+   "R": 2.4052901601732417,
+   "ratio": 1.0714314512548118,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 117,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:HX,BCD:TC,CD:HX",
+   "R": 2.6722074063170655,
+   "ratio": 1.1903291780805088,
+   "cut_identity_residual": 3.497202527569243e-15
+  },
+  {
+   "idx": 118,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:HX,BCD:HX,CD:TC",
+   "R": 2.6495460103398276,
+   "ratio": 1.1802347068265278,
+   "cut_identity_residual": 3.83026943495679e-15
+  },
+  {
+   "idx": 119,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,BC:HX,BCD:HX,CD:HX",
+   "R": 2.757446867793052,
+   "ratio": 1.2282989172103678,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 120,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:TC,CD:TC",
+   "R": 2.405290159943177,
+   "ratio": 1.07143145115233,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 121,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:TC,CD:HX",
+   "R": 2.6722074063177748,
+   "ratio": 1.1903291780808247,
+   "cut_identity_residual": 3.7192471324942744e-15
+  },
+  {
+   "idx": 122,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:HX,CD:TC",
+   "R": 2.519194225900331,
+   "ratio": 1.1221697781587927,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 123,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:TC,BCD:HX,CD:HX",
+   "R": 2.7574468677930515,
+   "ratio": 1.2282989172103675,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 124,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:HX,BCD:TC,CD:TC",
+   "R": 2.4052901601732684,
+   "ratio": 1.0714314512548235,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 125,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:HX,BCD:TC,CD:HX",
+   "R": 2.672207406317775,
+   "ratio": 1.190329178080825,
+   "cut_identity_residual": 3.497202527569243e-15
+  },
+  {
+   "idx": 126,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:HX,BCD:HX,CD:TC",
+   "R": 2.6495460103398276,
+   "ratio": 1.1802347068265278,
+   "cut_identity_residual": 3.885780586188048e-15
+  },
+  {
+   "idx": 127,
+   "name": "ABCD->AB/BCD; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,BC:HX,BCD:HX,CD:HX",
+   "R": 2.7574468677930493,
+   "ratio": 1.2282989172103664,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 128,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC,BCD:TC,CD:TC",
+   "R": 2.2449313967312414,
+   "ratio": 0.9999999767986428,
+   "cut_identity_residual": 3.552713678800501e-15
+  },
+  {
+   "idx": 129,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC,BCD:TC,CD:HX",
+   "R": 2.5118486429845026,
+   "ratio": 1.1188977036730885,
+   "cut_identity_residual": 3.164135620181696e-15
+  },
+  {
+   "idx": 130,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC,BCD:HX,CD:TC",
+   "R": 2.458014565852307,
+   "ratio": 1.0949174270545878,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 131,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:TC,BCD:HX,CD:HX",
+   "R": 2.5970881049480834,
+   "ratio": 1.1568674430201453,
+   "cut_identity_residual": 3.3861802251067274e-15
+  },
+  {
+   "idx": 132,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX,BCD:TC,CD:TC",
+   "R": 2.2581948779552703,
+   "ratio": 1.0059081666594156,
+   "cut_identity_residual": 3.774758283725532e-15
+  },
+  {
+   "idx": 133,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX,BCD:TC,CD:HX",
+   "R": 2.5118486430275735,
+   "ratio": 1.1188977036922743,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 134,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX,BCD:HX,CD:TC",
+   "R": 2.4831897348622163,
+   "ratio": 1.106131653227587,
+   "cut_identity_residual": 3.7192471324942744e-15
+  },
+  {
+   "idx": 135,
+   "name": "ABCD->ABC/BCD; ABC->A/BC; BCD->BC/CD; BC->B/C; CD->C/D | ABC:HX,BCD:HX,CD:HX",
+   "R": 2.5970881049480834,
+   "ratio": 1.1568674430201453,
+   "cut_identity_residual": 3.7192471324942744e-15
+  },
+  {
+   "idx": 136,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:TC",
+   "R": 2.24493139582411,
+   "ratio": 0.9999999763945631,
+   "cut_identity_residual": 3.7192471324942744e-15
+  },
+  {
+   "idx": 137,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:TC,CD:HX",
+   "R": 2.5118486425966475,
+   "ratio": 1.1188977035003191,
+   "cut_identity_residual": 3.3306690738754696e-15
+  },
+  {
+   "idx": 138,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:HX,CD:TC",
+   "R": 2.35905132311009,
+   "ratio": 1.0508344583766887,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 139,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:TC,BCD:HX,CD:HX",
+   "R": 2.5970881049480834,
+   "ratio": 1.1568674430201453,
+   "cut_identity_residual": 3.497202527569243e-15
+  },
+  {
+   "idx": 140,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BCD:TC,CD:TC",
+   "R": 2.244931396505348,
+   "ratio": 0.999999976698019,
+   "cut_identity_residual": 4.773959005888173e-15
+  },
+  {
+   "idx": 141,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BCD:TC,CD:HX",
+   "R": 2.5118486426039386,
+   "ratio": 1.118897703503567,
+   "cut_identity_residual": 4.551914400963142e-15
+  },
+  {
+   "idx": 142,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BCD:HX,CD:TC",
+   "R": 2.3774869204280904,
+   "ratio": 1.0590465564911848,
+   "cut_identity_residual": 3.3861802251067274e-15
+  },
+  {
+   "idx": 143,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:TC,ABC:HX,BCD:HX,CD:HX",
+   "R": 2.5970881049480834,
+   "ratio": 1.1568674430201453,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 144,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:TC",
+   "R": 2.2449313958931767,
+   "ratio": 0.9999999764253287,
+   "cut_identity_residual": 3.6914915568786455e-15
+  },
+  {
+   "idx": 145,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:TC,CD:HX",
+   "R": 2.5118486425972835,
+   "ratio": 1.1188977035006025,
+   "cut_identity_residual": 3.4416913763379853e-15
+  },
+  {
+   "idx": 146,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:HX,CD:TC",
+   "R": 2.3590513231099504,
+   "ratio": 1.0508344583766267,
+   "cut_identity_residual": 3.497202527569243e-15
+  },
+  {
+   "idx": 147,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:TC,BCD:HX,CD:HX",
+   "R": 2.5970881049480834,
+   "ratio": 1.1568674430201453,
+   "cut_identity_residual": 3.6637359812630166e-15
+  },
+  {
+   "idx": 148,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BCD:TC,CD:TC",
+   "R": 2.2449313965066335,
+   "ratio": 0.9999999766985918,
+   "cut_identity_residual": 4.163336342344337e-15
+  },
+  {
+   "idx": 149,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BCD:TC,CD:HX",
+   "R": 2.5118486426045195,
+   "ratio": 1.1188977035038257,
+   "cut_identity_residual": 9.769962616701378e-15
+  },
+  {
+   "idx": 150,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BCD:HX,CD:TC",
+   "R": 2.3774869204280904,
+   "ratio": 1.0590465564911848,
+   "cut_identity_residual": 3.3861802251067274e-15
+  },
+  {
+   "idx": 151,
+   "name": "ABCD->ABC/BCD; ABC->AB/BC; BCD->BC/CD; AB->A/B; BC->B/C; CD->C/D | AB:HX,ABC:HX,BCD:HX,CD:HX",
+   "R": 2.5970881049480834,
+   "ratio": 1.1568674430201453,
+   "cut_identity_residual": 3.3861802251067274e-15
+  }
+ ]
+}

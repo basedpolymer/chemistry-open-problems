@@ -1,0 +1,377 @@
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 31 j=2 trial 0 TC: ratio None  H=[0.3032, 0.467, 0.4014, 0.4541] q=0.0
+basic 31 j=2 trial 1 TC: ratio 1.2887639457  H=[2.4766, 2.599, 1.1465, 2.2629] q=1.0
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 31 j=2 trial 2 TC: ratio 1.4369547885  H=[0.6753, 0.9723, 0.9624, 0.8488] q=0.5
+basic 31 j=2 trial 3 TC: ratio 1.0631086601  H=[1.4797, 1.5654, 0.8124, 1.0265] q=1.0
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 31 j=2 trial 4 TC: ratio None  H=[0.4424, 1.3661, 0.9893, 1.2354] q=1.0
+basic 31 j=2 trial 5 TC: ratio 1.0934909052  H=[1.1392, 1.2063, 0.5112, 0.3959] q=0.0
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 31 j=2 trial 6 TC: ratio None  H=[0.8009, 2.2357, 0.6117, 2.1528] q=-0.3
+basic 31 j=2 trial 7 TC: ratio 1.3353257755  H=[0.6535, 0.7208, 0.626, 0.543] q=0.5
+basic 65 j=3 trial 0 TC: ratio 1.1757822322  H=[1.2355, 1.0788, 1.3379, 1.2064] q=1.2
+basic 65 j=3 trial 1 TC: ratio 1.351380788  H=[1.1388, 1.3799, 1.4884, 1.3752] q=1.0
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 65 j=3 trial 2 TC: ratio 1.2570862438  H=[1.0215, 0.8726, 1.5415, 1.4552] q=1.2
+basic 65 j=3 trial 3 TC: ratio 1.4509016665  H=[0.7273, 0.8648, 1.732, 1.7319] q=1.2
+basic 65 j=3 trial 4 TC: ratio 1.7745984438  H=[0.3899, 0.2824, 0.4068, 0.2158] q=-0.3
+basic 65 j=3 trial 5 TC: ratio 1.3024941212  H=[0.5627, 0.6826, 0.8458, 0.7645] q=0.5
+basic 65 j=3 trial 6 TC: ratio 1.4022364443  H=[0.5697, 1.5407, 1.67, 1.6407] q=1.2
+basic 65 j=3 trial 7 TC: ratio 1.5345179876  H=[0.5251, 1.2009, 1.3284, 1.1606] q=0.3
+basic 72 j=2 trial 0 TC: ratio 1.2537749105  H=[0.3718, 0.6138, 0.3507, 0.5828] q=-0.3
+basic 72 j=2 trial 1 TC: ratio 1.4537052425  H=[0.5485, 0.5605, 0.5371, 0.3125] q=0.0
+basic 72 j=2 trial 2 TC: ratio 1.1128067967  H=[1.3846, 1.5702, 1.2149, 1.4701] q=1.0
+basic 72 j=2 trial 3 TC: ratio 1.2022756142  H=[0.6107, 0.678, 0.4202, 0.2356] q=-0.3
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: infeasible
+    - message from solver: Ipopt 3.14.16\x3a Converged to a locally infeasible
+      point. Problem may be infeasible.
+basic 72 j=2 trial 4 TC: ratio 1.1217307706  H=[0.5831, 0.6329, 0.5441, 0.5112] q=0.5
+basic 72 j=2 trial 5 TC: ratio 1.1154046909  H=[0.9053, 1.3997, 1.2741, 1.388] q=1.2
+basic 72 j=2 trial 6 TC: ratio 1.2117937837  H=[0.6328, 1.4198, 1.4058, 1.2092] q=1.2
+basic 72 j=2 trial 7 TC: ratio 1.0994148194  H=[0.3495, 1.1982, 0.4317, 1.1742] q=0.0
+basic 124 j=2 trial 0 TC: ratio 1.4690301098  H=[0.5971, 0.6752, 0.6147, 0.6345] q=0.5
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 124 j=2 trial 1 TC: ratio 1.0514489417  H=[0.4191, 1.2837, 0.5464, 1.1999] q=0.5
+basic 124 j=2 trial 2 TC: ratio 1.2685430186  H=[0.6458, 0.9982, 0.982, 0.7813] q=0.5
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 124 j=2 trial 3 TC: ratio 1.1252682585  H=[0.6109, 1.7987, 1.7758, 1.4858] q=1.2
+basic 124 j=2 trial 4 TC: ratio 1.0319703151  H=[0.6535, 2.3261, 1.192, 2.1041] q=1.0
+basic 124 j=2 trial 5 TC: ratio 1.2097372384  H=[0.565, 0.7425, 0.5171, 0.7327] q=0.0
+basic 124 j=2 trial 6 TC: ratio 1.028102688  H=[1.2614, 1.2932, 1.1081, 1.1456] q=1.2
+basic 124 j=2 trial 7 TC: ratio 1.0861673519  H=[0.6303, 1.3225, 0.9409, 1.2833] q=1.0
+basic 160 j=3 trial 0 TC: ratio 1.0060059428  H=[0.9135, 1.1626, 1.6068, 1.4555] q=1.2
+basic 160 j=3 trial 1 TC: ratio 1.1080592287  H=[0.6093, 1.3875, 1.5417, 1.4802] q=1.2
+basic 160 j=3 trial 2 TC: ratio 1.0077391258  H=[0.5882, 0.7728, 1.3478, 1.27] q=1.0
+basic 160 j=3 trial 3 TC: ratio 1.0878566999  H=[0.7553, 1.0334, 1.4265, 1.4129] q=1.2
+basic 160 j=3 trial 4 TC: ratio 1.5013407274  H=[0.3984, 0.4849, 0.7368, 0.7183] q=0.3
+basic 160 j=3 trial 5 TC: ratio 1.0863089778  H=[1.0633, 1.208, 1.968, 1.9344] q=1.2
+basic 160 j=3 trial 6 TC: ratio 1.0071809585  H=[0.2266, 0.5547, 1.4856, 1.3429] q=-0.3
+basic 160 j=3 trial 7 TC: ratio 1.2180424056  H=[0.9849, 1.7052, 1.7879, 1.4203] q=1.2
+basic 187 j=2 trial 0 TC: ratio 1.4895865661  H=[0.4361, 0.9319, 0.8506, 0.7384] q=-0.3
+basic 187 j=2 trial 1 TC: ratio 1.0266194282  H=[0.6599, 1.0774, 0.9839, 0.9866] q=1.0
+basic 187 j=2 trial 2 TC: ratio 1.7628681348  H=[0.6483, 0.7077, 0.3113, 0.4938] q=-0.3
+basic 187 j=2 trial 3 TC: ratio 1.1680735373  H=[0.9912, 2.0868, 1.1564, 1.9744] q=1.0
+basic 187 j=2 trial 4 TC: ratio 1.1028472186  H=[0.9924, 2.3389, 2.1105, 1.0148] q=-0.3
+basic 187 j=2 trial 5 TC: ratio 1.9612094882  H=[0.5232, 0.7321, 0.4423, 0.7178] q=0.0
+basic 187 j=2 trial 6 TC: ratio 1.4425385741  H=[0.7435, 1.5979, 1.5837, 0.4607] q=-0.3
+basic 187 j=2 trial 7 TC: ratio 1.3178600891  H=[0.8952, 1.9225, 1.7949, 0.7] q=0.3
+basic 188 j=3 trial 0 TC: ratio 0.9999998869  H=[0.22, 0.4654, 0.494, 0.4127] q=-0.3
+basic 188 j=3 trial 1 TC: ratio 0.9999998982  H=[0.5046, 0.5885, 0.6057, 0.4667] q=0.0
+basic 188 j=3 trial 2 TC: ratio 0.9999999505  H=[0.825, 1.2141, 1.282, 1.2438] q=1.0
+basic 188 j=3 trial 3 TC: ratio 0.9999999394  H=[0.5375, 0.5186, 0.854, 0.8168] q=0.5
+basic 188 j=3 trial 4 TC: ratio 0.9999999301  H=[0.2658, 0.2873, 0.8069, 0.7406] q=0.5
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 188 j=3 trial 5 TC: ratio 0.9999999796  H=[0.4211, 2.9062, 3.1718, 0.8319] q=0.5
+basic 188 j=3 trial 6 TC: ratio 0.9999999739  H=[0.879, 2.4379, 2.4937, 1.5562] q=1.2
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.
+basic 188 j=3 trial 7 TC: ratio 0.9999999341  H=[0.9056, 0.6334, 0.9838, 0.389] q=0.0
+WORST (0.9999998868737331, 188, 3, 'ABCDE->ABCD/BCDE; ABCD->ABC/CD; BCDE->BC/CDE; ABC->AB/BC; CDE->CD/DE; AB->A/B; BC->B/C; CD->C/D; DE->D/E | AB:TC,ABC:TC,ABCD:TC,BCDE:TC,CDE:TC,DE:TC')

@@ -71,4 +71,14 @@
   Opus 5.5 (xhigh); novelty audit, singularity analysis and first draft GPT-6-Astra via Codex CLI (xhigh).
   Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS (scope of the Conjecture 1
   consequence stated precisely, a citation fixed, the long-time numerical check repaired: 59 PASS).
-- Under investigation: the Halvorsen–Skogestad conjecture (generalized Petlyuk arrangement and minimum vapor).
+- Result 12 (chemical engineering): the Halvorsen–Skogestad conjecture (2003) proved for every number of
+  components in a stated class and model: networks of two-section columns with interval streams (containing
+  Agrawal's regular-column space: 8 / 152 / 6128 configurations for N = 3 / 4 / 5), strict infinite-stage Underwood
+  model, no reverse flows, any feed quality. Exact cut identity for the Underwood flux, column sign rules and a
+  sign-graph reachability argument; the Petlyuk value (highest V_min peak, previously proved only for the extreme
+  peaks) is attained by the fully thermally coupled arrangement. In the permissive (TG-literal) model: proved for
+  N <= 4, for extreme peaks and for merge-free mixed networks. Solvers: three Claude Opus 5.5 (xhigh) agents
+  (theory, computation, general N). Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS
+  (degenerate operating points and further exclusions stated, TG equation numbering, computer-verification section
+  aligned with the actual runs); the verifier also found an interval-certified point of the permissive model below
+  the Petlyuk value for N = 5 (q = 0), an artifact of that formulation rather than a physical counterexample.

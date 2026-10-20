@@ -1,0 +1,22 @@
+
+real	1m31.221s
+user	1m30.694s
+sys	0m0.268s
+ D32/(A32 D12)
+PASS 3 Delta_C/Delta_B
+PASS 4 two-fraction identity
+PASS 5 top partial fractions
+PASS 5 bottom partial fractions
+PASS 6 L_T at x = 0
+PASS 6 L_B at x = 0
+ALL PASS
+N = 3: 200 instances, 0 failures: PASS
+N = 4: 200 instances, 0 failures: PASS
+N = 5: 200 instances, 0 failures: PASS
+N = 6: 200 instances, 0 failures: PASS
+N = 7: 200 instances, 0 failures: PASS
+N = 8: 200 instances, 0 failures: PASS
+ALL PASS
+N = 4: sign-rule-hard pairs 16 ; family K variants at j = 2: 16 -> PASS
+ALL THEORY CHECKS PASSED
+EXIT 0
