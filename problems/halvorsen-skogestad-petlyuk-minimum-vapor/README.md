@@ -129,7 +129,7 @@ In Underwood's infinite-stage model (Tumbalam Gooty et al.'s formulation), for n
 interval streams (containing Agrawal's regular-column space, 8/152/6128 configurations for N = 3/4/5), without reverse
 flows: in the strict model R ≥ max_j H_j for every N; in the permissive model, true for N ≤ 4, for extreme peaks, for
 merge-free mixed networks and for the FTC itself, **false for N = 5** (configuration 161, j = 3, R/V_FTC ≈ 0.99946,
-interval-certified); the FTC attains max_j H_j (`paper-underwood-model.tex`, Theorem `achieve`). The permissive point is not
+interval-certified); the FTC attains max_j H_j (`Archive/paper-underwood-model.tex`, Theorem `achieve`). The permissive point is not
 physical (lower bound above). Independently verified, with corrections: `verification.md`.
 
 ## Reproduction
@@ -151,7 +151,7 @@ outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-mini
 outils/wsl "bash chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/theory/scripts/run_theory_checks.sh"          # ~2 min
 outils/wsl "bash chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/computation/scripts/run_certificates.sh"      # ~40 s
 py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/paper.tex   # from chemistry-open-problems/
-py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/paper-underwood-model.tex
+py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/Archive/paper-underwood-model.tex
 ```
 
 ## Files
@@ -159,7 +159,7 @@ py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/
 | Path | Content |
 |---|---|
 | `paper.tex`, `paper.pdf`, `references.bib` | The manuscript: proof of the conjecture (lower bound, attainment, numerical illustration) |
-| `paper-underwood-model.tex`, `paper-underwood-model.pdf`, `references-underwood-model.bib` | Manuscript of the Underwood-model results (strict and permissive models, Theorem `achieve`), as independently verified. The working notes under `theory/`, `total/` and `attainment/` cite it as "`paper.tex`" (Theorem `achieve`, Proposition `cut`) |
+| `Archive/` | Earlier manuscript of the Underwood-model results (`paper-underwood-model.tex`, `.pdf`, `references-underwood-model.bib`) (strict and permissive models, Theorem `achieve`), as independently verified. The working notes under `theory/`, `total/` and `attainment/` cite it as "`paper.tex`" (Theorem `achieve`, Proposition `cut`) |
 | `novelty.md` | Full literature and novelty review (citing works of HS 2003, closest prior art, statements of the result as already proved) |
 | `references.md` | Sources and earlier novelty checks |
 | `attainment/` | Finite-stage attainment: `theorem.md` (integrated proof), `FINAL-REPORT.md`; `design/`, `limit/`, `analysis/`, `computation/` (one agent each); independent verifications `verification-DL/` (design, limit system) and `verification-A/` (analysis, integrated proof) |
