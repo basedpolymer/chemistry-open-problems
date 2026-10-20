@@ -1,0 +1,25 @@
+alpha=[4, 2, 1] q=1 R=1.8287778 (fixed), pattern all B
+   eta_bin=     0.1  |G_inf(v_inf)|= 6.3e-59  sigma_min=     0.1259  sigma_min/sigma_max=  5.42e-5  sigma_min(regularized forced pinch)=    0.1326  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=    0.03  |G_inf(v_inf)|= 6.3e-59  sigma_min=    0.04088  sigma_min/sigma_max=  1.76e-5  sigma_min(regularized forced pinch)=    0.1988  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=    0.01  |G_inf(v_inf)|= 6.3e-59  sigma_min=     0.0139  sigma_min/sigma_max=  5.99e-6  sigma_min(regularized forced pinch)=     0.214  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=   0.003  |G_inf(v_inf)|= 6.3e-59  sigma_min=   0.004198  sigma_min/sigma_max=  1.81e-6  sigma_min(regularized forced pinch)=    0.2187  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=   0.001  |G_inf(v_inf)|= 6.3e-59  sigma_min=   0.001402  sigma_min/sigma_max=  6.04e-7  sigma_min(regularized forced pinch)=      0.22  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=  0.0001  |G_inf(v_inf)|= 6.3e-59  sigma_min=  0.0001403  sigma_min/sigma_max=  6.05e-8  sigma_min(regularized forced pinch)=    0.2206  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=  1.0e-5  |G_inf(v_inf)|= 6.3e-59  sigma_min=   1.404e-5  sigma_min/sigma_max=  6.05e-9  sigma_min(regularized forced pinch)=    0.2207  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=  1.0e-6  |G_inf(v_inf)|= 6.3e-59  sigma_min=   1.404e-6  sigma_min/sigma_max= 6.05e-10  sigma_min(regularized forced pinch)=    0.2207  null-vector top coords [((0, 1), 'X', 2), ((0, 1), 'X', 1)]  invertible
+   eta_bin=     0.0  |G_inf(v_inf)|= 6.3e-59  sigma_min=        0.0  sigma_min/sigma_max=      0.0  sigma_min(regularized forced pinch)=         -  null-vector top coords [((1, 2), 'X', 2), ((0, 2), 'd', 2)]  singular (expected)
+alpha=[8, 4, 2, 1] q=0.5 R=1.5266528 (fixed), pattern all B
+   eta_bin=     0.1  |G_inf(v_inf)|= 9.8e-59  sigma_min=    0.01001  sigma_min/sigma_max=  2.39e-6  sigma_min(regularized forced pinch)=   0.01002  null-vector top coords [((1, 2), 'X', 0), ((0, 2), 'X', 2)]  invertible
+   eta_bin=    0.03  |G_inf(v_inf)|= 9.8e-59  sigma_min=    0.01467  sigma_min/sigma_max=   3.5e-6  sigma_min(regularized forced pinch)=   0.02998  null-vector top coords [((0, 2), 'X', 1), ((0, 2), 'X', 2)]  invertible
+   eta_bin=    0.01  |G_inf(v_inf)|= 9.8e-59  sigma_min=   0.005046  sigma_min/sigma_max=   1.2e-6  sigma_min(regularized forced pinch)=   0.03523  null-vector top coords [((0, 2), 'X', 1), ((0, 2), 'X', 2)]  invertible
+   eta_bin=   0.003  |G_inf(v_inf)|= 9.8e-59  sigma_min=   0.001528  sigma_min/sigma_max=  3.64e-7  sigma_min(regularized forced pinch)=   0.03705  null-vector top coords [((0, 2), 'X', 1), ((0, 2), 'X', 2)]  invertible
+   eta_bin=   0.001  |G_inf(v_inf)|= 9.8e-59  sigma_min=  0.0005107  sigma_min/sigma_max=  1.22e-7  sigma_min(regularized forced pinch)=   0.03756  null-vector top coords [((0, 2), 'X', 1), ((0, 2), 'X', 2)]  invertible
+   eta_bin=  0.0001  |G_inf(v_inf)|= 9.8e-59  sigma_min=   5.113e-5  sigma_min/sigma_max=  1.22e-8  sigma_min(regularized forced pinch)=   0.03779  null-vector top coords [((0, 2), 'X', 1), ((0, 2), 'X', 2)]  invertible
+   eta_bin=  1.0e-5  |G_inf(v_inf)|= 9.8e-59  sigma_min=   5.113e-6  sigma_min/sigma_max=  1.22e-9  sigma_min(regularized forced pinch)=   0.03782  null-vector top coords [((0, 2), 'X', 1), ((0, 2), 'X', 2)]  invertible
+   eta_bin=  1.0e-6  |G_inf(v_inf)|= 9.8e-59  sigma_min=   5.113e-7  sigma_min/sigma_max= 1.22e-10  sigma_min(regularized forced pinch)=   0.03782  null-vector top coords [((0, 2), 'X', 1), ((0, 2), 'X', 2)]  invertible
+   eta_bin=     0.0  |G_inf(v_inf)|= 9.8e-59  sigma_min=        0.0  sigma_min/sigma_max=      0.0  sigma_min(regularized forced pinch)=         -  null-vector top coords [((2, 3), 'X', 3), ((0, 3), 'd', 3)]  singular (expected)
+ALL PASS
+
+real	0m20.707s
+user	0m20.546s
+sys	0m0.056s

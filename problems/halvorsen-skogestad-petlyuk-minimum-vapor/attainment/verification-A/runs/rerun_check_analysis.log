@@ -1,0 +1,91 @@
+design_lib.py sha256 = 7894ea050521fca9  mp.dps = 60
+working precision: 102 digits
+====================================================================================================
+case n3 {'al': [4, 2, 1], 'z': [mpf('0.333333333333333333333333333333333333333333333333333333333333320368718171122621443449866554624741165436975'), mpf('0.333333333333333333333333333333333333333333333333333333333333320368718171122621443449866554624741165436975'), mpf('0.333333333333333333333333333333333333333333333333333333333333320368718171122621443449866554624741165436975')], 'q': 1, 'delta': '0.05', 'eta_nb': '0.025', 'eta_bin': '0.003', 'pattern': 'BB'}
+H = ['1.0717501', '1.3657225']  R = H* + delta = 1.415722514
+PASS n3 (A1) positive flows, total balances, zero duty except condenser/reboiler, R = H*+delta  total-balance residual 3.89e-62, reboiler duty 1.41572251357
+PASS n3 (A2) N distinct positive eigenvalues per section; unit compositions in the simplex  rho_inf = 0.778397, max consecutive ratio = 0.778397
+PASS n3 (A3) nonzero pivots at both ends of every section  min |pivot| = 0.01874
+PASS n3 (A4) G_inf(v_inf) = 0  max |row| = 2.25e-103
+PASS n3 (A5) limit half-profiles nonnegative (k = 0..399), 1^T xi >= c_0 > 0  most negative entry -7.75e-102, c_0 = 0.9911
+PASS n3 (A6) DG_inf(v_inf) invertible (numerically; Theorem L is the proof)  dim 12, sigma_min = 0.01844, sigma_max = 8.6994
+PASS n3 n=64: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 4 res 1.1e-93 | |v_n-v_inf| = 3.783e-8, /rho_inf^(n+1) = 0.4464 | min S 1.009, min x 6.63e-40 | balances: cross-sec 1.3e-66 stage 6.7e-103 unit 5.0e-67 cond 2.2e-103 | impurities ['2.47e-13', '0.009', '0.00892']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 6.415e-6
+PASS n3 n=mixed(min 32): zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 6 res 5.9e-103 | |v_n-v_inf| = 4.107e-5, /rho_inf^(n+1) = 0.1599 | min S 1.009, min x 4.1e-34 | balances: cross-sec 2.6e-82 stage 6.7e-103 unit 9.2e-83 cond 7.8e-103 | impurities ['2.72e-11', '0.00908', '0.009']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.001523
+PASS n3 n=32: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 6 res 3.1e-103 | |v_n-v_inf| = 0.0001046, /rho_inf^(n+1) = 0.4072 | min S 1.009, min x 7.66e-21 | balances: cross-sec 3.4e-86 stage 4.5e-103 unit 1.3e-86 cond 7.8e-103 | impurities ['2.15e-7', '0.00923', '0.00915']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.00416
+PASS n3 n=16: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 3.1e-103 | |v_n-v_inf| = 0.01168, /rho_inf^(n+1) = 0.8264 | min S 1.017, min x 1.83e-11 | balances: cross-sec 2.1e-94 stage 6.7e-103 unit 8.4e-95 cond 1.3e-103 | impurities ['0.000212', '0.0177', '0.0173']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.1093
+PASS n3 n=8: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 9 res 5.5e-103 | |v_n-v_inf| = 0.2112, /rho_inf^(n+1) = 2.013 | min S 1.05, min x 1.34e-6 | balances: cross-sec 8.0e-99 stage 3.3e-103 unit 3.1e-99 cond 2.2e-103 | impurities ['0.0182', '0.0686', '0.0501']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.2518
+case n3 done in 13.9 s
+working precision: 102 digits
+====================================================================================================
+case n3q {'al': [4, 2, 1], 'z': ['0.5', '0.2', '0.3'], 'q': '-0.3', 'delta': '0.05', 'eta_nb': '0.02', 'eta_bin': '0.004', 'pattern': 'TB'}
+H = ['0.58170208', '0.50775786']  R = H* + delta = 0.6317020757
+PASS n3q (A1) positive flows, total balances, zero duty except condenser/reboiler, R = H*+delta  total-balance residual 0.0, reboiler duty 0.631702075675
+PASS n3q (A2) N distinct positive eigenvalues per section; unit compositions in the simplex  rho_inf = 0.723428, max consecutive ratio = 0.723428
+PASS n3q (A3) nonzero pivots at both ends of every section  min |pivot| = 0.02418
+PASS n3q (A4) G_inf(v_inf) = 0  max |row| = 6.47e-103
+PASS n3q (A5) limit half-profiles nonnegative (k = 0..399), 1^T xi >= c_0 > 0  most negative entry -5.56e-102, c_0 = 0.85201
+PASS n3q (A6) DG_inf(v_inf) invertible (numerically; Theorem L is the proof)  dim 12, sigma_min = 0.026443, sigma_max = 12.465
+PASS n3q n=64: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 4 res 1.6e-103 | |v_n-v_inf| = 3.96e-9, /rho_inf^(n+1) = 5.458 | min S 1.013, min x 4.14e-34 | balances: cross-sec 1.8e-79 stage 4.5e-103 unit 5.4e-80 cond 2.6e-95 | impurities ['0.00794', '3.87e-10', '0.0132']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 3.544e-7
+PASS n3q n=mixed(min 32): zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 5 res 7.2e-103 | |v_n-v_inf| = 3.831e-6, /rho_inf^(n+1) = 0.1672 | min S 1.013, min x 5.3e-30 | balances: cross-sec 5.4e-87 stage 4.5e-103 unit 5.0e-87 cond 3.1e-98 | impurities ['0.00794', '1.4e-5', '0.0132']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.0001184
+PASS n3q n=32: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 5 res 4.4e-103 | |v_n-v_inf| = 0.0001245, /rho_inf^(n+1) = 5.434 | min S 1.013, min x 5.28e-18 | balances: cross-sec 2.8e-92 stage 4.5e-103 unit 1.0e-92 cond 5.0e-102 | impurities ['0.00795', '2.56e-5', '0.0132']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.0003964
+PASS n3q n=16: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 1.1e-102 | |v_n-v_inf| = 0.02193, /rho_inf^(n+1) = 5.386 | min S 1.016, min x 5.85e-10 | balances: cross-sec 5.2e-97 stage 3.3e-103 unit 4.8e-97 cond 3.4e-103 | impurities ['0.0102', '0.00968', '0.0156']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.04467
+PASS n3q n=8: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 5.8e-103 | |v_n-v_inf| = 0.1175, /rho_inf^(n+1) = 2.165 | min S 1.042, min x 4.07e-6 | balances: cross-sec 4.2e-100 stage 4.5e-103 unit 3.9e-100 cond 4.0e-103 | impurities ['0.0343', '0.115', '0.042']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.2449
+case n3q done in 12.7 s
+working precision: 113 digits
+====================================================================================================
+case n4 {'al': [6, '3.5', 2, 1], 'z': ['0.25', '0.3', '0.2', '0.25'], 'q': '0.6', 'delta': '0.05', 'eta_nb': '0.01', 'eta_bin': '0.003', 'pattern': 'BBB'}
+H = ['0.95584209', '1.03598', '0.93363421']  R = H* + delta = 1.08598002
+PASS n4 (A1) positive flows, total balances, zero duty except condenser/reboiler, R = H*+delta  total-balance residual 1.62e-114, reboiler duty 1.08598001973
+PASS n4 (A2) N distinct positive eigenvalues per section; unit compositions in the simplex  rho_inf = 0.807165, max consecutive ratio = 0.807165
+PASS n4 (A3) nonzero pivots at both ends of every section  min |pivot| = 0.02443
+PASS n4 (A4) G_inf(v_inf) = 0  max |row| = 4.91e-114
+PASS n4 (A5) limit half-profiles nonnegative (k = 0..399), 1^T xi >= c_0 > 0  most negative entry -1.5e-113, c_0 = 0.94624
+PASS n4 (A6) DG_inf(v_inf) invertible (numerically; Theorem L is the proof)  dim 36, sigma_min = 0.0085553, sigma_max = 28.49
+PASS n4 n=48: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 6 res 5.7e-114 | |v_n-v_inf| = 0.000106, /rho_inf^(n+1) = 3.839 | min S 1.012, min x 2.54e-58 | balances: cross-sec 8.8e-82 stage 3.2e-114 unit 9.7e-83 cond 1.1e-113 | impurities ['3.85e-8', '0.01', '0.0151', '0.0119']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.001366
+PASS n4 n=mixed(min 32): zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 6 res 8.4e-114 | |v_n-v_inf| = 0.0008835, /rho_inf^(n+1) = 1.039 | min S 1.012, min x 3.33e-54 | balances: cross-sec 2.1e-81 stage 3.2e-114 unit 6.4e-82 cond 1.1e-113 | impurities ['4.73e-7', '0.01', '0.0151', '0.0119']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.001263
+PASS n4 n=32: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 7 res 4.2e-107 | |v_n-v_inf| = 0.002392, /rho_inf^(n+1) = 2.812 | min S 1.012, min x 3.66e-39 | balances: cross-sec 6.6e-93 stage 4.9e-114 unit 7.3e-94 cond 1.3e-112 | impurities ['1.19e-5', '0.0112', '0.0169', '0.012']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.0275
+PASS n4 n=16: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 9 res 1.0e-113 | |v_n-v_inf| = 0.08165, /rho_inf^(n+1) = 3.116 | min S 1.016, min x 2.34e-20 | balances: cross-sec 6.7e-103 stage 3.2e-114 unit 7.4e-104 cond 8.1e-114 | impurities ['0.00728', '0.0299', '0.0417', '0.0165']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.1381
+PASS n4 n=8: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 1.6e-113 | |v_n-v_inf| = 0.07814, /rho_inf^(n+1) = 0.5373 | min S 1.037, min x 1.29e-11 | balances: cross-sec 1.5e-108 stage 2.4e-114 unit 1.7e-109 cond 1.5e-113 | impurities ['0.0637', '0.111', '0.12', '0.0369']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.2469
+case n4 done in 199.6 s
+working precision: 113 digits
+====================================================================================================
+case n4T {'al': [6, '3.5', 2, 1], 'z': ['0.25', '0.3', '0.2', '0.25'], 'q': '0.6', 'delta': '0.05', 'eta_nb': '0.01', 'eta_bin': '0.003', 'pattern': 'BTB'}
+H = ['0.95584209', '1.03598', '0.93363421']  R = H* + delta = 1.08598002
+PASS n4T (A1) positive flows, total balances, zero duty except condenser/reboiler, R = H*+delta  total-balance residual 1.62e-114, reboiler duty 1.08598001973
+PASS n4T (A2) N distinct positive eigenvalues per section; unit compositions in the simplex  rho_inf = 0.807165, max consecutive ratio = 0.807165
+PASS n4T (A3) nonzero pivots at both ends of every section  min |pivot| = 0.02443
+PASS n4T (A4) G_inf(v_inf) = 0  max |row| = 4.91e-114
+PASS n4T (A5) limit half-profiles nonnegative (k = 0..399), 1^T xi >= c_0 > 0  most negative entry -1.5e-113, c_0 = 0.94624
+PASS n4T (A6) DG_inf(v_inf) invertible (numerically; Theorem L is the proof)  dim 36, sigma_min = 0.0098072, sigma_max = 28.087
+PASS n4T n=48: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 6 res 5.9e-114 | |v_n-v_inf| = 0.0001507, /rho_inf^(n+1) = 5.459 | min S 1.012, min x 2.54e-58 | balances: cross-sec 2.3e-81 stage 3.2e-114 unit 2.5e-82 cond 3.7e-114 | impurities ['3.85e-8', '0.0196', '2.85e-6', '0.0119']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.001367
+PASS n4T n=mixed(min 32): zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 6 res 3.9e-114 | |v_n-v_inf| = 0.000885, /rho_inf^(n+1) = 1.04 | min S 1.012, min x 3.33e-54 | balances: cross-sec 2.4e-81 stage 3.2e-114 unit 7.2e-82 cond 4.9e-114 | impurities ['4.73e-7', '0.0196', '6.77e-6', '0.0119']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.001265
+PASS n4T n=32: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 7 res 4.2e-107 | |v_n-v_inf| = 0.004168, /rho_inf^(n+1) = 4.9 | min S 1.012, min x 3.66e-39 | balances: cross-sec 3.9e-92 stage 3.2e-114 unit 4.3e-93 cond 1.5e-112 | impurities ['1.19e-5', '0.0197', '0.000222', '0.012']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.02752
+PASS n4T n=16: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 9 res 1.1e-113 | |v_n-v_inf| = 0.08356, /rho_inf^(n+1) = 3.189 | min S 1.016, min x 2.35e-20 | balances: cross-sec 2.2e-103 stage 4.1e-114 unit 2.4e-104 cond 4.9e-114 | impurities ['0.00732', '0.0334', '0.0184', '0.0164']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.1716
+PASS n4T n=8: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 2.2e-113 | |v_n-v_inf| = 0.07852, /rho_inf^(n+1) = 0.5399 | min S 1.037, min x 1.29e-11 | balances: cross-sec 3.4e-108 stage 3.2e-114 unit 3.8e-109 cond 7.1e-114 | impurities ['0.0638', '0.116', '0.104', '0.0367']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.1943
+case n4T done in 198.6 s
+====================================================================================================
+ALL PASS
+
+real	7m5.013s
+user	7m4.878s
+sys	0m0.045s

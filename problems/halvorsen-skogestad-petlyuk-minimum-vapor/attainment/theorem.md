@@ -1,8 +1,10 @@
 # Finite-stage attainment of the Petlyuk minimum for every number of components
 
-**Integrated proof. Version 2.2, 2026-10-20 19:06** (v2 18:42; v2.1 18:47: D's self-contained cut proof of κ_p(0; δ) = e_p + δ, flux bookkeeping (4.3), Lemma 4.9's proof, index fix; v2.2: C's final evidence and red-team case in Remark 8.5 and §9) (owner: Agent A; integrates `design/design.md` v1.1 (Agent D),
-`limit/limit.md` (Agent L), `analysis/analysis.md` v1.2 (Agent A)). Status: **complete proof, not yet independently
-verified** (PROTOCOL: "solved (preliminary)" once integrated in the paper; independent verification pending). Every
+**Integrated proof. Version 2.2, 2026-10-20 19:06** (v2 18:42; v2.1 18:47: D's self-contained cut proof of κ_p(0; δ) = e_p + δ, flux bookkeeping (4.3), Lemma 4.9's proof, index fix; v2.2: C's final evidence and red-team case in Remark 8.5 and §9; v2.3, 19:45, independent verifier V2: corrections marked [V2] in the header status, §1, Theorem 6.5 and §10, listed in `verification-A/verification.md` §4) (owner: Agent A; integrates `design/design.md` v1.1 (Agent D),
+`limit/limit.md` (Agent L), `analysis/analysis.md` v1.2 (Agent A)). Status: **complete proof, independently
+verified** (PROTOCOL §4) by V1 (`verification-DL/verification.md`: design, limit system and §§2–5, CONFIRMED, no correction
+to this file) and V2 (`verification-A/verification.md`: analysis, integrated proof, Corollary 2, N = 2, CONFIRMED WITH
+CORRECTIONS, minor, marked [V2]). Every
 statement below is proved here or cited by file and statement from earlier, independently verified or proved work
 (listed in §10). Numerical computations are reported in §9 and are never used in a proof.
 
@@ -48,8 +50,11 @@ max_j H_j.
 of every arrangement of 𝒜) gives R ≥ H_j − c_j ε at purity ≥ 1 − ε, hence R*(𝒮) ≥ H* for every 𝒮 ⊆ 𝒜, in particular
 for 𝒮_Petlyuk. Theorem 1 gives R*(𝒮_Petlyuk) ≤ H*. ∎
 
-For N = 2, Theorem 1 is Agent S's Proposition 10 (sections.md §8.1). The proof below is written for N ≥ 3; it applies
-verbatim to N = 2 (one binary column, no non-binary column), but we do not need this.
+For N = 2, Theorem 1 is Agent S's Proposition 10 (sections.md §8.1), applied with V_B = s = H_1 + δ. [V2] Proposition 10
+does not state the positivity claimed in Theorem 1, but its steady state has every mole fraction in (0, 1): x_B = η* > 0
+and x_D = 1 − (1 − z)η*/z ∈ (0, 1), the bottom step x ↦ (s e(x) + Bη*)/L_B maps (0, 1) into (0, 1), and the top step is a
+convex combination of points of (0, 1) followed by e^{−1} (V2, `verification-A/verification.md` §2.7). The proof below is
+written for N ≥ 3; it applies verbatim to N = 2 (one binary column, no non-binary column), but we do not need this.
 
 **Overview of the proof.**
 (i) *Design* (§4). A forced operating specification F(δ, η, π): every column with three or more components is at the
@@ -745,7 +750,8 @@ purity ≥ 1 − (η_{p−1}[π_{p−1} = B] + η_p[π_p = T])/P_p − Cρ_∞^{
 (v) local uniqueness: no other steady state has its (d_c, X_c) in B̄(v_∞, r_1).
 
 *Proof.* Theorem 6.2 gives v_n; Lemma 6.4 gives S > 0 at every stage and 1ᵀu_k ≠ 0; S > 0 at the node compositions
-because they are within Cρ_∞^{n+1} of points of Δ (shrink r_1 so that S ≥ α_N/2 on the ball). Proposition 2.1 (b) gives a
+because they are affine in v and within Cρ_∞^{n+1} of points of Δ, where S ≥ α_N (enlarge n_1 so that S ≥ α_N/2 there)
+[V2]. Proposition 2.1 (b) gives a
 steady state with (i) and (iv) (Lemma 4.8); (ii) by Theorem 6.2 and (H8); (iii) by Lemma 6.4; (v) by Theorem 6.2 and
 Proposition 2.1 (a). ∎
 
@@ -841,13 +847,15 @@ All runs in high precision (mpmath, 50–230 digits), WSL Fedora, scripts and lo
 
 ## 10. Status and dependencies
 
-**Proved (complete proofs above, not yet independently verified):** Theorem 1 for every N ≥ 3 (N = 2: sections.md
+**Proved (complete proofs above; independently verified by V1 and V2 [V2]):** Theorem 1 for every N ≥ 3 (N = 2: sections.md
 Proposition 10) and Corollary 2. With version 2's lower bound, **the Halvorsen–Skogestad conjecture holds in the class 𝒜
 for every number of components**, in the finite-stage-limit sense of class.md §4: R*(𝒮) ≥ max_j H_j = R*(𝒮_Petlyuk) for
 every family 𝒮 of arrangements of 𝒜.
 
 **Results used from earlier work (cited by file and statement):** the stage-level lower bound (class.md Theorem 5.3,
-Corollary 5.5; early independent check CONFIRMED, provisional) — for Corollary 2 only; the M-matrix structure of the
+Corollary 5.5; [V2] early independent verification `total/verification-early/verification-lower-bound.md`: CONFIRMED,
+final for that round, its corrections being editorial or about the stated scope, none affecting the bound; re-derived
+for class.md v3 by V2) — for Corollary 2 only; the M-matrix structure of the
 component balances at fixed K-values (network.md Theorem 10.1 (i); its short proof is recalled in Proposition 2.1).
 Everything else is re-proved here: HS's preferred split and carry-over (paper.tex Theorem `achieve`, version 1,
 independently verified: Lemmas 4.1, 4.9, and the side-draw balances at the HS point through the cut identity of

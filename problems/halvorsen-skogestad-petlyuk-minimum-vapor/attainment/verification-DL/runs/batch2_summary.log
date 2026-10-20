@@ -1,0 +1,7 @@
+rand:4:4:BBT:0.9: exit 0 (ALL PASS  (18 s))
+rand:5:2:TBTB: exit 1 (FAIL: ['F1 n = 150: chord/Newton (47 it., 0 Jacobian refreshes), unit balances, x_top reached, all x > 0']  (69 s))
+near:4:1: exit 0 (ALL PASS  (80 s))
+near:5:2: exit 0 (ALL PASS  (33 s))
+rand:4:5:BBB:0.999: exit 0 (ALL PASS  (12 s))
+rand:4:6:TTT:0.999: exit 0 (ALL PASS  (9 s))
+near:3:3:TB: exit 1 (ZeroDivisionError)

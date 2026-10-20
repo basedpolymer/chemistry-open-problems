@@ -1,0 +1,22 @@
+case rand:5:3:BBBB:0.9: N = 5, alpha = ['10.934', '5.4005', '3.0967', '1.5856', '1.0'], z = ['0.287', '0.1034', '0.08625', '0.3564', '0.1669'], q = -0.03134, pattern BBBB, delta = 0.04721, eta_nb = 0.004721, dps 60
+  H = ['0.324125', '0.379626', '0.548214', '0.944132'], H* = 0.94413188, eta_bin = ['0.2583', '0.01892', '0.02246', '0.1507']
+  [PASS] D1 flows > 0, specification balances (zero duty at junctions/side draws), R = H*+delta (max balance residual 7.78e-62)
+  [PASS] D2 limit net-flow supports (H2); middle feed roots global (Lemma 5.3) (max |theta^c - theta| 6.22e-61)
+  [PASS] D3 interlacing r>th_i>v, u>th_{m-1}>s; common middle roots; Psi_T(a_m), Psi_B(a_i) > 0; X_c > 0 
+  [PASS] D4 kappa_p >= e_p + delta/2, 0 < eta_p < eta_hat_p, forcing increases the margin, (L3), (L4) (min kappa/delta 0.7315)
+  [PASS] D5 kappa_p(eta;delta) - kappa_p(eta;0) = delta and kappa_p(0;delta) = e_p + delta (9.72e-63, 3.21e-61)
+  [PASS] D6 flux bookkeeping identity at every unit (Lemma 5.2 (e)) (1.87e-60)
+  [PASS] D7 spectra simple, positive, pinch = smallest major (T) / largest major (B), traces outside, limit relations (max rho 0.904918)
+  [PASS] D7 pivots c_r*(x_bot), c_r*(x_top) > 0 (H8) (min 0.008049)
+  [PASS] D7 trace signs: Psi^(k)(a_k) > 0, x_Jk = 0, k on the correct side of supp x_J (H7) 
+  [PASS] D8 half-profiles (chart vectors) >= 0 with positive sum for k <= 400 (H6) (min normalized entry -7.25e-61)
+  [PASS] D9 product impurities (eta_{p-1}[B] + eta_p[T]) / P_p 
+  [PASS] L0 coordinates of Table 2 reproduce the limit configuration (3.28e-61)
+  [PASS] L1 G_inf(v_inf) = 0 (max 1.68e-59)
+  Jacobian 80x80 in 27.7 s
+  [PASS] L2 d(trace rows)/d(major coords) = 0 and d(trace rows of k)/d(trace coords of k' != k) = 0 (1.44e-39, 5.84e-39; scale 669.0)
+  [PASS] L2 every trace row equals Lemma 4.3's prediction (dx_Jk - kappa dq)/pivot (3.0e-32)
+  [PASS] L3 major rows of c depend only on major coords of c and its ancestors; diagonal blocks nonsingular (off 0.0, min sigma of blocks 1.244)
+  [PASS] L4 trace blocks T_k square and nonsingular; A_k upper triangular, positive diagonal, Z-matrix (min sigma(T_k) 0.5182)
+  [PASS] L5 DG_inf(v_inf) invertible (sigma_min 0.06417, sigma_max 1612.0)
+ALL PASS  (37 s)

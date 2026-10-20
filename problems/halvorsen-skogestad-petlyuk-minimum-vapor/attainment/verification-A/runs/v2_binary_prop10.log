@@ -1,0 +1,58 @@
+PASS f(s) = (alpha-1)(s-H1)(s-s_-) identically
+PASS H1 + 1 - q = alpha z/(alpha-theta)
+PASS H1 - s_- - z alpha (theta-1)/((alpha-theta)(alpha-1)) = (1-z)/(theta-1) - (1-z)/(alpha-1)
+PASS alpha s L_T - V_T L_B = f(s)
+PASS case alpha=2.0 z=0.5 q=1.0: L_T > 0, V_T > 0  H1 = 1.5, s = 1.52
+PASS   n_T= 20 n_B= 20: steady state, all x in (0,1)  impurities x_B = 0.00621, 1-x_D = 0.00621 | worst balance 3.1e-61 | min x 0.00621
+PASS   n_T= 40 n_B= 40: steady state, all x in (0,1)  impurities x_B = 3.41e-5, 1-x_D = 3.41e-5 | worst balance 5.9e-59 | min x 3.41e-5
+PASS   n_T= 80 n_B= 80: steady state, all x in (0,1)  impurities x_B = 2.61e-10, 1-x_D = 2.61e-10 | worst balance 1.0e-54 | min x 2.61e-10
+PASS   n_T=160 n_B=160: steady state, all x in (0,1)  impurities x_B = 1.56e-20, 1-x_D = 1.56e-20 | worst balance 2.3e-44 | min x 1.56e-20
+PASS   n_T= 40 n_B=120: steady state, all x in (0,1)  impurities x_B = 3.35e-5, 1-x_D = 3.35e-5 | worst balance 7.0e-60 | min x 3.35e-5
+PASS   n_T=120 n_B= 40: steady state, all x in (0,1)  impurities x_B = 5.93e-7, 1-x_D = 5.93e-7 | worst balance 3.1e-61 | min x 5.93e-7
+PASS   impurity decreases with n (40, 80, 160)  3.41e-5, 2.61e-10, 1.56e-20
+PASS case alpha=1.5 z=0.3 q=0.0: L_T > 0, V_T > 0  H1 = 2.0, s = 2.05
+PASS   n_T= 20 n_B= 20: steady state, all x in (0,1)  impurities x_B = 0.0186, 1-x_D = 0.0433 | worst balance 6.2e-61 | min x 0.0186
+PASS   n_T= 40 n_B= 40: steady state, all x in (0,1)  impurities x_B = 0.00415, 1-x_D = 0.00968 | worst balance 1.2e-60 | min x 0.00415
+PASS   n_T= 80 n_B= 80: steady state, all x in (0,1)  impurities x_B = 0.000102, 1-x_D = 0.000239 | worst balance 9.3e-61 | min x 0.000102
+PASS   n_T=160 n_B=160: steady state, all x in (0,1)  impurities x_B = 1.39e-8, 1-x_D = 3.25e-8 | worst balance 6.2e-61 | min x 1.39e-8
+PASS   n_T= 40 n_B=120: steady state, all x in (0,1)  impurities x_B = 4.27e-5, 1-x_D = 9.96e-5 | worst balance 3.5e-59 | min x 4.27e-5
+PASS   n_T=120 n_B= 40: steady state, all x in (0,1)  impurities x_B = 0.00413, 1-x_D = 0.00965 | worst balance 3.9e-61 | min x 0.00413
+PASS   impurity decreases with n (40, 80, 160)  0.00415, 0.000102, 1.39e-8
+PASS case alpha=3.0 z=0.7 q=0.5: L_T > 0, V_T > 0  H1 = 0.79440972, s = 0.80440972
+PASS   n_T= 20 n_B= 20: steady state, all x in (0,1)  impurities x_B = 0.00344, 1-x_D = 0.00147 | worst balance 6.2e-61 | min x 0.00344
+PASS   n_T= 40 n_B= 40: steady state, all x in (0,1)  impurities x_B = 7.9e-6, 1-x_D = 3.39e-6 | worst balance 6.0e-59 | min x 7.9e-6
+PASS   n_T= 80 n_B= 80: steady state, all x in (0,1)  impurities x_B = 1.5e-11, 1-x_D = 6.44e-12 | worst balance 3.4e-53 | min x 1.5e-11
+PASS   n_T=160 n_B=160: steady state, all x in (0,1)  impurities x_B = 5.42e-23, 1-x_D = 2.32e-23 | worst balance 2.6e-41 | min x 5.42e-23
+PASS   n_T= 40 n_B=120: steady state, all x in (0,1)  impurities x_B = 7.9e-6, 1-x_D = 3.39e-6 | worst balance 3.7e-60 | min x 7.9e-6
+PASS   n_T=120 n_B= 40: steady state, all x in (0,1)  impurities x_B = 2.5e-13, 1-x_D = 1.07e-13 | worst balance 4.7e-61 | min x 2.5e-13
+PASS   impurity decreases with n (40, 80, 160)  7.9e-6, 1.5e-11, 5.42e-23
+PASS case alpha=1.2 z=0.5 q=1.3: L_T > 0, V_T > 0  H1 = 5.6676705, s = 5.7176705
+PASS   n_T= 20 n_B= 20: steady state, all x in (0,1)  impurities x_B = 0.113, 1-x_D = 0.113 | worst balance 1.2e-60 | min x 0.113
+PASS   n_T= 40 n_B= 40: steady state, all x in (0,1)  impurities x_B = 0.042, 1-x_D = 0.042 | worst balance 1.9e-60 | min x 0.042
+PASS   n_T= 80 n_B= 80: steady state, all x in (0,1)  impurities x_B = 0.00619, 1-x_D = 0.00619 | worst balance 1.9e-60 | min x 0.00619
+PASS   n_T=160 n_B=160: steady state, all x in (0,1)  impurities x_B = 1.43e-5, 1-x_D = 1.43e-5 | worst balance 1.3e-58 | min x 1.43e-5
+PASS   n_T= 40 n_B=120: steady state, all x in (0,1)  impurities x_B = 0.0308, 1-x_D = 0.0308 | worst balance 1.2e-60 | min x 0.0308
+PASS   n_T=120 n_B= 40: steady state, all x in (0,1)  impurities x_B = 0.0287, 1-x_D = 0.0287 | worst balance 1.9e-60 | min x 0.0287
+PASS   impurity decreases with n (40, 80, 160)  0.042, 0.00619, 1.43e-5
+PASS case alpha=2.5 z=0.4 q=-0.3: L_T > 0, V_T > 0  H1 = 0.61382023, s = 0.63382023
+PASS   n_T= 20 n_B= 20: steady state, all x in (0,1)  impurities x_B = 0.00239, 1-x_D = 0.00359 | worst balance 6.2e-61 | min x 0.00239
+PASS   n_T= 40 n_B= 40: steady state, all x in (0,1)  impurities x_B = 2.7e-5, 1-x_D = 4.05e-5 | worst balance 3.1e-61 | min x 2.7e-5
+PASS   n_T= 80 n_B= 80: steady state, all x in (0,1)  impurities x_B = 1.23e-9, 1-x_D = 1.84e-9 | worst balance 6.2e-61 | min x 1.23e-9
+PASS   n_T=160 n_B=160: steady state, all x in (0,1)  impurities x_B = 2.49e-18, 1-x_D = 3.74e-18 | worst balance 6.2e-61 | min x 2.49e-18
+PASS   n_T= 40 n_B=120: steady state, all x in (0,1)  impurities x_B = 1.21e-11, 1-x_D = 1.82e-11 | worst balance 9.8e-54 | min x 1.21e-11
+PASS   n_T=120 n_B= 40: steady state, all x in (0,1)  impurities x_B = 2.7e-5, 1-x_D = 4.05e-5 | worst balance 4.7e-61 | min x 2.7e-5
+PASS   impurity decreases with n (40, 80, 160)  2.7e-5, 1.23e-9, 2.49e-18
+PASS case alpha=4.0 z=0.1 q=1.6: L_T > 0, V_T > 0  H1 = 0.8115301, s = 0.8415301
+PASS   n_T= 20 n_B= 20: steady state, all x in (0,1)  impurities x_B = 6.19e-7, 1-x_D = 5.57e-6 | worst balance 3.9e-62 | min x 6.19e-7
+PASS   n_T= 40 n_B= 40: steady state, all x in (0,1)  impurities x_B = 1.15e-12, 1-x_D = 1.04e-11 | worst balance 5.8e-62 | min x 1.15e-12
+PASS   n_T= 80 n_B= 80: steady state, all x in (0,1)  impurities x_B = 4.11e-24, 1-x_D = 3.7e-23 | worst balance 7.8e-62 | min x 4.11e-24
+PASS   n_T=160 n_B=160: steady state, all x in (0,1)  impurities x_B = 5.22e-47, 1-x_D = 4.7e-46 | worst balance 5.8e-62 | min x 5.22e-47
+PASS   n_T= 40 n_B=120: steady state, all x in (0,1)  impurities x_B = 2.36e-16, 1-x_D = 2.13e-15 | worst balance 1.3e-48 | min x 2.36e-16
+PASS   n_T=120 n_B= 40: steady state, all x in (0,1)  impurities x_B = 1.15e-12, 1-x_D = 1.04e-11 | worst balance 5.8e-62 | min x 1.15e-12
+PASS   impurity decreases with n (40, 80, 160)  1.15e-12, 4.11e-24, 5.22e-47
+================================================================================
+ALL PASS
+
+real	0m42.923s
+user	0m42.788s
+sys	0m0.072s

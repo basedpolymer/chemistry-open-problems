@@ -146,7 +146,9 @@ and M^{−1} = V^{−1}diag(α)^{−1} + (VL)^{−1}diag(α)^{−1} w 1ᵀ ≥ 0
 and A^{−1} + A^{−1}wαᵀA^{−1}/(L/V) is the stated matrix since αᵀA^{−1} = 1ᵀ/V. (c) M^k ê_φ = (Vφ)^k ê_φ, φ > 0. ∎
 
 **Lemma 2.5 (regularized trace mode).** Let σ be fixed except for w_k, and suppose Ψ^{(k)}_σ(α_k) ≠ 0 at w_k = 0.
-Then for |w_k| small Ψ_σ has a unique root φ_k(w) near α_k, real-analytic in w, with
+Then for |w_k| small the equation (α_k − φ)Ψ^{(k)}_σ(φ) = α_k w_k has a unique solution φ_k(w) near α_k,
+real-analytic in w (φ_k = α_k, the trace mode, at w_k = 0; for w_k ≠ 0 it is the root of Ψ_σ near α_k) [precision
+added by the independent verifier V1, 2026-10-20], with
 α_k − φ_k = α_k w_k/Ψ^{(k)}_σ(φ_k), and the rescaled left eigenvector ℓ̃_k := ((α_k − φ_k)/α_k)ℓ_{φ_k} (= e_k at
 w_k = 0) satisfies exactly
 

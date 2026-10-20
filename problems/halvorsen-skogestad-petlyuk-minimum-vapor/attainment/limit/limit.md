@@ -523,7 +523,9 @@ For each component k let 𝒯_k be its trace coordinates, Σ_k the set of sectio
 each), c(σ) the closed end and o(σ) the other end of the mode α_k in σ, and 𝕋_k := ∂(trace rows of k)/∂(𝒯_k) at v_∞,
 a square matrix by Lemma 4.1.
 
-**Proposition 4.5 (trace block).** Assume (L1)–(L3). For every k, 𝕋_k is nonsingular. More precisely, if 𝕋_k δt = 0
+**Proposition 4.5 (trace block).** Assume (L1)–(L4) ((L4) only makes the pivots, hence the rows (2.4), well
+defined; the argument below uses only the numerators of the rows and (L1)–(L3)) [precision added by the independent
+verifier V1, 2026-10-20]. For every k, 𝕋_k is nonsingular. More precisely, if 𝕋_k δt = 0
 then the node contents ξ_J := δx_{J,k} (J ∈ 𝒥_k) solve A_k ξ = 0, where
 
   (A_k)_{JJ} = P_J + Σ_{σ∈Σ_k: c(σ)=J} 1/κ^{(k)}_σ,   (A_k)_{JJ'} = − Σ_{σ∈Σ_k: c(σ)=J', o(σ)=J} 1/κ^{(k)}_σ  (J ≠ J'),

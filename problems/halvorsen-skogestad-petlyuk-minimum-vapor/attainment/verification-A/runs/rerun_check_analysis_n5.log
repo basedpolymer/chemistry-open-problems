@@ -1,0 +1,26 @@
+design_lib.py sha256 = 7894ea050521fca9  mp.dps = 60
+working precision: 104 digits
+====================================================================================================
+case n5 {'al': [8, 5, 3, '1.8', 1], 'z': ['0.2', '0.2', '0.2', '0.2', '0.2'], 'q': '0.8', 'delta': '0.05', 'eta_nb': '0.01', 'eta_bin': '0.003', 'pattern': 'BBBB'}
+H = ['0.91733148', '1.0088363', '1.1488487', '1.1920254']  R = H* + delta = 1.242025433
+PASS n5 (A1) positive flows, total balances, zero duty except condenser/reboiler, R = H*+delta  total-balance residual 3.49e-105, reboiler duty 1.2420254335
+PASS n5 (A2) N distinct positive eigenvalues per section; unit compositions in the simplex  rho_inf = 0.828003, max consecutive ratio = 0.828003
+PASS n5 (A3) nonzero pivots at both ends of every section  min |pivot| = 0.02673
+PASS n5 (A4) G_inf(v_inf) = 0  max |row| = 7.8e-105
+PASS n5 (A5) limit half-profiles nonnegative (k = 0..399), 1^T xi >= c_0 > 0  most negative entry -4.77e-104, c_0 = 0.82216
+PASS n5 (A6) DG_inf(v_inf) invertible (numerically; Theorem L is the proof)  dim 80, sigma_min = 0.0026466, sigma_max = 131.17
+PASS n5 n=36: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 7 res 1.6e-104 | |v_n-v_inf| = 0.0008054, /rho_inf^(n+1) = 0.8687 | min S 1.012, min x 5.53e-68 | balances: cross-sec 5.0e-75 stage 3.5e-105 unit 1.0e-75 cond 1.7e-104 | impurities ['3.17e-6', '0.0153', '0.0155', '0.0157', '0.0152']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.00584
+PASS n5 n=mixed(min 24): zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 3.1e-104 | |v_n-v_inf| = 0.006917, /rho_inf^(n+1) = 0.7747 | min S 1.013, min x 2.26e-68 | balances: cross-sec 3.6e-75 stage 3.5e-105 unit 7.0e-76 cond 2.4e-104 | impurities ['2.43e-7', '0.0168', '0.0174', '0.0167', '0.0159']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.0534
+PASS n5 n=24: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 9.7e-105 | |v_n-v_inf| = 0.00953, /rho_inf^(n+1) = 1.067 | min S 1.015, min x 3.47e-46 | balances: cross-sec 1.1e-84 stage 3.5e-105 unit 2.6e-85 cond 8.7e-105 | impurities ['0.00016', '0.0179', '0.0206', '0.0214', '0.0183']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.05987
+PASS n5 n=12: zero of G_n found; S > 0 and all x > 0 at every stage; every balance holds  Newton it 8 res 2.9e-104 | |v_n-v_inf| = 0.156, /rho_inf^(n+1) = 1.815 | min S 1.031, min x 9.51e-25 | balances: cross-sec 2.7e-94 stage 3.5e-105 unit 7.3e-95 cond 1.5e-104 | impurities ['0.0159', '0.0501', '0.0599', '0.0642', '0.0382']
+     Lemma A.7: max_k min(|x_k - xi^bot_k|, |x_k - xi^top_(n+1-k)|) (normalized) = 0.1841
+case n5 done in 1211.8 s
+====================================================================================================
+ALL PASS
+
+real	20m12.048s
+user	20m11.794s
+sys	0m0.088s

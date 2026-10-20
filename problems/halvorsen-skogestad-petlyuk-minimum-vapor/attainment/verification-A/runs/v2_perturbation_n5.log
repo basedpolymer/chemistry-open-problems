@@ -1,0 +1,32 @@
+==============================================================================================================
+case n5D: alpha=['16', '8', '4', '2', '1'] z=['0.2', '0.2', '0.2', '0.2', '0.2'] q=0.5 delta=0.05 eta_nb=0.002 eta_bin=0.002 pattern=BBBB | 103 digits
+     H = ['0.48297084', '0.57013842', '0.67013842', '0.78297084']  H* + delta = R = 0.8329708431
+PASS (D) admissible: valid non-binary columns, kappa_p > 0, forced flows in range  kappa - e_p - delta = ['-0.00604', '-0.0031', '-0.0031', '-0.00604']
+PASS (D) Lemma 4.9: middle feed roots of non-binary columns are global  max dev 1.1e-103
+PASS (D) V2 design and limit configuration = D export config_n5_1.json  max |difference| = 4.9e-55
+PASS (A1) total balances; zero duty at junctions and side draws; reboiler duty = R; condenser removes V_T[1,2]  reboiler 0.8329708431, condenser -1.332970843
+PASS (P) G_inf(v_inf) = 0 with explicit Underwood / trace eigen-data  max |row| = 3.6e-101
+PASS (P) pivots c_r*(x_bot), c_r*(x_top) > 0; half-profiles (H6) >= 0 (k < 300), inf 1^T v_k = c_0 > 0  min pivot 0.008487, most negative entry -6.1e-103, c_0 0.7165
+PASS (P) DG_inf(v_inf) invertible  dim 80, sigma_min 0.001083, sigma_max 2373.0, ||A^-1||_inf 714.6, rho_inf 0.789911, rho_bar(v_inf) 0.789911
+PASS (C1) radius 0.0003: |G_n-G_inf|/rho^(n+1) and ||D(G_n-G_inf)||/((n+2)rho^(n+1)) bounded in n  rho_bar 0.81048 | n = 8,16,32,64,36: ['62.8', '7.05', '0.584', '0.584', '0.584'] | ['2.88e+4', '1.52e+3', '365.0', '385.0', '369.0']
+PASS (C1) radius 0.001: |G_n-G_inf|/rho^(n+1) and ||D(G_n-G_inf)||/((n+2)rho^(n+1)) bounded in n  rho_bar 0.89823 | n = 8,16,32,64,36: ['122.0', '5.0', '0.467', '0.467', '0.467'] | ['3.44e+5', '7.92e+3', '255.0', '271.0', '259.0']
+INFO (C1) radius 0.01: a sample point lies outside the domain of real simple modes (the neighborhood of Lemma 5.2 is smaller than this radius)
+INFO (outside the perturbative regime, 2||A^-1|| |G_n(v_inf)| > 1e-3) (N) n=36: zero v_n of G_n (Newton it 7, |G_n| 2.1e-101) [ok] |v_n - v_inf| = 0.0002378, /rho_inf^(n+1) = 1.465, Lemma 6.1 bound 2||A^-1|| |G_n(v_inf)| = 0.1435
+INFO (outside the perturbative regime) (S) n=36: physical re-shooting reaches x_top; all stage/node/condenser balances; S > 0, all x > 0 [physical] end 3.0e-66, stage 5.0e-67, node 5.0e-67, cond 5.6e-104 | min S 1.01, min x 1.07e-87 | impurities ['1.27e-9', '0.01', '0.01', '0.0102', '0.0101']
+INFO (N) n=36: Phi from 3 random starts at radius 0.0003: converged to v_n [True, True, True]; iterations [52, 53, 52], max observed step ratio ['0.377', '0.35', '0.617']
+INFO (N) n=36: Phi from 3 random starts at radius 0.001: converged to v_n [None, None, None]; iterations [0, 0, 0], max observed step ratio ['0.0', '0.0', '0.0']
+INFO (N) n=36: Phi from 3 random starts at radius 0.003: converged to v_n [None, None, None]; iterations [0, 0, 1], max observed step ratio ['0.0', '0.0', '0.0']
+INFO (outside the perturbative regime, 2||A^-1|| |G_n(v_inf)| > 1e-3) (N) mixed(min 13): zero v_n of G_n (Newton it 10, |G_n| 1.8e-101) [ok] |v_n - v_inf| = 0.01189, /rho_inf^(n+1) = 0.3229, Lemma 6.1 bound 2||A^-1|| |G_n(v_inf)| = 512.4
+INFO (outside the perturbative regime) (S) mixed(min 13): physical re-shooting reaches x_top; all stage/node/condenser balances; S > 0, all x > 0 [physical] end 2.9e-76, stage 4.8e-77, node 4.8e-77, cond 5.6e-104 | min S 1.011, min x 9.97e-68 | impurities ['5.35e-8', '0.0103', '0.0134', '0.0142', '0.0111']
+INFO (outside the perturbative regime, 2||A^-1|| |G_n(v_inf)| > 1e-3) (N) n=24: zero v_n of G_n (Newton it 8, |G_n| 1.9e-86) [ok] |v_n - v_inf| = 0.004083, /rho_inf^(n+1) = 1.484, Lemma 6.1 bound 2||A^-1|| |G_n(v_inf)| = 6.675
+INFO (outside the perturbative regime) (S) n=24: physical re-shooting reaches x_top; all stage/node/condenser balances; S > 0, all x > 0 [physical] end 4.4e-72, stage 3.4e-73, node 3.4e-73, cond 3.0e-103 | min S 1.012, min x 5.65e-59 | impurities ['7.6e-7', '0.0107', '0.0117', '0.013', '0.0119']
+INFO (N) n=24: Phi from 3 random starts at radius 0.0003: converged to v_n [None, None, None]; iterations [14, 21, 14], max observed step ratio ['13.5', '25.7', '13.2']
+INFO (N) n=24: Phi from 3 random starts at radius 0.001: converged to v_n [None, None, None]; iterations [0, 1, 0], max observed step ratio ['0.0', '0.0', '0.0']
+INFO (N) n=24: Phi from 3 random starts at radius 0.003: converged to v_n [None, None, None]; iterations [0, 0, 0], max observed step ratio ['0.0', '0.0', '0.0']
+case n5D done in 1469.0 s
+==============================================================================================================
+ALL PASS
+
+real	24m29.251s
+user	24m29.042s
+sys	0m0.064s

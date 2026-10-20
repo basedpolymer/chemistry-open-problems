@@ -1,6 +1,6 @@
 # Finite-stage attainment: the analytic step (Agent A)
 
-Claude Opus 5.5 (effort xhigh), Agent A (analysis and integration). **Version 1.2, 2026-10-20 18:48 (v1.1 18:20: §8 against hypotheses.md v1; v1.2: §9 numerical check, pointer to theorem.md).**
+Claude Opus 5.5 (effort xhigh), Agent A (analysis and integration). **Version 1.2, 2026-10-20 18:48 (v1.1 18:20: §8 against hypotheses.md v1; v1.2: §9 numerical check, pointer to theorem.md; v1.3, 19:45, independent verifier V2: one wording correction marked [V2] in the proof of Theorem A.8, see `../verification-A/verification.md` §4).**
 Paths are relative to the problem folder `problems/halvorsen-skogestad-petlyuk-minimum-vapor/`. References:
 [class] `total/foundations/class.md`; [S] `total/sections/sections.md`; [N] `total/network/network.md`;
 [Astra] `total/attainment-astra/attainment.md`; [D] `attainment/design/`; [L] `attainment/limit/`.
@@ -343,8 +343,8 @@ half-profiles (Lemma A.7);
 (v) it is the only zero of G_n in B̄(v_∞, r_1) (local uniqueness in the junction/net-flow variables).
 
 *Proof.* Theorem A.5 gives v_n; by Lemma A.3 (a) hypothesis (a) of Lemma A.1 holds; by Lemma A.7 hypothesis (b)
-holds and S > 0 at the stages; S > 0 at the junction and product compositions because they are within
-C ρ_∞^{n+1} of points of Δ, where S ≥ α_N (shrink r_1 if necessary so that S ≥ α_N/2 on the ball). Lemma A.1 gives
+holds and S > 0 at the stages; S > 0 at the junction and product compositions because they are affine in v and
+within C ρ_∞^{n+1} of points of Δ, where S ≥ α_N (enlarge n_1 if necessary so that S ≥ α_N/2 there) [V2]. Lemma A.1 gives
 (i) and (iv); (ii) is Theorem A.5 (the product compositions are affine in v); (iii) is Lemma A.7; (v) is
 Theorem A.5. ∎
 

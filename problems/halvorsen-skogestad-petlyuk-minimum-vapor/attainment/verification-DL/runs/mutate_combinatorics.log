@@ -1,0 +1,12 @@
+unmodified model: 0/124 configurations flagged -> PASS
+mutation "product supports without designed impurities": 124/124 flagged; e.g. (3, 'BB', 'product support 2') -> PASS (detected)
+mutation "unforced binary columns, forced bookkeeping": 124/124 flagged; e.g. (3, 'BB', 'product support 2') -> PASS (detected)
+mutation "non-binary T sections carry the heavy key": 124/124 flagged; e.g. (3, 'BB', "K2 attached section carries k: (1, 2) ('T', 1, 3) k=3") -> PASS (detected)
+mutation "non-binary B sections carry the light key": 124/124 flagged; e.g. (3, 'BB', "K2 attached section carries k: (2, 3) ('B', 1, 3) k=1") -> PASS (detected)
+mutation "product supports from the reversed pattern": 124/124 flagged; e.g. (3, 'BB', 'product support 1') -> PASS (detected)
+mutation "closed-end rule reversed (ends swapped)": 124/124 flagged; e.g. (3, 'BB', "K1 closed end has k: ('T', 1, 2) k=2") -> PASS (detected)
+mutation "wrong top end of T sections": raised KeyError: (1, 1) -> PASS (detected)
+mutation "unforced binary columns, pure products (singular design)": 124/124 flagged; e.g. (3, 'BB', 'K3 trace count (1, 2) k=1: rows 1 coords 0') -> PASS (detected)
+mutation "closed-end rule reversed in B sections only": 124/124 flagged; e.g. (3, 'BB', "K1 closed end has k: ('B', 1, 3) k=1") -> PASS (detected)
+mutation "long T sections skip a level (h not monotone by 1)": 120/124 flagged; e.g. (4, 'BBB', "K2 attached section carries k: (1, 2) ('T', 1, 4) k=3") -> PASS (detected)
+ALL PASS

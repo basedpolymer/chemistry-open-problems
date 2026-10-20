@@ -1,0 +1,77 @@
+N3 (4,2,1) z=1/3 q=1: H = ['1.07175', '1.36572'], kappa(0;0) - e = 2.3e-41, explicit validity bound eta_0 = +inf
+   eta = 1e-1: max_p |kappa_p - e_p|/eta = 0.88652
+   eta = 1e-2: max_p |kappa_p - e_p|/eta = 0.87887
+   eta = 1e-3: max_p |kappa_p - e_p|/eta = 0.878056
+   eta = 1e-4: max_p |kappa_p - e_p|/eta = 0.877974
+   eta = 1e-5: max_p |kappa_p - e_p|/eta = 0.877965
+   eta = 1e-6: max_p |kappa_p - e_p|/eta = 0.877965
+   delta = 1e-2: largest admissible common eta_nb ~ 0.0056915  (eta/delta = 0.56915)
+   delta = 1e-3: largest admissible common eta_nb ~ 0.00056934  (eta/delta = 0.56934)
+   delta = 1e-4: largest admissible common eta_nb ~ 5.6922e-5  (eta/delta = 0.56922)
+   delta = 1e-5: largest admissible common eta_nb ~ 5.6922e-6  (eta/delta = 0.56922)
+   PASS
+N4 (8,4,2,1) z=1/4 q=1: H = ['0.826754', '1.05991', '1.27285'], kappa(0;0) - e = 7.46e-41, explicit validity bound eta_0 = 0.2274
+   eta = 1e-1: max_p |kappa_p - e_p|/eta = 1.98412
+   eta = 1e-2: max_p |kappa_p - e_p|/eta = 1.96932
+   eta = 1e-3: max_p |kappa_p - e_p|/eta = 1.96762
+   eta = 1e-4: max_p |kappa_p - e_p|/eta = 1.96745
+   eta = 1e-5: max_p |kappa_p - e_p|/eta = 1.96744
+   eta = 1e-6: max_p |kappa_p - e_p|/eta = 1.96743
+   delta = 1e-2: largest admissible common eta_nb ~ 0.0025406  (eta/delta = 0.25406)
+   delta = 1e-3: largest admissible common eta_nb ~ 0.00025392  (eta/delta = 0.25392)
+   delta = 1e-4: largest admissible common eta_nb ~ 2.5406e-5  (eta/delta = 0.25406)
+   delta = 1e-5: largest admissible common eta_nb ~ 2.5406e-6  (eta/delta = 0.25406)
+   PASS
+N4 (6,3.5,1.8,1) q=0: H = ['0.668349', '0.484884', '0.685553'], kappa(0;0) - e = 1.61e-40, explicit validity bound eta_0 = 0.18727
+   eta = 1e-1: max_p |kappa_p - e_p|/eta = 1.95056
+   eta = 1e-2: max_p |kappa_p - e_p|/eta = 1.92551
+   eta = 1e-3: max_p |kappa_p - e_p|/eta = 1.92265
+   eta = 1e-4: max_p |kappa_p - e_p|/eta = 1.92236
+   eta = 1e-5: max_p |kappa_p - e_p|/eta = 1.92233
+   eta = 1e-6: max_p |kappa_p - e_p|/eta = 1.92233
+   delta = 1e-2: largest admissible common eta_nb ~ 0.0025997  (eta/delta = 0.25997)
+   delta = 1e-3: largest admissible common eta_nb ~ 0.00025988  (eta/delta = 0.25988)
+   delta = 1e-4: largest admissible common eta_nb ~ 2.6003e-5  (eta/delta = 0.26003)
+   delta = 1e-5: largest admissible common eta_nb ~ 2.6003e-6  (eta/delta = 0.26003)
+   PASS
+N5 (16..1) q=0.5: H = ['0.482971', '0.570138', '0.670138', '0.782971'], kappa(0;0) - e = 4.02e-41, explicit validity bound eta_0 = 0.057895
+   eta = 1e-1: invalid (validity condition fails at column (0, 3) (eta = 0.1))
+   eta = 1e-2: max_p |kappa_p - e_p|/eta = 3.02545
+   eta = 1e-3: max_p |kappa_p - e_p|/eta = 3.0172
+   eta = 1e-4: max_p |kappa_p - e_p|/eta = 3.01635
+   eta = 1e-5: max_p |kappa_p - e_p|/eta = 3.01626
+   eta = 1e-6: max_p |kappa_p - e_p|/eta = 3.01625
+   delta = 1e-2: largest admissible common eta_nb ~ 0.0016565  (eta/delta = 0.16565)
+   delta = 1e-3: largest admissible common eta_nb ~ 0.0001657  (eta/delta = 0.1657)
+   delta = 1e-4: largest admissible common eta_nb ~ 1.657e-5  (eta/delta = 0.1657)
+   delta = 1e-5: largest admissible common eta_nb ~ 1.6568e-6  (eta/delta = 0.16568)
+   PASS
+N5 (5,3.6,2.4,1.6,1) q=0.6: H = ['1.33986', '1.31228', '1.46571', '1.41463'], kappa(0;0) - e = 3.67e-40, explicit validity bound eta_0 = 0.16521
+   eta = 1e-1: max_p |kappa_p - e_p|/eta = 3.22268
+   eta = 1e-2: max_p |kappa_p - e_p|/eta = 3.18504
+   eta = 1e-3: max_p |kappa_p - e_p|/eta = 3.18063
+   eta = 1e-4: max_p |kappa_p - e_p|/eta = 3.18018
+   eta = 1e-5: max_p |kappa_p - e_p|/eta = 3.18013
+   eta = 1e-6: max_p |kappa_p - e_p|/eta = 3.18013
+   delta = 1e-2: largest admissible common eta_nb ~ 0.0015717  (eta/delta = 0.15717)
+   delta = 1e-3: largest admissible common eta_nb ~ 0.00015712  (eta/delta = 0.15712)
+   delta = 1e-4: largest admissible common eta_nb ~ 1.5721e-5  (eta/delta = 0.15721)
+   delta = 1e-5: largest admissible common eta_nb ~ 1.5721e-6  (eta/delta = 0.15721)
+   PASS
+N6 (7,5,3.4,2.3,1.5,1) q=0.8: H = ['1.06893', '1.14301', '1.39511', '1.23962', '1.28534'], kappa(0;0) - e = 1.61e-40, explicit validity bound eta_0 = 0.022393
+   eta = 1e-1: invalid (validity condition fails at column (0, 4) (eta = 0.1))
+   eta = 1e-2: max_p |kappa_p - e_p|/eta = 4.20449
+   eta = 1e-3: max_p |kappa_p - e_p|/eta = 4.19811
+   eta = 1e-4: max_p |kappa_p - e_p|/eta = 4.19745
+   eta = 1e-5: max_p |kappa_p - e_p|/eta = 4.19738
+   eta = 1e-6: max_p |kappa_p - e_p|/eta = 4.19737
+   delta = 1e-2: largest admissible common eta_nb ~ 0.0011902  (eta/delta = 0.11902)
+   delta = 1e-3: largest admissible common eta_nb ~ 0.00011909  (eta/delta = 0.11909)
+   delta = 1e-4: largest admissible common eta_nb ~ 1.1906e-5  (eta/delta = 0.11906)
+   delta = 1e-5: largest admissible common eta_nb ~ 1.1912e-6  (eta/delta = 0.11912)
+   PASS
+ALL PASS
+
+real	1m4.549s
+user	1m4.448s
+sys	0m0.036s

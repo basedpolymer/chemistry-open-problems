@@ -1,0 +1,24 @@
+case rand:5:2:TBTB: N = 5, alpha = ['11.438', '8.1591', '5.9649', '2.4472', '1.0'], z = ['0.2464', '0.2238', '0.2088', '0.1267', '0.1943'], q = 0.7136, pattern TBTB, delta = 0.08196, eta_nb = 0.008196, dps 60
+  H = ['1.47402', '1.63924', '0.795942', '0.777616'], H* = 1.6392366, eta_bin = ['0.02732', '0.02864', '0.008621', '0.02305']
+  [PASS] D1 flows > 0, specification balances (zero duty at junctions/side draws), R = H*+delta (max balance residual 1.56e-61)
+  [PASS] D2 limit net-flow supports (H2); middle feed roots global (Lemma 5.3) (max |theta^c - theta| 0.0)
+  [PASS] D3 interlacing r>th_i>v, u>th_{m-1}>s; common middle roots; Psi_T(a_m), Psi_B(a_i) > 0; X_c > 0 
+  [PASS] D4 kappa_p >= e_p + delta/2, 0 < eta_p < eta_hat_p, forcing increases the margin, (L3), (L4) (min kappa/delta 0.8577)
+  [PASS] D5 kappa_p(eta;delta) - kappa_p(eta;0) = delta and kappa_p(0;delta) = e_p + delta (1.07e-61, 1.66e-60)
+  [PASS] D6 flux bookkeeping identity at every unit (Lemma 5.2 (e)) (1.24e-60)
+  [PASS] D7 spectra simple, positive, pinch = smallest major (T) / largest major (B), traces outside, limit relations (max rho 0.878435)
+  [PASS] D7 pivots c_r*(x_bot), c_r*(x_top) > 0 (H8) (min 0.0217)
+  [PASS] D7 trace signs: Psi^(k)(a_k) > 0, x_Jk = 0, k on the correct side of supp x_J (H7) 
+  [PASS] D8 half-profiles (chart vectors) >= 0 with positive sum for k <= 400 (H6) (min normalized entry -2.36e-60)
+  [PASS] D9 product impurities (eta_{p-1}[B] + eta_p[T]) / P_p 
+  [PASS] L0 coordinates of Table 2 reproduce the limit configuration (1.56e-61)
+  [PASS] L1 G_inf(v_inf) = 0 (max 3.76e-59)
+  Jacobian 80x80 in 20.0 s
+  [PASS] L2 d(trace rows)/d(major coords) = 0 and d(trace rows of k)/d(trace coords of k' != k) = 0 (3.61e-40, 4.86e-40; scale 464.0)
+  [PASS] L2 every trace row equals Lemma 4.3's prediction (dx_Jk - kappa dq)/pivot (5.12e-33)
+  [PASS] L3 major rows of c depend only on major coords of c and its ancestors; diagonal blocks nonsingular (off 0.0, min sigma of blocks 1.112)
+  [PASS] L4 trace blocks T_k square and nonsingular; A_k upper triangular, positive diagonal, Z-matrix (min sigma(T_k) 0.1721)
+  [PASS] L5 DG_inf(v_inf) invertible (sigma_min 0.01795, sigma_max 1257.0)
+  [diag] smallest mole fraction -1.3955e-321 at section ('T', 1, 2), stage 151, component 5; net flow of k there -3.8199e-322; working precision 1e-249
+  [FAIL] F1 n = 150: chord/Newton (47 it., 0 Jacobian refreshes), unit balances, x_top reached, all x > 0 (|v_n - v_inf| 1.98e-8, residual 5.49e-241, max balance 4.76e-119, min x -1.4e-321, min S 1.15, top gap 3.6e-118, dps 249, impurities ['0.0998', '1.61e-8', '0.151', '4.97e-20', '0.106'])
+FAIL: ['F1 n = 150: chord/Newton (47 it., 0 Jacobian refreshes), unit balances, x_top reached, all x > 0']  (45 s)

@@ -1,0 +1,25 @@
+case near:3:3:TB: N = 3, alpha = ['1.6648', '1.5856', '1.0'], z = ['0.4285', '0.2661', '0.3054'], q = 0.7112, pattern TB, delta = 0.7167, eta_nb = 0.07167, dps 60
+  H = ['14.3341', '2.05779'], H* = 14.334136, eta_bin = ['0.05951', '0.00702']
+  [PASS] D1 flows > 0, specification balances (zero duty at junctions/side draws), R = H*+delta (max balance residual 0.0)
+  [PASS] D2 limit net-flow supports (H2); middle feed roots global (Lemma 5.3) (max |theta^c - theta| 0.0)
+  [PASS] D3 interlacing r>th_i>v, u>th_{m-1}>s; common middle roots; Psi_T(a_m), Psi_B(a_i) > 0; X_c > 0 
+  [PASS] D4 kappa_p >= e_p + delta/2, 0 < eta_p < eta_hat_p, forcing increases the margin, (L3), (L4) (min kappa/delta 0.9574)
+  [PASS] D5 kappa_p(eta;delta) - kappa_p(eta;0) = delta and kappa_p(0;delta) = e_p + delta (6.22e-61, 3.55e-59)
+  [PASS] D6 flux bookkeeping identity at every unit (Lemma 5.2 (e)) (1.24e-60)
+  [PASS] D7 spectra simple, positive, pinch = smallest major (T) / largest major (B), traces outside, limit relations (max rho 0.969851)
+  [PASS] D7 pivots c_r*(x_bot), c_r*(x_top) > 0 (H8) (min 0.0246)
+  [PASS] D7 trace signs: Psi^(k)(a_k) > 0, x_Jk = 0, k on the correct side of supp x_J (H7) 
+  [PASS] D8 half-profiles (chart vectors) >= 0 with positive sum for k <= 400 (H6) (min normalized entry -4.94e-60)
+  [PASS] D9 product impurities (eta_{p-1}[B] + eta_p[T]) / P_p 
+  [PASS] L0 coordinates of Table 2 reproduce the limit configuration (4.93e-60)
+  [PASS] L1 G_inf(v_inf) = 0 (max 2.44e-59)
+  Jacobian 12x12 in 0.2 s
+  [PASS] L2 d(trace rows)/d(major coords) = 0 and d(trace rows of k)/d(trace coords of k' != k) = 0 (1.84e-61, 3.12e-40; scale 143.0)
+  [PASS] L2 every trace row equals Lemma 4.3's prediction (dx_Jk - kappa dq)/pivot (2.91e-34)
+  [PASS] L3 major rows of c depend only on major coords of c and its ancestors; diagonal blocks nonsingular (off 0.0, min sigma of blocks 1.117)
+  (component 2: no trace rows and no trace coordinates)
+  [PASS] L4 trace blocks T_k square and nonsingular; A_k upper triangular, positive diagonal, Z-matrix (min sigma(T_k) 1.13)
+  [PASS] L5 DG_inf(v_inf) invertible (sigma_min 1.115, sigma_max 204.2)
+  [PASS] F1 n = 160: chord/Newton (87 it., 8 Jacobian refreshes), unit balances, x_top reached, all x > 0 (|v_n - v_inf| 0.00234, residual 6.98e-116, max balance 3.81e-96, min x 3.08e-44, min S 1.01, top gap 2.31e-96, dps 125, impurities ['0.125', '0.00643', '0.0225'])
+  [INFO] F1 n = 120: iteration left the domain (ZeroDivisionError) after 16 it.: n below this case's n_0 (not a claim of the theorem)
+ALL PASS  (10 s)

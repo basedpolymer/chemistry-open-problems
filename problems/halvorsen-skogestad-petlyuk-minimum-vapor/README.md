@@ -12,15 +12,18 @@
   (effort not recorded).
 - Underwood infinite-stage model: theory, Claude Opus 5.5 (effort xhigh); computation and certificates, Claude Opus
   5.5 (effort xhigh); general N, Claude Opus 5.5 (effort xhigh).
-- Verification: Underwood-model results, Claude Opus 5.5 (effort xhigh), independent; lower bound, early independent
-  check, Claude Opus 5.5 (effort not recorded); attainment and the integrated proof: **in progress** (two independent
-  verifiers, Claude Opus 5.5).
+- Verification (independent, fresh context): Underwood-model results, Claude Opus 5.5 (effort xhigh); lower bound,
+  early check, Claude Opus 5.5 (effort not recorded); design and limit system, Claude Opus 5.5 (effort xhigh)
+  (`attainment/verification-DL/verification.md`); analysis, integrated proof, two-component case and interface with
+  the lower bound, Claude Opus 5.5 (effort xhigh) (`attainment/verification-A/verification.md`).
 
-**Status: solved (preliminary)** — conjecture proved for every number of components N in the class 𝒜; independent
-verification in progress.
+**Status: solved** — conjecture proved for every number of components N in the class 𝒜; independently verified, with
+minor corrections (two verifiers for the attainment proof and its interface with the lower bound: every claim
+CONFIRMED or CONFIRMED WITH CORRECTIONS, no gap of substance).
 - **Lower bound.** Every steady state of every arrangement of the class 𝒜 with purities ≥ 1 − ε has
-  R ≥ H_j − c_j ε for every j; hence R*(𝒮) ≥ max_j H_j for every family 𝒮 ⊆ 𝒜 (early independent check:
-  `total/verification-early/verification-lower-bound.md`, confirmed).
+  R ≥ H_j − c_j ε for every j; hence R*(𝒮) ≥ max_j H_j for every family 𝒮 ⊆ 𝒜 (independent checks:
+  `total/verification-early/verification-lower-bound.md`, and the re-derivation in
+  `attainment/verification-A/verification.md`).
 - **Attainment.** For every δ, ε > 0 there is n_0 such that, for all section lengths ≥ n_0, the generalized Petlyuk
   arrangement has an operating specification with R = max_j H_j + δ and a steady state with all mole fractions
   positive and all purities ≥ 1 − ε. Hence R*(𝒮_Petlyuk) = max_j H_j (N = 2: `total/sections/sections.md`
@@ -158,7 +161,7 @@ py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/
 | `paper-v1.tex`, `paper-v1.pdf` | Earlier manuscript on the Underwood-model results, as independently verified (archived copy) |
 | `publication/` | The single manuscript in preparation, and the full literature review |
 | `references.md` | Sources and novelty checks |
-| `attainment/` | Finite-stage attainment: `theorem.md` (integrated proof), `FINAL-REPORT.md`; `design/`, `limit/`, `analysis/`, `computation/` (one agent each; briefs `BRIEF-*.md`); verification in `verification-DL/`, `verification-A/` |
+| `attainment/` | Finite-stage attainment: `theorem.md` (integrated proof), `FINAL-REPORT.md`; `design/`, `limit/`, `analysis/`, `computation/` (one agent each; briefs `BRIEF-*.md`); independent verifications `verification-DL/` (design, limit system) and `verification-A/` (analysis, integrated proof) |
 | `total/foundations/` | Class 𝒜 (`class.md`), integration of the lower bound (`total-result.md`), checks (`scripts/unitnet.py`, `scripts/petlyuk_attain.py`) |
 | `total/sections/` | `sections.md` (proofs, section and junction lemmas, two-component attainment), scripts |
 | `total/network/` | `network.md` (unit graph, device decomposition, cut identity, ties, sign potential, permissive sign path, existence for prescribed flows), exact scripts |

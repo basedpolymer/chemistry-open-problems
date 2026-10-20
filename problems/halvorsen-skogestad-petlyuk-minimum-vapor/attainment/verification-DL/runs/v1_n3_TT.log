@@ -1,0 +1,25 @@
+case n3:TT: N = 3, alpha = ['4.0', '2.0', '1.0'], z = ['0.3333', '0.3333', '0.3333'], q = 1.0, pattern TT, delta = 0.05, eta_nb = 0.025, dps 60
+  H = ['1.07175', '1.36572'], H* = 1.3657225, eta_bin = ['0.003', '0.003']
+  [PASS] D1 flows > 0, specification balances (zero duty at junctions/side draws), R = H*+delta (max balance residual 1.56e-61)
+  [PASS] D2 limit net-flow supports (H2); middle feed roots global (Lemma 5.3) (max |theta^c - theta| 0.0)
+  [PASS] D3 interlacing r>th_i>v, u>th_{m-1}>s; common middle roots; Psi_T(a_m), Psi_B(a_i) > 0; X_c > 0 
+  [PASS] D4 kappa_p >= e_p + delta/2, 0 < eta_p < eta_hat_p, forcing increases the margin, (L3), (L4) (min kappa/delta 0.5599)
+  [PASS] D5 kappa_p(eta;delta) - kappa_p(eta;0) = delta and kappa_p(0;delta) = e_p + delta (2.92e-62, 9.63e-61)
+  [PASS] D6 flux bookkeeping identity at every unit (Lemma 5.2 (e)) (2.49e-60)
+  [PASS] D7 spectra simple, positive, pinch = smallest major (T) / largest major (B), traces outside, limit relations (max rho 0.777348)
+  [PASS] D7 pivots c_r*(x_bot), c_r*(x_top) > 0 (H8) (min 0.02413)
+  [PASS] D7 trace signs: Psi^(k)(a_k) > 0, x_Jk = 0, k on the correct side of supp x_J (H7) 
+  [PASS] D8 half-profiles (chart vectors) >= 0 with positive sum for k <= 400 (H6) (min normalized entry -8.77e-61)
+  [PASS] D9 product impurities (eta_{p-1}[B] + eta_p[T]) / P_p 
+  [PASS] L0 coordinates of Table 2 reproduce the limit configuration (3.89e-62)
+  [PASS] L1 G_inf(v_inf) = 0 (max 3.3e-60)
+  Jacobian 12x12 in 0.3 s
+  [PASS] L2 d(trace rows)/d(major coords) = 0 and d(trace rows of k)/d(trace coords of k' != k) = 0 (6.81e-61, 4.1e-41; scale 260.0)
+  [PASS] L2 every trace row equals Lemma 4.3's prediction (dx_Jk - kappa dq)/pivot (2.87e-33)
+  [PASS] L3 major rows of c depend only on major coords of c and its ancestors; diagonal blocks nonsingular (off 0.0, min sigma of blocks 2.071)
+  [PASS] L4 trace blocks T_k square and nonsingular; A_k upper triangular, positive diagonal, Z-matrix (min sigma(T_k) 1.984)
+  [PASS] L5 DG_inf(v_inf) invertible (sigma_min 0.3124, sigma_max 259.6)
+  [PASS] F1 n = 60: chord iteration (26 it.), unit balances, x_top reached, all x > 0 (|v_n - v_inf| 6.64e-7, residual 1.86e-121, max balance 2.85e-92, min x 8.66e-41, min S 1.0, top gap 7.34e-92, dps 127, impurities ['0.00892', '0.009', '6.08e-13'])
+  [PASS] F1 n = 40: chord iteration (43 it.), unit balances, x_top reached, all x > 0 (|v_n - v_inf| 0.000124, residual 6.85e-107, max balance 3.44e-88, min x 3.02e-27, min S 1.0, top gap 8.87e-88, dps 114, impurities ['0.00892', '0.009', '9.64e-9'])
+  [PASS] F1 n = 30: chord iteration (68 it.), unit balances, x_top reached, all x > 0 (|v_n - v_inf| 0.00172, residual 2.21e-99, max balance 5.68e-86, min x 1.83e-20, min S 1.0, top gap 1.47e-85, dps 108, impurities ['0.00894', '0.00902', '1.24e-6'])
+ALL PASS  (3 s)
