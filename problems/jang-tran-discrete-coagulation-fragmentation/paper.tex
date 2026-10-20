@@ -1,0 +1,582 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{The discrete critical coagulation--fragmentation conjecture}
+\newcommand*{\PaperTitlePlain}{The discrete critical coagulation-fragmentation conjecture}
+\newcommand*{\PaperShortTitle}{Discrete critical coagulation--fragmentation}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} independently verified, not refereed}
+\newcommand*{\PaperCredits}{Part (ii), the case m = 1, part (i) as a corollary, final manuscript: Claude Opus 5.5 (effort xhigh)\\
+Novelty audit, stationary singularity analysis, first draft: GPT-6-Astra via Codex CLI (effort xhigh)\\
+Independent verification: Claude Opus 5.5 (effort xhigh)}
+\newcommand*{\PaperKeywords}{coagulation, fragmentation, gelation, mass conservation, Hamilton-Jacobi equations}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\rtil}{\tilde\rho}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Jang and Tran conjectured that the discrete coagulation--fragmentation equation with multiplicative
+coagulation kernel \(ij\) and constant fragmentation kernel has, in the critical mass window
+\(1/2\le m<1\), a unique stationary state of mass \(m\) given by an explicit recursion, and a unique global
+mass-conserving classical solution. We prove both statements, for every mass \(0<m<1\), and the
+time-dependent one also for \(m=1\); the initial second moment assumption is not needed, only finite mass.
+With Jang and Tran's theorem that no global mass-conserving solution exists for \(m>1\), this settles the
+discrete critical-mass conjecture, gelation for \(m>1\) being understood in that sense.
+The zeroth-order coefficient of the associated Hamilton--Jacobi equation is \(1/\tau(x)\) with
+\(\tau(x)=2\tanh(x/2)\). With \(x\) replaced by \(\tau\), Van's continuous half-slope invariant has a discrete
+analogue that propagates along characteristics with a nonnegative source. It yields a curvature barrier for
+all \(m\le1\), hence a global classical solution of the Hamilton--Jacobi equation by characteristics, with
+slope \(m\) at the boundary. Comparison with positive finite truncations then excludes mass loss; no
+viscosity-solution theory is used. Once mass is conserved the system is lower triangular, which gives
+uniqueness, convergence to the stationary state, and its positivity and mass identity. The stationary
+coefficients decay like \(c\,R^{-n}n^{-5/2}\) with \(R>1\). The proofs have been checked by an independent
+verifier; they have not been refereed.
+\end{paperabstract}
+
+\section*{The question}
+
+The source is Jang and Tran \autocite{JangTran2025}. The system is, for cluster densities
+\(\rho_n=\rho(n,t)\ge0\), \(n\in\NN\),
+\begin{equation}\label{eq:system}
+\dot\rho_n=\frac12\sum_{i=1}^{n-1}i(n-i)\rho_i\rho_{n-i}-n\rho_n\sum_{j\ge1}j\rho_j
+-\frac{n-1}{2}\rho_n+\sum_{j>n}\rho_j ,
+\end{equation}
+which is their (1.1) with kernels (1.2), \(a(i,j)=ij\), \(b(i,j)=1\). Their assumption (1.3) is
+\(\sum_n n^2\rho_0(n)<\infty\), and their recursion (1.9) is
+\begin{equation}\label{eq:recursion}
+\rtil_n=\frac{2m(1-m)+\sum_{i=1}^{n-1}i(n-i)\rtil_i\rtil_{n-i}-2\sum_{i=1}^{n-1}\rtil_i}{(2m+1)n+1},
+\qquad n\ge1 .
+\end{equation}
+Conjecture~2 of arXiv:2409.17974v1 (printed p.~7, end of Section~1.4), with notation typeset equivalently:
+\begin{openquote}
+Conjecture 2. Consider (1.1) with kernels (1.2) and initial data satisfying (1.3).
+(i) For \(1/2<m<1\), (1.1) admits a unique stationary solution \(\tilde\rho:\NN\to[0,\infty)\) such that
+\(m_1(\tilde\rho)=m\). Further, \(\tilde\rho\) satisfies the recursive formula (1.9).
+(ii) For \(1/2\le m_1(\rho_0)<1\), (1.1) admits a unique mass-conserving solution \(\rho\) for all time.
+This solution \(\rho\) is in fact a classical solution.
+\end{openquote}
+Jang and Tran proved existence for \(m<1/2\) under (1.3) (their Theorem~1.3), stationary states for
+\(m\le1/2\) (Lemma~5.7), uniqueness of mass-conserving solutions for \(m\le1\) (Proposition~1.2) and
+non-existence of global mass-conserving solutions for \(m>1\) (Theorem~1.1). Their Conjecture~1, which
+they attribute to \autocite{EMP2002,ELMP2003}, asserts, for initial data satisfying (1.3), that \(m=1\) is
+the critical mass: gelation for \(m>1\), a unique global mass-conserving solution for \(0<m\le1\).
+For continuous sizes, Tran and Van \autocite{TranVan2022} proved existence for \(m<1/2\), and
+Van's preprint \autocite{Van2026} extends existence to the window \(1/2\le m\le1\); Van writes, in
+Section~1.2, p.~4: ``so the discrete analogue of the window \(1/2\le m\le1\) remains open as of this writing.''
+The novelty audit is recorded in \texttt{references.md}; no earlier solution was found.
+
+\paragraph{Notation and solution concepts.}
+\(m_k(\rho)=\sum_n n^k\rho_n\); \(K(\rho)_n\) is the right side of \eqref{eq:system}, with the actual first
+moment in the coagulation loss; \(\ell^1_1=\{u:\sum n|u_n|<\infty\}\). For bounded \(g:\NN\to\mathbb R\),
+Jang and Tran's weak form (1.5) reads
+\begin{equation}\label{eq:weak}
+\frac{d}{dt}\sum_n g(n)\rho_n=\frac12\sum_{j,k}\bigl(g(j{+}k)-g(j)-g(k)\bigr)jk\rho_j\rho_k
+-\frac12\sum_j\sum_{k=1}^{j-1}\bigl(g(j)-g(k)-g(j{-}k)\bigr)\rho_j .
+\end{equation}
+Their Definition~1 calls \(\rho\) a solution if \eqref{eq:weak} holds for every bounded \(g\), without fixing
+the time regularity. We call \(\rho\) a \emph{mass-conserving solution} with datum \(\rho^0\) if
+\(\rho(t)\ge0\), \(m_1(\rho(t))=m_1(\rho^0)\) for all \(t\ge0\), and for every bounded \(g\) the function
+\(t\mapsto\sum g(n)\rho_n(t)\) is absolutely continuous on compact intervals and satisfies \eqref{eq:weak}
+for almost every \(t\). This is the weakest reading; uniqueness is proved in this class. It is
+\emph{classical} if every \(\rho_n\) is \(C^1\) on \([0,\infty)\) and \eqref{eq:system} holds for every
+\(t\ge0\). A \emph{stationary solution} is a time-independent mass-conserving solution, that is,
+\(\tilde\rho\ge0\), \(m_1(\tilde\rho)<\infty\), \(K(\tilde\rho)=0\).
+
+\begin{theorem}[global well-posedness]\label{thm:evolution}
+Let \(\rho^0\ge0\) with \(m=\sum_n n\rho^0_n\in(0,1]\); no other moment is assumed. Then \eqref{eq:system}
+has exactly one mass-conserving solution with datum \(\rho^0\). It is classical, every component is
+\(C^\infty\) on \([0,\infty)\),
+\(\rho\in C([0,\infty);\ell^1_1)\cap C^1([0,\infty);\ell^1)\), the weak form \eqref{eq:weak} holds with a
+classical derivative at every \(t\ge0\) for every bounded \(g\), and
+\[
+\sum_n\rho_n(t)=m(1-m)+e^{-t/2}\Bigl(\sum_n\rho^0_n-m(1-m)\Bigr).
+\]
+\end{theorem}
+
+\begin{theorem}[stationary states and relaxation]\label{thm:stationary}
+Let \(0<m<1\). The numbers \eqref{eq:recursion} are strictly positive, with
+\(\sum_n\rtil_n=m(1-m)\) and \(\sum_n n\rtil_n=m\); \(\rtil\) is a stationary solution and the only stationary
+solution with \(m_1=m\). Every mass-conserving solution of mass \(m\) converges to \(\rtil\) in \(\ell^1_1\).
+For \(m=1\), every component of the solution of \zcref{thm:evolution} tends to \(0\) while its mass stays
+equal to \(1\).
+\end{theorem}
+
+\begin{theorem}[decay of the stationary state]\label{thm:asymptotics}
+For \(0<m<1\) the generating function \(\sum_n\rtil_nz^n\) has radius \(R=R(m)\in(1,\infty)\), and
+\[
+\rtil_n=\frac{b}{2\sqrt\pi}\,R^{-n}n^{-5/2}\bigl(1+O(n^{-1})\bigr),\qquad
+b^2=\frac{(R-1)^2(m+\frac12)+\frac32R}{R^2-1}.
+\]
+\end{theorem}
+
+Thus Conjecture~2 holds: part (i) is \zcref{thm:stationary} and part (ii) is \zcref{thm:evolution}, both
+for every \(0<m<1\), and part (ii) without (1.3). \zcref{thm:evolution} at \(m=1\), together with Jang and
+Tran's Theorem~1.1 for \(m>1\), settles their Conjecture~1 in the discrete setting. Here ``gelation for
+\(m>1\)'' is understood as in their Theorem~1.1: no solution conserves mass for all time. This also follows
+from \zcref{prop:closed}, whose derivation of \(n_0(t)\) holds on any interval \([0,T]\) and makes \(n_0\)
+vanish at \(T=2\log\bigl(1+n_0(0)/(m(m-1))\bigr)\), so no solution conserves mass on such an interval.
+Whether global weak solutions that lose mass exist for \(m>1\) is not addressed here.
+The status is \emph{solved}: the proofs were checked by an independent verifier (file
+\texttt{verification.md}); they have not been refereed.
+
+\paragraph{Strategy.}
+Write \(F(x,t)=\sum_n(1-e^{-nx})\rho_n(t)\) (Jang and Tran's discrete Bernstein transform). The zeroth-order
+coefficient of its Hamilton--Jacobi equation (Jang--Tran (1.7)) is
+\(\frac12+\frac1{e^x-1}=\frac12\coth\frac x2=1/\tau(x)\), \(\tau(x)=2\tanh(x/2)\): it is Tran and Van's
+continuous equation with \(x\) replaced by \(\tau(x)\) in the term \(F/x\).
+(1) The quantity \(W=\tau(m+F_x)-2F\) is nonnegative for the transform of any nonnegative sequence of mass
+\(m\) and propagates along characteristics with a nonnegative source; it is the discrete analogue of Van's
+half-slope invariant \autocite{Van2026}. (2) It gives the curvature barrier \(\tau F_{xx}>-1\) for all
+\(m\le1\); Jang and Tran's version of this barrier (their Lemma~3.6) needed \(m<1/2\). (3) Characteristics
+leave the half-line through \(x=0\); with the barrier they never cross, so the Hamilton--Jacobi equation has a
+global classical solution, with slope \(m\) at \(x=0\) by an ODE argument along characteristics. (4) Finite
+truncations of \eqref{eq:system} are positive and conserve mass exactly; their transforms are
+supersolutions; transport comparison puts them above the characteristic solution, so a limit point cannot
+lose mass. (5) With constant mass, the number of clusters is explicit and \eqref{eq:system} becomes lower
+triangular: uniqueness, relaxation and part (i) follow.
+
+\section{The closed triangular system and uniqueness}\label{sec:closed}
+
+\begin{proposition}\label{prop:closed}
+Let \(\rho\) be a mass-conserving solution of mass \(m>0\) and \(n_0(t)=\sum_n\rho_n(t)\). Then
+\(n_0(t)=m(1-m)+e^{-t/2}(n_0(0)-m(1-m))\); every \(\rho_n\) is \(C^\infty\) on \([0,\infty)\) and, with
+\(c_n=mn+\frac{n+1}{2}\),
+\begin{equation}\label{eq:closed}
+\dot\rho_n+c_n\rho_n=n_0(t)-\sum_{j<n}\rho_j+\frac12\sum_{i=1}^{n-1}i(n-i)\rho_i\rho_{n-i}
+\qquad(t\ge0);
+\end{equation}
+and two mass-conserving solutions with the same datum coincide.
+\end{proposition}
+\begin{proof}
+All series converge absolutely because \(\sum n\rho_n=m\). With \(g=\mathbf 1_{\{n\}}\) in \eqref{eq:weak},
+\(\rho_n\) is absolutely continuous and \(\dot\rho_n=K(\rho)_n\) almost everywhere, with coagulation loss
+\(nm\rho_n\). With \(g\equiv1\) the right side of \eqref{eq:weak} is
+\(-\frac{m^2}2+\frac12\sum(n-1)\rho_n=\frac12(m-m^2-n_0)\); this linear equation for the absolutely
+continuous \(n_0\) gives the formula (Jang--Tran (1.6)). Since \(\sum_{j>n}\rho_j=n_0-\sum_{j\le n}\rho_j\),
+\eqref{eq:closed} holds almost everywhere. Its right side involves only the smooth \(n_0\) and
+\(\rho_1,\dots,\rho_{n-1}\). By induction on \(n\), \(\rho_n\) equals its variation-of-constants formula with
+a continuous, then \(C^\infty\), forcing; so \(\rho_n\in C^\infty\) and \eqref{eq:closed} holds everywhere.
+Two solutions with the same datum have the same \(n_0\), and \eqref{eq:closed} for \(n=1,2,\dots\) are linear
+scalar equations with identical forcings, by induction.
+\end{proof}
+
+Jang and Tran proved this uniqueness (their Proposition~1.2) through uniqueness of viscosity solutions; the
+triangular structure gives it directly.
+
+\section{The auxiliary Hamilton--Jacobi equation}\label{sec:HJ}
+
+Throughout this section \(m\in(0,1]\) and \(\rho^0\ge0\) with \(\sum n\rho^0_n=m\) are fixed. Put
+\[
+\tau(x)=2\tanh\frac x2,\qquad k=\tau'=1-\frac{\tau^2}4\in(0,1],
+\]
+\[
+H_m(x,u,p)=\frac12(p-m)(p-m-1)+\frac{u}{\tau(x)}-m,\qquad
+F_0(x)=\sum_n(1-e^{-nx})\rho^0_n .
+\]
+For \(x>0\): \(0<\tau(x)\le x\), \(\tau<2\), and \(1/\tau(x)=\frac12+\frac1{e^x-1}\). The function \(F_0\) is
+\(C^\infty\) on \((0,\infty)\), positive, with \(0\le F_0'=\sum ne^{-nx}\rho^0_n\le m\), \(F_0''\le0\) and
+\(F_0(x)/x\uparrow m\) as \(x\downarrow0\) (monotone convergence). We study
+\begin{equation}\label{eq:HJ}
+F_t+H_m(x,F,F_x)=0\quad(x>0,\ t\ge0),\qquad F(\cdot,0)=F_0 .
+\end{equation}
+We do not assume that its solution is the transform of a nonnegative sequence: it only serves as a lower
+barrier in Section~\ref{sec:existence}.
+
+\begin{lemma}\label{lem:initial}
+\(W_0:=\tau(m+F_0')-2F_0\ge0\) and \(-m/e\le\tau F_0''\le0\) on \((0,\infty)\).
+\end{lemma}
+\begin{proof}
+With \(z=e^{-x}\), \(\tau=2(1-z)/(1+z)\). For an integer \(j\ge1\),
+\((1+z)(1+z+\dots+z^{j-1})=1+2(z+\dots+z^{j-1})+z^j\), hence
+\[
+\tau j(1+z^j)-2(1-z^j)=\frac{2(1-z)}{1+z}\Bigl(j(1+z^j)-(1+z)\frac{1-z^j}{1-z}\Bigr)
+\]
+\[
+=\frac{2(1-z)}{1+z}\sum_{i=1}^{j-1}(1-z^i)(1-z^{j-i})\ge0 .
+\]
+Multiply by \(\rho^0_j\) and sum, using \(\sum j\rho^0_j=m\). Next,
+\(-\tau F_0''=\sum_j j\rho^0_j\,(\tau je^{-jx})\) and \(\tau je^{-jx}\le xje^{-jx}\le1/e\).
+\end{proof}
+
+\paragraph{Characteristics.}
+For a label \(y>0\) let \((X,P,U)(t)=(X,P,U)(t;y)\) solve
+\begin{equation}\label{eq:char}
+\dot X=P-m-\tfrac12,\qquad
+\dot P=\frac{k(X)}{\tau(X)^2}U-\frac{P}{\tau(X)},\qquad
+\dot U=\tfrac12(P^2+m-m^2)-\frac{U}{\tau(X)},
+\end{equation}
+with \((X,P,U)(0)=(y,F_0'(y),F_0(y))\). These are
+\(\dot X=\partial_pH_m\), \(\dot P=-\partial_xH_m-p\,\partial_uH_m\), \(\dot U=p\,\partial_pH_m-H_m\).
+The vector field is \(C^\infty\) on \(\{X>0\}\times\mathbb R^2\); \([0,t_e(y))\) is the maximal interval of
+existence. Put \(q=m-P\), \(v=q+\frac12\), \(W=\tau(X)(m+P)-2U\), \(D=U/\tau(X)-P\), \(\lambda=U/\tau(X)\),
+\(\eta=m-\lambda\), \(\eps=\tau(X)^2v/4\). Direct differentiation gives the exact identities
+\begin{gather}
+\dot W+\frac{2+k}{2\tau}W=q(2m-q)(1-k),\qquad 1-k=\frac{\tau^2}4,\label{eq:W}\\
+W=\tau(q-2D),\label{eq:WD}\\
+\dot\lambda=\frac{(P-\lambda)^2+(m-\lambda)(1-m+\lambda)}{2\tau}-\frac{\eps\lambda}{\tau},\qquad
+\dot\eta=-\frac{(\eta-q)^2+\eta(1-\eta)}{2\tau}+\frac{\eps\lambda}{\tau}.\label{eq:lambda}
+\end{gather}
+In the continuous case (\(\tau=x\), \(k=1\)) the source in \eqref{eq:W} vanishes and \eqref{eq:W} is Van's
+equation (3.3); here it is nonnegative.
+
+\begin{lemma}[invariant region]\label{lem:region}
+For every \(y>0\) and \(t\in[0,t_e(y))\): \(0\le P\le m\), \(U>0\), \(W\ge0\). Consequently
+\(0<U\le m\tau(X)<2m\), \(0\le\lambda\le\frac{m+P}2\le m\), \(-(m+\frac12)\le\dot X\le-\frac12\),
+\(y/(m+\frac12)\le t_e(y)\le2y\), and \(X(t)\downarrow0\) as \(t\uparrow t_e(y)\).
+\end{lemma}
+\begin{proof}
+Fix \(T<t_e(y)\); on \([0,T]\), \(X\ge\delta>0\) and \(|P|,|U|\le A\). Let \(\delta'=\tau(\delta)\) and
+\(V=P^-+(P-m)^++U^-+W^-\), where \(a^\pm=\max(\pm a,0)\). \(V\) is Lipschitz and almost everywhere
+\(V'=-\dot P\mathbf 1_{P<0}+\dot P\mathbf 1_{P>m}-\dot U\mathbf 1_{U<0}-\dot W\mathbf 1_{W<0}\). On
+\(\{P<0\}\), \(-\dot P=-kU/\tau^2+P/\tau\le U^-/\delta'^2\). On \(\{P>m\}\), since
+\(2U=\tau(m+P)-W\le\tau(m+P)+W^-\) and \(k\le1\),
+\(\dot P\le\frac{k(m+P)-2P}{2\tau}+\frac{W^-}{2\tau^2}\le\frac{m-P}{2\tau}+\frac{W^-}{2\delta'^2}\le\frac{W^-}{2\delta'^2}\).
+On \(\{U<0\}\), \(-\dot U=-\frac12(P^2+m(1-m))+U/\tau<0\); this uses \(m\le1\). On \(\{W<0\}\),
+\eqref{eq:W} gives \(-\dot W\le-q(2m-q)(1-k)\), and \(q(2m-q)\ge0\) if \(0\le P\le m\),
+\(q(2m-q)=m^2-(P^-)^2\ge-AP^-\) if \(P<0\), \(q(2m-q)=-(P-m)^+(2m+(P-m)^+)\ge-(2m+A)(P-m)^+\) if \(P>m\).
+Hence \(V'\le LV\) almost everywhere for a constant \(L\), and \(V(0)=0\) by \zcref{lem:initial}. Grönwall gives
+\(V\equiv0\). Then \(U\le\tau(m+P)/2\le m\tau\) and \(\lambda\le(m+P)/2\). From \(\dot U\ge-U/\tau\),
+\(U(t)\ge F_0(y)\exp(-\int_0^t ds/\tau(X))>0\). The bounds on \(\dot X\) give the bounds on \(t_e\). If \(X\)
+stayed above some \(\delta>0\), the solution would remain in a compact subset of the domain and could be
+continued; as \(X\) decreases, \(X\to0\).
+\end{proof}
+
+\begin{lemma}[strip condition and curvature barrier]\label{lem:barrier}
+Let \(J=\partial_yX\), \(\Pi=\partial_yP\), \(\Upsilon=\partial_yU\) on
+\(\Omega=\{(y,t):y>0,\ 0\le t<t_e(y)\}\). Then \(\Upsilon=PJ\) and \(J>0\) on \(\Omega\), and
+\(\Gamma:=\tau(X)\Pi/J\) satisfies \(-1<\Gamma\le\sqrt{2m}\).
+\end{lemma}
+\begin{proof}
+Differentiating \eqref{eq:char} in \(y\), \(A=\Upsilon-PJ\) satisfies \(\dot A=-\partial_uH_m\,A=-A/\tau\),
+and \(A(0)=F_0'(y)-F_0'(y)=0\); so \(A\equiv0\). With \(\kappa=1/\tau\) this gives \(\dot J=\Pi\) and
+\(\dot\Pi=-J(\kappa''U+2\kappa'P)-\kappa\Pi\). Let \(t_1=\sup\{t<t_e:J>0\text{ on }[0,t]\}\). On \([0,t_1)\),
+\(r=\Pi/J\) satisfies \(\dot r=-r^2-\kappa r-2\kappa'P-\kappa''U\), and \(\Gamma=\tau r\) satisfies
+\begin{equation}\label{eq:Gamma}
+\tau\dot\Gamma=-\Gamma^2-\Gamma\bigl(1+k(q+\tfrac12)\bigr)-2kD .
+\end{equation}
+By \eqref{eq:WD} and \zcref{lem:region}, \(D\le q/2\); also \(D\ge-P\ge-m\). Initially
+\(\Gamma(0)=\tau(y)F_0''(y)\in[-m/e,0]\). At a first time with \(\Gamma=-1\), \eqref{eq:Gamma} gives
+\(\tau\dot\Gamma=k(q+\frac12-2D)\ge k/2>0\), which is impossible; at a first time with
+\(\Gamma=\sqrt{2m}\) it gives \(\tau\dot\Gamma\le-2m-\sqrt{2m}+2km<0\), also impossible. So
+\(-1<\Gamma\le\sqrt{2m}\) on \([0,t_1)\). If \(t_1<t_e\), then \(X\ge X(t_1)>0\) on \([0,t_1]\), so
+\(r\ge-1/\tau(X(t_1))\) and \(J(s)=\exp\int_0^sr\ge\exp(-t_1/\tau(X(t_1)))\) on \([0,t_1)\); by continuity
+\(J>0\) on a neighbourhood of \(t_1\), a contradiction. Hence \(J>0\) on \(\Omega\).
+\end{proof}
+
+With only the bound \(D\le q\) (which is what \(F\le m(1-e^{-x})\) gives) the right side of \eqref{eq:Gamma}
+at \(\Gamma=-1\) is only known to be at least \(k(\frac12-q)\), positive when \(q<\frac12\): this is the
+origin of the restriction \(m<1/2\) in Jang and Tran's Lemma~3.6. The half-slope invariant is used exactly here.
+
+\begin{proposition}[global classical solution]\label{prop:global}
+For each \(t\ge0\), \(\Omega_t=\{y:t_e(y)>t\}\) is an interval \((a(t),\infty)\), with \(a(0)=0\) and
+\(a(t)\ge t/2\), and \(X(t;\cdot)\) maps it increasingly onto \((0,\infty)\). The map
+\(\Phi(y,t)=(X(t;y),t)\) is a \(C^\infty\) diffeomorphism of \(\Omega\) onto \((0,\infty)\times[0,\infty)\).
+The function \(F=U\circ\Phi^{-1}\) is \(C^\infty\) on \((0,\infty)\times[0,\infty)\) (one-sided derivatives
+at \(t=0\)), \(F(\cdot,0)=F_0\), \(F_x=P\circ\Phi^{-1}\), \(F\) solves \eqref{eq:HJ}, and
+\[
+0\le F_x\le m,\qquad 0<F\le m\tau(x),\qquad \tau(m+F_x)-2F\ge0,\qquad -1<\tau F_{xx}\le\sqrt{2m}.
+\]
+\end{proposition}
+\begin{proof}
+\(\Omega\) is relatively open (lower semicontinuity of \(t_e\)) and \(\Phi\) is \(C^\infty\) with Jacobian
+determinant \(J>0\). \emph{Interval property.} Let \(y<y'\), \(y\in\Omega_t\), and
+\(s^*=\sup\{s\le t:[y,y']\times[0,s]\subset\Omega\}\). For \(s<s^*\) and \(\eta\in[y,y']\),
+\(X(s;\eta)\ge X(s;y)\ge X(t;y)>0\), because \(J>0\) and \(X\) decreases in time. So on \([0,s^*)\) these
+characteristics stay in the compact set \([X(t;y),y']\times[0,m]\times[0,2m]\), near which the vector field is
+smooth; a uniform extension time shows \(s^*=t\) and \(y'\in\Omega_t\). Thus \(\Omega_t=(a(t),\infty)\). As
+\(t_e(y)\le2y\), \(a(t)\ge t/2\). \emph{Onto.} \(X(t;y)\ge y-(m+\frac12)t\to\infty\). If \(X(t;y)\ge\ell>0\) on
+\(\Omega_t\), then \(a=a(t)>0\), \(t_e(a)\le t\), and continuous dependence gives, for \(s<t_e(a)\),
+\(X(s;a)=\lim_{y\downarrow a}X(s;y)\ge\ell\), contradicting \(X(s;a)\to0\) (\zcref{lem:region}). So
+\(\Phi\) is a bijection with positive Jacobian, hence a diffeomorphism. \emph{Equation.} Differentiating
+\(U(t;y)=F(X(t;y),t)\) in \(y\) gives \(\Upsilon=F_xJ\), so \(F_x=P\) by \zcref{lem:barrier}; in \(t\),
+\(\dot U=F_x\dot X+F_t\), so \(F_t=\dot U-P\partial_pH_m=-H_m\). Differentiating \(F_x(X,t)=P\) in \(y\)
+gives \(F_{xx}=\Pi/J\). The bounds are \zcref{lem:region,lem:barrier}.
+\end{proof}
+
+\begin{lemma}[comparison]\label{lem:comparison}
+Let \(G\in C^1((0,\infty)\times[0,\infty))\) satisfy \(G_t+H_m(x,G,G_x)\ge0\), \(0\le G_x\le m\) and
+\(G(\cdot,0)\ge F_0\). Then \(G\ge F\).
+\end{lemma}
+\begin{proof}
+Since \(H_m(x,u,p)-H_m(x,\tilde u,\tilde p)=(p-\tilde p)\bigl(\frac{p+\tilde p}2-m-\frac12\bigr)+(u-\tilde u)/\tau\),
+\(w=F-G\) satisfies \(w_t+bw_x+w/\tau\le0\) with \(b=\frac{F_x+G_x}2-m-\frac12\in[-(m+\frac12),-\frac12]\)
+continuous. Fix \(x_1,t_1>0\) and let \(Y\) solve \(\dot Y=b(Y,t)\), \(Y(t_1)=x_1\), backwards in time
+(Peano). Backwards, \(Y\) increases: \(Y(t)\in[x_1+\frac{t_1-t}2,x_1+(m+\frac12)(t_1-t)]\), so \(Y\) exists
+on \([0,t_1]\) inside \((0,\infty)\). Then \(g(t)=w(Y(t),t)\) satisfies \(\dot g\le-g/\tau(Y)\), so
+\(w(x_1,t_1)\le w(Y(0),0)\exp(-\int_0^{t_1}1/\tau(Y))\le0\). No boundary condition at \(x=0\) is needed.
+\end{proof}
+
+\begin{lemma}[slope at the boundary]\label{lem:slope}
+(a) For \(m\in(0,1]\) and every \(t\ge0\), \(F(x,t)/x\to m\) as \(x\downarrow0\).
+(b) If \(m<1\), \(t_0>0\) and \(0<\delta<\min\{1,t_0/2\}\), then for \(0<x<\delta\) and \(t\ge t_0\)
+\[
+0\le m-\frac{F(x,t)}{\tau(x)}\le Kx^\alpha,
+\]
+\[
+\alpha=\frac{1-m}{2m+1},\qquad K=m\delta^{-\alpha}+\frac{2C}{2-\alpha}\delta^{2-\alpha},\qquad
+C=\frac{m(m+\frac12)}4 .
+\]
+\end{lemma}
+\begin{proof}
+At \(t=0\), (a) is \(F_0(x)/x\to m\). Let \(t>0\), \(0<\delta<\min\{1,t/2\}\), \(0<x<\delta\), and follow the
+characteristic through \((x,t)\). Its label is \(y\ge x+t/2>\delta\) and \(X\) decreases at speed at least
+\(\frac12\), so \(X(s_1)=\delta\) for some \(s_1\in[t-2\delta,t)\subset(0,t)\), and \(X\in[x,\delta]\) on
+\([s_1,t]\). Regard \(\lambda,\eta\) on this segment as functions of \(X\); \(d/dX=-v^{-1}d/ds\),
+\(\frac12\le v\le m+\frac12\le\frac32\), \(\eps\le\frac38X^2\), and \(\eps\lambda/\tau\le CX\).
+
+(b) As \(\eta\le m<1\), \(\eta(1-\eta)\ge(1-m)\eta\), and \eqref{eq:lambda} gives
+\(\dot\eta\le-\frac{(1-m)\eta}{2\tau}+CX\). Since \(\eta\ge0\) and \(\tau\le X\),
+\(\frac{d\eta}{dX}\ge\frac{(1-m)\eta}{2v\tau}-\frac{CX}{v}\ge\frac{\alpha}{X}\eta-2CX\). Integrating
+\((X^{-\alpha}\eta)'\ge-2CX^{1-\alpha}\) over \([x,\delta]\) with \(\eta(\delta)\le m\) gives the bound, whose
+constant does not depend on \(t\ge t_0\).
+
+(a) Let \(m\le1\) and \(\theta\in(0,m)\); choose \(\delta\) also with \(\frac38\delta^2\le\frac\theta4\). As
+\(1-m+\lambda\ge\lambda\), \eqref{eq:lambda} gives \(\dot\lambda\ge\frac\lambda\tau(\frac{m-\lambda}2-\eps)\).
+So on \([s_1,t]\), \(\dot\lambda\ge\theta\lambda/(4\tau)>0\) whenever \(\lambda\le m-\theta\): the set
+\(\{\lambda\ge m-\theta\}\) is never left once entered, and while \(\lambda\le m-\theta\),
+\(d\lambda/dX\le-\frac\theta6\lambda/X\), i.e. \(\lambda(X)\ge\lambda(\delta)(\delta/X)^{\theta/6}\). The entry
+value satisfies \(\lambda(\delta)=F(\delta,s_1)/\tau(\delta)\ge\lambda_*:=\min_{s\in[0,t]}F(\delta,s)/\tau(\delta)>0\).
+Hence \(F(x,t)/\tau(x)\ge m-\theta\) for \(x<\delta(\lambda_*/(m-\theta))^{6/\theta}\), while
+\(F/\tau\le m\). Since \(\theta\) is arbitrary and \(\tau(x)/x\to1\), (a) follows.
+\end{proof}
+
+\section{Existence: positive truncations and comparison}\label{sec:existence}
+
+For \(L\ge2\) the truncated system keeps the coagulation events with \(i+j\le L\):
+\begin{equation}\label{eq:trunc}
+\dot\rho^L_n=\frac12\sum_{i=1}^{n-1}i(n-i)\rho^L_i\rho^L_{n-i}-n\rho^L_n\sum_{j=1}^{L-n}j\rho^L_j
+-\frac{n-1}{2}\rho^L_n+\sum_{j=n+1}^{L}\rho^L_j,\qquad1\le n\le L,
+\end{equation}
+with \(\rho^L_n(0)=\rho^0_n\) for \(n<L\) and \(\rho^L_L(0)=\rho^0_L+L^{-1}\sum_{j>L}j\rho^0_j\). Let
+\(F^L(x,t)=\sum_{n\le L}(1-e^{-nx})\rho^L_n(t)\).
+
+\begin{lemma}\label{lem:trunc}
+\eqref{eq:trunc} has a unique global solution; it is nonnegative and \(\sum_{n\le L}n\rho^L_n\equiv m\).
+Moreover \(F^L\) is \(C^1\), \(0\le F^L_x\le m\), \(F^L(\cdot,0)\ge F_0\), and
+\begin{equation}\label{eq:super}
+F^L_t+H_m(x,F^L,F^L_x)=E_L:=\frac12\sum_{\substack{i,j\le L\\ i+j>L}}ij\rho^L_i\rho^L_j(1-e^{-ix})(1-e^{-jx})\ \ge0 .
+\end{equation}
+\end{lemma}
+\begin{proof}
+The right side of \eqref{eq:trunc} is polynomial and quasi-positive (\(\rho^L\ge0\), \(\rho^L_n=0\) imply
+\(\dot\rho^L_n\ge0\)), so the nonnegative orthant is invariant. Coagulation conserves \(i+j\) and fragmentation
+conserves size, so \(\sum n\rho^L_n\) is constant, equal to \(\sum_{n<L}n\rho^0_n+L\rho^0_L+\sum_{j>L}j\rho^0_j=m\);
+the solution is bounded, hence global. For \eqref{eq:super} take \(g(n)=1-z^n\), \(z=e^{-x}\), in the weak
+form of \eqref{eq:trunc}. As \(g(i+j)-g(i)-g(j)=-(1-z^i)(1-z^j)\), coagulation contributes
+\(-\frac12(\sum_nn(1-z^n)\rho^L_n)^2+E_L=-\frac12(m-F^L_x)^2+E_L\). For fragmentation,
+\(\sum_{k=1}^{n-1}(g(n)-g(k)-g(n-k))=-(n-1)(1+z^n)+2(z-z^n)/(1-z)\); summing against \(-\frac12\rho^L_n\) with
+\(\sum z^n\rho^L_n=n_0-F^L\), \(\sum nz^n\rho^L_n=F^L_x\) gives
+\(\frac12(m+F^L_x)-F^L\bigl(\frac1{1-z}-\frac12\bigr)=\frac12(m+F^L_x)-F^L/\tau\). Hence
+\(F^L_t=-\frac12(m-F^L_x)^2+\frac12(m+F^L_x)-F^L/\tau+E_L\), which is \eqref{eq:super}. The same computation
+with \(E=0\) gives Jang--Tran's (1.7) for a mass-conserving solution. Finally
+\(F^L(x,0)-F_0(x)=\sum_{j>L}j\rho^0_j\bigl(\frac{1-e^{-Lx}}L-\frac{1-e^{-jx}}j\bigr)\ge0\), since
+\(s\mapsto(1-e^{-sx})/s\) decreases.
+\end{proof}
+
+\begin{proof}[of \zcref{thm:evolution}]
+Uniqueness and the formula for \(n_0\) are \zcref{prop:closed}.
+
+\emph{Barrier.} By \zcref{lem:trunc,lem:comparison}, \(F^L\ge F\) for every \(L\).
+
+\emph{Compactness.} Extend \(\rho^L_n=0\) for \(n>L\). Then \(0\le\rho^L_n\le m/n\) and
+\(|\dot\rho^L_n|\le3m^2/2+3m/2\). By Arzelà--Ascoli and a diagonal argument, along some \(L_k\to\infty\),
+\(\rho^{L_k}_n\to\rho_n\) locally uniformly on \([0,\infty)\) for every \(n\), with \(\rho_n\ge0\) continuous,
+\(\rho_n(0)=\rho^0_n\), and \(M(t):=\sum n\rho_n(t)\le m\) by Fatou. As \(\sum_{n>N}\rho^L_n\le m/(N+1)\),
+\(F^{L_k}(x,t)\to F^\rho(x,t):=\sum(1-e^{-nx})\rho_n(t)\).
+
+\emph{No mass loss.} \(F^\rho\ge F\), and \(1-e^{-nx}\le nx\) gives
+\(M(t)\ge F^\rho(x,t)/x\ge F(x,t)/x\) for all \(x>0\). By \zcref{lem:slope}(a), \(M(t)\ge m\); so \(M(t)=m\)
+for every \(t\ge0\).
+
+\emph{Limit equation.} Fix \(t\). Coordinatewise convergence and equality of the masses give tightness: if
+\(\sum_{n\le N}n\rho_n(t)>m-\epsilon\), then \(\sum_{n>N}n\rho^{L_k}_n(t)<2\epsilon\) for large \(k\). So
+\(\mu^{L_k}_n(t)=\sum_{j\le L_k-n}j\rho^{L_k}_j(t)\to m\) for fixed \(n\). In the integral form of
+\eqref{eq:trunc}, the coagulation gain is a finite sum, the loss \(n\rho^L_n\mu^L_n\le m^2\) converges
+pointwise to \(nm\rho_n\) (dominated convergence), and the fragmentation gain converges uniformly by the
+number-tail bound. Hence \(\rho_n(t)=\rho^0_n+\int_0^tK(\rho(s))_n\,ds\) for all \(n\) and \(t\).
+
+\emph{Regularity.} If \(t_j\to t\), the nonnegative sequences \(\rho(t_j)\) converge coordinatewise to
+\(\rho(t)\) with equal masses, so \(\sum n|\rho_n(t_j)-\rho_n(t)|=2\sum n(\rho_n(t)-\rho_n(t_j))^+\to0\)
+(discrete Scheffé, dominated convergence): \(\rho\in C([0,\infty);\ell^1_1)\). The map
+\(K:\ell^1_1\to\ell^1\) is locally Lipschitz (bilinear coagulation part of norm at most
+\(\frac32\|u\|_{\ell^1_1}\|v\|_{\ell^1_1}\), linear fragmentation part of norm at most \(\frac32\)). So the integral
+identity holds in \(\ell^1\) with continuous integrand, \(\rho\in C^1([0,\infty);\ell^1)\), and for bounded
+\(g\), \(\sum g(n)\rho_n\) is \(C^1\) with derivative \(\sum g(n)K(\rho)_n\), the right side of \eqref{eq:weak}
+after rearranging absolutely convergent double series. Thus \(\rho\) is a classical mass-conserving solution;
+\zcref{prop:closed} gives \(C^\infty\) components. By uniqueness the whole family \(\rho^L\) converges.
+\end{proof}
+
+\begin{remark}
+The transform of the solution is the characteristic solution: \(F^\rho=F\). Indeed \(F^\rho\) is \(C^1\) and
+solves \eqref{eq:HJ} by the computation of \zcref{lem:trunc} with \(E=0\); \(w=F^\rho-F\) then solves
+\(w_t+bw_x+w/\tau=0\), \(w(\cdot,0)=0\), and the argument of \zcref{lem:comparison} applied to \(\pm w\) gives
+\(w=0\). This is not needed above.
+\end{remark}
+
+\section{Stationary states and relaxation}\label{sec:stationary}
+
+\begin{proof}[of \zcref{thm:stationary}]
+Let \(0<m\le1\) and \(\rho\) be the solution of \zcref{thm:evolution} for a datum of mass \(m\). In
+\eqref{eq:closed}, \(n_0(t)\to m(1-m)\). If \(\dot u+cu=f(t)\) with \(c>0\) and \(f(t)\to f_\infty\), then
+\(u(t)\to f_\infty/c\). Applied to \eqref{eq:closed} for \(n=1,2,\dots\) in turn, this gives
+\(\rho_n(t)\to\rtil_n\), where \(c_n\rtil_n=m(1-m)-\sum_{j<n}\rtil_j+\frac12\sum i(n-i)\rtil_i\rtil_{n-i}\), which is
+\eqref{eq:recursion} since \(2c_n=(2m+1)n+1\). Hence \(\rtil_n\ge0\). For \(m=1\) the recursion gives
+\(\rtil\equiv0\).
+
+Let now \(m<1\). By the number-tail bound, \(F^\rho(x,t)\to\tilde F(x):=\sum(1-e^{-nx})\rtil_n\) and
+\(\sum\rtil_n=\lim n_0(t)=m(1-m)\). By the barrier step of the previous proof, \(F^\rho\ge F\), and
+\zcref{lem:slope}(b) with \(t_0=1\) gives \(F^\rho(x,t)\ge\tau(x)(m-Kx^\alpha)\) for \(0<x<\delta\),
+\(t\ge1\). Letting \(t\to\infty\), \(\tilde F(x)\ge\tau(x)(m-Kx^\alpha)\), so
+\(\sum n\rtil_n=\lim_{x\downarrow0}\tilde F(x)/x\ge m\); Fatou gives the reverse inequality.
+With these two sums, \(\sum_{j>n}\rtil_j=m(1-m)-\sum_{j\le n}\rtil_j\), and \eqref{eq:recursion} is the equation
+\(K(\rtil)_n=0\): \(\rtil\) is stationary. Strict positivity: \(\rtil_1=m(1-m)/(m+1)>0\), and the numerator of
+\eqref{eq:recursion} equals \(2\sum_{j\ge n}\rtil_j+\sum_{i=1}^{n-1}i(n-i)\rtil_i\rtil_{n-i}\), which is at least
+\((n-1)\rtil_1\rtil_{n-1}>0\) if \(\rtil_{n-1}>0\). Uniqueness: a stationary \(\sigma\) with \(m_1(\sigma)=m\) is a
+constant mass-conserving solution; \zcref{prop:closed} gives \(\sum\sigma_n=m(1-m)\) and \eqref{eq:closed} with
+\(\dot\sigma=0\), that is \eqref{eq:recursion}; so \(\sigma=\rtil\). Relaxation: \(\rho_n(t)\to\rtil_n\) and both
+masses equal \(m\), so \(\rho(t)\to\rtil\) in \(\ell^1_1\) by the discrete Scheffé argument.
+\end{proof}
+
+Jang and Tran obtained the stationary state for \(m\le1/2\) as the long-time limit of their solutions
+(Lemma~5.7, using their Lemma~5.1 on viscosity solutions); for \(m\ge1\) none exists (their Lemma~5.6).
+
+\section{Decay of the stationary state}\label{sec:asymptotics}
+
+\emph{Attribution.} The singularity analysis of this section was found by GPT-6-Astra; it originally served a
+continuation-in-\(m\) proof of positivity. Here positivity and the moment identities are supplied by
+\zcref{thm:stationary}, so only the fixed-\(m\) analysis is needed; it was rechecked and condensed by the
+final author.
+
+Fix \(m\in(0,1)\), \(a=2m+1\), \(N=m(1-m)\), \(H(z)=\sum\rtil_nz^n\), \(P(z)=zH'(z)=\sum n\rtil_nz^n\), with common
+radius \(R\). By \zcref{thm:stationary}, \(R\ge1\), \(P\) is strictly increasing on \([0,1]\) with
+\(P(1)=m\), \(H(1)=N\). Multiplying \(K(\rtil)_n=0\) by \(2z^n\) and summing (absolutely convergent) gives, for
+\(|z|<R\),
+\begin{equation}\label{eq:gen}
+(1-z)(aP-P^2)-2zN+(1+z)H=0,
+\end{equation}
+and, after differentiation and elimination of \(H\),
+\begin{equation}\label{eq:P}
+z(1-z^2)(a-2P)P'=2z(m-P)(P+1-m)-(1-z)^2P .
+\end{equation}
+
+\begin{lemma}\label{lem:one}
+\(H\) and \(P\) extend analytically across \(z=1\); hence \(R>1\).
+\end{lemma}
+\begin{proof}
+For \(0<z<1\) put \(r=(m-P)/(1-z)>0\). Substituting into \eqref{eq:P} gives
+\[
+r'=\frac{m-r+2z(z+2)r^2}{z(1+z)\bigl(1+2(1-z)r\bigr)} .
+\]
+Suppose \(r\) is unbounded near \(1\). For \(z\) close to \(1\) the numerator is positive once \(r\) exceeds a
+fixed constant, so \(r\) eventually increases to \(+\infty\); since \((1-z)r=m-P\to0\), the denominator tends
+to \(2\) and \(r'/r^2\to3\). Integrating \((1/r)'=-r'/r^2\) up to \(1\) gives \((1-z)r\to1/3\), a contradiction.
+So \(r\) is bounded, \(r'\) is bounded, \(r\) has a limit \(r_1\), and the equation is analytic at
+\((1,r_1)\) (denominator \(2\)); its analytic solution through that point coincides with \(r\). Thus
+\(P=m-(1-z)r\) and, by \eqref{eq:gen}, \(H=N-\frac{1-z}{1+z}(N+aP-P^2)\) are analytic at \(1\). Pringsheim's
+theorem \autocite[Theorem IV.6]{FlajoletSedgewick2009} (the coefficients are positive) excludes \(R=1\).
+\end{proof}
+
+\begin{lemma}\label{lem:turning}
+\(R<\infty\), \(P(R^-)=p_*:=m+\frac12\), and near \(R\),
+\(P(z)=p_*-b\sqrt{1-z/R}+O(1-z/R)\) with a convergent expansion in powers of \(\sqrt{1-z/R}\) and \(b\) as in
+\zcref{thm:asymptotics}. The point \(R\) is the only singularity of \(H\) on \(|z|=R\).
+\end{lemma}
+\begin{proof}
+On \((1,R)\), \(P>P(1)=m\). If \(P\) reached \(p_*\) at some \(z_0<R\), the left side of \eqref{eq:P} would
+vanish there while the right side equals \(-\frac32z_0-(1-z_0)^2p_*<0\); so \(m<P<p_*\) on \((1,R)\). For
+\(z\ge2\) in that interval, both sides of \eqref{eq:P} are negative and
+\(P'\ge\frac{(z-1)P}{z(z+1)(a-2P)}\ge\frac P{3z}\) (as \(0<a-2P<1\)); if \(R=\infty\) this contradicts
+\(P<p_*\). If \(P(R^-)<p_*\), \eqref{eq:P} is regular at \((R,P(R^-))\) and continues \(P\) analytically
+across \(R\), contradicting Pringsheim; so \(P(R^-)=p_*\). Near this point the inverse function solves the
+regular equation \(dz/dp=B(z)(a-2p)/D(z,p)\), \(B=z(1-z^2)\), \(D=2z(m-p)(p+1-m)-(1-z)^2p\), with
+\(B(R)<0\), \(D(R,p_*)<0\); so \(z(p)\) is analytic at \(p_*\) with \(z'(p_*)=0\),
+\(z''(p_*)=-2B(R)/D(R,p_*)<0\). Inverting this quadratic critical point gives the expansion, with
+\(b^2=RD(R,p_*)/B(R)\), which is the stated formula. Finally \(\sum n\rtil_nR^n=p_*<\infty\), so \(H,P\) are
+continuous on \(|z|\le R\). If \(|w|=R\), \(w\ne R\), strict positivity of \(\rtil_1,\rtil_2\) gives
+\(|P(w)|<P(R)=a/2\), so \(a-2P(w)\neq0\) and \(w\ne1\); then \eqref{eq:gen} defines \(P\) analytically in
+terms of \((z,H)\) near \((w,H(w),P(w))\), and the regular equation \(H'=P/z\) continues \(H\) analytically
+across \(w\).
+\end{proof}
+
+\begin{proof}[of \zcref{thm:asymptotics}]
+By \zcref{lem:turning} and compactness, \(H\) is analytic in a \(\Delta\)-domain at \(R\)
+\autocite[Definition VI.1, Section VI.3]{FlajoletSedgewick2009}. With \(s=1-z/R\), \(dH/ds=-P/(1-s)\), so integrating the
+expansion of \(P\) gives \(H=A(s)+s^{3/2}g(s)\) with \(A,g\) analytic near \(0\) and \(g(0)=\frac{2b}3\). Hence
+\(H-A_0-A_1s-A_2s^2-\frac{2b}3s^{3/2}=O(s^{5/2})\) in the \(\Delta\)-domain, where \(A_0+A_1s+A_2s^2\) is a
+polynomial in \(z\) and does not contribute to coefficients of index \(n>2\).
+The transfer theorems \autocite[Theorems VI.1 and VI.3]{FlajoletSedgewick2009} give
+\([z^n]H=\frac{2b}{3\,\Gamma(-3/2)}R^{-n}n^{-5/2}(1+O(n^{-1}))\), and \(\Gamma(-\frac32)=\frac43\sqrt\pi\).
+\end{proof}
+
+In particular \(\rtil\) has exponential moments \(\sum q^n\rtil_n<\infty\) for \(q<R(m)\). The slow decay for
+\(m\) close to \(1\) (where \(R(m)\to1\)) is visible numerically: for \(m=0.75\), the mass carried by sizes
+above \(3000\) is about \(2\times10^{-9}\).
+
+\section{Remarks and limitations}
+
+\begin{remark}[what is used where]
+The restriction \(m\le1\) enters only through the face \(U=0\) of the invariant region
+(\(\dot U=\frac12(P^2+m-m^2)\) there); for \(m>1\) Jang and Tran's Theorem~1.1 excludes global mass-conserving
+solutions, and \zcref{prop:closed} shows directly that \(n_0\) would become negative. The restriction \(m<1\)
+enters only in the uniform-in-time estimate \zcref{lem:slope}(b), which is needed for the stationary state.
+\end{remark}
+
+\begin{remark}[moments]
+\zcref{thm:evolution} does not assert that \(m_2(\rho(t))\) is finite for \(t>0\) when \(m_2(\rho^0)=\infty\);
+it is not needed. The solution is classical in Jang and Tran's sense (each component is differentiable and
+satisfies \eqref{eq:system}).
+\end{remark}
+
+\begin{remark}[relation to the literature]
+Tran and Van \autocite{TranVan2022}, Jang and Tran, and Van construct solutions as vanishing-viscosity limits of viscosity
+solutions and then prove a Bernstein (positivity) property, which requires regularity of the
+Hamilton--Jacobi solution at the boundary \(x=0\). Here positivity comes from the finite truncations, the
+characteristic solution is used only as a lower barrier, and its boundary behaviour reduces to the ODE
+inequality of \zcref{lem:slope}. The invariant \(W\) is the discrete form of Van's half-slope invariant
+\(2M-xM_x\ge0\), \(M=mx-F\) \autocite{Van2026}.
+\end{remark}
+
+\begin{remark}[an alternative stationary argument]
+GPT-6-Astra also sketched a purely stationary proof of positivity of \eqref{eq:recursion}, by continuation in
+\(m\) from Jang and Tran's range \(m\le1/2\), based on a parameter-uniform version of
+\zcref{lem:one,lem:turning} and uniform singularity transfer. Its uniformity step (a common
+\(\Delta\)-domain and uniform transfer near the moving turning point \(R(m)\)) has not been checked to the
+standard of this paper, and it is not used; the draft is kept outside the deliverables.
+\end{remark}
+
+\section{Computer checks and independent verification}
+
+The proofs do not depend on numerical computation. Scripts in \texttt{scripts/} (each prints PASS/FAIL):
+\texttt{check\_evolution\_identities.py} verifies exactly (sympy) every identity of
+Sections~\ref{sec:HJ}--\ref{sec:existence}: \(1/\tau=\frac12+\frac1{e^x-1}\), the transform equations for the
+full and truncated systems (\eqref{eq:super} with \(E_L\)), the characteristic equations, \eqref{eq:W},
+\eqref{eq:WD}, \eqref{eq:lambda}, the strip condition, the Riccati equation, \eqref{eq:Gamma}, the identity of
+\zcref{lem:initial} for \(j\le60\) and the elementary inequalities.
+\texttt{check\_identities.py} (GPT-6-Astra) verifies the stationary identities \eqref{eq:gen}, \eqref{eq:P},
+the \(r\)-equation, the turning-point quantities and \(b^2\); \texttt{check\_coefficients\_arb.py} encloses the
+first 256 coefficients of \eqref{eq:recursion} at six masses in Arb ball arithmetic (finite consistency check).
+\texttt{numerics\_evolution.py} is floating-point evidence only: invariants and barrier along characteristics
+for monomer and infinite-second-moment data, the comparison \(F^L\ge F\), agreement of the triangular and
+truncated systems, and the long-time limit. Its complete run is reported in \texttt{README.md}.
+
+\paragraph{Independent verification.} The points singled out for checking (the no-crossing and
+global-coverage argument, \zcref{lem:barrier} and \zcref{prop:global}; the uniformity in \zcref{lem:slope}(a)
+over characteristics arriving near \(x=0\); the identity \eqref{eq:super} and the sign of \(E_L\); the
+tightness step in the coagulation loss; the use of \zcref{lem:slope}(b) to prevent mass escape as
+\(t\to\infty\); the singularity analysis) were re-derived by an independent verifier, who found no
+mathematical gap. The verifier re-ran all scripts and added independent checks (different integrators,
+infinite-second-moment data at \(m=0.9\) and \(m=1\), Arb enclosures of \eqref{eq:recursion}, an independent
+computation of \(R(m)\) and of the constant of \zcref{thm:asymptotics}) in \texttt{verification/}; the
+report, with the list of corrections, is \texttt{verification.md}.
+
+\begingroup
+\emergencystretch=2em
+\paperreferences
+\endgroup
+\end{document}

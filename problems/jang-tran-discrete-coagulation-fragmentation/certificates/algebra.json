@@ -1,0 +1,126 @@
+{
+  "arithmetic": "exact symbolic rational arithmetic",
+  "scope": "Identities and first six coefficient signs only",
+  "claims": [
+    {
+      "claim": "H recovery satisfies implicit generating equation",
+      "pass": true
+    },
+    {
+      "claim": "differentiation gives the P ordinary differential equation",
+      "pass": true
+    },
+    {
+      "claim": "r=(m-P)/(1-z) regularization",
+      "pass": true
+    },
+    {
+      "claim": "coefficient at the removable endpoint",
+      "pass": true
+    },
+    {
+      "claim": "large-r endpoint coefficient is 3",
+      "pass": true
+    },
+    {
+      "claim": "first-contact numerator at P=m",
+      "pass": true
+    },
+    {
+      "claim": "turning-point numerator is strictly negative for z>1",
+      "pass": true
+    },
+    {
+      "claim": "inverse has a quadratic turning point",
+      "pass": true
+    },
+    {
+      "claim": "square-root amplitude formula",
+      "pass": true
+    },
+    {
+      "claim": "coefficient transfer amplitude",
+      "pass": true
+    },
+    {
+      "claim": "recursion coefficient 1",
+      "pass": true
+    },
+    {
+      "claim": "rho_1>0 for every 0<m<1",
+      "pass": true
+    },
+    {
+      "claim": "recursion coefficient 2",
+      "pass": true
+    },
+    {
+      "claim": "rho_2>0 for every 0<m<1",
+      "pass": true
+    },
+    {
+      "claim": "recursion coefficient 3",
+      "pass": true
+    },
+    {
+      "claim": "rho_3>0 for every 0<m<1",
+      "pass": true
+    },
+    {
+      "claim": "recursion coefficient 4",
+      "pass": true
+    },
+    {
+      "claim": "rho_4>0 for every 0<m<1",
+      "pass": true
+    },
+    {
+      "claim": "recursion coefficient 5",
+      "pass": true
+    },
+    {
+      "claim": "rho_5>0 for every 0<m<1",
+      "pass": true
+    },
+    {
+      "claim": "recursion coefficient 6",
+      "pass": true
+    },
+    {
+      "claim": "rho_6>0 for every 0<m<1",
+      "pass": true
+    }
+  ],
+  "rho_n_divided_by_m_times_one_minus_m": [
+    {
+      "n": 1,
+      "numerator": "1",
+      "denominator": "m + 1"
+    },
+    {
+      "n": 2,
+      "numerator": "m*(m + 3)",
+      "denominator": "(m + 1)**2*(4*m + 3)"
+    },
+    {
+      "n": 3,
+      "numerator": "2*m**2*(m**2 + 3*m + 6)",
+      "denominator": "(m + 1)**3*(3*m + 2)*(4*m + 3)"
+    },
+    {
+      "n": 4,
+      "numerator": "4*m**3*(9*m**4 + 64*m**3 + 135*m**2 + 232*m + 120)",
+      "denominator": "(m + 1)**4*(3*m + 2)*(4*m + 3)**2*(8*m + 5)"
+    },
+    {
+      "n": 5,
+      "numerator": "4*m**4*(36*m**5 + 248*m**4 + 985*m**3 + 1507*m**2 + 2259*m + 1125)",
+      "denominator": "(m + 1)**5*(3*m + 2)*(4*m + 3)**2*(5*m + 3)*(8*m + 5)"
+    },
+    {
+      "n": 6,
+      "numerator": "4*m**5*(3600*m**8 + 42228*m**7 + 189475*m**6 + 611254*m**5 + 1124070*m**4 + 1570380*m**3 + 1531047*m**2 + 801450*m + 163296)",
+      "denominator": "(m + 1)**6*(3*m + 2)**2*(4*m + 3)**3*(5*m + 3)*(8*m + 5)*(12*m + 7)"
+    }
+  ]
+}

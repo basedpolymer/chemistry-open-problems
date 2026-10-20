@@ -1,0 +1,19 @@
+PASS D1 heavy tail m=0.9: truncated systems stay >= 0 and conserve mass (L = 250..2000)
+PASS D1 heavy tail m=0.9: sizes <= 20 converge to the closed (mass-conserving) system as L grows  [max diff, L=250,500,1000,2000: 8.2e-03, 3.3e-03, 9.1e-04, 1.3e-04]
+PASS D1 heavy tail m=0.9: mass in sizes > L/2 decreases with L (no accumulation at the cutoff)  [1.14e-01, 8.02e-02, 4.82e-02, 2.09e-02]
+PASS D1 heavy tail m=1.0: truncated systems stay >= 0 and conserve mass (L = 250..2000)
+PASS D1 heavy tail m=1.0: sizes <= 20 converge to the closed (mass-conserving) system as L grows  [max diff, L=250,500,1000,2000: 2.1e-02, 1.3e-02, 7.8e-03, 4.1e-03]
+PASS D1 heavy tail m=1.0: mass in sizes > L/2 decreases with L (no accumulation at the cutoff)  [1.92e-01, 1.63e-01, 1.36e-01, 1.11e-01]
+PASS D2 heavy tail m=0.9: 0<=P<=m, U>0, W>=0, Gamma>-1, J>0 along the characteristics used  [min P=7.1e-04, max P-m=-2.4e-01, min W/tau=5.4e-02, min Gamma=-0.161, min J=5.32e-01]
+PASS D2 heavy tail m=0.9: comparison F^L >= F, gap decreasing in L  [t=1 x=0.02: 1.6e-04..2.9e-07; t=1 x=0.1: 5.6e-04..1.8e-06; t=1 x=0.5: 1.1e-03..6.5e-06; ...]
+PASS D2 heavy tail m=1.0: 0<=P<=m, U>0, W>=0, Gamma>-1, J>0 along the characteristics used  [min P=5.8e-04, max P-m=-3.5e-01, min W/tau=1.1e-01, min Gamma=-0.164, min J=5.55e-01]
+PASS D2 heavy tail m=1.0: comparison F^L >= F, gap decreasing in L  [t=1 x=0.02: 6.4e-04..1.4e-06; t=1 x=0.1: 2.0e-03..4.4e-06; t=1 x=0.5: 3.7e-03..1.1e-05; ...]
+PASS D3 m=1, t=1: F(x,t)/tau(x) increases towards 1 as x -> 0  [x=1e-1..1e-4: 0.55513, 0.84293, 0.97374, 0.99712]
+PASS D3 m=1, t=3: F(x,t)/tau(x) increases towards 1 as x -> 0  [x=1e-1..1e-4: 0.22802, 0.44334, 0.72381, 0.93191]
+
+SUMMARY: ALL PASS
+
+real	7m23.642s
+user	7m23.189s
+sys	0m0.224s
+EXIT=0

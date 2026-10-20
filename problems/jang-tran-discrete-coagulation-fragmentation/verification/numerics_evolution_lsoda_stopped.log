@@ -1,0 +1,58 @@
+PASS N1 monomer m=0.50: 0<=P<=m along characteristics  [min P=1.677e-04, max P-m=-5.005e-08]
+PASS N1 monomer m=0.50: U>=0 and W>=0 along characteristics  [min U=5.000e-08, min W/tau=-1.476e-14]
+PASS N1 monomer m=0.50: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.1715, min J=4.811e-01]
+PASS N1 monomer m=0.50: every characteristic exits through x=0 in finite time
+PASS N2 monomer m=0.50: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N1 heavy-tail m=0.50: 0<=P<=m along characteristics  [min P=6.421e-05, max P-m=-2.769e-07]
+PASS N1 heavy-tail m=0.50: U>=0 and W>=0 along characteristics  [min U=5.000e-08, min W/tau=7.597e-14]
+PASS N1 heavy-tail m=0.50: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.1215, min J=4.999e-01]
+PASS N1 heavy-tail m=0.50: every characteristic exits through x=0 in finite time
+PASS N2 heavy-tail m=0.50: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N1 monomer m=0.75: 0<=P<=m along characteristics  [min P=2.516e-04, max P-m=-7.511e-08]
+PASS N1 monomer m=0.75: U>=0 and W>=0 along characteristics  [min U=7.500e-08, min W/tau=-2.194e-14]
+PASS N1 monomer m=0.75: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.2572, min J=3.648e-01]
+PASS N1 monomer m=0.75: every characteristic exits through x=0 in finite time
+PASS N2 monomer m=0.75: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N1 heavy-tail m=0.75: 0<=P<=m along characteristics  [min P=9.632e-05, max P-m=-8.009e-07]
+PASS N1 heavy-tail m=0.75: U>=0 and W>=0 along characteristics  [min U=7.500e-08, min W/tau=6.347e-13]
+PASS N1 heavy-tail m=0.75: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.1613, min J=3.909e-01]
+PASS N1 heavy-tail m=0.75: every characteristic exits through x=0 in finite time
+PASS N2 heavy-tail m=0.75: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N1 monomer m=0.90: 0<=P<=m along characteristics  [min P=3.019e-04, max P-m=-9.016e-08]
+PASS N1 monomer m=0.90: U>=0 and W>=0 along characteristics  [min U=9.000e-08, min W/tau=-2.633e-14]
+PASS N1 monomer m=0.90: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.3087, min J=3.144e-01]
+PASS N1 monomer m=0.90: every characteristic exits through x=0 in finite time
+PASS N2 monomer m=0.90: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N1 heavy-tail m=0.90: 0<=P<=m along characteristics  [min P=1.156e-04, max P-m=-1.221e-06]
+PASS N1 heavy-tail m=0.90: U>=0 and W>=0 along characteristics  [min U=9.000e-08, min W/tau=1.472e-12]
+PASS N1 heavy-tail m=0.90: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.1935, min J=3.419e-01]
+PASS N1 heavy-tail m=0.90: every characteristic exits through x=0 in finite time
+PASS N2 heavy-tail m=0.90: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N1 monomer m=0.97: 0<=P<=m along characteristics  [min P=3.254e-04, max P-m=-9.719e-08]
+PASS N1 monomer m=0.97: U>=0 and W>=0 along characteristics  [min U=9.699e-08, min W/tau=-2.832e-14]
+PASS N1 monomer m=0.97: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.3327, min J=2.943e-01]
+PASS N1 monomer m=0.97: every characteristic exits through x=0 in finite time
+PASS N2 monomer m=0.97: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N1 heavy-tail m=0.97: 0<=P<=m along characteristics  [min P=1.246e-04, max P-m=-1.447e-06]
+PASS N1 heavy-tail m=0.97: U>=0 and W>=0 along characteristics  [min U=9.697e-08, min W/tau=2.061e-12]
+PASS N1 heavy-tail m=0.97: barrier Gamma = tau F_xx > -1 and J > 0  [min Gamma=-0.2086, min J=3.225e-01]
+PASS N1 heavy-tail m=0.97: every characteristic exits through x=0 in finite time
+PASS N2 heavy-tail m=0.97: eta = m - U/tau obeys the bound of Lemma 4.6 near the exit
+PASS N3 monomer m=0.75 N=300: truncated system keeps rho>=0 and mass  [mass drift 3.6e-14, min rho -2.3e-20]
+PASS N3 monomer m=0.75 N=300: comparison F^N >= F (characteristic solution)  [min(F^N - F)=-2.33e-15, max|F^N - F|=1.66e-03]
+PASS N3 monomer m=0.97 N=300: truncated system keeps rho>=0 and mass  [mass drift 5.1e-14, min rho -3.3e-20]
+PASS N3 monomer m=0.97 N=300: comparison F^N >= F (characteristic solution)  [min(F^N - F)=-1.89e-15, max|F^N - F|=6.71e-02]
+PASS N3b monomer m=0.75, t=2: gap F^N - F >= 0 and decreasing in N (N=100,200,400)  [gaps 3.24e-05, 2.36e-07, 3.39e-11]
+PASS N4 monomer m=0.60, t=2: closed system = truncated system N=1600 (sizes<=10)  [max diff 2.8e-13, mass in sizes>800: 7.6e-17]
+PASS N4 monomer m=0.75, t=2: closed system = truncated system N=1600 (sizes<=10)  [max diff 1.5e-13, mass in sizes>800: -3.6e-16]
+PASS N4 monomer m=0.90, t=2: closed system = truncated system N=1600 (sizes<=10)  [max diff 1.5e-13, mass in sizes>800: 1.8e-07]
+PASS N5 m=0.60: closed system at T=60 matches recursion (1.9), l<=40  [max diff 3.4e-14]
+PASS N5 m=0.60: recursion (1.9): sum_{l<=3000} l rho~_l = m, sum rho~_l = m(1-m), rho~ >= 0  [mass 0.600000000002, m0 0.240000000000, min 2.9e-19]
+PASS N5 m=0.75: closed system at T=60 matches recursion (1.9), l<=40  [max diff 3.8e-14]
+PASS N5 m=0.75: recursion (1.9): sum_{l<=3000} l rho~_l = m, sum rho~_l = m(1-m), rho~ >= 0  [mass 0.749999997819, m0 0.187499999999, min 3.8e-15]
+Terminated                 timeout 7200 python -u scripts/numerics_evolution.py
+
+real	42m22.392s
+user	42m21.605s
+sys	0m0.349s
+EXIT=143

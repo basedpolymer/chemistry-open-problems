@@ -1,0 +1,18 @@
+PASS S1 m=1/2: (1.9) exact, rho_n > 0 and remainders > 0 for n <= 40, partial mass < m  [partial mass 0.495370]
+PASS S1 m=51/100: (1.9) exact, rho_n > 0 and remainders > 0 for n <= 40, partial mass < m  [partial mass 0.504157]
+PASS S1 m=3/4: (1.9) exact, rho_n > 0 and remainders > 0 for n <= 40, partial mass < m  [partial mass 0.551902]
+PASS S1 m=9/10: (1.9) exact, rho_n > 0 and remainders > 0 for n <= 40, partial mass < m  [partial mass 0.302686]
+PASS S1 m=99/100: (1.9) exact, rho_n > 0 and remainders > 0 for n <= 40, partial mass < m  [partial mass 0.034813]
+PASS S1 m=999/1000: (1.9) exact, rho_n > 0 and remainders > 0 for n <= 40, partial mass < m  [partial mass 0.003525]
+PASS S1 m=1: (1.9) gives rho == 0 (no stationary state of mass 1)
+PASS S2 m=513/1024 (Arb, 300 bits): rho_n > 0, remainders > 0 for n <= 1500, partial mass < m  [m - partial mass ~ 2.723e-38]
+PASS S2 m=3/4 (Arb, 300 bits): rho_n > 0, remainders > 0 for n <= 1500, partial mass < m  [m - partial mass ~ 7.221e-06]
+PASS S2 m=19/20 (Arb, 300 bits): rho_n > 0, remainders > 0 for n <= 1500, partial mass < m  [m - partial mass ~ 4.042e-01]
+PASS S3 m=0.60: rho_n R^n n^(5/2) -> b/(2 sqrt pi) with error ~ c/n (R from the r-ODE, Arb coefficients)  [R=1.0237248348, ratio-1 at n=1500: -2.619e-02, at n=3000: -1.344e-02, Richardson: -6.9e-04]
+PASS S3 m=0.60: sum_{n<=3000} n rho~_n + asymptotic tail = m; number remainder > 0  [mass-m=0.00e+00, tail used=1.13e-34]
+PASS S3 m=0.75: rho_n R^n n^(5/2) -> b/(2 sqrt pi) with error ~ c/n (R from the r-ODE, Arb coefficients)  [R=1.0048049364, ratio-1 at n=3000: -5.981e-02, at n=6000: -3.168e-02, Richardson: -3.6e-03]
+PASS S3 m=0.75: sum_{n<=6000} n rho~_n + asymptotic tail = m; number remainder > 0  [mass-m=0.00e+00, tail used=4.86e-16]
+PASS S3 m=0.75: mass carried by sizes > 3000 is ~2e-9 (paper, Section 4)  [2.181e-09]
+PASS S3 m=0.90 (floating point): sum_{n<=30000} n rho~_n + asymptotic tail = m within 1e-6  [R=1.0002642884, mass-m=3.10e-07, tail used=3.37e-06]
+
+SUMMARY: ALL PASS

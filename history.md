@@ -60,3 +60,15 @@
   interval, Du–Lou/KLO qualitative theorems for the tail. Solver GPT-6-Astra via Codex CLI (xhigh), two runs.
   Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS, with an independent Julia cover;
   the published estimate eps_0 ~ 0.2385 of KLO is wrong for the disk (close to the 3D value 0.2388).
+
+## 20 October 2026
+
+- Result 11 (aggregation kinetics): Jang–Tran Conjecture 2 on the discrete coagulation–fragmentation equations with
+  multiplicative coagulation and constant fragmentation proved, both parts. The Hamilton–Jacobi equation of the
+  Bernstein transform has zeroth-order coefficient 1/τ(x), τ = 2 tanh(x/2), so Van's half-slope invariant transfers
+  to the discrete setting; global classical solutions by characteristics for every mass 0 < m ≤ 1 without a second
+  moment, comparison with positive truncations, part (i) through the triangular fixed-mass system. Solver Claude
+  Opus 5.5 (xhigh); novelty audit, singularity analysis and first draft GPT-6-Astra via Codex CLI (xhigh).
+  Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS (scope of the Conjecture 1
+  consequence stated precisely, a citation fixed, the long-time numerical check repaired: 59 PASS).
+- Under investigation: the Halvorsen–Skogestad conjecture (generalized Petlyuk arrangement and minimum vapor).
