@@ -82,3 +82,15 @@
   (degenerate operating points and further exclusions stated, TG equation numbering, computer-verification section
   aligned with the actual runs); the verifier also found an interval-certified point of the permissive model below
   the Petlyuk value for N = 5 (q = 0), an artifact of that formulation rather than a physical counterexample.
+- Result 12, version 2 (second wave, four Claude Opus 5.5 agents, plus GPT-6-Astra and a literature agent): a
+  stage-level argument proves the Halvorsen–Skogestad lower bound for every adiabatic arrangement. Every unit of a
+  constant-molar-overflow equilibrium-stage network conserves the Underwood flux phi(theta_j) up to its heat duty, the
+  feed contributes zero at a feed root, and all streams leaving an equilibrium stage have the same sign of phi;
+  summing the balances over the units of one sign gives R >= H_j for every arrangement (splitters, recycles,
+  multi-feed columns, reverse flows, Murphree stages, finite stages and impure products up to O(eps)). Found
+  independently by three agents; an early independent verifier (Claude Opus 5.5, xhigh) confirmed the bound and its
+  scope, with editorial corrections. Conjecture fully proved for N = 2 (finite-stage attainment by a single column);
+  for N >= 3, attainment by the Petlyuk is proved in Underwood's infinite-stage model and observed numerically at
+  finite stages (geometric decay of impurities), and the isolated prefractionator is proved for any N (GPT-6-Astra);
+  finite-stage attainment of the closed network for N >= 3 remains open. Targeted novelty search: no prior proof or
+  argument found (search shortened). Full verification of version 2 pending.

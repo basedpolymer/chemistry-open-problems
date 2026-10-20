@@ -1,21 +1,33 @@
-# Halvorsen–Skogestad conjecture: the generalized Petlyuk arrangement minimizes total vapor
+# Halvorsen–Skogestad conjecture: the generalized Petlyuk arrangement minimizes total vaporization
 
-**Attribution.** Theory: Claude Opus 5.5 (effort xhigh) (Agent T: setting, cut identity, sign rule, extreme peaks,
-FTC formula for all N, four-component case, attainment, manuscript). Computation: Claude Opus 5.5 (effort xhigh)
-(Agent C: enumeration, Underwood model, counterexample search, exact certificates, and the general-N proof in the
-strict model). General N: Claude Opus 5.5 (effort xhigh) (Agent G: recovery ordering for every column,
-merge-free theorem in the permissive model). Independent verification: Claude Opus 5.5 (effort xhigh) (verdicts,
-corrections and the five-component permissive counterexample: `verification.md`, `verification/`).
+**Attribution.** *Version 2 (2026-10-20, second wave).* Foundations, class 𝒜, red team and integration: Claude Opus
+5.5 (effort xhigh) (Agent F). Sections and stage-level lemmas, binary attainment: Claude Opus 5.5 (effort xhigh)
+(Agent S). Network argument, device decomposition, tie structure: Claude Opus 5.5 (effort xhigh) (Agent N). Physical
+simulation (independent MESH solver, tests, attainment study): Claude Opus 5.5 (effort xhigh) (Agent P). Literature:
+Claude Opus 5.5 (effort xhigh). Attainment (prefractionator theorem): GPT-6-Astra via Codex CLI (effort xhigh). Independent verification of version 2: **pending**.
+*Version 1 (independently verified).* Theory: Claude Opus 5.5 (effort xhigh) (Agent T). Computation: Claude Opus 5.5
+(effort xhigh) (Agent C). General N: Claude Opus 5.5 (effort xhigh) (Agent G). Independent verification: Claude Opus
+5.5 (effort xhigh).
 
-**Status: solved in a precisely defined class and model — networks of two-section columns with interval streams, in
-the strict infinite-stage Underwood model (TG's formulation in which a column with two or more nominally
-distributing components runs at its Underwood vapor), without reverse flows, for every number of components N;
-independently verified, with corrections. In the permissive (TG-literal) model: partial result, and the bound is
-false for N = 5 (interval-certified counterexample found by the verifier). Open outside the class and model:
-several feed stages per column, stream splitters, recycles, reverse net flows, and degenerate operating points at
-which a nominally distributing component is absent from one product (there the strict model is more restrictive than
-infinite-stage physics).** The Halvorsen–Skogestad conjecture as stated ("any adiabatic distillation arrangement") is
-therefore settled only within this class and model.
+**Status (version 2; independent verification: pending; an early independent check of the lower bound,
+`total/verification-early/verification-lower-bound.md` (provisional), confirmed it).** 
+- **Lower bound: solved (preliminary) in the broadest class, for every N.** For every arrangement of the class 𝒜
+  (any finite network of constant-molar-overflow equilibrium stages, single-phase splitters and mixers, total
+  condensers and vaporizers; one feed split and conditioned at will; heat duties anywhere; recycles; products of
+  either phase), at every steady state with any numbers of stages and any purities, R ≥ Σ_P max(0, φ_P(θ_j)) for
+  every j; with purity ≥ 1 − ε, R ≥ H_j − c_j ε; hence, with infinitely many stages and pure products,
+  R ≥ max_j H_j, the Petlyuk value. This closes every gap left by version 1 (degenerate points, reverse flows,
+  several feed stages, splitters, recycles) and proves that version 1's permissive counterexample is not physical.
+- **Attainment.** The generalized Petlyuk arrangement attains max_j H_j in Underwood's infinite-stage model
+  (version 1, verified). In the finite-stage model: **proved for N = 2**; for N ≥ 3, steady states exist for any
+  prescribed flows, the isolated prefractionator is proved to admit exact finite profiles with exponentially small
+  traces (any number of components), and the full Petlyuk network reaches purities → 1 at R = max_j H_j + δ in
+  simulations (impurities down to 1e-47 for N = 3); a proof of finite-stage attainment for the closed Petlyuk network with N ≥ 3 is **not** given (S and N
+  reduced N = 3 to a four-unknown problem; not completed).
+- **Conjecture.** Solved (preliminary) for N = 2. For N ≥ 3: every arrangement of 𝒜 needs at least the Petlyuk
+  minimum max_j H_j computed by Halvorsen and Skogestad (proved); that the Petlyuk arrangement realizes this value as
+  a finite-stage limit is proved in Underwood's model and supported numerically, not proved.
+- Version 1's results in the Underwood model are unchanged (independently verified, with corrections).
 
 ## Problem
 
@@ -34,86 +46,98 @@ Verbatim open statements:
   N-component M-product case for other than the far left and right peaks."
 
 Setting: ideal N-component feed (constant relative volatilities α₁ > … > α_N, composition z, liquid fraction q),
-constant molar overflow, infinitely many stages, sharp separation into pure products; objective = total vapor
-generated (heat input). With θ_j the roots of Σ α_p z_p/(α_p − θ) = 1 − q, the Petlyuk value is
-V_FTC = max_j H_j, H_j = Σ_{p>j} α_p z_p/(θ_j − α_p) (the highest peak of the V_min diagram, referred to the reboiler).
+constant molar overflow, constant pressure, infinitely many stages, sharp separation into pure products; objective =
+total vaporization (heat input). With θ_j the roots of Σ α_p z_p/(α_p − θ) = 1 − q, the Petlyuk value is
+V_Petlyuk = max_j H_j, H_j = Σ_{p>j} α_p z_p/(θ_j − α_p) (the highest peak of the V_min diagram, referred to the
+reboiler).
 
-## Result
+## Result (version 2)
 
-Competitor class: **two-section column networks** — columns with one feed stage, interval streams [i,m], split
-[i,k]/[l,m] with l ≤ k+1, side draws merging any number of links, thermal couplings or heat exchangers on any link,
-heaters/coolers at any node, saturated-liquid pure products, single feed. This contains Agrawal's regular-column
-configurations (8 / 152 / 6128 for N = 3 / 4 / 5). Each column obeys the Underwood model of Tumbalam Gooty, Agrawal &
-Tawarmalani (arXiv:2010.12113), with nonnegative net flows (no reverse flows). Two versions: *strict* (every column
-with two or more nominally distributing components runs exactly at its Underwood vapor — the infinite-stage
-behaviour whenever those components actually distribute; at degenerate points, where one of them is absent from a
-product, the strict model forbids excess vapor that physics would allow) and *permissive* (TG literal: excess vapor
-above the threshold allowed in every column).
+**Class 𝒜** (`total/foundations/class.md`): every finite network of constant-molar-overflow equilibrium stages,
+single-phase splitters and mixers, total condensers and total vaporizers, with one process feed (split, preheated,
+precooled or pre-flashed at will), heat duties at any stage, recycles, and products of either phase; R = total heat
+supplied. "Infinitely many stages and pure products" is the limit R*(𝒮) = lim_{ε→0} inf{R : steady state with purity
+≥ 1 − ε} over a family 𝒮 of arrangements (all stage numbers of a configuration, or all of 𝒜). Every device of the
+arrangements HS consider (columns, thermal couplings, side draws, dividing walls, Kaibel columns, several feed stages,
+stream splitters, remixing, bypasses, intermediate exchangers) and Murphree trays decompose into these units
+(`total/network/network.md` §1.2); 𝒜 even contains non-adiabatic sections with external utilities.
 
-1. **Strict model, every N:** every network satisfies R ≥ V_FTC at every feasible point (Agent C's sign-graph proof,
-   checked by T; independent flux proof by G).
-2. **Permissive model:** R ≥ V_FTC for all 152 regular-column configurations with N = 4 (T); for every network and
-   every N when the highest peak is the first or the last (T); for every regular-column configuration and every N
-   whose mixed sub-network for the highest peak has no merge node, under a non-degeneracy assumption (G); and for
-   the FTC itself for every N (T) — i.e. HS's formula "minimum vapor of the generalized Petlyuk arrangement = highest
-   peak" is proved for every N in this model (without reverse flows). For N = 5 the remaining cases are 20 (basic
-   configuration, j) pairs = 864 (configuration, j) pairs (720 of the 6128 configurations have such a j); the
-   classification "settled by the sign rule" of the others is a floating-point LP computation (integer data).
-   **The bound fails for the pair (161, 3):** the verifier found a permissive-model point of basic configuration 161
-   (all thermal couplings, q = 0) with R/V_FTC ≈ 0.99946, all flows ≥ 1e-6, all inequality slacks ≥ 1e-6, and proved
-   the existence of the exact feasible point by an interval Krawczyk test (`verification/krawczyk_certificate.py`,
-   data in `verification/permissive_counterexample_N5.json`). The excess vapor sits in a column whose root at the
-   split is active, which an infinite-stage column cannot do; no adiabatic arrangement with pure products realizing it
-   is known (finitely many stages would leave impurities, and a vapor bypass moves components; see the paper,
-   Section "A five-component counterexample", and `verification.md`). So it is an artifact of the permissive
-   (TG-literal) formulation, which is not a faithful model of the conjecture; the strict model is the relevant one. The other 19 pairs are undecided. Numerical searches
-   (computation/): multistart ipopt with a-posteriori verification; SCIP only as a cross-check at two points (N = 4).
-3. **Attainment, every N:** the FTC has a point feasible in both models with R = V_FTC (explicit construction:
-   preferred split everywhere, excess vapor only in the binary columns).
+**Theorem 1 (lower bound, complete proof).** At every steady state of every arrangement of 𝒜, with any numbers of
+stages and any purities, and for every j,
 
-Hence, in the strict model, the generalized Petlyuk arrangement minimizes total vapor among all two-section column
-networks, for every N and every q. The key tools: the exact cut identity for the Underwood flux
-Λ_s(θ_j) = V_s − Σ α_p w_{s,p}/(α_p − θ_j) (conserved at junctions, the feed term vanishing at θ_j), a per-column sign
-rule, and the ordering of recoveries.
+  R − Σ_P max(0, φ_P(θ_j)) = (heat supplied to light-side units) + (heat removed from heavy-side units)
+                              + Σ_{streams between the two sides} |φ_e(θ_j)| ≥ 0,
+
+where φ_e(θ) = v_e − Σ_i α_i n_{e,i}/(α_i − θ) is the Underwood flux of a stream (v_e vapor flow, n_e component flows)
+and a unit is heavy-side if its outflows have φ ≥ 0. With purity ≥ 1 − ε: R ≥ H_j − c_j ε,
+c_j = max(α_j/(α_j − θ_j), α_{j+1}/(θ_j − α_{j+1})). Hence every arrangement needs R*(𝒮) ≥ max_j H_j.
+
+*Proof idea.* (1) CMO and component balances give, at every unit, Σ_out φ − Σ_in φ = Q_u (+ feed term, zero at θ_j).
+(2) A liquid of composition x has φ = −l G_x(θ) and the vapor in equilibrium with it φ = −(θ v/S(x)) G_x(θ),
+G_x(θ) = Σ_i α_i x_i/(α_i − θ): all streams leaving a stage have the same sign of flux (single-phase units trivially).
+(3) Summing (1) over the heavy-side units gives the identity. No section physics, no Underwood roots of sections, no
+assumption on topology, net-flow signs, distributions or numbers of stages. Found independently by three agents
+(N, S, F); complete proofs in `class.md` §5, `total/sections/sections.md`, `total/network/network.md`; checked by four
+independent solvers and in exact rational arithmetic.
+
+**Consequences.** The excess over the bound is three nonnegative "pinch losses" (heating on the light side, cooling on
+the heavy side, flux across the hyperplane G_x(θ_j) = 0 through the feed-flash liquid); approaching max_j H_j forces
+Underwood's active-root pinches; all gaps of version 1 are closed for the lower bound (degenerate points, reverse
+flows, several feed stages, splitters, recycles); the version-1 permissive counterexample cannot be approached by
+physical operation (it has a light-to-heavy sign path C → CDE → BCDE → BCD → D, impossible at a steady state); with
+heat exchange between process streams the external heat can drop below max_j H_j only by moving heat from light-side
+to heavy-side units, which is why HS exclude it.
+
+**Attainment.** By Theorem 1 the conjecture follows from R*(𝒮_Petlyuk) = max_j H_j (HS's formula for the Petlyuk
+minimum, in the finite-stage-limit sense). In Underwood's infinite-stage model the FTC attains it for
+every N (version 1, Theorem achieve). Finite stages: **N = 2 proved** (S, `total/sections/sections.md` Prop. 10);
+steady states exist for any prescribed flows (N, `total/network/network.md` Theorem 10.1); an isolated prefractionator
+with any number of components admits exact positive finite-stage profiles with traces ≤ C η⁻¹ ρⁿ (GPT-6-Astra,
+`total/attainment-astra/attainment.md`, checked by S); the closed Petlyuk network at fixed flows R = max_j H_j + δ
+reaches purities → 1 geometrically in three independent solvers (N, P, F; N = 3 impurities down to 1e-47, also
+q = 0, 0.5, 1.3; N = 4 indicative). **Open:** a proof of finite-stage attainment for the closed network, N ≥ 3.
+
+## Result (version 1, independently verified)
+
+In Underwood's infinite-stage model (TG's formulation), for networks of two-section columns with interval streams
+(containing Agrawal's regular-column space, 8/152/6128 configurations for N = 3/4/5), without reverse flows: in the
+strict model R ≥ max_j H_j for every N; in the permissive model, true for N ≤ 4, for extreme peaks, for merge-free
+mixed networks and for the FTC itself, false for N = 5 (configuration 161, j = 3, R/V_FTC ≈ 0.99946,
+interval-certified); the FTC attains max_j H_j (Theorem achieve). Version 2 shows that the permissive point is not
+physical. Details: `paper.tex` Sections 9–16 (and the archived `paper-v1.pdf`), `verification.md`.
 
 ## Reproduction
 
-From the project root (Git Bash), with `outils/wsl` running WSL Fedora with the scientific Python environment:
+From the project root (Git Bash), with `outils/wsl` running WSL Fedora with the scientific Python environment; paths
+below are relative to `chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/`.
 
 ```
-outils/wsl "bash chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/theory/scripts/run_theory_checks.sh"        # ~2 min
-outils/wsl "bash chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/computation/scripts/run_certificates.sh"    # ~40 s
+# version 2
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/total/network/scripts && python unit_identities_exact.py && python section_identity_exact.py"   # exact, seconds
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/total/foundations/scripts && python unitnet.py"            # ~30 s, ALL PASS
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/total/sections/scripts && python check_stage_cut.py 25 2"   # minutes
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/total/simulation/scripts && python test_stage_bound.py"   # see header
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/total/foundations/scripts && python petlyuk_attain.py fixed 0.02 10,20,40"   # fixed-flow attainment, ~2 min
+# version 1
+outils/wsl "bash chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/theory/scripts/run_theory_checks.sh"          # ~2 min
+outils/wsl "bash chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/computation/scripts/run_certificates.sh"      # ~40 s
 py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/paper.tex   # from chemistry-open-problems/
-```
-
-No proof of the main results depends on floating point: the scripts check identities, the case analysis for N = 4, the
-attainment construction, the cut identity (exact rationals) and the combinatorial core of the strict proof; the
-numerical searches (computation/) are evidence only. Exceptions, stated as such: the N = 5 classification of the
-permissive cases settled by the sign rule (HiGHS LP, `theory/scripts/signcheck.py`), and the permissive
-counterexample, which is a computer-assisted proof in interval arithmetic.
-
-Independent verification (from `chemistry-open-problems/`; WSL as above, paths relative to the problem folder):
-
-```
-cd verification && python indep_checks.py                     # exact cut identity, FTC point, TG optima, Table 6.1 (~10 s)
-python indep_nlp.py run 4 P2 8 permissive                     # verifier's own NLP (N = 3, 4), a few minutes per run
-python krawczyk_certificate.py logs/candidate_161_3_t0_refined.json   # permissive counterexample, interval proof (~5 s)
 ```
 
 ## Files
 
 | Path | Content |
 |---|---|
-| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript (statements, complete proofs, scope) |
-| `references.md` | Sources and novelty check (queries and results) |
-| `theory/setting.md`, `theory/proofs.md` | Agent T's working definitions and proofs (superseded by the paper) |
-| `theory/scripts/check_algebra.py` | Exact (sympy) identities of the four-component and attainment proofs |
-| `theory/scripts/check_ftc_achievability.py` | Attainment construction, N = 3..8, 80-digit check of every constraint |
-| `theory/scripts/signcheck.py` | Sign-relaxation LP; `certify4`: the N = 4 case analysis (only family K needs more) |
-| `theory/scripts/opencount.py`, `theory/data/` | Open pairs for N = 5 (sign-hard ∩ merge) |
-| `theory/scripts/stressK.py`, `probeK.py` | Numerical stress tests on family K (exploration) |
-| `computation/` | Agent C: enumeration, model (`nlp.py`), searches, exact certificates (`run_certificates.sh`) |
-| `general/` | Agent G: general-N write-up (`general-N.md`) and test scripts |
+| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript, version 2 (Sections 1–8 new; Sections 9–16 = version 1) |
+| `paper-v1.tex`, `paper-v1.pdf` | Version 1 of the manuscript as independently verified (archived copy) |
+| `references.md` | Sources and novelty checks (version 1 and version 2) |
+| `total/foundations/` | Class 𝒜 (`class.md`), integration (`total-result.md`), checks (`scripts/unitnet.py`, `scripts/petlyuk_attain.py`) |
+| `total/sections/` | Agent S: `sections.md` (proofs, section and junction lemmas, binary attainment), scripts |
+| `total/network/` | Agent N: `network.md` (unit graph, device decomposition, cut identity, ties, sign potential, permissive sign path), exact scripts |
+| `total/simulation/` | Agent P: independent MESH solver, bound tests, attainment study (`runs/`) |
+| `total/literature/` | Targeted novelty search of the stage-level argument (`novelty.md`) |
+| `total/attainment-astra/` | GPT-6-Astra: isolated-prefractionator attainment theorem (`attainment.md`, `FINAL-REPORT.md`), checks |
+| `total/verification-early/` | Early independent check of the lower bound |
+| `theory/`, `computation/`, `general/` | Version 1 agents (T, C, G) |
+| `verification.md`, `verification/` | Independent verification of version 1 |
 | `certificates/sources/` | Third-party PDFs (not distributed) |
-| `verification.md` | Independent verification report (verdicts, re-derivations, re-runs, corrections) |
-| `verification/` | Verifier's independent scripts (`indep_checks.py`, `indep_nlp.py`, `tie_check.py`, `open_n5_probe.py`, `refine_candidate.py`, `krawczyk_certificate.py`, ...), logs and the counterexample data |

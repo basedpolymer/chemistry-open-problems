@@ -1,0 +1,26 @@
+PASS numerical N=3 q=-0.5 residual=6.79e-71 top_heavy_64=8.800e-12 bottom_light_64=5.614e-04
+PASS numerical N=3 q=0 residual=3.17e-71 top_heavy_64=1.706e-10 bottom_light_64=1.300e-04
+PASS numerical N=3 q=0.5 residual=1.81e-71 top_heavy_64=5.627e-09 bottom_light_64=8.550e-06
+PASS numerical N=3 q=1 residual=2.72e-71 top_heavy_64=1.046e-07 bottom_light_64=7.364e-08
+PASS numerical N=3 q=1.5 residual=3.17e-71 top_heavy_64=1.700e-06 bottom_light_64=4.371e-10
+PASS numerical N=4 q=-0.5 residual=3.17e-71 top_heavy_64=1.863e-11 bottom_light_64=8.435e-04
+PASS numerical N=4 q=0 residual=2.72e-71 top_heavy_64=6.893e-10 bottom_light_64=3.421e-04
+PASS numerical N=4 q=0.5 residual=3.62e-71 top_heavy_64=3.620e-08 bottom_light_64=3.661e-05
+PASS numerical N=4 q=1 residual=5.43e-71 top_heavy_64=2.908e-07 bottom_light_64=1.220e-07
+PASS numerical N=4 q=1.5 residual=3.62e-71 top_heavy_64=2.223e-06 bottom_light_64=6.879e-11
+PASS numerical N=5 q=-0.5 residual=2.72e-71 top_heavy_64=3.079e-11 bottom_light_64=7.032e-04
+PASS numerical N=5 q=0 residual=4.53e-71 top_heavy_64=2.085e-09 bottom_light_64=4.426e-04
+PASS numerical N=5 q=0.5 residual=3.62e-71 top_heavy_64=1.632e-07 bottom_light_64=8.368e-05
+PASS numerical N=5 q=1 residual=5.43e-71 top_heavy_64=3.319e-07 bottom_light_64=1.329e-07
+PASS numerical N=5 q=1.5 residual=9.96e-71 top_heavy_64=7.361e-07 bottom_light_64=5.690e-12
+PASS numerical N=6 q=-0.5 residual=2.94e-71 top_heavy_64=4.522e-11 bottom_light_64=4.450e-04
+PASS numerical N=6 q=0 residual=1.81e-71 top_heavy_64=5.415e-09 bottom_light_64=3.922e-04
+PASS numerical N=6 q=0.5 residual=3.62e-71 top_heavy_64=6.058e-07 bottom_light_64=1.312e-04
+PASS numerical N=6 q=1 residual=9.06e-71 top_heavy_64=1.645e-07 bottom_light_64=1.215e-07
+PASS numerical N=6 q=1.5 residual=1.99e-70 top_heavy_64=3.963e-08 bottom_light_64=4.472e-13
+PASS numerical N=7 q=-0.5 residual=3.62e-71 top_heavy_64=6.273e-11 bottom_light_64=2.442e-04
+PASS numerical N=7 q=0 residual=3.62e-71 top_heavy_64=1.285e-08 bottom_light_64=2.777e-04
+PASS numerical N=7 q=0.5 residual=5.43e-71 top_heavy_64=1.971e-06 bottom_light_64=1.579e-04
+PASS numerical N=7 q=1 residual=1.09e-70 top_heavy_64=2.917e-08 bottom_light_64=1.030e-07
+PASS numerical N=7 q=1.5 residual=1.63e-70 top_heavy_64=1.174e-10 bottom_light_64=4.706e-14
+PASS all explicit-profile numerical checks; full FTC matching is not certified

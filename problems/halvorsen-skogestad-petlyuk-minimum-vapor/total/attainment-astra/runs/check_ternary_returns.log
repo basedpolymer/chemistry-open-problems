@@ -1,0 +1,10 @@
+PASS numerical xi=0.2 zeta=0.8 n=20 k=23 balance=2.020e-113 ratio_error=1.250e-112 upper_C=3.316e-02 lower_A=1.933e-03
+PASS numerical xi=0.2 zeta=0.8 n=40 k=43 balance=1.315e-106 ratio_error=3.606e-106 upper_C=2.989e-04 lower_A=9.956e-07
+PASS numerical xi=0.2 zeta=0.8 n=80 k=83 balance=3.230e-93 ratio_error=2.158e-92 upper_C=2.051e-08 lower_A=2.616e-13
+PASS numerical xi=0.65 zeta=0.5 n=20 k=23 balance=1.508e-113 ratio_error=6.881e-113 upper_C=2.569e-02 lower_A=1.392e-03
+PASS numerical xi=0.65 zeta=0.5 n=40 k=43 balance=9.793e-107 ratio_error=4.673e-106 upper_C=2.299e-04 lower_A=7.164e-07
+PASS numerical xi=0.65 zeta=0.5 n=80 k=83 balance=2.512e-93 ratio_error=1.766e-92 upper_C=1.577e-08 lower_A=1.883e-13
+PASS numerical xi=0.9 zeta=0.15 n=20 k=23 balance=8.243e-114 ratio_error=1.163e-114 upper_C=2.150e-02 lower_A=7.594e-04
+PASS numerical xi=0.9 zeta=0.15 n=40 k=43 balance=4.931e-107 ratio_error=1.174e-106 upper_C=1.915e-04 lower_A=3.906e-07
+PASS numerical xi=0.9 zeta=0.15 n=80 k=83 balance=1.505e-93 ratio_error=5.468e-93 upper_C=1.314e-08 lower_A=1.027e-13
+PASS prescribed return ratios, positive complete profiles; isolated prefractionator only

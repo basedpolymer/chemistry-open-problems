@@ -1,0 +1,817 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{The Halvorsen--Skogestad conjecture in the Underwood model: the generalized Petlyuk arrangement minimizes total vapor among networks of two-section distillation columns}
+\newcommand*{\PaperTitlePlain}{The Halvorsen-Skogestad conjecture in the Underwood model: the generalized Petlyuk arrangement minimizes total vapor among networks of two-section distillation columns}
+\newcommand*{\PaperShortTitle}{Halvorsen--Skogestad conjecture}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} independently verified}
+\newcommand*{\PaperCredits}{Theory: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Computation: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} General N: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh)}
+\newcommand*{\PaperKeywords}{multicomponent distillation, Petlyuk arrangement, fully thermally coupled, minimum vapor, Underwood equations, Vmin diagram}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand{\Lam}{\Lambda}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\VFTC}{V_{\mathrm{FTC}}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Halvorsen and Skogestad (Ind.\ Eng.\ Chem.\ Res.\ 2003) conjectured that the generalized Petlyuk arrangement
+(fully thermally coupled, FTC) needs less vapor than any other adiabatic distillation arrangement without internal
+heat exchange, for the separation of an ideal $N$-component feed into pure products. They did not define the class
+of competitors, and they proved the minimum-vapor formula of the Petlyuk arrangement itself (the highest peak of the
+$V_{\min}$ diagram) only for the extreme peaks. We take as competitors all networks of two-section columns with
+interval streams, side draws, thermal couplings or heat exchangers on any link and heaters or coolers at any node; they
+contain Agrawal's regular-column configurations (152 for $N=4$, 6128 for $N=5$). Each column obeys the
+infinite-stage Underwood model of Tumbalam Gooty, Agrawal and Tawarmalani, without reverse flows. We prove: (i) in the
+strict form of the model, in which every column with two or more (nominally) distributing components runs exactly at
+its Underwood vapor flow, every
+network needs a total vapor generation of at least $\max_j H_j$, the reboiler-referenced highest peak, for every $N$;
+the FTC attains this value, so the conjecture holds in this class and model; (ii) in the permissive form used for global
+optimization, which also lets a column carry excess vapor, the same bound holds for the regular-column configurations
+with $N\le4$, for every network and every $N$ when the highest peak is the first or the last one, for every regular-column
+configuration and every $N$ whose mixed sub-network for the highest peak has no merge node (under a non-degeneracy
+assumption), and for the FTC itself for every $N$, which proves the Halvorsen--Skogestad formula for the minimum vapor of
+the generalized Petlyuk arrangement in this model (without reverse flows). Conversely, the permissive bound fails for
+$N=5$: the independent verification found a five-component configuration whose permissive minimum lies below
+$\max_jH_j$ (relative gap $5\cdot10^{-4}$, existence of the exact point proved by an interval Krawczyk test). It uses
+excess vapor in a column in which two components distribute, which no infinite-stage column with pure products can
+carry, so it is an artifact of the permissive formulation, and the restriction to the strict model is essential. The proofs combine an exact cut identity for the
+Underwood flux $\Lam_s(\theta_j)=V_s-\sum_p\alpha_p w_{s,p}/(\alpha_p-\theta_j)$ with a sign rule for each column and,
+for one four-component family, an ordering of recoveries. Columns with several feed stages, stream splitters,
+recycles and reverse flows are outside the class; the conjecture remains open there, and at degenerate operating
+points (a nominally distributing component absent from one product) the strict model is more restrictive than
+infinite-stage physics (Section~\ref{sec:model}).
+\end{paperabstract}
+
+\section{The question}
+
+I.~J.~Halvorsen and S.~Skogestad, \emph{Minimum energy consumption in multicomponent distillation. 3. More than three
+products and generalized Petlyuk arrangements}, Ind.\ Eng.\ Chem.\ Res.\ 42 (2003) 616--629~\autocite{HS3}. The
+abstract states:
+\begin{openquote}
+``We also conjecture that the minimum energy requirement for the generalized extended Petlyuk arrangement is lower than
+the minimum-energy requirement for any distillation configuration when we consider conventional adiabatic sections and
+no internal heat exchange.''
+\end{openquote}
+Section~6.3 (p.~626) makes the assumptions explicit and records the status:
+\begin{openquote}
+``We assume constant relative volatilities, constant molar flows, constant pressure, and no internal heat integration.
+Then the generalized adiabatic Petlyuk arrangement has the lowest need for vaporization compared to any other adiabatic
+distillation arrangement for separation of an arbitrary feed mixture into its pure components. We have not presented a
+complete proof, so the above conclusion is a conjecture.''
+\end{openquote}
+The number of stages is infinite; an adiabatic section is ``a column section with constant molar flows and no heat
+exchange along the section''. Even the minimum vapor of the Petlyuk arrangement itself was left partly open
+(Section~5.3, p.~624):
+\begin{openquote}
+``We have not carried out a detailed proof for the general N-component M-product case for other than the far left and
+right peaks.''
+\end{openquote}
+For three components, Fidkowski and Kr\'olikowski~\autocite{FK87} compared the Petlyuk column with side strippers,
+side rectifiers and the direct and indirect sequences in closed form. Global MINLP studies of the Agrawal group find
+the FTC value optimal on the instances they solve~\autocite{TGAT,Nallasivam2016}, and later papers state the property
+as known; we found no proof (novelty check in \texttt{references.md}). Counterexamples are known only when
+condensers and reboilers exchange heat~\autocite{Mathew2019}, which the conjecture excludes.
+
+Halvorsen and Skogestad do not define ``any adiabatic distillation arrangement''. A theorem must fix the class, and
+the model that computes the minimum vapor of each member. We use networks of two-section columns with interval
+streams (Section~\ref{sec:setting}), which contain the regular-column configurations of Agrawal and
+co-workers~\autocite{SA10,TGAT}, and the infinite-stage Underwood model of Tumbalam Gooty, Agrawal and
+Tawarmalani~\autocite{TGAT}. Our results in that setting:
+
+\begin{theorem}[main results]\label{thm:summary}
+Let $\alpha_1>\dots>\alpha_N>0$, $z_p>0$, $\sum z_p=1$ and $q\in\mathbb R$. Let $\theta_j\in(\alpha_{j+1},\alpha_j)$ be the
+roots of $\sum_p\alpha_pz_p/(\alpha_p-\theta)=1-q$ and $H_j=\sum_{p>j}\alpha_pz_p/(\theta_j-\alpha_p)$ ($1\le j\le N-1$).
+Let $R$ denote the total vapor generated by all heat exchangers (reboilers) of an arrangement.
+\begin{enumerate}
+\item (Strict model, every $N$.) At every feasible operating point of every two-section column network
+(Definition~\ref{def:network}), in particular of every regular-column configuration, $R\ge\max_j H_j$.
+\item (Permissive model.) The same inequality holds at every feasible point (a) for every regular-column configuration
+when $N\le4$; (b) for every network and every $N$, for $j=1$ and $j=N-1$; (c) for the FTC configuration and every $N$,
+for all $j$; (d) for every regular-column configuration and every $N$, for every $j$ such that no mixed stream
+(one containing $j$ and $j+1$) is produced by two columns, under a non-degeneracy assumption (N).
+\item (Achievability.) The FTC configuration has an operating point, feasible in both models, with $R=\max_jH_j$.
+\end{enumerate}
+Consequently the generalized Petlyuk (FTC) arrangement minimizes total vapor generation among all two-section column
+networks for every $N$ in the strict model, and among all regular-column configurations for $N\le4$ in the permissive
+model; its minimum is exactly $\VFTC:=\max_jH_j$, the highest peak of the $V_{\min}$ diagram referred to the reboiler,
+for every $N$ in both models.
+\end{theorem}
+
+Part~1 is Theorem~\ref{thm:strict}, part~2 is Theorems~\ref{thm:extreme}, \ref{thm:ftc}, \ref{thm:N4} and~\ref{thm:G3}, part~3 is
+Theorem~\ref{thm:achieve}. Part~2 does not extend to all configurations: for $N=5$ the permissive model has a
+configuration and data with minimum $R<\max_jH_j$ (Section~\ref{sec:cex}, found during the independent
+verification). With $P_j^{\mathrm T}=\sum_{p\le j}\alpha_pz_p/(\alpha_p-\theta_j)$ (the $j$-th peak of the
+$V_{\min}$ diagram, top vapor of a two-product column performing the sharp split $\{1..j\}|\{j+1..N\}$), the feed
+equation gives $H_j=P_j^{\mathrm T}-(1-q)$, so $\VFTC$ is the value of~\autocite{HS3}, eq.~(8), referred to the
+reboiler. The two standing hypotheses of the model, stated in Section~\ref{sec:model}, are: no reverse flows (net
+component flows of fixed sign in every section), and a single feed with pure, saturated-liquid products. The argument
+is entirely analytic; the scripts of Section~\ref{sec:computer} check identities, search for counterexamples and
+confirm the case analysis, but no step of the proofs depends on floating-point computation.
+
+\section{Setting}\label{sec:setting}
+
+\subsection{Networks of two-section columns}
+A \emph{stream} is an interval $[i,m]=\{i,\dots,m\}$ of components ($i\le m$); $[p,p]$ is the pure product $p$ and
+$[1,N]$ the feed.
+
+\begin{definition}[two-section column network]\label{def:network}
+A network consists of the $N$ pure-product nodes and a finite set of \emph{columns}. A column $c$ has a label $[i,m]$
+($i<m$) and a split $[i,k]/[l,m]$ with $i\le k<m$, $i<l\le m$ and $l\le k+1$ (components $l,\dots,k$ distribute). It has
+one feed stage, between a top and a bottom adiabatic section of infinitely many stages. Its top section delivers the
+distillate $\dist(c)=[i,k]$ to one node with that label (a column labelled $[i,k]$, or the pure product $i$ if
+$k=i$), and its bottom section delivers the residue $\res(c)=[l,m]$ to one node labelled $[l,m]$. Exactly one column,
+the \emph{feed column}, is labelled $[1,N]$ and receives the process feed; every other column receives at least one
+stream. A node may receive any number of streams (from several producers, as a distillate or as a residue), and
+several columns may carry the same label. Each link is a thermal coupling (the vapor and liquid of the producing
+section are exchanged directly at the receiving node) or passes through a heat exchanger, and every node may carry an
+external heat duty: vapor generated (a reboiler or heater, counted in $R$) or vapor condensed (a condenser or
+cooler). Pure products are withdrawn as saturated liquid.
+\end{definition}
+
+Labels shrink strictly along links, so a network is acyclic and every column is reached from the feed column. Not
+covered: columns with several feed stages (intermediate sections between feeds), stream splitters that divide one
+section product among several columns, recycles, non-interval intermediate streams, splits in which a product keeps
+every component of the column's feed (excluded by $k<m$ and $l>i$), streams delivered to a node whose label differs
+from the stream's label, and the reverse flows excluded in Section~\ref{sec:model}.
+
+\emph{Regular-column configurations}~\autocite{SA10,TGAT} are the networks with at most one column per label, in which
+the distillate of $[i,m]$ is $[i,k]$ for the largest $k<m$ such that a column $[i,k]$ exists (or $k=i$), the residue is
+$[l,m]$ for the smallest such $l>i$, a stream produced by one column is transferred by a thermal coupling or by a
+condenser (distillate; TG: a partial condenser removing the reflux, the stream leaving as saturated vapor) or a reboiler
+(residue; the stream leaving as saturated liquid), a stream produced by two columns is a side draw (thermal
+couplings), and a pure product is withdrawn through a total condenser or a reboiler, or as a liquid side draw between
+the two sections that produce it. There are 8, 152 and 6128 such configurations for $N=3,4,5$ (transfer choices
+included). The \emph{FTC} (generalized Petlyuk) configuration contains every mixture stream, all links being thermal
+couplings or side draws; it has one reboiler and one condenser.
+
+\subsection{The Underwood model}\label{sec:model}
+Constant relative volatilities, constant molar overflow, constant pressure, infinitely many stages in every section.
+For a column $c$ with split $[i,k]/[l,m]$: net upward component flows $d_p\ge0$ in the top section ($i\le p\le k$), net
+downward flows $b_p\ge0$ in the bottom section ($l\le p\le m$), net feed $f_p=d_p[p\le k]+b_p[p\ge l]$ (the feed $z$ for
+the feed column, otherwise the sum of the incoming flows), vapor flows $V_T,V_B\ge0$ with $V_T-V_B=U_c$, where $U_c$ is
+the net vapor entering the feed stage: $1-q$ for the feed column; otherwise the vapor brought by the incoming
+distillate links, minus the vapor drawn by thermally coupled residue links, plus the vapor generated minus the vapor
+condensed at the node. In a regular-column configuration with TG's conventions, a thermally coupled or side-draw
+distillate link brings $V_T(\text{producer})$, a condensed one $D=V_T-L_T$, a coupled residue link draws
+$V_B(\text{producer})$ and a reboiled one draws nothing. Put
+\[g_T(x)=\sum_{p\le k}\frac{\alpha_pd_p}{\alpha_p-x},\qquad g_B(x)=-\sum_{p\ge l}\frac{\alpha_pb_p}{\alpha_p-x}.\]
+For every $r\in\{l-1,\dots,k\}$ there is a root $\theta_{c,r}\in[\alpha_{r+1},\alpha_r]$ of the feed equation
+$\sum_p\alpha_pf_p/(\alpha_p-\theta_{c,r})=U_c$, and a threshold vapor $Y_T$ (with $Y_B=Y_T-U_c$) such that
+\begin{equation}\label{eq:TG}
+\begin{gathered}
+g_T(\theta_{c,r})\le Y_T\quad(r=l-1,\ r=k),\qquad g_T(\theta_{c,r})=Y_T\quad(l\le r\le k-1),\\
+0\le Y_T\le V_T,\qquad 0\le Y_B\le V_B .
+\end{gathered}
+\end{equation}
+This is TG's model~\autocite{TGAT} (constraints (A18)--(A23) of the arXiv version, including the equalities at the
+interior roots which, TG note, are needed for the correct degrees of freedom); we call it the \emph{permissive} model.
+(Nallasivam et al.~\autocite{Nallasivam2016} use a closely related formulation: an inequality $V_T\ge g_T(\theta)$ at
+every root together with explicit recovery-ordering constraints, instead of TG's equalities at the interior roots.
+The results below are proved for TG's formulation.) The \emph{strict} model adds $Y_T=V_T$ whenever the column has an interior root
+($l\le k-1$): the column then runs exactly at the Underwood vapor of each of its interior roots, as an infinite-stage
+column does whenever the components $l,\dots,k$ actually distribute (then these roots are active): ``we may apply the common roots being in the range of volatilities for the
+components distributed to both ends. We denote these roots active roots. If we have any active roots then
+$V=V_{\min}$'' (Halvorsen~\autocite{HalvorsenThesis}, \S4.2.1; see also \S3.2.3--3.2.4). The permissive model also admits columns carrying vapor above their threshold (``a column may be operated
+above its threshold vapor requirement to supply the vapor to another column''~\autocite{TGAT}), physically a vapor
+bypass or a finite-stage effect. Strict-feasible points are permissive-feasible.
+
+\emph{Degenerate operating points} (added by the verifier). Both models fix the split of each column through the
+network, so the strict model imposes $Y_T=V_T$ whenever two or more components are \emph{nominally} distributing,
+whether or not they appear in both products. At a point where every component $l,\dots,k$ has a positive flow in
+both products the interior roots are active and the strict model is exactly the infinite-stage behaviour. At a
+degenerate point, where a nominally distributing component is absent from one product (e.g.\ $d_C=0$ in a split
+ABCD$\to$ABC/BCD), an infinite-stage column is governed by its actual distribution: Halvorsen counts a component as
+distributing only if it ``appears in both products, or is exactly at the limit of becoming distributing''
+(\autocite{HalvorsenThesis}, \S3.2.4), so with fewer than two distributing components no root is active and the column
+may physically carry vapor above its Underwood value, which the strict model forbids; TG's equalities at the nominal
+interior roots are then not physically required either. Relabelling the split does not help in general, because the
+delivered stream would no longer carry the label of its receiver (Definition~\ref{def:network}). Such points are not
+covered by Theorem~\ref{thm:strict}; the theorems are statements about the model as defined. (The results that use
+only the sign rule, Lemma~\ref{lem:sign}, rest on the inequality $V_T\ge g_T(\theta)$ at a common root, which holds at
+any infinite-stage operating point with nonnegative flows; we expect, but have not written out, their extension to
+degenerate points.)
+
+At the roots, $g_T-g_B=U_c$, hence
+$g_B(\theta_{c,r})\le Y_B$ for $r=l-1,k$ with equality for interior $r$.
+
+\emph{Standing hypotheses.} (H1) No reverse flows: $d_p\ge0$ and $b_p\ge0$ in every section. This is part of the
+model of~\autocite{TGAT,Nallasivam2016}: the conditions~\eqref{eq:TG} express Underwood's root interlacing for top
+sections with $w\ge0$ and bottom sections with $w\le0$, and with reverse flows the roots can leave their intervals
+(Halvorsen~\autocite{HalvorsenThesis}, \S4.3.3--4.3.4). Reverse flows do occur in directly coupled columns operated
+away from the preferred split, e.g.\ in a Petlyuk prefractionator whose top liquid carries a component that the top
+section would otherwise remove (\emph{ibid.}, \S4.3.3), so (H1) is a genuine restriction of the operating points,
+not only of the configurations.
+The cut identity below needs no sign assumption, but the column lemmas use (H1) through the monotonicity of the
+Underwood functions; whether reverse flows could lower $R$ is not addressed here. (H2) A single feed, and pure
+products withdrawn as saturated liquid.
+
+The objective is $R$, the vapor generated by all heat exchangers (reboilers on products and on transfer streams,
+heaters at nodes).
+
+\subsection{Peaks and regions}
+Fix $j\in\{1,\dots,N-1\}$ and write $\theta=\theta_j$. A stream, column or node with label $[i,m]$ is \emph{light}
+if $m\le j$, \emph{heavy} if $i\ge j+1$, \emph{mixed} if $i\le j<m$. Producers of a mixed column are mixed (their labels
+contain its label); the distillate of a mixed column is light or mixed (it contains $i\le j$), its residue mixed or
+heavy; the sections of a light (heavy) column join light (heavy) nodes. A \emph{light exit} is the top section of a
+mixed column whose distillate is light; a \emph{heavy exit} is the bottom section of a mixed column whose residue is
+heavy.
+
+\section{The Underwood flux and the cut identity}
+
+For a section $s$ with vapor flow $V_s$ and upward net component flows $w_s$ ($w=d$ in a top section, $w=-b$ in a
+bottom section), define the \emph{Underwood flux}
+\[\Lam_s(x)=V_s-\sum_p\frac{\alpha_pw_{s,p}}{\alpha_p-x}.\]
+For a column $c$: $\Lam_{c,T}=V_T-g_T$, $\Lam_{c,B}=V_B-g_B$, and its \emph{feed function}
+$\Lam_{c,F}(x)=U_c-\sum_p\alpha_pf_p/(\alpha_p-x)$ satisfies $\Lam_{c,T}-\Lam_{c,B}=\Lam_{c,F}$.
+
+\begin{lemma}[monotonicity]\label{lem:mono}
+On any interval free of poles, $\Lam_{c,T}$ and $\Lam_{c,F}$ are nonincreasing and $\Lam_{c,B}$ is nondecreasing;
+$\Lam_{c,F}$ is strictly decreasing if some $f_p>0$.
+\end{lemma}
+\begin{proof}
+The derivatives are $-\sum\alpha_pd_p/(\alpha_p-x)^2$, $-\sum\alpha_pf_p/(\alpha_p-x)^2$ and $+\sum\alpha_pb_p/(\alpha_p-x)^2$.
+\end{proof}
+
+\subsection{Nodes and the identity}
+The \emph{nodes} of a network are its columns and its pure products: a column node gathers the feed stage of the
+column, the heat exchangers on its incoming links and its external duty; a product node gathers the withdrawal point
+and its heat exchanger (or the side draw). Every section joins the node of its column to the node that receives its
+distillate (top section) or its residue (bottom section). We orient sections upward and write $s\colon X\to Y$ when the
+bottom end of $s$ is in $X$ and its top end in $Y$.
+
+\begin{proposition}[cut identity]\label{prop:cut}
+Let $U$ be a set of nodes containing every light pure product and no heavy pure product, $U^c$ its complement. Then
+\begin{equation}\label{eq:cut}
+R-H_j=R(U)+Q(U^c)+\sum_{s\colon U^c\to U}\Lam_s(\theta_j)-\sum_{s\colon U\to U^c}\Lam_s(\theta_j),
+\end{equation}
+where $R(U)$ is the reboiler duty (vapor generated) located in $U$ and $Q(U^c)\ge0$ the condenser duty (vapor
+condensed) located in $U^c$.
+\end{proposition}
+\begin{proof}
+$\Lam_s(x)$ is linear in $(V_s,w_s)$. At a node, constant molar overflow and the absence of heat exchange give
+conservation of the total vapor flow and of the net component flows, except for: the feed, which injects vapor $1-q$
+and components $z$; a heat exchanger, which converts liquid into vapor (reboiler, duty $Q_r$) or vapor into liquid
+(condenser, duty $Q_c$); a liquid product withdrawal of $z'_p$ of component $p$. A section whose top end is at the
+node brings the flux $\Lam_s$ into it; a section whose bottom end is at the node takes $\Lam_s$ out of it (its vapor
+leaves upward, its liquid arrives, its net flow $w_s$ leaves upward). Hence, at every node,
+\[\sum_{s\text{ ending at the node}}\Lam_s(x)-\sum_{s\text{ starting at the node}}\Lam_s(x)
+=Q_c-Q_r-\Lam^{\mathrm{feed}}(x)-\frac{\alpha_pz'_p}{\alpha_p-x},\]
+with $\Lam^{\mathrm{feed}}(x)=(1-q)-\sum_p\alpha_pz_p/(\alpha_p-x)$ at the feed column only and the last term at product
+nodes only. (Agent C verified this identity in exact rational arithmetic on all configurations for $N\le5$, with
+arbitrary junction duties.) At $x=\theta_j$, $\Lam^{\mathrm{feed}}=0$ by the
+definition of $\theta_j$. Sum the balances over the nodes of $U^c$: sections inside $U^c$ cancel, every heavy product
+withdraws $\alpha_pz_p/(\theta_j-\alpha_p)$, in total $H_j$, and no light product lies in $U^c$. This gives
+$R(U^c)=H_j+Q(U^c)+\sum_{U^c\to U}\Lam_s-\sum_{U\to U^c}\Lam_s$; add $R(U)$.
+\end{proof}
+
+The canonical choice $U=$ light streams gives
+\begin{equation}\label{eq:lightcut}
+R-H_j=R(\text{light})+Q(\text{mixed})+Q(\text{heavy})+\sum_{\text{light exits}}\Lam_s(\theta_j),
+\end{equation}
+and $U=$ light $\cup$ mixed streams gives
+$R-H_j=R(\text{light})+R(\text{mixed})+Q(\text{heavy})+\sum_{\text{heavy exits}}\Lam_s(\theta_j)$.
+So $R\ge H_j$ as soon as the right-hand side of~\eqref{eq:cut} is nonnegative for one admissible $U$; conversely, the
+inequality is tight on open sets of parameters for many configurations (Agent C's computations), so no strict
+inequality can be expected.
+
+\section{Column lemmas}
+
+For a mixed column $c$ put $A_c=\Lam_{c,T}(\theta_j)$, $B_c=\Lam_{c,B}(\theta_j)$ and $a_c=\Lam_{c,F}(\theta_j)=A_c-B_c$.
+
+\begin{lemma}[sign rule]\label{lem:sign}
+For every mixed column, in both models: $A_c\ge\min(0,a_c)$, equivalently $B_c\ge\min(0,-a_c)$. In particular
+$A_c$ and $B_c$ are never both negative, $a_c\ge0\Rightarrow A_c\ge0$ and $a_c\le0\Rightarrow B_c\ge0$. Moreover,
+if $k<j$ then $A_c\ge0$, and if $l>j+1$ then $B_c\ge0$.
+\end{lemma}
+\begin{proof}
+Let the split be $[i,k]/[l,m]$; $\eqref{eq:TG}$ and $Y\le V$ give $\Lam_{c,T}(\theta_{c,r})\ge0$ and
+$\Lam_{c,B}(\theta_{c,r})\ge0$ for $r\in\{l-1,\dots,k\}$. The values are finite: if $\theta_{c,r}$ is an endpoint
+$\alpha_{r'}$, the feed equation forces $f_{r'}=0$, hence $d_{r'}=b_{r'}=0$.
+
+\emph{Case $l-1\le j\le k$.} If all flows vanish the claim is trivial. Otherwise $\Lam_{c,F}$ is strictly decreasing on
+$[\alpha_{j+1},\alpha_j]$ (where finite) and vanishes at $\theta_{c,j}$. If $a_c\ge0$ then $\theta_j\le\theta_{c,j}$, and
+$A_c\ge\Lam_{c,T}(\theta_{c,j})\ge0$ by Lemma~\ref{lem:mono}. If $a_c\le0$ then $\theta_j\ge\theta_{c,j}$ and
+$B_c\ge\Lam_{c,B}(\theta_{c,j})\ge0$, so $A_c=a_c+B_c\ge a_c$.
+
+\emph{Case $k<j$.} The top section contains only components $p\le k$, so $\Lam_{c,T}$ has no pole in
+$(-\infty,\theta_{c,k}]$; since $\theta_j<\alpha_j\le\alpha_{k+1}\le\theta_{c,k}$, $A_c\ge\Lam_{c,T}(\theta_{c,k})\ge0$; and if
+$a_c\le0$, $B_c=A_c-a_c\ge0$. \emph{Case $l>j+1$}: symmetric, with $\theta_{c,l-1}<\alpha_{j+1}<\theta_j$ and $\Lam_{c,B}$
+nondecreasing on $[\theta_{c,l-1},\infty)$.
+\end{proof}
+
+\begin{lemma}[strict model: interior split]\label{lem:interior}
+In the strict model, if both the distillate and the residue of a mixed column are mixed ($l\le j\le k-1$), then $A_c$
+and $B_c$ are never both positive.
+\end{lemma}
+\begin{proof}
+$j$ is an interior root of $c$, so $V_T=Y_T=g_T(\theta_{c,j})$: $\Lam_{c,T}(\theta_{c,j})=\Lam_{c,B}(\theta_{c,j})=0$. If
+$\theta_j\le\theta_{c,j}$ then $B_c\le0$; if $\theta_j\ge\theta_{c,j}$ then $A_c\le0$ (Lemma~\ref{lem:mono}).
+\end{proof}
+
+For the feed column $a_{[1,N]}=\Lam^{\mathrm{feed}}(\theta_j)=0$, so $A=B\ge0$ by Lemma~\ref{lem:sign}.
+\emph{Propagation.} By the node balance of Proposition~\ref{prop:cut}, a column $c$ other than the feed column has
+\begin{equation}\label{eq:prop}
+a_c=\sum_{P:\ \dist(P)=c}A_P-\sum_{P':\ \res(P')=c}B_{P'}+\rho_c-\kappa_c,
+\end{equation}
+where $\rho_c\ge0$ is the vapor generated and $\kappa_c\ge0$ the vapor condensed at the node of $c$ (in TG's
+convention: $\kappa_c=L_T(P)$ for a condensed distillate link, $\rho_c=V_B(P')$ for a reboiled residue link, $0$ for
+couplings and side draws).
+
+\section{The strict model: all \texorpdfstring{$N$}{N}}
+
+\begin{theorem}\label{thm:strict}
+In the strict model, every feasible operating point of every two-section column network satisfies $R\ge H_j$ for
+every $j$.
+\end{theorem}
+
+The argument is due to the computation agent (Agent C) and was checked by the theory agent; a standalone
+machine check of its combinatorial core is described in Section~\ref{sec:computer}.
+
+\begin{proof}
+Fix $j$ and an operating point. Build the \emph{sign graph}: for every section $s\colon x\to y$, an arc $x\to y$ if
+$\Lam_s(\theta_j)>0$ and an arc $y\to x$ if $\Lam_s(\theta_j)<0$. Let $U$ be the set of nodes reachable from the light
+nodes (light nodes included). If $U$ contains no heavy node, then every section $s\colon U^c\to U$ has
+$\Lam_s\ge0$ (otherwise its bottom end would be reachable) and every section $s\colon U\to U^c$ has $\Lam_s\le0$; so all
+terms of~\eqref{eq:cut} are nonnegative and $R\ge H_j$.
+
+We show by induction on the length of a shortest path from the light nodes that every reached mixed node $y$
+satisfies (i) $B_y\ge0$ and (ii) $A_y\le0$ if $\dist(y)$ is mixed, and that no heavy node is reached. The sections
+incident to a mixed column node $y$ are its top section (to the node receiving $\dist(y)$), its bottom section (from
+the node receiving $\res(y)$) and the sections of its producers ending at $y$; we write $\dist(y)$, $\res(y)$ also for
+these nodes. Let $y$ be reached by an arc from an already reached node $z$.
+\begin{itemize}
+\item $z=\dist(y)$ (light or mixed), arc down the top section of $y$: then $A_y<0$, so $B_y\ge0$ by
+Lemma~\ref{lem:sign}; (i) and (ii) hold.
+\item $z=\res(y)$, arc up the bottom section of $y$: then $B_y>0$. The node $z$ is mixed (a residue of a mixed column
+is not light, and no heavy node has been reached). If $\dist(y)$ is mixed, both products of $y$ are mixed and
+Lemma~\ref{lem:interior} gives $A_y\le0$. So (i) and (ii) hold.
+\item $z$ a producer of $y$ (necessarily mixed): an arc up the top section of $z$ needs $A_z>0$, excluded by (ii) for
+$z$ since $\dist(z)=y$ is mixed; an arc down the bottom section of $z$ needs $B_z<0$, excluded by (i) for $z$.
+\end{itemize}
+A heavy node $y$ could only be entered from a mixed column $c$ with $\res(c)=y$, down the bottom section of $c$, which
+needs $B_c<0$, against (i); no section joins a light node to a heavy node. Hence $U$ contains no heavy node.
+\end{proof}
+
+\begin{corollary}[necessary condition for a tie; Agent C]\label{cor:tie}
+In the strict model, every feasible point of every network satisfies $R-H_j\ge R(\text{light})+Q(\text{heavy})$ for every
+$j$, where $R(\text{light})$ is the vapor generated at nodes with labels inside $[1,j]$ and $Q(\text{heavy})$ the vapor
+condensed at nodes with labels inside $[j+1,N]$. Hence, if $H_{j^*}$ is the strict maximum of the peaks, a network can
+attain $\VFTC$ only if it has no reboiler or heater with positive duty at a node inside $[1,j^*]$ and no condenser or
+cooler with positive duty at a node inside $[j^*+1,N]$.
+\end{corollary}
+\begin{proof}
+In the proof of Theorem~\ref{thm:strict}, $U$ contains the light nodes, $U^c$ the heavy ones, and all flux terms
+of~\eqref{eq:cut} are nonnegative; so $R-H_j\ge R(U)+Q(U^c)\ge R(\text{light})+Q(\text{heavy})$.
+\end{proof}
+\noindent In Agent C's runs ($N=4$, $q=1$), 2717 of 2720 observed ties satisfy this condition; the three exceptions are
+near-ties (relative gap $\sim10^{-9}$) caused by trace components.
+
+\begin{remark}\label{rem:hx}
+The proof uses only Lemmas~\ref{lem:sign}--\ref{lem:interior} column by column, the interval labels and the
+identity~\eqref{eq:cut}. Heat duties never create arcs and enter~\eqref{eq:cut} with nonnegative signs, which is why
+the theorem holds for the whole class of Definition~\ref{def:network}: any thermal state of the transferred streams,
+heaters or coolers at any node, side draws merging any number of links, several columns with the same label, any
+$q$, and no regularity rule. Hypothesis (H1) enters through Lemma~\ref{lem:mono}.
+\end{remark}
+
+\section{The permissive model}
+
+In the permissive model Lemma~\ref{lem:interior} fails: a column with an interior root may run above its threshold,
+with $A_c=B_c=V_T-Y_T>0$. The reachability argument then leaves possible ``bad paths''; Agent C's exact enumeration
+finds none for $N=3$, exactly one family for $N=4$ (family~K below), 70 paths in 48 basic configurations for $N=5$ and
+5795 in 2300 for $N=6$.
+
+\subsection{Extreme peaks and paths}
+
+\begin{lemma}[path]\label{lem:path}
+In a network in which every mixed column has at most one mixed child (the node receiving its distillate or its
+residue), $R\ge H_j$ in both models.
+\end{lemma}
+\begin{proof}
+Every mixed column is reached from the feed column through mixed producers, and each has at most one mixed child;
+hence the mixed columns form a path $c_0\to c_1\to\dots\to c_n$ ($c_0$ the feed column), and $c_{t+1}$ has the single
+producer $c_t$. Write $a_t,A_t,B_t$ for $c_t$, $\rho_t,\kappa_t\ge0$ for the vapor generated and condensed at the node of
+$c_{t+1}$, $T_t$ for the sum of $A$ over the light exits among $c_t,\dots,c_n$ and $K_t=\sum_{t'\ge t}\kappa_{t'}$. We claim
+$T_t\ge\min(0,a_t)-K_t$. For $t=n$: $T_n=A_n\ge\min(0,a_n)$ (Lemma~\ref{lem:sign}; the top section of $c_n$ is a light
+exit). If $c_{t+1}=\dist(c_t)$: $T_t=T_{t+1}$ and $a_{t+1}=A_t+\rho_t-\kappa_t\ge\min(0,a_t)-\kappa_t$. If
+$c_{t+1}=\res(c_t)$, the top of $c_t$ is a light exit and $a_{t+1}=-B_t+\rho_t-\kappa_t$; then
+$T_t=A_t+T_{t+1}\ge A_t+\min(0,a_{t+1})-K_{t+1}$, which is $\ge A_t-K_{t+1}\ge\min(0,a_t)-K_t$ if $a_{t+1}\ge0$, and
+$\ge A_t-B_t-\kappa_t-K_{t+1}=a_t-K_t$ otherwise. With $a_0=0$: $\sum_{\text{light exits}}\Lam_s=T_0\ge-K_0\ge-Q(\text{mixed})$,
+and~\eqref{eq:lightcut} gives $R\ge H_j$.
+\end{proof}
+
+\begin{theorem}[extreme peaks]\label{thm:extreme}
+In both models, for every $N$ and every two-section column network, $R\ge H_1$ and $R\ge H_{N-1}$.
+\end{theorem}
+\begin{proof}
+For $j=1$ the mixed columns are labelled $[1,m]$, $m\ge2$; their residues are heavy, so each has at most one mixed
+child (its distillate) and Lemma~\ref{lem:path} applies. For $j=N-1$ the mixed columns are labelled $[i,N]$ and
+their distillates are light.
+\end{proof}
+
+\noindent For $N=3$ both peaks are extreme: the conjecture holds in both models for all eight ternary configurations
+and every $q$. For any $N$, the conjecture holds in both models whenever the highest peak is $H_1$ or $H_{N-1}$.
+
+\subsection{Recovery ordering and merge-free mixed networks}\label{sec:G}
+
+The results of this subsection and their proofs are due to the general-$N$ agent (Agent G,
+\texttt{general/general-N.md}); they hold for regular-column configurations under the non-degeneracy assumption
+\begin{quote}
+(N) every column receives a positive net flow of every component of its label.
+\end{quote}
+
+\begin{lemma}[recovery ordering]\label{lem:G1}
+Let $c$ be a column with split $[i,k]/[l,m]$, at a point satisfying~\eqref{eq:TG}, with $f_r>0$ for all $r\in[i,m]$.
+Put $d_r:=f_r$ for $r<l$ and $d_r:=0$ for $r>k$. Then $d_p/f_p\ge d_q/f_q$ for all $p<q$ in $[i,m]$; equivalently
+$d_pb_q\ge d_qb_p$.
+\end{lemma}
+\begin{proof}
+Only $l\le p<q\le k$ needs proof. Let $D=Y_T-g_T$, $\tilde B(x)=Y_B+\sum_{r\ge l}\alpha_rb_r/(\alpha_r-x)$ and
+$F=D-\tilde B=U_c-\sum_r\alpha_rf_r/(\alpha_r-x)$. By~\eqref{eq:TG}, $D(\theta_{c,r})=\tilde B(\theta_{c,r})$, equal to $0$
+for interior $r$ and $\ge0$ for $r\in\{l-1,k\}$. Suppose $d_p/f_p<\lambda<d_q/f_q$ with $\lambda$ different from every
+$d_s/f_s$, so $0<\lambda<1$, and put $H=(1-\lambda)D+\lambda\tilde B=D-\lambda F=K_0-\sum_{s=i}^m\alpha_sc_s/(\alpha_s-x)$ with
+$c_s=d_s-\lambda f_s\neq0$. The signs $\sigma_s$ of $c_s$ are $+$ for $s<l$, $-$ for $s>k$, $\sigma_p=-$, $\sigma_q=+$; the
+sequence $\sigma_i,\dots,\sigma_m$ has $C\ge3$ sign changes, all between $s=l-1$ and $s=k+1$. Write
+$H=P(x)/\prod_s(\alpha_s-x)$, $\deg P\le n:=m-i+1$, $P\not\equiv0$. Near $\alpha_s$, $H\approx-\alpha_sc_s/(\alpha_s-x)$, so
+on $I_r=(\alpha_{r+1},\alpha_r)$, $i\le r<m$, $H$ has sign $\sigma_{r+1}$ at the left end and $-\sigma_r$ at the right end. If
+$\sigma_r=\sigma_{r+1}$, $P$ has a zero in $I_r$. If $\sigma_r\neq\sigma_{r+1}$, then $l-1\le r\le k$, both ends of $I_r$ have
+the same sign, and $H(\theta_{c,r})=0$ ($r$ interior) or $H(\theta_{c,r})\ge0$ with both ends negative ($r=l-1$: ends
+$\sigma_l=-$ and $-\sigma_{l-1}=-$; $r=k$: ends $\sigma_{k+1}=-$ and $-\sigma_k=-$); either way $P$ has at least two zeros in
+$I_r$, counted with multiplicity. In total $P$ has at least $(n-1-C)+2C\ge n+2$ zeros, a contradiction.
+\end{proof}
+
+Lemma~\ref{lem:recovery} below is the case $(p,q)=(\mathrm B,\mathrm C)$ of the feed column of K, with a direct proof
+that does not need (N).
+
+\emph{Light and heavy parts.} A function $y(x)=U-\sum_p\alpha_pw_p/(\alpha_p-x)$ with $w\ge0$ (nonincreasing on $I_j$) is
+written $y=U-G_y+K_y$ with $G_y(x)=\sum_{p\le j}\alpha_pw_p/(\alpha_p-x)$ (nondecreasing on $I_j$) and
+$K_y(x)=\sum_{p>j}\alpha_pw_p/(x-\alpha_p)$ (nonincreasing). This applies to the feed function $a_c:=\Lam_{c,F}$, to
+$\Lam_{c,T}$, to $-\Lam_{c,B}$ and to the fluxes carried by the links into a mixed column: $y_e=\Lam_{P,T}-\kappa_e$ for a
+distillate link from $P$, $y_e=-\Lam_{P',B}+\rho_e$ for a residue link from $P'$ ($\kappa_e$, $\rho_e$ the duties of a
+condenser or reboiler on the link), so that $a_c=\sum_ey_e$ as functions on $I_j$ (cf.~\eqref{eq:prop}). Under (N)
+each of them has a unique zero $\zeta_y$ in $I_j$; let $\theta^c$ be the zero of $a_c$ and
+\[\Gamma(y):=G_y(\zeta_y)-G_y(\theta_j).\]
+For the feed column $\Gamma(a)=0$, since $\zeta=\theta_j$. A mixed column is of type (a) if its distillate is light and
+its residue heavy, (b) light and mixed, (c) mixed and heavy, (d) mixed and mixed; in type (d), $j$ is an interior root
+and $\Lam_{c,T}(\theta^c)=\Lam_{c,B}(\theta^c)=e_c:=V_T-Y_T\ge0$.
+
+\begin{lemma}[local inequality]\label{lem:G4}
+Under (N), let $c$ be a mixed column, $y_1$ and $y_2$ the fluxes of its links to its mixed distillate and residue
+(when these are mixed), $\kappa$ the condenser duty on the first of these links (if any), and $\ell_c=A_c$ if $c$ is of
+type (a) or (b), $\ell_c=0$ otherwise. Then $\ell_c+\kappa+\sum_e\Gamma(y_e)\ge\Gamma(a_c)$.
+\end{lemma}
+\begin{proof}
+Let $G=G_{a_c}=G^T+G^B$, with $G^T$, $G^B$ the light parts of $\Lam_{c,T}$ and $-\Lam_{c,B}$, and
+$s_c=\Lam_{c,T}(\theta^c)=\Lam_{c,B}(\theta^c)\ge0$ (Lemma~\ref{lem:sign}).
+(a) The top section carries light components only: $\Lam_{c,T}=V_T-G$, so $\ell_c=s_c+G(\theta^c)-G(\theta_j)=s_c+\Gamma(a_c)$.
+(b) The top carries only light components, the bottom all heavy ones. With $z=\zeta_{y_2}$ ($\Lam_{c,B}(z)=\rho$),
+$\ell_c+\Gamma(y_2)-\Gamma(a_c)=s_c-[G^B(\theta^c)-G^B(z)]$. If $z\ge\theta^c$ the bracket is $\le0$. If $z<\theta^c$,
+$s_c-\rho=\Lam_{c,B}(\theta^c)-\Lam_{c,B}(z)=[G^B(\theta^c)-G^B(z)]+[K^B(z)-K^B(\theta^c)]$ and the second bracket is $\ge0$.
+(c) Symmetric: with $z=\zeta_{y_1}$, $\kappa+\Gamma(y_1)-\Gamma(a_c)=\kappa+G(z)-G(\theta^c)$; if $z<\theta^c$,
+$\kappa-s_c=\Lam_{c,T}(z)-\Lam_{c,T}(\theta^c)\ge G(\theta^c)-G(z)$.
+(d) With $e=e_c$, $z_1=\zeta_{y_1}$ ($\Lam_{c,T}(z_1)=\kappa$), $z_2=\zeta_{y_2}$ ($\Lam_{c,B}(z_2)=\rho$), the claim reads
+$X:=[G^T(z_1)-G^T(\theta^c)]+\kappa-[G^B(\theta^c)-G^B(z_2)]\ge0$. If $\kappa\le e$ and $\rho\le e$, then
+$z_1\ge\theta^c\ge z_2$ and
+\[\begin{aligned}
+e-\kappa&=(z_1-\theta^c)\sum_px_p, & x_p&=\frac{\alpha_pd_p}{|\alpha_p-\theta^c||\alpha_p-z_1|},\\
+e-\rho&=(\theta^c-z_2)\sum_py_p, & y_p&=\frac{\alpha_pb_p}{|\alpha_p-\theta^c||\alpha_p-z_2|},
+\end{aligned}\]
+$G^T(z_1)-G^T(\theta^c)=\sigma_1(e-\kappa)$ and $G^B(\theta^c)-G^B(z_2)=\sigma_2(e-\rho)$, where $\sigma_1=X_L/(X_L+X_H)$,
+$\sigma_2=Y_L/(Y_L+Y_H)$, $X_L=\sum_{p\le j}x_p$, $X_H=\sum_{p>j}x_p$, and similarly for $Y$. For $p\le j<q$,
+$x_py_q-x_qy_p$ is a positive multiple of $d_pb_q\,v^1_pv^2_q-d_qb_p\,v^1_qv^2_p$ with $v^t_s=1/|\alpha_s-z_t|$; since
+$v^1_p/v^2_p=(\alpha_p-z_2)/(\alpha_p-z_1)\ge1\ge(z_2-\alpha_q)/(z_1-\alpha_q)=v^1_q/v^2_q$ and $d_pb_q\ge d_qb_p$
+(Lemma~\ref{lem:G1}), it is $\ge0$; summing, $X_LY_H\ge X_HY_L$, i.e.\ $\sigma_1\ge\sigma_2$. Hence
+$X=\sigma_1e+(1-\sigma_1)\kappa-\sigma_2(e-\rho)\ge(\sigma_1-\sigma_2)e\ge0$. If $\kappa>e$: $z_1<\theta^c$ and
+$\kappa-e=\Lam_{c,T}(z_1)-\Lam_{c,T}(\theta^c)\ge G^T(\theta^c)-G^T(z_1)$, so the first two terms of $X$ add up to at least
+$e$, while the last bracket is $\le e-\rho\le e$ if $\rho\le e$ and $\le0$ if $\rho>e$. If $\kappa\le e<\rho$: the first
+bracket is $\ge0$ and the last $\le0$.
+\end{proof}
+
+\begin{theorem}[merge-free mixed networks; Agent G]\label{thm:G3}
+In the permissive model, under (N), if no mixed column of a regular-column configuration has two producers (no
+\emph{merge node} in the mixed sub-network for $j$), then $R\ge H_j$.
+\end{theorem}
+\begin{proof}
+The mixed columns form a tree rooted at the feed column; each non-root mixed column $c'$ has a single link $e$, and
+$a_{c'}=y_e$. Let $L(c)$ be the sum of $\ell$ over the mixed columns of the subtree of $c$ plus the condenser duties
+on the links inside it. From the leaves up, Lemma~\ref{lem:G4} and $L(c')\ge\Gamma(a_{c'})=\Gamma(y_e)$ give
+$L(c)\ge\Gamma(a_c)$. At the root, $\sum_{\text{light exits}}\Lam_s(\theta_j)+Q(\text{mixed})=L([1,N])\ge0$; conclude
+with~\eqref{eq:lightcut}.
+\end{proof}
+
+\noindent For regular-column configurations satisfying (N), Theorem~\ref{thm:G3} contains Lemma~\ref{lem:path} and Lemma~\ref{lem:K}. Agent G also shows that
+$R\ge H_j$ holds at every permissive point at which no merge node descends from a type-(d) column whose excess
+satisfies $\Lam_{c,T}(\theta_j)>0$ and $\Lam_{c,B}(\theta_j)>0$ (possible only if $e_c>0$), by combining the sign rule (with superadditivity of $\min(0,\cdot)$
+at merges) above those columns and Lemma~\ref{lem:G4} below them (\texttt{general/general-N.md}, Theorem G6). The
+mechanism that defeats a general proof: $\Gamma$ is not superadditive at merge nodes (mixing a vapor-rich and a
+liquid-rich feed lowers the threshold vapor).
+
+\subsection{A five-component counterexample in the permissive model}\label{sec:cex}
+
+This subsection was added by the independent verifier. The bound $R\ge\VFTC$ is false in the permissive model for
+$N=5$. Take the regular-column configuration (basic configuration 161 of the Shah--Agrawal space, all transfers by
+thermal coupling, B, C and D withdrawn as liquid side draws)
+\[\begin{aligned}
+&\mathrm{ABCDE}\to\mathrm{ABCD}/\mathrm{BCDE},\quad \mathrm{ABCD}\to\mathrm{ABC}/\mathrm{BCD},\quad \mathrm{BCDE}\to\mathrm{BCD}/\mathrm{CDE},\\
+&\mathrm{ABC}\to\mathrm{AB}/\mathrm{BC},\quad \mathrm{BCD}\to\mathrm{BC}/\mathrm D,\quad \mathrm{CDE}\to\mathrm C/\mathrm{DE},\\
+&\mathrm{AB}\to\mathrm A/\mathrm B,\quad \mathrm{BC}\to\mathrm B/\mathrm C,\quad \mathrm{DE}\to\mathrm D/\mathrm E,
+\end{aligned}\]
+a saturated-vapor feed ($q=0$),
+\[\alpha=\Bigl(\tfrac{10675204}{742583},\tfrac{5824255}{854876},\tfrac{529647}{171259},\tfrac{1673613}{789461},1\Bigr)
+\approx(14.3758,\,6.8130,\,3.0927,\,2.1199,\,1),\]
+and the rational feed
+$z\approx(0.19036,0.18832,0.17089,0.03888,0.41156)$ chosen so that the feed roots are the rationals
+$\theta\approx(12.3250,5.5538,2.5300,1.9504)$ (exact values in the file
+\texttt{permissive\_counterexample\_N5.json} of the folder \texttt{verification/}).
+Then $H\approx(0.33442,0.32912,0.46994,0.43302)$ and $\VFTC=H_3\approx0.469941$, while the permissive model has a
+feasible point with $R\approx0.469685$, i.e.\ $R/\VFTC\approx0.99946$, at which every net flow is at least $10^{-6}$ (so
+assumption (N) holds) and every inequality of~\eqref{eq:TG} holds with slack at least $10^{-6}$. That an exact feasible
+point exists within $10^{-30}$ of the computed one is proved by a Krawczyk test in interval arithmetic on a square
+subsystem of the equalities (\texttt{verification/krawczyk\_certificate.py}); the inequalities and $R<\VFTC$ are then
+checked over the whole box in interval arithmetic.
+
+The mechanism is the one isolated in Section~\ref{sec:G}: for $j=3$ the column BCDE is of type (d) and runs about $0.006$
+above its threshold ($V_T\approx0.03015$, $Y_T\approx0.02420$) although C and D distribute in it with positive flows,
+so its root at $j=3$ is active and an infinite-stage column could not carry this excess; its distillate feeds the
+merge node BCD, which is not the bottom of a simple diamond. In the strict model, Theorem~\ref{thm:strict} excludes
+such a point, and a multistart minimization of the same configuration at the same data gives $R/\VFTC=1$ to
+$10^{-7}$. Hence the permissive (TG-literal) model is not a faithful model for the conjecture, and of the 20 open
+(basic configuration, $j$) pairs at least one, (161, 3), is settled negatively.
+
+\emph{Physical meaning.} We do not know an adiabatic arrangement with pure products that realizes this point, and
+the natural candidates fail. (i) An infinite-stage column in which C and D appear in both products has an active
+root and runs at its Underwood vapor (Halvorsen's rule quoted in Section~\ref{sec:model}); excess vapor at a fixed
+product distribution requires fewer stages, but a section with finitely many stages cannot remove B from the residue
+or E from the distillate completely, and as the impurities tend to zero both sections become infinite and the excess
+is forced to zero. So the point is at best the limit of finite-stage operations with \emph{impure} intermediate
+streams, which the conjecture does not compare. (ii) A vapor bypass carrying the excess from the node below BCDE to
+the node above it, or a separate section with $V=L$ between these nodes, transports components (E upward into the
+node BCD, B downward, or C and D in opposite directions), whereas the permissive excess leaves every net flow
+unchanged; it therefore realizes a different point, outside Definition~\ref{def:network}. The excess-vapor device of
+TG is physically sound for columns in which at most one component distributes (then $V$ above the threshold does not
+change the distribution), and the strict model keeps exactly that freedom. We therefore regard the point as an
+artifact of the permissive formulation, not as a counterexample to a physical reading of the conjecture; it does,
+however, show that a global optimizer applied to TG's model can return configurations below the FTC value.
+
+\subsection{The FTC configuration, every \texorpdfstring{$N$}{N}}
+
+\begin{theorem}[minimum vapor of the generalized Petlyuk arrangement]\label{thm:ftc}
+In both models, every feasible point of the FTC configuration satisfies $R\ge\max_jH_j$.
+\end{theorem}
+\begin{proof}
+Fix $j$. The mixed streams form the grid $(i,m)$, $1\le i\le j<m\le N$; the column $(i,m)$ splits $[i,m]$ into
+$[i,m-1]$ and $[i+1,m]$. Row $i$ is the chain $(i,N)\to(i,N-1)\to\dots\to(i,j+1)$ of distillate links, ending in the
+light exit of $(i,j+1)$; the column $(i,m)$ also receives the flux $x^{(i)}_m:=-B_{(i-1,m)}$ from row $i-1$ ($x^{(1)}\equiv0$;
+all links are couplings or side draws, so~\eqref{eq:prop} has no duty terms). Put $y^{(i)}_m=-B_{(i,m)}$ and
+$Y^{(i)}_m=\sum_{m'\ge m}y^{(i)}_{m'}$, $X^{(i)}_m=\sum_{m'\ge m}x^{(i)}_{m'}=Y^{(i-1)}_m$.
+
+\emph{Claim: if $X^{(i)}_m\le0$ for all $m$, then $Y^{(i)}_m\le0$ for all $m$.} Along the row,
+$a_{(i,N)}=x_N$ and $a_{(i,m)}=x_m+A_{(i,m+1)}$. We show $A_{(i,m)}\ge X_m$ by descending induction:
+$A_{(i,N)}\ge\min(0,x_N)=X_N$; if $A_{(i,m+1)}\ge X_{m+1}$ then $a_{(i,m)}\ge X_m$ and
+$A_{(i,m)}\ge\min(0,a_{(i,m)})\ge\min(0,X_m)=X_m$ (Lemma~\ref{lem:sign}). Since $y_m=a_{(i,m)}-A_{(i,m)}$, telescoping gives
+$Y_m=X_m-A_{(i,m)}\le0$.
+
+Row 1 has $X\equiv0$ (the feed column has $a=0$). By induction $Y^{(j)}_{j+1}\le0$; but $-Y^{(j)}_{j+1}$ is the sum of
+$\Lam$ over the heavy exits (the bottom sections of the columns $(j,m)$). The second form of~\eqref{eq:lightcut}
+gives $R-H_j\ge-Y^{(j)}_{j+1}\ge0$.
+\end{proof}
+
+This proves, in the Underwood model, the statement of~\autocite{HS3} \S3.1 and \S5 (``the minimum-energy solution for
+a generalized Petlyuk arrangement \dots is given by the highest peak in the $V_{\min}$ diagram'') for every $N$, the
+attainment being Theorem~\ref{thm:achieve}. When a grid node is missing, the rows no longer absorb the residue fluxes
+of the previous row, and the induction breaks; family~K is the smallest instance.
+
+\subsection{Four components}
+
+For $N=4$, $j\in\{1,3\}$ is Theorem~\ref{thm:extreme}. For $j=2$ the mixed streams are among ABCD, ABC, BCD, BC
+(A, B, C, D $=$ components 1--4). ABC is present iff it is the distillate of ABCD, BCD iff it is its residue, and BC, if
+present, is the residue of ABC and the distillate of BCD whenever these are present. Hence: if ABC or BCD is absent,
+the mixed streams form a path (Lemma~\ref{lem:path}); if ABC, BCD and BC are present, Lemma~\ref{lem:diamond}; the
+remaining family is
+\[\begin{aligned}\mathrm K=\{&\mathrm{ABCD}\to\mathrm{ABC}/\mathrm{BCD},\ \mathrm{ABC}\to\mathrm{AB}/\mathrm C,\ \mathrm{BCD}\to\mathrm B/\mathrm{CD},\\
+&\mathrm{AB}\to\mathrm A/\mathrm B,\ \mathrm{CD}\to\mathrm C/\mathrm D\}\end{aligned}\]
+with its 16 coupling/exchanger variants (B and C are liquid side draws).
+
+\begin{lemma}[diamond]\label{lem:diamond}
+If ABC, BCD and BC are present ($N=4$, $j=2$), then $R\ge H_2$ in both models.
+\end{lemma}
+\begin{proof}
+Columns $0=$ ABCD, $1=$ ABC, $2=$ BCD, $3=$ BC; light exits: tops of 1 and 3. $a_0=0$ gives $A_0=B_0\ge0$;
+$a_1=A_0-\kappa_1\ge-\kappa_1$, $a_2=-B_0+\rho_2$, $a_3=-B_1+A_2$ (side draw). By Lemma~\ref{lem:sign},
+$A_1\ge\min(0,a_1)\ge-\kappa_1$. If $a_3\ge0$ then $A_3\ge0$ and $A_1+A_3\ge-\kappa_1$. Otherwise $A_3\ge a_3$ and
+$A_1+A_3\ge A_1-B_1+A_2=a_1+A_2$; if $a_2\ge0$ then $A_2\ge0$ and the sum is $\ge-\kappa_1$; if $a_2<0$ then $A_2\ge a_2$ and
+the sum is $\ge A_0-\kappa_1-B_0+\rho_2\ge-\kappa_1$. Conclude with~\eqref{eq:lightcut}, $Q(\text{mixed})=\kappa_1$.
+\end{proof}
+
+\begin{lemma}[recovery ordering]\label{lem:recovery}
+If the feed column splits ABCD into ABC/BCD (permissive model), its top recoveries satisfy $d_B/z_B>d_C/z_C$. In
+particular $d_B>0$ and $b_C=z_C-d_C>0$.
+\end{lemma}
+\begin{proof}
+The roots of the feed column are $\theta_1,\theta_2,\theta_3$, $\theta_2$ interior. By~\eqref{eq:TG},
+$\Phi_1:=g_T(\theta_2)-g_T(\theta_1)\ge0$ and $\Phi_3:=g_T(\theta_2)-g_T(\theta_3)\ge0$, with $d=(z_A,d_B,d_C,0)$.
+On the diagonal $d_B=rz_B$, $d_C=rz_C$ ($0\le r\le1$), the feed equation gives
+$g_T(\theta_t)=r(1-q)+(1-r)\mathcal A(\theta_t)+r\mathcal D(\theta_t)$ with $\mathcal A(x)=\alpha_Az_A/(\alpha_A-x)$ increasing and
+$\mathcal D(x)=\alpha_Dz_D/(x-\alpha_D)$ decreasing on $(\alpha_D,\alpha_A)$. Thus $\Phi_1=-(1-r)A_{12}+rD_{12}$ and
+$\Phi_3=(1-r)A_{32}-rD_{32}$ with $A_{12}=\mathcal A(\theta_1)-\mathcal A(\theta_2)$, $D_{12}=\mathcal D(\theta_2)-\mathcal D(\theta_1)$,
+$A_{32}=\mathcal A(\theta_2)-\mathcal A(\theta_3)$, $D_{32}=\mathcal D(\theta_3)-\mathcal D(\theta_2)$, all positive, and
+\[\frac{A_{12}D_{32}}{A_{32}D_{12}}=\frac{(\alpha_A-\theta_3)(\theta_1-\alpha_D)}{(\alpha_A-\theta_1)(\theta_3-\alpha_D)}>1 .\]
+For $r=0$, $\Phi_1<0$; for $r=1$, $\Phi_3<0$; for $0<r<1$, $\Phi_1,\Phi_3\ge0$ would give $A_{12}D_{32}\le A_{32}D_{12}$. So no
+feasible point lies on the diagonal. Moreover $\partial\Phi_1/\partial d_B=\alpha_B/(\alpha_B-\theta_2)+\alpha_B/(\theta_1-\alpha_B)>0$ and
+$\partial\Phi_3/\partial d_B=\alpha_B/(\alpha_B-\theta_2)-\alpha_B/(\alpha_B-\theta_3)>0$: lowering $d_B$ below $z_Bd_C/z_C$ lowers both, so
+$d_B/z_B\le d_C/z_C$ is infeasible. As the inequality is strict, $d_B>0$ and $d_C<z_C$.
+\end{proof}
+
+\begin{lemma}[family K]\label{lem:K}
+For every variant of family K, $R\ge H_2$ in both models.
+\end{lemma}
+\begin{proof}
+Columns $0=$ ABCD, $1=$ ABC, $2=$ BCD; light exits: tops of 1 and 2. Since $\theta_2$ is an interior root of column 0,
+$A_0=B_0=V_T-Y_T=:e\ge0$. Column 1 is fed with $d=(z_A,d_B,d_C)$ and $\Lam_{1,F}=\Lam_{0,T}-\kappa_1$; its split AB/C has the
+single root $\rho_1:=\theta_{1,2}\in I_2$, with $\Lam_{1,T}(\rho_1)\ge0$. Column 2 is fed with $b=(b_B,b_C,z_D)$,
+$\Lam_{2,F}=-\Lam_{0,B}+\rho_2'$ ($\rho_2'$ the reboiler duty on the link, $0$ for a coupling), root
+$\rho_2:=\theta_{2,2}$, $\Lam_{2,T}(\rho_2)\ge0$. Let $\Delta_p(x)=1/(\alpha_p-x)-1/(\alpha_p-\theta_2)$, whose sign is that of
+$x-\theta_2$ for every $p$. Then
+\[\begin{aligned}
+A_1&\ge\sum_{p=A,B}\alpha_pd_p\Delta_p(\rho_1), & e-\kappa_1&=\sum_{p=A,B,C}\alpha_pd_p\Delta_p(\rho_1),\\
+A_2&\ge\alpha_Bb_B\Delta_B(\rho_2), & \rho_2'-e&=\sum_{p=B,C,D}\alpha_pb_p\Delta_p(\rho_2),
+\end{aligned}\]
+the equalities because the feed functions vanish at $\rho_1,\rho_2$ and equal $e-\kappa_1$, $-e+\rho_2'$ at $\theta_2$. By
+\eqref{eq:lightcut} it suffices to show $A_1+A_2+\kappa_1\ge0$. If $\rho_1,\rho_2\ge\theta_2$: $A_1,A_2\ge0$. If
+$\rho_1\le\theta_2\le\rho_2$: $A_2\ge0$ and $A_1+\kappa_1\ge e-\alpha_Cd_C\Delta_C(\rho_1)\ge e$. If $\rho_1,\rho_2\le\theta_2$:
+$A_1+\kappa_1\ge e$ and $A_2\ge\rho_2'-e-\alpha_Cb_C\Delta_C(\rho_2)-\alpha_Dz_D\Delta_D(\rho_2)\ge-e$. In the remaining case
+$\rho_1\ge\theta_2\ge\rho_2$ put
+\[X=\alpha_Cd_C\Delta_C(\rho_1),\ Y=\alpha_Bd_B\Delta_B(\rho_1),\ Z=\alpha_Bb_B|\Delta_B(\rho_2)|,\ W=\alpha_Cb_C|\Delta_C(\rho_2)|,\]
+all $\ge0$, with $X+Y\le e-\kappa_1\le e$, $Z+W\le e-\rho_2'\le e$ and $A_1+A_2+\kappa_1\ge e-X-Z$. Now
+$X/(X+Y)+Z/(Z+W)-1=(XZ-YW)/((X+Y)(Z+W))$, so $XZ\le YW$ implies $X+Z\le e$ (if $X+Y=0$ or $Z+W=0$ this is immediate).
+Finally $XZ\le YW$ reads
+\[\frac{d_Cb_B}{d_Bb_C}\le\frac{\mathrm{Rat}(\rho_2)}{\mathrm{Rat}(\rho_1)},\qquad
+\mathrm{Rat}(x):=\frac{\Delta_C(x)}{\Delta_B(x)}=\frac{(\alpha_B-x)(\alpha_B-\theta_2)}{(x-\alpha_C)(\theta_2-\alpha_C)} .\]
+The left side is $\le1$ by Lemma~\ref{lem:recovery} ($d_Bz_C\ge d_Cz_B\iff d_Bb_C\ge d_Cb_B$); $\mathrm{Rat}$ is decreasing on
+$I_2$ and $\rho_1\ge\rho_2$, so the right side is $\ge1$. (By Lemma~\ref{lem:recovery}, $d_B>0$ and $b_C>0$, so $\rho_1<\alpha_B$
+and $\rho_2>\alpha_C$ and all quantities are finite.)
+\end{proof}
+
+\begin{theorem}[$N=4$]\label{thm:N4}
+In both models, every feasible point of every one of the 152 four-component configurations satisfies $R\ge\max(H_1,H_2,H_3)$.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{thm:extreme}, Lemmas~\ref{lem:path}, \ref{lem:diamond} and~\ref{lem:K}, by the case distinction above.
+\end{proof}
+\noindent Agent G also proves, for every $N$ and under (N), that $R\ge H_j$ in the permissive model whenever every merge
+node of the mixed sub-network is the bottom of a \emph{simple diamond}: a type-(d) column whose distillate column is
+of type (b) and whose residue column is of type (c), both feeding the merge node (\texttt{general/general-N.md},
+Theorem G8). With Theorem~\ref{thm:G3} this gives an independent proof of Theorem~\ref{thm:N4} under (N); the proof above
+needs no non-degeneracy assumption.
+
+\section{Attainment by the FTC}\label{sec:achieve}
+
+\begin{theorem}\label{thm:achieve}
+For every $N$, $\alpha$, $z>0$ and $q\in\mathbb R$, the FTC configuration has an operating point, feasible in the strict
+(hence in the permissive) model, with $R=\max_jH_j$; all its flows are positive.
+\end{theorem}
+\begin{proof}
+\emph{Preferred split.} Let a column $[i,m]$, $m-i\ge2$, have positive feed $f$ and net vapor $U$ such that
+$\theta_i,\dots,\theta_{m-1}$ are roots of its feed equation. Define $V_T$ and $d$ by
+\[\alpha_pd_p=V_T\,\frac{\prod_{r=i}^{m-1}(\alpha_p-\theta_r)}{\prod_{p'\in[i,m-1],p'\ne p}(\alpha_p-\alpha_{p'})}\quad(i\le p\le m-1),\]
+where the factor $V_T$ is fixed by the condition $d_i=f_i$ (the formula for $p=i$), and $b=f-d$ ($d_m:=0$), $V_B=V_T-U$. Partial fractions give $V_T-g_T(x)=V_T\prod_r(x-\theta_r)/\prod_{p=i}^{m-1}(x-\alpha_p)$, so
+$g_T(\theta_r)=V_T$ for all $r$; with the feed equation, $g_B(\theta_r)=V_B$, and since $V_B-g_B$ has its poles at
+$\alpha_{i+1},\dots,\alpha_m$, $V_B-g_B(x)=V_B\prod_r(x-\theta_r)/\prod_{p=i+1}^{m}(x-\alpha_p)$ ($V_B\ne0$, otherwise $b\equiv0$,
+contradicting $b_m=f_m>0$). Counting signs of the factors, every $d_p$ has the sign of $V_T$ and every $b_p$ the sign of
+$V_B$; as $d_i=f_i>0$ and $b_m=f_m>0$, all are positive. At $x=0$: $L_T=V_T-\sum d=V_T\prod_r\theta_r/\prod_{p<m}\alpha_p$ and
+$L_B=V_B+\sum b=V_B\prod_r\theta_r/\prod_{p>i}\alpha_p$, so $0<L_T<V_T$ and $L_B>V_B>0$. The column satisfies~\eqref{eq:TG}
+with $Y_T=V_T$ and all roots active.
+
+\emph{Construction.} Process the columns by decreasing length. The feed column ($f=z$, $U=1-q$) and every column
+$[i,m]$ with $m-i\ge2$ are put at the preferred split. A child $[i,m]$ receives $d$ from $[i,m+1]$ and $b$ from
+$[i-1,m]$ (those present), with $U=V_T[i,m+1]-V_B[i-1,m]$; since both producers have every common root active,
+$\theta_i,\dots,\theta_{m-1}$ are roots of its feed equation (carry-over~\autocite{CW89,HS2}), and its feed is positive.
+A binary column $[r,r+1]$ gets $d_r=f_r$, $b_{r+1}=f_{r+1}$, $V_T=\alpha_rf_r/(\alpha_r-\theta_r)+e_r$,
+$V_B=\alpha_{r+1}f_{r+1}/(\theta_r-\alpha_{r+1})+e_r$ with $e_r:=\max_sH_s-H_r\ge0$; it has no interior root, so excess
+vapor is allowed in both models.
+
+\emph{Side draws.} It remains to check $V_T[p,p+1]=V_B[p-1,p]$ at the side draws $p=2,\dots,N-1$ (product purities hold
+by construction). Let $\delta_p$ be the vapor lost at the node of $p$ (inflow from below minus outflow above), treated in
+Proposition~\ref{prop:cut} as a condenser duty (or a reboiler duty $-\delta_p$). For the split $r$, the light exits are
+the tops of $[i,r+1]$, $i\le r$; for $i<r$ the column is at its preferred split with root $\theta_r$ active, so
+$\Lam=0$; for $i=r$, $\Lam=e_r$. The only other heat duty is the reboiler of product $N$. Proposition~\ref{prop:cut}
+with $U=$ light streams gives $R-\sum_{p=r+1}^{N-1}\delta_p=H_r+e_r=\max_sH_s$ for $r=1,\dots,N-1$. For $r=N-1$ this is
+$R=\max_sH_s$, and successive differences give $\delta_{N-1}=\dots=\delta_2=0$.
+\end{proof}
+
+\noindent The construction is the one of~\autocite{HS3} \S3 (every internal column at its preferred split); the
+excess vapor is placed in the binary columns, whose children are pure products, so that no carried-over root moves.
+
+\section{Computer verification and numerical evidence}\label{sec:computer}
+
+No proof above depends on a computation. The scripts check the algebra, cross-check the case analysis and search
+for counterexamples (environment: WSL Fedora, Python 3 with sympy, mpmath, scipy, pyomo, ipopt; paths relative to
+the problem folder).
+\begin{itemize}
+\item \texttt{theory/scripts/check\_algebra.py} (sympy, exact): the identities used in Lemmas~\ref{lem:recovery},
+\ref{lem:K} and Theorem~\ref{thm:achieve}. PASS.
+\item \texttt{theory/scripts/check\_ftc\_achievability.py} (mpmath, 80 digits): builds the point of
+Theorem~\ref{thm:achieve} for 200 random instances for each $N=3,\dots,8$ ($q\in[-1,2]$) and checks every constraint of
+the strict model, the side draws and $R=\max H_j$ to $10^{-50}$. PASS.
+\item \texttt{theory/scripts/signcheck.py certify4}: decides, by linear programming over the sign patterns of the
+inflows, which (configuration, $j$) pairs are not settled by Lemma~\ref{lem:sign}, \eqref{eq:prop} and the cut identity
+alone; for $N=4$ these are exactly the 16 variants of family K at $j=2$. PASS. (For $N=5$ the sign rule alone leaves
+1312 (configuration, $j$) pairs for each of $j=2,3$, in 2160 of the 6128 configurations and 48 basic configurations.
+The LPs have integer data but are solved in floating point (HiGHS); the statement that the other pairs are
+settled by the sign rule is therefore computer-assisted, not a hand proof.)
+\item Agent C (\texttt{computation/}): the enumeration of the configuration space (8/152/6128 configurations, as in
+\autocite{SA10}); an exact-arithmetic check of the cut identity on all configurations for $N\le5$; an exact enumeration of
+sign-consistent light-to-heavy paths (none in the strict model for $N\le6$; family K only for $N=4$ in the permissive
+model); multistart local minimization (ipopt, every accepted point re-verified a posteriori) of $R$ in the strict
+model over all 152 configurations at 239 random points for $N=4$, $q=1$ (minimum ratio $R/\VFTC=1-1.4\cdot10^{-9}$),
+and over all 6128 configurations at the eight test points of~\autocite{TGAT} for $N=5$ (minimum $=\VFTC$ to
+$10^{-10}$ relative, the FTC attaining it); adversarial joint minimization over $(\alpha,z,q)$ and the operating point
+(ratio never below 1 beyond $10^{-6}$), and targeted minimization on the permissive ``bad paths'' (family K; the
+all-coupled variants of the 48 five-component families; 181 of the merge cases), never below 1; SCIP global
+optimization used only as a cross-check at two points for $N=4$ (strict model, all 152 configurations, at
+$\alpha=(8,4,2,1)$, $z_p=1/4$, $q=1$: SCIP and ipopt agree to $2.2\cdot10^{-9}$, and the SCIP dual bound is $\ge\VFTC$
+for every non-tying configuration, while for the tying ones it reached $\VFTC(1-8\cdot10^{-6})$ at the time limit;
+permissive model, first 100 configurations, at the point of the example below: agreement to $3.7\cdot10^{-9}$). Many
+exact ties (for $N=4$, $q=1$, 12 to 16 configurations tie with the FTC, depending on the dominant peak; 2717 of 2720
+observed ties satisfy Corollary~\ref{cor:tie}). Random searches with $q\ne1$ and a random permissive search for $N=5$
+were not run. The FTC value reproduces the eight five-component optima of~\autocite{TGAT} (all eight test points have
+an extreme highest peak, $j=1$ or $j=4$, so they are covered by Theorem~\ref{thm:extreme} in both models), and the
+model reproduces Halvorsen's ternary table~\autocite{HalvorsenThesis} (Table~6.1). Scripts and data:
+\texttt{computation/scripts/} and \texttt{computation/certificates/}.
+\item Agent G (\texttt{general/scripts/}): \texttt{recovery\_order\_lp.py} (LP minimum of $d_p/f_p-d_{p+1}/f_{p+1}$
+over the constraints~\eqref{eq:TG} of random columns, 1587 LPs, positive), \texttt{classify\_mixed.py} (types and merge
+nodes of the mixed sub-networks for $N=4,5,6$), \texttt{gamma\_check.py} (stress test of Lemmas~\ref{lem:sign},
+\ref{lem:G1}, \ref{lem:G4} at optimal and random feasible points). \texttt{theory/scripts/opencount.py} intersects the
+sign-hard pairs with the pairs having a merge node ($N=5$: 864 pairs, 720 configurations; Agent C's path enumeration
+gives the same 20 (basic configuration, $j$) pairs).
+\item \texttt{theory/scripts/stressK.py}: minimizes $d_B/z_B-d_C/z_C$, $A_1+A_2+\kappa_1$ and $R-H_2$ over the 16 variants
+of K in the permissive model: minima $+0.039$, $-2\cdot10^{-10}$ and $-2\cdot10^{-10}$ (round-off), consistent with
+Lemmas~\ref{lem:recovery} and~\ref{lem:K} and showing that the bound is tight.
+\item Independent verification (\texttt{verification/}, code written from the equations, sharing nothing with the
+scripts above): an exact (rational) check of the node-balance form of the cut identity on 400 random networks of
+Definition~\ref{def:network} (several columns per label, merges, heaters and coolers at every node, random subsets
+$U$, rational evaluation points); an independent construction of the attainment point of Theorem~\ref{thm:achieve}
+(60 digits, $N=3,\dots,7$, 200 instances); the FTC value at the eight test points of~\autocite{TGAT}; an independent
+enumeration (3/8, 18/152, 203/6128) and minimum-vapor NLP for all 8 ternary and all 152 four-component
+configurations (13 runs in the strict or the permissive model) at 9 parameter points ($q\in\{-0.3,0.3,0.4,0.5,1,1.3\}$, four of them with
+the middle peak highest): Halvorsen's Table~6.1 is reproduced (1.882, 2.032, 2.072, 1.556, 1.366), no configuration
+falls below $\VFTC$ beyond the feasibility tolerance ($10^{-7}$), and all 120 observed ties satisfy
+Corollary~\ref{cor:tie}. For $N=5$, a multistart probe of the 20 open (basic configuration, $j$) pairs in the
+permissive model (all-coupled and all-exchanger variants, 220 random parameter points with the peak $H_j$ highest and
+the others within $10\%$, $q\in\{-0.3,0,0.3,0.5,1,1.2\}$) found one point below $\VFTC$, for the pair (161, 3); after
+re-optimization with margins it is certified by \texttt{krawczyk\_certificate.py} (Section~\ref{sec:cex}). All
+other probe values are $\ge1-1.5\cdot10^{-7}$.
+\end{itemize}
+
+\begin{example}[the identity at work]
+$N=4$, $\alpha=(47.5774,25.5263,15.1071,1)$, $z=(0.1358,0.5169,0.0923,0.255)$, $q=1$ (Agent C,
+\texttt{computation/scripts/cut\_identity.py}, local optima of the strict model). The peaks are
+$H=(0.93322,1.588798,0.786044)$, so $\VFTC=H_2=1.588798$. The FTC and the all-coupled variant of family K both reach
+$R=1.588798$, every term of~\eqref{eq:lightcut} vanishing at $j=2$. The K variant with heat exchangers on ABC, BCD
+and AB has $R=1.647249$ and $R-H_2=0.058451=0.021470\,(Q)-0.002772\,(\Lam\text{, top of ABC})+0.039753\,(\Lam\text{, top
+of BCD})$: a negative light-exit flux is compensated. The indirect sequence has $R=2.481686$.
+\end{example}
+
+\section{Scope, limitations and open questions}
+\begin{enumerate}
+\item \emph{Class.} Theorem~\ref{thm:strict} and Theorem~\ref{thm:extreme} hold for every two-section column network
+(Definition~\ref{def:network}); Theorem~\ref{thm:N4} is proved for the 152 regular-column configurations with $N=4$.
+The wording ``any adiabatic distillation arrangement'' of~\autocite{HS3} would also admit columns with several feed
+stages (intermediate sections between feeds), stream splitters dividing one section product among several columns,
+recycles, non-interval intermediate streams, splits in which one product keeps every component of the feed, streams
+of different labels merged at one feed stage, and reverse net flows; none of these is covered. Heat integration
+between streams and several pressure levels are excluded by the conjecture itself.
+\item \emph{Reverse flows.} Hypothesis (H1) is part of the model of~\autocite{TGAT,Nallasivam2016}. The cut identity
+holds without it, but Lemmas~\ref{lem:sign} and~\ref{lem:interior} use the monotonicity of Lemma~\ref{lem:mono}, and
+the conditions~\eqref{eq:TG} themselves rest on Underwood's interlacing of roots, which fails with reverse
+flows~\autocite{HalvorsenThesis}. Whether reverse flows could lower $R$ is open.
+\item \emph{Model.} The theorems are statements about Underwood's infinite-stage model as formulated by TG, with the
+split of each column fixed by the network (components $l,\dots,k$ nominally distributing, possibly with zero flow on
+one side); its physical justification is that of~\autocite{HalvorsenThesis,TGAT}. At degenerate points (a nominally
+distributing component absent from one product) the strict model forbids excess vapor that an infinite-stage column
+could physically carry, and imposes TG's equalities at roots that are not active (Section~\ref{sec:model}); physical
+operating points of this kind are not covered by Theorem~\ref{thm:strict}.
+\item \emph{Permissive model, $N\ge5$.} The bound can fail only for splits $j$ whose mixed sub-network has a merge node
+below a type-(d) column carrying excess vapor, when the sign rule does not settle the case. For $N=5$ these are 20
+(basic configuration, $j$) pairs, i.e.\ 864 (configuration, $j$) pairs and 720 of the 6128 configurations (in 16 basic
+configurations), and it does fail for the pair (161, 3) (Section~\ref{sec:cex}); the other 19 pairs are undecided
+(a verifier's multistart search on their all-coupled and all-exchanger variants found no other point below
+$\VFTC$). All other configurations are covered (Theorems~\ref{thm:extreme} and~\ref{thm:G3}, the latter under
+(N), and the sign rule, the last by the floating-point LP classification of \texttt{signcheck.py}). Numerical searches
+find no counterexample. Degenerate points (assumption (N) violated) are
+not covered by Theorem~\ref{thm:G3}.
+\item \emph{Products and feed.} Pure products withdrawn as saturated liquid, a single feed (H2). Nonsharp product
+specifications and several feeds are not treated. (A pure product withdrawn as saturated vapor instead would only
+increase the bound: in the node balance a heavy vapor product contributes $\theta_jz_p/(\theta_j-\alpha_p)$ instead of
+$\alpha_pz_p/(\theta_j-\alpha_p)$, and light products do not enter~\eqref{eq:cut}.)
+\end{enumerate}
+
+\paperreferences
+\end{document}

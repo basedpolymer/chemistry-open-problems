@@ -1,0 +1,87 @@
+% Draft (Agent F) of the closing sections of paper.tex, version 2.
+
+\section{Computer verification of version 2}\label{sec:computer2}
+
+No step of the proofs of Sections~\ref{sec:stage}--\ref{sec:conseq} depends on a computation. Four independent codes
+(written separately by Agents F, S, N and P from the equations of Definition~\ref{def:A}) check the identities and the
+bound on finite-stage steady states; paths are relative to the problem folder, and the environment is WSL Fedora
+with Python~3, numpy, scipy, sympy, mpmath, pyomo and ipopt.
+\begin{itemize}
+\item \texttt{total/network/scripts/unit\_identities\_exact.py} (exact rationals and sympy): Lemma~\ref{lem:uniform}
+symbolically for $N=2,\dots,6$, and the summed node balance (the cut identity for an arbitrary set of units) on random
+unit graphs with recycles, arbitrary subsets and rational $\theta$. PASS.
+\item \texttt{total/network/scripts/section\_identity\_exact.py} (exact rationals): the identity
+$\Lambda_s(\theta)=L\,G_{x_{k+1}}(\theta)-(\theta V/S(x_k))G_{x_k}(\theta)$ and the single change of side per section, on 400
+random stage-to-stage profiles with net flows of both signs. PASS.
+\item \texttt{total/foundations/scripts/unitnet.py} (Agent F; floating point, Newton with analytic Jacobian): a binary
+column above and below its minimum vapor (below it the products are impure and the bound is attained to $10^{-11}$
+with 80+80 stages, as the feed pinch predicts) and 396 random networks of (E), (M), (C) and (R) units with recycles,
+bypasses, split feeds, $q\in[-0.5,1.5]$, $N=2,\dots,5$ and products of either phase and any purity: node balances to
+$10^{-12}$, no sign-uniformity violation, $\min(R-\text{bound})=-2.6\cdot10^{-14}$. ALL PASS (about 30~s).
+\item \texttt{total/sections/scripts/check\_stage\_cut.py} (Agent S): columns, three-product Petlyuk arrangements with
+0--9 stages per section and random networks: identity residuals $\le4\cdot10^{-10}$, cut residuals $\le2\cdot10^{-11}$, no
+violation. PASS.
+\item \texttt{total/network/scripts/cut\_bound\_check.py} (Agent N): random section/junction networks and a ternary
+Petlyuk grid with 8--40 stages per section. PASS. \texttt{permissive\_sign\_path.py}: the light-to-heavy sign path of the
+permissive point (40 digits).
+\item \texttt{total/simulation/scripts/test\_stage\_bound.py} (Agent P, own solver with pseudo-transient continuation
+and Newton in logarithmic variables): random networks (2--5 components, sections of 0--11 stages, bypasses, recycles,
+split feeds, duties of either sign anywhere, liquid and vapor products, reverse net flows): 1131 steady states, no
+sign-uniformity violation, $\min(R-\text{bound})=-2\cdot10^{-10}$ (the convergence tolerance of those steady states);
+\texttt{test\_section\_sign.py}: the single change of side per section on 3053 sections, no violation. PASS.
+\item Attainment runs (Section~\ref{sec:attain}), each in the \texttt{scripts/} folder of its agent under
+\texttt{total/}:
+\begin{itemize}
+\item N: \texttt{ftc\_fixed\_flows.py};
+\item P: \texttt{ftc\_fixed\_flows.py}, \texttt{attain.py};
+\item F: \texttt{petlyuk\_attain.py};
+\item S: \texttt{check\_binary\_attainment.py}, \texttt{check\_astra\_prefrac.py}.
+\end{itemize}
+\end{itemize}
+
+\section{Scope, limitations and open questions}\label{sec:scope2}
+\begin{enumerate}
+\item \emph{What is proved.} The lower bound $R\ge\sum_P\max(0,\varphi_P(\theta_j))$, hence $R^*(\mathcal S)\ge\max_jH_j$, for every
+arrangement of $\mathcal A$ (Theorem~\ref{thm:stage}, Corollary~\ref{cor:purity}); all statements of version~1 in the
+Underwood model (Sections~\ref{sec:setting}--\ref{sec:achieve}), whose verification is in \texttt{verification.md}.
+\item \emph{Attainment.} The equality $R^*(\mathcal S_{\mathrm{Petlyuk}})=\max_jH_j$, which implies the conjecture once the lower
+bound is known, is proved in Underwood's infinite-stage model for every $N$ (Theorem~\ref{thm:achieve}) and in the
+finite-stage model for $N=2$ (Proposition~\ref{prop:binary}). For $N\ge3$, steady states exist for all prescribed flows
+(Proposition~\ref{prop:exist}), an isolated prefractionator admits exact finite-stage profiles with exponentially small
+traces, and the full network reaches purities tending to $1$ at $R=\max_jH_j+\delta$ in three independent
+simulations; a proof for the closed network is not given (Section~\ref{sec:attain} describes the reduction for $N=3$).
+\item \emph{Class.} $\mathcal A$ contains every arrangement within the assumptions of~\autocite{HS3}; the devices it excludes
+(heat exchange between process streams not counted in $R$, several pressures, non-ideal mixtures, decanters,
+membranes, component-dependent efficiencies, heat pumps, several feeds) are excluded by the conjecture itself. The
+bound concerns the total vaporization; with heat exchange between process streams the external heat can be lower
+(Section~\ref{sec:conseq}), and its minimum is not determined here.
+\item \emph{Extensions.} For several feeds the same argument gives
+\[R\ge\sup_\theta\Bigl[\sum_P\max(0,\varphi_P(\theta))-\sum_kf_k\max(0,\varphi_{F_k}(\theta))\Bigr],\]
+and for non-sharp product specifications $R\ge\max_j\sum_P\max(0,\varphi_P(\theta_j))$ as it
+stands (\texttt{total/network/network.md}, \S7); whether these bounds are attained is not studied. Constant molar overflow enters only
+through the energy balance: under the constant-heat-transport model of~\autocite{MTA2023} (constant but
+component-dependent molar latent heats $\lambda_i$, no sensible heat), the same proof applies verbatim to the
+latent-heat-weighted flows $\tilde n_{e,i}=\lambda_in_{e,i}$, because the weighted mole fractions satisfy
+$\tilde y_i=\alpha_i\tilde x_i/\sum_k\alpha_k\tilde x_k$ again, and bounds the total heat by the highest peak of the
+correspondingly weighted $V_{\min}$ diagram. Non-ideal mixtures are open: sign uniformity uses constant relative
+volatilities.
+\item \emph{Version~1's permissive model.} The bound fails there for $N=5$ (Section~\ref{sec:cex}); version~2 shows that
+this point is not a limit of physical operations, so the 19 undecided permissive pairs no longer bear on the
+conjecture.
+\end{enumerate}
+
+\section{Credits for version 2}\label{sec:credits2}
+The stage-level bound (Lemmas~\ref{lem:node}, \ref{lem:uniform}, Theorem~\ref{thm:stage}) was found independently and
+within a few minutes by three agents of version~2: Agent~N (network; derivation logged at 13:38), Agent~S (sections;
+13:45) and Agent~F (foundations; 13:44--13:47); Agent~P (physical simulation) re-derived the algebra. Agent~F wrote the
+definition of $\mathcal A$ (with the limit definition of infinitely many stages and pure products), the red team (Murphree
+trays, feed phases, internal heat exchange) and the integration; Agent~S the complete proofs with the explicit
+finite-purity constant and the section and junction lemmas (\texttt{total/sections/sections.md}); Agent~N the
+decomposition of physical devices into units, the cut identity for arbitrary unit sets, the tie structure, the sign
+potential and the sign path of the permissive point, the existence theorem for prescribed flows and fixed-flow attainment numerics
+(\texttt{total/network/network.md}); Agent~P the independent stage-by-stage simulator, the tests and the attainment
+study (\texttt{total/simulation/}); Agent~S also proved the two-component attainment (Proposition~\ref{prop:binary})
+and checked the prefractionator theorem. All these agents: Claude Opus~5.5 (effort xhigh). The prefractionator
+attainment theorem quoted in Section~\ref{sec:attain} is due to GPT-6-Astra via Codex CLI (effort xhigh); the
+targeted novelty search of the stage-level argument (\texttt{total/literature/}) to Claude Opus~5.5 (effort xhigh).
+An early independent check of the lower bound was started in \texttt{total/verification-early/}. Independent verification of version~2: pending.

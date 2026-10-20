@@ -1,0 +1,48 @@
+  T1 nonconv 2.0 0.5 1.0 0.05 120 0.038140572173921417
+  T1 nonconv 2.0 0.5 1.0 0.01 120 5.052195410026883e-06
+  T1 nonconv 3.0 0.7 0.5 0.05 90 5.454827011508456e-05
+  T1 nonconv 3.0 0.7 0.5 0.05 120 0.19906823556446485
+  T1 nonconv 3.0 0.7 0.5 0.01 120 0.042314753626596646
+  T1 alpha=2.0 z=0.5 q=+1.0 delta=0.05 n= 10  R/H1=1.0500  impurity=3.13e-02  R-B1=1.689e-01  R-(H1-c eps)=1.689e-01
+  T1 alpha=2.0 z=0.5 q=+1.0 delta=0.01 n= 10  R/H1=1.0100  impurity=3.83e-02  R-B1=1.300e-01  R-(H1-c eps)=1.300e-01
+  T1 alpha=1.5 z=0.3 q=+0.0 delta=0.05 n= 10  R/H1=1.0500  impurity=1.25e-01  R-B1=5.806e-01  R-(H1-c eps)=1.346e+00
+  T1 alpha=1.5 z=0.3 q=+0.0 delta=0.05 n=120  R/H1=1.0500  impurity=7.54e-07  R-B1=1.000e-01  R-(H1-c eps)=1.000e-01
+  T1 alpha=1.5 z=0.3 q=+0.0 delta=0.01 n= 10  R/H1=1.0100  impurity=1.31e-01  R-B1=5.262e-01  R-(H1-c eps)=1.332e+00
+  T1 alpha=1.5 z=0.3 q=+0.0 delta=0.01 n=120  R/H1=1.0100  impurity=1.04e-05  R-B1=2.004e-02  R-(H1-c eps)=2.010e-02
+  T1 alpha=3.0 z=0.7 q=+0.5 delta=0.05 n= 10  R/H1=1.0500  impurity=1.77e-02  R-B1=6.357e-02  R-(H1-c eps)=8.652e-02
+  T1 alpha=3.0 z=0.7 q=+0.5 delta=0.01 n= 10  R/H1=1.0100  impurity=2.59e-02  R-B1=4.283e-02  R-(H1-c eps)=7.641e-02
+  T1 alpha=1.4 z=0.5 q=+1.4 delta=0.05 n= 10  R/H1=1.0500  impurity=1.09e-01  R-B1=8.270e-01  R-(H1-c eps)=8.707e-01
+  T1 alpha=1.4 z=0.5 q=+1.4 delta=0.05 n=120  R/H1=1.0500  impurity=1.31e-08  R-B1=1.623e-01  R-(H1-c eps)=1.623e-01
+  T1 alpha=1.4 z=0.5 q=+1.4 delta=0.01 n= 10  R/H1=1.0100  impurity=1.15e-01  R-B1=7.334e-01  R-(H1-c eps)=7.794e-01
+  T1 alpha=1.4 z=0.5 q=+1.4 delta=0.01 n=120  R/H1=1.0100  impurity=1.70e-07  R-B1=3.246e-02  R-(H1-c eps)=3.246e-02
+  T1 alpha=2.5 z=0.4 q=-0.3 delta=0.05 n= 10  R/H1=1.0500  impurity=1.88e-02  R-B1=7.447e-02  R-(H1-c eps)=1.209e-01
+  T1 alpha=2.5 z=0.4 q=-0.3 delta=0.05 n=120  R/H1=1.0500  impurity=2.75e-14  R-B1=3.069e-02  R-(H1-c eps)=3.069e-02
+  T1 alpha=2.5 z=0.4 q=-0.3 delta=0.01 n= 10  R/H1=1.0100  impurity=2.29e-02  R-B1=5.929e-02  R-(H1-c eps)=1.156e-01
+  T1 alpha=2.5 z=0.4 q=-0.3 delta=0.01 n=120  R/H1=1.0100  impurity=9.19e-13  R-B1=6.138e-03  R-(H1-c eps)=6.138e-03
+T1 binary columns: converged 65, min slack 6.138e-03, max residual 8.2e-13 -> PASS
+  T2 a=[4. 2. 1.] z=[0.33 0.33 0.33] q=1.0 delta=0.05 n= 8 R/Vpet=1.0500 impurity=6.77e-02  R-B_j=[0.412 0.163]  maxres=1.7e-13
+  T2 a=[4. 2. 1.] z=[0.33 0.33 0.33] q=1.0 delta=0.05 n=48 R/Vpet=1.0500 impurity=2.77e-04  R-B_j=[0.362 0.069]  maxres=1.0e-14
+  T2 a=[4. 2. 1.] z=[0.33 0.33 0.33] q=1.0 delta=0.01 n= 8 R/Vpet=1.0100 impurity=7.73e-02  R-B_j=[0.361 0.126]  maxres=2.5e-14
+  T2 a=[4. 2. 1.] z=[0.33 0.33 0.33] q=1.0 delta=0.01 n=48 R/Vpet=1.0100 impurity=3.08e-04  R-B_j=[0.308 0.014]  maxres=5.2e-15
+  T2 a=[6.  2.5 1. ] z=[0.2 0.5 0.3] q=1.0 delta=0.05 n= 8 R/Vpet=1.0500 impurity=2.89e-02  R-B_j=[0.581 0.115]  maxres=3.3e-15
+  T2 a=[6.  2.5 1. ] z=[0.2 0.5 0.3] q=1.0 delta=0.05 n=48 R/Vpet=1.0500 impurity=1.69e-04  R-B_j=[0.559 0.063]  maxres=3.1e-14
+  T2 a=[6.  2.5 1. ] z=[0.2 0.5 0.3] q=1.0 delta=0.01 n= 8 R/Vpet=1.0100 impurity=3.68e-02  R-B_j=[0.532 0.08 ]  maxres=3.4e-15
+  T2 a=[6.  2.5 1. ] z=[0.2 0.5 0.3] q=1.0 delta=0.01 n=48 R/Vpet=1.0100 impurity=1.87e-04  R-B_j=[0.51  0.013]  maxres=7.5e-15
+  T2 a=[4. 2. 1.] z=[0.3 0.3 0.4] q=0.7 delta=0.05 n= 8 R/Vpet=1.0500 impurity=8.17e-02  R-B_j=[0.359 0.155]  maxres=2.4e-15
+  T2 a=[4. 2. 1.] z=[0.3 0.3 0.4] q=0.7 delta=0.05 n=48 R/Vpet=1.0500 impurity=1.20e-04  R-B_j=[0.314 0.055]  maxres=9.8e-14
+  T2 a=[4. 2. 1.] z=[0.3 0.3 0.4] q=0.7 delta=0.01 n= 8 R/Vpet=1.0100 impurity=9.18e-02  R-B_j=[0.318 0.126]  maxres=1.5e-15
+  T2 a=[4. 2. 1.] z=[0.3 0.3 0.4] q=0.7 delta=0.01 n=48 R/Vpet=1.0100 impurity=1.26e-04  R-B_j=[0.271 0.011]  maxres=2.3e-14
+T2 ternary Petlyuk: PASS
+  T6 Murphree E=1.0 n= 20  R/H1=1.0200 impurity=5.22e-03  R-B1=4.567e-02
+  T6 Murphree E=1.0 n= 60  R/H1=1.0200 impurity=5.29e-08  R-B1=3.000e-02
+  T6 Murphree E=1.0 n=120  R/H1=1.0200 impurity=9.99e-16  R-B1=3.000e-02
+  T6 Murphree E=0.7 n= 20  R/H1=1.0200 impurity=1.81e-02  R-B1=8.440e-02
+  T6 Murphree E=0.7 n= 60  R/H1=1.0200 impurity=1.56e-05  R-B1=3.005e-02
+  T6 Murphree E=0.7 n=120  R/H1=1.0200 impurity=1.03e-10  R-B1=3.000e-02
+  T6 Murphree E=0.4 n= 20  R/H1=1.0200 impurity=5.78e-02  R-B1=2.033e-01
+  T6 Murphree E=0.4 n= 60  R/H1=1.0200 impurity=2.39e-03  R-B1=3.718e-02
+  T6 Murphree E=0.4 n=120  R/H1=1.0200 impurity=4.05e-06  R-B1=3.001e-02
+T6 Murphree trays: PASS
+vnet.py:262: RuntimeWarning: divide by zero encountered in divide
+  g = lambda t: float(np.sum(a * z / (a - t))) - (1 - q)
+(T3-T5 of this run stopped on a root-finder bracket error, since fixed; T3-T5 re-run in vtests_random.log)

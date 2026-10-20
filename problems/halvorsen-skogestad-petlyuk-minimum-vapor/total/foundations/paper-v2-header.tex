@@ -1,0 +1,47 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{The Halvorsen--Skogestad conjecture: the highest peak of the \(V_{\min}\) diagram bounds the vaporization of every equilibrium-stage distillation arrangement}
+\newcommand*{\PaperTitlePlain}{The Halvorsen-Skogestad conjecture: the highest peak of the Vmin diagram bounds the vaporization of every equilibrium-stage distillation arrangement}
+\newcommand*{\PaperShortTitle}{Halvorsen--Skogestad conjecture}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} version 2 \textperiodcentered{} version 1 independently verified, version 2 verification pending}
+\newcommand*{\PaperCredits}{Version 2 --- Foundations, red team and integration: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Sections: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Network: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Physical simulation: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending. Version 1 --- Theory: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Computation: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} General N: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh)}
+\newcommand*{\PaperKeywords}{multicomponent distillation, Petlyuk arrangement, fully thermally coupled, minimum vapor, Underwood equations, Vmin diagram, equilibrium-stage networks}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand{\Lam}{\Lambda}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\res}{\operatorname{res}}
+\newcommand{\VFTC}{V_{\mathrm{FTC}}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Halvorsen and Skogestad (Ind.\ Eng.\ Chem.\ Res.\ 2003) conjectured that the generalized Petlyuk arrangement needs less
+vaporization than any other adiabatic distillation arrangement without internal heat exchange, for an ideal feed
+(constant relative volatilities and molar flows, constant pressure, infinitely many stages, pure products). We
+formalize ``any arrangement'' as the class $\mathcal A$ of all finite networks of constant-molar-overflow equilibrium stages,
+single-phase splitters and mixers, total condensers and total vaporizers, with one feed that may be split and
+conditioned, heat duties at any stage, recycles and products of either phase; infinitely many stages and pure products
+enter as a limit. We prove that at every steady state of every arrangement in $\mathcal A$, with any numbers of stages and
+any purities, the total heat supplied satisfies $R\ge\sum_P\max(0,\varphi_P(\theta_j))$ for each root $\theta_j$ of the feed
+equation, where $\varphi_P(\theta)=v_P-\sum_i\alpha_in_{P,i}/(\alpha_i-\theta)$ is the Underwood flux of the product stream $P$; for
+products of purity $1-\varepsilon$ this gives $R\ge H_j-c_j\varepsilon$, and in the limit $R\ge\max_jH_j$, the highest peak of the
+$V_{\min}$ diagram, which is the minimum vapor of the generalized Petlyuk arrangement. The proof is elementary: every
+stream leaving an equilibrium stage has an Underwood flux of the sign of $-\sum_i\alpha_ix_i/(\alpha_i-\theta_j)$, $x$ the stage
+liquid, so the units split into a light and a heavy side, and the energy balance of the heavy side gives the bound,
+with an exact expression of the excess as three nonnegative losses. It covers stream splitting, recycles, several feed
+stages, reverse flows, degenerate distributions, non-adiabatic sections and Murphree trays, which version~1 of this
+paper could not treat, and it shows that the five-component point below the Petlyuk value found in version~1 in the
+permissive form of Underwood's model cannot be approached by physical operation. The generalized Petlyuk arrangement
+attains the bound in Underwood's infinite-stage model (version~1) and, for two components, in the finite-stage model;
+for three or more components steady states exist at every prescribed flows, an isolated prefractionator is proved to
+admit exact finite-stage profiles, and the closed Petlyuk network reaches pure products at $R=\max_jH_j+\delta$ in three
+independent simulations, but its finite-stage attainment is not proved. Hence no arrangement of $\mathcal A$ needs less
+vaporization than the Petlyuk value computed by Halvorsen and Skogestad, and the conjecture is completely proved for two
+components. Version~1's results in the Underwood model, independently verified, are retained.
+\end{paperabstract}

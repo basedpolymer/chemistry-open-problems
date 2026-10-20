@@ -1,0 +1,7 @@
+theta = [2.7559289460451124, 1.2440710540406013], H = [np.float64(1.0717501455896352), np.float64(1.3657225135126017)], max H = 1.365723, preferred split d_B = 0.111111 (z_B = 0.333333), V1T = 0.777778
+flows: VB = 1.393037, V1 = 0.793333, L1 = 0.348889, D = 0.333333, S = 0.333333
+n =   4: residual 3.6e-16  impurities: D 8.79e-02  S 1.96e-01 (A 8.77e-02, C 1.08e-01)  B 1.09e-01   R/maxH = 1.020000
+n =   8: residual 7.8e-16  impurities: D 2.58e-02  S 7.36e-02 (A 2.58e-02, C 4.78e-02)  B 4.78e-02   R/maxH = 1.020000
+n =  16: residual 6.7e-16  impurities: D 3.58e-03  S 1.63e-02 (A 3.58e-03, C 1.27e-02)  B 1.27e-02   R/maxH = 1.020000
+n =  32: residual 2.2e-04  impurities: D 1.34e-05  S 1.21e-03 (A 9.36e-05, C 1.12e-03)  B 6.66e-04   R/maxH = 1.020000
+n =  64: residual 3.9e-04  impurities: D 1.91e-10  S 1.09e-05 (A 5.07e-08, C 1.09e-05)  B 1.53e-06   R/maxH = 1.020000

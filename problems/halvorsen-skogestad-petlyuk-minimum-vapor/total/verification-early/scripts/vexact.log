@@ -1,0 +1,6 @@
+PASS (A) phi_vap/phi_liq per unit flow = theta/S(x) > 0 for equilibrium phases, N=2..5
+PASS (B) node balance sum_out phi - sum_in phi - phi_F = Q (symbolic, any q)
+PASS (C1) phi_F(theta_j) = 0 at the feed roots for q in {-1.5,...,1.7}
+PASS (C2) Corollary 5: sum_P max(0,phi_P(theta_j)) >= H_j - c_j eps on 4000 random impure product sets (min slack -1.0691e-50)
+     worst-placement ratio (H_j - B_j)/(c_j eps) for a binary example (must be <= 1; c_j is of the right order): ['0.86623', '0.86666']
+ALL PASS

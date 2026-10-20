@@ -1,0 +1,6 @@
+T3 random networks, one feed, theta_j: {'tried': 3000, 'solved': 3000, 'signbad': 0, 'minslack': np.float64(-4.245770401922755e-13), 'maxres': np.float64(1.0864627530864957e-09), 'recycles': 2354, 'reverse': 0}  (37 s) -> PASS
+T4 several feeds, random theta: {'tried': 1000, 'solved': 1000, 'signbad': 0, 'minslack': np.float64(-2.384759056894836e-13), 'maxres': np.float64(1.1353593047521913e-12), 'recycles': 786, 'reverse': 0}  (12 s) -> PASS
+T5 adversarial minimisation: 1 optimised topologies, smallest relative slack found 1.097e-05 (1 s) -> PASS
+total time 50 s
+FAILURES 0
+ALL PASS

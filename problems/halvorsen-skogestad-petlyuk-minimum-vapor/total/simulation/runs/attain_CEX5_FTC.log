@@ -1,0 +1,6 @@
+V_FTC 0.4699410570792274 H [0.3344232211304501, 0.32911576244743507, 0.4699410570792274, 0.4330158603339066]
+WARNING: Loading a SolverResults object with a warning status into
+model.name="unknown";
+    - termination condition: maxIterations
+    - message from solver: Ipopt 3.14.16\x3a Maximum Number of Iterations
+      Exceeded.

@@ -1,0 +1,2 @@
+{"config": "direct", "n": 20, "eps": 0.001, "R": 2.369689832182223, "ref_inf": 2.0718, "ratio": 1.1437831027040364, "bound": 1.3640477756413272, "R_minus_bound": 1.0056420565408957, "status": "optimal", "max_imp": 0.0010000000009256769, "resolve_ok": true, "sec": 1.3}
+{"config": "direct", "n": 40, "eps": 0.001, "R": 2.069286616608891, "ref_inf": 2.0718, "ratio": 0.9987868600293903, "bound": 1.3637201547764115, "R_minus_bound": 0.7055664618324795, "status": "optimal", "max_imp": 0.0009999999954586711, "resolve_ok": true, "sec": 1.1}

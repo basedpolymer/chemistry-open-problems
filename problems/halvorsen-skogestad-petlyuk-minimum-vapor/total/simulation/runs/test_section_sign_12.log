@@ -1,0 +1,3 @@
+{"networks": 767, "solved": 756, "sections": 3227, "crossections": 114382, "worst_identity": 9.48167255648884e-10, "n1_viol": 0, "sign_changes": 2715, "reverse_sections": 13, "seconds": 178.2}
+(I)  Underwood identity per cross-section : PASS 9.48167255648884e-10
+(N1) at most one sign change, right sense  : PASS 0

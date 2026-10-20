@@ -1,0 +1,13 @@
+{
+ "stats": {
+  "trials": 21,
+  "solved": 17,
+  "worst_B": 1.170634573736042e-11,
+  "sign_bad": 0,
+  "min_slack": -1.199040866595169e-14,
+  "reverse_sections": 1,
+  "recycles": 0,
+  "seconds": 1.9758679866790771
+ },
+ "fails": []
+}

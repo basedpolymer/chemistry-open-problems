@@ -1,0 +1,4 @@
+{"trials": 1154, "solved": 1131, "worst_B": 1.0547020117891413e-10, "sign_bad": 0, "min_slack": -2.3400881232760185e-10, "reverse_sections": 22, "recycles": 0, "seconds": 512.9512455463409}
+(B) unit balances      : PASS 1.0547020117891413e-10
+(S) sign uniformity    : PASS 0
+(C) R >= sum max(0,phi): PASS -2.3400881232760185e-10

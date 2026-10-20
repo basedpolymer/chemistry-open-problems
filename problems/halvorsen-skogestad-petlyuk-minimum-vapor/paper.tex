@@ -3,12 +3,12 @@
 \input{preamble/pdfA-compliance/glyphtounicode}
 \documentclass[11pt,a4paper]{report}
 
-\newcommand*{\PaperTitle}{The Halvorsen--Skogestad conjecture in the Underwood model: the generalized Petlyuk arrangement minimizes total vapor among networks of two-section distillation columns}
-\newcommand*{\PaperTitlePlain}{The Halvorsen-Skogestad conjecture in the Underwood model: the generalized Petlyuk arrangement minimizes total vapor among networks of two-section distillation columns}
+\newcommand*{\PaperTitle}{The Halvorsen--Skogestad conjecture: the highest peak of the \(V_{\min}\) diagram bounds the vaporization of every equilibrium-stage distillation arrangement}
+\newcommand*{\PaperTitlePlain}{The Halvorsen-Skogestad conjecture: the highest peak of the Vmin diagram bounds the vaporization of every equilibrium-stage distillation arrangement}
 \newcommand*{\PaperShortTitle}{Halvorsen--Skogestad conjecture}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} independently verified}
-\newcommand*{\PaperCredits}{Theory: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Computation: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} General N: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh)}
-\newcommand*{\PaperKeywords}{multicomponent distillation, Petlyuk arrangement, fully thermally coupled, minimum vapor, Underwood equations, Vmin diagram}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} version 2 \textperiodcentered{} version 1 independently verified, version 2 verification pending}
+\newcommand*{\PaperCredits}{Version 2 --- Foundations, red team and integration: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Sections: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Network: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Physical simulation: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending. Version 1 --- Theory: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Computation: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} General N: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh)}
+\newcommand*{\PaperKeywords}{multicomponent distillation, Petlyuk arrangement, fully thermally coupled, minimum vapor, Underwood equations, Vmin diagram, equilibrium-stage networks}
 \input{chemop-preamble}
 \addbibresource{references.bib}
 
@@ -21,32 +21,29 @@
 \makepapertitle
 
 \begin{paperabstract}
-Halvorsen and Skogestad (Ind.\ Eng.\ Chem.\ Res.\ 2003) conjectured that the generalized Petlyuk arrangement
-(fully thermally coupled, FTC) needs less vapor than any other adiabatic distillation arrangement without internal
-heat exchange, for the separation of an ideal $N$-component feed into pure products. They did not define the class
-of competitors, and they proved the minimum-vapor formula of the Petlyuk arrangement itself (the highest peak of the
-$V_{\min}$ diagram) only for the extreme peaks. We take as competitors all networks of two-section columns with
-interval streams, side draws, thermal couplings or heat exchangers on any link and heaters or coolers at any node; they
-contain Agrawal's regular-column configurations (152 for $N=4$, 6128 for $N=5$). Each column obeys the
-infinite-stage Underwood model of Tumbalam Gooty, Agrawal and Tawarmalani, without reverse flows. We prove: (i) in the
-strict form of the model, in which every column with two or more (nominally) distributing components runs exactly at
-its Underwood vapor flow, every
-network needs a total vapor generation of at least $\max_j H_j$, the reboiler-referenced highest peak, for every $N$;
-the FTC attains this value, so the conjecture holds in this class and model; (ii) in the permissive form used for global
-optimization, which also lets a column carry excess vapor, the same bound holds for the regular-column configurations
-with $N\le4$, for every network and every $N$ when the highest peak is the first or the last one, for every regular-column
-configuration and every $N$ whose mixed sub-network for the highest peak has no merge node (under a non-degeneracy
-assumption), and for the FTC itself for every $N$, which proves the Halvorsen--Skogestad formula for the minimum vapor of
-the generalized Petlyuk arrangement in this model (without reverse flows). Conversely, the permissive bound fails for
-$N=5$: the independent verification found a five-component configuration whose permissive minimum lies below
-$\max_jH_j$ (relative gap $5\cdot10^{-4}$, existence of the exact point proved by an interval Krawczyk test). It uses
-excess vapor in a column in which two components distribute, which no infinite-stage column with pure products can
-carry, so it is an artifact of the permissive formulation, and the restriction to the strict model is essential. The proofs combine an exact cut identity for the
-Underwood flux $\Lam_s(\theta_j)=V_s-\sum_p\alpha_p w_{s,p}/(\alpha_p-\theta_j)$ with a sign rule for each column and,
-for one four-component family, an ordering of recoveries. Columns with several feed stages, stream splitters,
-recycles and reverse flows are outside the class; the conjecture remains open there, and at degenerate operating
-points (a nominally distributing component absent from one product) the strict model is more restrictive than
-infinite-stage physics (Section~\ref{sec:model}).
+Halvorsen and Skogestad (Ind.\ Eng.\ Chem.\ Res.\ 2003) conjectured that the generalized Petlyuk arrangement needs less
+vaporization than any other adiabatic distillation arrangement without internal heat exchange, for an ideal feed
+(constant relative volatilities and molar flows, constant pressure, infinitely many stages, pure products). We
+formalize ``any arrangement'' as the class $\mathcal A$ of all finite networks of constant-molar-overflow equilibrium stages,
+single-phase splitters and mixers, total condensers and total vaporizers, with one feed that may be split and
+conditioned, heat duties at any stage, recycles and products of either phase; infinitely many stages and pure products
+enter as a limit. We prove that at every steady state of every arrangement in $\mathcal A$, with any numbers of stages and
+any purities, the total heat supplied satisfies $R\ge\sum_P\max(0,\varphi_P(\theta_j))$ for each root $\theta_j$ of the feed
+equation, where $\varphi_P(\theta)=v_P-\sum_i\alpha_in_{P,i}/(\alpha_i-\theta)$ is the Underwood flux of the product stream $P$; for
+products of purity $1-\varepsilon$ this gives $R\ge H_j-c_j\varepsilon$, and in the limit $R\ge\max_jH_j$, the highest peak of the
+$V_{\min}$ diagram, which is the minimum vapor of the generalized Petlyuk arrangement. The proof is elementary: every
+stream leaving an equilibrium stage has an Underwood flux of the sign of $-\sum_i\alpha_ix_i/(\alpha_i-\theta_j)$, $x$ the stage
+liquid, so the units split into a light and a heavy side, and the energy balance of the heavy side gives the bound,
+with an exact expression of the excess as three nonnegative losses. It covers stream splitting, recycles, several feed
+stages, reverse flows, degenerate distributions, non-adiabatic sections and Murphree trays, which version~1 of this
+paper could not treat, and it shows that the five-component point below the Petlyuk value found in version~1 in the
+permissive form of Underwood's model cannot be approached by physical operation. The generalized Petlyuk arrangement
+attains the bound in Underwood's infinite-stage model (version~1) and, for two components, in the finite-stage model;
+for three or more components steady states exist at every prescribed flows, an isolated prefractionator is proved to
+admit exact finite-stage profiles, and the closed Petlyuk network reaches pure products at $R=\max_jH_j+\delta$ in three
+independent simulations, but its finite-stage attainment is not proved. Hence no arrangement of $\mathcal A$ needs less
+vaporization than the Petlyuk value computed by Halvorsen and Skogestad, and the conjecture is completely proved for two
+components. Version~1's results in the Underwood model, independently verified, are retained.
 \end{paperabstract}
 
 \section{The question}
@@ -67,55 +64,479 @@ distillation arrangement for separation of an arbitrary feed mixture into its pu
 complete proof, so the above conclusion is a conjecture.''
 \end{openquote}
 The number of stages is infinite; an adiabatic section is ``a column section with constant molar flows and no heat
-exchange along the section''. Even the minimum vapor of the Petlyuk arrangement itself was left partly open
-(Section~5.3, p.~624):
+exchange along the section'' (\autocite{HS3}, \S6). Even the minimum vapor of the Petlyuk arrangement itself was left
+partly open (Section~5.3, p.~624):
 \begin{openquote}
 ``We have not carried out a detailed proof for the general N-component M-product case for other than the far left and
 right peaks.''
 \end{openquote}
-For three components, Fidkowski and Kr\'olikowski~\autocite{FK87} compared the Petlyuk column with side strippers,
-side rectifiers and the direct and indirect sequences in closed form. Global MINLP studies of the Agrawal group find
-the FTC value optimal on the instances they solve~\autocite{TGAT,Nallasivam2016}, and later papers state the property
-as known; we found no proof (novelty check in \texttt{references.md}). Counterexamples are known only when
-condensers and reboilers exchange heat~\autocite{Mathew2019}, which the conjecture excludes.
+The conjecture is restated in~\autocite{HS02}, where infinitely many stages are assumed ``because this provides a lower
+bound on the energy requirement for ideal mixtures'', the energy is measured by the total vaporization, and the case
+with internal heat exchange is called unknown. For three components, Fidkowski and Kr\'olikowski~\autocite{FK87}
+compared the Petlyuk column with side strippers, side rectifiers and the direct and indirect sequences in closed form;
+global MINLP studies~\autocite{TGAT,Nallasivam2016} find the Petlyuk value optimal on the instances they solve; we found
+no proof (novelty checks in \texttt{references.md}).
 
-Halvorsen and Skogestad do not define ``any adiabatic distillation arrangement''. A theorem must fix the class, and
-the model that computes the minimum vapor of each member. We use networks of two-section columns with interval
-streams (Section~\ref{sec:setting}), which contain the regular-column configurations of Agrawal and
-co-workers~\autocite{SA10,TGAT}, and the infinite-stage Underwood model of Tumbalam Gooty, Agrawal and
-Tawarmalani~\autocite{TGAT}. Our results in that setting:
+\emph{Version~1 of this paper} (independently verified) proved the bound in Underwood's infinite-stage model for networks
+of two-section columns with interval streams; the verifier found that the model's permissive form admits a
+five-component point below the Petlyuk value, and listed what remained open: several feed stages, stream splitters,
+recycles, reverse net flows and degenerate operating points. Version~1 is kept as
+Sections~\ref{sec:setting}--\ref{sec:achieve}.
 
-\begin{theorem}[main results]\label{thm:summary}
-Let $\alpha_1>\dots>\alpha_N>0$, $z_p>0$, $\sum z_p=1$ and $q\in\mathbb R$. Let $\theta_j\in(\alpha_{j+1},\alpha_j)$ be the
-roots of $\sum_p\alpha_pz_p/(\alpha_p-\theta)=1-q$ and $H_j=\sum_{p>j}\alpha_pz_p/(\theta_j-\alpha_p)$ ($1\le j\le N-1$).
-Let $R$ denote the total vapor generated by all heat exchangers (reboilers) of an arrangement.
+\emph{Version~2} replaces the Underwood model by the physical model itself: constant-molar-overflow networks of
+equilibrium stages with any number of stages, of which ``infinitely many stages and pure products'' is a limit. In
+this model the lower bound has an elementary proof that needs no information on sections, roots or topology.
+
+\begin{theorem}[main results, version 2]\label{thm:main2}
+Let $\alpha_1>\dots>\alpha_N>0$, $z_p>0$, $\sum_pz_p=1$, $q\in\mathbb R$, let $\theta_j\in(\alpha_{j+1},\alpha_j)$ be the roots of
+$\sum_p\alpha_pz_p/(\alpha_p-\theta)=1-q$ and $H_j=\sum_{p>j}\alpha_pz_p/(\theta_j-\alpha_p)$.
+\begin{enumerate}
+\item (Lower bound, every arrangement.) At every steady state of every arrangement of the class $\mathcal A$
+(Definition~\ref{def:A}: any finite network of equilibrium stages, single-phase splitters and mixers, total condensers
+and total vaporizers, one feed split and conditioned at will, heat duties at any stage, recycles, products of either
+phase), with any numbers of stages and any product purities, the total heat supplied $R$ satisfies
+$R\ge\sum_P\max(0,\varphi_P(\theta_j))$ for every $j$, where $\varphi_P$ is the Underwood flux of the product stream $P$
+(Theorem~\ref{thm:stage}); if every product has purity at least $1-\varepsilon$, then $R\ge\max_j(H_j-c_j\varepsilon)$ with
+an explicit $c_j$ (Corollary~\ref{cor:purity}). Hence every arrangement needs, in the limit of infinitely many stages and
+pure products, at least $\max_jH_j$.
+\item (Attainment.) The generalized Petlyuk arrangement attains $\max_jH_j$ in Underwood's infinite-stage model
+(Theorem~\ref{thm:achieve}, version~1). In the finite-stage model a single column attains $H_1$ for $N=2$
+(Proposition~\ref{prop:binary}); for $N\ge3$ the finite-stage Petlyuk minimum approaches $\max_jH_j$ in our simulations
+(Section~\ref{sec:attain}). Finite-stage attainment of the closed Petlyuk network for $N\ge3$ is not proved here.
+\end{enumerate}
+Consequently no arrangement of $\mathcal A$ needs less total vaporization than the minimum vapor $\max_jH_j$ of the
+generalized Petlyuk arrangement computed by Halvorsen and Skogestad, the highest peak of the $V_{\min}$ diagram: the
+conjecture holds in $\mathcal A$ in this sense, for every $N$. For $N=2$ it holds with the Petlyuk value also realized in
+the finite-stage model; for $N\ge3$ the realization of $\max_jH_j$ as a finite-stage limit by the Petlyuk arrangement
+(Halvorsen and Skogestad's formula read in that sense) is supported numerically but not proved here
+(Section~\ref{sec:attain}).
+\end{theorem}
+
+The class $\mathcal A$ contains every arrangement Halvorsen and Skogestad have in mind and more: non-adiabatic sections
+with external utilities, Murphree trays, any recycles. The proof (Section~\ref{sec:stage}) rests on one observation:
+the Underwood flux $\varphi(\theta)=v-\sum_i\alpha_in_i/(\alpha_i-\theta)$ of every stream leaving an equilibrium stage has
+the sign of $-\sum_i\alpha_ix_i/(\alpha_i-\theta)$, $x$ the stage liquid, whatever the phase. At $\theta=\theta_j$ the units
+therefore split into a light side and a heavy side, and the energy balance of the heavy side, in Underwood's weights,
+gives the bound. It was found independently by three agents of version~2 (Section~\ref{sec:credits2}).
+
+\section{The class \texorpdfstring{$\mathcal A$}{A} and the physical model}\label{sec:classA}
+
+The sources fix the physical assumptions: constant relative volatilities, constant molar flows, constant pressure,
+equilibrium stages, one feed of arbitrary composition and thermal state, pure products, and the total vaporization
+(heat input) as objective~\autocite{HS3,HS02,HalvorsenThesis}. Halvorsen's thesis (\S6.1.1) describes an arrangement as
+sections of connected equilibrium stages, reboilers and condensers, directly coupled by two-way liquid and vapor
+streams or coupled via condensers or reboilers, divided at stages with feed or side-draw streams; under constant molar
+overflow the energy balance of any stage reduces to ``vapor out minus vapor in equals heat input'' (\emph{ibid.},
+\S2.6.1). We take the molar heat of vaporization as the unit of heat.
+
+\begin{definition}[the class $\mathcal A$]\label{def:A}
+An \emph{arrangement} is a finite directed multigraph whose vertices are \emph{units} and whose arcs are
+\emph{streams}, together with a feed source and product outlets. A stream $e$ has a phase (saturated liquid or
+saturated vapor), component flows $n_{e,i}\ge0$ and vapor flow $v_e$ ($=\sum_in_{e,i}$ for a vapor, $0$ for a liquid).
+The units are of four types:
+\begin{itemize}
+\item[(E)] \emph{equilibrium stage}: any inflows; an external heat duty $Q_u\in\mathbb R$; its contents leave as a liquid of
+composition $x_u$ and a vapor of composition $y_u$ with $y_{u,i}=\alpha_ix_{u,i}/S(x_u)$, $S(x)=\sum_k\alpha_kx_k$, each
+divided into any number of streams;
+\item[(M)] \emph{single-phase mixer or splitter}: inflows of one phase, outflows of that phase with the mixed
+composition, $Q_u=0$;
+\item[(C)] \emph{total condenser}: vapor inflows, liquid outflows of the mixed composition, $Q_u=-\sum_{\mathrm{in}}v_e$;
+\item[(R)] \emph{total vaporizer}: liquid inflows, vapor outflows of the mixed composition, $Q_u=+\sum_{\mathrm{in}}\sum_in_{e,i}$.
+\end{itemize}
+The process feed ($F=1$, composition $z$, liquid fraction $q$) is divided into portions of sizes $f_u\ge0$, $\sum f_u=1$,
+entering units; every stream leaving the arrangement is a \emph{product stream}, assigned to one component. A
+\emph{steady state} satisfies, at every unit, the component balances $\sum_{\mathrm{out}}n_{e,i}-\sum_{\mathrm{in}}n_{e,i}=f_uz_i$,
+the energy balance $\sum_{\mathrm{out}}v_e-\sum_{\mathrm{in}}v_e=Q_u+(1-q)f_u$, and the composition rule of its type. Its
+\emph{total vaporization} is $R=\sum_u\max(Q_u,0)$, the total heat supplied.
+\end{definition}
+
+Nothing is assumed on the topology (recycles are cycles of the graph), on the signs of the net component flows in a
+section, on which components are present where, on the numbers of stages, or on the stability or uniqueness of the
+steady state. An \emph{adiabatic section} is a chain of (E) units with $Q=0$, liquid flowing down and vapor flowing up
+with constant flows; a column is a stack of sections joined at junction stages. Every device of the arrangements
+considered in~\autocite{HS3,HalvorsenThesis,TGAT,SA10,Fidkowski2006,Agrawal2003} is a sub-network of units of
+$\mathcal A$ (Agent~N's table, \texttt{total/network/network.md} \S1.2): conventional columns with total or partial
+condensers and reboilers; thermal couplings; side draws of either phase; side strippers and rectifiers; Petlyuk,
+generalized Petlyuk and Kaibel arrangements and dividing-wall columns (a liquid or vapor split is a stage outflow divided
+into several streams, a merge is several inflows into one stage); several feed stages per column and intermediate
+sections; stream splitters dividing a section product among several columns, remixing of any streams, vapor or liquid
+bypasses, recycles; feed splitting, preheating, precooling and pre-flashing; intermediate reboilers and condensers,
+heaters and coolers at any stage (non-adiabatic sections with external utilities, which the conjecture's wording does
+not require us to admit); and trays with a Murphree vapor efficiency $E\in[0,1]$ common to all components, which are
+exactly an (E) unit receiving the fraction $E$ of the vapor from below, a vapor bypass of the fraction $1-E$ and an (M)
+mixer ($Lx_{\mathrm{in}}+EVy_{\mathrm{in}}=Lx+EVK(x)x$), hence also packed sections as limits.
+
+\begin{definition}[infinitely many stages and pure products]\label{def:limit}
+A steady state has \emph{purity} at least $1-\varepsilon$ if every product stream assigned to component $p$ has mole
+fraction of $p$ at least $1-\varepsilon$. For a family $\mathcal S\subseteq\mathcal A$ (for example all stage numbers of one
+configuration) let $\Sigma_\varepsilon(\mathcal S)$ be the set of steady states of members of $\mathcal S$ with purity at
+least $1-\varepsilon$, and put
+\[R^*(\mathcal S;\varepsilon)=\inf_{s\in\Sigma_\varepsilon(\mathcal S)}R(s),\qquad R^*(\mathcal S)=\lim_{\varepsilon\to0^+}R^*(\mathcal S;\varepsilon).\]
+\end{definition}
+The limit exists ($R^*(\mathcal S;\varepsilon)$ is nonincreasing in $\varepsilon$). Halvorsen and Skogestad's minimum vapor of a
+configuration $X$ with infinitely many stages is $R^*(\mathcal S_X)$, $\mathcal S_X$ the arrangements with the topology of $X$:
+every real arrangement has finitely many stages and impure products, and Underwood's values are the limits. In this
+language the conjecture reads: $R^*(\mathcal S_{\mathrm{Petlyuk}})\le R^*(\mathcal S)$ for every $\mathcal S\subseteq\mathcal A$.
+
+\emph{Excluded, and why it is outside the conjecture.} Heat exchange between process streams that is not counted in $R$
+(``internal heat exchange''; \autocite{HS3}, \S6.3 and \S8; it lowers the external heat below the Petlyuk value,
+\autocite{HalvorsenThesis}, Table~6.1); several pressures (excluded by constant pressure; they act through heat
+exchange between columns or compression, \emph{ibid.}, \S6.6, and change $\alpha$); non-ideal mixtures and non-CMO
+enthalpies; devices releasing streams of different compositions not in phase equilibrium (decanters, membranes,
+component-dependent efficiencies); heat pumps; several process feeds of different compositions or thermal states.
+Finite stages and impure products are not excluded: they are the objects of the model.
+
+\section{The stage-level bound}\label{sec:stage}
+
+For $\theta>0$, $\theta\notin\{\alpha_i\}$, the \emph{Underwood flux} of a stream $e$ and of the unit feed are
+\[\varphi_e(\theta)=v_e-\sum_i\frac{\alpha_in_{e,i}}{\alpha_i-\theta},\qquad\varphi_F(\theta)=(1-q)-\sum_i\frac{\alpha_iz_i}{\alpha_i-\theta},\]
+so that $\varphi_F(\theta_j)=0$ for every $j$. For a section with vapor $V$ and upward net flows $w$, the difference
+$\varphi(\text{vapor up})-\varphi(\text{liquid down})$ at any cross-section is $V-\sum_i\alpha_iw_i/(\alpha_i-\theta)$, the
+flux $\Lambda_s$ of version~1. Write $G_x(\theta)=\sum_i\alpha_ix_i/(\alpha_i-\theta)$.
+
+\begin{lemma}[node balance]\label{lem:node}
+At every unit $u$ of a steady state and every $\theta$, product streams counting as outflows,
+\[\sum_{e\text{ out of }u}\varphi_e(\theta)-\sum_{e\text{ into }u}\varphi_e(\theta)=Q_u+f_u\varphi_F(\theta).\]
+\end{lemma}
+\begin{proof}
+$\varphi$ is linear in $(v,n)$: $\varphi_e=v_e-\sum_ic_in_{e,i}$ with $c_i=\alpha_i/(\alpha_i-\theta)$. Subtract $\sum_ic_i$ times
+the component balances from the energy balance of Definition~\ref{def:A}.
+\end{proof}
+
+\begin{lemma}[sign uniformity]\label{lem:uniform}
+Let $\theta>0$, $\theta\notin\{\alpha_i\}$. A liquid stream of flow $l$ and composition $x$ has $\varphi=-l\,G_x(\theta)$; a vapor
+stream of flow $v$ in equilibrium with a liquid of composition $x$ has $\varphi=-(\theta v/S(x))\,G_x(\theta)$. Hence all
+streams leaving an (E) unit have fluxes of one sign, that of $-G_{x_u}(\theta)$, and so do all streams leaving an (M), (C) or
+(R) unit (one phase, one composition).
+\end{lemma}
+\begin{proof}
+For the vapor, with $\sum_iy_i=1$ and $y_i=\alpha_ix_i/S$: $\varphi=v\sum_iy_i\bigl(1-\frac{\alpha_i}{\alpha_i-\theta}\bigr)
+=-\theta v\sum_i\frac{y_i}{\alpha_i-\theta}=-\frac{\theta v}{S}\sum_i\frac{\alpha_ix_i}{\alpha_i-\theta}$, and $\theta>0$, $S>0$.
+\end{proof}
+
+Fix $j$ and $\theta=\theta_j$. Call a unit \emph{heavy-ish} if all its outflows have $\varphi\ge0$ and \emph{light-ish}
+otherwise; by Lemma~\ref{lem:uniform} the outflows of a light-ish unit all have $\varphi<0$ (or zero flow). Let
+$\mathcal U_+$ and $\mathcal U_-$ be the two sets, $R(\mathcal W)=\sum_{u\in\mathcal W}\max(Q_u,0)$ and
+$Q(\mathcal W)=\sum_{u\in\mathcal W}\max(-Q_u,0)$.
+
+\begin{theorem}[stage-level cut]\label{thm:stage}
+At every steady state of every arrangement of $\mathcal A$ and for every $j$,
+\begin{equation}\label{eq:defect}
+R-\sum_P\max\bigl(0,\varphi_P(\theta_j)\bigr)=R(\mathcal U_-)+Q(\mathcal U_+)+\sum_{e\colon\mathcal U_+\to\mathcal U_-}\varphi_e(\theta_j)
+-\sum_{e\colon\mathcal U_-\to\mathcal U_+}\varphi_e(\theta_j),
+\end{equation}
+the sums running over the streams between the two sets, and every term on the right is nonnegative. In particular
+$R\ge\sum_P\max(0,\varphi_P(\theta_j))$.
+\end{theorem}
+\begin{proof}
+Sum Lemma~\ref{lem:node} over $u\in\mathcal U_+$ at $\theta_j$, where the feed terms vanish. Streams with both ends in
+$\mathcal U_+$ cancel, so
+$R(\mathcal U_+)-Q(\mathcal U_+)=\sum_{P\text{ from }\mathcal U_+}\varphi_P+\sum_{\mathcal U_+\to\mathcal U_-}\varphi_e-\sum_{\mathcal U_-\to\mathcal U_+}\varphi_e$.
+Products leaving $\mathcal U_+$ have $\varphi_P\ge0$ and products leaving $\mathcal U_-$ have $\varphi_P\le0$, so the first sum is
+$\sum_P\max(0,\varphi_P)$; streams leaving $\mathcal U_+$ have $\varphi\ge0$ and streams leaving $\mathcal U_-$ have $\varphi\le0$, so the
+crossing terms are nonnegative. Add $R(\mathcal U_-)+Q(\mathcal U_+)$ to both sides.
+\end{proof}
+
+\begin{corollary}[pure products]\label{cor:pure}
+If every product stream is pure, $R\ge H_j$ for every $j$; that is, $R\ge\max_jH_j$.
+\end{corollary}
+\begin{proof}
+A pure liquid product of component $p$ and flow $P_p$ has $\varphi=\alpha_pP_p/(\theta_j-\alpha_p)$, a pure vapor product
+$\varphi=\theta_jP_p/(\theta_j-\alpha_p)$; both are positive exactly for $p>j$, and the vapor value is the larger. The products
+of component $p$ carry $z_p$ in total.
+\end{proof}
+
+\begin{corollary}[finite purity]\label{cor:purity}
+If every product stream has purity at least $1-\varepsilon$, then for every $j$
+\[R\ge H_j-c_j\varepsilon,\qquad c_j=\max\Bigl(\frac{\alpha_j}{\alpha_j-\theta_j},\frac{\alpha_{j+1}}{\theta_j-\alpha_{j+1}}\Bigr).\]
+Consequently $R^*(\mathcal S)\ge\max_jH_j$ for every family $\mathcal S\subseteq\mathcal A$.
+\end{corollary}
+\begin{proof}
+For a vapor stream, $\varphi^{\mathrm{vap}}=\varphi^{\mathrm{liq}}+(\text{flow})$ for the same component flows, so it suffices to
+bound the liquid fluxes. Keep only the products assigned to components $p>j$:
+$\sum_P\max(0,\varphi_P)\ge\sum_{i>j}\frac{\alpha_in^h_i}{\theta_j-\alpha_i}-\sum_{i\le j}\frac{\alpha_in^h_i}{\alpha_i-\theta_j}$,
+$n^h_i$ the flow of $i$ in these products. By the overall balance $n^h_i=z_i-m_i$ for $i>j$, $m_i$ the flow of $i$ in
+products assigned to components $\le j$. The flows $m_i$ ($i>j$) and $n^h_i$ ($i\le j$) are disjoint parts of the total
+impurity, which is at most $\varepsilon$ times the total product flow $1$; the coefficients $\alpha_i/(\theta_j-\alpha_i)$ ($i>j$)
+and $\alpha_i/(\alpha_i-\theta_j)$ ($i\le j$) are at most $c_j$.
+\end{proof}
+
+\noindent The proof uses only: constant molar overflow at every unit (Lemma~\ref{lem:node}); phase equilibrium with
+constant relative volatilities, or a single outflow composition and phase (Lemma~\ref{lem:uniform}); $\theta_j>0$; one
+feed composition and thermal state, so that every feed portion has zero flux at $\theta_j$; and the counting of every
+positive duty in $R$. Agents F, S, N and P checked the identities and the bound on finite-stage steady states computed
+by four independent solvers, and Agent N checked the identities in exact rational arithmetic
+(Section~\ref{sec:computer2}).
+
+\section{Consequences}\label{sec:conseq}
+
+\emph{The Underwood pinch hyperplane.} For $0\le q\le1$ the equilibrium liquid $x^F$ of the feed satisfies
+$G_{x^F}(\theta_j)=0$ for every $j$ (insert $z=(1-q)y^F+qx^F$ in the feed equation: $G_{x^F}(\theta_j)\,[(1-q)\theta_j/S(x^F)+q]=0$).
+So a unit is light-ish or heavy-ish according to the side of the hyperplane $\{x:G_x(\theta_j)=0\}$, through the feed-flash
+liquid, on which its liquid lies (for a (C) unit its liquid outflow; for an (R) unit the liquid in equilibrium with its
+vapor outflow, since $\sum_iy_i/(\alpha_i-\theta)=G_x(\theta)/S(x)$ for $y$ in equilibrium with $x$). Theorem~\ref{thm:stage} says: \emph{the heat
+supplied to the heavy side is at least $H_j$} (for pure products), and the excess of $R$ over the bound is the sum of three nonnegative
+losses, heat supplied on the light side, heat removed on the heavy side, and flux across the hyperplane, as in pinch
+analysis of heat-exchanger networks.
+
+\emph{Sections.} In an adiabatic section, by Lemma~\ref{lem:uniform} applied to two consecutive stages,
+$\Lambda_s(\theta)=L\,G_{x_{k+1}}(\theta)-(\theta V/S(x_k))\,G_{x_k}(\theta)$ at every cross-section (Underwood's identity, eq.~(2.49) of
+\autocite{HalvorsenThesis} at the roots of $\Lambda_s$, here for every $\theta$). Hence along a section the side changes at
+most once, from heavy-ish below to light-ish above if $\Lambda_s(\theta_j)>0$ and the reverse if $\Lambda_s(\theta_j)<0$, and a
+section whose stages change side contributes $|\Lambda_s(\theta_j)|$ to the defect~\eqref{eq:defect}. At a pinch composition
+$x^*\propto(w_i/(\alpha_i-\phi))_i$ of a section ($\phi$ a root of $\Lambda_s$), $G_{x^*}(\theta)=-(S(x^*)/V)\Lambda_s(\theta)/(\theta-\phi)$.
+(\texttt{total/sections/sections.md}, Lemmas~6--9; \texttt{total/network/network.md}, Corollary~6.2.)
+
+\emph{Ties.} By~\eqref{eq:defect}, a family of steady states with purity $\to1$ and $R\to H_j$ must have, in the limit, no heat
+supplied to light-ish units, no heat removed from heavy-ish units, zero flux on every stream between the two sides, and
+$\theta_j$ as an Underwood root of every section whose stages change side, with the change taking place in a zone where the
+liquid is on the hyperplane: Underwood's pinch at an active root, now derived for every arrangement. In particular, at
+an optimum with a strict highest peak $j^*$, no reboiler or heater may deliver a light product $p\le j^*$ and no condenser
+or cooler a heavy product $p>j^*$ (Agent N, \texttt{network.md}, Corollary~5.3; version~1's Corollary~\ref{cor:tie} in
+the whole class). With finitely many stages the inequality is strict whenever some section changes side.
+
+\emph{What the bound covers.} Theorem~\ref{thm:stage} contains no hypothesis on reverse net flows (Halvorsen's regimes
+in which a component flows against the direction of a directly coupled section~\autocite{HalvorsenThesis}, \S4.3.3),
+degenerate distributions, several feed stages, intermediate sections, stream splitters, remixing, recycles, bypasses,
+non-interval streams, products keeping every component of a column feed, or products of either phase: every gap of
+version~1 listed in its verification is closed for the lower bound. It also bounds the total vaporization of
+non-adiabatic arrangements with external utilities, such as reversible columns (whose total heat supply indeed exceeds
+the adiabatic Petlyuk value in Halvorsen's examples~\autocite{HalvorsenThesis}, Table~6.1), and of Murphree trays.
+
+\emph{Internal heat exchange and several pressures.} The theorem bounds the heat delivered to the heavy-ish units,
+whatever its origin. With heat exchange between process streams counted in $R$ the bound still holds; the external
+heat can only fall below $\max_jH_j$ by moving heat into heavy-ish units from light-ish ones, which is what
+Halvorsen's heat-integrated examples do (side-stream condensation heating the feed, heat transfer across the dividing
+wall, double-effect columns). This is why the conjecture must exclude internal heat exchange, and it answers the
+question left in~\autocite{HS02} for the total vaporization.
+
+\emph{The permissive counterexample of version~1 is not physical.} By Corollary~\ref{cor:purity}, any family of steady
+states of configuration 161 (or of any arrangement) with purity $\to1$ has $\liminf R\ge\max_jH_j$, while the permissive
+point of Section~\ref{sec:cex} has $R=H_3-2.6\cdot10^{-4}$. Concretely, its Underwood fluxes at $\theta_3$ contain a
+light-to-heavy sign path $\mathrm C\to\mathrm{CDE}\to\mathrm{BCDE}\to\mathrm{BCD}\to\mathrm D$, impossible at a steady state because
+along every arc of the sign graph a light-ish node can only be followed by a light-ish node
+(\texttt{total/network/network.md}, \S6.3--6.4). The violation is global (a chain of four sections), which is why no
+column-local argument could exclude it. For global optimization this suggests a repair of the permissive model that
+keeps every physically admissible excess vapor: require, for every $j$, junction signs ($+$ at light products, $-$ at
+heavy products) compatible with the signs of the section and link fluxes (one binary variable per junction and peak).
+Every point of the repaired model satisfies $R\ge H_j$, and limits of physical steady states satisfy its constraints
+when each junction of the Underwood description is one equilibrium stage (\emph{ibid.}, \S6.5).
+
+\emph{Version~1's strict theorem.} The sign-graph argument of Theorem~\ref{thm:strict}, which needed the column
+Lemmas~\ref{lem:sign} and~\ref{lem:interior} in the strict Underwood model, holds at every physical steady state with the
+partition $U=\mathcal U_-$: the node sign is a potential that never decreases along an arc of the sign graph.
+
+\section{Attainment}\label{sec:attain}
+
+By Corollary~\ref{cor:purity} applied to the Petlyuk arrangement itself, $R^*(\mathcal S_{\mathrm{Petlyuk}})\ge\max_jH_j$; this is
+the part of Halvorsen and Skogestad's formula for the Petlyuk minimum that they proved only for the extreme peaks, now
+for every peak, every $N$ and every $q$ in the physical model. Since every arrangement satisfies the same bound, the
+conjecture $R^*(\mathcal S_{\mathrm{Petlyuk}})\le R^*(\mathcal S)$ for all $\mathcal S$ \emph{follows from} the equality
+$R^*(\mathcal S_{\mathrm{Petlyuk}})=\max_jH_j$ (\emph{attainment}: finite-stage Petlyuk steady states with purities tending to $1$
+and $R$ tending to $\max_jH_j$), which is Halvorsen and Skogestad's formula for the Petlyuk minimum read in the
+finite-stage-limit sense. (Attainment is sufficient, not logically necessary: without it the conjecture could still
+hold, but the formula would fail.) In Underwood's infinite-stage model the generalized Petlyuk arrangement has an operating point with
+$R=\max_jH_j$, every internal column at its preferred split (Theorem~\ref{thm:achieve} of version~1, independently
+verified, for every $N$ and $q$; this is Halvorsen and Skogestad's construction~\autocite{HS3}). In the finite-stage
+model:
+
+\begin{proposition}[two components; Agent S]\label{prop:binary}
+Let $N=2$, $\alpha_1=\alpha>1=\alpha_2$, light feed fraction $z\in(0,1)$, any $q$. For every $s>H_1$ and $\varepsilon>0$ there is $n_0$
+such that a column with $n_T,n_B\ge n_0$ stages, a partial reboiler of duty $s$ and a total condenser has a steady
+state with both products of purity at least $1-\varepsilon$. Hence $R^*(\mathcal S_{\mathrm{column}})=H_1$, and for $N=2$ the
+conjecture holds in $\mathcal A$.
+\end{proposition}
+\begin{proof}
+Write $e(x)=\alpha x/(1+(\alpha-1)x)$ (light vapor fraction in equilibrium with light liquid fraction $x$), $D=z$,
+$B=1-z$, $V_B=s$, $V_T=s+1-q$, $L_T=V_T-D$, $L_B=s+B$; $L_T>0$ because $H_1+1-q=\alpha z/(\alpha-\theta_1)>z$. The map
+$\beta_0(x)=(s/L_B)e(x)$ (bottom section, pure bottom product) has the fixed points $0$ and
+$\hat x_B=(\alpha s/L_B-1)/(\alpha-1)\in(0,1)$ and $\beta_0(x)>x$ on $(0,\hat x_B)$; the map $\tau_0(x)=e^{-1}((L_Tx+D)/V_T)$ (top
+section going down, pure top product) has the fixed points $1$ and $\hat x_T=(V_T/L_T-1)/(\alpha-1)$ and $\tau_0(x)<x$ on
+$(\hat x_T,1)$. Now $\hat x_T<\hat x_B$ iff $f(s)=\alpha s(s+1-q-z)-(s+1-q)(s+1-z)>0$; after elimination of $q$ by the feed
+equation, $f$ is a quadratic with positive leading coefficient $\alpha-1$ and roots $H_1$ and
+$s_-=1/(\alpha-1)-z\theta_1/(\alpha-\theta_1)<H_1$ (\texttt{total/sections/scripts/check\_binary\_attainment.py}, sympy), so
+$\hat x_T<\hat x_B$ for $s>H_1$. For $\eta\in[0,1]$ put $x_B=\eta$ and $x_D(\eta)=1-(1-z)\eta/z$ (light balance). Iterating
+$x_{k+1}=(s\,e(x_k)+B\eta)/L_B$ upward from the reboiler liquid $\eta$ ($n_B+1$ steps) gives a feed-stage liquid
+$x^{\mathrm{bot}}_f(\eta)$; iterating downward from the top vapor $x_D(\eta)$, $x=e^{-1}(y)$, $y_{\mathrm{next}}=(L_Tx+Dx_D)/V_T$
+($n_T+1$ stages) gives $x^{\mathrm{top}}_f(\eta)$. Both are continuous, all iterates stay in $[0,1]$, and equality
+$x^{\mathrm{bot}}_f=x^{\mathrm{top}}_f$ yields a steady state (the feed-stage balance follows from the two cross-section balances
+and the overall balance). At $\eta=0$, $x^{\mathrm{bot}}_f=0<1=x^{\mathrm{top}}_f$. Fix $\eta_1\in(0,1]$ with
+$\eta_1\max(1,(1-z)/z)\le\varepsilon$. By monotonicity, $x^{\mathrm{bot}}_f(\eta_1)\ge\beta_0^{n_B+1}(\eta_1)\to\hat x_B$ (or $\ge\hat x_B$) and
+$x^{\mathrm{top}}_f(\eta_1)\le\max(\hat x_T,\tau_0^{n_T}(e^{-1}(x_D(\eta_1))))\to\hat x_T$, so for large $n_T,n_B$,
+$x^{\mathrm{bot}}_f(\eta_1)>x^{\mathrm{top}}_f(\eta_1)$, and the intermediate value theorem gives $\eta^*\in(0,\eta_1)$ with a steady
+state of purities $1-\eta^*$ and $1-(1-z)\eta^*/z$, both $\ge1-\varepsilon$, and $R=s$.
+\end{proof}
+
+For $N\ge3$ the difficulty is not existence: steady states exist for every prescribed set of flows.
+
+\begin{proposition}[existence; Agent N]\label{prop:exist}
+Let an arrangement of $\mathcal A$ and the flows of all its streams and feed portions be prescribed, with the total mass
+balance at every unit, every unit reachable from a unit receiving feed and a product outlet reachable from every
+unit. Then for every $\alpha_1>\dots>\alpha_N>0$ a steady state exists, and every steady state has all mole fractions
+in $[c,1]$ for some $c>0$ depending only on the flows, $z$ and $\alpha_1/\alpha_N$. In particular $R$ is determined by the
+flows, and $R^*(\mathcal S)\le\rho$ as soon as, for every $\eta>0$, some stage numbers and flows with $R\le\rho+\eta$ admit
+a steady state with all purities at least $1-\eta$.
+\end{proposition}
+\begin{proof}
+(\texttt{total/network/network.md}, \S10.) An (M) or (C) unit is an (E) unit without vapor outflow and an (M) vapor
+unit or an (R) unit one without liquid outflow, so the unknowns are one composition per unit. For fixed
+$K_{k,i}=\alpha_i/S(x_k)$ the balances of component $i$ form a linear system whose matrix is a Z-matrix with positive
+diagonal, weakly chained diagonally dominant by columns (the excess of column $k$ is the flow that unit $k$ sends to
+product outlets, and every column is chained to such a unit), hence a nonsingular M-matrix with nonnegative inverse,
+positive between units joined by a path. Summing over $i$ shows that $\sum_ix_{k,i}=1$ holds automatically at every
+solution of the unnormalized system. Since $K_{k,i}\in[\alpha_N/\alpha_1,\alpha_1/\alpha_N]$, the positive entries of the
+inverses are bounded below, which gives the a priori bounds, uniformly along the homotopy $\alpha(t)=(\alpha_i^t)$; at
+$t=0$ the system is linear with a unique nondegenerate solution, so the Brouwer degree is nonzero for every $t$.
+\end{proof}
+
+So attainment amounts to the \emph{purity} of steady states at fixed flows. Isolated columns are understood. For
+$N=2$ this is Proposition~\ref{prop:binary}. For a directly coupled prefractionator with any number $m\ge3$ of
+components and any feed quality, operated with its preferred net split deformed so as to keep its internal common
+roots and with a vapor margin $\eta$, there are exact, strictly positive finite-stage profiles whose unwanted extreme
+components at the two returns are at most $C\eta^{-1}\rho^n$, $0<\rho<1$; for $m=3$ the major-component ratios of the two
+returns can moreover be prescribed (\texttt{total/attainment-astra/attainment.md}, Theorems~1--2, GPT-6-Astra; re-derived and
+re-implemented by Agent S, \texttt{total/sections/sections.md} \S8.5). There the returns are boundary data: closing them through the finishing columns
+of the Petlyuk network, with every impurity controlled, is the missing step. The obstruction to a general proof is the coupling
+of pinch zones through the thermal couplings: in the infinite-stage limit, every section that carries excess vapor and
+is pinched at both ends has a composition front whose position is fixed only by exponentially small terms, so the
+pinch-matching limit system is not transversal there (Agent N's computation of the steady-state Jacobian:
+smallest singular value decreasing geometrically with $n$; Agent S's analysis of doubly pinched sections).
+
+\emph{Numerical evidence.} With the flows of Theorem~\ref{thm:achieve} plus a circulation $\delta$ from the reboiler to the
+condenser spread over all sections, so that $R=\max_jH_j+\delta$ exactly, and $n$ stages per section, the product
+impurities of the generalized Petlyuk arrangement fall as follows (Agent N, \texttt{total/network/scripts/ftc\_fixed\_flows.py}).
+For $N=3$ ($\alpha=(4,2,1)$, $z_p=1/3$, $q=1$, $\delta=0.002$) the largest impurity is $1.4\cdot10^{-2}$, $1.1\cdot10^{-3}$,
+$4.5\cdot10^{-7}$ and $1.3\cdot10^{-14}$ at $n=20,40,80,160$ (Newton residuals at most $2\cdot10^{-8}$); Agent P's independent
+solver, with a circulation $\delta=0.01$ through both sections of every column, gives $8.1\cdot10^{-3}$, $1.1\cdot10^{-4}$ and
+$9.3\cdot10^{-9}$ at $n=20,40,80$, a geometric decay of about $0.8$ per stage, and Agent F's solver, with the
+prefractionator at its preferred split plus $0.02$ on both flows and $R=\max_jH_j+0.04$, gives $6.4\cdot10^{-3}$,
+$6.7\cdot10^{-5}$ and $4.5\cdot10^{-9}$ at $n=20,40,80$ (\texttt{total/foundations/scripts/petlyuk\_attain.py}). For $N=4$ (one random instance,
+$\delta=0.01$) N obtains $7.8\cdot10^{-2}$, $3.0\cdot10^{-3}$, $5.9\cdot10^{-5}$ and $2.1\cdot10^{-6}$ at $n=10,40,80,120$, with
+Newton residuals of only $10^{-5}$ to $5\cdot10^{-7}$, so these values are indicative. Minimizing $R$ at fixed purity
+(Agent P, \texttt{total/simulation/}), the optimum approaches the finite-purity bound of Theorem~\ref{thm:stage} as $n$
+grows ($N=3$, purity $0.99$: $R-\text{bound}=2.9\cdot10^{-2}$, $3.1\cdot10^{-4}$, $3.0\cdot10^{-8}$ at $n=20,40,80$; Agent F's
+separate solver and optimizer reproduce $R=1.372571$ at $n=20$), and the bound tends to $\max_jH_j$ as the purity tends
+to $1$. With the same fixed-flow construction, Agent F's solver also gives purities tending to $1$ for $q=0$, $0.5$ and $1.3$
+(largest impurity $2.2\cdot10^{-5}$, $1.7\cdot10^{-5}$ and $1.4\cdot10^{-4}$ at $n=40$, $R=\max_jH_j+0.04$).
+
+\emph{Status and route for $N\ge3$.} For $N=3$, Agents S and N have reduced the closed network to a finite problem: at
+fixed flows with margins, the sharp limit fixes all net flows, the prefractionator feed-stage composition (Astra's
+vector) and the side-draw composition (pure B), but leaves the major-component ratios at the two coupling junctions
+free (the two neutral modes); at finite $n$ these and the two trace net flows of the prefractionator (C upward, A
+downward) are fixed by exponentially small balances, giving four unknowns, to be handled by a Poincar\'e--Miranda or
+degree argument in exponentially rescaled variables with Astra's prefractionator theorem and binary shooting
+arguments for the two finishing columns (\texttt{total/network/network.md} \S10, \texttt{total/sections/sections.md}
+\S8.5--8.6). This argument is not complete; finite-stage attainment for $N\ge3$ therefore remains open, although every
+computation supports it.
+
+\section{Computer verification of version 2}\label{sec:computer2}
+
+No step of the proofs of Sections~\ref{sec:stage}--\ref{sec:conseq} depends on a computation. Four independent codes
+(written separately by Agents F, S, N and P from the equations of Definition~\ref{def:A}) check the identities and the
+bound on finite-stage steady states; paths are relative to the problem folder, and the environment is WSL Fedora
+with Python~3, numpy, scipy, sympy, mpmath, pyomo and ipopt.
+\begin{itemize}
+\item \texttt{total/network/scripts/unit\_identities\_exact.py} (exact rationals and sympy): Lemma~\ref{lem:uniform}
+symbolically for $N=2,\dots,6$, and the summed node balance (the cut identity for an arbitrary set of units) on random
+unit graphs with recycles, arbitrary subsets and rational $\theta$. PASS.
+\item \texttt{total/network/scripts/section\_identity\_exact.py} (exact rationals): the identity
+$\Lambda_s(\theta)=L\,G_{x_{k+1}}(\theta)-(\theta V/S(x_k))G_{x_k}(\theta)$ and the single change of side per section, on 400
+random stage-to-stage profiles with net flows of both signs. PASS.
+\item \texttt{total/foundations/scripts/unitnet.py} (Agent F; floating point, Newton with analytic Jacobian): a binary
+column above and below its minimum vapor (below it the products are impure and the bound is attained to $10^{-11}$
+with 80+80 stages, as the feed pinch predicts) and 396 random networks of (E), (M), (C) and (R) units with recycles,
+bypasses, split feeds, $q\in[-0.5,1.5]$, $N=2,\dots,5$ and products of either phase and any purity: node balances to
+$10^{-12}$, no sign-uniformity violation, $\min(R-\text{bound})=-2.6\cdot10^{-14}$. ALL PASS (about 30~s).
+\item \texttt{total/sections/scripts/check\_stage\_cut.py} (Agent S): columns, three-product Petlyuk arrangements with
+0--9 stages per section and random networks: identity residuals $\le4\cdot10^{-10}$, cut residuals $\le2\cdot10^{-11}$, no
+violation. PASS.
+\item \texttt{total/network/scripts/cut\_bound\_check.py} (Agent N): random section/junction networks and a ternary
+Petlyuk grid with 8--40 stages per section. PASS. \texttt{permissive\_sign\_path.py}: the light-to-heavy sign path of the
+permissive point (40 digits).
+\item \texttt{total/simulation/scripts/test\_stage\_bound.py} (Agent P, own solver with pseudo-transient continuation
+and Newton in logarithmic variables): random networks (2--5 components, sections of 0--11 stages, bypasses, recycles,
+split feeds, duties of either sign anywhere, liquid and vapor products, reverse net flows): 1131 steady states, no
+sign-uniformity violation, $\min(R-\text{bound})=-2\cdot10^{-10}$ (the convergence tolerance of those steady states);
+\texttt{test\_section\_sign.py}: the single change of side per section on 3053 sections, no violation. PASS.
+\item Attainment runs (Section~\ref{sec:attain}), each in the \texttt{scripts/} folder of its agent under
+\texttt{total/}:
+\begin{itemize}
+\item N: \texttt{ftc\_fixed\_flows.py};
+\item P: \texttt{ftc\_fixed\_flows.py}, \texttt{attain.py};
+\item F: \texttt{petlyuk\_attain.py};
+\item S: \texttt{check\_binary\_attainment.py}, \texttt{check\_astra\_prefrac.py}.
+\end{itemize}
+\end{itemize}
+
+\section{Scope, limitations and open questions}\label{sec:scope2}
+\begin{enumerate}
+\item \emph{What is proved.} The lower bound $R\ge\sum_P\max(0,\varphi_P(\theta_j))$, hence $R^*(\mathcal S)\ge\max_jH_j$, for every
+arrangement of $\mathcal A$ (Theorem~\ref{thm:stage}, Corollary~\ref{cor:purity}); all statements of version~1 in the
+Underwood model (Sections~\ref{sec:setting}--\ref{sec:achieve}), whose verification is in \texttt{verification.md}.
+\item \emph{Attainment.} The equality $R^*(\mathcal S_{\mathrm{Petlyuk}})=\max_jH_j$, which implies the conjecture once the lower
+bound is known, is proved in Underwood's infinite-stage model for every $N$ (Theorem~\ref{thm:achieve}) and in the
+finite-stage model for $N=2$ (Proposition~\ref{prop:binary}). For $N\ge3$, steady states exist for all prescribed flows
+(Proposition~\ref{prop:exist}), an isolated prefractionator admits exact finite-stage profiles with exponentially small
+traces, and the full network reaches purities tending to $1$ at $R=\max_jH_j+\delta$ in three independent
+simulations; a proof for the closed network is not given (Section~\ref{sec:attain} describes the reduction for $N=3$).
+\item \emph{Class.} $\mathcal A$ contains every arrangement within the assumptions of~\autocite{HS3}; the devices it excludes
+(heat exchange between process streams not counted in $R$, several pressures, non-ideal mixtures, decanters,
+membranes, component-dependent efficiencies, heat pumps, several feeds) are excluded by the conjecture itself. The
+bound concerns the total vaporization; with heat exchange between process streams the external heat can be lower
+(Section~\ref{sec:conseq}), and its minimum is not determined here.
+\item \emph{Extensions.} For several feeds the same argument gives
+\[R\ge\sup_\theta\Bigl[\sum_P\max(0,\varphi_P(\theta))-\sum_kf_k\max(0,\varphi_{F_k}(\theta))\Bigr],\]
+and for non-sharp product specifications $R\ge\max_j\sum_P\max(0,\varphi_P(\theta_j))$ as it
+stands (\texttt{total/network/network.md}, \S7); whether these bounds are attained is not studied. Constant molar overflow enters only
+through the energy balance: under the constant-heat-transport model of~\autocite{MTA2023} (constant but
+component-dependent molar latent heats $\lambda_i$, no sensible heat), the same proof applies verbatim to the
+latent-heat-weighted flows $\tilde n_{e,i}=\lambda_in_{e,i}$, because the weighted mole fractions satisfy
+$\tilde y_i=\alpha_i\tilde x_i/\sum_k\alpha_k\tilde x_k$ again, and bounds the total heat by the highest peak of the
+correspondingly weighted $V_{\min}$ diagram. Non-ideal mixtures are open: sign uniformity uses constant relative
+volatilities.
+\item \emph{Version~1's permissive model.} The bound fails there for $N=5$ (Section~\ref{sec:cex}); version~2 shows that
+this point is not a limit of physical operations, so the 19 undecided permissive pairs no longer bear on the
+conjecture.
+\end{enumerate}
+
+\section{Credits for version 2}\label{sec:credits2}
+The stage-level bound (Lemmas~\ref{lem:node}, \ref{lem:uniform}, Theorem~\ref{thm:stage}) was found independently and
+within a few minutes by three agents of version~2: Agent~N (network; derivation logged at 13:38), Agent~S (sections;
+13:45) and Agent~F (foundations; 13:44--13:47); Agent~P (physical simulation) re-derived the algebra. Agent~F wrote the
+definition of $\mathcal A$ (with the limit definition of infinitely many stages and pure products), the red team (Murphree
+trays, feed phases, internal heat exchange) and the integration; Agent~S the complete proofs with the explicit
+finite-purity constant and the section and junction lemmas (\texttt{total/sections/sections.md}); Agent~N the
+decomposition of physical devices into units, the cut identity for arbitrary unit sets, the tie structure, the sign
+potential and the sign path of the permissive point, the existence theorem for prescribed flows and fixed-flow attainment numerics
+(\texttt{total/network/network.md}); Agent~P the independent stage-by-stage simulator, the tests and the attainment
+study (\texttt{total/simulation/}); Agent~S also proved the two-component attainment (Proposition~\ref{prop:binary})
+and checked the prefractionator theorem. All these agents: Claude Opus~5.5 (effort xhigh). The prefractionator
+attainment theorem quoted in Section~\ref{sec:attain} is due to GPT-6-Astra via Codex CLI (effort xhigh); the
+targeted novelty search of the stage-level argument (\texttt{total/literature/}) to Claude Opus~5.5 (effort xhigh).
+An early independent check of the lower bound was started in \texttt{total/verification-early/}. Independent verification of version~2: pending.
+\section{Version 1: setting of the Underwood model}\label{sec:setting}
+
+\emph{Sections~\ref{sec:setting}--\ref{sec:scope1} reproduce version~1 of this paper, independently verified
+(\texttt{verification.md}), with short notes pointing to version~2.} Version~1 summarized its results as follows.
+
+\begin{theorem}[main results of version 1]\label{thm:summary}
+Let $R$ denote the total vapor generated by all heat exchangers of an arrangement.
 \begin{enumerate}
 \item (Strict model, every $N$.) At every feasible operating point of every two-section column network
 (Definition~\ref{def:network}), in particular of every regular-column configuration, $R\ge\max_j H_j$.
 \item (Permissive model.) The same inequality holds at every feasible point (a) for every regular-column configuration
 when $N\le4$; (b) for every network and every $N$, for $j=1$ and $j=N-1$; (c) for the FTC configuration and every $N$,
 for all $j$; (d) for every regular-column configuration and every $N$, for every $j$ such that no mixed stream
-(one containing $j$ and $j+1$) is produced by two columns, under a non-degeneracy assumption (N).
+(one containing $j$ and $j+1$) is produced by two columns, under a non-degeneracy assumption (N). It fails for one
+five-component configuration (Section~\ref{sec:cex}).
 \item (Achievability.) The FTC configuration has an operating point, feasible in both models, with $R=\max_jH_j$.
 \end{enumerate}
-Consequently the generalized Petlyuk (FTC) arrangement minimizes total vapor generation among all two-section column
-networks for every $N$ in the strict model, and among all regular-column configurations for $N\le4$ in the permissive
-model; its minimum is exactly $\VFTC:=\max_jH_j$, the highest peak of the $V_{\min}$ diagram referred to the reboiler,
-for every $N$ in both models.
 \end{theorem}
 
-Part~1 is Theorem~\ref{thm:strict}, part~2 is Theorems~\ref{thm:extreme}, \ref{thm:ftc}, \ref{thm:N4} and~\ref{thm:G3}, part~3 is
-Theorem~\ref{thm:achieve}. Part~2 does not extend to all configurations: for $N=5$ the permissive model has a
-configuration and data with minimum $R<\max_jH_j$ (Section~\ref{sec:cex}, found during the independent
-verification). With $P_j^{\mathrm T}=\sum_{p\le j}\alpha_pz_p/(\alpha_p-\theta_j)$ (the $j$-th peak of the
-$V_{\min}$ diagram, top vapor of a two-product column performing the sharp split $\{1..j\}|\{j+1..N\}$), the feed
-equation gives $H_j=P_j^{\mathrm T}-(1-q)$, so $\VFTC$ is the value of~\autocite{HS3}, eq.~(8), referred to the
-reboiler. The two standing hypotheses of the model, stated in Section~\ref{sec:model}, are: no reverse flows (net
-component flows of fixed sign in every section), and a single feed with pure, saturated-liquid products. The argument
-is entirely analytic; the scripts of Section~\ref{sec:computer} check identities, search for counterexamples and
-confirm the case analysis, but no step of the proofs depends on floating-point computation.
+Part~1 is Theorem~\ref{thm:strict}, part~2 is Theorems~\ref{thm:extreme}, \ref{thm:ftc}, \ref{thm:N4} and~\ref{thm:G3},
+part~3 is Theorem~\ref{thm:achieve}. As statements about physics, parts~1 and~2 are superseded by
+Theorem~\ref{thm:stage}; part~3 is the attainment used in Section~\ref{sec:attain}.
 
-\section{Setting}\label{sec:setting}
 
 \subsection{Networks of two-section columns}
 A \emph{stream} is an interval $[i,m]=\{i,\dots,m\}$ of components ($i\le m$); $[p,p]$ is the pure product $p$ and
@@ -139,7 +560,8 @@ Labels shrink strictly along links, so a network is acyclic and every column is 
 covered: columns with several feed stages (intermediate sections between feeds), stream splitters that divide one
 section product among several columns, recycles, non-interval intermediate streams, splits in which a product keeps
 every component of the column's feed (excluded by $k<m$ and $l>i$), streams delivered to a node whose label differs
-from the stream's label, and the reverse flows excluded in Section~\ref{sec:model}.
+from the stream's label, and the reverse flows excluded in Section~\ref{sec:model}. (All of these belong
+to the class $\mathcal A$ of version~2 and are covered by Theorem~\ref{thm:stage}.)
 
 \emph{Regular-column configurations}~\autocite{SA10,TGAT} are the networks with at most one column per label, in which
 the distillate of $[i,m]$ is $[i,k]$ for the largest $k<m$ such that a column $[i,k]$ exists (or $k=i$), the residue is
@@ -196,7 +618,7 @@ delivered stream would no longer carry the label of its receiver (Definition~\re
 covered by Theorem~\ref{thm:strict}; the theorems are statements about the model as defined. (The results that use
 only the sign rule, Lemma~\ref{lem:sign}, rest on the inequality $V_T\ge g_T(\theta)$ at a common root, which holds at
 any infinite-stage operating point with nonnegative flows; we expect, but have not written out, their extension to
-degenerate points.)
+degenerate points. Version~2 settles degenerate points physically: Theorem~\ref{thm:stage}.)
 
 At the roots, $g_T-g_B=U_c$, hence
 $g_B(\theta_{c,r})\le Y_B$ for $r=l-1,k$ with equality for interior $r$.
@@ -209,7 +631,8 @@ away from the preferred split, e.g.\ in a Petlyuk prefractionator whose top liqu
 section would otherwise remove (\emph{ibid.}, \S4.3.3), so (H1) is a genuine restriction of the operating points,
 not only of the configurations.
 The cut identity below needs no sign assumption, but the column lemmas use (H1) through the monotonicity of the
-Underwood functions; whether reverse flows could lower $R$ is not addressed here. (H2) A single feed, and pure
+Underwood functions; whether reverse flows could lower $R$ is not addressed here (version~2: they cannot,
+Section~\ref{sec:conseq}). (H2) A single feed, and pure
 products withdrawn as saturated liquid.
 
 The objective is $R$, the vapor generated by all heat exchangers (reboilers on products and on transfer streams,
@@ -559,6 +982,8 @@ TG is physically sound for columns in which at most one component distributes (t
 change the distribution), and the strict model keeps exactly that freedom. We therefore regard the point as an
 artifact of the permissive formulation, not as a counterexample to a physical reading of the conjecture; it does,
 however, show that a global optimizer applied to TG's model can return configurations below the FTC value.
+Version~2 proves that no family of steady states of any arrangement of $\mathcal A$ with purities tending
+to $1$ approaches this point (Section~\ref{sec:conseq}).
 
 \subsection{The FTC configuration, every \texorpdfstring{$N$}{N}}
 
@@ -709,7 +1134,7 @@ $R=\max_sH_s$, and successive differences give $\delta_{N-1}=\dots=\delta_2=0$.
 \noindent The construction is the one of~\autocite{HS3} \S3 (every internal column at its preferred split); the
 excess vapor is placed in the binary columns, whose children are pure products, so that no carried-over root moves.
 
-\section{Computer verification and numerical evidence}\label{sec:computer}
+\section{Version 1: computer verification and numerical evidence}\label{sec:computer}
 
 No proof above depends on a computation. The scripts check the algebra, cross-check the case analysis and search
 for counterexamples (environment: WSL Fedora, Python 3 with sympy, mpmath, scipy, pyomo, ipopt; paths relative to
@@ -779,7 +1204,10 @@ and AB has $R=1.647249$ and $R-H_2=0.058451=0.021470\,(Q)-0.002772\,(\Lam\text{,
 of BCD})$: a negative light-exit flux is compensated. The indirect sequence has $R=2.481686$.
 \end{example}
 
-\section{Scope, limitations and open questions}
+\section{Version 1: scope as stated in version 1}\label{sec:scope1}
+\emph{The items below are those of version~1. For the lower bound, items 1--3 and the questions of
+reverse flows and degenerate points are settled by version~2 (Section~\ref{sec:conseq}).}
+
 \begin{enumerate}
 \item \emph{Class.} Theorem~\ref{thm:strict} and Theorem~\ref{thm:extreme} hold for every two-section column network
 (Definition~\ref{def:network}); Theorem~\ref{thm:N4} is proved for the 152 regular-column configurations with $N=4$.
@@ -812,6 +1240,7 @@ specifications and several feeds are not treated. (A pure product withdrawn as s
 increase the bound: in the node balance a heavy vapor product contributes $\theta_jz_p/(\theta_j-\alpha_p)$ instead of
 $\alpha_pz_p/(\theta_j-\alpha_p)$, and light products do not enter~\eqref{eq:cut}.)
 \end{enumerate}
+
 
 \paperreferences
 \end{document}

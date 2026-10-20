@@ -1,0 +1,11 @@
+{
+ "networks": 35,
+ "solved": 35,
+ "sections": 142,
+ "crossections": 4909,
+ "worst_identity": 2.948135005156488e-11,
+ "n1_viol": 0,
+ "sign_changes": 105,
+ "reverse_sections": 0,
+ "seconds": 3.5
+}

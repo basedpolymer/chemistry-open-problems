@@ -1,0 +1,6 @@
+columns : {'ok': 24, 'nonconv': 0, 'idres': 1.0803802297232323e-11, 'cutres': np.float64(2.1893598045608087e-13), 'mingap': 0.2850555574824084, 'inconsistent_mix': 0} fails: 0
+PASS (columns)
+petlyuk : {'ok': 18, 'nonconv': 0, 'idres': 3.243350032988701e-12, 'cutres': np.float64(1.829647544582258e-13), 'mingap': 0.9274395688685397, 'inconsistent_mix': 0} fails: 0
+PASS (Petlyuk)
+random  : {'ok': 75, 'nonconv': 0, 'idres': 4.1209141654618975e-10, 'cutres': np.float64(2.03963512745986e-11), 'mingap': 0.9641517686089942, 'inconsistent_mix': 172} fails: 0
+PASS (random networks)
