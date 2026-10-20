@@ -1,0 +1,104 @@
+N=3 instance 0 (generic) done
+N=3 instance 1 (generic) done
+N=3 instance 2 (smallz) done
+N=3 instance 3 (qlow) done
+N=3 instance 4 (qhigh) done
+N=3 instance 5 (generic) done
+N=3 instance 6 (generic) done
+N=3 instance 7 (close) done
+N=3 instance 8 (smallz) done
+N=3 instance 9 (qlow) done
+N=3 instance 10 (qhigh) done
+N=3 instance 11 (equal) done
+N=4 instance 0 (generic) done
+N=4 instance 1 (generic) done
+N=4 instance 2 (smallz) done
+N=4 instance 3 (qlow) done
+N=4 instance 4 (qhigh) done
+N=4 instance 5 (generic) done
+N=4 instance 6 (generic) done
+N=4 instance 7 (close) done
+N=4 instance 8 (smallz) done
+N=4 instance 9 (qlow) done
+N=4 instance 10 (qhigh) done
+N=4 instance 11 (equal) done
+N=5 instance 0 (generic) done
+N=5 instance 1 (generic) done
+N=5 instance 2 (smallz) done
+N=5 instance 3 (qlow) done
+N=5 instance 4 (qhigh) done
+N=5 instance 5 (generic) done
+N=5 instance 6 (generic) done
+N=5 instance 7 (close) done
+N=5 instance 8 (smallz) done
+N=5 instance 9 (qlow) done
+N=5 instance 10 (qhigh) done
+N=5 instance 11 (generic) done
+N=6 instance 0 (generic) done
+N=6 instance 1 (generic) done
+N=6 instance 2 (smallz) done
+N=6 instance 3 (qlow) done
+N=6 instance 4 (qhigh) done
+N=6 instance 5 (equal) done
+N=6 instance 6 (generic) done
+N=6 instance 7 (close) done
+N=6 instance 8 (smallz) done
+N=6 instance 9 (qlow) done
+N=6 instance 10 (qhigh) done
+N=6 instance 11 (equal) done
+N=7 instance 0 (generic) done
+N=7 instance 1 (generic) done
+N=7 instance 2 (smallz) done
+N=7 instance 3 (qlow) done
+N=7 instance 4 (qhigh) done
+N=7 instance 5 (equal) done
+N=7 instance 6 (generic) done
+N=7 instance 7 (close) done
+N=7 instance 8 (smallz) done
+N=7 instance 9 (qlow) done
+N=7 instance 10 (qhigh) done
+N=7 instance 11 (generic) done
+
+PASS  H1 balances: 7440/7440
+PASS  H1 feeds: 2640/2640
+PASS  H1 flows: 9120/9120
+PASS  H2 middle roots global: 1680/1680
+PASS  H2 signs: 5280/5280
+PASS  H2 supports: 1680/1680
+PASS  H3 Psi at extreme traces: 1680/1680
+PASS  H3 common middle roots: 1680/1680
+PASS  H3 cone weights: 1680/1680
+PASS  H3 interlacing: 1680/1680
+PASS  H3 pinch vectors positive: 1680/1680
+PASS  H4 B-pinned margin: 632/632
+PASS  H4 T-pinned margin: 328/328
+PASS  H4 X positive: 960/960
+PASS  H4 decomposition: 960/960
+PASS  H4 margin kappa>0: 960/960
+PASS  H5 distinct positive modes: 5280/5280
+PASS  H5 eigen residuals: 5280/5280
+PASS  H5 limit relations: 5280/5280
+PASS  H5 rho<1: 5280/5280
+PASS  H6 chart normalization positive: 5280/5280
+PASS  H6 half-profiles in simplex: 5280/5280
+PASS  H7 majors at both ends: 5280/5280
+PASS  H7 trace nodes closed: 6720/6720
+PASS  H7 trace signs: 17760/17760
+PASS  H8 G-pivot signs: 5280/5280
+PASS  H8 R: 240/240
+PASS  H8 pivots positive: 5280/5280
+PASS  H8 purities: 1200/1200
+PASS  construction: 240/240
+PASS  flux bookkeeping: 2400/2400
+PASS  kappa(delta) - kappa(0) = delta: 240/240
+PASS  kappa(eta_nb=0) = e_p + delta: 240/240
+PASS  stage-level bound at limit: 960/960
+instances: 240
+min kappa/delta: 0.553721  (N=7 t=11 generic pi=TTBTTT drel=0.001 fr=0.25)
+max rho: 0.998815  (N=6 t=7 close pi=TTBBT drel=0.05 fr=0.25 ('T', 1, 3))
+eta_nb/delta: 0.000195312  (N=6 t=10 qhigh pi=BBTTT drel=0.05 fr=0.25)
+ALL PASS
+
+real	14m58.302s
+user	14m55.275s
+sys	0m0.148s

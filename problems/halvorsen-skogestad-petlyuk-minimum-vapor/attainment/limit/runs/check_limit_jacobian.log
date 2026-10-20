@@ -1,0 +1,67 @@
+[N3#0] N=3 q=1.21 pattern=TT eta_col=0.00039 eta_bin=0.003 delta=0.051 R-maxH=0.0455 nv=12 (maj 4)
+      |G_inf(v_inf)|=2.7e-58 min margin=0.00124 offblock=0.0 tracepred=2.1e-37 majtri=0.0 sigma_min=7.896e-03 sigma_max=4.819e+03
+      M-matrices (k, size, ok, min column sum): (0, 3, True, '0.626') (1, 1, True, '1.39') (2, 2, True, '0.18')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N3#1] N=3 q=1.85 pattern=TT eta_col=0.00014 eta_bin=0.0014 delta=0.035 R-maxH=0.0254 nv=12 (maj 4)
+      |G_inf(v_inf)|=4.8e-58 min margin=9.53e-5 offblock=0.0 tracepred=9.0e-37 majtri=0.0 sigma_min=3.096e-03 sigma_max=2.336e+04
+      M-matrices (k, size, ok, min column sum): (0, 3, True, '0.434') (1, 1, True, '1.26') (2, 2, True, '0.226')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N3#2] N=3 q=-0.468 pattern=BB eta_col=0.0017 eta_bin=0.0098 delta=0.046 R-maxH=-0.0226 nv=12 (maj 4)
+      |G_inf(v_inf)|=6.1e-59 min margin=0.00208 offblock=0.0 tracepred=6.4e-36 majtri=0.0 sigma_min=9.089e-02 sigma_max=1.183e+03
+      M-matrices (k, size, ok, min column sum): (0, 2, True, '0.196') (1, 1, True, '1.12') (2, 3, True, '0.272')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N3#3] N=3 q=0.244 pattern=TT eta_col=0.00091 eta_bin=0.0015 delta=0.041 R-maxH=0.0333 nv=12 (maj 4)
+      |G_inf(v_inf)|=3.1e-59 min margin=0.000455 offblock=0.0 tracepred=2.3e-37 majtri=0.0 sigma_min=1.096e-02 sigma_max=2.950e+03
+      M-matrices (k, size, ok, min column sum): (0, 3, True, '0.211') (1, 1, True, '0.89') (2, 2, True, '0.296')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N4#0] N=4 q=0.546 pattern=TTT eta_col=0.00094 eta_bin=0.0021 delta=0.049 R-maxH=0.0417 nv=36 (maj 11)
+      |G_inf(v_inf)|=1.5e-58 min margin=0.00287 offblock=0.0 tracepred=5.0e-34 majtri=0.0 sigma_min=1.999e-03 sigma_max=8.089e+03
+      M-matrices (k, size, ok, min column sum): (0, 6, True, '0.0') (1, 3, True, '0.277') (2, 3, True, '0.34') (3, 5, True, '0.0')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N4#1] N=4 q=1.32 pattern=TTT eta_col=0.00012 eta_bin=0.0023 delta=0.045 R-maxH=0.0258 nv=36 (maj 11)
+      |G_inf(v_inf)|=3.1e-57 min margin=0.000167 offblock=0.0 tracepred=4.2e-32 majtri=0.0 sigma_min=4.526e-03 sigma_max=6.121e+04
+      M-matrices (k, size, ok, min column sum): (0, 6, True, '0.0') (1, 3, True, '0.207') (2, 3, True, '0.259') (3, 5, True, '0.0')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N4#2] N=4 q=0.87 pattern=BTB eta_col=0.00014 eta_bin=0.0093 delta=0.062 R-maxH=0.0262 nv=36 (maj 11)
+      |G_inf(v_inf)|=9.6e-58 min margin=0.000369 offblock=0.0 tracepred=3.2e-32 majtri=0.0 sigma_min=3.987e-03 sigma_max=3.921e+04
+      M-matrices (k, size, ok, min column sum): (0, 5, True, '0.0') (1, 4, True, '0.375') (2, 2, True, '0.18') (3, 6, True, '7.78e-62')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N4#3] N=4 q=1.56 pattern=BBB eta_col=0.00073 eta_bin=0.0022 delta=0.012 R-maxH=-0.00124 nv=36 (maj 11)
+      |G_inf(v_inf)|=6.5e-58 min margin=0.000651 offblock=0.0 tracepred=5.0e-33 majtri=0.0 sigma_min=1.466e-03 sigma_max=9.783e+03
+      M-matrices (k, size, ok, min column sum): (0, 5, True, '0.0') (1, 3, True, '0.285') (2, 3, True, '0.0348') (3, 6, True, '0.0')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N5#0] N=5 q=1.44 pattern=BBBT eta_col=0.00041 eta_bin=0.0018 delta=0.027 R-maxH=0.0215 nv=80 (maj 24)
+      |G_inf(v_inf)|=9.5e-58 min margin=7.35e-5 offblock=0.0 tracepred=2.2e-31 majtri=0.0 sigma_min=1.096e-04 sigma_max=4.898e+04
+      M-matrices (k, size, ok, min column sum): (0, 9, True, '-3.11e-61') (1, 6, True, '3.11e-61') (2, 5, True, '0.0891') (3, 7, True, '0.0') (4, 9, True, '-1.94e-62')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N5#1] N=5 q=0.815 pattern=BTTB eta_col=0.00062 eta_bin=0.0085 delta=0.056 R-maxH=-0.0407 nv=80 (maj 24)
+      |G_inf(v_inf)|=9.3e-58 min margin=0.000255 offblock=0.0 tracepred=8.3e-33 majtri=0.0 sigma_min=9.710e-04 sigma_max=3.178e+04
+      M-matrices (k, size, ok, min column sum): (0, 9, True, '0.0') (1, 7, True, '0.0') (2, 5, True, '0.155') (3, 5, True, '0.0') (4, 10, True, '-9.72e-63')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N5#2] N=5 q=1.88 pattern=TTTB eta_col=0.00028 eta_bin=0.0011 delta=0.057 R-maxH=0.0461 nv=80 (maj 24)
+      |G_inf(v_inf)|=3.1e-57 min margin=7.74e-5 offblock=0.0 tracepred=2.5e-32 majtri=0.0 sigma_min=1.281e-03 sigma_max=8.044e+04
+      M-matrices (k, size, ok, min column sum): (0, 10, True, '-6.22e-61') (1, 6, True, '1.56e-61') (2, 5, True, '0.126') (3, 5, True, '0.0') (4, 10, True, '0.0')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N5#3] N=5 q=1.14 pattern=BTBB eta_col=0.00037 eta_bin=0.0017 delta=0.06 R-maxH=0.0532 nv=80 (maj 24)
+      |G_inf(v_inf)|=2.1e-57 min margin=8.65e-5 offblock=0.0 tracepred=1.8e-32 majtri=0.0 sigma_min=4.887e-04 sigma_max=8.281e+04
+      M-matrices (k, size, ok, min column sum): (0, 9, True, '0.0') (1, 7, True, '0.0') (2, 4, True, '0.141') (3, 6, True, '0.0') (4, 10, True, '0.0')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N6#0] N=6 q=-0.305 pattern=BBTTT eta_col=0.0005 eta_bin=0.0055 delta=0.058 R-maxH=-0.0551 nv=150 (maj 45)
+      |G_inf(v_inf)|=1.1e-57 min margin=0.000216 offblock=0.0 tracepred=9.4e-33 majtri=0.0 sigma_min=2.095e-04 sigma_max=4.228e+04
+      M-matrices (k, size, ok, min column sum): (0, 14, True, '0.0') (1, 10, True, '0.0') (2, 9, True, '0.0') (3, 8, True, '7.78e-62') (4, 10, True, '-1.56e-61') (5, 14, True, '0.0')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N6#1] N=6 q=0.439 pattern=BBTTT eta_col=0.0011 eta_bin=0.0014 delta=0.039 R-maxH=0.0252 nv=150 (maj 45)
+      |G_inf(v_inf)|=5.4e-58 min margin=0.00184 offblock=0.0 tracepred=2.3e-33 majtri=0.0 sigma_min=7.944e-05 sigma_max=1.182e+04
+      M-matrices (k, size, ok, min column sum): (0, 14, True, '0.0') (1, 10, True, '0.0') (2, 9, True, '3.11e-61') (3, 8, True, '0.0') (4, 10, True, '0.0') (5, 14, True, '-7.78e-62')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N6#2] N=6 q=-0.928 pattern=TBBTB eta_col=0.0021 eta_bin=0.0056 delta=0.06 R-maxH=0.0427 nv=150 (maj 45)
+      |G_inf(v_inf)|=1.2e-58 min margin=0.00149 offblock=0.0 tracepred=3.2e-33 majtri=0.0 sigma_min=2.307e-03 sigma_max=4.758e+03
+      M-matrices (k, size, ok, min column sum): (0, 15, True, '0.0') (1, 9, True, '0.0') (2, 8, True, '0.0') (3, 9, True, '7.78e-62') (4, 9, True, '-7.78e-62') (5, 15, True, '0.0')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+[N6#3] N=6 q=0.411 pattern=BTTTT eta_col=0.0019 eta_bin=0.0056 delta=0.044 R-maxH=0.00997 nv=150 (maj 45)
+      |G_inf(v_inf)|=1.1e-58 min margin=0.00292 offblock=0.0 tracepred=9.3e-34 majtri=0.0 sigma_min=7.889e-04 sigma_max=7.286e+03
+      M-matrices (k, size, ok, min column sum): (0, 14, True, '0.0') (1, 11, True, '0.0') (2, 8, True, '0.0') (3, 8, True, '0.0') (4, 10, True, '0.0') (5, 14, True, '-7.78e-62')
+      C1:PASS C2:PASS C3:PASS C4:PASS C5:PASS C6:PASS
+16 instances, 228.2 s
+ALL PASS
+exit=0

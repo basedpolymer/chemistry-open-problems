@@ -1,0 +1,56 @@
+case D_rand_3_1: N = 3, alpha = ['5.798533060693689547605589048793296729201424026723819983', '1.619501671309103496554371304227970540523529052734375000', '1.000000000000000000000000000000000000000000000000000000'], z = ['0.5959', '0.1216', '0.28249'], q = 0.3484731943662144892925880412803962826728820800781250000, delta = 0.04147709869340046549056854594715924507744824246174099934
+  theta = ['2.523128948', '1.340543128'], H = ['0.4034120565', '0.8295419739'], R = maxH + delta = 0.871019072561
+  [PASS] flows: unit total balances residual 1.56e-61, min flow 0.249387
+  column (0, 1) [B, eta 0.149]: VT 1.5225459 VB 0.52947206 LT 1.0756202 LB 0.71528018 d ['0.446926', '0.0', '0.0'] b ['0.148975', '0.0368329', '0.0'] excess 0.464217
+  column (0, 2) [nb, eta 0.004148]: VT 0.99307381 VB 0.34154701 LT 0.36034002 LB 0.70881321 d ['0.595901', '0.0368329', '0.0'] b ['0.0', '0.0847714', '0.282495']
+  column (1, 2) [B, eta 0.02119]: VT 0.52947206 VB 0.87101907 LT 0.46589352 LB 1.1747067 d ['0.0', '0.0635785', '0.0'] b ['0.0', '0.0211928', '0.282495'] excess 0.0390651
+  products P = ['0.44692568', '0.24938666', '0.30368767']
+  limit x(0, 0) = ['1.0', '0.0', '0.0']
+  limit x(0, 1) = ['0.9342320447', '0.06576795533', '0.0']
+  limit x(0, 2) = ['0.3464189426', '0.1688785206', '0.4847025368']
+  limit x(1, 1) = ['0.5973664647', '0.4026335353', '0.0']
+  limit x(1, 2) = ['0.0', '0.4127651174', '0.5872348826']
+  limit x(2, 2) = ['0.0', '0.06978501038', '0.9302149896']
+  section ('T', 0, 1): roots ['4.096441', '1.6195017', '1.0'], pinch index 0, max ratio 0.395344
+  section ('T', 0, 2): roots ['2.5336208', '1.3448966', '1.0'], pinch index 1, max ratio 0.743552
+  section ('T', 1, 2): roots ['5.7985331', '1.4250333', '1.0'], pinch index 1, max ratio 0.701738
+  section ('B', 0, 1): roots ['7.4621192', '1.7000845', '1.0'], pinch index 0, max ratio 0.227829
+  section ('B', 0, 2): roots ['5.7985331', '2.5090072', '1.3395558'], pinch index 1, max ratio 0.533899
+  section ('B', 1, 2): roots ['5.7985331', '1.6935214', '1.2897113'], pinch index 1, max ratio 0.761556
+  [PASS] (H5) every section: real positive distinct roots; rho = max ratio = 0.761556
+  column (0, 2): r = 2.533620751, s = 1.339555816, middle-root gap |theta_T - theta_B| = 0.0
+  [PASS] G_inf(v_inf) = 0: |residual| = 1.08e-60 (independent limit configuration solves the limit system)
+  limit Jacobian 36x36: sigma_max 2.7673, sigma_min 0.0031097, cond 889.91
+  [PASS] DG_inf(v_inf) invertible (sigma_min = 0.0031097)
+  [PASS] block triangular [[Maj, *], [0, Tr]]: major rows 22, major cols 22, trace rows 14, trace cols 14
+  major block sigma_min 0.060577; trace block sigma_min 0.010806
+    trace block of component 0: 5 rows x 5 cols, sigma_min 0.010806
+    trace block of component 1: 2 rows x 2 cols, sigma_min 0.85192
+    trace block of component 2: 7 rows x 7 cols, sigma_min 0.020346
+  [PASS] trace block = one invertible block per component
+    A_0 (2x2, trace contents of component 0 after eliminating the trace flows): min diag 2.847, max off-diag 0, min entry of inverse 0, min column sum 0.304, min row sum -0.792
+    A_1 (1x1, trace contents of component 1 after eliminating the trace flows): min diag 1.097, max off-diag -1, min entry of inverse 0.911, min column sum 1.1, min row sum 1.1
+    A_2 (3x3, trace contents of component 2 after eliminating the trace flows): min diag 0.4541, max off-diag 0, min entry of inverse 0, min column sum 0.136, min row sum -0.165
+  [PASS] every A_k is (up to sign) a nonsingular M-matrix (Z pattern, inverse >= 0)
+    ('T', 0, 1) trace 1 closed at (0, 0): G^(k) = 1.3875, Psi^(k) = 0.90242, kappa = 1.5376 (k major at the other end) ok
+    ('T', 0, 1) trace 2 closed at (0, 0): G^(k) = 1.2084, Psi^(k) = 0.98248, kappa = 1.2299 ok
+    ('T', 0, 2) trace 2 closed at (0, 1): G^(k) = 1.3009, Psi^(k) = 0.1767, kappa = 7.3619 (k major at the other end) ok
+    ('T', 1, 2) trace 0 closed at (1, 2): G^(k) = -0.28234, Psi^(k) = 0.55411, kappa = 0.50953 (k major at the other end) ok
+    ('T', 1, 2) trace 2 closed at (1, 1): G^(k) = 1.7744, Psi^(k) = 0.36327, kappa = 4.8846 (k major at the other end) ok
+    ('B', 0, 1) trace 2 closed at (0, 1): G^(k) = 1.3009, Psi^(k) = 0.80578, kappa = 1.6144 ok
+    ('B', 0, 2) trace 0 closed at (1, 2): G^(k) = -0.28234, Psi^(k) = 0.24982, kappa = 1.1301 (k major at the other end) ok
+    ('B', 1, 2) trace 0 closed at (2, 2): G^(k) = -0.2209, Psi^(k) = 0.80394, kappa = 0.27477 ok
+  [PASS] (H7) signs: Psi^(k)(alpha_k) > 0 and G^(k) of the right sign at every closed trace end
+    (H6)/(A5) min over all sections and k <= 600 of the half-profile entries: 0.0 (>= 0 required; exact zeros are trace entries)
+    (H8)/(A3) smallest pivot (normalized 1.e_* = 1 = l_*.e_*): 0.01156
+  [PASS] (H6)/(A5) half-profiles >= 0, (H8)/(A3) pivots > 0, (A4) closed coefficients 0, (H7)(iii)-(v)
+  [PASS] n =  127 (dps 195, from v_inf): |G_n| 1.8e-196, stage rel 1.9e-83, unit rel 1.9e-83, min x 1.88e-115, min S 1.043, impurities ['1.09e-53', '0.597', '0.0698'], |v_n - v_inf|_maj 7.14e-16, max trace 1.54e-16, sigma_min(DG_n) 0.00311, reverse trace flows 1, 1.8s
+      trace net flows against the section's direction (T: < 0, B: > 0): [("('T', 1, 2)", 2, -3.16124810091681e-17)]
+  [PASS] n =   63 (dps 137, from v_inf): |G_n| 1.3e-138, stage rel 7.2e-83, unit rel 7.2e-83, min x 5.85e-58, min S 1.043, impurities ['6.8e-28', '0.597', '0.0698'], |v_n - v_inf|_maj 3.1e-8, max trace 2.67e-8, sigma_min(DG_n) 0.00311, reverse trace flows 1, 1.7s
+      trace net flows against the section's direction (T: < 0, B: > 0): [("('T', 1, 2)", 2, -5.425626537909144e-09)]
+  [PASS] n =   31 (dps 108, from v_inf): |G_n| 1.1e-109, stage rel 1.0e-82, unit rel 1.0e-82, min x 3.42e-29, min S 1.043, impurities ['5.35e-15', '0.598', '0.07'], |v_n - v_inf|_maj 0.00031, max trace 0.000273, sigma_min(DG_n) 0.003203, reverse trace flows 1, 1.8s
+      trace net flows against the section's direction (T: < 0, B: > 0): [("('T', 1, 2)", 2, -5.2920142897398946e-05)]
+  [PASS] physical steady states for every n >= 31 tested
+  convergence of the majors: |v_n - v_inf| ~ exp(-0.2748 n) (rho^n with rho = 0.7597); max section ratio rho = 0.7616
+  [PASS] sigma_min(DG_n) -> sigma_min(DG_inf) = 0.0031097 (last: 0.0031097)
+ALL PASS  (6.3s)

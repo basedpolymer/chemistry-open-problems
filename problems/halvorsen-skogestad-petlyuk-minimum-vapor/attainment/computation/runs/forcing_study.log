@@ -1,0 +1,24 @@
+Part A: limit Jacobian versus the forcing eta (eta_A = eta_C = eta)
+  eta    0.1: sigma_min(DG_inf) product form    0.011655, ratio form (L)  0.062031; major block    0.093717  trace block    0.039281  xi 0.76716186  zeta 0.36645695
+  eta   0.03: sigma_min(DG_inf) product form    0.011298, ratio form (L)  0.055568; major block    0.066961  trace block    0.043092  xi 0.7207145  zeta 0.46908546
+  eta   0.01: sigma_min(DG_inf) product form    0.010583, ratio form (L)  0.043151; major block    0.041879  trace block    0.044892  xi 0.70302269  zeta 0.5255062
+  eta  0.003: sigma_min(DG_inf) product form   0.0072915, ratio form (L)   0.03663; major block    0.014726  trace block    0.016875  xi 0.69615425  zeta 0.55393069
+  eta  0.001: sigma_min(DG_inf) product form   0.0029588, ratio form (L)  0.034439; major block   0.0050421  trace block   0.0057164  xi 0.69411798  zeta 0.56357917
+  eta   1e-4: sigma_min(DG_inf) product form  0.00030334, ratio form (L)  0.033392; major block   0.0005089  trace block  0.00057569  xi 0.69319041  zeta 0.56821872
+  eta   1e-5: sigma_min(DG_inf) product form   3.0334e-5, ratio form (L)  0.033285; major block   5.0932e-5  trace block    5.761e-5  xi 0.69309726  zeta 0.56869397
+  eta   1e-6: sigma_min(DG_inf) product form   3.0334e-6, ratio form (L)  0.033274; major block   5.0936e-6  trace block   5.7614e-6  xi 0.69308794  zeta 0.56874161
+  eta   1e-8: sigma_min(DG_inf) product form   3.0334e-8, ratio form (L)  0.033273; major block   5.0937e-8  trace block   5.7614e-8  xi 0.69308691  zeta 0.56874686
+  sigma_min/eta: ['0.1166', '0.3766', '1.058', '2.43', '2.959', '3.033', '3.033', '3.033', '3.033']
+[PASS] DG_inf invertible for every eta > 0 tested, sigma_min -> 0 as eta -> 0
+Part B: finite n, sigma_min(DG_n) with forcing (eta = 0.003) and without (eta = 0)
+  (unforced solution: Agent N's stage solver stagenet.py (double precision, uniform start), then polished by
+   Newton in the junction variables; both solutions re-checked stage by stage; a continuation eta -> 0 in the
+   chart variables is NOT used: it lands on non-physical zeros of G_n, see scripts/spurious_zeros.py)
+  n   8: sigma_min forced   0.011618 (physical)   unforced   0.009646 (physical; xi at J[1,2] = 0.449499, impurities ['0.0244', '0.0689', '0.0445'])
+  n  16: sigma_min forced  0.0049615 (physical)   unforced  8.2354e-5 (physical; xi at J[1,2] = 0.364392, impurities ['0.00283', '0.0127', '0.00983'])
+  n  24: sigma_min forced   0.006924 (physical)   unforced  9.8466e-7 (physical; xi at J[1,2] = 0.336934, impurities ['0.000204', '0.00218', '0.00198'])
+  n  32: sigma_min forced  0.0072625 (physical)   unforced  1.3992e-8 (physical; xi at J[1,2] = 0.328473, impurities ['9.82e-6', '0.000323', '0.000314'])
+  n  40: sigma_min forced   0.007288 (physical)   unforced 2.0251e-10 (physical; xi at J[1,2] = 0.32275, impurities ['4.6e-7', '4.56e-5', '4.51e-5'])
+  n  48: sigma_min forced  0.0072911 (physical)   unforced 2.9409e-12 (physical; xi at J[1,2] = 0.318585, impurities ['2.16e-8', '6.37e-6', '6.35e-6'])
+[PASS] forced: sigma_min bounded below; unforced: sigma_min decreasing geometrically (physical solutions)
+ALL PASS  (41.2s)

@@ -1,6 +1,11 @@
 # Halvorsen–Skogestad conjecture: the generalized Petlyuk arrangement minimizes total vaporization
 
-**Attribution.** *Version 2 (2026-10-20, second wave).* Foundations, class 𝒜, red team and integration: Claude Opus
+**Attribution.** *Version 3 (2026-10-20, third wave: finite-stage attainment).* Design and limit configuration:
+Claude Opus 5.5 (effort xhigh) (Agent D). Limit system and its nondegeneracy: Claude Opus 5.5 (effort xhigh)
+(Agent L). Analysis and integration (`attainment/theorem.md`): Claude Opus 5.5 (effort xhigh) (Agent A).
+Computation and red team: Claude Opus 5.5 (effort xhigh) (Agent C). Proof architecture (coordinator): Claude Opus
+5.5 (effort not recorded). Independent verification of version 3: **pending**.
+*Version 2 (2026-10-20, second wave).* Foundations, class 𝒜, red team and integration: Claude Opus
 5.5 (effort xhigh) (Agent F). Sections and stage-level lemmas, binary attainment: Claude Opus 5.5 (effort xhigh)
 (Agent S). Network argument, device decomposition, tie structure: Claude Opus 5.5 (effort xhigh) (Agent N). Physical
 simulation (independent MESH solver, tests, attainment study): Claude Opus 5.5 (effort xhigh) (Agent P). Literature:
@@ -9,25 +14,22 @@ Claude Opus 5.5 (effort xhigh). Attainment (prefractionator theorem): GPT-6-Astr
 (effort xhigh) (Agent C). General N: Claude Opus 5.5 (effort xhigh) (Agent G). Independent verification: Claude Opus
 5.5 (effort xhigh).
 
-**Status (version 2; independent verification: pending; an early independent check of the lower bound,
-`total/verification-early/verification-lower-bound.md` (provisional), confirmed it).** 
-- **Lower bound: solved (preliminary) in the broadest class, for every N.** For every arrangement of the class 𝒜
-  (any finite network of constant-molar-overflow equilibrium stages, single-phase splitters and mixers, total
-  condensers and vaporizers; one feed split and conditioned at will; heat duties anywhere; recycles; products of
-  either phase), at every steady state with any numbers of stages and any purities, R ≥ Σ_P max(0, φ_P(θ_j)) for
-  every j; with purity ≥ 1 − ε, R ≥ H_j − c_j ε; hence, with infinitely many stages and pure products,
-  R ≥ max_j H_j, the Petlyuk value. This closes every gap left by version 1 (degenerate points, reverse flows,
-  several feed stages, splitters, recycles) and proves that version 1's permissive counterexample is not physical.
-- **Attainment.** The generalized Petlyuk arrangement attains max_j H_j in Underwood's infinite-stage model
-  (version 1, verified). In the finite-stage model: **proved for N = 2**; for N ≥ 3, steady states exist for any
-  prescribed flows, the isolated prefractionator is proved to admit exact finite profiles with exponentially small
-  traces (any number of components), and the full Petlyuk network reaches purities → 1 at R = max_j H_j + δ in
-  simulations (impurities down to 1e-47 for N = 3); a proof of finite-stage attainment for the closed Petlyuk network with N ≥ 3 is **not** given (S and N
-  reduced N = 3 to a four-unknown problem; not completed).
-- **Conjecture.** Solved (preliminary) for N = 2. For N ≥ 3: every arrangement of 𝒜 needs at least the Petlyuk
-  minimum max_j H_j computed by Halvorsen and Skogestad (proved); that the Petlyuk arrangement realizes this value as
-  a finite-stage limit is proved in Underwood's model and supported numerically, not proved.
-- Version 1's results in the Underwood model are unchanged (independently verified, with corrections).
+**Status (version 3): conjecture solved (preliminary) for every N, in the class 𝒜; independent verification
+pending.**
+- **Lower bound (version 2, every N).** Every steady state of every arrangement of the class 𝒜 with purities ≥ 1 − ε
+  has R ≥ H_j − c_j ε for every j; hence R*(𝒮) ≥ max_j H_j for every family 𝒮 ⊆ 𝒜 (an early independent check
+  confirmed it: `total/verification-early/verification-lower-bound.md`).
+- **Attainment (version 3, every N ≥ 3; N = 2 in version 2).** For every δ, ε > 0 there is n_0 such that, for all
+  section lengths ≥ n_0, the generalized Petlyuk arrangement has an operating specification with R = max_j H_j + δ
+  and a steady state with all mole fractions positive and all purities ≥ 1 − ε. Hence R*(𝒮_Petlyuk) = max_j H_j.
+  Complete proof: `attainment/theorem.md` (design `attainment/design/design.md`, Theorem L
+  `attainment/limit/limit.md`, analysis `attainment/analysis/analysis.md`); summary `attainment/FINAL-REPORT.md`.
+- **Conjecture.** No arrangement of 𝒜 needs less total vaporization, in the infinite-stage pure-product limit, than
+  the generalized Petlyuk arrangement, whose minimum is exactly HS's value max_j H_j (`attainment/theorem.md`,
+  Corollary 2).
+- The manuscript `paper.tex` is still version 2 (attainment for N ≥ 3 stated there as open); it will be rewritten
+  as a single paper. Version 1's results in the Underwood model are unchanged (independently verified, with
+  corrections).
 
 ## Problem
 
@@ -50,6 +52,23 @@ constant molar overflow, constant pressure, infinitely many stages, sharp separa
 total vaporization (heat input). With θ_j the roots of Σ α_p z_p/(α_p − θ) = 1 − q, the Petlyuk value is
 V_Petlyuk = max_j H_j, H_j = Σ_{p>j} α_p z_p/(θ_j − α_p) (the highest peak of the V_min diagram, referred to the
 reboiler).
+
+## Result (version 3: finite-stage attainment)
+
+Idea: start from HS's preferred-split point (paper.tex Theorem `achieve`), give every column with ≥ 3 components a
+small slack in GPT-6-Astra's direction (which keeps its internal common Underwood roots), let the margin δ enter
+through the reboiler only, and **force** every binary column: a small net flow η_p of one key is sent into the
+adjacent side product. Forcing pins the binary junction compositions (without it the infinite-stage limit has a
+free composition front, the neutral mode of `total/network/network.md` §10.4). In the infinite-stage limit every
+section is then singly pinched, and the limit system, in junction compositions and column splits, has an invertible
+Jacobian: block triangular, with a top-down block for the major variables (Underwood interpolation and a Cauchy-type
+matrix per column) and one triangular M-matrix per trace component (Theorem L). The finite-stage equations differ
+from the limit system by terms of size ρ^{n+1} in C¹, so a quantitative inverse-function step gives a unique
+steady state near the limit for all section lengths ≥ n_0; its stage profiles have S(x) > 0 everywhere, and the
+M-matrix structure of the component balances makes every mole fraction positive. Limits: n → ∞, then η → 0, then
+δ → 0. Numerical evidence (not used in the proof): 61 of 62 cases pass for N = 3..8 with an independent solver at up
+to about 1500 digits (`attainment/computation/REPORT.md`); the failing case lies outside the design's parameter
+region on purpose and shows that this region is needed.
 
 ## Result (version 2)
 
@@ -112,6 +131,10 @@ From the project root (Git Bash), with `outils/wsl` running WSL Fedora with the 
 below are relative to `chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/`.
 
 ```
+# version 3 (attainment)
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/attainment/limit/scripts && python check_limit_jacobian.py"   # Theorem L checks
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/attainment/design/scripts && python check_design.py"         # (H1)-(H8) on random data
+outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/attainment/computation/scripts && python paper_tables.py"   # finite-stage tables
 # version 2
 outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/total/network/scripts && python unit_identities_exact.py && python section_identity_exact.py"   # exact, seconds
 outils/wsl "cd chemistry-open-problems/problems/halvorsen-skogestad-petlyuk-minimum-vapor/total/foundations/scripts && python unitnet.py"            # ~30 s, ALL PASS
@@ -131,6 +154,7 @@ py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/
 | `paper.tex`, `paper.pdf`, `references.bib` | Manuscript, version 2 (Sections 1–8 new; Sections 9–16 = version 1) |
 | `paper-v1.tex`, `paper-v1.pdf` | Version 1 of the manuscript as independently verified (archived copy) |
 | `references.md` | Sources and novelty checks (version 1 and version 2) |
+| `attainment/` | Version 3: `theorem.md` (integrated proof of finite-stage attainment), `FINAL-REPORT.md`; `design/`, `limit/`, `analysis/`, `computation/` (agents D, L, A, C; briefs `BRIEF-*.md`) |
 | `total/foundations/` | Class 𝒜 (`class.md`), integration (`total-result.md`), checks (`scripts/unitnet.py`, `scripts/petlyuk_attain.py`) |
 | `total/sections/` | Agent S: `sections.md` (proofs, section and junction lemmas, binary attainment), scripts |
 | `total/network/` | Agent N: `network.md` (unit graph, device decomposition, cut identity, ties, sign potential, permissive sign path), exact scripts |

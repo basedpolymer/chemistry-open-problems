@@ -1,0 +1,13 @@
+[PASS] n3_B.json (N = 3, pattern BB): max rel. discrepancy 4.36e-55 (V, L); |G_inf(D's limit point)| = 1.0e-55; sigma_min(DG_inf) = 0.009719
+[PASS] n3_N.json (N = 3, pattern BT): max rel. discrepancy 4.36e-55 (V, L); |G_inf(D's limit point)| = 1.0e-55; sigma_min(DG_inf) = 0.007291
+[PASS] n4_1.json (N = 4, pattern BBB): max rel. discrepancy 3.84e-55 (kappa, G_k, Psi_k); |G_inf(D's limit point)| = 1.0e-55; sigma_min(DG_inf) = 0.0009904
+[PASS] n5_1.json (N = 5, pattern BBBB): max rel. discrepancy 4.7e-55 (V, L); |G_inf(D's limit point)| = 1.0e-55; sigma_min(DG_inf) = 0.0003344
+[PASS] rand_3_1.json (N = 3, pattern BB): max rel. discrepancy 3.43e-55 (modes); |G_inf(D's limit point)| = 3.22e-56; sigma_min(DG_inf) = 0.00311
+[PASS] rand_3_2_TB.json (N = 3, pattern TB): max rel. discrepancy 4.63e-55 (kappa, G_k, Psi_k); |G_inf(D's limit point)| = 4.0e-56; sigma_min(DG_inf) = 0.0009364
+[PASS] rand_4_3.json (N = 4, pattern BBB): max rel. discrepancy 5.55e-55 (kappa, G_k, Psi_k); |G_inf(D's limit point)| = 9.31e-56; sigma_min(DG_inf) = 8.933e-5
+[PASS] rand_4_4_TBT.json (N = 4, pattern TBT): max rel. discrepancy 4.27e-55 (V, L); |G_inf(D's limit point)| = 1.0e-55; sigma_min(DG_inf) = 3.272e-5
+[PASS] rand_5_5.json (N = 5, pattern BBBB): max rel. discrepancy 5.37e-55 (kappa, G_k, Psi_k); |G_inf(D's limit point)| = 1.0e-55; sigma_min(DG_inf) = 0.0001758
+[PASS] rand_5_6_TTBB.json (N = 5, pattern TTBB): max rel. discrepancy 8.77e-55 (kappa, G_k, Psi_k); |G_inf(D's limit point)| = 1.19e-54; sigma_min(DG_inf) = 6.764e-5
+[PASS] rand_6_7.json (N = 6, pattern BBBBB): max rel. discrepancy 6.47e-55 (kappa, G_k, Psi_k); |G_inf(D's limit point)| = 8.93e-56; sigma_min(DG_inf) = 7.944e-7
+[PASS] rand_6_8_BTBTB.json (N = 6, pattern BTBTB): max rel. discrepancy 1.17e-54 (kappa, G_k, Psi_k); |G_inf(D's limit point)| = 2.24e-55; sigma_min(DG_inf) = 1.642e-5
+ALL PASS  (6.6s)

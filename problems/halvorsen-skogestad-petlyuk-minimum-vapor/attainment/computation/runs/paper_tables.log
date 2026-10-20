@@ -1,0 +1,20 @@
+  Table 1. N = 3, α =  n = 256: physical True, impurities ['5.63e-49', '1.77e-2', '4.30e-54'], dist 1.10e-28, sigma_min 0.0072915, worst rel 4.6e-83
+  Table 1. N = 3, α =  n = 192: physical True, impurities ['4.28e-37', '1.77e-2', '1.18e-40'], dist 1.18e-21, sigma_min 0.0072915, worst rel 2.5e-82
+  Table 1. N = 3, α =  n = 128: physical True, impurities ['3.25e-25', '1.77e-2', '3.22e-27'], dist 1.44e-14, sigma_min 0.0072915, worst rel 1.2e-82
+  Table 1. N = 3, α =  n = 96: physical True, impurities ['2.83e-19', '1.77e-2', '1.68e-20'], dist 5.48e-11, sigma_min 0.0072915, worst rel 1.8e-82
+  Table 1. N = 3, α =  n = 64: physical True, impurities ['2.47e-13', '1.77e-2', '8.80e-14'], dist 2.25e-7, sigma_min 0.0072915, worst rel 6.7e-83
+  Table 1. N = 3, α =  n = 48: physical True, impurities ['2.31e-10', '1.77e-2', '2.01e-10'], dist 1.48e-5, sigma_min 0.0072911, worst rel 1.7e-82
+  Table 1. N = 3, α =  n = 32: physical True, impurities ['2.15e-7', '1.77e-2', '4.68e-7'], dist 9.87e-4, sigma_min 0.0072625, worst rel 6.8e-83
+  Table 1. N = 3, α =  n = 24: physical True, impurities ['6.58e-6', '1.77e-2', '2.54e-5'], dist 8.22e-3, sigma_min 0.006924, worst rel 7.0e-83
+  Table 1. N = 3, α =  n = 16: physical True, impurities ['2.12e-4', '2.11e-2', '3.25e-3'], dist 4.67e-2, sigma_min 0.0049615, worst rel 6.5e-83
+  Table 2. N = 4, α =  n = 192: physical True, impurities ['3.22e-42', '1.20e-2', '1.20e-2', '1.19e-2'], dist 3.63e-18, sigma_min 0.00099042, worst rel 1.5e-82
+  Table 2. N = 4, α =  n = 128: physical True, impurities ['1.07e-28', '1.20e-2', '1.20e-2', '1.19e-2'], dist 1.53e-12, sigma_min 0.00099042, worst rel 2.6e-82
+  Table 2. N = 4, α =  n = 96: physical True, impurities ['6.16e-22', '1.20e-2', '1.20e-2', '1.19e-2'], dist 1.00e-9, sigma_min 0.00099042, worst rel 2.3e-82
+  Table 2. N = 4, α =  n = 64: physical True, impurities ['3.55e-15', '1.20e-2', '1.20e-2', '1.19e-2'], dist 7.37e-7, sigma_min 0.00099035, worst rel 3.3e-83
+  Table 2. N = 4, α =  n = 32: physical True, impurities ['2.04e-8', '1.22e-2', '1.26e-2', '1.23e-2'], dist 1.07e-3, sigma_min 0.00095545, worst rel 2.6e-82
+  Table 2. N = 4, α =  n = 16: physical True, impurities ['5.10e-5', '1.55e-2', '2.31e-2', '1.94e-2'], dist 1.50e-2, sigma_min 0.0044799, worst rel 7.3e-83
+  approach delta 0.05: physical True, impurities ['3.25e-25', '1.77e-2', '3.22e-27']
+  approach delta 0.02: physical True, impurities ['2.29e-36', '5.96e-3', '8.21e-40']
+  approach delta 0.005: physical True, impurities ['1.57e-47', '1.20e-3', '3.38e-52']
+  approach delta 0.001: physical True, impurities ['2.14e-70', '1.80e-4', '8.43e-78']
+ALL PASS  (38.0s)

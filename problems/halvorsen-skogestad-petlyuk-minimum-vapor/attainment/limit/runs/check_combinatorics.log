@@ -1,0 +1,11 @@
+N= 3:     4 patterns,    12 rows/unknowns each: PASS
+N= 4:     8 patterns,    36 rows/unknowns each: PASS
+N= 5:    16 patterns,    80 rows/unknowns each: PASS
+N= 6:    32 patterns,   150 rows/unknowns each: PASS
+N= 7:    64 patterns,   252 rows/unknowns each: PASS
+N= 8:   128 patterns,   392 rows/unknowns each: PASS
+N= 9:   256 patterns,   576 rows/unknowns each: PASS
+N=10:   512 patterns,   810 rows/unknowns each: PASS
+N=11:  1024 patterns,  1100 rows/unknowns each: PASS
+N=12:  2048 patterns,  1452 rows/unknowns each: PASS
+ALL PASS

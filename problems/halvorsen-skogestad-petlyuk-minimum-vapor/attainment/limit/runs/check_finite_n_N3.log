@@ -1,0 +1,15 @@
+case N3: alpha=[4, 2, 1] q=1 pattern={0: 'B', 1: 'T'} R=1.404301164 maxH=1.365722514 products P=['0.330333', '0.339333', '0.330333']
+limit product impurities 1 - x_pp: ['-1.663e-111', '0.01768', '0.0']
+n=  80 newton it=5 |G_n|=1.4e-108 |v_n-v_inf|=4.23e-7 E1 section-consistency=8.0e-72 E2 balances=1.4e-71 E3 min x=1.16e-52 min S=1.0  PASS
+        product impurities ['3.126e-16', '0.01768', '3.493e-17']  first trace flows ['5.43e-8', '4.38e-12', '1.03e-16', '1.81e-47', '4.38e-12', '1.15e-17']
+n=  60 newton it=6 |G_n|=1.4e-108 |v_n-v_inf|=3.34e-5 E1 section-consistency=4.1e-82 E2 balances=7.1e-82 E3 min x=3.26e-39 min S=1.0  PASS
+        product impurities ['1.535e-12', '0.01768', '5.359e-13']  first trace flows ['4.27e-6', '7.67e-9', '5.07e-13', '7.33e-36', '7.67e-9', '1.77e-13']
+n=  40 newton it=8 |G_n|=2.9e-108 |v_n-v_inf|=0.00127 E1 section-consistency=8.3e-93 E2 balances=1.4e-92 E3 min x=1.19e-25 min S=1.0  PASS
+        product impurities ['7.528e-9', '0.01768', '8.363e-9']  first trace flows ['0.000159', '1.71e-5', '2.49e-9', '1.4e-24', '1.71e-5', '2.76e-9']
+n=  30 newton it=8 |G_n|=2.4e-105 |v_n-v_inf|=0.00528 E1 section-consistency=2.4e-91 E2 balances=9.6e-92 E3 min x=2.96e-19 min S=1.0  PASS
+        product impurities ['5.279e-7', '0.01768', '1.097e-6']  first trace flows ['0.000573', '0.000319', '1.74e-7', '3.64e-19', '0.000319', '3.62e-7']
+n=  25 newton it=9 |G_n|=1.4e-109 |v_n-v_inf|=0.013 E1 section-consistency=2.4e-99 E2 balances=4.2e-99 E3 min x=3.17e-16 min S=1.0  PASS
+        product impurities ['4.441e-6', '0.0177', '1.376e-5']  first trace flows ['0.00103', '0.000855', '1.47e-6', '1.76e-16', '0.000855', '4.54e-6']
+n=  20 Newton from the previous solution did not converge (|G_n| = 0.00413): n is outside the range where this simple continuation works; stopping (not a FAIL of a claim).
+10.1 s
+ALL PASS

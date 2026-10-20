@@ -1,0 +1,9 @@
+[PASS] N3 BT n = 24 (dps 96): L's |G_n| at my steady state = 6.49e-96 (12 equations, 12 unknowns); L's v_inf vs mine: max |dX| = 3.29e-95; L's |G_inf(L's v_inf)| = 3.75e-96
+[PASS] N3 BT n = 48 (dps 112): L's |G_n| at my steady state = 5.21e-112 (12 equations, 12 unknowns); L's v_inf vs mine: max |dX| = 1.83e-111; L's |G_inf(L's v_inf)| = 5.66e-113
+[PASS] N4 BBB n = 24 (dps 113): L's |G_n| at my steady state = 1.01e-112 (36 equations, 36 unknowns); L's v_inf vs mine: max |dX| = 6.25e-112; L's |G_inf(L's v_inf)| = 1.03e-111
+[PASS] N4 BBB n = 48 (dps 144): L's |G_n| at my steady state = 5.0e-143 (36 equations, 36 unknowns); L's v_inf vs mine: max |dX| = 1.2e-119; L's |G_inf(L's v_inf)| = 2.07e-119
+[PASS] N5 BBBB n = 24 (dps 138): L's |G_n| at my steady state = 2.7e-137 (80 equations, 80 unknowns); L's v_inf vs mine: max |dX| = 1.24e-119; L's |G_inf(L's v_inf)| = 3.78e-119
+[PASS] N5 BBBB n = 48 (dps 196): L's |G_n| at my steady state = 9.83e-195 (80 equations, 80 unknowns); L's v_inf vs mine: max |dX| = 1.24e-119; L's |G_inf(L's v_inf)| = 3.78e-119
+[PASS] N6 BTBTB n = 48 (dps 181): L's |G_n| at my steady state = 2.05e-179 (150 equations, 150 unknowns); L's v_inf vs mine: max |dX| = 4.43e-119; L's |G_inf(L's v_inf)| = 3.72e-119
+[PASS] N6 BTBTB n = 72 (dps 232): L's |G_n| at my steady state = 1.21e-228 (150 equations, 150 unknowns); L's v_inf vs mine: max |dX| = 4.43e-119; L's |G_inf(L's v_inf)| = 3.72e-119
+ALL PASS  (100.9s)

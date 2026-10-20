@@ -1,0 +1,10 @@
+Example 1 (N = 3, unforced limit of the forced family, n = 24)
+  zero of G_n: |G_n| = 7.78e-62; junction compositions J[1,2] ['0.69563', '0.30388', '0.00048886'], J[2,3] ['0.00015145', '0.61881', '0.38104']; product impurities ['7.03e-6', '0.00193', '0.00193']
+  stage check: min mole fraction -2.347, min S -2.045, 17 negative entries
+[PASS] non-physical zero of G_n found and rejected by the stage check
+Example 2 (N = 5, case n5_mixed, continuation n = 24 -> 48)
+  n = 24 from v_inf: |G_n| 2.98e-81, physical: True
+  n = 48 from the n = 24 solution: |G_n| 5.6e-131, |v - v_inf| 0.169, min x -31.51, min S -40.51, sigma_min 5.22e-8
+  n = 48 from v_inf: |G_n| 3.45e-131, |v - v_inf| 0.016, min x 2.812e-69, min S 1.0, sigma_min 0.000825
+[PASS] a non-physical zero (rejected) and the physical zero near v_inf coexist at n = 48
+ALL PASS  (61.1s)

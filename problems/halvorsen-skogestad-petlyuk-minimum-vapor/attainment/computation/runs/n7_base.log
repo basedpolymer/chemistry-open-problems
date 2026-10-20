@@ -1,0 +1,320 @@
+case n7_base: N = 7, alpha = [64, 32, 16, 8, 4, 2, 1], z = ['0.14286', '0.14286', '0.14286', '0.14286', '0.14286', '0.14286', '0.14286'], q = 1, delta = 0.05
+  theta = ['45.07051572', '20.81394884', '9.900037141', '4.773102141', '2.316958657', '1.125437498'], H = ['0.4829955749', '0.6203808092', '0.7505611845', '0.880029779', '1.009899498', '1.138871111'], R = maxH + delta = 1.18887111088
+  [PASS] flows: unit total balances residual 3.11e-61, min flow 0.00548
+  column (0, 1) [B, eta 0.002]: VT 1.1888711 VB 0.8227948 LT 1.048014 LB 0.87805709 d ['0.140857', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0'] b ['0.002', '0.0532623', '0.0', '0.0', '0.0', '0.0', '0.0'] excess 0.696053
+  column (0, 2) [nb, eta 0.002]: VT 0.36607631 VB 0.042222608 LT 0.16995688 LB 0.076222502 d ['0.142857', '0.0532623', '0.0', '0.0', '0.0', '0.0', '0.0'] b ['0.0', '0.0117687', '0.0222312', '0.0', '0.0', '0.0', '0.0']
+  column (0, 3) [nb, eta 0.002]: VT 0.3238537 VB 0.018790798 LT 0.093734374 LB 0.040285553 d ['0.142857', '0.065031', '0.0222312', '0.0', '0.0', '0.0', '0.0'] b ['0.0', '0.00417758', '0.00738331', '0.00993386', '0.0', '0.0', '0.0']
+  column (0, 4) [nb, eta 0.002]: VT 0.3050629 VB 0.0096010475 LT 0.053448822 LB 0.022646007 d ['0.142857', '0.0692085', '0.0296145', '0.00993386', '0.0', '0.0', '0.0'] b ['0.0', '0.00148204', '0.00309338', '0.00399685', '0.00447269', '0.0', '0.0']
+  column (0, 5) [nb, eta 0.002]: VT 0.29546186 VB 0.0054799973 LT 0.030802814 LB 0.012929798 d ['0.142857', '0.0706906', '0.0327079', '0.0139307', '0.00447269', '0.0', '0.0'] b ['0.0', '0.00028632', '0.0013482', '0.00178777', '0.00208082', '0.00194669', '0.0']
+  column (0, 6) [nb, eta 0.002]: VT 0.28998186 VB 0.28998186 LT 0.017873016 LB 1.017873 d ['0.142857', '0.0709769', '0.0340561', '0.0157185', '0.00655351', '0.00194669', '0.0'] b ['0.0', '0.0718802', '0.108801', '0.127139', '0.136304', '0.14091', '0.142857']
+  column (1, 2) [B, eta 0.002]: VT 0.8227948 VB 0.69886064 LT 0.73519995 LB 0.74293237 d ['0.0', '0.0875949', '0.0', '0.0', '0.0', '0.0', '0.0'] b ['0.0', '0.002', '0.0420717', '0.0', '0.0', '0.0', '0.0'] excess 0.563121
+  column (1, 3) [nb, eta 0.002]: VT 0.16615677 VB 0.046414107 LT 0.068490083 LB 0.073957986 d ['0.0', '0.0778262', '0.0198405', '0.0', '0.0', '0.0', '0.0'] b ['0.0', '0.0', '0.0107361', '0.0168078', '0.0', '0.0', '0.0']
+  column (1, 4) [nb, eta 0.002]: VT 0.13853346 VB 0.020814926 LT 0.03481765 LB 0.03817936 d ['0.0', '0.0736486', '0.0231933', '0.00687395', '0.0', '0.0', '0.0'] b ['0.0', '0.0', '0.00391506', '0.00621824', '0.00723113', '0.0', '0.0']
+  column (1, 5) [nb, eta 0.002]: VT 0.12731958 VB 0.010520379 LT 0.019284297 LB 0.02080233 d ['0.0', '0.0721666', '0.024015', '0.00909535', '0.00275844', '0.0', '0.0'] b ['0.0', '0.0', '0.00136966', '0.00264627', '0.0032595', '0.00300651', '0.0']
+  column (1, 6) [nb, eta 0.002]: VT 0.1222792 VB 0.41226106 LT 0.011411766 LB 1.0292848 d ['0.0', '0.0718802', '0.0240364', '0.00995385', '0.00393713', '0.00105982', '0.0'] b ['0.0', '0.0', '0.0847646', '0.117185', '0.132367', '0.139851', '0.142857']
+  column (2, 3) [B, eta 0.002]: VT 0.69886064 VB 0.57373617 LT 0.60007522 LB 0.60951998 d ['0.0', '0.0', '0.0987854', '0.0', '0.0', '0.0', '0.0'] b ['0.0', '0.0', '0.002', '0.0337838', '0.0', '0.0', '0.0'] excess 0.433387
+  column (2, 4) [nb, eta 0.002]: VT 0.17153857 VB 0.048566061 LT 0.064513226 LB 0.07068041 d ['0.0', '0.0', '0.0900493', '0.016976', '0.0', '0.0', '0.0'] b ['0.0', '0.0', '0.0', '0.00932538', '0.012789', '0.0', '0.0']
+  column (2, 5) [nb, eta 0.002]: VT 0.14378744 VB 0.021538748 LT 0.032012176 LB 0.035086167 d ['0.0', '0.0', '0.0861343', '0.0200831', '0.00555784', '0.0', '0.0'] b ['0.0', '0.0', '0.0', '0.00338068', '0.00507273', '0.00509401', '0.0']
+  column (2, 6) [nb, eta 0.002]: VT 0.13276907 VB 0.54503013 LT 0.017728339 LB 1.0470131 d ['0.0', '0.0', '0.0847646', '0.0208175', '0.00737107', '0.0020875', '0.0'] b ['0.0', '0.0', '0.0', '0.0963673', '0.124995', '0.137763', '0.142857']
+  column (3, 4) [B, eta 0.002]: VT 0.57373617 VB 0.4462521 LT 0.46666284 LB 0.47564204 d ['0.0', '0.0', '0.0', '0.107073', '0.0', '0.0', '0.0'] b ['0.0', '0.0', '0.0', '0.002', '0.0273899', '0.0', '0.0'] excess 0.303704
+  column (3, 5) [nb, eta 0.002]: VT 0.17605013 VB 0.048841061 LT 0.061701207 LB 0.066268101 d ['0.0', '0.0', '0.0', '0.099748', '0.014601', '0.0', '0.0'] b ['0.0', '0.0', '0.0', '0.0', '0.00785894', '0.0095681', '0.0']
+  column (3, 6) [nb, eta 0.002]: VT 0.14874782 VB 0.69377795 LT 0.030519273 LB 1.0775324 d ['0.0', '0.0', '0.0', '0.0963673', '0.0173872', '0.00447409', '0.0'] b ['0.0', '0.0', '0.0', '0.0', '0.107608', '0.133289', '0.142857']
+  column (4, 5) [B, eta 0.002]: VT 0.4462521 VB 0.31521631 LT 0.3327849 LB 0.33912523 d ['0.0', '0.0', '0.0', '0.0', '0.113467', '0.0', '0.0'] b ['0.0', '0.0', '0.0', '0.0', '0.002', '0.0219089', '0.0'] excess 0.173195
+  column (4, 6) [nb, eta 0.002]: VT 0.17987685 VB 0.87365481 LT 0.059927771 LB 1.1374602 d ['0.0', '0.0', '0.0', '0.0', '0.107608', '0.0123408', '0.0'] b ['0.0', '0.0', '0.0', '0.0', '0.0', '0.120948', '0.142857']
+  column (5, 6) [B, eta 0.002]: VT 0.31521631 VB 1.1888711 LT 0.19626809 LB 1.3337283 d ['0.0', '0.0', '0.0', '0.0', '0.0', '0.118948', '0.0'] b ['0.0', '0.0', '0.0', '0.0', '0.0', '0.002', '0.142857'] excess 0.0390038
+  products P = ['0.14085714', '0.14285714', '0.14285714', '0.14285714', '0.14285714', '0.14285714', '0.14485714']
+  limit x(0, 0) = ['1.0', '0.0', '0.0', '0.0', '0.0', '0.0', '0.0']
+  limit x(0, 1) = ['0.878995046', '0.121004954', '0.0', '0.0', '0.0', '0.0', '0.0']
+  limit x(0, 2) = ['0.28448918', '0.3227509996', '0.3927598204', '0.0', '0.0', '0.0', '0.0']
+  limit x(0, 3) = ['0.2237288803', '0.2390965244', '0.2519762557', '0.2851983396', '0.0', '0.0', '0.0']
+  limit x(0, 4) = ['0.1869645052', '0.1949205846', '0.19681867', '0.2077979666', '0.2134982736', '0.0', '0.0']
+  limit x(0, 5) = ['0.1627022659', '0.1669454276', '0.1667774391', '0.1690642748', '0.1768780997', '0.1576324929', '0.0']
+  limit x(0, 6) = ['0.1419127418', '0.1436000545', '0.1430522077', '0.1429583275', '0.1429316489', '0.142946711', '0.1425983087']
+  limit x(1, 1) = ['0.014', '0.986', '0.0', '0.0', '0.0', '0.0', '0.0']
+  limit x(1, 2) = ['0.0', '0.8870840899', '0.1129159101', '0.0', '0.0', '0.0', '0.0']
+  limit x(1, 3) = ['0.0', '0.3894763407', '0.3047009478', '0.3058227115', '0.0', '0.0', '0.0']
+  limit x(1, 4) = ['0.0', '0.3200358468', '0.2380892318', '0.2231651505', '0.2187097709', '0.0', '0.0']
+  limit x(1, 5) = ['0.0', '0.2783556708', '0.2003957609', '0.1816091671', '0.1837143031', '0.155925098', '0.0']
+  limit x(1, 6) = ['0.0', '0.2427942141', '0.1690370543', '0.152545313', '0.1472462962', '0.1450506059', '0.1433265164']
+  limit x(2, 2) = ['0.0', '0.014', '0.986', '0.0', '0.0', '0.0', '0.0']
+  limit x(2, 3) = ['0.0', '0.0', '0.8895535614', '0.1104464386', '0.0', '0.0', '0.0']
+  limit x(2, 4) = ['0.0', '0.0', '0.4795077926', '0.2772836006', '0.2432086068', '0.0', '0.0']
+  limit x(2, 5) = ['0.0', '0.0', '0.4093908581', '0.2256304668', '0.1975386316', '0.1674400435', '0.0']
+  limit x(2, 6) = ['0.0', '0.0', '0.3552314812', '0.1887136892', '0.1598187592', '0.1506002118', '0.1456358586']
+  limit x(3, 3) = ['0.0', '0.0', '0.014', '0.986', '0.0', '0.0', '0.0']
+  limit x(3, 4) = ['0.0', '0.0', '0.0', '0.8853739612', '0.1146260388', '0.0', '0.0']
+  limit x(3, 5) = ['0.0', '0.0', '0.0', '0.5563736831', '0.2497249581', '0.1939013588', '0.0']
+  limit x(3, 6) = ['0.0', '0.0', '0.0', '0.4788435459', '0.2040456471', '0.1654260466', '0.1516847604']
+  limit x(4, 4) = ['0.0', '0.0', '0.0', '0.014', '0.986', '0.0', '0.0']
+  limit x(4, 5) = ['0.0', '0.0', '0.0', '0.0', '0.8716598618', '0.1283401382', '0.0']
+  limit x(4, 6) = ['0.0', '0.0', '0.0', '0.0', '0.6161535722', '0.2160670873', '0.1677793405']
+  limit x(5, 5) = ['0.0', '0.0', '0.0', '0.0', '0.014', '0.986', '0.0']
+  limit x(5, 6) = ['0.0', '0.0', '0.0', '0.0', '0.0', '0.786185562', '0.213814438']
+  limit x(6, 6) = ['0.0', '0.0', '0.0', '0.0', '0.0', '0.01380670611', '0.9861932939']
+  section ('T', 0, 1): roots ['56.417296', '32.0', '16.0', '8.0', '4.0', '2.0', '1.0'], pinch index 0, max ratio 0.567202
+  section ('T', 0, 2): roots ['45.447794', '20.921088', '16.0', '8.0', '4.0', '2.0', '1.0'], pinch index 1, max ratio 0.764779
+  section ('T', 0, 3): roots ['45.392159', '20.813949', '10.038403', '8.0', '4.0', '2.0', '1.0'], pinch index 2, max ratio 0.796939
+  section ('T', 0, 4): roots ['45.324417', '20.813949', '9.9000371', '4.917735', '4.0', '2.0', '1.0'], pinch index 3, max ratio 0.813383
+  section ('T', 0, 5): roots ['45.247078', '20.813949', '9.9000371', '4.7731021', '2.4564409', '2.0', '1.0'], pinch index 4, max ratio 0.814186
+  section ('T', 0, 6): roots ['45.161968', '20.813949', '9.9000371', '4.7731021', '2.3169587', '1.255954', '1.0'], pinch index 5, max ratio 0.796207
+  section ('T', 1, 2): roots ['64.0', '28.593275', '16.0', '8.0', '4.0', '2.0', '1.0'], pinch index 1, max ratio 0.559572
+  section ('T', 1, 3): roots ['64.0', '21.097619', '10.003366', '8.0', '4.0', '2.0', '1.0'], pinch index 2, max ratio 0.799731
+  section ('T', 1, 4): roots ['64.0', '21.079052', '9.9000371', '4.9330647', '4.0', '2.0', '1.0'], pinch index 3, max ratio 0.810855
+  section ('T', 1, 5): roots ['64.0', '21.013595', '9.9000371', '4.7731021', '2.4991403', '2.0', '1.0'], pinch index 4, max ratio 0.800275
+  section ('T', 1, 6): roots ['64.0', '20.921599', '9.9000371', '4.7731021', '2.3169587', '1.335056', '1.0'], pinch index 5, max ratio 0.749032
+  section ('T', 2, 3): roots ['64.0', '32.0', '13.738367', '8.0', '4.0', '2.0', '1.0'], pinch index 2, max ratio 0.582311
+  section ('T', 2, 4): roots ['64.0', '32.0', '9.9906977', '4.8183807', '4.0', '2.0', '1.0'], pinch index 3, max ratio 0.830154
+  section ('T', 2, 5): roots ['64.0', '32.0', '9.9764946', '4.7731021', '2.393787', '2.0', '1.0'], pinch index 4, max ratio 0.835496
+  section ('T', 2, 6): roots ['64.0', '32.0', '9.943695', '4.7731021', '2.3169587', '1.2433812', '1.0'], pinch index 5, max ratio 0.804259
+  section ('T', 3, 4): roots ['64.0', '32.0', '16.0', '6.5070026', '4.0', '2.0', '1.0'], pinch index 3, max ratio 0.614722
+  section ('T', 3, 5): roots ['64.0', '32.0', '16.0', '4.7981407', '2.3374068', '2.0', '1.0'], pinch index 4, max ratio 0.855649
+  section ('T', 3, 6): roots ['64.0', '32.0', '16.0', '4.7890602', '2.3169587', '1.1834093', '1.0'], pinch index 5, max ratio 0.845016
+  section ('T', 4, 5): roots ['64.0', '32.0', '16.0', '8.0', '2.9829319', '2.0', '1.0'], pinch index 4, max ratio 0.670481
+  section ('T', 4, 6): roots ['64.0', '32.0', '16.0', '8.0', '2.3220319', '1.1478223', '1.0'], pinch index 5, max ratio 0.871215
+  section ('T', 5, 6): roots ['64.0', '32.0', '16.0', '8.0', '4.0', '1.2452915', '1.0'], pinch index 5, max ratio 0.803025
+  section ('B', 0, 1): roots ['64.166275', '34.06076', '16.0', '8.0', '4.0', '2.0', '1.0'], pinch index 0, max ratio 0.530820
+  section ('B', 0, 2): roots ['64.0', '44.636842', '20.706879', '8.0', '4.0', '2.0', '1.0'], pinch index 1, max ratio 0.697451
+  section ('B', 0, 3): roots ['64.0', '43.006052', '20.813949', '9.8102481', '4.0', '2.0', '1.0'], pinch index 1, max ratio 0.671970
+  section ('B', 0, 4): roots ['64.0', '39.870654', '20.813949', '9.9000371', '4.7037941', '2.0', '1.0'], pinch index 1, max ratio 0.622979
+  section ('B', 0, 5): roots ['64.0', '34.694685', '20.813949', '9.9000371', '4.7731021', '2.2657206', '1.0'], pinch index 1, max ratio 0.599918
+  section ('B', 0, 6): roots ['64.0', '44.858236', '20.813949', '9.9000371', '4.7731021', '2.3169587', '1.1251753'], pinch index 1, max ratio 0.700910
+  section ('B', 1, 2): roots ['64.0', '32.097406', '16.957379', '8.0', '4.0', '2.0', '1.0'], pinch index 1, max ratio 0.528310
+  section ('B', 1, 3): roots ['64.0', '32.0', '20.78526', '9.812724', '4.0', '2.0', '1.0'], pinch index 2, max ratio 0.649539
+  section ('B', 1, 4): roots ['64.0', '32.0', '20.190656', '9.9000371', '4.6982539', '2.0', '1.0'], pinch index 2, max ratio 0.630958
+  section ('B', 1, 5): roots ['64.0', '32.0', '18.974884', '9.9000371', '4.7731021', '2.2582077', '1.0'], pinch index 2, max ratio 0.592965
+  section ('B', 1, 6): roots ['64.0', '32.0', '20.757995', '9.9000371', '4.7731021', '2.3169587', '1.1249208'], pinch index 2, max ratio 0.648687
+  section ('B', 2, 3): roots ['64.0', '32.0', '16.059237', '8.4676086', '4.0', '2.0', '1.0'], pinch index 2, max ratio 0.527273
+  section ('B', 2, 4): roots ['64.0', '32.0', '16.0', '9.8719037', '4.7175363', '2.0', '1.0'], pinch index 3, max ratio 0.616994
+  section ('B', 2, 5): roots ['64.0', '32.0', '16.0', '9.6293506', '4.7731021', '2.2682854', '1.0'], pinch index 3, max ratio 0.601834
+  section ('B', 2, 6): roots ['64.0', '32.0', '16.0', '9.8847302', '4.7731021', '2.3169587', '1.1246768'], pinch index 3, max ratio 0.617796
+  section ('B', 3, 4): roots ['64.0', '32.0', '16.0', '8.0381751', '4.24319', '2.0', '1.0'], pinch index 3, max ratio 0.527880
+  section ('B', 3, 5): roots ['64.0', '32.0', '16.0', '8.0', '4.7505469', '2.2848927', '1.0'], pinch index 4, max ratio 0.593818
+  section ('B', 3, 6): roots ['64.0', '32.0', '16.0', '8.0', '4.7691662', '2.3169587', '1.1244472'], pinch index 4, max ratio 0.596146
+  section ('B', 4, 5): roots ['64.0', '32.0', '16.0', '8.0', '4.0272478', '2.1371405', '1.0'], pinch index 4, max ratio 0.530670
+  section ('B', 4, 6): roots ['64.0', '32.0', '16.0', '8.0', '4.0', '2.3161575', '1.1242379'], pinch index 5, max ratio 0.579039
+  section ('B', 5, 6): roots ['64.0', '32.0', '16.0', '8.0', '4.0', '2.0038221', '1.1197045'], pinch index 5, max ratio 0.558784
+  [PASS] (H5) every section: real positive distinct roots; rho = max ratio = 0.871215
+  column (0, 6): r = 45.16196761, s = 1.125175304, middle-root gap |theta_T - theta_B| = 4.08e-59
+  column (0, 5): r = 45.24707796, s = 2.265720621, middle-root gap |theta_T - theta_B| = 3.42e-59
+  column (1, 6): r = 20.92159935, s = 1.124920813, middle-root gap |theta_T - theta_B| = 4.36e-60
+  column (0, 4): r = 45.32441655, s = 4.703794056, middle-root gap |theta_T - theta_B| = 3.48e-59
+  column (1, 5): r = 21.01359546, s = 2.258207692, middle-root gap |theta_T - theta_B| = 2.24e-59
+  column (2, 6): r = 9.94369498, s = 1.124676842, middle-root gap |theta_T - theta_B| = 1.43e-59
+  column (0, 3): r = 45.3921586, s = 9.810248098, middle-root gap |theta_T - theta_B| = 3.48e-59
+  column (1, 4): r = 21.07905202, s = 4.698253923, middle-root gap |theta_T - theta_B| = 1.49e-59
+  column (2, 5): r = 9.976494611, s = 2.268285446, middle-root gap |theta_T - theta_B| = 3.73e-60
+  column (3, 6): r = 4.789060194, s = 1.124447246, middle-root gap |theta_T - theta_B| = 2.18e-60
+  column (0, 2): r = 45.4477941, s = 20.70687862, middle-root gap |theta_T - theta_B| = 0.0
+  column (1, 3): r = 21.09761862, s = 9.812723991, middle-root gap |theta_T - theta_B| = 0.0
+  column (2, 4): r = 9.990697748, s = 4.717536287, middle-root gap |theta_T - theta_B| = 0.0
+  column (3, 5): r = 4.798140705, s = 2.28489273, middle-root gap |theta_T - theta_B| = 0.0
+  column (4, 6): r = 2.322031915, s = 1.124237937, middle-root gap |theta_T - theta_B| = 0.0
+  [PASS] G_inf(v_inf) = 0: |residual| = 7.67e-60 (independent limit configuration solves the limit system)
+  limit Jacobian 490x490: sigma_max 97.047, sigma_min 1.9711e-5, cond 4.9235e+6
+  [PASS] DG_inf(v_inf) invertible (sigma_min = 1.9711e-5)
+  [PASS] block triangular [[Maj, *], [0, Tr]]: major rows 208, major cols 208, trace rows 282, trace cols 282
+  major block sigma_min 0.0052878; trace block sigma_min 0.00021574
+    trace block of component 0: 55 rows x 55 cols, sigma_min 0.00021574
+    trace block of component 1: 40 rows x 40 cols, sigma_min 0.00045761
+    trace block of component 2: 31 rows x 31 cols, sigma_min 0.001007
+    trace block of component 3: 28 rows x 28 cols, sigma_min 0.0022525
+    trace block of component 4: 31 rows x 31 cols, sigma_min 0.0063595
+    trace block of component 5: 40 rows x 40 cols, sigma_min 0.0063187
+    trace block of component 6: 57 rows x 57 cols, sigma_min 0.005153
+  [PASS] trace block = one invertible block per component
+    A_0 (20x20, trace contents of component 0 after eliminating the trace flows): min diag 0.4887, max off-diag 0, min entry of inverse 0, min column sum -1.87e-60, min row sum -32.4
+    A_1 (15x15, trace contents of component 1 after eliminating the trace flows): min diag 0.4632, max off-diag 0, min entry of inverse 0, min column sum -1.56e-61, min row sum -16.2
+    A_2 (12x12, trace contents of component 2 after eliminating the trace flows): min diag 0.4442, max off-diag 0, min entry of inverse 0, min column sum -6.22e-61, min row sum -8.1
+    A_3 (11x11, trace contents of component 3 after eliminating the trace flows): min diag 0.08553, max off-diag 0, min entry of inverse 0, min column sum -6.81e-62, min row sum -4.04
+    A_4 (12x12, trace contents of component 4 after eliminating the trace flows): min diag 0.0476, max off-diag 0, min entry of inverse 0, min column sum -4.86e-63, min row sum -2
+    A_5 (15x15, trace contents of component 5 after eliminating the trace flows): min diag 0.02758, max off-diag 0, min entry of inverse 0, min column sum -2.92e-62, min row sum -0.104
+    A_6 (21x21, trace contents of component 6 after eliminating the trace flows): min diag 0.01635, max off-diag 0, min entry of inverse 0, min column sum -4.86e-63, min row sum -0.0732
+  [PASS] every A_k is (up to sign) a nonsingular M-matrix (Z pattern, inverse >= 0)
+    ('T', 0, 1) trace 1 closed at (0, 0): G^(k) = 2.0, Psi^(k) = 0.90716, kappa = 2.2047 (k major at the other end) ok
+    ('T', 0, 1) trace 2 closed at (0, 0): G^(k) = 1.3333, Psi^(k) = 1.0011, kappa = 1.3319 ok
+    ('T', 0, 1) trace 3 closed at (0, 0): G^(k) = 1.1429, Psi^(k) = 1.0279, kappa = 1.1118 ok
+    ('T', 0, 1) trace 4 closed at (0, 0): G^(k) = 1.0667, Psi^(k) = 1.0386, kappa = 1.027 ok
+    ('T', 0, 1) trace 5 closed at (0, 0): G^(k) = 1.0323, Psi^(k) = 1.0435, kappa = 0.98925 ok
+    ('T', 0, 1) trace 6 closed at (0, 0): G^(k) = 1.0159, Psi^(k) = 1.0458, kappa = 0.9714 ok
+    ('T', 0, 2) trace 2 closed at (0, 1): G^(k) = 1.414, Psi^(k) = 0.069076, kappa = 20.47 (k major at the other end) ok
+    ('T', 0, 2) trace 3 closed at (0, 1): G^(k) = 1.1659, Psi^(k) = 0.13179, kappa = 8.8464 ok
+    ('T', 0, 2) trace 4 closed at (0, 1): G^(k) = 1.0759, Psi^(k) = 0.15282, kappa = 7.04 ok
+    ('T', 0, 2) trace 5 closed at (0, 1): G^(k) = 1.0364, Psi^(k) = 0.1618, kappa = 6.4057 ok
+    ('T', 0, 2) trace 6 closed at (0, 1): G^(k) = 1.0179, Psi^(k) = 0.16597, kappa = 6.1327 ok
+    ('T', 0, 3) trace 3 closed at (0, 2): G^(k) = 1.541, Psi^(k) = 0.029418, kappa = 52.382 (k major at the other end) ok
+    ('T', 0, 3) trace 4 closed at (0, 2): G^(k) = 1.196, Psi^(k) = 0.06751, kappa = 17.716 ok
+    ('T', 0, 3) trace 5 closed at (0, 2): G^(k) = 1.0868, Psi^(k) = 0.081615, kappa = 13.316 ok
+    ('T', 0, 3) trace 6 closed at (0, 2): G^(k) = 1.0411, Psi^(k) = 0.087887, kappa = 11.846 ok
+    ('T', 0, 4) trace 4 closed at (0, 3): G^(k) = 1.4183, Psi^(k) = 0.014233, kappa = 99.648 (k major at the other end) ok
+    ('T', 0, 4) trace 5 closed at (0, 3): G^(k) = 1.1542, Psi^(k) = 0.036685, kappa = 31.463 ok
+    ('T', 0, 4) trace 6 closed at (0, 3): G^(k) = 1.0688, Psi^(k) = 0.045555, kappa = 23.462 ok
+    ('T', 0, 5) trace 5 closed at (0, 4): G^(k) = 1.3299, Psi^(k) = 0.007693, kappa = 172.87 (k major at the other end) ok
+    ('T', 0, 5) trace 6 closed at (0, 4): G^(k) = 1.1232, Psi^(k) = 0.020593, kappa = 54.543 ok
+    ('T', 0, 6) trace 6 closed at (0, 5): G^(k) = 1.2598, Psi^(k) = 0.0046688, kappa = 269.84 (k major at the other end) ok
+    ('T', 1, 2) trace 0 closed at (1, 2): G^(k) = -0.92472, Psi^(k) = 0.91039, kappa = 1.0157 (k major at the other end) ok
+    ('T', 1, 2) trace 2 closed at (1, 1): G^(k) = 1.9907, Psi^(k) = 0.64761, kappa = 3.0739 (k major at the other end) ok
+    ('T', 1, 2) trace 3 closed at (1, 1): G^(k) = 1.3307, Psi^(k) = 0.706, kappa = 1.8848 ok
+    ('T', 1, 2) trace 4 closed at (1, 1): G^(k) = 1.1418, Psi^(k) = 0.72269, kappa = 1.5799 ok
+    ('T', 1, 2) trace 5 closed at (1, 1): G^(k) = 1.0662, Psi^(k) = 0.72936, kappa = 1.4618 ok
+    ('T', 1, 2) trace 6 closed at (1, 1): G^(k) = 1.032, Psi^(k) = 0.73237, kappa = 1.4092 ok
+    ('T', 1, 3) trace 0 closed at (1, 3): G^(k) = -0.53473, Psi^(k) = 0.2506, kappa = 2.1338 ok
+    ('T', 1, 3) trace 3 closed at (1, 2): G^(k) = 1.4086, Psi^(k) = 0.022708, kappa = 62.033 (k major at the other end) ok
+    ('T', 1, 3) trace 4 closed at (1, 2): G^(k) = 1.1644, Psi^(k) = 0.050759, kappa = 22.939 ok
+    ('T', 1, 3) trace 5 closed at (1, 2): G^(k) = 1.0753, Psi^(k) = 0.060467, kappa = 17.783 ok
+    ('T', 1, 3) trace 6 closed at (1, 2): G^(k) = 1.0361, Psi^(k) = 0.064657, kappa = 16.025 ok
+    ('T', 1, 4) trace 0 closed at (1, 4): G^(k) = -0.44586, Psi^(k) = 0.2209, kappa = 2.0184 ok
+    ('T', 1, 4) trace 4 closed at (1, 3): G^(k) = 1.463, Psi^(k) = 0.0096914, kappa = 150.96 (k major at the other end) ok
+    ('T', 1, 4) trace 5 closed at (1, 3): G^(k) = 1.1714, Psi^(k) = 0.024303, kappa = 48.201 ok
+    ('T', 1, 4) trace 6 closed at (1, 3): G^(k) = 1.0766, Psi^(k) = 0.029914, kappa = 35.989 ok
+    ('T', 1, 5) trace 0 closed at (1, 5): G^(k) = -0.38838, Psi^(k) = 0.20897, kappa = 1.8585 ok
+    ('T', 1, 5) trace 5 closed at (1, 4): G^(k) = 1.3484, Psi^(k) = 0.0052523, kappa = 256.74 (k major at the other end) ok
+    ('T', 1, 5) trace 6 closed at (1, 4): G^(k) = 1.131, Psi^(k) = 0.013137, kappa = 86.094 ok
+    ('T', 1, 6) trace 0 closed at (1, 6): G^(k) = -0.3377, Psi^(k) = 0.20389, kappa = 1.6563 ok
+    ('T', 1, 6) trace 6 closed at (1, 5): G^(k) = 1.2654, Psi^(k) = 0.0036964, kappa = 342.34 (k major at the other end) ok
+    ('T', 2, 3) trace 0 closed at (2, 3): G^(k) = -0.3123, Psi^(k) = 0.73179, kappa = 0.42676 ok
+    ('T', 2, 3) trace 1 closed at (2, 3): G^(k) = -0.92637, Psi^(k) = 0.79765, kappa = 1.1614 (k major at the other end) ok
+    ('T', 2, 3) trace 3 closed at (2, 2): G^(k) = 1.9907, Psi^(k) = 0.50129, kappa = 3.9711 (k major at the other end) ok
+    ('T', 2, 3) trace 4 closed at (2, 2): G^(k) = 1.3307, Psi^(k) = 0.56715, kappa = 2.3462 ok
+    ('T', 2, 3) trace 5 closed at (2, 2): G^(k) = 1.1418, Psi^(k) = 0.58596, kappa = 1.9486 ok
+    ('T', 2, 3) trace 6 closed at (2, 2): G^(k) = 1.0662, Psi^(k) = 0.59349, kappa = 1.7965 ok
+    ('T', 2, 4) trace 0 closed at (2, 4): G^(k) = -0.21566, Psi^(k) = 0.20398, kappa = 1.0573 ok
+    ('T', 2, 4) trace 1 closed at (2, 4): G^(k) = -0.60668, Psi^(k) = 0.26725, kappa = 2.2701 ok
+    ('T', 2, 4) trace 4 closed at (2, 3): G^(k) = 1.407, Psi^(k) = 0.017521, kappa = 80.303 (k major at the other end) ok
+    ('T', 2, 4) trace 5 closed at (2, 3): G^(k) = 1.1639, Psi^(k) = 0.04599, kappa = 25.307 ok
+    ('T', 2, 4) trace 6 closed at (2, 3): G^(k) = 1.0751, Psi^(k) = 0.056085, kappa = 19.169 ok
+    ('T', 2, 5) trace 0 closed at (2, 5): G^(k) = -0.18727, Psi^(k) = 0.17574, kappa = 1.0656 ok
+    ('T', 2, 5) trace 1 closed at (2, 5): G^(k) = -0.52398, Psi^(k) = 0.23741, kappa = 2.2071 ok
+    ('T', 2, 5) trace 5 closed at (2, 4): G^(k) = 1.4041, Psi^(k) = 0.0074551, kappa = 188.35 (k major at the other end) ok
+    ('T', 2, 5) trace 6 closed at (2, 4): G^(k) = 1.1526, Psi^(k) = 0.021548, kappa = 53.492 ok
+    ('T', 2, 6) trace 0 closed at (2, 6): G^(k) = -0.16319, Psi^(k) = 0.16456, kappa = 0.99172 ok
+    ('T', 2, 6) trace 1 closed at (2, 6): G^(k) = -0.45571, Psi^(k) = 0.22567, kappa = 2.0194 ok
+    ('T', 2, 6) trace 6 closed at (2, 5): G^(k) = 1.2928, Psi^(k) = 0.0045589, kappa = 283.58 (k major at the other end) ok
+    ('T', 3, 4) trace 0 closed at (3, 4): G^(k) = -0.13412, Psi^(k) = 0.58903, kappa = 0.2277 ok
+    ('T', 3, 4) trace 1 closed at (3, 4): G^(k) = -0.3115, Psi^(k) = 0.60943, kappa = 0.51114 ok
+    ('T', 3, 4) trace 2 closed at (3, 4): G^(k) = -0.92358, Psi^(k) = 0.68081, kappa = 1.3566 (k major at the other end) ok
+    ('T', 3, 4) trace 4 closed at (3, 3): G^(k) = 1.9907, Psi^(k) = 0.35959, kappa = 5.5359 (k major at the other end) ok
+    ('T', 3, 4) trace 5 closed at (3, 3): G^(k) = 1.3307, Psi^(k) = 0.43097, kappa = 3.0876 ok
+    ('T', 3, 4) trace 6 closed at (3, 3): G^(k) = 1.1418, Psi^(k) = 0.45137, kappa = 2.5296 ok
+    ('T', 3, 5) trace 0 closed at (3, 5): G^(k) = -0.10239, Psi^(k) = 0.19127, kappa = 0.53528 ok
+    ('T', 3, 5) trace 1 closed at (3, 5): G^(k) = -0.23406, Psi^(k) = 0.21139, kappa = 1.1073 ok
+    ('T', 3, 5) trace 2 closed at (3, 5): G^(k) = -0.66732, Psi^(k) = 0.28067, kappa = 2.3776 ok
+    ('T', 3, 5) trace 5 closed at (3, 4): G^(k) = 1.4098, Psi^(k) = 0.013851, kappa = 101.78 (k major at the other end) ok
+    ('T', 3, 5) trace 6 closed at (3, 4): G^(k) = 1.1647, Psi^(k) = 0.042585, kappa = 27.35 ok
+    ('T', 3, 6) trace 0 closed at (3, 6): G^(k) = -0.089753, Psi^(k) = 0.16382, kappa = 0.54788 ok
+    ('T', 3, 6) trace 1 closed at (3, 6): G^(k) = -0.20469, Psi^(k) = 0.18365, kappa = 1.1145 ok
+    ('T', 3, 6) trace 2 closed at (3, 6): G^(k) = -0.5806, Psi^(k) = 0.25155, kappa = 2.3081 ok
+    ('T', 3, 6) trace 6 closed at (3, 5): G^(k) = 1.3566, Psi^(k) = 0.0064827, kappa = 209.27 (k major at the other end) ok
+    ('T', 4, 5) trace 0 closed at (4, 5): G^(k) = -0.062251, Psi^(k) = 0.45382, kappa = 0.13717 ok
+    ('T', 4, 5) trace 1 closed at (4, 5): G^(k) = -0.13308, Psi^(k) = 0.46246, kappa = 0.28776 ok
+    ('T', 4, 5) trace 2 closed at (4, 5): G^(k) = -0.30889, Psi^(k) = 0.48407, kappa = 0.6381 ok
+    ('T', 4, 5) trace 3 closed at (4, 5): G^(k) = -0.91444, Psi^(k) = 0.55972, kappa = 1.6337 (k major at the other end) ok
+    ('T', 4, 5) trace 5 closed at (4, 4): G^(k) = 1.9907, Psi^(k) = 0.21932, kappa = 9.0766 (k major at the other end) ok
+    ('T', 4, 5) trace 6 closed at (4, 4): G^(k) = 1.3307, Psi^(k) = 0.29496, kappa = 4.5113 ok
+    ('T', 4, 6) trace 0 closed at (4, 6): G^(k) = -0.05071, Psi^(k) = 0.18745, kappa = 0.27053 ok
+    ('T', 4, 6) trace 1 closed at (4, 6): G^(k) = -0.10784, Psi^(k) = 0.19607, kappa = 0.54999 ok
+    ('T', 4, 6) trace 2 closed at (4, 6): G^(k) = -0.24744, Psi^(k) = 0.21751, kappa = 1.1376 ok
+    ('T', 4, 6) trace 3 closed at (4, 6): G^(k) = -0.71214, Psi^(k) = 0.2916, kappa = 2.4422 ok
+    ('T', 4, 6) trace 6 closed at (4, 5): G^(k) = 1.4189, Psi^(k) = 0.011718, kappa = 121.09 (k major at the other end) ok
+    ('T', 5, 6) trace 0 closed at (5, 6): G^(k) = -0.028755, Psi^(k) = 0.31905, kappa = 0.090125 ok
+    ('T', 5, 6) trace 1 closed at (5, 6): G^(k) = -0.05931, Psi^(k) = 0.32315, kappa = 0.18354 ok
+    ('T', 5, 6) trace 2 closed at (5, 6): G^(k) = -0.12657, Psi^(k) = 0.33221, kappa = 0.38098 ok
+    ('T', 5, 6) trace 3 closed at (5, 6): G^(k) = -0.29261, Psi^(k) = 0.35487, kappa = 0.82456 ok
+    ('T', 5, 6) trace 4 closed at (5, 6): G^(k) = -0.85746, Psi^(k) = 0.43416, kappa = 1.975 (k major at the other end) ok
+    ('T', 5, 6) trace 6 closed at (5, 5): G^(k) = 1.9907, Psi^(k) = 0.07732, kappa = 25.746 (k major at the other end) ok
+    ('B', 0, 1) trace 2 closed at (0, 1): G^(k) = 1.414, Psi^(k) = 0.93199, kappa = 1.5172 ok
+    ('B', 0, 1) trace 3 closed at (0, 1): G^(k) = 1.1659, Psi^(k) = 0.8961, kappa = 1.3011 ok
+    ('B', 0, 1) trace 4 closed at (0, 1): G^(k) = 1.0759, Psi^(k) = 0.8858, kappa = 1.2146 ok
+    ('B', 0, 1) trace 5 closed at (0, 1): G^(k) = 1.0364, Psi^(k) = 0.88167, kappa = 1.1755 ok
+    ('B', 0, 1) trace 6 closed at (0, 1): G^(k) = 1.0179, Psi^(k) = 0.87981, kappa = 1.1569 ok
+    ('B', 0, 2) trace 0 closed at (1, 2): G^(k) = -0.92472, Psi^(k) = 0.023044, kappa = 40.129 (k major at the other end) ok
+    ('B', 0, 2) trace 3 closed at (0, 2): G^(k) = 1.541, Psi^(k) = 0.10238, kappa = 15.052 ok
+    ('B', 0, 2) trace 4 closed at (0, 2): G^(k) = 1.196, Psi^(k) = 0.085314, kappa = 14.019 ok
+    ('B', 0, 2) trace 5 closed at (0, 2): G^(k) = 1.0868, Psi^(k) = 0.080183, kappa = 13.554 ok
+    ('B', 0, 2) trace 6 closed at (0, 2): G^(k) = 1.0411, Psi^(k) = 0.078084, kappa = 13.333 ok
+    ('B', 0, 3) trace 0 closed at (1, 3): G^(k) = -0.53473, Psi^(k) = 0.010733, kappa = 49.821 (k major at the other end) ok
+    ('B', 0, 3) trace 4 closed at (0, 3): G^(k) = 1.4183, Psi^(k) = 0.053277, kappa = 26.62 ok
+    ('B', 0, 3) trace 5 closed at (0, 3): G^(k) = 1.1542, Psi^(k) = 0.04493, kappa = 25.689 ok
+    ('B', 0, 3) trace 6 closed at (0, 3): G^(k) = 1.0688, Psi^(k) = 0.042332, kappa = 25.248 ok
+    ('B', 0, 4) trace 0 closed at (1, 4): G^(k) = -0.44586, Psi^(k) = 0.0062187, kappa = 71.696 (k major at the other end) ok
+    ('B', 0, 4) trace 5 closed at (0, 4): G^(k) = 1.3299, Psi^(k) = 0.028992, kappa = 45.872 ok
+    ('B', 0, 4) trace 6 closed at (0, 4): G^(k) = 1.1232, Psi^(k) = 0.024962, kappa = 44.998 ok
+    ('B', 0, 5) trace 0 closed at (1, 5): G^(k) = -0.38838, Psi^(k) = 0.0042874, kappa = 90.586 (k major at the other end) ok
+    ('B', 0, 5) trace 6 closed at (0, 5): G^(k) = 1.2598, Psi^(k) = 0.015925, kappa = 79.112 ok
+    ('B', 0, 6) trace 0 closed at (1, 6): G^(k) = -0.3377, Psi^(k) = 0.14777, kappa = 2.2853 (k major at the other end) ok
+    ('B', 1, 2) trace 0 closed at (2, 2): G^(k) = -0.34267, Psi^(k) = 0.68284, kappa = 0.50183 ok
+    ('B', 1, 2) trace 3 closed at (1, 2): G^(k) = 1.4086, Psi^(k) = 0.78567, kappa = 1.7929 ok
+    ('B', 1, 2) trace 4 closed at (1, 2): G^(k) = 1.1644, Psi^(k) = 0.75724, kappa = 1.5376 ok
+    ('B', 1, 2) trace 5 closed at (1, 2): G^(k) = 1.0753, Psi^(k) = 0.74908, kappa = 1.4355 ok
+    ('B', 1, 2) trace 6 closed at (1, 2): G^(k) = 1.0361, Psi^(k) = 0.7458, kappa = 1.3893 ok
+    ('B', 1, 3) trace 0 closed at (2, 3): G^(k) = -0.3123, Psi^(k) = 0.040434, kappa = 7.7235 ok
+    ('B', 1, 3) trace 1 closed at (2, 3): G^(k) = -0.92637, Psi^(k) = 0.030075, kappa = 30.802 (k major at the other end) ok
+    ('B', 1, 3) trace 4 closed at (1, 3): G^(k) = 1.463, Psi^(k) = 0.094344, kappa = 15.507 ok
+    ('B', 1, 3) trace 5 closed at (1, 3): G^(k) = 1.1714, Psi^(k) = 0.081094, kappa = 14.445 ok
+    ('B', 1, 3) trace 6 closed at (1, 3): G^(k) = 1.0766, Psi^(k) = 0.077075, kappa = 13.968 ok
+    ('B', 1, 4) trace 0 closed at (2, 4): G^(k) = -0.21566, Psi^(k) = 0.01814, kappa = 11.889 ok
+    ('B', 1, 4) trace 1 closed at (2, 4): G^(k) = -0.60668, Psi^(k) = 0.013794, kappa = 43.981 (k major at the other end) ok
+    ('B', 1, 4) trace 5 closed at (1, 4): G^(k) = 1.3484, Psi^(k) = 0.048043, kappa = 28.068 ok
+    ('B', 1, 4) trace 6 closed at (1, 4): G^(k) = 1.131, Psi^(k) = 0.041739, kappa = 27.096 ok
+    ('B', 1, 5) trace 0 closed at (2, 5): G^(k) = -0.18727, Psi^(k) = 0.0093715, kappa = 19.983 ok
+    ('B', 1, 5) trace 1 closed at (2, 5): G^(k) = -0.52398, Psi^(k) = 0.0076026, kappa = 68.922 (k major at the other end) ok
+    ('B', 1, 5) trace 6 closed at (1, 5): G^(k) = 1.2654, Psi^(k) = 0.025365, kappa = 49.89 ok
+    ('B', 1, 6) trace 0 closed at (2, 6): G^(k) = -0.16319, Psi^(k) = 0.35166, kappa = 0.46406 ok
+    ('B', 1, 6) trace 1 closed at (2, 6): G^(k) = -0.45571, Psi^(k) = 0.25559, kappa = 1.7829 (k major at the other end) ok
+    ('B', 2, 3) trace 0 closed at (3, 3): G^(k) = -0.14552, Psi^(k) = 0.56824, kappa = 0.25609 ok
+    ('B', 2, 3) trace 1 closed at (3, 3): G^(k) = -0.34267, Psi^(k) = 0.56047, kappa = 0.61139 ok
+    ('B', 2, 3) trace 4 closed at (2, 3): G^(k) = 1.407, Psi^(k) = 0.64397, kappa = 2.1848 ok
+    ('B', 2, 3) trace 5 closed at (2, 3): G^(k) = 1.1639, Psi^(k) = 0.62107, kappa = 1.874 ok
+    ('B', 2, 3) trace 6 closed at (2, 3): G^(k) = 1.0751, Psi^(k) = 0.61448, kappa = 1.7496 ok
+    ('B', 2, 4) trace 0 closed at (3, 4): G^(k) = -0.13412, Psi^(k) = 0.046381, kappa = 2.8918 ok
+    ('B', 2, 4) trace 1 closed at (3, 4): G^(k) = -0.3115, Psi^(k) = 0.043631, kappa = 7.1395 ok
+    ('B', 2, 4) trace 2 closed at (3, 4): G^(k) = -0.92358, Psi^(k) = 0.034978, kappa = 26.405 (k major at the other end) ok
+    ('B', 2, 4) trace 5 closed at (2, 4): G^(k) = 1.4041, Psi^(k) = 0.086578, kappa = 16.218 ok
+    ('B', 2, 4) trace 6 closed at (2, 4): G^(k) = 1.1526, Psi^(k) = 0.076276, kappa = 15.112 ok
+    ('B', 2, 5) trace 0 closed at (3, 5): G^(k) = -0.10239, Psi^(k) = 0.020553, kappa = 4.9814 ok
+    ('B', 2, 5) trace 1 closed at (3, 5): G^(k) = -0.23406, Psi^(k) = 0.019348, kappa = 12.098 ok
+    ('B', 2, 5) trace 2 closed at (3, 5): G^(k) = -0.66732, Psi^(k) = 0.015739, kappa = 42.398 (k major at the other end) ok
+    ('B', 2, 5) trace 6 closed at (2, 5): G^(k) = 1.2928, Psi^(k) = 0.042354, kappa = 30.524 ok
+    ('B', 2, 6) trace 0 closed at (3, 6): G^(k) = -0.089753, Psi^(k) = 0.51622, kappa = 0.17387 ok
+    ('B', 2, 6) trace 1 closed at (3, 6): G^(k) = -0.20469, Psi^(k) = 0.48126, kappa = 0.42531 ok
+    ('B', 2, 6) trace 2 closed at (3, 6): G^(k) = -0.5806, Psi^(k) = 0.37779, kappa = 1.5368 (k major at the other end) ok
+    ('B', 3, 4) trace 0 closed at (4, 4): G^(k) = -0.067733, Psi^(k) = 0.44414, kappa = 0.1525 ok
+    ('B', 3, 4) trace 1 closed at (4, 4): G^(k) = -0.14552, Psi^(k) = 0.44167, kappa = 0.32948 ok
+    ('B', 3, 4) trace 2 closed at (4, 4): G^(k) = -0.34267, Psi^(k) = 0.43512, kappa = 0.78752 ok
+    ('B', 3, 4) trace 5 closed at (3, 4): G^(k) = 1.4098, Psi^(k) = 0.5037, kappa = 2.7988 ok
+    ('B', 3, 4) trace 6 closed at (3, 4): G^(k) = 1.1647, Psi^(k) = 0.48506, kappa = 2.4011 ok
+    ('B', 3, 5) trace 0 closed at (4, 5): G^(k) = -0.062251, Psi^(k) = 0.048008, kappa = 1.2967 ok
+    ('B', 3, 5) trace 1 closed at (4, 5): G^(k) = -0.13308, Psi^(k) = 0.04708, kappa = 2.8266 ok
+    ('B', 3, 5) trace 2 closed at (4, 5): G^(k) = -0.30889, Psi^(k) = 0.044855, kappa = 6.8864 ok
+    ('B', 3, 5) trace 3 closed at (4, 5): G^(k) = -0.91444, Psi^(k) = 0.037793, kappa = 24.196 (k major at the other end) ok
+    ('B', 3, 5) trace 6 closed at (3, 5): G^(k) = 1.3566, Psi^(k) = 0.078456, kappa = 17.292 ok
+    ('B', 3, 6) trace 0 closed at (4, 6): G^(k) = -0.05071, Psi^(k) = 0.68004, kappa = 0.074569 ok
+    ('B', 3, 6) trace 1 closed at (4, 6): G^(k) = -0.10784, Psi^(k) = 0.66491, kappa = 0.16219 ok
+    ('B', 3, 6) trace 2 closed at (4, 6): G^(k) = -0.24744, Psi^(k) = 0.62934, kappa = 0.39317 ok
+    ('B', 3, 6) trace 3 closed at (4, 6): G^(k) = -0.71214, Psi^(k) = 0.52133, kappa = 1.366 (k major at the other end) ok
+    ('B', 4, 5) trace 0 closed at (5, 5): G^(k) = -0.03274, Psi^(k) = 0.31438, kappa = 0.10414 ok
+    ('B', 4, 5) trace 1 closed at (5, 5): G^(k) = -0.067733, Psi^(k) = 0.31347, kappa = 0.21608 ok
+    ('B', 4, 5) trace 2 closed at (5, 5): G^(k) = -0.14552, Psi^(k) = 0.31142, kappa = 0.46729 ok
+    ('B', 4, 5) trace 3 closed at (5, 5): G^(k) = -0.34267, Psi^(k) = 0.30591, kappa = 1.1201 ok
+    ('B', 4, 5) trace 6 closed at (4, 5): G^(k) = 1.4189, Psi^(k) = 0.3617, kappa = 3.9228 ok
+    ('B', 4, 6) trace 0 closed at (5, 6): G^(k) = -0.028755, Psi^(k) = 0.86749, kappa = 0.033147 ok
+    ('B', 4, 6) trace 1 closed at (5, 6): G^(k) = -0.05931, Psi^(k) = 0.86098, kappa = 0.068886 ok
+    ('B', 4, 6) trace 2 closed at (5, 6): G^(k) = -0.12657, Psi^(k) = 0.84685, kappa = 0.14946 ok
+    ('B', 4, 6) trace 3 closed at (5, 6): G^(k) = -0.29261, Psi^(k) = 0.81293, kappa = 0.35994 ok
+    ('B', 4, 6) trace 4 closed at (5, 6): G^(k) = -0.85746, Psi^(k) = 0.70509, kappa = 1.2161 (k major at the other end) ok
+    ('B', 5, 6) trace 0 closed at (6, 6): G^(k) = -0.016099, Psi^(k) = 1.1865, kappa = 0.013568 ok
+    ('B', 5, 6) trace 1 closed at (6, 6): G^(k) = -0.032733, Psi^(k) = 1.1841, kappa = 0.027643 ok
+    ('B', 5, 6) trace 2 closed at (6, 6): G^(k) = -0.067719, Psi^(k) = 1.1791, kappa = 0.057434 ok
+    ('B', 5, 6) trace 3 closed at (6, 6): G^(k) = -0.14549, Psi^(k) = 1.1678, kappa = 0.12458 ok
+    ('B', 5, 6) trace 4 closed at (6, 6): G^(k) = -0.34254, Psi^(k) = 1.1393, kappa = 0.30067 ok
+  [PASS] (H7) signs: Psi^(k)(alpha_k) > 0 and G^(k) of the right sign at every closed trace end
+    (H6)/(A5) min over all sections and k <= 600 of the half-profile entries: -3.72e-60 (>= 0 required; exact zeros are trace entries)
+    (H8)/(A3) smallest pivot (normalized 1.e_* = 1 = l_*.e_*): 0.0060097
+  [PASS] (H6)/(A5) half-profiles >= 0, (H8)/(A3) pivots > 0, (A4) closed coefficients 0, (H7)(iii)-(v)
+  [PASS] n =   32 (dps 257, from v_inf): |G_n| 2.9e-258, stage rel 1.3e-84, unit rel 1.3e-84, min x 3.37e-177, min S 1.014, impurities ['8.01e-10', '0.0141', '0.0142', '0.0143', '0.0144', '0.0147', '0.0142'], |v_n - v_inf|_maj 0.0014, max trace 0.000443, sigma_min(DG_n) 1.652e-5, reverse trace flows 26, 136.0s
+      trace net flows against the section's direction (T: < 0, B: > 0): [("('T', 1, 2)", 2, -3.2083049563553156e-05), ("('T', 1, 2)", 3, -8.353866296306024e-18), ("('T', 1, 2)", 4, -2.387360662229988e-40), ("('T', 1, 2)", 5, -4.7220515261431874e-73), ("('T', 1, 2)", 6, -5.652801618802649e-116), ("('T', 1, 6)", 6, -1.4488886238860105e-08), ("('T', 2, 3)", 3, -3.07198409315392e-05), ("('T', 2, 3)", 4, -7.52401658469605e-18), ("('T', 2, 3)", 5, -1.1827832749338335e-40), ("('T', 2, 3)", 6, -1.1426327487514756e-73), ("('T', 3, 4)", 4, -2.9119077258346663e-05), ("('T', 3, 4)", 5, -7.366374875589487e-18), ("('T', 3, 4)", 6, -7.222306130443566e-41), ("('T', 4, 5)", 5, -2.5179891244318415e-05), ("('T', 4, 5)", 6, -1.1099574003747381e-17), ("('T', 5, 6)", 6, -4.245366057350625e-06), ("('B', 0, 3)", 0, 4.357376097848934e-07), ("('B', 0, 4)", 0, 3.341598762626678e-07), ("('B', 0, 5)", 0, 2.514167665288752e-07), ("('B', 1, 4)", 0, 3.1066074117062894e-21), ("('B', 1, 4)", 1, 6.945091644019391e-08), ("('B', 1, 5)", 0, 2.319702019279308e-21), ("('B', 1, 5)", 1, 5.46472346899218e-08), ("('B', 2, 5)", 0, 5.997538140556385e-46), ("('B', 2, 5)", 1, 1.6238378446476895e-22), ("('B', 2, 5)", 2, 3.3832819855143646e-08)]
+  [PASS] n =   16 (dps 171, from v_inf): |G_n| 3.0e-172, stage rel 1.4e-83, unit rel 1.4e-83, min x 6.78e-91, min S 1.018, impurities ['7.14e-6', '0.0161', '0.0179', '0.0177', '0.0177', '0.0204', '0.0183'], |v_n - v_inf|_maj 0.0166, max trace 0.00608, sigma_min(DG_n) 0.0001271, reverse trace flows 34, 151.3s
+      trace net flows against the section's direction (T: < 0, B: > 0): [("('T', 1, 2)", 2, -0.0006651498237865771), ("('T', 1, 2)", 3, -2.3062263670190594e-10), ("('T', 1, 2)", 4, -5.820909560504503e-22), ("('T', 1, 2)", 5, -8.215375079220382e-39), ("('T', 1, 2)", 6, -7.058760951863887e-61), ("('T', 2, 3)", 3, -0.0004733205091937162), ("('T', 2, 3)", 4, -1.559703017624035e-10), ("('T', 2, 3)", 5, -2.726173315273437e-22), ("('T', 2, 3)", 6, -2.9110015600193856e-39), ("('T', 3, 4)", 4, -0.0003199021892416118), ("('T', 3, 4)", 5, -9.285808505245465e-11), ("('T', 3, 4)", 6, -1.3329326857692315e-22), ("('T', 4, 5)", 5, -0.00018510645898546694), ("('T', 4, 5)", 6, -7.531226371240357e-11), ("('B', 0, 3)", 0, 1.0711450129233818e-05), ("('B', 0, 4)", 0, 2.7433110888759973e-05), ("('B', 0, 5)", 0, 2.2743253876383592e-05), ("('B', 1, 2)", 0, 1.0625693945423761e-10), ("('B', 1, 4)", 0, 5.156339566528658e-12), ("('B', 1, 4)", 1, 1.1923625157791583e-05), ("('B', 1, 5)", 0, 5.929998329962327e-12), ("('B', 1, 5)", 1, 2.1293942401062854e-05), ("('B', 2, 3)", 0, 7.584305688104734e-23), ("('B', 2, 3)", 1, 4.0312123579379795e-11), ("('B', 2, 5)", 0, 4.968804998360726e-24), ("('B', 2, 5)", 1, 3.1273314387073204e-12), ("('B', 2, 5)", 2, 1.8555376383897876e-05), ("('B', 3, 4)", 0, 3.199833636016292e-40), ("('B', 3, 4)", 1, 2.6915334057962973e-23), ("('B', 3, 4)", 2, 2.1291189803893164e-11), ("('B', 4, 5)", 0, 9.801694787558195e-63), ("('B', 4, 5)", 1, 1.1465258859109476e-40), ("('B', 4, 5)", 2, 1.7312445436342767e-23), ("('B', 4, 5)", 3, 1.16171807710843e-11)]
+  [PASS] physical steady states for every n >= 16 tested
+  convergence of the majors: |v_n - v_inf| ~ exp(-0.1546 n) (rho^n with rho = 0.8567); max section ratio rho = 0.8712
+  [PASS] sigma_min(DG_n) -> sigma_min(DG_inf) = 1.9711e-5 (last: 1.6518e-05)
+ALL PASS  (301.5s)

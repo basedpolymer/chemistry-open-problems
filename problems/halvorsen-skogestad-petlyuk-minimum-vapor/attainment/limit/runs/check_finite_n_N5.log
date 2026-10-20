@@ -1,0 +1,11 @@
+case N5: alpha=[10, 6, 3.5, 2, 1] q=0.8 pattern={0: 'B', 1: 'T', 2: 'B', 3: 'T'} R=1.107678054 maxH=1.07073205 products P=['0.197', '0.206', '0.194', '0.206', '0.197']
+limit product impurities 1 - x_pp: ['3.327e-111', '0.02913', '-1.663e-111', '0.02913', '0.0']
+n=  80 newton it=5 |G_n|=6.7e-109 |v_n-v_inf|=2.37e-6 E1 section-consistency=2.4e-37 E2 balances=3.1e-37 E3 min x=1.46e-162 min S=1.0  PASS
+        product impurities ['2.733e-13', '0.02913', '4.177e-7', '0.02913', '5.398e-19']  first trace flows ['1.08e-7', '6.27e-8', '2.26e-37', '8.21e-8', '-2.01e-9', '6.27e-8']
+n=  60 newton it=6 |G_n|=9.3e-109 |v_n-v_inf|=7.95e-5 E1 section-consistency=5.0e-56 E2 balances=6.5e-56 E3 min x=1.02e-121 min S=1.0  PASS
+        product impurities ['2.854e-10', '0.02913', '2.209e-5', '0.02915', '2.145e-14']  first trace flows ['3.56e-6', '4.71e-6', '4.07e-28', '4.26e-6', '-1.28e-7', '4.71e-6']
+n=  45 newton it=7 |G_n|=1.3e-108 |v_n-v_inf|=0.000969 E1 section-consistency=1.2e-70 E2 balances=1.6e-70 E3 min x=2.2e-91 min S=1.0  PASS
+        product impurities ['5.251e-8', '0.02915', '0.0003462', '0.02943', '6.077e-11']  first trace flows ['3.94e-5', '8.59e-5', '2.21e-21', '6.23e-5', '-5.13e-7', '8.59e-5']
+177.1 s
+ALL PASS
+exit=0

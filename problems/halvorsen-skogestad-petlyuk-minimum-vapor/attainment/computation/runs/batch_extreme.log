@@ -1,0 +1,5 @@
+n3_veryclose: exit 0
+n3_zB_1e-4: exit 0
+n3_zA_1e-4: exit 0
+n3_invalid: exit 1
+n8_base: exit 0
