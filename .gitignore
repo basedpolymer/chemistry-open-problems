@@ -13,3 +13,4 @@ codex-*.md
 FINAL-REPORT.md
 # Compiled helper binaries
 problems/kirchhoff-soltes-problem/scripts/kscheck
+problems/kirchhoff-soltes-problem/scripts/kscheck_fast
