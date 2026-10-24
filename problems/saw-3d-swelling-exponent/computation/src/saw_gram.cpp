@@ -10,7 +10,7 @@
 //
 // Usage: saw_gram N [threads<=3] > out.txt      Output:  "T n c_n"  and  "G n i j value"  (value: signed integer)
 // Build: g++ -O3 -march=native -std=c++17 -pthread saw_gram.cpp -o saw_gram
-// Runtime (3 threads, Xeon 2.8 GHz): N = 16 ~ 1 min, N = 17 ~ 4 min, N = 18 ~ 20 min (estimates).
+// Runtime (3 threads, Xeon 2.8 GHz, shared machine): N = 15 ~ 9 s (1 thread), N = 17 ~ 1.6 min (measured).
 #include <atomic>
 #include <chrono>
 #include <cstdint>

@@ -11,6 +11,7 @@
 //     such m; ratio estimators kappa_N(m) = sum K / #near etc., errors by jackknife over 64 consecutive blocks;
 //   every SR attempts: Madras data, span, tail/head renewal indicators at depths j = 1..JMAX (unconditional).
 // Usage: madras_mc N attempts seed [SN=10] [SR=100]
+// Runtime (single thread, shared machine): N = 1000, 4e6 attempts: 70 s; N = 16000, 8e5 attempts: 6.4 min.
 // Build: g++ -O3 -march=native -std=c++17 -Isrc madras_mc.cpp -o madras_mc
 #include <algorithm>
 #include <chrono>

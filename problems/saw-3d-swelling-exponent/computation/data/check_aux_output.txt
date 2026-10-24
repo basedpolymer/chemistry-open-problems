@@ -1,0 +1,11 @@
+PASS [a] end_steps 12: sum s_1.s_n = Gram sums (saw_gram 12), c_n = A001412, transverse symmetry
+PASS [b] halfspace_enum 9 = brute force (bridges by height, renewals at half height, arches, h_n)
+PASS [c] cond_prefix 9 4 = brute force (number of prefixes, failures, minimal conditional mean)
+PASS [d] madras_exact 8: multiplicity routine = direct preimage counts for every near walk, m <= 4
+PASS [e] pivot: n=10: 16.8203 +- 0.0198 vs exact 16.8172; n=20: 38.6951 +- 0.0562 vs exact 38.7418
+PASS [f] madras_mc N=8: m=2: 1.1297 +- 0.0006 vs exact 1.13037; m=4: 1.5423 +- 0.0007 vs exact 1.54218
+ALL PASS
+
+real	0m30.064s
+user	0m18.667s
+sys	0m0.926s

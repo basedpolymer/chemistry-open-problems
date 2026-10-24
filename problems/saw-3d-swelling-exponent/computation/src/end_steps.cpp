@@ -6,7 +6,7 @@
 //   sum over all n-step SAWs of s_1 . s_n = 6 (N(+x) - N(-x)),  and  c_n = 6 sum_d N(d).
 // Parallelised over the 25 two-step continuations of the first step (threads <= 3).
 // Usage: end_steps N [threads]     Build: g++ -O3 -march=native -std=c++17 -pthread end_steps.cpp -o end_steps
-// Runtime (3 threads, Xeon 2.8 GHz): N = 16 about 1-2 min; N = 18 about 25-40 min.
+// Runtime (3 threads, Xeon 2.8 GHz, shared machine): N = 12 < 1 s; N = 18 12.5 min (measured).
 #include <atomic>
 #include <cstdint>
 #include <cstdio>

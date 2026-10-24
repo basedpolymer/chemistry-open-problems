@@ -11,7 +11,7 @@
 // Canonical representatives: first step +e1; first step with a nonzero x2/x3 component is +e2; first step with a
 // nonzero x3 component, if any, is +e3.  Weights 1 / 4 / 8 (orbit sizes under the stabiliser of e1).
 // Usage: halfspace_enum N [threads<=3]     Build: g++ -O3 -march=native -std=c++17 -pthread halfspace_enum.cpp
-// Runtime (3 threads, Xeon 2.8 GHz): N = 17 ~ 1 min; N = 19 ~ 15-25 min.
+// Runtime (3 threads, Xeon 2.8 GHz, shared machine): N = 17 56 s; N = 19 17 min (measured).
 #include <atomic>
 #include <cstdint>
 #include <cstdio>

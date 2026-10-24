@@ -1,2 +1,0 @@
-# pivot runs, 2026-10-24T11:07Z, g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0,  Intel(R) Xeon(R) Processor @ 2.80GHz
-# columns: R n attempts acc_frac mean_R2 err tau_int var/mean^2 seconds ; S n E[s_1.s_n] err E[s_1.(w_n-w_0)] err

@@ -1,0 +1,18 @@
+data file data/saw_enum_N19.txt.gz: N = 19; header: # saw_enum N=19 threads=3 prefix_depth=10 prefixes=186296 time_s=330.02 | # orbit divisibility check: PASS | # intermediate-point totals equal c_n: PASS
+PASS [1] Python brute force (no symmetry) = data file for n <= 8 (c, h, b, A, H, B, M tables)
+PASS [2a] saw_naive 11: endpoint distributions invariant under all 48 signed permutations
+PASS [2b] saw_enum 11 (prefix depths 1,4,9,11) output identical to saw_naive 11 (T, A, H, B, M)
+PASS [3] fresh saw_enum run with N = 16 agrees with the data file for all n <= 16
+PASS [3b] saw_gram 7 (prefix depths 1,3,6) = Python brute-force Gram sums sum w_i.w_j, n <= 7
+PASS [3c] saw_gram 13 diagonal sum |w_k|^2 = intermediate-point table of the data file, k <= n <= 13
+PASS [4] data file internally consistent (orbit divisibility, parity, A/H/B/M totals) for n <= 19
+PASS [5a] c_n = OEIS A001412 (= SBB 2011 Z_N = CLS 2007 c_n) for n <= 19
+PASS [5b] S_n = sum |omega_n|^2 = SBB 2011 Table I P_N (= CLS rho_n) for n <= 19
+PASS [5c] polygons p_{n+1} = 3 c_n(e1)/(n+1) = CLS poly_d3 for 4 <= n+1 <= 20 (17 values, odd ones 0)
+PASS [5d] bridges b_n = Clisby-Conway-Guttmann 2016 Table 6 for 1 <= n <= 19
+PASS [5e] half-space walks h_n = OEIS A116904(n-1) (terminally attached walks) for 1 <= n <= 19
+runtime 83.0 s; ALL PASS
+
+real	1m23.135s
+user	0m49.896s
+sys	0m1.080s

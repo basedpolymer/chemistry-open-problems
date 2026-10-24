@@ -6,7 +6,7 @@
 //   X n m near sumK hist[K=1..8+] near_span>=2 hist_span>=2[K=1..8+] nimages
 // (nimages = number of distinct images T omega of near walks; only for n <= NV, else 0).
 // Usage: madras_exact N [NV=9]     Build: g++ -O3 -march=native -std=c++17 madras_exact.cpp -o madras_exact
-// Runtime: N = 13 about 1 min, N = 14 about 5 min (single thread).
+// Runtime (single thread, shared machine): N = 9 about 7 s; N = 12 about 10 min (measured).
 #include <cstdio>
 #include <cstdlib>
 #include <map>

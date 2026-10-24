@@ -48,20 +48,31 @@ $$\widehat L:=\ell_1(q_1=1)/M=\varepsilon^2\,\ell_1(q_1=1).$$
    $\widehat L\in[-0.0093670,-0.0092545]$ for every $M\ge10^{10}$ and
    $\widehat L(0)\in[-0.00931144,-0.00931137]$, which contains result 8's formal limit value $L_1=-0.0093114$.
 
-**Theorem 2 (second and third branches).** Let $j\in\{2,3\}$ and $\kappa_j(M)$ be the $j$-th Hopf point
-(result 8 for $M\le10^5$; Krawczyk boxes of this work for $M\ge161$).
-1. $\ell_1<0$ at $\kappa_j(M)$ for every $M\ge44$ ($j=2$) and every $M\ge87$ ($j=3$): result 8 for $M\le10^5$,
-   this work (`certificates/l1_j2.csv`, `l1_j3.csv`) for $M\ge161$ [ranges: see Section 7].
-2. Spectral hypothesis: for $j=2$ and every $M\ge161$, and for $j=3$ and every $M$ in the range of Section 7, at
-   $\kappa_j(M)$ the only eigenvalues of $B|_H$ on $i\mathbb R$ are $\pm i\omega$, and exactly $2(j-1)$ zeros of $F$
-   (counted with multiplicity) correspond to eigenvalues with $\operatorname{Re}\lambda>0$. For $M\le160$ the same
-   was certified by the verifier of result 8.
-3. Meaning of "supercritical" for $j\ge2$: the restriction of the flow to the 2-dimensional centre manifold at
-   $\kappa_j(M)$ undergoes a supercritical Hopf bifurcation (the small periodic orbits exist for $\kappa>\kappa_j(M)$
-   and attract within the centre manifold). In the full mass hyperplane these orbits are **unstable**: for $\kappa$
-   near $\kappa_j(M)$ the equilibrium has $j-1$ unstable conjugate pairs, which persist as $2(j-1)$ Floquet
-   multipliers of the small orbits outside the unit circle. They are saddle-type cycles; the question "are the
-   bifurcating solutions stable" has the answer *no* for $j\ge2$, and *yes* (for $M\ge16$) for $j=1$.
+**Theorem 2 (second and third branches).** Let $j\in\{2,3\}$ and let $\kappa_j(M)$ be PV's $j$-th Hopf point
+(the continuation of the $j$-th imaginary root $(\kappa_j^0,it_j)$ of the limit function, PV (89)–(91)): for
+$M\le10^5$ the point certified by result 8, for $M\ge161$ the unique zero in the Krawczyk boxes of this work,
+continued in $\varepsilon$ from $(\kappa_j^0,it_j)$; for $161\le M\le10^5$ these are the same points (Section 8). The
+branch is certified to exist for every $M\ge44$ ($j=2$; the onset $M=44$ is exact, verifier of result 8) and every
+$M\ge87$ ($j=3$; the first $M$ certified by result 8).
+1. At $\kappa_j(M)$, $\pm i\omega$ are simple eigenvalues of $B$, the crossing is transversal and $\ell_1<0$, for
+   every $M\ge44$ ($j=2$), $M\ge87$ ($j=3$): result 8 (Theorem A) for $M\le10^5$, this work (Theorem 7.2) for
+   $M\ge161$.
+2. Spectral hypothesis H2: at $\kappa_j(M)$ the only eigenvalues of $B|_H$ on $i\mathbb R$ are $\pm i\omega$, for
+   every $M$ on the branch: verifier of result 8 (`acb_mat.eig`) for $M\le160$, this work (Theorem 7.3) for
+   $M\ge161$. Moreover $B|_H$ has eigenvalues with $\operatorname{Re}\lambda>0$ at $\kappa_j(M)$: exactly $2(j-1)$,
+   counted with multiplicity, for $M\le200$ (verifier of result 8); for $M\ge161$ exactly $2(j-1)$ zeros of $F$
+   (counted with multiplicity, in the polygon $P\setminus P_-$ of Theorem 4.5) correspond to eigenvalues with
+   $\operatorname{Re}\lambda>0$ (Theorem 4.5), so there is at least one such eigenvalue (we do not prove the zeros
+   simple, so we do not prove that their number is exactly $2(j-1)$ with algebraic multiplicity).
+3. Meaning of "supercritical" for $j\ge2$, and the answer. By 1–2 the Hopf theorem with centre manifold reduction
+   applies at $\kappa_j(M)$: the restriction of the flow (in $H$) to the 2-dimensional centre manifold undergoes a
+   **supercritical** Hopf bifurcation, i.e. for $\kappa>\kappa_j(M)$ close to $\kappa_j(M)$ there is a unique small
+   periodic orbit near the equilibrium, of amplitude $\asymp(\kappa-\kappa_j(M))^{1/2}$, attracting *within the
+   centre manifold*, and none for $\kappa<\kappa_j(M)$. In the full mass hyperplane these orbits are **unstable**:
+   the monodromy matrix (in $H$) of the small orbit tends to $\exp(2\pi B|_H/\omega)$ as $\kappa\downarrow\kappa_j(M)$, so the
+   eigenvalue with $\operatorname{Re}\lambda>0$ of part 2 gives a Floquet multiplier outside the unit circle. So the
+   question "are the bifurcating solutions stable" has the answer *no* for $j=2,3$ (for every $M$ on the branch),
+   and *yes* for $j=1$, $M\ge16$ (Theorem 1).
 
 What is **not** proved is listed in Section 10.
 
@@ -148,7 +159,7 @@ $dE/dz=E/\varphi$ and $dE/d\varepsilon=2\varepsilon z^2E\,\mathsf M_1(\varepsilo
 **Checks on the whole box** (`allm_core.hopf_checks`), all certified:
 * *simplicity*: $0\notin\partial_zQ^\varepsilon(X;E)$, so $\varphi$ is a simple zero of $F$;
 * $|AE+\varepsilon^2z|>0$ ($f(\varphi)\ne0$) and $\operatorname{Im}z>0$; also $S(\varphi)\ne0$ (for $\varepsilon>0$,
-  $|\varphi-1|=\varepsilon^2|z|>0$ and $|\varphi-1/A|,|\varphi\mp A^{-1/2}|\ge K/A-\varepsilon^2|z|>0$ on the boxes);
+  $\operatorname{Im}\varphi=\varepsilon^2\operatorname{Im}z>0$, while the zeros $1,1/A,\pm A^{-1/2}$ of $S$ are real);
   by Lemma 1.2, $\pm i\omega$ ($\omega=\kappa\varepsilon^3\operatorname{Im}\Lambda$) are simple eigenvalues of $B$;
 * *transversality*: $d\operatorname{Re}\Lambda/d\kappa>0$ along the root curve $z(\kappa)$
   ($dz/d\kappa=-\partial_\kappa Q/\partial_zQ$); since $\lambda=\kappa\varepsilon^3\Lambda$,
@@ -306,7 +317,7 @@ If moreover $\operatorname{Re}\lambda=0$, then $\operatorname{Re}\Lambda(z)=0$ a
 $\ell(y)<x<r(y)$: $z\in P_-$. Now $P_-$ contains the four zeros $0,0,z_H,\bar z_H$, hence no other; so
 $z\in\{z_H,\bar z_H\}$ and $\lambda=\pm i\omega$. Conversely, a zero of $Q^\varepsilon$ in $P\setminus P_-$ lies in
 $\mathcal R$ with $x\ge r(y)$, so $\operatorname{Re}\Lambda>0$; it is not one of the spurious zeros of $F$
-($\varphi=1/A,\pm A^{-1/2}$ have $\operatorname{Re}z\le M(A^{-1/2}-1)<x_{\min}$, and $\varphi=1$ is $z=0\in P_-$), so
+($\varphi=1/A,\pm A^{-1/2}$ have $\operatorname{Re}z\le M(A^{-1/2}-1)\le-\kappa/(2\varepsilon A)=-1/(2\varepsilon(\kappa^{-1}+\varepsilon))\le-15<x_{\min}$ for $\varepsilon\le0.0789$, $\kappa\ge3$, and $\varphi=1$ is $z=0\in P_-$), so
 by PV Prop. 5.3 it gives an eigenvalue $\lambda(\varphi)$ with $\operatorname{Re}\lambda>0$; and every eigenvalue
 with $\operatorname{Re}\lambda>0$ arises in this way from a zero in $P\setminus P_-$ (first part of the proof). These
 zeros have total multiplicity $N(P)-N(P_-)=2j-2$. $\square$
@@ -458,9 +469,10 @@ the $\varepsilon$-box containing $M^{-1/2}$ (so the two certificates concern the
 
 | script | claims | runtime |
 |---|---|---|
-| `check_formulas.py` | F1–F6: identities (sympy), dense entrywise enclosure test of every block at $M=40,100,300$, sums vs direct summation | 2 min |
-| `h2_sweep.py OUT [161]` | H2 for $j=1$, all $M\ge161$ (Theorem 4.3) | 1 min |
-| `l1_sweep.py J EPS_LO EPS_HI OUT [--h2]` | Hopf boxes, nondegeneracy, $\widehat L<0$ (and H2 for $j=1$) | 9 min ($j=1$, `--h2`) |
+| `check_formulas.py` | F1–F7: identities (sympy), dense entrywise enclosure test of every block at $M=40,100,300$, sums vs direct summation, the polynomial identities of Lemma 3.3′ | 2 min |
+| `asymptotics.py` | A1–A4: enclosures of $\widehat L(0)$ for $j=1,2,3$ and comparison with result 8's closed form $L_j$ | 10 s |
+| `h2_sweep.py OUT [161]` | H2 for $j=1$, all $M\ge161$ (Theorem 4.3; tool, superseded by `l1_sweep --h2`) | 1 min |
+| `l1_sweep.py J EPS_LO EPS_HI OUT [--h2]` | Hopf boxes, nondegeneracy, $\widehat L<0$ (and H2 for $j=1$) | 12 min ($j=1$, `--h2`) |
 | `h2j_sweep.py J IN OUT R0 Y cL cR` | Theorem 4.5 on the boxes of an `l1_sweep` file | ~2 s/box |
 | `verify_sweep.py FILE EPS_LO EPS_HI [--h2] [STRIDE]` | re-proves every line of a certificate from the stored data, and coverage | as the sweep |
 | `check_vs_result8.py J OURS R8FILES` | same Hopf points as result 8, $\ell_1$ values inside our enclosures | 1 min |
