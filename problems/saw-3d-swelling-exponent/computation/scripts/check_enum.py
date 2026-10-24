@@ -11,7 +11,8 @@ Checks
      c_n, h_n, b_n and all class tables A, H, B, M.
   2. naive C++ (src/saw_naive.cpp: no symmetry, linear-scan self-avoidance, pointwise B_3-invariance check) against
      a fresh run of src/saw_enum.cpp for n <= 11, with four different prefix depths (1, 4, 9, 11): identical output.
-  3. re-run: fresh src/saw_enum.cpp run with N = N2 (default 16) agrees with the data file for every n <= N2.
+  3. re-run: fresh src/saw_enum.cpp run with N = N2 (default 16) agrees with the data file for every n <= N2;
+     src/saw_gram.cpp (Gram sums) against brute force (n <= 7) and against the data file's intermediate-point table.
   4. internal consistency of the data file: orbit divisibility, parity, totals of A/H/B/M tables.
   5. published values: c_n vs OEIS A001412 (= Schram-Barkema-Bisseling 2011, Clisby-Liang-Slade 2007);
      S_n = sum |omega_n|^2 vs SBB 2011 Table I (P_N) (= CLS rho_n); polygons p_{n+1} = 3 c_n(e1)/(n+1) vs CLS;
@@ -92,6 +93,32 @@ def main():
                 for k in range(1, n):
                     ok = ok and E.M[(k, n)] == D.M[(k, n)]
             report(ok, "[3] fresh saw_enum run with N = %d agrees with the data file for all n <= %d" % (n2, n2))
+
+        # 3b. Gram sums (src/saw_gram.cpp) against brute force and against the M table of the data file
+        exe_g = os.path.join(tmp, "saw_gram")
+        subprocess.run(["g++", "-O3", "-std=c++17", "-pthread", os.path.join(ROOT, "src", "saw_gram.cpp"), "-o", exe_g],
+                       check=True)
+        Gb = brute_force.gram_all(7)
+        ok = True
+        for K in (1, 3, 6):
+            pg = subprocess.run([exe_g, "7", THREADS, str(K)], capture_output=True, text=True)
+            Gc = {}
+            for line in pg.stdout.splitlines():
+                t = line.split()
+                if t and t[0] == "G":
+                    Gc[(int(t[1]), int(t[2]), int(t[3]))] = int(t[4])
+            ok = ok and pg.returncode == 0 and Gc == Gb
+        report(ok, "[3b] saw_gram 7 (prefix depths 1,3,6) = Python brute-force Gram sums sum w_i.w_j, n <= 7")
+        ng = min(D.N, 13)
+        pg = subprocess.run([exe_g, str(ng), THREADS], capture_output=True, text=True)
+        Gc = {}
+        for line in pg.stdout.splitlines():
+            t = line.split()
+            if t and t[0] == "G":
+                Gc[(int(t[1]), int(t[2]), int(t[3]))] = int(t[4])
+        ok = all(Gc[(n, k, k)] == D.S_mid(k, n) for n in range(1, ng + 1) for k in range(1, n + 1))
+        report(ok, "[3c] saw_gram %d diagonal sum |w_k|^2 = intermediate-point table of the data file, k <= n <= %d"
+               % (ng, ng))
 
     # 4. internal consistency
     ok = all(Ns % orb == 0 and (a + b + c - n) % 2 == 0 for n in D.A for (a, b, c), (Ns, orb) in D.A[n].items())

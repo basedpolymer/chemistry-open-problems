@@ -4,6 +4,31 @@ Literature agent, 2026-10-24. Quotes are copied from the text I read (pdftotext 
 re-typed in plain text where pdftotext garbled them, e.g. "E_n^{(1)}|omega(n)|^2"). Page numbers are those of the
 version read. Ordered by date.
 
+## 0. Madras and Slade, The Self-Avoiding Walk (Birkhauser 1993; Modern Birkhauser Classics reprint 2013, doi:10.1007/978-1-4614-6025-1)
+
+Owner-supplied excerpts (printed page numbers). These sentences describe the state **as of the 1993 text** (the 2013
+reprint is unchanged); the last column says whether I found the statement still open today.
+
+| Page | Verbatim | Still open in 2026? |
+|---|---|---|
+| p. 6, Sec. 1.1 | "Intuitively it is to be expected that the repulsive interaction of the self-avoiding walk will tend to drive the endpoint of the walk away from the origin faster than for simple random walk, or in other words that nu >= 1/2. However it is still an open question to prove that this "obvious" inequality <\|omega(N)\|^2> >= CN holds in all dimensions." | Yes (L3): Slade 2019, Guttmann-Jensen 2022 (items 5, 6). |
+| p. 6, Sec. 1.1 | "On the other hand, bounding \|omega(N)\|^2 above by N^2 in (1.1.2) gives the upper bound <\|omega(N)\|^2> <= N^2, or nu <= 1. This bound is optimal in one dimension, but seems far from optimal in two or more dimensions. No upper bound of the form C N^{2-eps} (C, eps > 0), or in other words nu < 1, has been proven for dimensions two, three or four, however." | Partly answered: o(N^2) (DCH 2013) but C N^{2-eps} (U2) still open (Slade 2019, item 5). |
+| p. 6, Sec. 1.1 | "There is still no proof, however, that gamma is finite in two, three or four dimensions, where the best bounds are c_N <= mu^N exp[K N^{1/2}] (d = 2), mu^N exp[K N^{2/(2+d)} log N] (d = 3, 4)" | Yes: Hammond EJP 2019, Hutchcroft 2018 (item 7, 10); d = 3 bound unchanged since Kesten 1964. |
+| p. 7, Sec. 1.1 | "Currently the only rigorous results which prove power law behaviour and confirm the conjectured values of gamma and nu are for d >= 5." | Yes for Z^d strict SAW (d = 4 progress concerns weakly SAW variants). |
+| p. 14, Sec. 1.3 | "There are many examples in critical phenomena of rigorous mean-field bounds, but, as mentioned in Section 1.1, no general proof is known of the mean-field bound nu >= 1/2." | Yes (L3). |
+| p. 15, Sec. 1.3 | "It has been proven that m(z_c) = 0 for d >= 5; see Corollary 6.1.7. Although this is believed to be true in all dimensions, a negative mass at the critical point has not yet been ruled out rigorously in dimensions 2, 3 or 4." | No later proof found (NOT FOUND); related to the next row. |
+| p. 15-16, Sec. 1.3 | "It is believed that the manner of divergence of xi(z) is via a power law of the form xi(z) ~ const.(z_c - z)^{-nu-bar} as z -> z_c." | Correlation-length exponent: no rigorous power-law bound found for d = 2, 3, 4. |
+| p. 17, Sec. 1.4 | "We shall take the optimistic view that the power law behaviour is asymptotic, although none of (1.4.1)-(1.4.5) has been proven in dimensions 2, 3, or 4 for any of these definitions of the exponents." [(1.4.1)-(1.4.5): c_N, chi, <\|omega(N)\|^2>, xi, xi_p; "any of these definitions" includes the weak log-ratio definition (1.4.6)] | Yes (E1 and (T) open: Slade 2019, item 5). |
+| p. 18, Sec. 1.4 | "Unfortunately it has not yet been proved rigorously that G_{z_c}(0, x) is even finite for d = 2, 3 or 4, for any value of x != 0." | No later proof found for Z^d (NOT FOUND). The best closing bounds (Hammond: P(close) <= n^{-1/2+o(1)}; c_n mu^{-n} only known <= e^{o(sqrt n)} in d = 2 and <= exp(C n^{2/5} log n) in d = 3) do not give summability. |
+| p. 19, Sec. 1.4 | "For the self-avoiding walk it is still an open problem to prove the infrared bound in dimensions 2, 3 or 4, but in higher dimensions it has been proved (see Theorem 6.1.6)." | No later proof found. |
+| p. 57, Sec. 3.1 | "The best rigorous upper bounds on c_N/mu^N are essentially of the form exp(O(N^p)) for some constant 0 < p < 1. It is a major open problem to replace this bound by a polynomial in N." | Yes. |
+| p. 69, Sec. 3.3 | "The full proof was not given in Kesten (1964) because it was hoped that someone would find a better bound, but almost thirty years later this has still not come to pass for d = 3, 4." | Yes in 2026 (no improvement of n^{2/(d+2)} log n found for d = 3, 4). |
+| p. 81, Sec. 4.1 | "For the rest of this chapter, we will not assume that the bubble condition holds. We will not be able to prove that the mass is 0 at z_c, but we will show that the mass decreases to 0 as z approaches z_c from the left." | Same as p. 15 row. |
+| p. 172, Sec. 6.1 | "A corollary of (a) is that lim c_{n+1}/c_n = mu [...]. This is believed to be true in all dimensions, but remains unproved for d = 2, 3, 4." | Yes (BDGS 2012 (1.18); Lazar 2025 also calls it open). |
+
+The book does not contain a quantitative lower bound on <\|omega(N)\|^2> in d = 2, 3, 4 (Madras 2014 says his bound
+is the only one).
+
 ## 1. Madras, Canad. Math. Bull. 57 (2014) 113-118 (publisher PDF, read in full), Section 1, p. 114
 
 > "While equation (1.1) is undoubtedly true, it has not yet been proven in every dimension. [...] However, a proof of
@@ -141,10 +166,8 @@ apparent reason that the exponents should be rational."
 
 ## 11. Sources requested but not read
 
-- Madras-Slade, The Self-Avoiding Walk (Birkhauser 1993; Modern Birkhauser Classics 2013), doi:10.1007/978-1-4614-6025-1:
-  its open-problem statements (introduction, Section 1.4 and the notes) are NOT quoted here because I could not read
-  the book (paywalled; listed in NEEDS.md). DCH (item 3) says the question of a non-trivial upper bound "is raised in the
-  introduction of [19]" (= Madras-Slade).
+- Madras-Slade: now quoted in item 0 from owner-supplied excerpts (pp. 5-19, 30-37, 57-117, 171-174 read). Chapters
+  not supplied (2, 5, 7-10) were not read.
 - Slade, The self-avoiding walk: a brief survey (Surveys in Stochastic Processes, EMS 2011): not found on arXiv, not
   read.
 

@@ -50,7 +50,7 @@ is open, Madras 2014 p. 114, BDGS (1.30), DCH Question 4), E_n|omega_n|^2 <= C n
 |---|---|---|---|---|
 | C1 | mu^n <= c_n for all n. | Z^d | submultiplicativity; e.g. BDGS (1.25), Slade 2019 | standard, read |
 | C2 | Hammersley-Welsh: if gamma > pi sqrt(2/3) there is n_0(gamma) independent of d with 0 <= kappa(n) - kappa < gamma n^{-1/2} + n^{-1} log d (n >= n_0), where c_n = e^{n kappa(n)}, kappa = log mu; i.e. c_n <= d mu^n e^{gamma sqrt n}. (BDGS Thm 2.6 form: for B > pi(2/3)^{1/2}, n >= n_0(B) independent of d: c_n <= b_{n+1} e^{B sqrt n} <= mu^{n+1} e^{B sqrt n}.) | Z^d, d >= 2 | Hammersley-Welsh, Quart. J. Math. 13 (1962) 108-110, **Theorem** (eq. (3)); BDGS lectures Thm 2.6 | Read in full (owner-supplied scan, 3 pages) and BDGS proof read |
-| C3 | **Kesten (best in d = 3)**: there exist alpha_6(d), alpha_7(d) with beta_d^n <= chi_n(d) <= exp(alpha_6 n^{2/(d+2)} log n) beta_d^n (1.8), and exp(-alpha_7 n^{2/(d+1)} log n) beta_d^{2n-1} <= gamma_{2n-1}(d) <= 4(d-1) n beta_d^{2n-1} (1.9) [chi_n = c_n, beta_d = mu, gamma_{2n-1} = number of closing walks of 2n-1 steps]. Kesten: "The right-hand side of (1.8) improves (1.6) [Hammersley-Welsh] for all d >= 3." In d = 3: **c_n <= mu^n exp(C n^{2/5} log n)**. Caveat: Kesten writes "it does not seem worthwhile to give more than an indication of the proof of Theorem 2" (proof only sketched in Sect. 4); Madras-Slade Section 3.3 reportedly gives a proof (per Hutchcroft; book not read). | Z^d; useful for d >= 3 | Kesten, J. Math. Phys. 5 (1964) 1128-1137, **Theorem 2**, doi:10.1063/1.1704216 | Read: statements and intro from owner-supplied scan (page images checked) |
+| C3 | **Kesten (best in d = 3)**: there exist alpha_6(d), alpha_7(d) with beta_d^n <= chi_n(d) <= exp(alpha_6 n^{2/(d+2)} log n) beta_d^n (1.8), and exp(-alpha_7 n^{2/(d+1)} log n) beta_d^{2n-1} <= gamma_{2n-1}(d) <= 4(d-1) n beta_d^{2n-1} (1.9) [chi_n = c_n, beta_d = mu, gamma_{2n-1} = number of closing walks of 2n-1 steps]. Kesten: "The right-hand side of (1.8) improves (1.6) [Hammersley-Welsh] for all d >= 3." In d = 3: **c_n <= mu^n exp(C n^{2/5} log n)**. Kesten only sketched the proof ("it does not seem worthwhile to give more than an indication of the proof of Theorem 2"); a **full proof is in Madras-Slade, Theorem 3.3.1** (p. 68: "Let d >= 2. Then there exists a constant Q, depending only on d, such that for every N >= 2, c_N <= mu^N exp[Q N^{2/(d+2)} log N]"; proof due to Kesten, private communication; read: statement and pp. 68-70 of the owner-supplied excerpt). | Z^d; useful for d >= 3 | Kesten, J. Math. Phys. 5 (1964) 1128-1137, **Theorem 2**, doi:10.1063/1.1704216 | Read: statements and intro from owner-supplied scan (page images checked) |
 | C4 | Kesten ratio limit: |c_{n+2}/c_n - mu^2| <= A_3 n^{-1/3} (Theorem 4, eq. (3.8)/(1.6)); -A_4 n^{-1/3} <= gamma_{2n+3}/gamma_{2n+1} - mu^2 <= A_5 n^{-1/4} (3.9). Pattern theorem = Theorem 1 (lim sup [chi_n(an,(C,D))/chi_n]^{1/n} < 1). Also e^{-alpha_4 n^{1/2}} beta^n <= gamma_n (1.3). | Z^d, d >= 2 | Kesten, J. Math. Phys. 4 (1963) 960-969, doi:10.1063/1.1704022 | Read: Sections 1-3 statements from owner-supplied scan (page images checked for exponents) |
 | C5 | Kesten 1964 Corollary 2 (stated without proof): -A_6 (log n)^{(d+1)/2d} n^{-(d-1)/2d} <= c_{n+2}/c_n - mu^2 <= A_7 (log n)^{(d+2)/(2d+2)} n^{-d/(2d+2)} (1.10). | Z^d | Kesten 1964, Corollary 2 | as C3 |
 | C6 | Hutchcroft: c_n <= exp(o(n^{1/2})) mu^n (Theorem 1.2, a corollary of DCH). Theorem 1.4/Corollary 1.5: **any quantitative DCH bridge estimate improves HW**: if phi(eps) = C eps^nu (nu > 1) satisfies A2', then c_n <= exp(O(n^{(nu-1)/(2nu-1)})) mu^n; also B((1-eps) z_c) = O(eps^{(1-nu)/nu}) (Remark 1.6). | Z^d, d >= 2 | Hutchcroft, Electron. Commun. Probab. 23 (2018) 1-8, doi:10.1214/17-ECP94 | Read in full (arXiv:1708.09460v3) |
@@ -64,8 +64,16 @@ is open, Madras 2014 p. 114, BDGS (1.30), DCH Question 4), E_n|omega_n|^2 <= C n
 - Chayes-Chayes, CMP 105 (1986) 221-238 (owner-supplied, read Sections 1-3): for z < z_c, point-to-plane function
   G_L(z) satisfies e^{-m(z)L} <= G_L(z) <= chi(z)^2 e^{-m(z)L} (Prop. 3.2), Ornstein-Zernike decay, m real analytic on
   z < z_c; m(z) -> 0 as z -> z_c (remark after Prop. 3.2, via their ref. [23]). **No rate for m(z) -> 0 is given.**
-- No rigorous power-law bound on the correlation length exponent for strict SAW in d = 2, 3, 4 found yet in the
-  sources read (Madras-Slade book not available; requested).
+- Madras-Slade Ch. 4 (owner-supplied, read pp. 77-117 statements): m(z) concave in log z, strictly decreasing on
+  (0, z_c), m(z) = bridge mass M(z) for z < z_c (Thm 4.1.14), lim_{z->z_c} m(z) = 0 (Cor 4.1.15), and the bridge mass at
+  criticality is 0: M(z_c) = 0 (Thm 4.1.13) with lim_L -(1/L) log B_z(L) = M(z) for every z > 0 (Cor 4.4.3), so
+  **e^{-o(L)} <= B_{z_c}(L) <= 1** for the critical point-to-plane bridge generating function; irreducible-bridge mass
+  m_A(z_c) = 0 (Cor 4.4.4); Cor 4.1.17 = the Chayes-Chayes bound above. B_{z_c}(L) -> 0 is NOT stated (and not found
+  elsewhere for Z^d).
+- Open per Madras-Slade (p. 15, p. 18), no later proof found: m(z_c) = 0 in d = 2, 3, 4 ("a negative mass at the critical
+  point has not yet been ruled out"); finiteness of the critical two-point function G_{z_c}(0, x) for any x != 0.
+- No rigorous power-law bound on the correlation-length exponent for strict SAW in d = 2, 3, 4 found (MS only define it,
+  (1.3.17), and relate it heuristically to nu, Sec. 2.1).
 
 ## One-line summary for solvers
 

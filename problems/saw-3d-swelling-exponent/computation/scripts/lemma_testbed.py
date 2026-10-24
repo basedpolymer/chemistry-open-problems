@@ -288,6 +288,34 @@ def main():
     print("     NUMERICS sup_x P_n(w_{n/2} = x) * n^{3 nu}:",
           " ".join("%d:%.4f" % (n, fl(mp[n]) * n ** (3 * 0.587597)) for n in range(2, N + 1)))
 
+    print()
+    print("## F. Sup-norm and large deviations of the endpoint (exact, n <= %d)" % N)
+
+    def dist_points(n):
+        for (a, b, cc), (Ns, orb) in D.A[n].items():
+            yield (a, b, cc), Ns
+    Einf = {n: F(sum(Ns * a * a for (a, b, cc), Ns in dist_points(n)), D.c[n]) for n in range(1, N + 1)}
+    scan("F1 E_n ||w_n||_inf^2 >= n^{2/3} (would be the 'nu >= 1/d' rate for the endpoint)", range(1, N + 1),
+         lambda n: None if Einf[n] ** 3 >= n * n else "%.4f" % fl(Einf[n]))
+    print("     E_n||w_n||_inf^2 / n^{2/3}:", " ".join("%d:%.4f" % (n, fl(Einf[n]) / n ** (2 / 3)) for n in range(1, N + 1)))
+    print("     E_n||w_n||_inf^2 / E_n:", " ".join("%d:%.4f" % (n, fl(Einf[n] / E[n])) for n in range(1, N + 1)))
+    scan("F2 E_n||w_n||_inf^2 / n nondecreasing", range(1, N),
+         lambda n: None if Einf[n + 1] / (n + 1) >= Einf[n] / n else "")
+    print("     NUMERICS large deviations: -(1/n) log P_n(|w_n|_1 >= v n), at the largest n of each parity:")
+    for v in (0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9):
+        vals = []
+        for n in (N - 3, N - 2, N - 1, N):
+            pr = F(sum(Ns for (a, b, cc), Ns in dist_points(n) if a + b + cc >= v * n), D.c[n])
+            vals.append("%d:%.4f" % (n, -math.log(pr) / n if pr > 0 else float("inf")))
+        print("       v=%.1f  %s" % (v, " ".join(vals)))
+    print("     NUMERICS -(1/n) log P_n(|w_n|_2 >= v n):")
+    for v in (0.3, 0.4, 0.5, 0.6, 0.7):
+        vals = []
+        for n in (N - 3, N - 2, N - 1, N):
+            pr = F(sum(Ns for (a, b, cc), Ns in dist_points(n) if a * a + b * b + cc * cc >= v * v * n * n), D.c[n])
+            vals.append("%d:%.4f" % (n, -math.log(pr) / n if pr > 0 else float("inf")))
+        print("       v=%.1f  %s" % (v, " ".join(vals)))
+
     if gram_path:
         gram_section(gram_path)
 
@@ -337,6 +365,10 @@ def gram_section(path):
           " ".join("%d:%d" % (n, sum(1 for t in neg if t[0] == n)) for n in range(1, Ng + 1)))
     if neg:
         print("     negative (n,i,j) for the largest n: %s" % [t[1:] for t in neg if t[0] == Ng][:40])
+    print("     min_{i<j} E_n[s_i . s_j] and its location (i,j):")
+    for n in range(3, Ng + 1):
+        v, i, j = min((F(corr(n, i, j), cn[n]), i, j) for i in range(1, n + 1) for j in range(i + 1, n + 1))
+        print("       n=%2d: %.3e at (%d,%d)" % (n, float(v), i, j))
 
     def rowsum(n):  # sum_j E[s_i.s_j] >= 0 for each i  (=> E|w_n|^2 >= ... )
         for i in range(1, n + 1):
