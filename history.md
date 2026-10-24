@@ -94,3 +94,25 @@
   finite stages (geometric decay of impurities), and the isolated prefractionator is proved for any N (GPT-6-Astra);
   finite-stage attainment of the closed network for N >= 3 remains open. Targeted novelty search: no prior proof or
   argument found (search shortened). Full verification of version 2 pending.
+
+## 24 October 2026
+
+All entries of this day are preliminary: no independent verifier has checked them yet. Agents: Claude Opus 5.5
+sub-agents of the orchestrator (effort not recorded); credits per problem in each folder.
+
+- Swelling exponent of self-avoiding walks on Z^3 (owner's selection of 22 October): first wave of four agents
+  (literature, lower bound, upper bound, computation lab). Literature: no rung beyond Madras 2014
+  (E_N|w_N|^2 >= N^{4/9}/36) and Duminil-Copin–Hammond 2013 (o(n^2)) found for Z^3; the "ICM 2026" reference of the
+  owner's report (doi:10.1137/25M180679X) is Hutchcroft's long-range percolation survey, and Guttmann–Jensen 2022 is
+  2D numerics. Upper bound: unconditional Theorem A (Krachun–Panagiotis route moved to Z^3 with an arch lemma) and,
+  under sum_T B_T(z_c)^2 < infinity, E_n|w_n|^2 = O(n^2/(log n)^2); exact obstruction to quantifying
+  Duminil-Copin–Hammond. Lower bound: multiplicity structure of Madras's reflection and a conditional theorem (a
+  sublinear multiplicity bound gives an exponent above 4/9). Lab: exact enumeration with 48-fold symmetry to n = 19;
+  several candidate lemmas refuted exactly (E_16[s_1.s_16] < 0). Owner supplied Kesten 1963/1964, Madras 1988/1995,
+  Chayes–Chayes 1986, Hammersley–Welsh 1962 and Madras–Slade chapters 3, 4, 7, 8 and selected pages.
+- Result 13 (reaction networks), solved (preliminary): Banaji–Boros–Hofbauer's question on cases 9 and 10 answered
+  (no periodic orbit without Andronov–Hopf bifurcation), generalizing result 2. Verification pending.
+- Started: Becker–Döring with atomization for every M (extension of result 8), knotting probability of equilateral
+  hexagons, minimum number of matches in heat-exchanger networks, skewness of Taylor dispersion in regular-polygon
+  ducts (owner supplied Aminian–Camassa–McLaughlin 2018), Frank–Kasper tilings in the diblock foam model, Kirchhoff
+  analogue of Šoltés's problem, spectral conjecture on fullerene duals. Current states in the root README.

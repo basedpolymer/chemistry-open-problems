@@ -146,11 +146,20 @@ def _exp_tail(shift, poly):
             return arb("inf")
         return 2 * r ** n * r.exp() * poly(n) / _fac(n + shift)
     return tb
+def _far(b):
+    """use the closed form when the ball b stays away from 0 (|b| >= 1)"""
+    return arb(acb(b).abs_lower()) >= 1
 def _Ex_val(b):
+    if _far(b):
+        return acb(b).expm1() / b
     return _series_eval(lambda k: 1 / _fac(k + 1), b, _exp_tail(1, lambda n: arb(1)))
 def _Ex1_val(b):
+    if _far(b):
+        b = acb(b); eb = b.exp(); return (1 - eb + b * eb) / (b * b)
     return _series_eval(lambda k: arb(k + 1) / _fac(k + 2), b, _exp_tail(2, lambda n: arb(n + 1)))
 def _Ex2_val(b):
+    if _far(b):
+        b = acb(b); eb = b.exp(); return (eb * (b * b - 2 * b + 2) - 2) / (b * b * b)
     return _series_eval(lambda k: arb((k + 1) * (k + 2)) / _fac(k + 3), b, _exp_tail(3, lambda n: arb((n + 1) * (n + 2))))
 
 def _wrap(fval, fder):

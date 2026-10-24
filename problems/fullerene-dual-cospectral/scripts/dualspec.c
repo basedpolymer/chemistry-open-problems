@@ -64,7 +64,7 @@ typedef uint32_t wt;   /* traces mod 2^32 (still a ring homomorphism Z -> Z/2^32
 #else
 typedef uint64_t wt;   /* traces mod 2^64 */
 #endif
-static wt X[MAXM][MAXM] __attribute__((aligned(64))), Y[MAXM][MAXM] __attribute__((aligned(64)));
+static wt BUF1[MAXM][MAXM] __attribute__((aligned(64))), BUF2[MAXM][MAXM] __attribute__((aligned(64)));
 
 static void traces(int k, const int *verts, const u64 *dd, u64 a, int K, u64 *t) {
     /* local relabelling of the induced subgraph */
@@ -80,37 +80,41 @@ static void traces(int k, const int *verts, const u64 *dd, u64 a, int K, u64 *t)
             if (w >= 0) ladj[i][ldeg[i]++] = w;
         }
     }
+    /* rows are padded with zero columns up to kp (a multiple of 16); the padding stays zero */
+    int kp = (k + 15) & ~15;
+    if (kp > MAXM) kp = MAXM;
+    wt (*X)[MAXM] = BUF1, (*Y)[MAXM] = BUF2;
     for (int i = 0; i < k; i++) {
-        memset(X[i], 0, sizeof(wt) * k);
+        memset(X[i], 0, sizeof(wt) * kp);
         X[i][i] = 1;
     }
     /* t[1..K]; t[0] = k */
     t[0] = (u64)k;
     int steps = (K + 1) / 2;
+    const wt aa = (wt)a;
     for (int s = 0; s < steps; s++) {
-        /* Y = M X */
+        /* Y = M X  (M = a*A + diag(dd), symmetric) */
         for (int u = 0; u < k; u++) {
-            wt *yu = Y[u];
-            const wt *xu = X[u];
+            wt *restrict yu = Y[u];
+            const wt *restrict xu = X[u];
             wt d = (wt)dd[u];
-            wt aa = (wt)a;
-            for (int c = 0; c < k; c++) yu[c] = d * xu[c];
+            if (d == 0) { for (int c = 0; c < kp; c++) yu[c] = 0; }
+            else { for (int c = 0; c < kp; c++) yu[c] = d * xu[c]; }
             for (int j = 0; j < ldeg[u]; j++) {
-                const wt *xw = X[ladj[u][j]];
-                if (a == 1) { for (int c = 0; c < k; c++) yu[c] += xw[c]; }
-                else { for (int c = 0; c < k; c++) yu[c] += aa * xw[c]; }
+                const wt *restrict xw = X[ladj[u][j]];
+                if (a == 1) { for (int c = 0; c < kp; c++) yu[c] += xw[c]; }
+                else { for (int c = 0; c < kp; c++) yu[c] += aa * xw[c]; }
             }
         }
-        /* X = M^s, Y = M^{s+1}: tr(M^{2s}) = sum X^2 (already have if s>0), tr(M^{2s+1}) = sum X.*Y,
-           tr(M^{2s+2}) = sum Y.*Y */
+        /* X = M^s, Y = M^{s+1} (both symmetric): tr(M^{2s+1}) = sum X.*Y, tr(M^{2s+2}) = sum Y.*Y */
         wt s1 = 0, s2 = 0;
         for (int u = 0; u < k; u++) {
-            const wt *xu = X[u], *yu = Y[u];
-            for (int c = 0; c < k; c++) { s1 += xu[c] * yu[c]; s2 += yu[c] * yu[c]; }
+            const wt *restrict xu = X[u], *restrict yu = Y[u];
+            for (int c = 0; c < kp; c++) { s1 += xu[c] * yu[c]; s2 += yu[c] * yu[c]; }
         }
         if (2 * s + 1 <= K) t[2 * s + 1] = (u64)s1;
         if (2 * s + 2 <= K) t[2 * s + 2] = (u64)s2;
-        for (int u = 0; u < k; u++) memcpy(X[u], Y[u], sizeof(wt) * k);
+        wt (*tmp)[MAXM] = X; X = Y; Y = tmp;
     }
 }
 

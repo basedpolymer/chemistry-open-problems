@@ -1,0 +1,17 @@
+alltrans16_k=00.gz graphs_read 1 unparsable 0 n<3 0 disconnected 1 rejected 0 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=01.gz graphs_read 1 unparsable 0 n<3 0 disconnected 1 rejected 0 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=02.gz graphs_read 3 unparsable 0 n<3 0 disconnected 2 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=03.gz graphs_read 7 unparsable 0 n<3 0 disconnected 3 rejected 4 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=04.gz graphs_read 16 unparsable 0 n<3 0 disconnected 3 rejected 13 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=05.gz graphs_read 27 unparsable 0 n<3 0 disconnected 2 rejected 25 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=06.gz graphs_read 40 unparsable 0 n<3 0 disconnected 1 rejected 39 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=07.gz graphs_read 48 unparsable 0 n<3 0 disconnected 1 rejected 47 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=08.gz graphs_read 48 unparsable 0 n<3 0 disconnected 0 rejected 48 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=09.gz graphs_read 40 unparsable 0 n<3 0 disconnected 0 rejected 40 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=10.gz graphs_read 27 unparsable 0 n<3 0 disconnected 0 rejected 27 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=11.gz graphs_read 16 unparsable 0 n<3 0 disconnected 0 rejected 16 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=12.gz graphs_read 7 unparsable 0 n<3 0 disconnected 0 rejected 7 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=13.gz graphs_read 3 unparsable 0 n<3 0 disconnected 0 rejected 3 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=14.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans16_k=15.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+elapsed_seconds 1

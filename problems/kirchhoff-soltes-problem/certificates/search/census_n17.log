@@ -1,0 +1,10 @@
+alltrans17_k=00.gz graphs_read 1 unparsable 0 n<3 0 disconnected 1 rejected 0 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=02.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=04.gz graphs_read 4 unparsable 0 n<3 0 disconnected 0 rejected 4 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=06.gz graphs_read 7 unparsable 0 n<3 0 disconnected 0 rejected 7 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=08.gz graphs_read 10 unparsable 0 n<3 0 disconnected 0 rejected 10 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=10.gz graphs_read 7 unparsable 0 n<3 0 disconnected 0 rejected 7 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=12.gz graphs_read 4 unparsable 0 n<3 0 disconnected 0 rejected 4 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=14.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans17_k=16.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+elapsed_seconds 0

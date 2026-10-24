@@ -170,3 +170,70 @@ def relax(M, mode="full", maxiter=20000, gtol=1e-12, maxcor=30, stall_window=200
     if verbose:
         print(info)
     return info
+
+
+def _neighbours(M):
+    """neighbour lists for tangential smoothing: interior vertices -> all mesh
+    neighbours (within their face); foam-edge vertices -> the two neighbours along
+    the foam edge.  Neighbour references carry shifts relative to the vertex."""
+    nv = len(M.X)
+    nb = [dict() for _ in range(nv)]
+    for t in range(len(M.tri)):
+        for k in range(3):
+            a = M.tri[t, k]
+            if M.vtype[a] != 2:
+                continue
+            for kk in (1, 2):
+                b = M.tri[t, (k + kk) % 3]
+                d = tuple(M.tsh[t, (k + kk) % 3] - M.tsh[t, k])
+                nb[a][(b, d)] = 1
+    for loop in M.fbnd:
+        m = len(loop)
+        for k in range(m):
+            a, sa = loop[k]
+            if M.vtype[a] != 1:
+                continue
+            for kk in (-1, 1):
+                b, sb = loop[(k + kk) % m]
+                d = tuple(np.array(sb) - np.array(sa))
+                nb[a][(b, d)] = 1
+    idx, sh, ptr = [], [], [0]
+    for v in range(nv):
+        for (b, d) in nb[v]:
+            idx.append(b); sh.append(d)
+        ptr.append(len(idx))
+    return np.array(idx, dtype=np.int64), np.array(sh, dtype=np.int64).reshape(-1, 3), np.array(ptr, dtype=np.int64)
+
+
+def smooth_tangential(M, sweeps=3, omega=0.5):
+    """Laplacian smoothing projected on the tangent plane (interior vertices) or
+    on the edge tangent (foam-edge vertices).  Foam vertices are not moved."""
+    idx, sh, ptr = _neighbours(M)
+    for _ in range(sweeps):
+        start, cnt, dirs = restricted_basis(M)
+        X = M.X
+        Xn = X.copy()
+        nbpos = X[idx] + sh @ M.L.T
+        for v in range(len(X)):
+            ty = M.vtype[v]
+            if ty == 0:
+                continue
+            avg = nbpos[ptr[v]:ptr[v + 1]].mean(axis=0)
+            d = avg - X[v]
+            if ty == 2:
+                n = dirs[v, 0]
+                d = d - (d @ n) * n
+            else:
+                t = np.cross(dirs[v, 0], dirs[v, 1])
+                d = (d @ t) * t
+            Xn[v] = X[v] + omega * d
+        M.X = Xn
+
+
+def relax_cycles(M, cycles=3, sweeps=3, **kw):
+    infos = []
+    for c in range(cycles):
+        infos.append(relax(M, mode="restricted", **kw))
+        if c < cycles - 1:
+            smooth_tangential(M, sweeps=sweeps)
+    return infos

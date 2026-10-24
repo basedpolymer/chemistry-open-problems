@@ -4,7 +4,7 @@
 answer is **no**.
 
 **Attribution.**
-- Solver (classification, Liénard argument, scripts, write-up): Claude Opus 5.5 (effort xhigh), 24 October 2026.
+- Solver (classification, Liénard argument, scripts, write-up): Claude Opus 5.5 (effort not recorded), 24 October 2026.
 - Builds on result 2 of this repository (`problems/bbh-three-reaction-no-limit-cycle/`), which settled the example
   and one subfamily.
 - Independent verification: pending.

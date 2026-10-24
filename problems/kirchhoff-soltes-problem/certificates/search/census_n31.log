@@ -1,0 +1,17 @@
+alltrans31_k=00.gz graphs_read 1 unparsable 0 n<3 0 disconnected 1 rejected 0 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=02.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=04.gz graphs_read 7 unparsable 0 n<3 0 disconnected 0 rejected 7 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=06.gz graphs_read 31 unparsable 0 n<3 0 disconnected 0 rejected 31 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=08.gz graphs_read 91 unparsable 0 n<3 0 disconnected 0 rejected 91 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=10.gz graphs_read 201 unparsable 0 n<3 0 disconnected 0 rejected 201 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=12.gz graphs_read 335 unparsable 0 n<3 0 disconnected 0 rejected 335 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=14.gz graphs_read 429 unparsable 0 n<3 0 disconnected 0 rejected 429 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=16.gz graphs_read 429 unparsable 0 n<3 0 disconnected 0 rejected 429 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=18.gz graphs_read 335 unparsable 0 n<3 0 disconnected 0 rejected 335 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=20.gz graphs_read 201 unparsable 0 n<3 0 disconnected 0 rejected 201 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=22.gz graphs_read 91 unparsable 0 n<3 0 disconnected 0 rejected 91 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=24.gz graphs_read 31 unparsable 0 n<3 0 disconnected 0 rejected 31 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=26.gz graphs_read 7 unparsable 0 n<3 0 disconnected 0 rejected 7 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=28.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans31_k=30.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+elapsed_seconds 0
