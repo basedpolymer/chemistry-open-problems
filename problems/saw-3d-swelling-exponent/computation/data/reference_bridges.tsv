@@ -1,0 +1,37 @@
+# Bridges and half-space walks on Z^3 (reference values).
+#  b_n : n-step bridges, 0 = x1(w_0) < x1(w_i) <= x1(w_n) for 0 < i <= n, n = 1..28: Clisby, Conway, Guttmann,
+#        "Three-dimensional terminally attached self-avoiding walks and bridges", J. Phys. A 49 (2016) 015004,
+#        arXiv:1504.02085, Table 6 ("Bridges" column; same convention, their Sec. 1; they set b_0 = 0, we use b_0 = 1).
+#  t_n : terminally attached walks (z(i) >= 0 for all i), n = 0..26: OEIS A116904 (Guttmann-Torrie / CCG 2016 Table 6;
+#        the arXiv version of Table 6 has typos at n = 11, 12, per the OEIS entry; we take OEIS).
+#        Relation with our strict half-space walks: h_{n+1} = t_n.
+# columns: n  b_n  t_n
+0	1	1
+1	1	5
+2	5	21
+3	21	93
+4	89	409
+5	369	1853
+6	1553	8333
+7	6573	37965
+8	28197	172265
+9	122093	787557
+10	533369	3593465
+11	2345429	16477845
+12	10366677	75481105
+13	46013585	346960613
+14	204927833	1593924045
+15	915448621	7341070889
+16	4100092693	33798930541
+17	18407472565	155915787353
+18	82815889677	719101961769
+19	373321398437	3321659652529
+20	1685838489629	15341586477457
+21	7625255897889	70944927549085
+22	34541044018277	328054694768261
+23	156678876463321	1518490945278377
+24	711593257794069	7028570356547189
+25	3235634079777801	32560476643826933
+26	14728414578753489	150838831585499069
+27	67110197685388181	-
+28	306074586987649389	-
