@@ -19,6 +19,10 @@ for n in "$@"; do
   sha256sum "$tarf" >> "$SRC/sha256.txt"
   export CENSUS_LOG="$here/certificates/search/census_n$n.log" CENSUS_OUT="$here/certificates/search/census_n$n.out"
   : > "$CENSUS_LOG"; : > "$CENSUS_OUT"
+  # compare with the md5 published by Zenodo (certificates/search/zenodo_4010122_md5.txt)
+  want=$(awk -v f="alltrans$n.tar" '$2==f {print $1}' certificates/search/zenodo_4010122_md5.txt)
+  have=$(md5sum "$tarf" | awk '{print $1}')
+  if [ "$want" = "$have" ]; then echo "md5 OK $have" >> "$CENSUS_LOG"; else echo "md5 MISMATCH have=$have want=$want" >> "$CENSUS_LOG"; fi
   start=$(date +%s)
   nice -n 10 tar -xf "$tarf" --warning=no-unknown-keyword --to-command="$here/scripts/census_member.sh"
   echo "elapsed_seconds $(( $(date +%s)-start ))" >> "$CENSUS_LOG"

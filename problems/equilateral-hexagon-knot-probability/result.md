@@ -185,6 +185,14 @@ For each box D and level Lθ (n = 2^{Lθ} cells per angle on (0,π)):
    (mean value theorem in θ and in d; H = [−π/2^{Lθ+1}, π/2^{Lθ+1}]). The values cos, sin at the grid points
    kπ/2^{14} are enclosures computed with mpmath at 60 digits and rounded outward (`scripts/make_trig_table.py`);
    on a cell of [0,π] cos is monotone and sin is monotone on each half, so cell ranges come from the endpoints.
+   Two exact algebraic simplifications are applied before evaluating: (i) a determinant whose four vertices are
+   v1, v3, v5 and one apex v_{2k} equals ±d1·q·h_k·sin θ_k (the sign being the parity of the vertex order), hence has
+   a known strict sign on int(P) × (0,π)³ and is not evaluated; (ii) a determinant containing a whole flap triangle
+   {v_{2k−1}, v_{2k}, v_{2k+1}} equals h_k times the determinant in which the row of v_{2k} is replaced by
+   (0, cos θ_k n_k + sin θ_k e_z) (the midpoint part vanishes since m_k lies on the line v_{2k−1}v_{2k+1}); as
+   h_k > 0 on int(P), the reduced determinant has the same sign. Both remove spurious degeneracies of the enclosures
+   at the faces d_k = 2 and at the flat-central-triangle face d1 = d2 + d3. Finally the components of the unit
+   vectors n2, n3 are intersected with [−1, 1].
 3. **Status.** A condition is *certified true* on D × cell if the sign pattern of Section 1.2 holds with all five
    enclosures strictly signed, *certified false* if the first two enclosures have the same strict sign or two of
    the last three have strictly opposite signs, *unknown* otherwise. A quadtree on each angle pair refines unknown
@@ -195,7 +203,10 @@ For each box D and level Lθ (n = 2^{Lθ} cells per angle on (0,π)):
    outR, outL (outer, for R and L) bound the cells that may contain points of R, L; by Prop. 3.2 the knotted set
    of D × (0,π)³ is covered.
 5. **Knottedness of inner cells.** The certified R-cells (resp. L-cells) of D are split into face-connected
-   components (union–find on runs). For each component, at the centre of D and of one of its cells, the six
+   components (union–find on runs). Because of the simplifications (i), (ii), the strict signs are certified for the
+   true determinants on (D ∩ int P) × (Θ ∩ (0,π)³) for every certified cell Θ; these sets are convex, and two
+   face-adjacent cells give sets whose union is path-connected (the common face meets int P × (0,π)³), so each
+   component is a path-connected set of embedded hexagons (Prop. 3.3). For each component, at the centre of D and of one of its cells, the six
    vertices are enclosed by intervals, the xy-projection is checked to be regular with certified signs (all
    segment-intersection orientations, height differences at crossings and orders of crossings along edges
    strictly decided), and the Fox 3-colouring matrix is reduced exactly mod 3. If the count is 9, all cells of

@@ -161,9 +161,72 @@ lowers 𝓕 by 4×10⁻⁶ (σ, relaxed a/c = 1.909), 2×10⁻⁴ (Z, c/a 0.9935
 within 5×10⁻⁴ of σ's; level 4 for those within 3×10⁻⁴. Results: `data/dfm_screen_boxrelaxed.csv`
 (`scripts/make_tables.py`), with all level values (each an exact upper bound for its topology at the relaxed box).
 
-### 4.4 Results
+### 4.4 Results (box relaxed)
 
-*(completed at the end of the runs)*
+All 121 catalogue structures plus P, M (not in the catalogue) and BCC were relaxed; the complete table is
+`data/dfm_screen_boxrelaxed.csv` and README.md. Leading structures (𝓕_L is an exact upper bound for that topology
+in the relaxed box; extrapolated values with the heuristic error of §2; relative difference to σ):
+
+| structure | group, cells | Z12/14/15/16 | L | 𝓕_L | 𝓕 extrapolated | Δ vs σ | 𝒜 | ℐ | V_rms/V₀ |
+|---|---|---|---|---|---|---|---|---|---|
+| **σ** (Phys26) | P4₂/mnm, 30 | 10/16/4/0 | 4 | 1.068575909 | 1.0685748 ± 1×10⁻⁷ | 0 | 1.090482 | 1.026074 | 0.097 |
+| **E11** (new) | I4₁/amd, 44 | 16/20/8/0 | 4 | 1.068809869 | 1.0688088 ± 1×10⁻⁷ | +0.0219% | 1.089788 | 1.028056 | 0.115 |
+| H (Phys25) | Cmmm, 30 | 10/16/4/0 | 4 | 1.068810390 | 1.0688092 ± 1×10⁻⁷ | +0.0219% | 1.090394 | 1.026917 | 0.102 |
+| μ (Phys14) | R3̄m, 39 | 21/6/6/6 | 4 | 1.068839594 | 1.0688388 ± 1×10⁻⁷ | +0.0247% | 1.087001 | 1.033423 | 0.167 |
+| zra-d K₇Cs₆ (Phys12) | P6₃/mmc, 26 | 14/4/4/4 | 4 | 1.068840461 | 1.0688396 ± 1×10⁻⁷ | +0.0248% | 1.086999 | 1.033429 | 0.167 |
+| **N56** (new) | I4₁/amd, 76 | 24/44/8/0 | 4 | 1.068869452 | 1.0688683 ± 1×10⁻⁷ | +0.0275% | 1.090757 | 1.026403 | 0.093 |
+| P | Pnma, 56 | 24/20/8/4 | 4 | 1.068875254 | 1.0688742 ± 1×10⁻⁷ | +0.0281% | 1.089004 | 1.029727 | 0.133 |
+| N16 / N27 (new) | P6₃/mmc 40 / R3̄m 60 | 20/8/8/4 | 3 | 1.06892318 | 1.0689197 ± 6×10⁻⁷ | +0.0323% | 1.087445 | 1.032820 | 0.160 |
+| M | Pnma, 52 | 28/8/8/8 | 3 | 1.06892324 | 1.0689199 ± 5×10⁻⁷ | +0.0323% | 1.087130 | 1.033420 | 0.166 |
+| N53 (new) | P4₂/mmc, 36 | 14/14/8/0 | 3 | 1.06894210 | 1.0689380 ± 7×10⁻⁷ | +0.0340% | 1.089248 | 1.029458 | 0.128 |
+| N03, N02 (new) | P6₃/mmc 38, P6̄m2 19 | 22/4/4/8 | 3 | 1.0689494, 1.0689501 | 1.0689463, 1.0689471 | +0.035% | 1.08655 | 1.03460 | 0.174 |
+| N09, N04 (new) | R3̄m 57, P6₃/mmc 38 | 22/4/4/8 | 3 | 1.0689925, 1.0689933 | 1.0689894, 1.0689902 | +0.039% | 1.08649 | 1.03483 | 0.175 |
+| pσ (Phys13) | Pbam, 26 | 14/4/4/4 | 3 | 1.06903229 | 1.0690289 ± 5×10⁻⁷ | +0.0425% | 1.087263 | 1.033482 | 0.166 |
+| A15 (Phys27) | Pm3̄n, 8 | 2/6/0/0 | 4* | 1.06903865 | 1.0690374 ± 1×10⁻⁷ | +0.0434% | 1.091986 | 1.024581 | 0.054 |
+| Z (Phys18) | P6/mmm, 7 | 3/2/2/0 | 3 | 1.06905073 | 1.0690469 ± 6×10⁻⁷ | +0.0442% | 1.088253 | 1.031656 | 0.147 |
+| C14 (Phys01) | P6₃/mmc, 12 | 8/0/0/4 | 3 | 1.06907259 | 1.0690700 ± 4×10⁻⁷ | +0.0463% | 1.085652 | 1.036669 | 0.189 |
+| C15 (Phys02) | Fd3̄m, 24 | 16/0/0/8 | 4* | 1.06924409 | 1.0692434 ± 4×10⁻⁸ | +0.0628% | 1.085412 | 1.037628 | 0.192 |
+| δ (Phys20) | P2₁2₁2₁, 56 | 24/20/8/4 | 2 | 1.06968163 | 1.069665 ± 7×10⁻⁶ | +0.101% | 1.089371 | 1.031364 | 0.139 |
+| BCC | Im3̄m, 2 | — | 4* | 1.07110781 | 1.0711023 ± 7×10⁻⁷ | +0.237% | 1.097266 | 1.020647 | 0 |
+
+(* cubic: the relaxed box is the cubic box; values from the fixed-box runs to level 4.)
+
+**Answer (numerical).** σ remains the DFM minimiser over the whole catalogue (84 + 37 structures) and over the 11
+structures of [1], once every box is relaxed. The runner-up is a tie between the catalogue entry **E11** (never
+considered before) and **H**, 2.34×10⁻⁴ (0.022 %) above σ, followed by μ and zra-d (K₇Cs₆ type, never evaluated in the
+DFM) at +0.025 %, N56 (new) at +0.027 % and P at +0.028 %. The gap σ → E11 is about 2000 times the extrapolation
+uncertainty and 200 times the whole level-4 discretisation correction of σ (𝓕₄ − 𝓕_∞ ≈ 1.1×10⁻⁶); the exact level-4
+upper bound for σ, inf 𝓕 ≤ 1.068575909 (certified, `scripts/certify_upper_bound.py`), is below every extrapolated
+competitor value by more than 2.3×10⁻⁴. No structure falls below σ and none lies within 0.02 % of it (E11 and H lie
+just outside, at 0.0219 %).
+
+**Robustness.** For σ, H, μ, zra-d, N16, N53 and N02 a second relaxation started from a different initial geometry
+(spring re-embedding of the contact graph instead of the catalogue/crystal coordinates) reaches the same level-2 value
+to ≤ 2.3×10⁻¹⁰ (`work/logs/robustness_reembed_L2.log`). The relaxed boxes keep the crystal metric (σ: a/c = 1.909;
+H: b/a = 3.73, c/a = 1.012; E11: c/a = 5.42 for the body-centred conventional cell).
+
+**Box relaxation reorders the structures of [1].** At fixed boxes [1] ranks σ < P < A15 ≈ M < pσ < C14 < H < C15 < Z <
+μ < δ (our fixed-box values: σ < P < M < A15 < pσ < C14 < H < C15 < Z < μ < δ); with relaxed boxes the order is
+σ < H < μ < P < M < pσ < A15 < Z < C14 < C15 < δ: H and μ, which were penalised by the metallic aspect ratios, become
+the closest competitors of σ.
+
+**Polytype families.** Several pairs are degenerate to 10⁻⁶ or better and have identical cell-volume spectra: μ and
+zra-d (8.7×10⁻⁷ apart), N16 and N27 (7×10⁻¹²), N02 and N03, N04 and N09, part-II N12/N21, N10/N11, N20/N24. We
+presume these are stacking variants built from the same layers (as C14/C15/C36 are, whose values differ more, by up
+to 1.7×10⁻⁴), but we have not checked the layer decompositions.
+
+**Frustrated (non-Voronoi) entries.** *(see §4.5)*
+
+### 4.5 Non-Voronoi entries
+
+*(filled at the end of the runs)*
+
+### 4.6 Candidates for SCFT
+
+Ranked by DFM value (all within 0.03 % of σ): **E11** (I4₁/amd, 44 cells per conventional cell, composition
+Z12:Z14:Z15 = 4:5:2, the composition of the J complex Phys22 of [2]; new), **H** (studied as metastable by SCFT at
+χN = 25 in [1]), **μ**, **zra-d / K₇Cs₆** (P6₃/mmc, 26 cells; nearly degenerate with μ, same composition and cell-volume
+spectrum), **N56** (I4₁/amd, 76 cells, new) and **P**. Next (≤ 0.035 %): N16/N27, M, N53, N03/N02. SCFT is out of scope here.
 
 ## References
 

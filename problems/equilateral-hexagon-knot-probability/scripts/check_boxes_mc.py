@@ -38,6 +38,9 @@ BOXES = [  # L1 a1 L2 a2 L3 a3 Lth
     (7, 56, 6, 52, 6, 38, 7), (9, 180, 8, 240, 8, 100, 8), (9, 150, 8, 250, 8, 200, 8),
     (8, 100, 7, 120, 7, 30, 8), (10, 400, 9, 500, 9, 300, 9), (6, 25, 5, 30, 5, 20, 7),
     (5, 0, 4, 0, 4, 0, 6),
+    # boxes touching degenerate faces of the chart (t = 0: flat central triangle; d1 = 2; corner d3 = 0)
+    (8, 100, 7, 100, 7, 0, 8), (8, 80, 7, 120, 7, 0, 8), (9, 511, 8, 200, 8, 100, 8), (8, 120, 7, 127, 7, 0, 8),
+    (8, 90, 7, 0, 7, 64, 8), (9, 300, 8, 255, 8, 255, 9),
 ]
 
 def main():
@@ -47,7 +50,7 @@ def main():
     out = subprocess.run([binp, table, "1"], input=inp, capture_output=True, text=True, check=True).stdout.split("\n")
     ok = True
     for i, b in enumerate(BOXES):
-        f = list(map(int, out[i].split()))
+        f = list(map(int, out[i].split()[:14]))
         Lth, outR, inR, certR, outL, inL, certL = f[1:8]
         n3 = float(8 ** Lth)
         L1, a1, L2, a2, L3, a3, _ = b

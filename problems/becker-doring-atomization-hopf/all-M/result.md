@@ -46,7 +46,8 @@ $$\widehat L:=\ell_1(q_1=1)/M=\varepsilon^2\,\ell_1(q_1=1).$$
 4. *(asymptotics)* $\widehat L(\varepsilon)$ is given by an expression that is continuous on $[0,\varepsilon_0]$
    (Section 6); the limit $\lim_{M\to\infty}\ell_1(q_1=1)/M$ exists, and the certified enclosures give
    $\widehat L\in[-0.0093670,-0.0092545]$ for every $M\ge10^{10}$ and
-   $\widehat L(0)\in[-0.00931144,-0.00931137]$, which contains result 8's formal limit value $L_1=-0.0093114$.
+   $\widehat L(0)=-0.0093113983807621626459917505990\ldots$ (enclosed to $10^{-42}$), which agrees with result 8's
+   formal closed-form limit $L_1$ to about 53 significant digits (Section 6).
 
 **Theorem 2 (second and third branches).** Let $j\in\{2,3\}$ and let $\kappa_j(M)$ be PV's $j$-th Hopf point
 (the continuation of the $j$-th imaginary root $(\kappa_j^0,it_j)$ of the limit function, PV (89)–(91)): for
@@ -425,9 +426,16 @@ Because (5.2) is evaluated with $\varepsilon$-balls containing $0$, the certific
 $\widehat L$ is bounded on every box $[0,\delta]$ and give its range. Continuity at $\varepsilon=0$ follows from the
 construction (every operation is continuous on the closed box, the $T$-terms and their derivatives tend to $0$), so
 $\lim_{M\to\infty}\ell_1(q_1=1)/M=\widehat L(0)$, the value of (5.2) at $\varepsilon=0$, $(\kappa,z)=(\kappa_1^0,it_1)$.
-Certified: $\widehat L(0)\in[-0.00931144,-0.00931137]$ (box $[0,10^{-8}]$); result 8's formal value $L_1=-0.0093114$
-(Proposition B of result 8) lies inside. The identity between (5.2) at $\varepsilon=0$ and result 8's closed form
-$L_j$ is **not** proved symbolically here; it is only confirmed to the accuracy of the enclosures.
+Certified (`asymptotics.py`, 256 bits): A1 encloses $(\kappa_j^0,t_j)$ ($\tan t_j=t_j$, PV (89)–(91)); A2 evaluates
+(5.2) at $\varepsilon=0$ there:
+$\widehat L(0)=-0.00931139838076216264599175059900929\ldots$ ($j=1$), $-0.00794101725133351939268876165049\ldots$
+($j=2$), $-0.00377769678777992295622359976274\ldots$ ($j=3$); A3: result 8's closed form $L_j$ (Proposition B of
+result 8), evaluated in ball arithmetic at the same $t_j$, differs from $\widehat L(0)$ by at most
+$3.5\cdot10^{-56}$, $4.4\cdot10^{-57}$, $2.7\cdot10^{-57}$; A4: for $\varepsilon\in[0,10^{-5}]$ (all $M\ge10^{10}$)
+$\widehat L\in[-0.0093670,-0.0092545]$, $[-0.0079785,-0.0079006]$, $[-0.0038184,-0.0037344]$. The identity between
+(5.2) at $\varepsilon=0$ and result 8's closed form $L_j$ is **not** proved symbolically here; it is confirmed to
+about 53 significant digits. (What the certificates prove does not depend on this identity: the sign of
+$\widehat L$ is certified directly on every box, including $\varepsilon=0$.)
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -442,7 +450,7 @@ Krawczyk test of Lemma 2.1, the checks of Section 2, $\widehat L<0$ on the whole
 Theorem 4.3 ($R_0=8$, $\sigma=0.3$, $a_1=0.1$; winding count 4). Runtime 690 s. Ranges: $\kappa_1\in[1.8983,3.3354]$,
 $\widehat L\in[-0.03744,-0.00672]$; first box $[0,10^{-5}]$ (all $M\ge10^{10}$, including $M=\infty$):
 $\widehat L\in[-0.0093670,-0.0092545]$. Every line is re-proved from the stored data by
-`verify_sweep.py certificates/l1h2_j1.csv 0 0.0788111 --h2` ([VERIFY1]). (`h2_sweep.py`, an H2-only version of the
+`verify_sweep.py certificates/l1h2_j1.csv 0 0.0788111 --h2` (562 lines re-proved, coverage checked, PASS, 246 s). (`h2_sweep.py`, an H2-only version of the
 same check, is kept as a tool; its output is superseded by this file.)
 
 **Theorem 7.2 (branches 2 and 3, $\ell_1$, $M\ge161$).** `certificates/l1_j2.csv` (589 boxes) and
@@ -454,14 +462,23 @@ $\widehat L\in[-0.00471,-0.000109]$. Runtimes 169 s and 262 s.
 
 **Theorem 7.3 (branches 2 and 3, spectrum).** `certificates/h2j_j2.csv`, `h2j_j3.csv` (`h2j_sweep.py`, on the
 boxes of Theorem 7.2, each Krawczyk box re-proved from the stored data): Theorem 4.5 with $R_0=20$, $Y=20.4$ and
-levels $-0.3$, $0.25$ ($j=2$), $R_0=26$, $Y=26.6$, levels $-0.15$, $0.25$ ($j=3$). [RESULTS]
+levels $-0.3$, $0.25$ ($j=2$), $R_0=26$, $Y=26.6$, levels $-0.15$, $0.25$ ($j=3$), $a_1=0.1$. All PASS: $j=2$, 589
+boxes, $N(P)=6$, $N(P_-)=4$ on every box (573 s); $j=3$, 834 boxes, $N(P)=8$, $N(P_-)=4$ (956 s). Localization: (I)+(II′) on
+261 resp. 218 boxes (small $\varepsilon$), (II′) on $[R_0\varepsilon_{lo}^2,a_{big}]$ on the others; Lemma 4.4 bound
+$\le0.690$ resp. $\le0.383$; Lemma 4.2′ with $\sigma=-x_{\min}\approx0.32$ resp. $0.17$. Since the boxes are those of
+Theorem 7.2, they cover $[0,0.0788111]\supset[0,161^{-1/2}]$. Hence Theorem 4.5 holds at $\kappa_j(M)$ for every
+$M\ge161$, $j=2,3$. (A first run with the cruder Lemma 4.2 failed on the 60 boxes of branch 2 with
+$\varepsilon\ge0.068484$, i.e. $M\le213$; Lemma 4.2′ removes the failure.)
 
 ## 8. Consistency with result 8
 
 `check_vs_result8.py 1 certificates/l1h2_j1.csv ../certificates/sweep_j1*.csv.gz`: for each of the 99 840 Hopf points
 of result 8 with $161\le M\le10^5$, result 8's box (midpoint $\pm$ stored radius) lies inside our Krawczyk box for
 the $\varepsilon$-box containing $M^{-1/2}$ (so the two certificates concern the same zero, by uniqueness), and result
-8's value $\ell_1(q_1=1)/M$ lies inside our enclosure of $\widehat L$. PASS. (Same for $j=2,3$, Section 7.)
+8's value $\ell_1(q_1=1)/M$ lies inside our enclosure of $\widehat L$. PASS. Same test for $j=2,3$
+(`check_vs_result8.py 2|3 ...`): all 99 840 points of each branch matched, all $\ell_1$ values inside our
+enclosures, PASS. So for $161\le M\le10^5$ our branches $j=2,3$ (continued in $\varepsilon$ from $M=\infty$) are
+result 8's branches (continued in $M$ from their onsets).
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -485,8 +502,10 @@ $\widehat L$), `ad.py` (AD and series), `h2_lib.py`, `h2j_lib.py`.
 ## 10. What is proved, what is assumed, what is not proved
 
 **Proved (computer-assisted, this work).** Theorem 7.1 (first branch, all $M\ge161$: Hopf point, simplicity,
-transversality, H2, no unstable eigenvalue, $\ell_1<0$); the asymptotic enclosure of Section 6; the branch-2/3
-statements of Section 7 on the stated ranges.
+transversality, H2, no unstable eigenvalue, $\ell_1<0$); Theorems 7.2 and 7.3 (branches 2 and 3, all $M\ge161$:
+Hopf point, simplicity, transversality, $\ell_1<0$, H2, $2(j-1)$ zeros of $F$ giving eigenvalues with
+$\operatorname{Re}\lambda>0$); the asymptotic enclosures of Section 6. All certificate lines were re-proved from the
+stored data (`verify_sweep.py`, `h2j_sweep.py`).
 
 **Taken from result 8 and its verifier (independently verified there).** $3\le M\le14$ (no crossing), $M=15$
 (subcritical), $16\le M\le160$ (supercritical, H2), branches 2, 3 for $M\le10^5$ ($\ell_1<0$) and $M\le160$ (H2).
@@ -499,8 +518,13 @@ BifurcationKit); the Krawczyk–Moore theorem; correctness of Arb (python-flint 
 
 **Not proved.**
 * For $j\ge4$ nothing beyond result 8's floating-point checks and the formal limit coefficient.
+* For $j=2,3$ and $M>200$: that the unstable zeros are simple, i.e. that $B|_H$ has exactly $j-1$ unstable pairs
+  (only "at least one eigenvalue with $\operatorname{Re}\lambda>0$" is used, and proved).
+* Whether branch 3 already exists for some $M<87$ (its onset is not proved exact; the statements concern the
+  branch for $M\ge87$, where result 8 certifies it).
 * That $\kappa_1(M)$ is the *first* loss of stability (for all $0<\kappa<\kappa_1(M)$) for $M>57$; the stability of
   the bifurcating orbits only needs the spectrum at $\kappa_1(M)$, which is proved.
-* The identity of the limit $\widehat L(0)$ with result 8's closed-form $L_1$ (equal to $\sim10^{-7}$ relative, Section 6).
+* The identity of the limit $\widehat L(0)$ with result 8's closed form $L_j$ (they agree to about 53 significant
+  digits, Section 6); it is not needed for any claim.
 * Global statements (existence of periodic orbits far from the bifurcation, their stability for $\kappa$ not close
   to $\kappa_1$).

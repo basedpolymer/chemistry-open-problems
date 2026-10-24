@@ -59,22 +59,45 @@ def main():
                      "comp": comp, "K": K, "F_K": F[K], "R": R, "err": err, "rho": rho,
                      "min_edge": last["min_foam_edge_over_R0"], "Vrms": last["Vrms_over_V0"],
                      "levels": [F[L] for L in sorted(F)], "L_unitvol": last["L_unitvol"]})
-    best = {}
+    # merge aliases: paper structures present in the catalogue, re-embedded restarts
+    P2C = {"sigma": "Phys26", "A15": "Phys27", "C15": "Phys02", "Z": "Phys18", "C14": "Phys01", "psigma": "Phys13",
+           "H": "Phys25", "mu": "Phys14", "delta": "Phys20"}
+    def ident(nm):
+        if ":" in nm:
+            pref, cid = nm.split(":")
+            return ("II:" if pref.startswith("cat2") else "") + cid
+        return P2C.get(nm, nm)
+    groups = {}
     for r in rows:
-        key = r["R"] if r["R"] is not None else r["F_K"]
-        r["key"] = key
+        r["key"] = r["R"] if r["R"] is not None else r["F_K"]
+        groups.setdefault(ident(r["name"]), []).append(r)
+    merged = []
+    for idn, lst in groups.items():
+        lst.sort(key=lambda r: (-r["K"], r["key"]))
+        b = dict(lst[0])
+        b["id"] = idn
+        b["aliases"] = " ".join(sorted(x["name"] for x in lst))
+        if not b["group"]:
+            for x in lst:
+                if x["group"]:
+                    b["group"] = x["group"]
+        if not b["phys"] or b["name"] in P2C:
+            b["phys"] = PHYS.get(idn, PAPERNAME.get(b["name"], ""))
+        b["label"] = idn
+        merged.append(b)
+    rows = merged
     rows.sort(key=lambda r: r["key"])
-    sig = [r for r in rows if r["name"] == "sigma"][0]["key"]
-    hdr = "rank,name,label,physical,group,ncell,Z12/Z14/Z15/Z16,levels,F_maxlevel,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,F_by_level"
+    sig = [r for r in rows if r["id"] == "Phys26"][0]["key"]
+    hdr = "rank,id,physical,group,ncell,Z12/Z14/Z15/Z16,maxlevel,F_maxlevel_upper_bound,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,run_used,aliases,F_by_level"
     lines = [hdr]
     md = ["| # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (upper bound) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |",
           "|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(rows, 1):
         d = (r["key"] - sig) / sig
-        lines.append("%d,%s,%s,%s,%s,%s,%s,%d,%.10f,%s,%s,%+.3e,%.4f,%.4f,%s" % (
-            i, r["name"], r["label"], r["phys"], r["group"], r["n"], r["comp"], r["K"], r["F_K"],
+        lines.append("%d,%s,%s,%s,%s,%s,%d,%.10f,%s,%s,%+.3e,%.4f,%.4f,%s,%s,%s" % (
+            i, r["id"], r["phys"], r["group"], r["n"], r["comp"], r["K"], r["F_K"],
             "%.9f" % r["R"] if r["R"] is not None else "", "%.1e" % r["err"] if r["err"] is not None else "",
-            d, r["min_edge"], r["Vrms"], ";".join("%.10f" % x for x in r["levels"])))
+            d, r["min_edge"], r["Vrms"], r["name"], r["aliases"], ";".join("%.10f" % x for x in r["levels"])))
         md.append("| %d | %s%s | %s | %s | %s | %d | %.8f | %s | %+.3f%% | %.3f |" % (
             i, r["label"], (" — " + r["phys"]) if r["phys"] else "", r["group"], r["n"], r["comp"], r["K"], r["F_K"],
             ("%.7f ± %.0e" % (r["R"], r["err"])) if (r["R"] is not None and r["err"] is not None) else

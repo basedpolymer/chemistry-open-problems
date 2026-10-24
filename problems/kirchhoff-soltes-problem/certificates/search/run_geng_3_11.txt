@@ -6,3 +6,4 @@ n=7 done: graphs_read 468 unparsable 0 n<3 0 disconnected 0 rejected 468 (reject
 n=8 done: graphs_read 7123 unparsable 0 n<3 0 disconnected 0 rejected 7123 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 n=9 done: graphs_read 194066 unparsable 0 n<3 0 disconnected 0 rejected 194066 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 n=10 done: graphs_read 9743542 unparsable 0 n<3 0 disconnected 0 rejected 9743542 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+n=11 done: graphs_read 900969091 unparsable 0 n<3 0 disconnected 0 rejected 900969091 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0

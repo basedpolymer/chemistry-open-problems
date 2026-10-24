@@ -124,9 +124,16 @@ checks that every omitted variable is forced to 0 by the bounds above.
    `exact/enable = TRUE`, **cutting planes off** (`separating/maxrounds = 0`, `separating/maxroundsroot = 0`) and
    **presolving off** (`presolving/maxrounds = 0`), single thread, on the LP file of Sec. 3 with objective 0 and the
    row maxm (Σ y ≤ K). Output: a VIPR certificate (`RTP infeas`) of the branch-and-bound proof.
-   - With cutting planes on, the Gomory mixed-integer cut derivations written by SCIP 10.0.2 could not be completed
-     and verified (`Failed to derive constraint L6380_gom430_x9` on the 10sp1 test, with or without presolving,
-     before and after canonicalising all rationals). We therefore certify only cut-free branch-and-bound trees.
+   - With cutting planes on at all nodes, the Gomory mixed-integer cut derivations written by SCIP 10.0.2 could
+     not be completed and verified (`Failed to derive constraint L6380_gom430_x9` on the 10sp1 test, with or without
+     presolving, before and after canonicalising all rationals). With Gomory cuts at the root node only
+     (`separating/maxrounds = 0`, root rounds left at default) the 10sp1 certificate verifies.
+   - **Conflict analysis must be off** (`conflict/enable = FALSE`). Our first unbalanced10 run (conflict analysis on,
+     21 203 nodes, 2.19 GB certificate) failed verification at a conflict-analysis row: `AggrRow_5376` claims
+     Σ_{116 of the 122 y} y ≤ 18, derived "weakly" from the row Σ y ≤ 24 with the instruction `{ 0 }` (complete
+     using *global* bounds). This is valid only under the local bounds y = 1 of the six dropped variables, so the
+     derivation as written is not valid; all 9 828 weak derivations of that certificate are such conflict rows. With
+     conflict analysis off, the certificates contain no weak derivations at all.
 2. `scripts/check_vipr_model.py` checks that every constraint of the certificate's problem section equals (up to a
    positive factor) a row or bound of the LP file, every integer variable is a binary of the LP file, and the RTP is
    `infeas`. So the certificate proves infeasibility of (a relaxation of) the LP-file MILP.

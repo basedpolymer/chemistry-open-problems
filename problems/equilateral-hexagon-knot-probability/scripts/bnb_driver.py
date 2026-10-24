@@ -25,6 +25,7 @@ from fractions import Fraction
 
 EXP = 600   # common exponent: values are stored as integers / 2^EXP
 OCT_LEVEL = 6   # boxes coarser than 2^-6 (in s, t; 2^-5 in d1/2) are split isotropically
+OCT_LTH_OFFSET = 1   # theta level of octree children = their level + offset (at least 6)
 
 def weight_num(L1, a1, L2, a2, L3, a3, Lth):
     """w(D) * 2^EXP as an exact integer (w is a dyadic rational)."""
@@ -87,7 +88,7 @@ def refine(l, lth_max):
     L1, a1, L2, a2, L3, a3, Lth = l["box"]
     m = min(L1 - 1, L2, L3)
     if m < OCT_LEVEL:                     # large boxes: isotropic octree split, theta level tied to box size
-        nl = min(lth_max, max(Lth, m + 1 + 2))
+        nl = min(lth_max, max(6, m + 1 + OCT_LTH_OFFSET))
         return [(L1 + 1, 2 * a1 + i, L2 + 1, 2 * a2 + j, L3 + 1, 2 * a3 + k, nl)
                 for i in range(2) for j in range(2) for k in range(2)]
     at = list(l["attr"])
@@ -140,10 +141,11 @@ def main():
     ap.add_argument("--lth-max", type=int, default=12)
     ap.add_argument("--hours", type=float, default=1e9)
     ap.add_argument("--oct-level", type=int, default=6)
+    ap.add_argument("--oct-lth-offset", type=int, default=1)
     ap.add_argument("--workers", type=int, default=1, help="number of certifier processes (default 1)")
     args = ap.parse_args()
-    global OCT_LEVEL
-    OCT_LEVEL = args.oct_level
+    global OCT_LEVEL, OCT_LTH_OFFSET
+    OCT_LEVEL = args.oct_level; OCT_LTH_OFFSET = args.oct_lth_offset
     t0 = time.time()
     cert = MultiCertifier(args.bin, args.table, args.workers)
     if os.path.exists(args.state):

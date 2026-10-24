@@ -1,0 +1,5 @@
+exact/enable = TRUE
+presolving/maxrounds = 0
+separating/maxrounds = 0
+conflict/enable = FALSE
+limits/memory = 2500

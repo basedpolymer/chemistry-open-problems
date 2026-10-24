@@ -22,6 +22,9 @@ hypothesis H2 only for $M\le160$, and nothing for $M>10^5$. This folder closes b
 **Branch 1 (the first Hopf bifurcation): solved (preliminary)** — a complete answer for every $M$, not yet
 independently verified. **Branches 2–3: solved (preliminary)** as well, in the sense made precise below
 (supercritical on the centre manifold, unstable orbits). **Branches $j\ge4$: open** (only result 8's formal limit).
+For $M\ge161$ the proofs are computer-assisted (ball arithmetic, every certificate re-proved by a PASS/FAIL
+script); for $M\le160$ they are result 8's certificates and its verifier's. The analytic lemmas, with explicit
+constants, are in `result.md`.
 
 ## Result
 
@@ -30,8 +33,9 @@ the mass hyperplane) is **supercritical, and the bifurcating periodic orbits are
 at $\kappa_1(M)$ the eigenvalues $\pm i\omega$ are simple, the crossing is transversal, every other eigenvalue has
 negative real part, and $\ell_1<0$. At $M=15$ it is subcritical (result 8), and for $3\le M\le14$ there is no Hopf
 bifurcation (result 8's verifier). So the answer to the open question for the first branch is: *stable for every
-$M\ge16$, unstable (subcritical) for $M=15$*. Moreover $\ell_1(q_1=1)/M\to L_1=-0.0093114\ldots$; the limit is
-enclosed in $[-0.00931144,-0.00931137]$ and agrees with result 8's formal closed form to about 56 digits.
+$M\ge16$, unstable (subcritical) for $M=15$*. Moreover $\ell_1(q_1=1)/M\to-0.00931139838076\ldots$ (certified enclosure;
+$\ell_1(q_1=1)/M\in[-0.0093670,-0.0092545]$ for every $M\ge10^{10}$), which agrees with result 8's formal closed form
+$L_1$ to about 53 significant digits (not a proof of the identity, and not needed for any claim).
 
 For $j=2$ (every $M\ge44$) and $j=3$ (every $M\ge87$): $\pm i\omega$ simple, transversal, $\ell_1<0$ (result 8 for
 $M\le10^5$, this work for all $M\ge161$), and H2 (verifier of result 8 for $M\le160$, this work for all $M\ge161$).
@@ -60,8 +64,9 @@ From this folder (`scripts/`), Python 3.13 with python-flint 0.9, sympy, mpmath;
 |---|---|---|
 | `check_formulas.py` | F1–F7: exact identities (sympy), entrywise dense enclosure test of every block of the regular $\ell_1$ formula at $M=40,100,300$, closed-form sums vs direct summation | 2 min |
 | `l1_sweep.py 1 0 0.0788111 OUT --h2` | Theorem 7.1: all $M\ge161$, branch 1 (Hopf box, simplicity, transversality, $\widehat L<0$, H2) | 12 min |
-| `l1_sweep.py J 0 0.0788111 OUT` | branches 2, 3: Hopf box, $\widehat L<0$ | see `result.md` §7 |
-| `h2j_sweep.py J IN OUT R0 Y cL cR` | H2 and unstable count at $\kappa_j$, on the boxes of an `l1_sweep` file | ~2 s/box |
+| `l1_sweep.py J 0 0.0788111 OUT` | Theorem 7.2: branches 2, 3, all $M\ge161$ (Hopf box, simplicity, transversality, $\widehat L<0$) | 3 min, 4.5 min |
+| `h2j_sweep.py J IN OUT R0 Y cL cR` | Theorem 7.3: H2 and the unstable count at $\kappa_j$, $j=2,3$, on the boxes of an `l1_sweep` file | 10 min, 16 min |
+| `run_all.sh` | all of the above in sequence (parameters as used), stops at the first FAIL | about 1 h |
 | `verify_sweep.py FILE EPS_LO EPS_HI [--h2] [STRIDE]` | re-proves every certificate line from the stored data, and the coverage | as the sweep |
 | `check_vs_result8.py J OURS R8FILES` | result 8's Hopf points ($161\le M\le10^5$) lie in our unique-zero boxes; result 8's $\ell_1$ values inside our enclosures | 1 min |
 | `asymptotics.py` | A1–A4: limit $M\to\infty$ on branches 1–3, comparison with result 8's closed form | 10 s |

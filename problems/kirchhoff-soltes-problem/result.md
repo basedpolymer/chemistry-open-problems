@@ -443,7 +443,7 @@ exact rationals (1 248 graphs, n ≤ 31).
 | 8 | 7 123 | 0 |
 | 9 | 194 066 | 0 |
 | 10 | 9 743 542 | 0 |
-| 11 | N11 | 0 |
+| 11 | 900 969 091 | 0 |
 
 (counts = OEIS A002218; logs `certificates/search/geng_C_n*.log`; reproduce with
 `scripts/run_geng_search.sh 3 11`.)

@@ -119,3 +119,8 @@ sub-agents of the orchestrator (effort not recorded); credits per problem in eac
 - Result 14 (chemical engineering, transport), solved (preliminary): Aminian–Camassa–McLaughlin's claim on the sign
   of solute skewness in regular-polygon ducts proved for long and short times (computer-assisted); the claim "at all
   times" holds on certified windows only. Verification pending.
+- Result 8 extended (preliminary): Becker–Döring with atomization, first branch supercritical with stable cycles for
+  every M ≥ 16 (subcritical at M = 15); branches 2 and 3 supercritical on the centre manifold, orbits unstable in the
+  full system. Interval sweeps in ε = M^{-1/2} covering every M ≥ 161 at once. Not yet verified by an agent.
+- SAW computation lab finished: exact enumeration to n = 19, testbed and candidate lemmas (report written by the
+  orchestrator in `computation/report.md`), pivot estimate ν = 0.5876 ± 0.0005 (numerics only).

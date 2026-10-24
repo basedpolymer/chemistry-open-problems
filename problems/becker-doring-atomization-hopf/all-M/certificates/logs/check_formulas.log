@@ -1,0 +1,11 @@
+F1   PASS F = f1 g2 - g1 f2 (PV (71)) = -P1 + phi^M P2 + A^-M R1 + (A phi)^-M R2 (PV (76)) with the closed forms PV (102), (103), (140), (141) -- exact, symbolic M
+F2   PASS eps-regular forms P2t, P1t, W, g, h, Lambda (exact)
+F3   PASS lambda(w), region Re lambda >= 0 <=> a^2(1-Au) <= u(K+2Au), F(1) = F'(1) = 0 for real M
+F4   PASS divided-difference identity, quadratic for zeta and its small root, Xi
+   M=40: all entries overlap: True; max |difference of midpoints| q 1.1e-11, pS 2.0e-12, r(2iw) 3.4e-10, r(0) 2.3e-10 (= size of the exp-small enclosures) l1(dense)/M = [-0.007253673 +/- 3.14e-10], Lhat = [-0.0072536730 +/- 7.43e-11] (rel 4.2e-12)
+   M=100: all entries overlap: True; max |difference of midpoints| q 6.4e-13, pS 3.9e-14, r(2iw) 2.2e-10, r(0) 1.7e-10 (= size of the exp-small enclosures) l1(dense)/M = [-0.021902382 +/- 6.39e-10], Lhat = [-0.02190238172 +/- 2.42e-12] (rel 3.1e-13)
+   M=300: all entries overlap: True; max |difference of midpoints| q 1.4e-17, pS 2.2e-19, r(2iw) 7.1e-14, r(0) 5.7e-14 (= size of the exp-small enclosures)
+F5   PASS atoms of q, pS, r(0), r(2 i omega) enclose the dense solutions entrywise; Lhat encloses dense l1/M
+F6   PASS pair sums, mass sums and boundary values = direct summation (M = 37, 200, random atoms)
+F7   PASS expansion of P2 in powers of phi (localization without Gershgorin) and the tail constants
+SUMMARY: PASS
