@@ -69,7 +69,8 @@ except the junction, at heights > beta_1(a); so it is self-avoiding, its start i
 maximum: a bridge of height H + H' with a + c steps. For fixed a the map (beta, beta') -> beta o beta' is injective,
 and H + H' >= h if H >= h or H' >= h. For B_{T+T'} >= B_T B_{T'}: the junction is the last index of height
 <= T, so the map is injective on (height T) x (height T') bridges of all lengths, and lengths add.
-(b) This is Hutchcroft, ECP 2018 (arXiv:1708.09460v3), Lemma 2.3 with (2.2); we repeat the argument. For
+(b) This is Hutchcroft, ECP 2018 (arXiv:1708.09460v3), Lemma 2.3 with (2.2), and also Madras–Slade (2013
+reprint) (4.1.12) with Theorem 4.1.13 (B_z(L) <= e^{-L Mbar(z)}, Mbar(z_c) = 0); we repeat the argument. For
 0 <= z < z_c, sum_T B_T(z) = sum_n b_n z^n <= sum_n c_n z^n < infinity by (F4). If B_{T0}(z) > 1 for some T0,
 then by (a) B_{k T0}(z) >= B_{T0}(z)^k -> infinity, contradicting summability. So B_T(z) <= 1 for z < z_c, and
 B_T(z_c) = lim_{z up z_c} B_T(z) <= 1 by monotone convergence.
@@ -228,7 +229,9 @@ sub-ballisticity. This remark is a computation, not a verified claim.
 ## 6. What is known about hypothesis (H), and why it is plausible in d = 3 only
 
 1. (PROVED from CITED.) Renewal structure: every bridge is uniquely a concatenation of irreducible bridges and
-   sum_{gamma in iSAB} mu^{-|gamma|} = 1 (DCH Lemma 2.2, Kesten). Under the law P_iSAB(gamma) = mu^{-|gamma|} the
+   sum_{gamma in iSAB} mu^{-|gamma|} = 1 (DCH Lemma 2.2, Kesten; Madras–Slade (4.2.3)-(4.2.4); the height
+   version of the renewal equation is Madras–Slade (4.2.9), B_z(L) = sum_{j=1}^L A_z(j) B_z(L-j) + delta_{L,0},
+   valid for every z > 0 as an identity of power series with nonnegative coefficients, in particular at z_c). Under the law P_iSAB(gamma) = mu^{-|gamma|} the
    height H of an irreducible bridge is an a.s. finite positive integer, and expanding a bridge of height T into
    its irreducible pieces gives
      B_T(z_c) = sum_k P(H_1 + ... + H_k = T) =: u_T,   H_i i.i.d. ~ P_iSAB(H in .),
@@ -236,7 +239,8 @@ sub-ballisticity. This remark is a computation, not a verified claim.
    mu^{-1} > 0 the renewal is aperiodic, and the Erdos–Feller–Pollard renewal theorem gives
    B_T(z_c) -> 1/E_iSAB[H] (= 0 if the mean is infinite). Hence **B_T(z_c) -> 0 iff E_iSAB[H] = infinity**, and
    (H) implies both. (DCH Theorem 2.5 gives E_iSAB[|gamma|] = infinity, the statement about *lengths*; the
-   statement about *heights* is stronger, since H <= |gamma|.)
+   statement about *heights* is stronger, since H <= |gamma|. For lengths, Madras–Slade (1993, p. 92) still wrote
+   "it is believed that lim_N b_N/mu^N = 0, but there is no known proof of this"; DCH settled that, without rate.)
 2. (Elementary.) sum_T u_T^2 is the expected number of common renewal heights of two independent copies, so
    (H) says: two independent critical infinite bridges (DCH's P_iSAB^{tensor N}) have a.s. finitely many common
    cut-plane heights. Equivalently (Lemma 0(a) is an identity here) sum_T B_T(z_c)^2 is the critical weight of
@@ -248,12 +252,13 @@ sub-ballisticity. This remark is a computation, not a verified claim.
    arXiv v1): "A major obstacle in that direction seems to be the lack of a quantitative bound on the partition
    function of bridges of a given height at the critical point x_c = 1/µ that goes to 0 as the height goes to
    infinity."
-4. (CITED, constraint.) Hutchcroft Remark 2.5 (from Madras–Slade (3.1.14)): B((1-e) z_c) >=
+4. (CITED, constraint.) Madras–Slade (3.1.14), as restated in Hutchcroft Remark 2.5: B((1-e) z_c) >=
    1 + (1/2) log[(1-e) z_c] + (1/2) log(1/e). With Lemma 0(c), sum_T e^{-tT} B_T(z_c) >= (1/2) log(1/t) - O(1):
    B_T(z_c) is not o(1/T) in the Abel sense. So (H) requires a decay exponent a in (1/2, 1].
 5. (HEURISTIC.) Scaling: if B_T(z) ~ T^{-a} g(T/xi(z)) with xi ~ (z_c - z)^{-nu}, then
    B(z) = sum_T B_T(z) ~ (z_c - z)^{-nu(1-a)}, so gamma_b = nu (1 - a), a = 1 - gamma_b/nu, where
-   b_n ~ mu^n n^{gamma_b - 1}. In d = 2, gamma_b = 9/16, nu = 3/4 give a = 1/4, matching Krachun–Panagiotis'
+   b_n ~ mu^n n^{gamma_b - 1}; equivalently a = -gamma_11/nu with the (physics) scaling relation
+   gamma_b = gamma_11 + nu of Duplantier–Guttmann (arXiv:1908.03872, abstract). In d = 2, gamma_b = 9/16, nu = 3/4 give a = 1/4, matching Krachun–Panagiotis'
    expectation B_T ~ T^{-1/4}; then sum B_T^2 = infinity. In d = 3, Clisby–Conway–Guttmann (J. Phys. A 49 (2016)
    015004, arXiv:1504.02085; they also give the scaling relation gamma_b = gamma_11 + nu, their eq. (6)) estimate
    gamma_b = 0.199 +- 0.002 (and gamma_11 = -0.3874 +- 0.0024); with nu = 0.587597 this gives
