@@ -87,22 +87,27 @@ def main():
     print("\n## U4'. Same test with CITED inputs for a sharper tail (exact rationals):")
     print("  tail_{n>N} <= sum_{N<n<=28} b_n z^n + sum_{n>28} (mu_+ z)^n, with b_n from Clisby-Conway-Guttmann 2016")
     print("  Table 6 (data/reference_bridges.tsv; equal to our b_n for n <= N), b_n <= mu^n (BDGS lectures,")
-    print("  arXiv:1206.2092, eq. (2.4)) and mu <= mu_+ = 4.7388 (Ponitz-Tittmann 2000, Table 2: 4.7387).")
+    print("  arXiv:1206.2092, eq. (2.4)) and mu <= mu_+ = 4.7388 (Ponitz-Tittmann, Electron. J. Combin. 7 (2000) R21,")
+    print("  doi:10.37236/1499, Table 2: 4.7387; quoted as 4.73871 by Kim-Pinna 2025).")
     rb = {int(r[0]): r for r in read_reference(os.path.join(ROOT, "data", "reference_bridges.tsv"))}
     bref = {n: int(rb[n][1]) for n in rb if rb[n][1] != "-"}
     assert all(bref[n] == D.b[n] for n in range(1, N + 1))
     mup = F(47388, 10000)
-    for z in ZS:
+    for z, use_ccg in [(z, u) for z in ZS for u in (False, True)]:
         q = mup * z
         if q >= 1:
             continue
-        tb = sum(bref[n] * z ** n for n in range(N + 1, 29)) + q ** 29 / (1 - q)
+        if use_ccg:  # published b_n for N < n <= 28 (not re-verified by us beyond N)
+            tb = sum(bref[n] * z ** n for n in range(N + 1, 29)) + q ** 29 / (1 - q)
+        else:  # only b_n <= mu^n beyond our own data
+            tb = q ** (N + 1) / (1 - q)
         lo = {T: sum(b[n].get(T, 0) * z ** n for n in range(0, N + 1)) for T in range(0, Tmax + 1)}
         verified = [T for T in range(0, Tmax) if lo[T + 1] + tb < lo[T]]
         refuted = [T for T in range(0, Tmax) if lo[T + 1] > lo[T] + tb]
         und = next((T for T in range(Tmax) if T not in verified and T not in refuted), None)
-        print("  z = %-5s: tail <= %.3e; VERIFIED for T in %s; REFUTED for T in %s; first UNDECIDED T = %s"
-              % (z, float(tb), compress(verified), refuted if refuted else "none", und))
+        print("  z = %-5s %-22s: tail <= %.3e; VERIFIED for T in %s; REFUTED for T in %s; first UNDECIDED T = %s"
+              % (z, "(with CCG b_n, n<=28)" if use_ccg else "(own b_n + mu^n)", float(tb), compress(verified),
+                 refuted if refuted else "none", und))
 
     print("\n## U3. NUMERICS: B_T(z_c), z_c = 1/%.9f" % MU)
     est = {}

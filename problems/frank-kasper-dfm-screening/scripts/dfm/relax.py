@@ -67,3 +67,106 @@ def foam_edge_lengths(M):
                 k = (k + 1) % m
             mins.append(sum(seg))
     return np.array(mins)
+
+
+def restricted_basis(M):
+    """Directions for restricted ('normal') motion: foam vertices 3 dof,
+    foam-edge vertices 2 dof (plane normal to the edge), face-interior vertices
+    1 dof (local surface normal).  Returns (start, cnt, dirs) with
+    X_v = X0_v + sum_k y[start_v + k] * dirs[v, k]."""
+    X, L = M.X, M.L
+    nv = len(X)
+    dirs = np.zeros((nv, 3, 3))
+    cnt = np.zeros(nv, dtype=np.int64)
+    # vertex normals from triangles (face-interior vertices only lie in one face)
+    P = X[M.tri] + np.einsum("ij,tkj->tki", L, M.tsh)
+    nrm = np.cross(P[:, 1] - P[:, 0], P[:, 2] - P[:, 0])
+    vn = np.zeros((nv, 3))
+    for k in range(3):
+        np.add.at(vn, M.tri[:, k], nrm)
+    # edge tangents from boundary loops
+    tang = np.zeros((nv, 3))
+    for loop in M.fbnd:
+        m = len(loop)
+        pos = np.array([X[v] + L @ np.array(s) for (v, s) in loop])
+        for k in range(m):
+            v = loop[k][0]
+            if M.vtype[v] == 1:
+                t = pos[(k + 1) % m] - pos[k - 1]
+                # orientation of loops differs between faces; align sign
+                if tang[v] @ t < 0:
+                    t = -t
+                tang[v] += t
+    for v in range(nv):
+        ty = M.vtype[v]
+        if ty == 0:
+            dirs[v] = np.eye(3); cnt[v] = 3
+        elif ty == 1:
+            t = tang[v] / np.linalg.norm(tang[v])
+            tmp = np.array([1.0, 0, 0]) if abs(t[0]) < 0.9 else np.array([0, 1.0, 0])
+            e1 = np.cross(t, tmp); e1 /= np.linalg.norm(e1)
+            e2 = np.cross(t, e1)
+            dirs[v, 0] = e1; dirs[v, 1] = e2; cnt[v] = 2
+        else:
+            n = vn[v] / np.linalg.norm(vn[v])
+            dirs[v, 0] = n; cnt[v] = 1
+    start = np.concatenate([[0], np.cumsum(cnt)[:-1]])
+    return start, cnt, dirs
+
+
+def relax(M, mode="full", maxiter=20000, gtol=1e-12, maxcor=30, stall_window=200, stall_tol=1e-13, verbose=False):
+    """Minimise F over vertex positions.  mode 'full' (3 dof per vertex) or
+    'restricted' (normal motion).  Stops on L-BFGS convergence or when the
+    relative decrease of F over `stall_window` iterations is below stall_tol."""
+    X0 = M.X.copy()
+    if mode == "full":
+        nd = X0.size
+        def tox(y):
+            return X0 + y.reshape(X0.shape)
+        def tog(G):
+            return G.ravel()
+    else:
+        start, cnt, dirs = restricted_basis(M)
+        nd = int(cnt.sum())
+        import scipy.sparse as sp
+        vidx = np.repeat(np.arange(len(X0)), cnt)
+        kidx = np.concatenate([np.arange(c) for c in cnt])
+        D = dirs[vidx, kidx]               # (nd,3)
+        rows = (3 * vidx[:, None] + np.arange(3)[None, :]).ravel()
+        cols = np.repeat(np.arange(nd), 3)
+        B = sp.csr_matrix((D.ravel(), (rows, cols)), shape=(X0.size, nd))
+        BT = B.T.tocsr()
+        def tox(y):
+            return X0 + (B @ y).reshape(X0.shape)
+        def tog(G):
+            return BT @ G.ravel()
+    hist = []
+
+    def fun(y):
+        F, G = energy.dfm_F_and_grad(M, tox(y))
+        return F, tog(G)
+
+    best = {"F": np.inf, "y": np.zeros(nd)}
+
+    def fun_rec(y):
+        F, g = fun(y)
+        if F < best["F"]:
+            best["F"] = F; best["y"] = y.copy()
+        return F, g
+
+    def callback(intermediate_result):
+        hist.append(intermediate_result.fun)
+        if len(hist) > stall_window and (hist[-stall_window - 1] - hist[-1]) < stall_tol * abs(hist[-1]):
+            raise StopIteration
+
+    t0 = time.time()
+    res = minimize(fun_rec, np.zeros(nd), jac=True, method="L-BFGS-B", callback=callback,
+                   options={"maxiter": maxiter, "maxfun": 3 * maxiter, "gtol": gtol, "ftol": 1e-17, "maxcor": maxcor})
+    M.X = tox(best["y"])
+    F, G = energy.dfm_F_and_grad(M, M.X)
+    g = tog(G)
+    info = {"F": F, "nit": res.nit, "msg": str(res.message), "gmax": float(np.abs(g).max()),
+            "time": time.time() - t0, "ndof": nd}
+    if verbose:
+        print(info)
+    return info

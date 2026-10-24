@@ -59,7 +59,12 @@ static int read_graph(FILE *f) {
 }
 
 /* ---------- traces of M^k mod 2^64 for M = a*A_sub + diag(dd) on vertex subset ---------- */
-static u64 X[MAXM][MAXM], Y[MAXM][MAXM];
+#ifdef WORD32
+typedef uint32_t wt;   /* traces mod 2^32 (still a ring homomorphism Z -> Z/2^32: no false negatives) */
+#else
+typedef uint64_t wt;   /* traces mod 2^64 */
+#endif
+static wt X[MAXM][MAXM] __attribute__((aligned(64))), Y[MAXM][MAXM] __attribute__((aligned(64)));
 
 static void traces(int k, const int *verts, const u64 *dd, u64 a, int K, u64 *t) {
     /* local relabelling of the induced subgraph */
@@ -76,7 +81,7 @@ static void traces(int k, const int *verts, const u64 *dd, u64 a, int K, u64 *t)
         }
     }
     for (int i = 0; i < k; i++) {
-        memset(X[i], 0, sizeof(u64) * k);
+        memset(X[i], 0, sizeof(wt) * k);
         X[i][i] = 1;
     }
     /* t[1..K]; t[0] = k */
@@ -85,26 +90,27 @@ static void traces(int k, const int *verts, const u64 *dd, u64 a, int K, u64 *t)
     for (int s = 0; s < steps; s++) {
         /* Y = M X */
         for (int u = 0; u < k; u++) {
-            u64 *yu = Y[u];
-            const u64 *xu = X[u];
-            u64 d = dd[u];
+            wt *yu = Y[u];
+            const wt *xu = X[u];
+            wt d = (wt)dd[u];
+            wt aa = (wt)a;
             for (int c = 0; c < k; c++) yu[c] = d * xu[c];
             for (int j = 0; j < ldeg[u]; j++) {
-                const u64 *xw = X[ladj[u][j]];
+                const wt *xw = X[ladj[u][j]];
                 if (a == 1) { for (int c = 0; c < k; c++) yu[c] += xw[c]; }
-                else { for (int c = 0; c < k; c++) yu[c] += a * xw[c]; }
+                else { for (int c = 0; c < k; c++) yu[c] += aa * xw[c]; }
             }
         }
         /* X = M^s, Y = M^{s+1}: tr(M^{2s}) = sum X^2 (already have if s>0), tr(M^{2s+1}) = sum X.*Y,
            tr(M^{2s+2}) = sum Y.*Y */
-        u64 s1 = 0, s2 = 0;
+        wt s1 = 0, s2 = 0;
         for (int u = 0; u < k; u++) {
-            const u64 *xu = X[u], *yu = Y[u];
+            const wt *xu = X[u], *yu = Y[u];
             for (int c = 0; c < k; c++) { s1 += xu[c] * yu[c]; s2 += yu[c] * yu[c]; }
         }
-        if (2 * s + 1 <= K) t[2 * s + 1] = s1;
-        if (2 * s + 2 <= K) t[2 * s + 2] = s2;
-        for (int u = 0; u < k; u++) memcpy(X[u], Y[u], sizeof(u64) * k);
+        if (2 * s + 1 <= K) t[2 * s + 1] = (u64)s1;
+        if (2 * s + 2 <= K) t[2 * s + 2] = (u64)s2;
+        for (int u = 0; u < k; u++) memcpy(X[u], Y[u], sizeof(wt) * k);
     }
 }
 
@@ -219,6 +225,9 @@ int main(int argc, char **argv) {
     const char *names[6] = {"A(T)", "A(T6)", "A(T5)", "2A+D(T)", "A+D(T)", "A+tP(T)"};
     for (int ty = 0; ty < 6; ty++) {
         if (!(mask & (1 << ty))) continue;
+        u64 ingraphs = 0;
+        for (u64 q = 0; q < T[ty].cap; q++) if (T[ty].tab[q].cnt > 1) ingraphs += T[ty].tab[q].cnt;
+        printf("SUMMARY graphs_in_multiple_keys=%llu ", (unsigned long long)ingraphs);
         printf("SUMMARY type=%d name=%s m=%d graphs=%llu distinct_keys=%llu keys_with_multiple_graphs=%llu K=%d\n",
                ty, names[ty], m_seen, (unsigned long long)count, (unsigned long long)T[ty].used,
                (unsigned long long)T[ty].multi, Karg);

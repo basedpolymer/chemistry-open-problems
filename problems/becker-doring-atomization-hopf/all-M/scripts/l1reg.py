@@ -18,6 +18,8 @@ is obtained as a regular expression, so eps may be a ball containing 0 (eps = 0 
 """
 from flint import arb, acb, ctx
 import allm_core as C
+import ad
+from ad import AD
 
 _E = None          # current eps (acb)
 _EPSBALL = None    # current eps (arb)
@@ -26,7 +28,7 @@ _KAP = None
 class SN:
     __slots__ = ("v", "p")
     def __init__(s, v, p):
-        s.v = acb(v); s.p = int(p)
+        s.v = v if isinstance(v, AD) else acb(v); s.p = int(p)
     def at(s, p):
         """value at power p <= s.p:  v eps^(s.p - p)"""
         assert p <= s.p, "irregular: requested power %d > available %d" % (p, s.p)
@@ -43,16 +45,16 @@ class SN:
     def __mul__(s, o):
         if isinstance(o, SN):
             return SN(s.v * o.v, s.p + o.p)
-        return SN(s.v * acb(o), s.p)
+        return SN(s.v * (o if isinstance(o, AD) else acb(o)), s.p)
     __rmul__ = __mul__
     def __truediv__(s, o):
         if isinstance(o, SN):
             return SN(s.v / o.v, s.p - o.p)
-        return SN(s.v / acb(o), s.p)
+        return SN(s.v / (o if isinstance(o, AD) else acb(o)), s.p)
     def conj(s):
         return SN(s.v.conjugate(), s.p)
     def re(s):
-        return SN(acb(s.v.real), s.p)
+        return SN(ad.re(s.v), s.p)
 
 def snsum(lst):
     out = 0
@@ -71,91 +73,118 @@ def expsmall(fac, j, p):
     return SN(C.disk(t * fac), p)
 
 # ------------------------------------------------------------------------------------------------ atoms
+def _cv(x):
+    return x if isinstance(x, AD) else acb(x)
+
+def _up(x):
+    """arb upper bound of |x| (x acb or AD; uses the value only)"""
+    return arb(ad.val(x).abs_upper())
+
+def _lo(x):
+    return arb(ad.val(x).abs_lower())
+
+def _hull(a, b):
+    return ad.val(a).union(ad.val(b))
+
+def _expre_up(x):
+    """upper bound of exp(Re x)"""
+    return arb(arb(ad.val(x).real.upper()).exp().upper())
+
 class Slow:
     __slots__ = ("c", "bt")
-    def __init__(s, c, bt): s.c = c; s.bt = acb(bt)
-    def conj(s): return Slow(s.c.conj(), s.bt.conjugate())
+    def __init__(s, c, bt): s.c = c; s.bt = _cv(bt)
+    def conj(s): return Slow(s.c.conj(), ad.conj(s.bt))
     def scale(s, f): return Slow(s.c * f, s.bt)
 class BM:
     __slots__ = ("c", "gt")
-    def __init__(s, c, gt): s.c = c; s.gt = acb(gt)
-    def conj(s): return BM(s.c.conj(), s.gt.conjugate())
+    def __init__(s, c, gt): s.c = c; s.gt = _cv(gt)
+    def conj(s): return BM(s.c.conj(), ad.conj(s.gt))
     def scale(s, f): return BM(s.c * f, s.gt)
 class Dd:
     __slots__ = ("c", "g1", "g2")
-    def __init__(s, c, g1, g2): s.c = c; s.g1 = acb(g1); s.g2 = acb(g2)
-    def conj(s): return Dd(s.c.conj(), s.g1.conjugate(), s.g2.conjugate())
+    def __init__(s, c, g1, g2): s.c = c; s.g1 = _cv(g1); s.g2 = _cv(g2)
+    def conj(s): return Dd(s.c.conj(), ad.conj(s.g1), ad.conj(s.g2))
     def scale(s, f): return Dd(s.c * f, s.g1, s.g2)
 class B1:
     __slots__ = ("c", "pt")
-    def __init__(s, c, pt): s.c = c; s.pt = acb(pt)
-    def conj(s): return B1(s.c.conj(), s.pt.conjugate())
+    def __init__(s, c, pt): s.c = c; s.pt = _cv(pt)
+    def conj(s): return B1(s.c.conj(), ad.conj(s.pt))
     def scale(s, f): return B1(s.c * f, s.pt)
 
 def seq_conj(seq): return [a.conj() for a in seq]
 def seq_scale(seq, f): return [a.scale(f) for a in seq]
 
 class Ctx:
-    """regular data at (eps, kappa); sets the module eps"""
-    def __init__(self, eps, kap):
+    """regular data at the evaluation point (eps, kappa) -- acb/arb balls or AD -- and the parameter BOXES
+    (eps_box, kap_box) used for all bounds of exponentially small terms (T = A^-M)."""
+    def __init__(self, eps, kap, eps_box=None, kap_box=None):
         global _E, _EPSBALL, _KAP
-        self.eps = arb(eps); self.kap = arb(kap)
-        _E = acb(self.eps); _EPSBALL = self.eps; _KAP = self.kap
-        self.e = acb(self.eps); self.K = self.kap * self.eps; self.A = 1 + self.K
+        self.eps_box = arb(eps_box if eps_box is not None else ad.val(eps).real)
+        self.kap_box = arb(kap_box if kap_box is not None else ad.val(kap).real)
+        self.e = eps if isinstance(eps, AD) else acb(eps)
+        self.kap = kap if isinstance(kap, AD) else acb(kap)
+        self.eps = self.eps_box
+        _E = self.e; _EPSBALL = self.eps_box; _KAP = self.kap_box
+        self.K = self.kap * self.e; self.A = 1 + self.K
 
 def _beta(cx, bt): return 1 + cx.e ** 2 * bt
-def _b(cx, bt): return bt * C.Lfun(cx.e ** 2 * bt)
+def _b(cx, bt): return bt * ad.Lfun(cx.e ** 2 * bt)
 def _gam(cx, gt): return cx.A * (1 + cx.e ** 2 * gt)
-def _lg(cx, gt): return gt * C.Lfun(cx.e ** 2 * gt)          # M log(gamma/A); |gamma^-M| = T exp(-Re lg)
+def _lg(cx, gt): return gt * ad.Lfun(cx.e ** 2 * gt)          # M log(gamma/A); |gamma^-M| = T exp(-Re lg)
 def _dg(cx, gt): return cx.kap + cx.A * cx.e * gt                # (gamma - 1)/eps
 
 # ------------------------------------------------------------------------------------------------ sums
+# Exponentially small parts: |gamma^-M| = T exp(-Re lg(gt)), etc.  All bounds use VALUES only (constants for AD).
+
 def psum(cx, X, Y):
     """sum_{k=1}^{N} X_k Y_k  (N = M - 1), X in {Slow, B1}, Y in {Slow, BM, Dd}"""
     e = cx.e; kap = cx.kap; A = cx.A
+    epsup = C.arb_up(cx.eps_box)
     cc = X.c * Y.c
     if isinstance(X, Slow):
         bX = _b(cx, X.bt); beta = _beta(cx, X.bt)
         if isinstance(Y, Slow):
             bt = X.bt + Y.bt + e * e * X.bt * Y.bt
             b = bX + _b(cx, Y.bt)
-            val = C.Exfun(b) * C.Lfun(e * e * bt) - e * e
-            return cc * SN(val, -2)
+            v = ad.Exfun(b) * ad.Lfun(e * e * bt) - e * e
+            return cc * SN(v, -2)
         if isinstance(Y, BM):
             d = kap + A * e * (X.bt + Y.gt + e * e * X.bt * Y.gt)
-            reg = SN(bX.exp() / d, -1)
+            reg = SN(ad.exp(bX) / d, -1)
             gam = _gam(cx, Y.gt)
-            fac = acb(beta).abs_upper() * acb(gam).abs_upper() * (-(_lg(cx, Y.gt).real)).exp() / acb(d).abs_lower()
+            fac = _up(beta) * _up(gam) * _expre_up(-_lg(cx, Y.gt)) / _lo(d)
             return cc * (reg + expsmall(fac, 1, 7))
         if isinstance(Y, Dd):
             d1 = kap + A * e * (X.bt + Y.g1 + e * e * X.bt * Y.g1)
             d2 = kap + A * e * (X.bt + Y.g2 + e * e * X.bt * Y.g2)
-            reg = SN(-beta * bX.exp() / (d1 * d2), -2)
-            gh = Y.g1.union(Y.g2)
-            dh = kap + A * e * (X.bt + gh + e * e * X.bt * gh)
-            gam = _gam(cx, gh)
-            inner = (-(_lg(cx, gh).real)).exp() * (1 / acb(dh).abs_lower()
-                     + C.arb_up(cx.eps) * acb(beta).abs_upper() * acb(gam).abs_upper() / acb(dh).abs_lower() ** 2)
-            fac = acb(beta).abs_upper() * inner
+            reg = SN(-beta * ad.exp(bX) / (d1 * d2), -2)
+            gh = _hull(Y.g1, Y.g2)
+            ev = ad.val(e); btv = ad.val(X.bt); kv = ad.val(kap); Av = ad.val(A)
+            dh = kv + Av * ev * (btv + gh + ev * ev * btv * gh)
+            gam = Av * (1 + ev * ev * gh)
+            lgh = gh * ad.Lfun(ev * ev * gh)
+            inner = _expre_up(-lgh) * (1 / _lo(dh) + epsup * _up(beta) * _up(gam) / _lo(dh) ** 2)
+            fac = _up(beta) * inner
             return cc * (reg + expsmall(fac, 3, 6))
     if isinstance(X, B1):
         if isinstance(Y, Slow):
             beta = _beta(cx, Y.bt); psi = (1 + e * e * X.pt) / A
             dp = kap - e * (X.pt + Y.bt + e * e * X.pt * Y.bt)
             reg = SN(psi * beta * A / dp, -1)
-            fac = A * ((_lg(cx, X.pt).real + _b(cx, Y.bt).real).exp()) / acb(dp).abs_lower()
+            fac = _up(A) * _expre_up(_lg(cx, X.pt) + _b(cx, Y.bt)) / _lo(dp)
             return cc * (reg + expsmall(fac, 1, 7))
         if isinstance(Y, BM):
-            c2 = X.pt + Y.gt + e * e * X.pt * Y.gt
-            mlog = (c2 * C.Lfun(e * e * c2)).real
-            fac = (C.arb_up(mlog).max(arb(0)) - _lg(cx, Y.gt).real).exp()
+            c2 = ad.val(X.pt + Y.gt + e * e * X.pt * Y.gt); ev = ad.val(e)
+            mlog = c2 * ad.Lfun(ev * ev * c2)
+            fac = _expre_up(mlog).max(arb(1)) * _expre_up(-_lg(cx, Y.gt))
             return cc * expsmall(fac, 2, 6)
         if isinstance(Y, Dd):
-            gh = Y.g1.union(Y.g2)
-            c2 = X.pt + gh + e * e * X.pt * gh
-            mlog = (c2 * C.Lfun(e * e * c2)).real
-            gam = _gam(cx, gh)
-            fac = (C.arb_up(mlog).max(arb(0)) - _lg(cx, gh).real).exp() / acb(gam).abs_lower()
+            gh = _hull(Y.g1, Y.g2); ev = ad.val(e); ptv = ad.val(X.pt); Av = ad.val(A)
+            c2 = ptv + gh + ev * ev * ptv * gh
+            mlog = c2 * ad.Lfun(ev * ev * c2)
+            gam = Av * (1 + ev * ev * gh)
+            lgh = gh * ad.Lfun(ev * ev * gh)
+            fac = _expre_up(mlog).max(arb(1)) * _expre_up(-lgh) / _lo(gam)
             return cc * expsmall(fac, 4, 6)
     raise TypeError((type(X), type(Y)))
 
@@ -165,21 +194,22 @@ def pair(cx, Xs, Ys):
 def mass(cx, Y):
     """sum_{l=1}^{M} l Y_l"""
     e = cx.e
+    epsup = C.arb_up(cx.eps_box)
     if isinstance(Y, Slow):
         beta = _beta(cx, Y.bt); b = _b(cx, Y.bt); u = e * e * Y.bt
-        L = C.Lfun(u)
-        return Y.c * SN(beta * (L * L * Ex1fun(b) + e * e * b.exp() * N1fun(u)), -4)
+        L = ad.Lfun(u)
+        return Y.c * SN(beta * (L * L * ad.Ex1fun(b) + e * e * ad.exp(b) * ad.N1fun(u)), -4)
     if isinstance(Y, BM):
         gam = _gam(cx, Y.gt); dg = _dg(cx, Y.gt)
         reg = SN(gam / dg - e * gam / dg ** 2, -3)
-        fac = acb(gam).abs_upper() * (-(_lg(cx, Y.gt).real)).exp() / acb(dg).abs_lower() ** 2
+        fac = _up(gam) * _expre_up(-_lg(cx, Y.gt)) / _lo(dg) ** 2
         return Y.c * (reg + expsmall(fac, 2, 5))
     if isinstance(Y, Dd):
         d1 = _dg(cx, Y.g1); d2 = _dg(cx, Y.g2)
         reg = SN(-(1 - e * e) / (d1 * d2) + e * (d1 + d2) / (d1 * d1 * d2 * d2), -4)
-        gh = Y.g1.union(Y.g2); dh = _dg(cx, gh); gam = _gam(cx, gh)
-        fac = (-(_lg(cx, gh).real)).exp() * (1 / acb(dh).abs_lower() ** 2
-                                              + 2 * C.arb_up(cx.eps) * acb(gam).abs_upper() / acb(dh).abs_lower() ** 3)
+        gh = _hull(Y.g1, Y.g2); ev = ad.val(e); kv = ad.val(cx.kap); Av = ad.val(cx.A)
+        dh = kv + Av * ev * gh; gam = Av * (1 + ev * ev * gh); lgh = gh * ad.Lfun(ev * ev * gh)
+        fac = _expre_up(-lgh) * (1 / _lo(dh) ** 2 + 2 * epsup * _up(gam) / _lo(dh) ** 3)
         return Y.c * (reg + expsmall(fac, 4, 4))
     raise TypeError(type(Y))
 
@@ -187,68 +217,38 @@ def val(cx, Y, where):
     """Y_l at l = 1, N, M"""
     e = cx.e
     if isinstance(Y, Slow):
-        beta = _beta(cx, Y.bt); eb = _b(cx, Y.bt).exp()
+        beta = _beta(cx, Y.bt); eb = ad.exp(_b(cx, Y.bt))
         v = {"1": beta, "N": eb / beta, "M": eb}[where]
         return Y.c * SN(v, 0)
     if isinstance(Y, BM):
         gam = _gam(cx, Y.gt)
         if where == "M": return Y.c * SN(1, 0)
         if where == "N": return Y.c * SN(1 / gam, 0)
-        fac = acb(gam).abs_upper() * (-(_lg(cx, Y.gt).real)).exp()
+        fac = _up(gam) * _expre_up(-_lg(cx, Y.gt))
         return Y.c * expsmall(fac, 0, 8)
     if isinstance(Y, Dd):
         if where == "M": return Y.c * SN(0, 0)
         if where == "N": return Y.c * SN(-1 / (_gam(cx, Y.g1) * _gam(cx, Y.g2)), 0)
-        gh = Y.g1.union(Y.g2)
-        fac = (-(_lg(cx, gh).real)).exp()
+        gh = _hull(Y.g1, Y.g2); ev = ad.val(e)
+        fac = _expre_up(-(gh * ad.Lfun(ev * ev * gh)))
         return Y.c * expsmall(fac, 2, 8)
     raise TypeError(type(Y))
 
 def seqval(cx, seq, where): return snsum([val(cx, Y, where) for Y in seq])
 def seqmass(cx, seq): return snsum([mass(cx, Y) for Y in seq])
 
-# ------------------------------------------------------------------------------------------------ entire helpers
-def Ex1fun(b):
-    """(1 - e^b + b e^b)/b^2 = sum_{n>=0} (n+1) b^n/(n+2)!  (entire); |remainder| <= r^n e^r (n+1)/(n+2)! style bound"""
-    b = acb(b); r = C.acb_absup(b)
-    if not b.contains(0) and r > arb("1e-3"):
-        return (1 - b.exp() + b * b.exp()) / (b * b)
-    n = 1; tiny = C.tiny(); f = arb(6); rn = r; er = r.exp()       # f = (n+2)!
-    while not (rn * er * (n + 2) / f < tiny) and n < 4000:
-        n += 1; f *= (n + 2); rn *= r
-    s = acb(0); p = acb(1); ff = arb(2)
-    for k in range(n):
-        s += (k + 1) * p / ff
-        ff *= (k + 3); p *= b
-    # tail sum_{k>=n} (k+1) r^k/(k+2)! <= r^n e^r (n+2)/(n+2)!  (since (k+1)/(k+2)! <= (n+2)/(n+2)! * 1/(k-n)!)
-    bound = rn * er * (n + 2) / f
-    return s + acb(arb(0, bound), arb(0, bound))
-
-def N1fun(u):
-    """(1 - L(u))/u = sum_{k>=1} (-1)^(k+1) u^(k-1)/(k+1)"""
-    u = acb(u); r = C.acb_absup(u)
-    if r < arb("0.5"):
-        n = 1; tiny = C.tiny(); rn = arb(1)
-        while not (rn / (1 - r) < tiny) and n < 4000:
-            n += 1; rn *= r
-        s = acb(0); p = acb(1)
-        for k in range(1, n + 1):
-            s += (-1) ** (k + 1) * p / (k + 1)
-            p *= u
-        bound = rn / (1 - r)
-        return s + acb(arb(0, bound), arb(0, bound))
-    return (1 - C.Lfun(u)) / u
-
 # ------------------------------------------------------------------------------------------------ the blocks
-def blocks(eps, kap, z):
-    """all building blocks at the Hopf point (kap, z) (balls) and eps (ball, eps >= 0)."""
-    cx = Ctx(eps, kap)
-    e = cx.e; A = cx.A; kap = cx.kap; z = acb(z)
+def blocks(eps, kap, z, eps_box=None, kap_box=None):
+    """All building blocks at the Hopf point (kap, z) and eps (balls or AD).  eps_box, kap_box: parameter boxes
+    used for the bounds of the exponentially small terms (default: eps, kap themselves)."""
+    cx = Ctx(eps, kap, eps_box, kap_box)
+    e = cx.e; A = cx.A; kap = cx.kap
+    z = z if isinstance(z, AD) else acb(z)
     phi = 1 + e * e * z
     g = kap + A * e * z
     Lh = g * z / phi                       # Lambda-hat: lambda = eps^3 Lh
-    E = (z * C.Lfun(e * e * z)).exp()      # phi^M
-    Tq = C.disk(C.T_over_eps_bound(cx.eps, kap, 1))   # T/eps
+    E = ad.exp(z * ad.Lfun(e * e * z))     # phi^M
+    Tq = C.disk(C.T_over_eps_bound(cx.eps_box, cx.kap_box, 1))   # T/eps (over the boxes)
     # eigenvector q (q_1 = 1)
     C1 = (g - A * A * phi * Tq / E) / (g * E / phi + e * e * z * A * Tq / E)
     C2h = (A * E + e * e * z) / (g * E + e * e * z * A * phi * Tq / E)
@@ -271,9 +271,9 @@ def blocks(eps, kap, z):
     out = dict(cx=cx, Lh=Lh, q=q, Np=Np, pS=pS, E=E, C1=C1, C2h=C2h, a1=a1, a2=a2)
     out["sig_q"] = pair(cx, pS, q)
     out["sig_qb"] = pair(cx, pS, seq_conj(q))
-    # resolvents
     def resolvent(m, zeta):
-        """r = (mu - B)^{-1} S q, mu = eps^3 m, s1 = 1 + eps^2 zeta (slow root), s2 = A/s1"""
+        """r = (mu - B)^{-1} S q, mu = eps^3 m, s1 = 1 + eps^2 zeta (slow root), s2 = A/s1;
+        rows 2..N by construction, row M and the mass condition sum l r_l = 0 (equivalent to row 1) solved."""
         gt2 = -zeta / (1 + e * e * zeta)
         Xi = (kap - e * zeta) / (1 + e * e * zeta) + A * e * z - e * e * m
         Rs = Slow(SN(z * C1 * E / (m - Lh), -1), -z / phi)
@@ -286,9 +286,10 @@ def blocks(eps, kap, z):
             return seqval(cx, seq, "1") * SN(A, 0) + seqval(cx, seq, "N") * SN(A, 0) - seqval(cx, seq, "M") * (SN(A, 0) + mu)
         qN = seqval(cx, q, "N")
         a11 = rowM([s1a]).at(0)
-        # row M on s2^(l-M):  A s2^(1-M) + A/s2 - (A + mu) = (s1 - A - mu) + A s2^(1-M) = -eps (kap - eps zeta + eps^2 m) + exp-small
+        # row M on s2^(l-M):  A s2^(1-M) + A/s2 - (A + mu) = (s1 - A - mu) + A s2^(1-M)
+        #                                               = -eps (kap - eps zeta + eps^2 m) + exp-small
         g2v = _gam(cx, gt2)
-        fac12 = acb(A).abs_upper() * acb(g2v).abs_upper() * (-(_lg(cx, gt2).real)).exp()
+        fac12 = _up(A) * _up(g2v) * _expre_up(-_lg(cx, gt2))
         a12 = (SN(-(kap - e * zeta + e * e * m), 1) + expsmall(fac12, 0, 9)).at(1)
         rhs1 = (-qN - rowM(base)).at(-1)
         a21 = mass(cx, s1a).at(-4); a22 = mass(cx, s2a).at(-3)
@@ -301,7 +302,7 @@ def blocks(eps, kap, z):
     r0, det0 = resolvent(acb(0), acb(0))
     m2 = 2 * Lh
     cm = kap + e * e * m2
-    zeta2 = -2 * m2 / (cm + (cm * cm + 4 * e * m2).sqrt())
+    zeta2 = -2 * m2 / (cm + ad.sqrt(cm * cm + 4 * e * m2))
     r2, det2 = resolvent(m2, zeta2)
     out.update(r0=r0, r2=r2, det0=det0, det2=det2, zeta2=zeta2)
     out["r0_1"] = seqval(cx, r0, "1")
@@ -315,7 +316,28 @@ def blocks(eps, kap, z):
     out["bracket"] = br
     if br.p >= 1:
         bhat = br.at(1)
-        out["Lhat"] = bhat.real / Lh.imag      # = eps^2 l1(q1=1) = l1(q1=1)/M
+        out["Lhat"] = ad.re(bhat) / ad.im(Lh)      # = eps^2 l1(q1=1) = l1(q1=1)/M  (real, as acb/AD)
     else:
         out["Lhat"] = None
     return out
+
+def Lhat_box(eps_box, kap_box, x_box, y_box):
+    """Rigorous enclosure of Lhat(eps, kappa, x + i y) for all (eps, kappa, x, y) in the box, by the mean value
+    form: value at the midpoint (exponentially small terms as disks over the whole box) + gradient over the box
+    (forward AD in the 4 real directions, the exponentially small disks being held fixed) times the half-widths.
+    Returns an arb."""
+    eps_box = arb(eps_box); kap_box = arb(kap_box); x_box = arb(x_box); y_box = arb(y_box)
+    em, km, xm, ym = [arb(b.mid()) for b in (eps_box, kap_box, x_box, y_box)]
+    F = blocks(em, km, acb(xm, ym), eps_box, kap_box)["Lhat"]
+    if F is None:
+        return None
+    AD.n = 4
+    kv = AD.var(kap_box, 0); xv = AD.var(x_box, 1); yv = AD.var(y_box, 2); ev = AD.var(eps_box, 3)
+    zv = xv + yv * acb(0, 1)
+    G = blocks(ev, kv, zv, eps_box, kap_box)["Lhat"]
+    if G is None:
+        return None
+    val = acb(F)
+    for i, (b, m) in enumerate(zip((kap_box, x_box, y_box, eps_box), (km, xm, ym, em))):
+        val += G.d[i] * (b - m)
+    return val.real
