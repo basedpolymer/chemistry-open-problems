@@ -84,6 +84,26 @@ def main():
         print("      B_T(z) enclosures T=0..6: " + "  ".join("[%.5f, %.5f]" % (float(lo[T]), float(up[T]))
                                                           for T in range(0, 7)))
 
+    print("\n## U4'. Same test with CITED inputs for a sharper tail (exact rationals):")
+    print("  tail_{n>N} <= sum_{N<n<=28} b_n z^n + sum_{n>28} (mu_+ z)^n, with b_n from Clisby-Conway-Guttmann 2016")
+    print("  Table 6 (data/reference_bridges.tsv; equal to our b_n for n <= N), b_n <= mu^n (BDGS lectures,")
+    print("  arXiv:1206.2092, eq. (2.4)) and mu <= mu_+ = 4.7388 (Ponitz-Tittmann 2000, Table 2: 4.7387).")
+    rb = {int(r[0]): r for r in read_reference(os.path.join(ROOT, "data", "reference_bridges.tsv"))}
+    bref = {n: int(rb[n][1]) for n in rb if rb[n][1] != "-"}
+    assert all(bref[n] == D.b[n] for n in range(1, N + 1))
+    mup = F(47388, 10000)
+    for z in ZS:
+        q = mup * z
+        if q >= 1:
+            continue
+        tb = sum(bref[n] * z ** n for n in range(N + 1, 29)) + q ** 29 / (1 - q)
+        lo = {T: sum(b[n].get(T, 0) * z ** n for n in range(0, N + 1)) for T in range(0, Tmax + 1)}
+        verified = [T for T in range(0, Tmax) if lo[T + 1] + tb < lo[T]]
+        refuted = [T for T in range(0, Tmax) if lo[T + 1] > lo[T] + tb]
+        und = next((T for T in range(Tmax) if T not in verified and T not in refuted), None)
+        print("  z = %-5s: tail <= %.3e; VERIFIED for T in %s; REFUTED for T in %s; first UNDECIDED T = %s"
+              % (z, float(tb), compress(verified), refuted if refuted else "none", und))
+
     print("\n## U3. NUMERICS: B_T(z_c), z_c = 1/%.9f" % MU)
     est = {}
     for T in range(1, 9):

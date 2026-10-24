@@ -12,9 +12,9 @@
 \input{chemop-preamble}
 \addbibresource{references.bib}
 
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Div}{\operatorname{div}}
-\newcommand{\Tr}{\operatorname{tr}}
+% \R (= \mathbb{R}) is provided by the shared preamble
+\newcommand{\Divop}{\operatorname{div}}
+\newcommand{\Trop}{\operatorname{tr}}
 \newcommand{\Gt}{\widetilde G}
 
 \begin{document}
@@ -69,7 +69,7 @@ Following~\autocite[(13)--(18)]{BBH2024}, reaction \(i\) is \(a_iX+b_iY\to(a_i+c
 \((c_i,d_i)\neq0\) and nonnegative target. The rate laws are \(\kappa_i m_i\), where
 \(m=(x^2,xy,y)\) in case~9 and \(m=(x^2,xy,1)\) in case~10. The admissible ranges are \(c_1\ge-2\), \(d_1\ge0\),
 \(c_2,d_2\ge-1\), \(c_3\ge0\), and \(d_3\ge-1\) (case~9) or \(d_3\ge0\) (case~10). Let \(u=c\times d\) and
-\(A:=c_1u_1-c_3u_3\).
+\(A:=c_1u_1-c_3u_3\). This \(A\) is a number, not to be confused with the function \(A(x)\) of §3.
 
 BBH's condition is the following. In case~9: either \(c_1>0\), \(c_2=-1\), \(c_3>0\), \(d_1>0\), \(d_2\ge-1\),
 \(d_3\ge-1\) and \(\tfrac12(d_3/c_3+d_1/c_1)<d_2/c_2<d_1/c_1\); or \(c_1>0\), \(c_2=-1\), \(c_3=0\), \(d_1>0\),
@@ -89,7 +89,7 @@ boundary of the quadrant contains no Jordan curve. Hence every periodic orbit in
 \(X'=\sum_ic_iu_im_i(X,Y)\), \(Y'=\rho\sum_id_iu_im_i(X,Y)\), with \(\rho=\bar x/\bar y\in(0,\infty)\) and
 equilibrium \((1,1)\). There,
 \(\det J=\rho u_1u_2u_3\) (case~9) or \(2\rho u_1u_2u_3\) (case~10), and
-\(\Tr J=A-\rho d_1u_1\) (case~9) or \(A+\rho d_2u_2\) (case~10).
+\(\Trop J=A-\rho d_1u_1\) (case~9) or \(A+\rho d_2u_2\) (case~10).
 
 \emph{(F4)} We use Poincar\'e index theory, the Jordan curve theorem and the Bendixson--Dulac criterion; see
 e.g.~\autocite[Ch.~3]{Perko2001}.
@@ -115,11 +115,11 @@ strictly increasing on \(\R^2_{>0}\).
 (iii) The unique positive equilibrium is a saddle, of index \(-1\), and it is the only equilibrium inside any
 periodic orbit in the convex set \(\R^2_{>0}\). This contradicts index theory.
 
-(iv) In case~9, \(\Div(F/(xy))=(-d_1\kappa_1x^3+c_1\kappa_1x^2y-c_3\kappa_3y^2)/(x^2y^2)\). In case~10 it is
+(iv) In case~9, \(\Divop(F/(xy))=(-d_1\kappa_1x^3+c_1\kappa_1x^2y-c_3\kappa_3y^2)/(x^2y^2)\). In case~10 it is
 \((-d_1\kappa_1x^3+c_1\kappa_1x^2y-c_3\kappa_3y-d_3\kappa_3x)/(x^2y^2)\). Both are negative on \(\R^2_{>0}\): if
 \(c_1<0\) the middle term is negative, and if \(c_1=0\) then \(d_1\ge1\). This is~\autocite[Lemma~4]{BBH2024}.
 
-(v) Here \(u>0\) forces \(d_2\ge1\), \(d_3=-1\), \(c_2=-1\) and \(c_3=0\), and then \(\Div(F/(xy))=c_1\kappa_1/y>0\)
+(v) Here \(u>0\) forces \(d_2\ge1\), \(d_3=-1\), \(c_2=-1\) and \(c_3=0\), and then \(\Divop(F/(xy))=c_1\kappa_1/y>0\)
 (cf.~\autocite[§4.2]{BBH2024}).
 \end{proof}
 
@@ -270,8 +270,8 @@ Combine (F1), the confinement to \(I\times\R\), and Lemmas~\ref{lem:lienard}--\r
 \begin{remark}
 In case~10 the computation of \zcref{lem:case10} works for every \(k\). For \emph{every} case-10 network with
 \(u>0\) and \(c_1>0\), Hopf networks included,
-\(F(a)-F(b)=(b-a)[\rho-(\alpha_1-\alpha_3/(ab))/\alpha_2]\), and \(\Tr J<0\iff\rho>N'(1)\). Hence there is no
-periodic orbit whenever \(\Tr J<0\). For case-9 Hopf networks we observed the analogous sharpness numerically, but
+\(F(a)-F(b)=(b-a)[\rho-(\alpha_1-\alpha_3/(ab))/\alpha_2]\), and \(\Trop J<0\iff\rho>N'(1)\). Hence there is no
+periodic orbit whenever \(\Trop J<0\). For case-9 Hopf networks we observed the analogous sharpness numerically, but
 we have not proved it.
 
 In the subfamily of~\autocite{Result2} (9a with \(d_3=0\)), \(k\ge1\) is \(d_1\ge2c_1\).
@@ -282,7 +282,7 @@ In the subfamily of~\autocite{Result2} (9a with \(d_3=0\)), \(k\ge1\) is \(d_1\g
 \begin{itemize}
 \item \texttt{scripts/certify\_lienard.py} (sympy, exact; 64 checks) verifies:
   \begin{itemize}
-  \item the normalisation, the equilibrium formulas, \(\det J\) and \(\Tr J\);
+  \item the normalisation, the equilibrium formulas, \(\det J\) and \(\Trop J\);
   \item the Li\'enard identity for general \(A,B,C,D\);
   \item for the symbolic integer data of each family: \(u>0\), (1)--(3), \(f(1)<0\), and
     \(A=\alpha_1-\alpha_3\) equal to BBH's inequality;

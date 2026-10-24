@@ -124,6 +124,11 @@ int main(int argc, char** argv) {
   const int NM = 8;
   const int MS[NM] = {2, 4, 8, 16, 32, 64, 128, 256};
   const int JMAX = 512;
+  // K is computed for m only at every STRIDE[m]-th sample (cost grows with m while near walks become common);
+  // P(near) uses every sample.  STRIDE = max(1, (m/16)^2).
+  long long STRIDE[NM];
+  for (int mi = 0; mi < NM; mi++) STRIDE[mi] = std::max(1LL, (long long)(MS[mi] / 16) * (MS[mi] / 16));
+  std::vector<long long> nearAll(NM, 0);
   const int NBLK = 64;
   initSym();
   Rng rng(seed * 7919ULL + (uint64_t)n);
@@ -192,14 +197,19 @@ int main(int argc, char** argv) {
         int v = std::abs(w[n].c[a] - w[0].c[a]);
         if (v > en) en = v;
       }
-      if (en <= MS[NM - 1]) {
+      for (int mi = 0; mi < NM; mi++)
+        if (en <= MS[mi]) nearAll[mi]++;
+      bool need = false;
+      for (int mi = 0; mi < NM; mi++)
+        if (en <= MS[mi] && (nNearSamples % STRIDE[mi]) == 0) need = true;
+      if (need) {
         nSamplesNear++;
         for (int i = 0; i <= n; i++)
           for (int a = 0; a < 3; a++) anc[i].c[a] = w[i].c[a] - w[0].c[a];
         MData d = madrasData(anc);
         for (int mi = 0; mi < NM; mi++) {
           int m = MS[mi];
-          if (en > m) continue;
+          if (en > m || (nNearSamples % STRIDE[mi]) != 0) continue;
           KResult r = multiplicity(anc, m, hs, psi, th);
           bNear[blk * NM + mi] += 1;
           bK[blk * NM + mi] += r.K;
@@ -266,7 +276,7 @@ int main(int argc, char** argv) {
   printf("# madras_mc N=%d attempts=%lld burnin=%lld seed=%llu SN=%d SR=%d acc=%.4f time_s=%.0f\n", n, T, B,
          (unsigned long long)seed, SN, SR, (double)acc / (B + T), secs);
   // CL1: jackknife over blocks for ratios
-  printf("# CL1 columns: m  n_near  P(near)  kappa err  cand err  ren err  saw err  frac(span<=m)  hist K=1..8,9+\n");
+  printf("# CL1 columns: m  n_near(K computed)  P(near)  kappa err  cand err  ren err  saw err  frac(span<=m)  hist K=1..8,9+\n");
   for (int mi = 0; mi < NM; mi++) {
     double totN = 0, tot[5] = {0, 0, 0, 0, 0};
     for (int b = 0; b < NBLK; b++) {
@@ -298,7 +308,8 @@ int main(int argc, char** argv) {
       double mean = sj / nb;
       err[q] = std::sqrt((double)(nb - 1) / nb * (sj2 - nb * mean * mean));
     }
-    printf("M %d %.0f %.5f  %.4f %.4f  %.3f %.3f  %.4f %.4f  %.4f %.4f  %.4f ", MS[mi], totN, totN / nNearSamples,
+    printf("M %d %.0f %.5f  %.4f %.4f  %.3f %.3f  %.4f %.4f  %.4f %.4f  %.4f ", MS[mi], totN,
+           (double)nearAll[mi] / nNearSamples,
            est[0], err[0], est[1], err[1], est[2], err[2], est[3], err[3], est[4]);
     for (int k = 1; k <= 9; k++) printf(" %lld", histK[mi * 10 + k]);
     printf("\n");

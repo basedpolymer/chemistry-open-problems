@@ -73,6 +73,7 @@ environment was Python 3.13, sympy 1.14, numpy 2.5, scipy 1.18, single thread.
 | File | Content |
 |---|---|
 | `result.md` | Statement, complete proofs (classification §2, Liénard argument §3), remarks, verification map |
+| `paper.tex`, `references.bib` | Draft manuscript written by the solver; not compiled, since there is no LaTeX in the container. The editor agent will finalise it |
 | `scripts/certify_lienard.py` | Symbolic certificate: normalisation, Liénard identity, family data, key inequalities, Dulac classes |
 | `scripts/classify_networks.py` | Exhaustive check of the classification (Lemmas 2.1–2.3) for all targets with coefficients ≤ 20 |
 | `scripts/numerical_sanity.py` | Backward integration (no cycles), Hopf controls (cycles found), quadrature check of the comparison, sharpness observation |
