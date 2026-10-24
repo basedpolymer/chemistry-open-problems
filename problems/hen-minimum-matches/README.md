@@ -43,7 +43,7 @@ bounds are floating-point solver output, not certificates.
 | 37sp-yfyv | 36 / 35 (LKM18; FS04 36) | **36 / 36** | **optimal = 36** | exact network (36) | Lemma 1, c_max = 2 (exact enumeration) |
 | 20sp1 | 19 / 16 (LKM18; FS04 19) | **19 / 19** | **optimal = 19** | exact network (19) | Lemma 1, c_max = 2 |
 | 23sp1 | 23 / 17 (LKM18; FS04 23) | **22 / 22** | **optimal = 22** (new UB) | exact network (22) | Lemma 1, c_max = 2 |
-| unbalanced10 | 25 / 24 (LKM18) | 25 / 24 certified-by-nothing-new; ≤ 24 infeasible per exact SCIP | open (preliminary 25) | exact network (25) | exact SCIP 10.0.2 run: infeasible (10 233 nodes); VIPR check **not completed** |
+| unbalanced10 | 25 / 24 (LKM18) | 25 / 24 (24 not certified here); exact SCIP: ≤ 24 infeasible | open (25 preliminary, VIPR pending) | exact network (25) | exact SCIP 10.0.2 run: infeasible (10 233 nodes); VIPR check **not completed** |
 | unbalanced15 | 36 / 35 (LKM18) | 36 / 32 certified | open | exact network (36) | Lemma 1 |
 | 22sp1 | 25 / 23 (LKM18; FS04 25) | 25 / 23 certified | open | exact network | Lemma 1, c_max = 1 |
 | balanced12 | 28 / 26 | 28 / 26 certified | open | exact network | Lemma 1, c_max = 1 |

@@ -170,3 +170,21 @@ Trusted base for a VIPR-certified claim: the proofs of Secs. 1 and 3, `check_lp_
   not certified (we reproduce some and certify others).
 - Floating-point SCIP/HiGHS runs are used only to find solutions and to explore; every upper bound is an explicit
   network checked exactly, every lower bound is Lemma 1 (exact enumeration) or a VIPR certificate.
+
+## 7. State of the work when stopped (24 Oct 2026, owner's request)
+
+- **Certified (exact):** 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22 (Lemma 1 enumeration + exact networks);
+  LB 32 for balanced15 and balanced15_random0/1/2; LB 26 (balanced12 family), 23 (22sp1), 32 (unbalanced15) by
+  Lemma 1; all 22 upper bounds of `certificates/solutions/` checked exactly (`check_solutions.py`, ALL PASS).
+- **unbalanced10 ≤ 24 infeasible: solver result only.** Three exact-mode SCIP runs on the LP model
+  `certificates/vipr/unbalanced10_le24.lp` (objective Σ y, row Σ y ≤ 24; run 1 used the same model without
+  objective) all report "infeasible": run 1 (conflict analysis on, 21 203 nodes) and run 2 (root Gomory cuts,
+  10 129 nodes) produced certificates that FAIL `viprchk` at a conflict row and a Gomory row respectively (logs in
+  `certificates/vipr/run1_*`, `run2_*`); for both, steps 1–3 of `verify_vipr.sh` (LP regeneration, independent
+  row re-derivation, problem-section match) PASSED. The final run (cuts and conflict analysis off, 10 233 nodes,
+  287 s, certificate 0.54 GB in the solver's scratch directory, not stored) has **not been VIPR-checked**. Floating
+  point SCIP also reports infeasibility (7 505 nodes). So unbalanced10 = 25 is a preliminary result pending the
+  VIPR check.
+- **Not attempted / open:** unbalanced15 ≥ 36, 22sp1, balanced12 and balanced15 families beyond N − 1, unbalanced17/20
+  families, large-scale instances (idea not tested: root LP of the strengthened model vs. the CPLEX bounds).
+- **Resume:** see README "How to resume".
