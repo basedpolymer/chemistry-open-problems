@@ -23,7 +23,7 @@ import sys; sys.path.insert(0,'.')
 from hen_instance import parse_dat
 from hen_lpfile import write_lp_strong
 from hen_models import strong_rows
-inst=parse_dat(sys.argv[2]); write_lp_strong(inst, sys.argv[3], strong_rows(inst), maxmatches=int(sys.argv[4]), objective=False)
+inst=parse_dat(sys.argv[2]); write_lp_strong(inst, sys.argv[3], strong_rows(inst), maxmatches=int(sys.argv[4]), objective=True)
 PY
 if cmp -s "$TMP/regen.lp" "$LP"; then echo "PASS 1: LP file regenerated identically ($(sha256sum $LP | cut -c1-16)...)"; else echo "FAIL 1: LP file differs from regeneration"; fail=1; fi
 python3 check_lp_model.py "$DAT" "$LP" "$K" | tail -1 | sed 's/^/step 2: /' ; [ ${PIPESTATUS[0]} = 0 ] || fail=1

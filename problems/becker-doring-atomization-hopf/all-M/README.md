@@ -15,13 +15,13 @@ bifurcation at $\kappa=\kappa_j(M)$, $\kappa=K\sqrt M$, for $j\le k$ and $M>M_{0
 > periodic solutions, however."
 
 Result 8 certified $\ell_1<0$ for $16\le M\le10^5$ ($\ell_1>0$ at $M=15$) on branches 1–3, but the spectral
-hypothesis H2 only for $M\le160$, and nothing for $M>10^5$. This folder closes both gaps on the first branch.
+hypothesis H2 only for $M\le160$, and nothing for $M>10^5$. This folder closes both gaps on branches 1, 2 and 3.
 
 ## Status
 
 **Branch 1 (the first Hopf bifurcation): solved (preliminary)** — a complete answer for every $M$, not yet
-independently verified. **Branches 2–3: partial result** (centre-manifold supercriticality on the stated ranges).
-**Branches $j\ge4$: open** (only result 8's formal limit).
+independently verified. **Branches 2–3: solved (preliminary)** as well, in the sense made precise below
+(supercritical on the centre manifold, unstable orbits). **Branches $j\ge4$: open** (only result 8's formal limit).
 
 ## Result
 
@@ -33,10 +33,11 @@ bifurcation (result 8's verifier). So the answer to the open question for the fi
 $M\ge16$, unstable (subcritical) for $M=15$*. Moreover $\ell_1(q_1=1)/M\to L_1=-0.0093114\ldots$; the limit is
 enclosed in $[-0.00931144,-0.00931137]$ and agrees with result 8's formal closed form to about 56 digits.
 
-For $j=2,3$: $\ell_1<0$ for every $M$ on which the branch was certified (result 8 for $M\le10^5$, this work for all
-larger $M$), and H2 holds at $\kappa_j(M)$ on the ranges of `result.md` §7; there the bifurcation is supercritical
-on the centre manifold, but the bifurcating orbits are **unstable** in the full system (the equilibrium already has
-$j-1$ unstable pairs).
+For $j=2$ (every $M\ge44$) and $j=3$ (every $M\ge87$): $\pm i\omega$ simple, transversal, $\ell_1<0$ (result 8 for
+$M\le10^5$, this work for all $M\ge161$), and H2 (verifier of result 8 for $M\le160$, this work for all $M\ge161$).
+So the bifurcation is supercritical on the 2-dimensional centre manifold, but the bifurcating orbits are
+**unstable** in the full system, because the equilibrium already has eigenvalues with $\operatorname{Re}\lambda>0$
+there (certified: $2(j-1)$ zeros of the characteristic function, counted with multiplicity).
 
 **How (for $M\ge161$).** Everything is written in Pego–Velázquez's scaled variables
 $\varepsilon=M^{-1/2}$, $z=M(\varphi-1)$, $\kappa$, as expressions that are *regular at $\varepsilon=0$*:
@@ -48,7 +49,8 @@ $\varepsilon$ is treated as an interval: 562 boxes cover $\varepsilon\in[0,161^{
 contains $M=\infty$). On each box: a parametric Krawczyk test encloses the Hopf point for all $\varepsilon$ in the
 box; simplicity and transversality; $\widehat L=\ell_1(q_1=1)/M<0$ by a mean value form with automatic
 differentiation; and H2 via an explicit localization lemma (an explicit version of PV's Props. 8.1–9.2) plus a
-rigorous winding-number count of the zeros of $Q^\varepsilon$ (exactly 4: $z=0$ twice and the Hopf pair).
+rigorous winding-number count of the zeros of $Q^\varepsilon$ (exactly 4: $z=0$ twice and the Hopf pair). Branches 2, 3:
+the same on 589 and 834 boxes, with contours along level curves of $\operatorname{Re}\lambda$ (`h2j_lib`).
 
 ## Reproduce
 

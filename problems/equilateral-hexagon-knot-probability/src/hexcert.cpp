@@ -57,7 +57,7 @@ static void load_table(const char* fn) {
 // ---------------------------------------------------------------------------------------------
 // geometry over a d-box: rows R[v][k][0..3] (homogeneous (1,x,y,z)); for moving vertex v (1,3,5):
 // k=0 constant part, k=1 coefficient of cos(theta), k=2 coefficient of sin(theta).
-struct Geo { A R[6][3][4]; };
+struct Geo { A R[6][3][4]; A U[6][3][4]; };   // U: rows of a moving vertex divided by h_k, with the midpoint part removed
 
 static void build_geo(const A& d1, const A& s, const A& t, Geo& G) {
     A one(1.0), half(0.5), two(2.0), zero(0.0);
@@ -77,6 +77,8 @@ static void build_geo(const A& d1, const A& s, const A& t, Geo& G) {
     A n1x = zero, n1y = one;
     A n2x = -(sq / (two * r2)), n2y = (r3 * r3 - r2 * r2 - one) / (two * r2);
     A n3x = sq / (two * r3), n3y = -((one - r2 * r2 + r3 * r3) / (two * r3));
+    // the n_k are unit vectors: their components lie in [-1, 1] (helps near the corner d3 = 0, where r3 -> 0)
+    for (A* c : {&n2x, &n2y, &n3x, &n3y}) { I m = meet(c->v, I(-1.0, 1.0)); if (!(m.lo > m.hi)) c->v = m; }
     // midpoints
     A m1x = d1 * half, m1y = zero;
     A m2x = (d1 + pp) * half, m2y = qq * half;
@@ -93,6 +95,9 @@ static void build_geo(const A& d1, const A& s, const A& t, Geo& G) {
         G.R[v][0][0] = one; G.R[v][0][1] = mx[k]; G.R[v][0][2] = my[k];
         G.R[v][1][1] = hh[k] * nx[k]; G.R[v][1][2] = hh[k] * ny[k];
         G.R[v][2][3] = hh[k];
+        for (int kk = 0; kk < 3; kk++) for (int c = 0; c < 4; c++) G.U[v][kk][c] = zero;
+        G.U[v][1][1] = nx[k]; G.U[v][1][2] = ny[k];
+        G.U[v][2][3] = one;
     }
 }
 
@@ -112,7 +117,13 @@ static const int PAIR_MV[3][2] = {{1, 3}, {3, 5}, {1, 5}};
 static const PierceSpec SPEC_A[3] = {{3, 4, 0, 1, 2}, {5, 0, 2, 3, 4}, {1, 2, 4, 5, 0}};
 static const PierceSpec SPEC_B[3] = {{0, 1, 2, 3, 4}, {2, 3, 4, 5, 0}, {4, 5, 0, 1, 2}};
 
-struct Coef { I M[3][3]; I Mc[3][3]; I G[3][3][3]; I dD[3]; bool useG; };       // F(ti,tj) = sum_kl M[k][l] u_k(ti) u_l(tj), u = (1, cos, sin)
+struct Coef { I M[3][3]; I Mc[3][3]; I G[3][3][3]; I dD[3]; bool useG; int fixedSign; };
+// permutation parity of (w0..w3) relative to the sorted order of the same four labels
+static int perm_sign(const int* w) {
+    int s = 1;
+    for (int i = 0; i < 4; i++) for (int j = i + 1; j < 4; j++) if (w[i] > w[j]) s = -s;
+    return s;
+}       // F(ti,tj) = sum_kl M[k][l] u_k(ti) u_l(tj), u = (1, cos, sin)
 
 static void det_coef(const Geo& Gb, const Geo& Gc, const double* lo, const double* hi, const double* cen,
                      int pair, int w0, int w1, int w2, int w3, Coef& C) {
@@ -126,12 +137,34 @@ static void det_coef(const Geo& Gb, const Geo& Gc, const double* lo, const doubl
         if (w[r] == mj) hasJ = true;
         if ((w[r] & 1) && w[r] != mi && w[r] != mj) { fprintf(stderr, "determinant involves a third moving vertex\n"); exit(3); }
     }
+    // (a) O(v1,v3,v5,v_2k) = d1 q h_k sin(theta_k) > 0 on int(P) x (0,pi): exact sign, no evaluation needed
+    C.fixedSign = 0;
+    {
+        bool c0 = false, c2 = false, c4 = false; int mv = -1;
+        for (int r = 0; r < 4; r++) { if (w[r] == 0) c0 = true; if (w[r] == 2) c2 = true; if (w[r] == 4) c4 = true; if (w[r] & 1) mv = w[r]; }
+        if (c0 && c2 && c4 && mv >= 0) {
+            int ws[4] = {w0, w1, w2, w3};
+            // sign of O(w) = parity(w -> (0,2,4,mv) sorted order) * sign O(0,2,4,mv); (0,2,4,mv) is sorted unless mv < 4
+            int canon[4] = {0, 2, 4, mv};
+            int sgn_canon = perm_sign(canon);          // O in sorted label order = sgn_canon * O(0,2,4,mv)
+            C.fixedSign = perm_sign(ws) * sgn_canon;   // O(w) = perm_sign(w) * O(sorted) = perm_sign(w)*sgn_canon*O(0,2,4,mv)
+        }
+    }
+    // (b) if the four labels contain a whole flap {v_{2k-1}, v_{2k}, v_{2k+1}}, O = h_k * O' where O' uses the rows
+    //     U of v_{2k} (midpoint part removed, divided by h_k); sign(O) = sign(O') since h_k > 0 on int(P)
+    int flapv = -1;
+    {
+        bool has[6] = {false, false, false, false, false, false};
+        for (int r = 0; r < 4; r++) has[w[r]] = true;
+        for (int k = 0; k < 3; k++) { int a = 2 * k, b = 2 * k + 1, c = (2 * k + 2) % 6; if (has[a] && has[b] && has[c]) flapv = b; }
+    }
     for (int k = 0; k < 3; k++) for (int l = 0; l < 3; l++) {
         if ((k > 0 && !hasI) || (l > 0 && !hasJ)) { C.M[k][l] = I(0.0); C.Mc[k][l] = I(0.0); for (int m = 0; m < 3; m++) C.G[m][k][l] = I(0.0); continue; }
         const A* rb[4]; const A* rc[4];
         for (int r = 0; r < 4; r++) {
             int kk = (w[r] == mi) ? k : (w[r] == mj) ? l : 0;
-            rb[r] = Gb.R[w[r]][kk]; rc[r] = Gc.R[w[r]][kk];
+            if (w[r] == flapv) { rb[r] = Gb.U[w[r]][kk]; rc[r] = Gc.U[w[r]][kk]; }
+            else { rb[r] = Gb.R[w[r]][kk]; rc[r] = Gc.R[w[r]][kk]; }
         }
         A vb = det4(rb[0], rb[1], rb[2], rb[3]);
         A vc = det4(rc[0], rc[1], rc[2], rc[3]);
@@ -200,6 +233,7 @@ struct DetTab {
     }
     // enclosure of F over D x cell_i x cell_j
     inline I eval(int L, int ki, const ColData& cj, const Cell& ci) {
+        if (C->fixedSign) return I((double)C->fixedSign);
         const RowData& r = row(L, ki);
         I F2 = r.ab[0] + r.ab[1] * cj.U1 + r.ab[2] * cj.U2;
         if (!C->useG) return F2;
@@ -215,7 +249,7 @@ struct DetTab {
     // Heuristic only (no influence on the certified counts): split the width of the centred-form enclosure
     // into the parts due to the theta-cell and to each d-coordinate; adds normalised shares to acc[0..3].
     inline void attrib(int L, int ki, const ColData& cj, const Cell& ci, double* acc) {
-        if (!C->useG) return;
+        if (!C->useG || C->fixedSign) return;
         const RowData& r = row(L, ki);
         I dj = r.ac[1] * cj.p1 + r.ac[2] * cj.p2;
         I di = r.ap[0] + r.ap[1] * cj.U1 + r.ap[2] * cj.U2;

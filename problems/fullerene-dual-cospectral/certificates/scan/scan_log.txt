@@ -45,3 +45,4 @@ n=124 isomers=2295721 oeis_ok=True | A(T): groups=86 mixed=48 classes=38 | A(T6)
 n=126 isomers=2650866 oeis_ok=True | A(T): groups=121 mixed=61 classes=60 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=259 | 378s+104s
 n=128 isomers=3114236 oeis_ok=True | A(T): groups=107 mixed=80 classes=27 | A(T6): groups=1 mixed=1 classes=0 | T5 multi=263 | 278s+75s
 n=130 isomers=3580637 oeis_ok=True | A(T): groups=155 mixed=109 classes=46 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=256 | 309s+102s
+n=132 isomers=4182071 oeis_ok=True | A(T): groups=249 mixed=179 classes=70 | A(T6): groups=3 mixed=3 classes=0 | T5 multi=268 | 381s+119s

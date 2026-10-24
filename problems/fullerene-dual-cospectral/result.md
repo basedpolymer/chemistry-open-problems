@@ -140,13 +140,22 @@ O_j is a pentagon iff j ≡ δ (mod 2), and a triangle of pentagons t_0 t_1 t_2 
 p = 2i + δ. It has 9 faces, 6 of them pentagons, symmetry C3v; I(1) is I(0) rotated by one step (60°). It is the
 cap of the pair C44:37/C44:38 of Bille et al.
 
-**Lemma 2 (exact computation, `scripts/tube_family.py`, claim F2a).** For I(0) and I(1) glued to S:
-p_I(x) = x^9 − 18x^7 − 20x^6 + 72x^5 + 120x^4 − 54x^3 − 180x^2 − 81x for both, and W_0(x) = W_1(x)
-(6 × 6 matrices over Z[x], entries of degree ≤ 8; checked exactly at 12 integer points, which is an identity
-test). Conceptual reason: in the Fourier basis of Z/6, the attachment B multiplies mode a by 1 + ω^a, which
-kills a = 3; the C3-invariant part of the cap couples mode a with a + 3 only, and the triangle couples to the
-O-row only through modes 0, 3, 1, 5 (its kernel 1 + 2cos(πa/3) vanishes at a = 2, 4); so every coupling
-that is not invariant under the 60° rotation is annihilated.
+**Lemma 2.** For I(0) and I(1) glued to S: p_I(x) = x^9 − 18x^7 − 20x^6 + 72x^5 + 120x^4 − 54x^3 − 180x^2 − 81x
+for both, and W_0(x) = W_1(x) (6 × 6 matrices over Z[x]).
+
+*Proof 1 (computation, `scripts/tube_family.py`, claim F2a).* Entries of W have degree ≤ 8; the two matrices are
+evaluated exactly (python-flint, over Q) at 12 integer points ≥ 10 and agree, which is an identity test.
+
+*Proof 2 (conceptual).* p_I is the same because I(1) ≅ I(0) as graphs. Index O and S by Z/6 and use the Fourier
+basis e_a(j) = ω^{aj}/√6, ω = e^{2πi/6}. The S–O incidence (S_j ~ O_j, O_{j+1}) is circulant with multiplier
+β_a = 1 + ω^{±a}, so β_3 = 0. By the Schur complement on the triangle t, the O-block of (xI − A_I)^{-1} is
+R = (xI − A_O − Kᵀ(xI − A_t)^{-1}K)^{-1}, where A_O (a 6-cycle) is diagonal in this basis and K (t_i ~ O_{p−1},
+O_p, O_{p+1}, p = 2i + δ) sends e_a to κ_a ω^{aδ} times the C3-mode a mod 3 of the triangle, with
+κ_a = 1 + 2cos(πa/3) = 3, 2, 0, −1, 0, 2 for a = 0..5. Hence Kᵀ(xI − A_t)^{-1}K, and therefore R, is block diagonal
+for the blocks {0, 3}, {1}, {2}, {4}, {5} (the would-be couplings 1–4 and 2–5 carry the factor κ_4 = κ_2 = 0).
+Then W = Bᵀ R B has the only possible off-diagonal coupling 0–3 multiplied by β_3 = 0, so W is diagonal in the
+Fourier basis, i.e. circulant. Rotating the cap by one step conjugates W by the cyclic shift, which fixes every
+circulant: W_1 = W_0. ∎
 
 **Theorem 2.** (A) Let G be any fullerene dual in which a hexagon row S of a 6-row tube carries the cap I(δ)
 (all other vertices form the rest R). Replacing I(δ) by I(1 − δ) gives a fullerene dual G' with the same
