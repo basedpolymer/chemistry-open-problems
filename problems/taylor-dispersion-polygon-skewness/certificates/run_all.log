@@ -1,0 +1,9 @@
+===== python3 triangle_exact.py (start 11:12:58 UTC)
+PASS: -Lap ut = 2
+PASS: ut = 0 on y=-1
+PASS: ut = 0 on y=2+sqrt3 z
+PASS: ut = 0 on y=2-sqrt3 z
+PASS: <ut> = 3/10
+PASS: -Lap g1 = u
+PASS: d_n g1 = 0 on all three sides
+PASS: <g1> = 0

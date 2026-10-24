@@ -104,15 +104,26 @@ def disk(r):
 
 def T_over_eps_bound(eps, kap, k):
     """rigorous upper bound of sup T(eps', kap')/eps'^k over eps' in the ball eps (eps' > 0), kap' in kap,
-    T = A^-M = (1 + kap eps)^(-1/eps^2).  Uses log(1+x) >= x - x^2/2 (x >= 0):  T <= exp(-kap/eps + kap^2/2),
-    and eps -> exp(-c/eps)/eps^k is increasing on (0, c/k)."""
+    T = A^-M = (1 + kap eps)^(-1/eps^2).  Two bounds, the smaller is returned:
+      (a) log(1+x) >= x - x^2/2 (x >= 0) gives T <= exp(-kap/eps + kap^2/2), and eps -> exp(-c/eps)/eps^k is
+          increasing on (0, c/k): sup <= exp(-kap_lo/eps_hi + kap_hi^2/2)/eps_hi^k  (needs eps_hi < kap_lo/k);
+      (b) (if eps_lo > 0) T is increasing in eps and decreasing in kappa (d/deps [log(1+kap eps)/eps^2] =
+          [x/(1+x) - 2 log(1+x)]/eps^3 < 0, x = kap eps > 0), so sup <= T(eps_hi, kap_lo)/eps_lo^k."""
     eps = arb(eps); kap = arb(kap)
     e_hi = arb_up(eps)
     if not (e_hi > 0):
         return arb(0)            # eps = 0 exactly: the limit M = infinity, T = 0
+    e_lo = arb(eps.lower())
     k_lo = arb(kap.lower()); k_hi = arb(kap.upper())
-    assert e_hi < k_lo / max(k, 1), "eps too large for the monotonicity argument"
-    return arb_up((-(k_lo / e_hi) + k_hi * k_hi / 2).exp() / e_hi ** k)
+    best = None
+    if e_hi < k_lo / max(k, 1):
+        best = arb_up((-(k_lo / e_hi) + k_hi * k_hi / 2).exp() / e_hi ** k)
+    if e_lo > 0:
+        Tmax = arb_up((-(k_lo * e_hi).log1p() / (e_hi * e_hi)).exp())
+        b = arb_up(Tmax / e_lo ** k)
+        best = b if best is None else (b if b < best else best)
+    assert best is not None, "no valid bound for T"
+    return best
 
 # ------------------------------------------------------------------------------------------------ dual numbers
 class DN:
