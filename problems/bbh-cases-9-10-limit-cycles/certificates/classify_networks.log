@@ -1,1 +1,15 @@
 box: all target coefficients in 0..20
+
+=== case 9: 85184000 networks
+   rank<2       26475   e.g. 2X -> 0,  X + Y -> Y,  Y -> X + Y
+   trivial   84985037   e.g. 2X -> 0,  X + Y -> 0,  Y -> 0
+   saddle       65560   e.g. 2X -> 0,  X + Y -> 2Y,  Y -> 2X
+   c1<=0        48527   e.g. 2X -> 0,  X + Y -> 0,  Y -> 2X + 2Y
+   LVA            342   e.g. 2X -> 3X,  X + Y -> 2Y,  Y -> 0
+   HOPF         21850   e.g. 2X -> 3X + Y,  X + Y -> Y,  Y -> 0
+   9a           29425   e.g. 2X -> 3X + 2Y,  X + Y -> 0,  Y -> X + Y
+   9b            6784   e.g. 2X -> 3X + Y,  X + Y -> Y,  Y -> X
+PASS C1 case 9: every network is classified (unclassified: 0)
+PASS C2 case 9: BBH-Hopf <=> (u>0, c1>0, d1>0, c1u1-c3u3>0) (mismatches: 0)
+PASS C3 case 9: families 9a/9b/10a have k>=1 and d2 in {-1,0} (violations: 0)
+PASS C4 case 9: LVA class has the stated shape (violations: 0)
