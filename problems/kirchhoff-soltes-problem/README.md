@@ -4,7 +4,9 @@
 
 **Status: partial result** (not independently verified). No new Kirchhoff Šoltés graph; C₅ is still the
 only known one. Non-existence is proved for several classes, and the exhaustive searches are extended
-from 9 to 11 vertices (all graphs) and from 23 to 47 vertices (vertex-transitive graphs).
+from 9 to 11 vertices (all graphs) and from 23 to 39 vertices plus odd n ≤ 47 (vertex-transitive graphs).
+Work was stopped by the owner before the census files n = 40, 42, 44, 46 and the regular-graph,
+bicirculant and large floating-point scans were run (see result.md §13 for how to resume).
 
 ## Problem
 
@@ -54,11 +56,12 @@ Mat. Mex. 2025) treats a relaxed version.
   GQ(q,q) and GH(q,q). Exact values for many families (odd graphs, Johnson graphs, the 13 cubic DRGs,
   etc.) are in Proposition 13.
 * **Exhaustive exact searches**: C₅ is the only KS graph on ≤ 11 vertices (910 914 360 2-connected graphs
-  with 3 ≤ n ≤ 11). No vertex-transitive KS graph exists on 6–47 vertices (full Holt–Royle census, COUNT_VT
-  graphs). Regular graphs: REGULAR_SUMMARY.
+  with 3 ≤ n ≤ 11). No vertex-transitive KS graph exists on n vertices for 6 ≤ n ≤ 39 and n ∈ {41, 43, 45, 47} (Holt–Royle
+  census, 4 685 508 graphs; files n = 40, 42, 44, 46 not run). The extra regular-graph and bicirculant
+  searches were prepared but not run.
 
 A KS graph other than C₅, if one exists, therefore has ≥ 12 vertices, cyclomatic number ≥ 6, no three
-consecutive degree-2 vertices, small algebraic connectivity, and ≥ 48 vertices if it is vertex-transitive.
+consecutive degree-2 vertices, small algebraic connectivity, and if it is vertex-transitive n ≥ 40 with n ∉ {41, 43, 45, 47}.
 It is neither strongly regular nor triangle-free distance-regular, nor complete multipartite.
 
 ## How to reproduce
@@ -83,7 +86,7 @@ python3 scripts/check_triangle_free_drg.py   # Theorem 13''                     
 python3 scripts/exact_small_cases.py         # C5, theta graphs, K_{4,3}              (1 s)
 scripts/run_geng_search.sh 3 11              # Theorem 14 (n = 11: about 1-2 h)
 for c in 2 3 4 5; do python3 scripts/kernel_enum.py $c | scripts/kscheck; done   # Theorem 4
-scripts/run_census.sh 10 11 ... 47           # Theorem 15 (downloads 11.4 GB; about 3-6 h)
+scripts/run_census.sh 10 11 ... 47           # Theorem 15 (done: 10-39, 41, 43, 45, 47; to do: 40 42 44 46)
 scripts/run_regular_search.sh k n            # regular graphs (COMPL=1: also complements)
 python3 scripts/fourier_families.py validate # exploration tool (floating point)
 ```
@@ -106,6 +109,7 @@ multig complg` inside `certificates/sources/nauty/`.
   certificates.
 * `scripts/fourier_families.py` (floating-point exploration), `modular_check.py` (exact test for large
   graphs).
+* `certificates/search/summary.md`: tables of all completed searches (from `scripts/summarize_logs.py`).
 * `certificates/search/*.log`: per-n / per-file counts of every search. The `.out` files hold survivors and
   are empty except `geng_C_n5.out` (C₅).
 * `certificates/small_cases.txt`, `drg_families.log`, `check_*.log`: exact values and script outputs.

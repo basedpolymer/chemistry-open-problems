@@ -61,12 +61,15 @@ graph with n ≥ 3 vertices all of which are good. Hence every KS graph is 2-con
    graphs H(d,q) have no good vertex; every DRG with a(G) ≥ 2(1 + 94/101) is not KS (Cor. 13‴).
 9. **Exhaustive searches** [exact computation]: C₅ is the only KS graph on ≤ 11 vertices (all 2-connected graphs,
    nauty geng −C, 910 914 360 graphs for n ≤ 11; the published range was n ≤ 9); no vertex-transitive
-   KS graph on 6 ≤ n ≤ 47 vertices (full Holt–Royle census; published range n ≤ 23). Counts in §11.
+   KS graph on n vertices for 6 ≤ n ≤ 39 and n ∈ {41, 43, 45, 47} (Holt–Royle census, 4 685 508 graphs;
+   published range n ≤ 23). **Not run (work stopped by the owner): census files n = 40, 42, 44, 46.**
+   Counts in §11.
 
 Consequently a KS graph other than C₅, if it exists, has ≥ 12 vertices, is 2-connected, has cyclomatic
 number ≥ 6, threads of length ≤ 3 and poor expansion (a(G)² ≤ 2·HM(degrees)); it is not complete
 multipartite, not strongly regular, not a triangle-free distance-regular graph, not a distance-regular
-graph of valency ≤ 4, not a Hamming graph, and if vertex-transitive it has ≥ 48 vertices.
+graph of valency ≤ 4, not a Hamming graph, and if vertex-transitive it has n ≥ 40 vertices with
+n ∉ {41, 43, 45, 47}.
 
 ## 2. Tools
 
@@ -450,12 +453,58 @@ exact rationals (1 248 graphs, n ≤ 31).
 (counts = OEIS A002218; logs `certificates/search/geng_C_n*.log`; reproduce with
 `scripts/run_geng_search.sh 3 11`.)
 
-**Theorem 15 [exact computation].** There is no vertex-transitive KS graph on 6 ≤ n ≤ 47 vertices.
-Every graph of the Holt–Royle census (Zenodo 10.5281/zenodo.4010122, all vertex-transitive graphs on
-10–47 vertices, all valencies, including disconnected ones) was tested (`scripts/run_census.sh`); counts per
-n agree with OEIS A006799 and are in the table below; n ≤ 9 is covered by Theorem 14.
+**Theorem 15 [exact computation].** There is no vertex-transitive KS graph on n vertices for 6 ≤ n ≤ 39 and
+for n ∈ {41, 43, 45, 47}. Every graph of the corresponding files of the Holt–Royle census (Zenodo
+10.5281/zenodo.4010122, all vertex-transitive graphs, all valencies, including disconnected ones) was tested
+with `kscheck_fast -t` (`scripts/run_census.sh`); counts per n agree with OEIS A006799; every tar file
+matched the md5 published by Zenodo (`census_md5_n10_31.txt`, `md5 OK` lines in `census_n*.log`); n ≤ 9 is
+covered by Theorem 14. **The files n = 40, 42, 44, 46 (13 104 170 + 9 462 226 + 39 134 640 + 34 333 800
+graphs) were not processed: the work was stopped by the repository owner.** Resume with
+`scripts/run_census.sh 40 42 44 46` (downloads 11 GB; about 1–2 h of one core).
 
-CENSUS_TABLE
+**Census counts** (`certificates/search/census_n*.log`, table produced by `scripts/summarize_logs.py`):
+| n | graphs | disconnected | rejected | survivors | inconclusive | OEIS A006799 |
+|---|---|---|---|---|---|---|
+| 10 | 22 | 4 | 18 | 0 | 0 | 22 ok |
+| 11 | 8 | 1 | 7 | 0 | 0 | 8 ok |
+| 12 | 74 | 10 | 64 | 0 | 0 | 74 ok |
+| 13 | 14 | 1 | 13 | 0 | 0 | 14 ok |
+| 14 | 56 | 5 | 51 | 0 | 0 | 56 ok |
+| 15 | 48 | 4 | 44 | 0 | 0 | 48 ok |
+| 16 | 286 | 14 | 272 | 0 | 0 | 286 ok |
+| 17 | 36 | 1 | 35 | 0 | 0 | 36 ok |
+| 18 | 380 | 15 | 365 | 0 | 0 | 380 ok |
+| 19 | 60 | 1 | 59 | 0 | 0 | 60 ok |
+| 20 | 1,214 | 24 | 1,190 | 0 | 0 | 1,214 ok |
+| 21 | 240 | 5 | 235 | 0 | 0 | 240 ok |
+| 22 | 816 | 9 | 807 | 0 | 0 | 816 ok |
+| 23 | 188 | 1 | 187 | 0 | 0 | 188 ok |
+| 24 | 15,506 | 84 | 15,422 | 0 | 0 | 15,506 ok |
+| 25 | 464 | 3 | 461 | 0 | 0 | 464 ok |
+| 26 | 4,236 | 15 | 4,221 | 0 | 0 | 4,236 ok |
+| 27 | 1,434 | 9 | 1,425 | 0 | 0 | 1,434 ok |
+| 28 | 25,850 | 58 | 25,792 | 0 | 0 | 25,850 ok |
+| 29 | 1,182 | 1 | 1,181 | 0 | 0 | 1,182 ok |
+| 30 | 46,308 | 72 | 46,236 | 0 | 0 | 46,308 ok |
+| 31 | 2,192 | 1 | 2,191 | 0 | 0 | 2,192 ok |
+| 32 | 677,402 | 286 | 677,116 | 0 | 0 | 677,402 ok |
+| 33 | 6,768 | 9 | 6,759 | 0 | 0 | 6,768 ok |
+| 34 | 132,580 | 37 | 132,543 | 0 | 0 | 132,580 ok |
+| 35 | 11,150 | 6 | 11,144 | 0 | 0 | 11,150 ok |
+| 36 | 1,963,202 | 446 | 1,962,756 | 0 | 0 | 1,963,202 ok |
+| 37 | 14,602 | 1 | 14,601 | 0 | 0 | 14,602 ok |
+| 38 | 814,216 | 61 | 814,155 | 0 | 0 | 814,216 ok |
+| 39 | 48,462 | 15 | 48,447 | 0 | 0 | 48,462 ok |
+| 40 | **not run** | | | | | 13104170 |
+| 41 | 52,488 | 1 | 52,487 | 0 | 0 | 52,488 ok |
+| 42 | **not run** | | | | | 9462226 |
+| 43 | 99,880 | 1 | 99,879 | 0 | 0 | 99,880 ok |
+| 44 | **not run** | | | | | 39134640 |
+| 45 | 399,420 | 55 | 399,365 | 0 | 0 | 399,420 ok |
+| 46 | **not run** | | | | | 34333800 |
+| 47 | 364,724 | 1 | 364,723 | 0 | 0 | 364,724 ok |
+
+
 
 ## 12. Numerical explorations (not proofs)
 
@@ -464,9 +513,40 @@ CENSUS_TABLE
   Along every family examined (tori, prisms, generalized Petersen graphs GP(n,k), circulants) Δ changes
   sign at small order and then keeps the sign of the "dimension" (negative for 1- and 2-dimensional
   families, positive for expanders), so near-misses are frequent and exact solutions would be coincidences.
-* NUMERICAL_EXTRA
+* Circulant C₆₄(1,14) (found by the floating-point lattice scan, n ≤ 80): Kf = 1853915492031102448/1198214214690171,
+  Kf(G) − Kf(G − v) ≈ 0.00148 (relative 9.5·10⁻⁷), exactly non-zero. Pilot floating-point scans
+  (`scripts/fourier_families.py`, validated against dense computations): degree-4 lattice quotients of ℤ²
+  with 48 ≤ n ≤ 80 (3 308 graphs, smallest relative |Δ| 9.5·10⁻⁷) and GP(n,k) with 24 ≤ n ≤ 80 (1 439 graphs,
+  smallest max-relative |Δ| 5.7·10⁻³). The planned large scans (n ≤ 1000) were **not run**.
+* Exact (kscheck_fast, all vertices) small members of these families: GP(n,k) for n ≤ 32 (240 graphs),
+  degree-4 and degree-6 lattice quotients of ℤ² with n ≤ 64 (3 028 and 2 848 graphs): none KS.
 
-## 13. What is not proved
+## 13. Status of each claim and searches not run
+
+| Claim | Status |
+|---|---|
+| Lemma 1, Lemma 2, Lemma 2′, Cor. 3 (threads) | proved; formula checked by script (`check_thread_lemma.py`) |
+| Thm 4 (cyclomatic number ≤ 5) | proved + exact computation completed for c = 2, 3, 4, 5 |
+| Lemma 5, 5′, Thm 6, Cor. 7, Thm 8 (expander, dense) | proved; identities exact and inequalities floating-point checked (`check_expander_dense.py`) |
+| Prop. 9, Prop. 10 (local / DRG formulas) | proved; checked exactly by script |
+| Thm 11 (complete multipartite) | proved; checked by script |
+| Thm 12 (SRG) | proved (uses Thm 6 and standard SRG facts); computer algebra by script |
+| Prop. 13 (DRG families, finite ranges) | exact computation completed |
+| Prop. 13′, Thm 13″, Cor. 13‴ (DRGs) | proved; uses Markowsky–Koolen Thm 1 and the valency-3/4 classification as quoted there (not re-derived); checked by script |
+| Thm 14 (n ≤ 11) | exact computation completed |
+| Thm 15 (vertex-transitive) | exact computation completed for n ≤ 39 and n = 41, 43, 45, 47 only |
+| paper.tex | drafted by the solver, not compiled (no LaTeX in this container) |
+
+Searches **not run** (work stopped by the owner on 24 Oct 2026): census n = 40, 42, 44, 46; regular graphs
+(cubic n = 20, 22; quartic n = 15, 16; 5-regular and 6-regular n = 14, with complements); bicirculants
+2m ≤ 26 (`bicirculant_enum.py`); large floating-point scans (`fourier_families.py` tori4/tri6/gp up to
+n = 1000). To resume (from this folder, one core): `scripts/run_census.sh 40 42 44 46`;
+`COMPL=1 scripts/run_regular_search.sh k n` for (k,n) in (3,20) (4,15) (5,14) (4,16) (6,14) (3,22);
+`for m in $(seq 3 13); do python3 scripts/bicirculant_enum.py $m | scripts/kscheck_fast; done`;
+`python3 scripts/fourier_families.py tori4 48 1000 1e-9` (and `gp 24 1000`, `tri6 48 600`); then
+`python3 scripts/summarize_logs.py`.
+
+## 14. What is not proved
 
 The problem remains open: we do not exclude KS graphs with n ≥ 12 in general, vertex-transitive ones with
 n ≥ 48, nor sparse graphs with cyclomatic number ≥ 6. The searches of §11 are exact but finite; the
