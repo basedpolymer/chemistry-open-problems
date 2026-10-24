@@ -44,7 +44,7 @@ the characteristic function $Q^\varepsilon(z;\kappa)=K^{-3}F(1+z/M)$ (exponentia
 disk), and — the main new ingredient — the first Lyapunov coefficient, rewritten in transfer-function form
 $\ell_1=\omega^{-1}\operatorname{Re}[\dots]$ with resolvents computed from exact exponential-sequence formulas in
 which every leading-order cancellation (boundary layers, monomer row, geometric sums) is done analytically. Then
-$\varepsilon$ is treated as an interval: 654 boxes cover $\varepsilon\in[0,161^{-1/2}]$ (the box $[0,10^{-5}]$
+$\varepsilon$ is treated as an interval: 562 boxes cover $\varepsilon\in[0,161^{-1/2}]$ (the box $[0,10^{-5}]$
 contains $M=\infty$). On each box: a parametric Krawczyk test encloses the Hopf point for all $\varepsilon$ in the
 box; simplicity and transversality; $\widehat L=\ell_1(q_1=1)/M<0$ by a mean value form with automatic
 differentiation; and H2 via an explicit localization lemma (an explicit version of PV's Props. 8.1–9.2) plus a
@@ -57,13 +57,13 @@ From this folder (`scripts/`), Python 3.13 with python-flint 0.9, sympy, mpmath;
 | script | claims | runtime |
 |---|---|---|
 | `check_formulas.py` | F1–F7: exact identities (sympy), entrywise dense enclosure test of every block of the regular $\ell_1$ formula at $M=40,100,300$, closed-form sums vs direct summation | 2 min |
-| `l1_sweep.py 1 0 0.0788111 OUT --h2` | Theorem 7.1: all $M\ge161$, branch 1 (Hopf box, simplicity, transversality, $\widehat L<0$, H2) | 9 min |
+| `l1_sweep.py 1 0 0.0788111 OUT --h2` | Theorem 7.1: all $M\ge161$, branch 1 (Hopf box, simplicity, transversality, $\widehat L<0$, H2) | 12 min |
 | `l1_sweep.py J 0 0.0788111 OUT` | branches 2, 3: Hopf box, $\widehat L<0$ | see `result.md` §7 |
 | `h2j_sweep.py J IN OUT R0 Y cL cR` | H2 and unstable count at $\kappa_j$, on the boxes of an `l1_sweep` file | ~2 s/box |
 | `verify_sweep.py FILE EPS_LO EPS_HI [--h2] [STRIDE]` | re-proves every certificate line from the stored data, and the coverage | as the sweep |
 | `check_vs_result8.py J OURS R8FILES` | result 8's Hopf points ($161\le M\le10^5$) lie in our unique-zero boxes; result 8's $\ell_1$ values inside our enclosures | 1 min |
 | `asymptotics.py` | A1–A4: limit $M\to\infty$ on branches 1–3, comparison with result 8's closed form | 10 s |
-| `h2_sweep.py OUT 161` | H2 only, branch 1 (superseded by `l1_sweep --h2`) | 1 min |
+| `h2_sweep.py OUT 161` | H2 only, branch 1 (tool; superseded by `l1_sweep --h2`) | 1 min |
 
 Every script prints PASS/FAIL per claim and exits non-zero on failure. Logs: `certificates/logs/`.
 
@@ -74,5 +74,5 @@ Every script prints PASS/FAIL per claim and exits non-zero on failure. Logs: `ce
 - `scripts/`: `allm_core.py` (regular $Q^\varepsilon$, parametric Krawczyk, localization, region, winding number),
   `l1reg.py` (regular $\ell_1$), `ad.py` (automatic differentiation and series), `h2_lib.py`, `h2j_lib.py`, and the
   scripts above.
-- `certificates/`: `l1h2_j1.csv` (branch 1, 654 boxes), `l1_j2.csv`, `l1_j3.csv`, `h2j_j2.csv`, `h2j_j3.csv`,
-  `h2_j1.csv`; `logs/`; `sources/` (git-ignored copy of arXiv:1905.02605).
+- `certificates/`: `l1h2_j1.csv` (branch 1, 562 boxes), `l1_j2.csv` (589), `l1_j3.csv` (834), `h2j_j2.csv`,
+  `h2j_j3.csv`; `logs/`; `sources/` (git-ignored copy of arXiv:1905.02605).

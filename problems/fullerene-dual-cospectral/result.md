@@ -119,6 +119,11 @@ fixed pair (α, β) separates all duals) our pair only excludes the diagonal α 
 implied by "A + cD-cospectral for every c", no two duals with n ≤ 104 have the same bivariate polynomial
 det(xI − A − cD) either.
 
+**R7 (side question; Fowler 2005: "no cospectral fullerenes are known").** No two non-isomorphic fullerene graphs
+C_n (the carbon skeletons; Hückel adjacency spectrum) with n ≤ 100 are cospectral (same complete-hash method,
+K = 24, all key collisions settled exactly; `scripts/scan_fullerene_graphs.py`, finite verification); in particular
+the cospectral-dual pairs with n ≤ 100 never have cospectral fullerene graphs.
+
 ## 3. Theorem 2 (cap rotation) and its proof
 
 **Lemma 1 (Schur complement).** Let a graph G have vertex set I ⊔ R, adjacency blocks A_I, A_R, and I–R

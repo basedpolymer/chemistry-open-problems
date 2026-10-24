@@ -108,3 +108,6 @@ python3 scripts/scan_exact_small.py certificates/sources/tools/bg/buckygen-1.1/b
 | `certificates/caps_6row_tube_n52.json` | caps of the 6-row tube |
 | `certificates/t6_ds_all_graphs_n24-38.json` | T^6 graphs with cospectral mates among all graphs |
 | `certificates/scan/` | per-n scan records and `scan_log.txt` |
+| `certificates/table1_exact_n20-60.json` | exact recomputation of Table 1 (rows T, T5, T6) of the source |
+| `scripts/scan_fullerene_graphs.py`, `certificates/fullerene_graph_scan.json` | side check: no two fullerene graphs C_n themselves are cospectral, n ≤ 100 |
+| `scripts/counts_table_md.py` | prints the counts table in markdown |

@@ -41,7 +41,7 @@ $$\widehat L:=\ell_1(q_1=1)/M=\varepsilon^2\,\ell_1(q_1=1).$$
 
    *Sources:* $16\le M\le160$: result 8 (Theorem A: Hopf box, simplicity, transversality, $\ell_1<0$) and its
    verifier (H2 and the count "no unstable pair", `acb_mat.eig`). $M\ge161$: **this work**, certificate
-   `certificates/l1h2_j1.csv` (Theorem 7.1 below), which is independent of result 8; for $161\le M\le10^5$ it concerns
+   `certificates/l1h2_j1.csv` (562 $\varepsilon$-boxes, Theorem 7.1 below), which is independent of result 8; for $161\le M\le10^5$ it concerns
    the same Hopf points as result 8 (all 99 840 points checked, Section 8).
 4. *(asymptotics)* $\widehat L(\varepsilon)$ is given by an expression that is continuous on $[0,\varepsilon_0]$
    (Section 6); the limit $\lim_{M\to\infty}\ell_1(q_1=1)/M$ exists, and the certified enclosures give
@@ -411,12 +411,14 @@ $L_j$ is **not** proved symbolically here; it is only confirmed to the accuracy 
 Each certificate file has one line per box $[\varepsilon_{lo},\varepsilon_{hi}]$; consecutive boxes share endpoints
 (identical decimal strings; `allm_core.eps_interval` rounds outwards), the first starts at $\varepsilon=0$.
 
-**Theorem 7.1 (first branch, $M\ge161$).** `certificates/l1h2_j1.csv` (`l1_sweep.py 1 0 0.0788111 --h2`): 654
+**Theorem 7.1 (first branch, $M\ge161$).** `certificates/l1h2_j1.csv` (`l1_sweep.py 1 0 0.0788111 --h2`): 562
 boxes covering $[0,0.0788111]\supset[0,161^{-1/2}]$ ($161^{-1/2}=0.0788110406\ldots$), all PASS: on each box the
 Krawczyk test of Lemma 2.1, the checks of Section 2, $\widehat L<0$ on the whole box (Lemma 5.2), and the hypotheses of
-Theorem 4.3 ($R_0=8$, $\sigma=0.3$, $a_1=0.1$; winding count 4). Runtime 528 s. Ranges: $\widehat L\in
-[-0.0337,-0.0081]$; $\kappa_1\in[1.8979,3.3285]$.
-An earlier H2-only sweep (`h2_sweep.py`, `certificates/h2_j1.csv`, 201 boxes) is redundant with it.
+Theorem 4.3 ($R_0=8$, $\sigma=0.3$, $a_1=0.1$; winding count 4). Runtime 690 s. Ranges: $\kappa_1\in[1.8983,3.3354]$,
+$\widehat L\in[-0.03744,-0.00672]$; first box $[0,10^{-5}]$ (all $M\ge10^{10}$, including $M=\infty$):
+$\widehat L\in[-0.0093670,-0.0092545]$. Every line is re-proved from the stored data by
+`verify_sweep.py certificates/l1h2_j1.csv 0 0.0788111 --h2` ([VERIFY1]). (`h2_sweep.py`, an H2-only version of the
+same check, is kept as a tool; its output is superseded by this file.)
 
 **Theorem 7.2 (branches 2 and 3, $\ell_1$, $M\ge161$).** `certificates/l1_j2.csv` (589 boxes) and
 `certificates/l1_j3.csv` (834 boxes), `l1_sweep.py J 0 0.0788111`, cover $[0,0.0788111]$; all PASS: Krawczyk box of
