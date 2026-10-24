@@ -1,8 +1,10 @@
 # Knotting probability of random equilateral hexagons: a certified two-sided enclosure
 
 **Status: partial result (preliminary, not yet independently verified)** — a certified enclosure
-L ≤ p₆ ≤ U of the knotting probability, with a first positive lower bound and an upper bound
-**[RUN]** times smaller than the best published one; the exact value remains open.
+3.0675·10⁻⁵ ≤ p₆ ≤ 8.4945·10⁻⁴ of the knotting probability: the first positive lower bound, and an upper bound
+28 times smaller than the published one (whose proof, moreover, has a gap). The enclosure is not tight
+(ratio 27.7; Monte Carlo value 1.364·10⁻⁴); the exact value remains open. The branch and bound was stopped
+by the owner's request after 24 rounds (resumable, see below).
 
 **Attribution.** Solver (novelty check, lemmas and proofs, certifier, branch and bound, write-up): Claude Opus 5.5
 (effort not recorded), sub-agent of the orchestrator, 24 Oct 2026. Verifier and editor: not yet assigned.
@@ -30,9 +32,17 @@ Novelty check: `references.md` (no improvement of Hake's bound and no positive l
 
 ## Result
 
-> **Theorem (certified).** **[RUN]** ≤ p₆ ≤ **[RUN]**.
+> **Theorem (certified, preliminary).** 3.0675·10⁻⁵ < L ≤ p₆ ≤ U < 8.4945·10⁻⁴, where L, U are the exact dyadic
+> rationals of `certificates/hexknot.summary.json` (U = 8.494446213…·10⁻⁴, L = 3.067561320…·10⁻⁵).
 
-(Monte Carlo, 10⁸ samples, numerics only: p₆ ≈ **[RUN-MC]**.)
+(Monte Carlo, 10⁸ samples, numerics only: p₆ ≈ 1.3639·10⁻⁴ ± 0.0117·10⁻⁴, `certificates/mc_validate.log`.)
+
+**What has been checked.** The proof of the reduction (Sections 1–4 of `result.md`) is by hand. The certificate
+(245 448 leaf boxes, run of 292 472 box evaluations, 24 rounds, ~24 min on a shared machine) was checked by
+`verify_certificate.py`: the leaves tile the chart (k-d tree check, exact volume), the exact sums reproduce U and L,
+and **300 randomly chosen leaves** were recomputed from scratch with identical counts
+(`certificates/verify_sample300.log`). **A full recomputation of all leaves has not been run** (about 30 min of one
+core: `verify_certificate.py ... ` without `--sample`); until then the certificate is only spot-checked.
 
 **Method in one paragraph.** In the action-angle coordinates of the triangulation T135 (diagonal lengths
 d ∈ P, dihedral angles θ ∈ T³; uniform measure = Lebesgue × Haar), elementary arguments (Δ-moves, a
@@ -67,10 +77,25 @@ python3 scripts/verify_certificate.py certificates/hexknot.leaves.gz certificate
         build/hexcert build/trig14.bin [--sample 5000]                # re-check the main certificate
 ```
 
-The main certificate was produced by `scripts/bnb_driver.py` (resumable: the state file is rewritten after every
-round, the same command resumes). **[RUN details]**. With k cores, the leaf evaluations are independent:
-split the leaf list into k parts and run `verify_certificate.py`-style recomputation (or the driver's certifier
-calls) in parallel; the exact sums are additive.
+The main certificate was produced by `scripts/bnb_driver.py` with
+`--batch 2000 --init-level 3 --lth-init 6 --lth-max 12 --oct-level 6 --oct-lth-offset 1` and the certifier built from
+`src/` (SHA-256 of sources and binary in `certificates/SHA256SUMS.txt`; log `certificates/bnb_run.log`).
+
+**Resuming the run.** The state file (51 MB, not in the repository) is kept at
+`/tmp/claude-0/-home-user-chemistry-open-problems/36d79390-3b54-5b69-86a2-80d7d98b1378/scratchpad/hexknot/run3/state.pkl`
+together with the binary used. To continue, `cd` there and rerun the same command (it resumes after round 24):
+
+```bash
+python3 <repo>/problems/equilateral-hexagon-knot-probability/scripts/bnb_driver.py --state state.pkl \
+    --bin ./hexcert --table trig14.bin --batch 2000 --init-level 3 --lth-init 6 --lth-max 12 \
+    --oct-level 6 --oct-lth-offset 1 --hours 10 [--workers K]
+python3 <repo>/.../scripts/export_certificate.py state.pkl <repo>/.../certificates/hexknot
+```
+
+If the scratch state is lost, rerunning the command from scratch reproduces rounds 1–24 deterministically (same
+binary). `--workers K` runs K certifier processes (identical results); `verify_certificate.py --workers K` likewise.
+Expected behaviour: U decreased by ~2–4 % per round at the end (first-order blur in the d-boxes), so a tight
+enclosure needs many more box evaluations (see `result.md` §8).
 
 ## Files
 

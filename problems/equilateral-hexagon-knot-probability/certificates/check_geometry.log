@@ -1,0 +1,10 @@
+PASS G1 all 15 orientation determinants nonzero at the test point
+PASS G2 six unit edges
+PASS G2 diagonals d1,d2,d3
+PASS G3 cyclic relabelling = coordinate permutation (proper congruence)
+PASS G3 reversal relabelling = coordinate transposition (improper congruence)
+PASS G3 theta -> -theta is the mirror image z -> -z
+PASS G4 Jacobian = d1^2 s / 2
+PASS G4 chamber volume = 2/3
+PASS G4 factorisation of 4 r3^2 - (1 - r2^2 + r3^2)^2
+PASS G4 d1-d2, d2-d3, d2+d3-d1 = d1(1-s)/2, d1 s(1-t), d1 t s

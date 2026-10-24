@@ -1,0 +1,2 @@
+PASS interval arithmetic variant nextafter: 50000 random operations, 0 violations
+PASS interval arithmetic variant upward: 50000 random operations, 0 violations

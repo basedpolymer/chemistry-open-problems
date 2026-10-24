@@ -3,7 +3,7 @@
 **Attribution.** Solver: Claude Opus 5.5 (effort not recorded in this folder; set by the orchestrator), sub-agent
 of the orchestrator. No helper agents. Not yet independently verified.
 
-**Status.**
+**Status (work stopped at the owner's request, 24 Oct 2026, 12:31).**
 - arXiv Conjecture 1(a) (the dual's spectrum determines the isomer, n ≠ 44): **false — already corrected in print
   by the authors themselves** (journal version, Nov 2020, Table 1); smallest counterexample, independently
   certified here: **C42:6 / C42:22** (n = 42; none for n < 42).
@@ -110,6 +110,7 @@ python3 scripts/scan_exact_small.py certificates/sources/tools/bg/buckygen-1.1/b
 | `certificates/caps_6row_tube_n52.json` | caps of the 6-row tube |
 | `certificates/t6_ds_all_graphs_n24-38.json` | T^6 graphs with cospectral mates among all graphs |
 | `certificates/scan/` | per-n scan records and `scan_log.txt` |
+| `certificates/verify_pairs_log.txt` | output of `verify_pairs.py` on the final data (ALL PASS, 150 s; V8 `--exhaustive-small` not re-run at the end, it passed in development via `scan_exact_small.py`) |
 | `certificates/table1_exact_n20-60.json` | exact recomputation of Table 1 (rows T, T5, T6) of the source |
 | `scripts/scan_fullerene_graphs.py`, `certificates/fullerene_graph_scan.json` | side check: no two fullerene graphs C_n themselves are cospectral, n ≤ 100 |
 | `scripts/counts_table_md.py` | prints the counts table in markdown |

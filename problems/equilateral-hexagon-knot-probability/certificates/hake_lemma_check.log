@@ -1,0 +1,2 @@
+PASS Example 1 (theta2 > pi/2 although d1 is the largest diagonal) d = ['4543/5000', '883/1000', '433/625'] theta = ['451/10000', '20783/10000', '37/2500'] Fox-3 count = 9
+PASS Example 2 (d1^2 > d2^2 + d3^2 but theta1 < pi/2) d = ['16039/10000', '803/625', '444/625'] theta = ['1113/5000', '1249/2000', '4309/10000'] Fox-3 count = 9

@@ -243,3 +243,14 @@ Cost: the scan to n = 138 took about 4 hours of one heavily shared core (timings
 - R3, R4 (restricted), R5 and R2(i) are **finite verifications** (n ≤ N), not proofs.
 - Discrepancies with the journal version's Table 1 (T^5 counts at n = 48, 54, 56, 58 differ by one: ours are
   42, 112, 148, 147 = the arXiv values; T^6 row at n = 30, 34, 38, 40) are reported, not explained.
+
+## 6. State at the stop (24 Oct 2026) and what remains
+
+- Scan complete for 20 ≤ n ≤ 138 (A(T), A(T^6), A(T^5)); 890 A(T)-cospectral classes in total; `verify_pairs.py`
+  ALL PASS on these data (`certificates/verify_pairs_log.txt`).
+- Published Conjecture 1: (a) literal — false (C34:2); (a) restricted, (c), (d) — no counterexample for n ≤ 138
+  (finite verification); (b) — holds for every 60 ≤ n ≤ 138 and, by Theorem 2, for all n ≡ 2, 20 (mod 24); open
+  for the other residue classes beyond 138.
+- Remaining: finish n = 140..150 (command in README), recompute Atlas numbers up to n = 70
+  (`make_certificates.py 70`, ~10 min), a mechanism covering the other residue classes for 1(b), and the JCIM
+  wording of Conjecture 3 (NEEDS.md).

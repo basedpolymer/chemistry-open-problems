@@ -1,8 +1,7 @@
 # Certified enclosure of the knotting probability of random equilateral hexagons
 
 *Solver: Claude Opus 5.5 (effort not recorded by the solver; see README). Date: 24 October 2026.*
-*Status: preliminary (not yet independently verified). Numbers marked **[RUN]** are filled in from the
-final branch-and-bound certificate, see Section 6.*
+*Status: partial result, preliminary (not yet independently verified; certificate spot-checked, see §6).*
 
 ## 0. Statement
 
@@ -11,13 +10,13 @@ rotations, with its standard (symplectic) probability measure μ (Cantarella–S
 (2016) 549–596, §4 and Theorem 13: the symplectic volume of Pol̂³(n; 1) equals the standard measure; their
 Theorem 1, the Duistermaat–Heckman theorem, makes the action-angle map measure preserving). Let p₆ = μ{knotted}.
 
-> **Theorem (certified).**  L ≤ p₆ ≤ U with the exact dyadic rationals L, U of Section 6
-> (L ≈ **[RUN]**, U ≈ **[RUN]**).
+> **Theorem (certified).**  L ≤ p₆ ≤ U with the exact dyadic rationals L, U of Section 6:
+> 3.0675·10⁻⁵ < L = 3.0675613…·10⁻⁵ and U = 8.4944462…·10⁻⁴ < 8.4945·10⁻⁴.
 
 For comparison: Hake (JKTR 28 (2019) 1950040; arXiv:1810.11882, Theorem 4.1) proves p₆ ≤ (14 − 3π)/192 ≈ 0.02383;
 Cantarella–Shonkwiler (Proposition 16) prove p₆ ≤ 1/2; no positive lower bound was known. Monte Carlo
 estimates: 1.3·10⁻⁴ ± 0.2·10⁻⁴ (Cantarella–Shonkwiler §4.1, 1.3·10⁶ samples), 1.37·10⁻⁴ (Hake §4),
-and ours, **[RUN-MC]** (Section 7; numerics, not part of the proof).
+and ours, 1.3639·10⁻⁴ ± 0.0117·10⁻⁴ (10⁸ samples; Section 7; numerics, not part of the proof).
 
 What is *proved* (Sections 1–4, pen and paper, using only the classical facts F1–F3 below) is a reduction of
 p₆ to the volume of an explicit semi-algebraic subset of a 6-dimensional box, together with a sufficient
@@ -227,18 +226,35 @@ For each box D and level Lθ (n = 2^{Lθ} cells per angle on (0,π)):
 
 Then U = Σ_D w(D)(outR + outL) and L = Σ_D w(D)(certR + certL) satisfy L ≤ p₆ ≤ U by (2), (3), Cor. 3.5.
 
-## 6. Results **[RUN]**
+## 6. Results
+
+| | value |
+|---|---|
+| upper bound U | 8.494446213400·10⁻⁴ (exact: `upper_num`/2⁶⁰⁰ in `certificates/hexknot.summary.json`) |
+| lower bound L | 3.067561320913·10⁻⁵ (exact: `lower_num`/2⁶⁰⁰) |
+| U/L | 27.69 |
+| previous bounds | 0 ≤ p₆ ≤ (14−3π)/192 = 0.02383 (Hake; proof incomplete, §7) — U is 28.05 times smaller |
+| leaves / evaluations / rounds | 245 448 / 292 472 / 24 (stopped at the owner's request; resumable) |
+| certificate | `certificates/hexknot.leaves.gz` (SHA-256 of the text 799b8710…a7), 2.1 MB |
+| anomalies | 0 components certified unknotted; all components with certified cells certified knotted |
+
+The run used the octree phase only (24 of the 24 rounds split boxes coarser than 2⁻⁶ isotropically; 6 θ-refinements
+in the last round). Verification performed: tiling (k-d tree + exact volume 2), exact re-summation, recomputation
+of 300 random leaves (identical) — `certificates/verify_sample300.log`. **Not performed:** recomputation of all
+245 448 leaves (~30 min, one core). An earlier run with an older certifier (no exact-sign rules) reached
+U = 2.08·10⁻³, L = 1.1·10⁻⁵ after 75 000 evaluations (not kept as a certificate).
 
 ## 7. Numerical validation (not part of the proof)
 
 * **Monte Carlo, 10⁸ samples** (`scripts/mc_validate.py 100000000 2026`, log `certificates/mc_validate.log`):
   d uniform in P (rejection from [0,2]³), θ uniform in [0,2π)³, floating point. Knotted fraction
-  **[RUN-MC]**; the classifier used for "knotted" is the exact Fox 3-colouring count of the projection on a random
+  1.3639·10⁻⁴ ± 1.17·10⁻⁶ (13 639 knots); the classifier used for "knotted" is the exact Fox 3-colouring count of the projection on a random
   plane (integer arithmetic mod 3 on the Gauss diagram). Checks, all PASS: the count is always 3 or 9 (C1); it agrees
   with Calvo's criterion on every sample (C2); every knotted sample has each T_i pierced exactly once (C3, Lemma 2.3);
   the A/B conditions on the same angle pair never hold together (C4, Lemma 2.1); in (0,π)³ knotted ⇔ R or L (C5),
   with Δ = +1 on R and −1 on L (C5'); knots occur only in (0,π)³ ∪ (π,2π)³ (C6, Lemma 2.4).
-* **Box-level consistency** (`scripts/check_boxes_mc.py`): for 10 boxes of various sizes, the Monte Carlo frequency
+* **Box-level consistency** (`scripts/check_boxes_mc.py`, run with the final certifier; PASS on all 16 boxes, log not
+  saved — rerun takes ~1 min): for 16 boxes (10 interior, 6 touching degenerate faces) of various sizes, the Monte Carlo frequency
   of R and L inside D × (0,π)³ (4·10⁵ samples each, independent Python implementation of the geometry) lies within
   the certified [inner, outer] interval (±4 s.e.), and every certified component was certified knotted.
 * **Hake's lemmas** (`scripts/hake_lemma_check.py`, certified with ball arithmetic, not numerics): knotted
