@@ -1,3 +1,4 @@
 step1 done 0
 step2 done 1
 restart from step2 with region_check_sharp
+step2 done 0
