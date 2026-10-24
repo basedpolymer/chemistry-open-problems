@@ -165,8 +165,9 @@ static int test_vertex(int v, u64 kG, u64 p) {
 }
 
 int main(int argc, char **argv) {
-    int transitive = 0;
-    for (int a = 1; a < argc; a++) if (!strcmp(argv[a], "-t")) transitive = 1;
+    int transitive = 0, debug = 0;
+    for (int a = 1; a < argc; a++) { if (!strcmp(argv[a], "-t")) transitive = 1;
+                                     if (!strcmp(argv[a], "-k")) debug = 1; }
     static char line[1 << 16];
     long long cnt_total = 0, cnt_bad = 0, cnt_disc = 0, cnt_rej = 0, cnt_cut = 0,
               cnt_surv = 0, cnt_inc = 0, cnt_small = 0;
@@ -178,6 +179,12 @@ int main(int argc, char **argv) {
         if (n < 3) { cnt_small++; continue; }
         u64 all = (n == 64) ? ~0ULL : ((1ULL << n) - 1);
         if (!connected(all)) { cnt_disc++; continue; }
+        if (debug) { /* print k_p1(G) and k_p1(G-v) (or -1 if G-v disconnected / p | tau) */
+            u64 kq; int r = kf_mod(all, P1, &kq);
+            printf("%d %lld", n, r < 0 ? -1LL : (long long)kq);
+            for (int v = 0; v < n; v++) { u64 S = all & ~(1ULL << v), kh;
+                if (!connected(S) || kf_mod(S, P1, &kh) < 0) printf(" -1"); else printf(" %llu", (unsigned long long)kh); }
+            printf("\n"); continue; }
         u64 primes[2] = {P1, P2};
         int verdict = -1; /* 0 rejected, 1 survivor, 2 inconclusive */
         int pi = 0; u64 kG = 0;
