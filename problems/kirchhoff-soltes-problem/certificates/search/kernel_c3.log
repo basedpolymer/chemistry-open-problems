@@ -1,0 +1,14 @@
+graphs_read 1038 unparsable 0 n<3 0 disconnected 0 rejected 1038 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+n=4 count 1
+n=5 count 8
+n=6 count 29
+n=7 count 69
+n=8 count 125
+n=9 count 176
+n=10 count 199
+n=11 count 180
+n=12 count 131
+n=13 count 75
+n=14 count 33
+n=15 count 10
+n=16 count 2

@@ -131,3 +131,17 @@ def consistency_report(inst):
     out["empty_cold"] = [j for j in range(inst.m) if inst.cold_total(j) == 0]
     out["lcm_den"] = inst.denominators_lcm()
     return out
+
+
+def sub_instance(inst, hot_idx, cold_idx, name=None):
+    """Instance restricted to the given hot and cold streams (same temperature intervals)."""
+    hot_idx, cold_idx = list(hot_idx), list(cold_idx)
+    QH = [list(inst.QH[i]) for i in hot_idx]
+    QC = [list(inst.QC[j]) for j in cold_idx]
+    k = inst.k
+    res = [Fraction(0)]
+    for t in range(k):
+        res.append(res[-1] + sum(r[t] for r in QH) - sum(r[t] for r in QC))
+    sub = Instance(name or (inst.name + "_sub"), len(hot_idx), len(cold_idx), k, QH, QC, res)
+    sub.hot_map, sub.cold_map = hot_idx, cold_idx
+    return sub

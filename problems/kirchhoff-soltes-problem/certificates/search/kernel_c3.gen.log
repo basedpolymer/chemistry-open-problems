@@ -1,0 +1,15 @@
+c=3 kernels 4
+c=3 n=4 generated 1
+c=3 n=5 generated 8
+c=3 n=6 generated 29
+c=3 n=7 generated 69
+c=3 n=8 generated 125
+c=3 n=9 generated 176
+c=3 n=10 generated 199
+c=3 n=11 generated 180
+c=3 n=12 generated 131
+c=3 n=13 generated 75
+c=3 n=14 generated 33
+c=3 n=15 generated 10
+c=3 n=16 generated 2
+c=3 total generated 1038

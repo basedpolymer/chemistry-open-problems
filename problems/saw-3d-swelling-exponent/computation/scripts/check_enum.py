@@ -4,7 +4,7 @@
 Environment: Linux, g++ >= 9 (C++17, pthreads), Python 3.8+ standard library only.  Tested: Ubuntu 24.04,
 g++ 13.3, Python 3.13, Intel Xeon 2.8 GHz.  Runtime about 1 min (3 threads at most).
 
-Usage: python3 check_enum.py [data file, default ../data/saw_enum_N21.txt.gz] [--rerun N2 (default 16)]
+Usage: python3 check_enum.py [data file, default ../data/saw_enum_N19.txt.gz] [--rerun N2 (default 16)]
 
 Checks
   1. brute force: pure-Python enumerator (no symmetry, scripts/brute_force.py), n <= 8, against the data file:
@@ -52,7 +52,7 @@ def main():
         i = args.index("--rerun")
         n2 = int(args[i + 1])
         del args[i:i + 2]
-    path = args[0] if args else os.path.join(ROOT, "data", "saw_enum_N21.txt.gz")
+    path = args[0] if args else os.path.join(ROOT, "data", "saw_enum_N19.txt.gz")
     t0 = time.time()
     D = SawData(path)
     print("data file %s: N = %d; header: %s" % (os.path.relpath(path, ROOT), D.N, " | ".join(D.header)))

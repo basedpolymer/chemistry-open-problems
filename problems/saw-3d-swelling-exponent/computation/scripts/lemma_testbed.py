@@ -2,7 +2,7 @@
 """lemma_testbed.py -- evaluate candidate finite-n statements on exact SAW data on Z^3.
 
 Environment: Python 3.8+ standard library only (fractions, math).  Runtime < 1 min.
-Usage: python3 lemma_testbed.py [data file, default ../data/saw_enum_N21.txt.gz] [gram file, optional]
+Usage: python3 lemma_testbed.py [data file, default ../data/saw_enum_N19.txt.gz] [gram file, optional]
 
 Inputs: the exact enumeration (src/saw_enum.cpp output: endpoint distributions, bridges, half-space walks,
 intermediate-point distributions, n <= N), the published series c_n, P_n = sum |omega_n|^2 for n <= 36
@@ -67,8 +67,13 @@ def fl(x):
 
 def main():
     args = sys.argv[1:]
-    path = args[0] if args else os.path.join(ROOT, "data", "saw_enum_N21.txt.gz")
+    path = args[0] if args else os.path.join(ROOT, "data", "saw_enum_N19.txt.gz")
     gram_path = args[1] if len(args) > 1 else None
+    if gram_path is None:  # default: the largest Gram file present in ../data
+        for cand in ("saw_gram_N19.txt.gz", "saw_gram_N18.txt.gz", "saw_gram_N17.txt.gz"):
+            if os.path.exists(os.path.join(ROOT, "data", cand)):
+                gram_path = os.path.join(ROOT, "data", cand)
+                break
     D = SawData(path)
     N = D.N
     ref = {int(r[0]): r for r in read_reference(os.path.join(ROOT, "data", "reference_series.tsv"))}
@@ -189,6 +194,19 @@ def main():
                 return "k=%d" % k1
         return None
     scan("B3a' axis, unimodal: k -> c_n(k e1) nonincreasing beyond its maximum", range(1, N + 1), axis_far)
+
+    def unimodal_ray(n, d):
+        vals = [D.cnx(n, tuple(k * c for c in d)) for k in range(1, n + 1) if (k * sum(d) - n) % 2 == 0
+                and k * sum(d) <= n]
+        if len(vals) < 3:
+            return None
+        i = vals.index(max(vals))
+        if any(vals[j] > vals[j + 1] for j in range(0, i)) or any(vals[j] < vals[j + 1] for j in range(i, len(vals) - 1)):
+            return "values %s" % vals[:8]
+        return None
+    for d in ((1, 0, 0), (1, 1, 0), (1, 1, 1)):
+        scan("B3u ray unimodality: k -> c_n(k d) unimodal (k >= 1, same parity), d = %s" % (str(d).replace(" ", "")),
+             range(1, N + 1), lambda n, d=d: unimodal_ray(n, d))
 
     def diag(n):
         if n % 2:
@@ -370,7 +388,8 @@ def gram_section(path):
     """step-correlation data: lines 'G n i j value' = sum over n-step SAWs of w_i . w_j (i <= j <= n)."""
     G = {}
     cn = {}
-    for line in open(path):
+    import gzip
+    for line in (gzip.open(path, "rt") if path.endswith(".gz") else open(path)):
         t = line.split()
         if not t or t[0].startswith("#"):
             continue

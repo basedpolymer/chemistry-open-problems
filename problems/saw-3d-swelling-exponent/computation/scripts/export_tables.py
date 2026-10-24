@@ -2,7 +2,7 @@
 """export_tables.py -- write human-readable exact tables (TSV) derived from the enumeration data file.
 
 Environment: Python 3.8+ standard library.  Runtime < 5 s.
-Usage: python3 export_tables.py [data file, default ../data/saw_enum_N21.txt.gz]
+Usage: python3 export_tables.py [data file, default ../data/saw_enum_N19.txt.gz]
 Writes (all values exact integers or reduced rationals p/q):
   ../data/exact_summary.tsv     n, c_n, S_n, E_n = S_n/c_n, b_n, h_n, #{x_1(w_n)=0}, sum |w_n|^4, polygons p_{n+1},
                                 bridge sum |w_n|^2, half-space sum |w_n|^2, max_x c_n(x) and its argmax classes
@@ -22,7 +22,7 @@ ROOT = os.path.dirname(HERE)
 
 
 def main():
-    path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "data", "saw_enum_N21.txt.gz")
+    path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "data", "saw_enum_N19.txt.gz")
     D = SawData(path)
     src = os.path.basename(path)
     out = os.path.join(ROOT, "data")

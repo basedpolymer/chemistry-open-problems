@@ -2,7 +2,7 @@
 """gf_tests.py -- generating-function tests on the exact data (requests of the solvers' candidate-lemmas.md files).
 
 Environment: Python 3.8+ standard library (fractions, math).  Runtime < 1 min.
-Usage: python3 gf_tests.py [data file, default ../data/saw_enum_N21.txt.gz]
+Usage: python3 gf_tests.py [data file, default ../data/saw_enum_N19.txt.gz]
 
 Sections
   U4  (upper-bound CL4)  B_{T+1}(z) <= B_T(z) for z in {1/10, 3/20, 9/50, 1/5}: RIGOROUS enclosures of
@@ -46,7 +46,7 @@ def tail_bound(c, N, z):
 
 
 def main():
-    path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "data", "saw_enum_N21.txt.gz")
+    path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "data", "saw_enum_N19.txt.gz")
     D = SawData(path)
     N = D.N
     c = D.c

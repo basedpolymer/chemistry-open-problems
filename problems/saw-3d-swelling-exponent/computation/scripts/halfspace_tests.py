@@ -37,7 +37,7 @@ def load(path):
 def main():
     args = sys.argv[1:]
     hpath = args[0] if args else os.path.join(ROOT, "data", "halfspace_N19.txt")
-    dpath = args[1] if len(args) > 1 else os.path.join(ROOT, "data", "saw_enum_N21.txt.gz")
+    dpath = args[1] if len(args) > 1 else os.path.join(ROOT, "data", "saw_enum_N19.txt.gz")
     B, R, A, H = load(hpath)
     N = max(H)
     D = SawData(dpath)

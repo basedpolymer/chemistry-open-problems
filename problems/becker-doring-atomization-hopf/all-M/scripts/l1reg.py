@@ -126,7 +126,7 @@ def psum(cx, X, Y):
             reg = SN(bX.exp() / d, -1)
             gam = _gam(cx, Y.gt)
             fac = acb(beta).abs_upper() * acb(gam).abs_upper() * (-(_lg(cx, Y.gt).real)).exp() / acb(d).abs_lower()
-            return cc * (reg + expsmall(fac, 1, -1))
+            return cc * (reg + expsmall(fac, 1, 7))
         if isinstance(Y, Dd):
             d1 = kap + A * e * (X.bt + Y.g1 + e * e * X.bt * Y.g1)
             d2 = kap + A * e * (X.bt + Y.g2 + e * e * X.bt * Y.g2)
@@ -137,26 +137,26 @@ def psum(cx, X, Y):
             inner = (-(_lg(cx, gh).real)).exp() * (1 / acb(dh).abs_lower()
                      + C.arb_up(cx.eps) * acb(beta).abs_upper() * acb(gam).abs_upper() / acb(dh).abs_lower() ** 2)
             fac = acb(beta).abs_upper() * inner
-            return cc * (reg + expsmall(fac, 3, -2))
+            return cc * (reg + expsmall(fac, 3, 6))
     if isinstance(X, B1):
         if isinstance(Y, Slow):
             beta = _beta(cx, Y.bt); psi = (1 + e * e * X.pt) / A
             dp = kap - e * (X.pt + Y.bt + e * e * X.pt * Y.bt)
             reg = SN(psi * beta * A / dp, -1)
             fac = A * ((_lg(cx, X.pt).real + _b(cx, Y.bt).real).exp()) / acb(dp).abs_lower()
-            return cc * (reg + expsmall(fac, 1, -1))
+            return cc * (reg + expsmall(fac, 1, 7))
         if isinstance(Y, BM):
             c2 = X.pt + Y.gt + e * e * X.pt * Y.gt
             mlog = (c2 * C.Lfun(e * e * c2)).real
             fac = (C.arb_up(mlog).max(arb(0)) - _lg(cx, Y.gt).real).exp()
-            return cc * expsmall(fac, 2, -1)
+            return cc * expsmall(fac, 2, 6)
         if isinstance(Y, Dd):
             gh = Y.g1.union(Y.g2)
             c2 = X.pt + gh + e * e * X.pt * gh
             mlog = (c2 * C.Lfun(e * e * c2)).real
             gam = _gam(cx, gh)
             fac = (C.arb_up(mlog).max(arb(0)) - _lg(cx, gh).real).exp() / acb(gam).abs_lower()
-            return cc * expsmall(fac, 4, -2)
+            return cc * expsmall(fac, 4, 6)
     raise TypeError((type(X), type(Y)))
 
 def pair(cx, Xs, Ys):
@@ -173,14 +173,14 @@ def mass(cx, Y):
         gam = _gam(cx, Y.gt); dg = _dg(cx, Y.gt)
         reg = SN(gam / dg - e * gam / dg ** 2, -3)
         fac = acb(gam).abs_upper() * (-(_lg(cx, Y.gt).real)).exp() / acb(dg).abs_lower() ** 2
-        return Y.c * (reg + expsmall(fac, 2, -3))
+        return Y.c * (reg + expsmall(fac, 2, 5))
     if isinstance(Y, Dd):
         d1 = _dg(cx, Y.g1); d2 = _dg(cx, Y.g2)
         reg = SN(-(1 - e * e) / (d1 * d2) + e * (d1 + d2) / (d1 * d1 * d2 * d2), -4)
         gh = Y.g1.union(Y.g2); dh = _dg(cx, gh); gam = _gam(cx, gh)
         fac = (-(_lg(cx, gh).real)).exp() * (1 / acb(dh).abs_lower() ** 2
                                               + 2 * C.arb_up(cx.eps) * acb(gam).abs_upper() / acb(dh).abs_lower() ** 3)
-        return Y.c * (reg + expsmall(fac, 4, -4))
+        return Y.c * (reg + expsmall(fac, 4, 4))
     raise TypeError(type(Y))
 
 def val(cx, Y, where):
@@ -195,13 +195,13 @@ def val(cx, Y, where):
         if where == "M": return Y.c * SN(1, 0)
         if where == "N": return Y.c * SN(1 / gam, 0)
         fac = acb(gam).abs_upper() * (-(_lg(cx, Y.gt).real)).exp()
-        return Y.c * expsmall(fac, 0, 0)
+        return Y.c * expsmall(fac, 0, 8)
     if isinstance(Y, Dd):
         if where == "M": return Y.c * SN(0, 0)
         if where == "N": return Y.c * SN(-1 / (_gam(cx, Y.g1) * _gam(cx, Y.g2)), 0)
         gh = Y.g1.union(Y.g2)
         fac = (-(_lg(cx, gh).real)).exp()
-        return Y.c * expsmall(fac, 2, 0)
+        return Y.c * expsmall(fac, 2, 8)
     raise TypeError(type(Y))
 
 def seqval(cx, seq, where): return snsum([val(cx, Y, where) for Y in seq])
@@ -285,7 +285,11 @@ def blocks(eps, kap, z):
         def rowM(seq):
             return seqval(cx, seq, "1") * SN(A, 0) + seqval(cx, seq, "N") * SN(A, 0) - seqval(cx, seq, "M") * (SN(A, 0) + mu)
         qN = seqval(cx, q, "N")
-        a11 = rowM([s1a]).at(0); a12 = rowM([s2a]).at(1)
+        a11 = rowM([s1a]).at(0)
+        # row M on s2^(l-M):  A s2^(1-M) + A/s2 - (A + mu) = (s1 - A - mu) + A s2^(1-M) = -eps (kap - eps zeta + eps^2 m) + exp-small
+        g2v = _gam(cx, gt2)
+        fac12 = acb(A).abs_upper() * acb(g2v).abs_upper() * (-(_lg(cx, gt2).real)).exp()
+        a12 = (SN(-(kap - e * zeta + e * e * m), 1) + expsmall(fac12, 0, 9)).at(1)
         rhs1 = (-qN - rowM(base)).at(-1)
         a21 = mass(cx, s1a).at(-4); a22 = mass(cx, s2a).at(-3)
         rhs2 = (-seqmass(cx, base)).at(-5)
@@ -309,6 +313,9 @@ def blocks(eps, kap, z):
     out["T5"] = out["r2_1"] * out["sig_qb"]
     br = out["T1"] + out["T2"] + out["T3"] + out["T4"] + out["T5"]
     out["bracket"] = br
-    bhat = br.at(1)
-    out["Lhat"] = bhat.real / Lh.imag          # = eps^2 l1(q1=1) = l1(q1=1)/M
+    if br.p >= 1:
+        bhat = br.at(1)
+        out["Lhat"] = bhat.real / Lh.imag      # = eps^2 l1(q1=1) = l1(q1=1)/M
+    else:
+        out["Lhat"] = None
     return out

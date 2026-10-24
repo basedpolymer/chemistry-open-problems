@@ -8,8 +8,8 @@ Checks (PASS/FAIL):
       counts outR, certR, outL, certL exactly, with zero 'unknot' anomalies;
   V3  the exact dyadic sums U = sum w(D)(outR+outL), L = sum w(D)(certR+certL) (formula (3) of result.md)
       equal the values in the summary file; prints U and L to 12 digits and as fractions num/2^EXP;
-  V4  L < Hake's bound: U < (14 - 3 pi)/192 (checked with exact rationals and a rational upper bound of pi... the
-      comparison uses pi > 3.14159265358979, i.e. (14-3pi)/192 < (14 - 3*3.14159265358979)/192).
+  V4  0 < L <= U < (14 - 3 pi)/192 (Hake's bound), checked with exact rationals using pi < 3.1415926535898,
+      so that (14 - 3*3.1415926535898)/192 < (14 - 3 pi)/192.
 Environment: Python 3.13; certifier binary built by scripts/build.sh.  Runtime: full recomputation ~ the
 original run time (hours, one thread); --sample 2000 takes a few minutes.
 Usage: python3 verify_certificate.py LEAVES.gz SUMMARY.json HEXCERT TRIG_TABLE [--sample K] [--seed S]
@@ -76,7 +76,6 @@ def main():
     chk("V3 exact sums equal the summary", str(up) == summ["upper_num"] and str(lo) == summ["lower_num"])
     U = Fraction(up, 1 << EXP); L = Fraction(lo, 1 << EXP)
     print("   upper U = %.12e   lower L = %.12e   U/L = %.6f" % (float(U), float(L), float(U / L) if L else float("inf")))
-    hake_upper_rational = (Fraction(14) - 3 * Fraction("3.14159265358979")) / 192   # > (14-3pi)/192
     chk("V4 0 < L <= U < (14-3pi)/192 (Hake)", 0 < L <= U and U < (Fraction(14) - 3 * Fraction("3.14159265358980")) / 192)
     sys.exit(0 if ok else 1)
 
