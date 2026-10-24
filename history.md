@@ -124,3 +124,12 @@ sub-agents of the orchestrator (effort not recorded); credits per problem in eac
   full system. Interval sweeps in ε = M^{-1/2} covering every M ≥ 161 at once. Not yet verified by an agent.
 - SAW computation lab finished: exact enumeration to n = 19, testbed and candidate lemmas (report written by the
   orchestrator in `computation/report.md`), pivot estimate ν = 0.5876 ± 0.0005 (numerics only).
+- Work stopped at the owner's request (about 12:30 UTC). Final states, none verified by an agent yet:
+  hexagon knotting probability certified in (3.0675e-5, 8.4945e-4), Hake's Lemmas 3.9 and 3.12 false; heat-exchanger
+  instances 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22 closed exactly, lower bound 32 for the balanced15 family,
+  unbalanced10 = 25 by exact SCIP (certificate not checked); Frank–Kasper DFM screen of 124 structures with relaxed
+  boxes (sigma lowest; published values of BCC, P, M, H, mu shown not minimal); Kirchhoff–Šoltés: no new graph,
+  exhaustive to n <= 11, cyclomatic number <= 5 and most vertex-transitive graphs with n <= 47, class theorems;
+  fullerene duals: arXiv-v1 Conjecture 1(a) already refuted by the authors, published Conjecture 1(b) proved in two
+  residue classes mod 24, the authors' 2025 Conjecture 3 refuted for alpha = beta. Verification of results 13, 14 and
+  of the extension of result 8 was not started.
