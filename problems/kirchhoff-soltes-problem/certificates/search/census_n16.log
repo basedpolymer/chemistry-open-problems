@@ -14,4 +14,4 @@ alltrans16_k=12.gz graphs_read 7 unparsable 0 n<3 0 disconnected 0 rejected 7 (r
 alltrans16_k=13.gz graphs_read 3 unparsable 0 n<3 0 disconnected 0 rejected 3 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans16_k=14.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans16_k=15.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
-elapsed_seconds 1
+elapsed_seconds 0

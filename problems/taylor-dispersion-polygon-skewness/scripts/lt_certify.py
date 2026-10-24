@@ -173,7 +173,7 @@ def certify(n, K=None, J=None, pieces=240, verbose=True, raw=False):
     if verbose:
         print(f"n={n:3d} K={K:2d} delta={res['delta']:.2e} ||E||<={res['L2_E']:.2e} ||e||<={res['L2_e']:.2e} "
               f"I_N={float(I_N.mid()):.6e} Err<={res['Err']:.2e} I>={res['I_lower']:.4e} "
-              f"kappa(R=1) in {kappa_circ.str(4)}  [{dt:.1f}s]  {'PASS' if ok else 'FAIL'}")
+              f"kappa(R=1) in [{lo_hi(kappa_circ)[0]:.4f}, {lo_hi(kappa_circ)[1]:.4f}]  [{dt:.1f}s]  {'PASS' if ok else 'FAIL'}")
     if raw:
         # raw ball quantities for alltime_windows.py (all integrals over P, not averages)
         intU2 = 2 * n * (U * U).int_T(t)

@@ -6,7 +6,9 @@ compares the residues printed by `kscheck -k` (Kf(G) mod p1 and Kf(G-v) mod p1, 
 with exact rational values (python-flint) reduced mod p1, and checks that the two exact methods
 (grounded inverse, characteristic polynomial) agree.  Prints PASS/FAIL, exits non-zero on failure.
 Runtime: about 1-2 minutes.  Environment: python 3.13, python-flint 0.9, gcc.
-Usage: python3 test_kscheck_modular.py [path/to/kscheck]
+Usage: python3 test_kscheck_modular.py [path/to/kscheck [prime]]
+  (kscheck uses p1 = 1073741789; kscheck_fast uses p1 = 268435399: run
+   python3 test_kscheck_modular.py scripts/kscheck_fast 268435399)
 """
 import os
 import random
@@ -16,9 +18,9 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from kflib import g6_encode, kf_inv, kf_charpoly, delete, is_connected  # noqa: E402
 
-P1 = 1073741789
 here = os.path.dirname(os.path.abspath(__file__))
 exe = sys.argv[1] if len(sys.argv) > 1 else os.path.join(here, 'kscheck')
+P1 = int(sys.argv[2]) if len(sys.argv) > 2 else 1073741789
 
 
 def modp(q):

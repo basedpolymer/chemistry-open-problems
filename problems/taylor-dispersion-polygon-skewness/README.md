@@ -51,12 +51,13 @@ number the long-time sign is the sign of `∫ u g1²`.
   the disk, uniform in n, for all n ≥ 30 (all quantities are explicit functions of `t = tan(π/n)`).
 * **Every n ≥ 3: short-time (geometric) skewness `⟨u³⟩/⟨u²⟩^{3/2}` positive.** Computer-assisted for 4 ≤ n ≤ 150
   (Green identity plus a Rellich bound for the first-order error) and uniformly for n ≥ 140, through the exact
-  expansion `⟨u³⟩ = t⁴/360 + 19t⁶/7560 + O(t⁵)` (explicit remainder); hence `S^G_n ~ (8√3/15) tan⁴(π/n) ≈ 90/n⁴`.
+  expansion `⟨u³⟩ = t⁴/360 + O(t⁵)` (explicit two-sided bounds; the main part is exactly `t⁴/360 + 19t⁶/7560`); hence `S^G_n ~ (8√3/15) tan⁴(π/n) ≈ 90/n⁴`.
 * **Finite times (partial).** For symmetric cross-sectionally uniform releases, the sign of `Sk(τ)` does not depend on
   Pe. Certified windows: n = 3: `Sk > 0` for `τ ≤ 3.3·10⁻³`, `Sk < 0` for `τ ≥ 371`; n = 4: `Sk > 0` for
   `τ ≤ 5.3·10⁻⁴` and for `τ ≥ 32`; similar for n = 5, 6, 8 (time unit: apothem²/κ). The sign at intermediate times
   (the claim "at all times") remains open.
-* All values of Table 1 of the paper (n = 4, 5, 6, 7, 8, 20, 100) are reproduced by rigorous enclosures.
+* Rigorous enclosures of Table 1 of the paper (n = 4, 5, 6, 7, 8, 20, 100) agree with all printed values except
+  the arXiv-only `S^G_100 = 8.6·10⁻⁷`; the certified value lies in `[8.348, 8.397]·10⁻⁷`.
 
 Full statements and proofs: [result.md](result.md). Novelty check: [references.md](references.md) (no earlier proof
 found; the only later work on regular polygonal ducts, arXiv:2605.22982, concerns the Taylor coefficient of rods).

@@ -20,11 +20,11 @@ Throughout, `P_n` is the regular n-gon with **apothem (inradius) 1**, centred at
 | Lemma 1 | `<u g2> = 2 <u g1^2>`; hence `sign S_inf = sign I(Omega)`, `I(Omega) := int u g1^2`, for every Pe > 0 | analytic |
 | **Thm A** (n = 3) | `<u g1> = 9/1540`, `<u g1^2> = -7101/476476000 < 0`: the long-time skewness of the equilateral triangle is **negative** for every Pe; `3<u g2>/(2<u g1>)^{3/2} = -789 sqrt(770)/309400 = -0.0707623...`; `g1` is an explicit polynomial of degree 6 | exact (sympy) |
 | **Thm B** (n >= 4) | `I(P_n) > 0` for **every** n >= 4: the long-time skewness of every other regular polygon is **positive** for every Pe | computer-assisted: ball arithmetic for 4 <= n <= 40, uniform radial perturbation argument for all n >= 30 |
-| **Thm C** (short time) | geometric skewness `S^G_n = <u^3>/<u^2>^{3/2} > 0` for **every** n >= 3 (n = 3: `4 sqrt(21)/99`, exact); moreover `<u^3> = t^4/360 + O(t^5)` with explicit constants, so `S^G_n ~ (8 sqrt(3)/15) tan^4(pi/n) ~ 90.0/n^4` | computer-assisted: 4 <= n <= 150 and all n >= 140 |
+| **Thm C** (short time) | geometric skewness `S^G_n = <u^3>/<u^2>^{3/2} > 0` for **every** n >= 3 (n = 3: `4 sqrt(21)/99`, exact); moreover `<u^3> = t^4/360 + O(t^5)` (explicit two-sided bounds), so `S^G_n ~ (8 sqrt(3)/15) tan^4(pi/n) ~ 90.0/n^4` | computer-assisted: 4 <= n <= 150 and all n >= 140 |
 | Thm D (finite times, partial) | explicit certified windows `(0, t0]` and `[T1, inf)` on which the sign of `Sk(tau)` is proved, for n = 3, 4, 5, 6, 8 (Section 7) | computer-assisted |
 
 What remains open: the sign of `Sk(tau)` for intermediate times `t0 < tau < T1` (the paper's claim
-"positive skewness at all times" for n >= 4), for every n; see Section 9.
+"positive skewness at all times" for n >= 4), for every n; see Section 10.
 
 ## 1. The source and the open statement
 
@@ -197,9 +197,9 @@ i.e. `X^2 <= Y^2 + 2t XY` with `X = ||d_nE||_dP`, `Y = ||d_sE||_dP`, whence `X <
 R; K = J = 16 (n <= 5), 10 (n <= 8), 6 (n <= 14), 4 (n >= 15)); the coefficients come from floating-point least
 squares on the side and are then exact binary numbers (stored in `certificates/lt_certificates_4_40.json`).
 `-Lap ut_N = 2` and `-Lap g_N = u_N` hold *exactly* (`Lap(r^{2a} Re w^m) = 4a(a+m) r^{2a-2} Re w^m`; checked
-term by term). Every quantity of Lemmas 2–5 is computed in arb ball arithmetic (python-flint, 300–900 bits):
+term by term). Every quantity of Lemmas 2–5 is computed in arb ball arithmetic (python-flint, 250–650 bits, chosen from the degree):
 boundary sup/oscillation by Taylor enclosures on 240 subintervals of `[0, t]`, all integrals exactly through
-Lemma 6. Result: `I_N - Err > 0` for every `4 <= n <= 40`, with `Err/I_N` between `0.1%` (n = 4) and `6%`
+Lemma 6. Result: `I_N - Err > 0` for every `4 <= n <= 40`, with `Err/I_N` between `0.1%` (n = 4) and `7.9%`
 (n = 15). Example (apothem 1): n = 4: `I >= 5.0306e-5` (I_N = 5.0352e-5, Err <= 4.6e-8); n = 40:
 `I >= 1.6953e-5`.
 
@@ -229,8 +229,8 @@ so with Lemmas 2, 3, 7:
     int u^3 >= int u_N^3 + 3 int_dP ut_N d_nPhi - 3 ||rho||_dP (t+R) ||d_s ut_N||_dP - (3 Uinf + osc) ((1+R)/2) ||ut_N||_dP^2.
 
 (Lemma 8.) All terms are computed in ball arithmetic (K = 16 for n <= 6, 10 for n <= 12, 6 beyond). Result: the
-lower bound is positive for every `4 <= n <= 150`; the relative error is below 1.3% throughout (logs
-`certificates/sg_run_*.log`, data `certificates/sg_certificates_*.json`).
+lower bound is positive for every `4 <= n <= 150`; the relative error `(int u_N^3 - lower bound)/int u_N^3` is at most 1.1% (n = 150) (log
+`certificates/run_all.log`, data `certificates/sg_certificates_4_150.json`).
 
 **6.2 Uniform part, all n >= 140** (`scripts/sg_uniform.py`). Write `ut = Y + H` with the radial
 `Y = (1-r^2)/2 + t^2/6` and `H` harmonic, `H = b(tau) := tau^2/2 - t^2/6` on each half side;
@@ -255,36 +255,86 @@ t^9/4082400 + ...`), `|3 int Y_c H_c^2 + int H_c^3| <= (3(1/4 + 5t^2/12) + t^2/2
 Dividing by `n t^5`, `G(t) := M(t)/t^4 - (error terms)/t^4` is an explicit continuous function on `[0, 1]`
 with `G(0) = 1/360`; arb interval arithmetic on 400 subintervals gives `G > 2.45e-4 > 0` on `(0, tan(pi/140)]`.
 Hence `<u^3> > 0` for all n >= 140, and with 6.1, **`S^G_n > 0` for all n >= 4** (n = 3: Section 3).
-The same bounds are two-sided, so `<u^3>_{P_n} = tan^4(pi/n)/360 + O(tan^5(pi/n))` rigorously, and since
-`<u^2> -> 1/48`, `S^G_n ~ (8 sqrt(3)/15) tan^4(pi/n) ~ 90.0/n^4` (paper n = 100: `8.6e-7`; ours `~ 8.5e-7`).
+
+*Asymptotics.* The bounds are two-sided. With K = 6 fixed the remainder is `<= 5e-5 t^4 + O(t^5)` (about 2% of the main term `t^4/360`); choosing
+`K = K(t) ~ t^{-2/3}` gives `ehat = O(t^3 log(1/t))`, `vhat = O(t^{5/2})`, hence rigorously
+`<u^3>_{P_n} = t^4/360 + O(t^5)`. Similarly `<u^2> = <Y_c^2> + O(t^{5/2}) = 1/48 + O(t^2)`, so
+`S^G_n = (8 sqrt(3)/15) tan^4(pi/n) (1 + O(1/n))`, i.e. `S^G_n ~ 90.0/n^4` (arXiv Table 1, n = 100: `8.6e-7`;
+certified enclosure `[8.348e-7, 8.397e-7]`, Section 8).
 
 ## 7. Finite times: certified windows (Theorem D, partial result)
 
 `scripts/alltime_windows.py`. For symmetric cross-sectionally uniform initial data and every Pe,
-`sign Sk(tau) = sign K(tau)` (Proposition 3). Let `c0 = sup_{x>0}(1-e^{-x})/sqrt(x) <= 0.6383` (checked).
+`sign Sk(tau) = sign K(tau)` (Proposition 3). Let `c0 = sup_{x>0}(1-e^{-x})/sqrt(x) <= 0.64` (checked in ball arithmetic; the supremum is 0.6382 at x = 1.2564).
 
 **Lemma 11 (short times).** `|K(tau) - <u^3> tau^3/3| <= C_a tau^{7/2} + C_b tau^4`,
 `C_a = (32/105) c0 ||grad u|| ||u^2||`, `C_b = (pi/48) c0^2 ||u||_inf ||grad u||^2` (average norms).
-*Proof.* Spectrally `||e^{r Lap}u - u|| <= c0 r^{1/2} ||grad u||`, so `A(s) = s u + R_s`,
-`||R_s|| <= (2/3) c0 s^{3/2} ||grad u||`; expand `<(u + rho_{sigma-s}) u (s u + R_s)>` and integrate
-(Beta integrals `16/105`, `16/105`, `pi/64`). []
+*Proof.* Spectrally, `||(e^{r Lap} - 1)u||^2 = sum (1 - e^{-r lambda_i})^2 u_i^2 <= c0^2 r sum lambda_i u_i^2
+= c0^2 r ||grad u||^2`. Write `e^{r Lap}u = u + rho_r` and `A(s) = s u + R_s`, `R_s = int_0^s rho_r dr`,
+`||R_s|| <= (2/3) c0 s^{3/2} ||grad u||`. Then
+`K(tau) = <u^3> tau^3/3 + 2 int_0^tau int_0^sigma [ s<rho_{sigma-s} u^2> + <u^2 R_s> + <rho_{sigma-s} u R_s> ] ds dsigma`
+and, by Cauchy–Schwarz, the three terms are bounded by `s c0 (sigma-s)^{1/2} ||grad u|| ||u^2||`,
+`(2/3) c0 s^{3/2} ||grad u|| ||u^2||` and `(2/3) c0^2 (sigma-s)^{1/2} s^{3/2} ||u||_inf ||grad u||^2`. The double
+integrals are `2 int int s (sigma-s)^{1/2} = 16 tau^{7/2}/105`, `2 int int (2/3) s^{3/2} = 16 tau^{7/2}/105`,
+`2 int int (2/3)(sigma-s)^{1/2} s^{3/2} = (4/3)(pi/64) tau^4` (Beta integrals `B(2,3/2) = 4/15`, `B(3/2,5/2) = pi/16`). []
 
-**Lemma 12 (long times).** From (2.1): `|K(tau) - <u g2> tau| <= a1/mu_2 + 2 b1/mu_2^2`,
-`a1 = ||u|| ||g2||` (`||g2|| <= 2 sd(u g1)/mu_2`), `b1 = ||u|| ||u||_inf ||g1||`.
+**Lemma 12 (long times).** From (2.1): `|K(tau) - <u g2> tau| <= int_0^inf e^{-mu_2 sigma}(a1 + 2 sigma b1) dsigma
+= a1/mu_2 + 2 b1/mu_2^2`, `a1 = ||u|| ||g2||` (spectrally `||g2|| <= ||2(u g1 - <u g1>)||/mu_2 = 2 sd(u g1)/mu_2`),
+`b1 = ||u|| ||u||_inf ||g1||`. Hence `sign K(tau) = sign <u g2>` for `tau > T1 := (a1/mu_2 + 2 b1/mu_2^2)/|<u g2>|`.
 
 With certified enclosures of all norms (exact for n = 3) and `mu_2 = pi^2/4` (square, exact) or the
 Payne–Weinberger bound `pi^2/diam^2` (others), the script gives:
 
-WINDOWS_TABLE
+| n | `Sk(tau) > 0` for `0 < tau <= t0` | sign of `Sk(tau)` for `tau >= T1` |
+|---|---|---|
+| 3 | `t0 = 3.279e-3` | **negative**, `T1 = 371` |
+| 4 | `t0 = 5.300e-4` | positive, `T1 = 32.0` |
+| 5 | `t0 = 1.377e-4` | positive, `T1 = 41.5` |
+| 6 | `t0 = 4.384e-5` | positive, `T1 = 34.1` |
+| 8 | `t0 = 6.726e-6` | positive, `T1 = 24.2` |
+
+(`t0` shrinks with n because `<u^3>` does, `S^G_n ~ 90/n^4`; `T1` is driven by the crude constant of Lemma 12.)
 
 So for the triangle the sign change predicted by the paper is certified to occur inside `(t0, T1)`; for n >= 4
 positivity is certified on `(0, t0] U [T1, inf)` only. Times are in units of `a^2/kappa` with `a` = apothem.
 
 ## 8. Table 1 of the paper, rigorous enclosures
 
-TABLE1_TABLE
+Circumradius-1 normalisation as in the paper (`kappa` scales like length: `kappa(R=1) = cos(pi/n) kappa(apothem 1)`);
+printed values from arXiv v3 (the published Table 1 rounds them and drops n = 7, 100). Enclosures from
+`scripts/table1.py` (outward-rounded).
 
-## 9. Assumptions, trusted base, limitations
+| n | LT coefficient, paper | certified enclosure | `S^G`, paper | certified enclosure |
+|---|---|---|---|---|
+| 3 | -0.035 | `-789 sqrt(770)/618800 = -0.0353812` (exact) | 0.185 | `4 sqrt(21)/99 = 0.1851546` (exact) |
+| 4 | 0.139 | [0.13849, 0.13856] | 0.0813 | [0.081294, 0.081297] |
+| 5 | 0.194 | [0.19390, 0.19429] | 0.042 | [0.042262, 0.042270] |
+| 6 | 0.215 | [0.21474, 0.21603] | 0.024 | [0.024264, 0.024274] |
+| 7 | 0.225 | [0.22384, 0.22699] | 0.0149 | [0.014939, 0.014955] |
+| 8 | 0.231 | [0.22903, 0.23281] | 0.0097 | [0.0097036, 0.0097168] |
+| 20 | 0.243 | [0.23937, 0.24655] | 3.97e-4 | [3.9611e-4, 3.9832e-4] |
+| 100 | 0.245 | [0.24384, 0.24589] | 8.6e-7 | **[8.3475e-7, 8.3971e-7]** |
+| inf | 0.245 | `sqrt(6)/10 = 0.2449490` (exact) | 0 | 0 |
+
+All printed values agree with the enclosures up to the printed rounding, except the arXiv-only value
+`S^G_100 = 8.6e-7`, which is about 3% too large (it does not appear in the published table). The asymptotic law
+`(8 sqrt(3)/15) tan^4(pi/100) (1 + O(1/n))` gives `9.0e-7 (1 - O(0.03))`, consistent with the enclosure. The
+LT enclosures for n >= 6 are wide only because the bound on `||grad(g1 - g_N)||` is crude; they are not needed
+for the sign.
+
+## 9. Certificates
+
+* `certificates/lt_certificates_4_40.json`: for each n, K, J, the coefficients `a_k`, `b_j` and the scale `S` as
+  hexadecimal floats (exact binary numbers), the certified `delta`, `||ut_N||_dP`, `||E||`, `||e||_dP`, `eta`,
+  `omega`, `I_N`, the four terms of `Err`, the lower bound of `I`, and enclosures of `kappa`.
+* `certificates/sg_certificates_4_150.json`: for each n, K, J, coefficients `a_k` (Poiseuille) and `c_j`
+  (harmonic part of `Phi`), the boundary term, the Rellich and second-order terms, the lower bound of `int u^3`
+  and an enclosure of `S^G`.
+* `certificates/run_all.log`: complete output of all scripts (the run used for this report).
+Re-running a script recomputes everything from scratch (the least-squares fits are deterministic); a verifier
+may also feed the stored coefficients directly into the ball-arithmetic part.
+
+## 10. Assumptions, trusted base, limitations
 
 * **Model.** Results are about the functionals defined by the Aris hierarchy for cross-sectionally uniform
   initial data, exactly as in the source; Proposition 1 makes the long-time asymptotics rigorous at that level

@@ -24,3 +24,20 @@ n=114 isomers=1008444 oeis_ok=True | A(T): groups=44 mixed=4 classes=40 | A(T6):
 n=116 isomers=1207119 oeis_ok=True | A(T): groups=35 mixed=10 classes=25 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=263 | A+D(T): groups=2 mixed=2 classes=0 | 218s+49s
 n=118 isomers=1408553 oeis_ok=True | A(T): groups=46 mixed=9 classes=37 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=254 | A+D(T): groups=1 mixed=1 classes=0 | 208s+64s
 n=120 isomers=1674171 oeis_ok=True | A(T): groups=64 mixed=18 classes=46 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=269 | A+D(T): groups=2 mixed=2 classes=0 | 279s+44s
+Traceback (most recent call last):
+  File "/home/user/chemistry-open-problems/problems/fullerene-dual-cospectral/scripts/scan_driver.py", line 227, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/chemistry-open-problems/problems/fullerene-dual-cospectral/scripts/scan_driver.py", line 223, in main
+    run_n(n, mask, K, oe)
+    ~~~~~^^^^^^^^^^^^^^^^
+  File "/home/user/chemistry-open-problems/problems/fullerene-dual-cospectral/scripts/scan_driver.py", line 148, in run_n
+    cs = labelg_canon([to_graph6(sel[i]) for i in il])
+                       ~~~~~~~~~^^^^^^^^
+  File "/home/user/chemistry-open-problems/problems/fullerene-dual-cospectral/scripts/planarcode.py", line 51, in to_graph6
+    assert n <= 62
+           ^^^^^^^
+AssertionError
+# relaunch from n=122 after graph6 fix (n>62 header), same settings
+n=122 isomers=1942929 oeis_ok=True | A(T): groups=52 mixed=24 classes=28 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=256 | A+D(T): groups=1 mixed=1 classes=0 | 323s+85s
+# from n=124: mask=7 (types 0,1,2 only: A(T), A(T6), A(T5)); A+D dropped to save time; dualspec16 K=16

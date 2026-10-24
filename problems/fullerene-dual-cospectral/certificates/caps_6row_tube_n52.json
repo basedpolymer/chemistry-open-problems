@@ -1,0 +1,118 @@
+[
+ {
+  "size": 7,
+  "n_found": 36,
+  "aut": 12,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    6,
+    6
+   ]
+  ],
+  "patch_graph6": "LvSo}A`HGK`PQP",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ },
+ {
+  "size": 8,
+  "n_found": 38,
+  "aut": 4,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    6,
+    7
+   ]
+  ],
+  "patch_graph6": "MvS`w^?gHG_hAPQG_",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ },
+ {
+  "size": 9,
+  "n_found": 40,
+  "aut": 6,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    6,
+    6
+   ]
+  ],
+  "patch_graph6": "NvTH@sNoD?cP?h@GgaG",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ },
+ {
+  "size": 10,
+  "n_found": 42,
+  "aut": 4,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    6,
+    7
+   ]
+  ],
+  "patch_graph6": "OttH@c\\@}?S@G`?c_aIGP",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ },
+ {
+  "size": 12,
+  "n_found": 46,
+  "aut": 2,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    1,
+    0
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "patch_graph6": "QttH@cXBGK_^o?g?cOGCP@ADCAG",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ },
+ {
+  "size": 13,
+  "n_found": 48,
+  "aut": 12,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    6,
+    6
+   ]
+  ],
+  "patch_graph6": "RttIH?pFGK_X?^o?S?HA@?PCACICAG",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ },
+ {
+  "size": 14,
+  "n_found": 50,
+  "aut": 4,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    6,
+    7
+   ]
+  ],
+  "patch_graph6": "SttIH?pFGH_p?p?Zw?D?@GOC@AGCCIC@C",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ },
+ {
+  "size": 15,
+  "n_found": 52,
+  "aut": 6,
+  "pentagons": 6,
+  "T5_components_(vertices,edges)": [
+   [
+    6,
+    6
+   ]
+  ],
+  "patch_graph6": "TttIH?pEGW_p?p?X_Fm??g?C`?GACGCCDA?P",
+  "patch_order": "cap vertices first, then the row c_0..c_5 in cyclic order"
+ }
+]

@@ -1,0 +1,9 @@
+samples 100000000  knotted 13639  p_MC = 1.363900e-04 +- 1.17e-06 (1 s.e.)  time 370 s
+upper-region knots 6784, R-pattern 3353, L-pattern 3431
+PASS C1 Fox-3 count in {3,9} (violations 0)
+PASS C2 Fox-3 knotted <=> Calvo Delta_2,4,6 nonzero (disagreements 0)
+PASS C3 knotted => each T_i pierced exactly once (violations 0)
+PASS C4 incompatibility of A/B on a shared angle pair (violations 0)
+PASS C5 upper region: knotted <=> R or L (knot not in RuL 0, RuL not knot 0)
+PASS C5' R-knots right-handed, L-knots left-handed (Delta = +1 / -1) (0, 0)
+PASS C6 knotted => theta in (0,pi)^3 or (pi,2pi)^3 (violations 0)

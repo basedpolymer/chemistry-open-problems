@@ -48,28 +48,38 @@ def write_planar_code(adjs):
 
 def to_graph6(adj):
     n = len(adj)
-    assert n <= 62
+    assert n <= 258047
     bits = []
     for j in range(1, n):
+        aj = set(adj[j])
         for i in range(j):
-            bits.append(1 if j in adj[i] else 0)
+            bits.append(1 if i in aj else 0)
     while len(bits) % 6:
         bits.append(0)
-    s = chr(63 + n)
+    if n <= 62:
+        s = chr(63 + n)
+    else:
+        s = chr(126) + chr(63 + ((n >> 12) & 63)) + chr(63 + ((n >> 6) & 63)) + chr(63 + (n & 63))
+    out = [s]
     for k in range(0, len(bits), 6):
         v = 0
         for b in bits[k:k + 6]:
             v = 2 * v + b
-        s += chr(63 + v)
-    return s
+        out.append(chr(63 + v))
+    return ''.join(out)
 
 
 def from_graph6(s):
     s = s.strip()
-    n = ord(s[0]) - 63
-    assert 0 <= n <= 62
+    if s[0] == '~':
+        assert s[1] != '~'
+        n = ((ord(s[1]) - 63) << 12) | ((ord(s[2]) - 63) << 6) | (ord(s[3]) - 63)
+        body = s[4:]
+    else:
+        n = ord(s[0]) - 63
+        body = s[1:]
     bits = []
-    for ch in s[1:]:
+    for ch in body:
         v = ord(ch) - 63
         for k in range(5, -1, -1):
             bits.append((v >> k) & 1)

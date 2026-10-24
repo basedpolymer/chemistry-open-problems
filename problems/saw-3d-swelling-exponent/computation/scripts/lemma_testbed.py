@@ -97,7 +97,7 @@ def main():
     scan("A2e convexity within parity E_{n+2}-E_n >= E_n-E_{n-2}", range(2, R - 1),
          lambda n: None if E[n + 2] - E[n] >= E[n] - E[n - 2] else "")
     scan("A2f E_{n+1} - E_n >= 1", range(0, R), lambda n: None if E[n + 1] - E[n] >= 1 else "")
-    scan("A2g E_{n+2} - E_n >= 2 E_n/n (i.e. E_n/n increasing at step 2 by...)", range(1, R - 1),
+    scan("A2g E_{n+2} - E_n >= 2 E_n/n (equivalently E_{n+2}/(n+2) >= E_n/n)", range(1, R - 1),
          lambda n: None if E[n + 2] - E[n] >= 2 * E[n] / n else "")
 
     def sup(s):

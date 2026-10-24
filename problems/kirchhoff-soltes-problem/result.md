@@ -152,6 +152,11 @@ Results (`certificates/search/kernel_c*.log`): c = 2: 1 kernel, 7 graphs (the th
 lengths in {1,2,3}, at most one equal to 1; exact values in `certificates/small_cases.txt`); c = 3: 4
 kernels, 1 038 graphs; c = 4: 17 kernels, 76 603 graphs; c = 5: see §11. None is KS. ∎
 
+*Remarks.* (1) A 2-connected cactus is a cycle, so C₅ is the only KS cactus (in particular the only KS
+unicyclic graph, as in the source). (2) Good vertices of degree 2 do exist in non-cycle graphs (e.g. two
+2-connected graphs on 8 vertices, graph6 ``G?qa`o`` and ``G?qa`k``), so the bound "at most two per thread" cannot
+be replaced by "none" in general.
+
 ## 5. An expander bound
 
 For a vertex v of G and u ≠ w, let φ = Γ(e_u − e_w) be the potential of a unit current from u to w in G
@@ -188,8 +193,8 @@ If moreover G is vertex-transitive, then Δ_v(G) > 0 for every v (no vertex is g
 *Proof.* Δ_v = Rt_G(v) − Σ_{u<w; u,w≠v}[r_{G−v}(u,w) − r_G(u,w)] (bookkeeping). By Lemma 5 the sum is
 ≤ (1 + 1/a_v)(nσ_v − ε_v) ≤ (1 + 1/a_*)(nσ_v − ε_v), since nσ_v − ε_v = Σ_{u<w; u,w ≠ v}E_v(u,w) ≥ 0. Sum
 over v and use Σ_v Rt(v) = 2Kf and Lemma 5′. For the second inequality use 1 + a_* ≥ a(G) (Fiedler 1973:
-a(G − v) ≥ a(G) − 1; proof: for x ⊥ 1 on V∖v extended by x_v = 0, a(G)‖x‖² ≤ xᵀL_Gx = xᵀL_{G−v}x + Σ_{y∼v}x_y²
-≤ xᵀL_{G−v}x + ‖x‖²) and ε_v ≥ (n − 1)/d_v. Finally Kf(G) = nΣ1/μ_i ≤ n(n − 1)/a(G). For vertex-transitive G
+a(G − v) ≥ a(G) − 1; proof: let x be a unit Fiedler vector of G − v (x ⊥ 1, xᵀL_{G−v}x = a(G − v)), extended
+by x_v = 0; then x ⊥ 1 in ℝ^V and a(G) ≤ xᵀL_Gx = xᵀL_{G−v}x + Σ_{y∼v}x_y² ≤ a(G − v) + 1) and ε_v ≥ (n − 1)/d_v. Finally Kf(G) = nΣ1/μ_i ≤ n(n − 1)/a(G). For vertex-transitive G
 all Δ_v are equal. ∎
 
 **Corollary 7.** Since d_v ≤ n − 1, every graph with a(G)² > 2(n − 1) is not KS. In particular:

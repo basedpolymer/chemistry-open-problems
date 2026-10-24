@@ -1,0 +1,12 @@
+[
+ {"name": "BCC", "box": "fixed", "level": 4, "file": "BCC_fixedbox_L4.npz", "threshold": "1.071111",
+  "meaning": "published BCC value (Reddy et al. 2018, Fig. 7) is not the infimum for the cubic box"},
+ {"name": "P", "box": "fixed", "level": 2, "file": "P_fixedbox_L2.npz", "threshold": "1.068909",
+  "meaning": "published P value (Fig. 12) is not the infimum for box 1.91:3.57:1"},
+ {"name": "M", "box": "fixed", "level": 2, "file": "M_fixedbox_L2.npz", "threshold": "1.069038",
+  "meaning": "published M value (Fig. 15) is not the infimum for box 1.89:3.3:1 (Pnam) = (1.89,1,3.3) Pnma"},
+ {"name": "H", "box": "fixed", "level": 3, "file": "H_fixedbox_L3.npz", "threshold": "1.069219",
+  "meaning": "published H value (Fig. 9) is not the infimum for box 1:3.88:1, Z12 at 2a+4f"},
+ {"name": "mu", "box": "fixed", "level": 2, "file": "mu_fixedbox_L2.npz", "threshold": "1.069662",
+  "meaning": "published mu value (Fig. 16) is not the infimum for hexagonal box c/a = 5.2"}
+]

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Small end-to-end reproduction (one thread, ~15-30 min): build, run a short branch and bound (5 rounds),
+# Small end-to-end reproduction (one thread, ~15-30 min): build, run a short branch and bound (2 rounds; identical to the first 2 rounds of the main run),
 # export and fully re-verify the resulting (weaker) certificate.  Prints PASS/FAIL lines.
 # Usage: bash scripts/reproduce_small.sh [WORKDIR]
 set -euo pipefail
@@ -9,6 +9,7 @@ mkdir -p "$W"
 bash "$HERE/build.sh" "$W"
 rm -f "$W/state.pkl"
 python3 "$HERE/bnb_driver.py" --state "$W/state.pkl" --bin "$W/hexcert" --table "$W/trig14.bin" \
-    --batch 1000 --init-level 3 --offset 2 --lth-min 6 --lth-max 10 --rounds 5 | tee "$W/driver.log"
+    --batch 2000 --init-level 3 --lth-init 6 --lth-max 12 --oct-level 6 --rounds 2 | tee "$W/driver.log"
 python3 "$HERE/export_certificate.py" "$W/state.pkl" "$W/small"
 python3 "$HERE/verify_certificate.py" "$W/small.leaves.gz" "$W/small.summary.json" "$W/hexcert" "$W/trig14.bin"
+python3 "$HERE/tamper_test.py" "$W/small.leaves.gz" "$W/small.summary.json" "$W/hexcert" "$W/trig14.bin"

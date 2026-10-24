@@ -69,7 +69,8 @@ for c in range(2, 7):
         print(f'| {c} | {t[0]:,} | {t[4]:,} | {t[6]} |')
 
 print('\n### Other exact searches\n\n| search | graphs | disconnected | rejected | survivors | inconclusive |\n|---|---|---|---|---|---|')
-for p in sorted(glob.glob(os.path.join(S, 'regular_*.log')) + glob.glob(os.path.join(S, 'families_small_*.log'))):
+for p in sorted(glob.glob(os.path.join(S, 'regular_*.log')) + glob.glob(os.path.join(S, 'families_small_*.log'))
+                + glob.glob(os.path.join(S, 'bicirculant_m*.log'))):
     if p.endswith('.gen.log'):
         continue
     t = parse(p)

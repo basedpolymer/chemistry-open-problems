@@ -18,4 +18,4 @@ alltrans20_k=16.gz graphs_read 11 unparsable 0 n<3 0 disconnected 0 rejected 11 
 alltrans20_k=17.gz graphs_read 4 unparsable 0 n<3 0 disconnected 0 rejected 4 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans20_k=18.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans20_k=19.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
-elapsed_seconds 0
+elapsed_seconds 1

@@ -205,9 +205,14 @@ For each box D and level Lθ (n = 2^{Lθ} cells per angle on (0,π)):
    −(−x ⊕ ...)), compiled with `-frounding-math -ffp-contract=off`, no `-ffast-math`; square roots widened by one ulp;
    division by an interval containing 0, infinities and NaNs give (−∞, ∞). Tested against exact rational
    arithmetic (`scripts/test_interval.py`). Box weights and sums are exact integers over 2^{400} (Python).
-7. **Branch and bound.** Starting from 16·8·8 boxes, the boxes with the largest gap w(D)(out − cert) are split
-   into 8 (and Lθ = clamp(L2 + 2, 6, 10)). Every final leaf, including those with zero outer count, is listed in the
-   certificate; the leaves tile [0,2] × [0,1]² (checked: disjoint dyadic boxes of total volume 2).
+7. **Branch and bound.** Starting from 16·8·8 boxes with Lθ = 6, in each round the 2000 leaves with the largest gap
+   w(D)(out − cert) are refined: boxes coarser than 2⁻⁶ (in s, t) are split into 8 with Lθ tied to the box size
+   (Lθ = level + 2); finer boxes are either re-evaluated with Lθ + 1 or bisected along one d-axis, whichever carries
+   the largest share of the remaining uncertainty according to a (non-rigorous) attribution computed by the
+   certifier from the widths of the centred-form terms of the undecided cells. Every final leaf, including those
+   with zero outer count, is listed in the certificate; `verify_certificate.py` checks that the leaves form a k-d
+   tree partition of [0,2] × [0,1]² (recursive bisection check and exact total volume 2), recomputes every leaf
+   from scratch, and re-sums the exact bounds.
 
 Then U = Σ_D w(D)(outR + outL) and L = Σ_D w(D)(certR + certL) satisfy L ≤ p₆ ≤ U by (2), (3), Cor. 3.5.
 

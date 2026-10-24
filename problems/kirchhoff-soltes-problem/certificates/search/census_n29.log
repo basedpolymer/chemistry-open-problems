@@ -13,4 +13,4 @@ alltrans29_k=22.gz graphs_read 26 unparsable 0 n<3 0 disconnected 0 rejected 26 
 alltrans29_k=24.gz graphs_read 7 unparsable 0 n<3 0 disconnected 0 rejected 7 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans29_k=26.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans29_k=28.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
-elapsed_seconds 0
+elapsed_seconds 1

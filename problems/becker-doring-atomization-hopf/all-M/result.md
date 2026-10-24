@@ -90,13 +90,15 @@ $(z,\varepsilon)$ for $|\varepsilon^2z|<1$; at $\varepsilon=0$ one gets PV's lim
 $Q(z;\kappa)=e^z(1+z^2/\kappa^2)-(1+z)$ (PV (87)). The only non-analytic term is $T/\varepsilon$, which is
 exponentially small:
 
-**Lemma 1.1 (bound for $T$).** For $0<\varepsilon$ and $\kappa>0$: $T\le\exp(-\kappa/\varepsilon+\kappa^2/2)$ (from
-$\log(1+x)\ge x-x^2/2$, $x\ge0$). For $k\ge0$ the map $\varepsilon\mapsto e^{-c/\varepsilon}\varepsilon^{-k}$ is
-increasing on $(0,c/k)$. Hence on a box $\varepsilon\in(0,\varepsilon_{hi}]$, $\kappa\in[\kappa_{lo},\kappa_{hi}]$
-with $\varepsilon_{hi}<\kappa_{lo}/k$:
-$\sup T/\varepsilon^k\le\exp(-\kappa_{lo}/\varepsilon_{hi}+\kappa_{hi}^2/2)/\varepsilon_{hi}^k$
-(`allm_core.T_over_eps_bound`). Derivatives: $\partial_\kappa(T/\varepsilon)=-T/(\varepsilon^2A)$,
-$|\partial_\varepsilon(T/\varepsilon)|\le(3\kappa+\varepsilon)T/\varepsilon^3$.
+**Lemma 1.1 (bound for $T$).** For $\varepsilon>0$, $\kappa>0$, on a box $\varepsilon\in[\varepsilon_{lo},\varepsilon_{hi}]$,
+$\kappa\in[\kappa_{lo},\kappa_{hi}]$, $\sup T/\varepsilon^k$ is bounded by the smaller of
+(a) $\exp(-\kappa_{lo}/\varepsilon_{hi}+\kappa_{hi}^2/2)/\varepsilon_{hi}^k$, valid if $\varepsilon_{hi}<\kappa_{lo}/k$
+(from $\log(1+x)\ge x-x^2/2$ for $x\ge0$, and since $\varepsilon\mapsto e^{-c/\varepsilon}\varepsilon^{-k}$ is increasing on
+$(0,c/k)$), and (b) $T(\varepsilon_{hi},\kappa_{lo})/\varepsilon_{lo}^k$ if $\varepsilon_{lo}>0$ (since
+$\partial_\varepsilon[\log(1+\kappa\varepsilon)/\varepsilon^2]=[x/(1+x)-2\log(1+x)]/\varepsilon^3<0$, $x=\kappa\varepsilon$,
+$T$ is increasing in $\varepsilon$ and decreasing in $\kappa$) (`allm_core.T_over_eps_bound`; (b) matters when
+$K=\kappa\varepsilon$ is not small, e.g. on the third branch near $M=180$, where $\kappa_3\approx26$). Derivatives:
+$\partial_\kappa(T/\varepsilon)=-T/(\varepsilon^2A)$, $|\partial_\varepsilon(T/\varepsilon)|\le(3\kappa+\varepsilon)T/\varepsilon^3$.
 
 In all certificates $T$-dependent terms enter as disks of radius given by Lemma 1.1, so every enclosure is valid for
 all $\varepsilon$ in a box $[\varepsilon_{lo},\varepsilon_{hi}]$ **including $\varepsilon_{lo}=0$** (the value at
@@ -208,6 +210,21 @@ $(KM+1)a|K+Aw||A\varphi^2-1|/\mathcal T\le(K+M^{-1})(K+2Aa+Aa^2)/(A^2a)\le\rho_e
 $|\varphi^MP_2|\ge|P_2|>|P_1|+A^{-M}|R_1|+|(A\varphi)^{-M}R_2|$, so $F(\varphi)\ne0$. For $a\in[a_1,a_{\max}]$ use
 $|\varphi|^M=(1+2u+a^2)^{M/2}\ge(1+2u_{\min}(a_-)+a_-^2)^{M_{lo}/2}$ and (II). $\square$
 
+**Lemma 3.3′ (localization without Gershgorin, any $K$).** Replace (II) by (II′): on every subinterval of a cover of
+$[a_1,a_{big}]$ ($a_{big}=12$) the inequality of (II) holds with $\underline{|P_2|/M}$ replaced by
+$\max(\mathrm{LB}_a,\mathrm{LB}_b)$, where $\mathrm{LB}_a$ is the bound of (II) and, with $r=|\varphi|\in[(1+2u_{\min}(a_-)+a_-^2)^{1/2},1+a_+]$,
+$$\mathrm{LB}_b=A^3r^3-\frac{3A^2r^3+(3A+A^2)r^2}M-A^2(1+2A)r^2-A^2(2+A)r-\frac{(1+2A^2)r}M-A^2\Big(1+\frac1M\Big),$$
+which follows from $P_2=A^3\varphi^3(\varphi+M)-3A^2\varphi^3+c_2\varphi^2+c_1\varphi+c_0$ (*check F7*),
+$c_2=3A-MA^2(1+2A)-A^2$, $c_1=-1+MA^2(2+A)+2A^2$, $c_0=-(MA^2+A^2)$, and $|\varphi+M|\ge M+1$ for
+$\operatorname{Re}\varphi\ge1$; and (III) on $a\ge a_{big}$: with $r\ge r_b=a_{big}-1\ge2$, $a\le1.5r$,
+$|K+Aw|\le\alpha r$, $K+2Aa+Aa^2\le\beta r^2$ ($\alpha=K/2+1.5A$, $\beta=K/4+3.75A$, *check F7*):
+$|P_1|/M\le C_1r^4$, $A^{-M}(|R_1|+|R_2|)/M\le C_2r^4$ and $|P_2|/M\ge c\,r^3$ with explicit $C_1,C_2,c$
+(`allm_core.loc_tail`), and $r_b^{M_{lo}-1}c>C_1+C_2$. Then the conclusion of Lemma 3.3 holds for **every** zero
+$\varphi$ of $F$ with $|\varphi|\ge1$ and $\operatorname{Re}\lambda(\varphi)\ge0$, without the condition $K<1$.
+*Proof.* As for Lemma 3.3 on $[R_0/M,a_1]$ and $[a_1,a_{big}]$; on $a\ge a_{big}$:
+$|\varphi^MP_2|\ge r^M c\,Mr^3>(C_1+C_2)Mr^4\ge|P_1|+A^{-M}(|R_1|+|R_2|)$ because $r^{M-1}\ge r_b^{M_{lo}-1}$. $\square$
+(`allm_core.loc_check_II2`, `loc_check_II2_range`, `loc_tail`; used for $j\ge2$, `h2j_lib`.)
+
 Implemented: `allm_core.loc_check_I`, `loc_check_II`, `loc_check_II_range` (adaptive subdivision); the
 parameters used: $R_0=8$ ($j=1$), $20$ ($j=2$), $26$ ($j=3$), $a_1=0.1$. For boxes near $\varepsilon=0$ the
 sum in (I) is $0.58$ ($j=1$), $0.56$ ($j=2$), $0.68$ ($j=3$); for moderate $M$ (I) fails and (II) on
@@ -263,17 +280,22 @@ on $\mathcal R$ (certified: `h2j_lib.mono_check`).
 **Theorem 4.5 (spectrum at the $j$-th Hopf point).** Let $\ell(y)$ and $r(y)$, $|y|\le Y$, be piecewise linear graphs
 with $\operatorname{Re}\Lambda<0$ on $x=\ell(y)$ and $\operatorname{Re}\Lambda>0$ on $x=r(y)$ (interval checks on
 every edge, for all parameters of the box), $R_0\le Y$, $x_{\min}=\min\ell<0$, and $P=\{\ell(y)<x<R_0,|y|<Y\}$,
-$P_-=\{\ell(y)<x<r(y),|y|<Y\}$. If Lemma 3.3 (with $R_0$), Lemma 4.4 on $\mathcal R=[x_{\min},R_0]\times[-Y,Y]$,
+$P_-=\{\ell(y)<x<r(y),|y|<Y\}$. If Lemma 3.3′ (with $R_0$), Lemma 4.4 on $\mathcal R=[x_{\min},R_0]\times[-Y,Y]$,
 Lemma 4.2 with $\sigma=-x_{\min}$, $|y_H|<Y$, and the counts $N(P)=2j+2$, $N(P_-)=4$ hold, then at $\kappa_j(M)$: the only eigenvalues of $B$ on $i\mathbb R$ are $0,\pm i\omega$,
 and exactly $2j-2$ zeros of $F$ with $|\varphi|\ge1$ (with multiplicity) correspond to eigenvalues with
 $\operatorname{Re}\lambda>0$.
 
-*Proof.* Every zero $z$ with $\operatorname{Re}\Lambda\ge0$ coming from an eigenvalue has $|z|<R_0$ (Lemma 3.3), hence
-$|y|<Y$, $x<R_0$, $x>x_{\min}$ (Lemma 4.2), so $z\in\mathcal R$, and by monotonicity along the horizontal line
-$x>\ell(y)$: it is in $P$. A zero with
-$\operatorname{Re}\Lambda=0$ and $|y|<Y$ satisfies $\ell(y)<x<r(y)$, so it is in $P_-$; $P_-$ contains the four zeros
-$0,0,z_H,\bar z_H$ ($\operatorname{Re}\Lambda=0$ at all of them), hence no other. The zeros in $P\setminus P_-$ have
-$x\ge r(y)$, so $\operatorname{Re}\Lambda>0$; there are $N(P)-N(P_-)=2j-2$ of them. $\square$
+*Proof.* Let $\lambda\ne0$ be an eigenvalue with $\operatorname{Re}\lambda\ge0$ and $\varphi$ its root with
+$|\varphi|\ge A^{-1/2}$ (so $|\varphi|\ge1$, Lemma 3.1). By Lemma 3.3′, $|z|<R_0$; hence $|y|<Y$, $x<R_0$, and
+$x>x_{\min}$ (Lemma 4.2), so $z\in\mathcal R$; by monotonicity along the horizontal line, $x>\ell(y)$: $z\in P$.
+If moreover $\operatorname{Re}\lambda=0$, then $\operatorname{Re}\Lambda(z)=0$ and monotonicity gives
+$\ell(y)<x<r(y)$: $z\in P_-$. Now $P_-$ contains the four zeros $0,0,z_H,\bar z_H$, hence no other; so
+$z\in\{z_H,\bar z_H\}$ and $\lambda=\pm i\omega$. Conversely, a zero of $Q^\varepsilon$ in $P\setminus P_-$ lies in
+$\mathcal R$ with $x\ge r(y)$, so $\operatorname{Re}\Lambda>0$; it is not one of the spurious zeros of $F$
+($\varphi=1/A,\pm A^{-1/2}$ have $\operatorname{Re}z\le M(A^{-1/2}-1)<x_{\min}$, and $\varphi=1$ is $z=0\in P_-$), so
+by PV Prop. 5.3 it gives an eigenvalue $\lambda(\varphi)$ with $\operatorname{Re}\lambda>0$; and every eigenvalue
+with $\operatorname{Re}\lambda>0$ arises in this way from a zero in $P\setminus P_-$ (first part of the proof). These
+zeros have total multiplicity $N(P)-N(P_-)=2j-2$. $\square$
 
 Parameters: $j=2$: $R_0=20$, $Y=20.4$, $\ell$ on $\operatorname{Re}\Lambda\approx-0.3$, $r$ on
 $\operatorname{Re}\Lambda\approx0.25$; $j=3$: $R_0=26$, $Y=26.6$, levels $-0.15$ and $0.25$ (48 chain vertices,
@@ -396,11 +418,16 @@ Theorem 4.3 ($R_0=8$, $\sigma=0.3$, $a_1=0.1$; winding count 4). Runtime 528 s. 
 [-0.0337,-0.0081]$; $\kappa_1\in[1.8979,3.3285]$.
 An earlier H2-only sweep (`h2_sweep.py`, `certificates/h2_j1.csv`, 201 boxes) is redundant with it.
 
-**Branches 2 and 3.** `certificates/l1_j2.csv`, `l1_j3.csv` (`l1_sweep.py J 0 0.0788111`), and
-`certificates/h2j_j2.csv`, `h2j_j3.csv` (`h2j_sweep.py`, on the same boxes, re-proving each Krawczyk box):
-[filled in from the logs, Section 7.2 of README / PROGRESS].
+**Theorem 7.2 (branches 2 and 3, $\ell_1$, $M\ge161$).** `certificates/l1_j2.csv` (589 boxes) and
+`certificates/l1_j3.csv` (834 boxes), `l1_sweep.py J 0 0.0788111`, cover $[0,0.0788111]$; all PASS: Krawczyk box of
+the $j$-th Hopf point (continued from $(\kappa_j^0,it_j)$ at $\varepsilon=0$), simplicity, transversality,
+$\operatorname{Im}z>0$, $f(\varphi)\ne0$, and $\widehat L<0$ on the whole box. Ranges: $j=2$:
+$\kappa_2\in[3.1547,10.538]$, $\widehat L\in[-0.01066,-0.00169]$; $j=3$: $\kappa_3\in[4.0319,30.040]$,
+$\widehat L\in[-0.00471,-0.000109]$. Runtimes 169 s and 262 s.
 
----------------------------------------------------------------------------------------------------------------
+**Theorem 7.3 (branches 2 and 3, spectrum).** `certificates/h2j_j2.csv`, `h2j_j3.csv` (`h2j_sweep.py`, on the
+boxes of Theorem 7.2, each Krawczyk box re-proved from the stored data): Theorem 4.5 with $R_0=20$, $Y=20.4$ and
+levels $-0.3$, $0.25$ ($j=2$), $R_0=26$, $Y=26.6$, levels $-0.15$, $0.25$ ($j=3$). [RESULTS]
 
 ## 8. Consistency with result 8
 

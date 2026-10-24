@@ -22,4 +22,4 @@ alltrans24_k=20.gz graphs_read 20 unparsable 0 n<3 0 disconnected 0 rejected 20 
 alltrans24_k=21.gz graphs_read 6 unparsable 0 n<3 0 disconnected 0 rejected 6 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans24_k=22.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans24_k=23.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
-elapsed_seconds 2
+elapsed_seconds 1
