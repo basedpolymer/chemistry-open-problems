@@ -121,11 +121,15 @@ inline KResult multiplicity(const std::vector<P3>& omega, int m, GenSet& hs, std
   MData d = madrasData(omega);
   reflectAfter(omega, d.L, d.I, d.H, psi);
   KResult r{0, 0, 0, 0};
+  static thread_local std::vector<int> first;
   for (int Ip = 0; Ip < 3; Ip++) {
     bool okOther = true;
     for (int i = 0; i < 3; i++)
       if (i != Ip && std::abs(psi[n].c[i]) > m) okOther = false;
     if (!okOther) continue;
+    // first hitting time of every level of coordinate Ip; |psi_i(k)| <= 3 span <= 3n (psi_I = 2H - omega_I)
+    first.assign(6 * n + 3, -1);
+    for (int k = n; k >= 0; k--) first[psi[k].c[Ip] + 3 * n + 1] = k;
     int b = psi[n].c[Ip];
     // integers H' != 0 with |b - 2H'| <= m
     int lo = (b - m) >= 0 ? (b - m + 1) / 2 : -((m - b) / 2);  // ceil((b-m)/2)
@@ -133,12 +137,7 @@ inline KResult multiplicity(const std::vector<P3>& omega, int m, GenSet& hs, std
     for (int Hp = lo; Hp <= hi; Hp++) {
       if (Hp == 0) continue;
       r.cand++;
-      int Lp = -1;
-      for (int k = 0; k <= n; k++)
-        if (psi[k].c[Ip] == Hp) {
-          Lp = k;
-          break;
-        }
+      int Lp = (Hp >= -3 * n - 1 && Hp <= 3 * n + 1) ? first[Hp + 3 * n + 1] : -1;
       if (Lp < 1) continue;
       int sg = Hp > 0 ? 1 : -1, Ha = Hp > 0 ? Hp : -Hp;
       bool far = true;

@@ -61,6 +61,9 @@ def leaf_record(box, res):
             "failR": failR, "failL": failL, "unkR": unkR, "unkL": unkL,
             "up": w * (outR + outL), "lo": w * (certR + certL)}
 
+def compact(l):
+    return tuple(l["box"]) + (l["outR"], l["certR"], l["outL"], l["certL"])
+
 def children(box, off, lmin, lmax):
     L1, a1, L2, a2, L3, a3, Lth = box
     ch = []
@@ -107,8 +110,11 @@ def main():
                     boxes.append((L + 1, a1, L, a2, L, a3, nl))
         res = cert.run(boxes)
         leaves = [leaf_record(b, r) for b, r in zip(boxes, res)]
-        state = {"leaves": [l for l in leaves if l["up"] > 0], "up_closed": 0, "lo_closed": 0,
-                 "nevals": len(boxes), "rounds": 0, "anomalies": [], "log": []}
+        state = {"leaves": [l for l in leaves if l["up"] > l["lo"]], "up_closed": 0, "lo_closed": 0,
+                 "closed": [], "nevals": len(boxes), "rounds": 0, "anomalies": [], "log": [], "args": vars(args)}
+        for l in leaves:
+            if l["up"] == l["lo"]:
+                state["closed"].append(compact(l)); state["up_closed"] += l["up"]; state["lo_closed"] += l["lo"]
         for l in leaves:
             if l["unkR"] or l["unkL"]:
                 state["anomalies"].append(l)
@@ -130,11 +136,11 @@ def main():
             rec = leaf_record(b, r)
             if rec["unkR"] or rec["unkL"]:
                 state["anomalies"].append(rec)
-            if rec["up"] > 0:
-                if rec["up"] == rec["lo"]:
-                    state["up_closed"] += rec["up"]; state["lo_closed"] += rec["lo"]
-                else:
-                    keep.append(rec)
+            if rec["up"] == rec["lo"]:
+                state["up_closed"] += rec["up"]; state["lo_closed"] += rec["lo"]
+                state["closed"].append(compact(rec))
+            else:
+                keep.append(rec)
         state["leaves"] = keep
         state["nevals"] += len(newboxes)
         state["rounds"] += 1

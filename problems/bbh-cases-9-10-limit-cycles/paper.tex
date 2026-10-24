@@ -1,0 +1,303 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{No Andronov--Hopf bifurcation, no periodic orbit: cases~9 and~10 of Banaji--Boros--Hofbauer}
+\newcommand*{\PaperTitlePlain}{No Andronov-Hopf bifurcation, no periodic orbit: cases 9 and 10 of Banaji-Boros-Hofbauer}
+\newcommand*{\PaperShortTitle}{BBH cases 9 and 10}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 24 October 2026 \textperiodcentered{} preliminary (draft by the solver, not compiled)}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{mass-action kinetics, limit cycles, Li\'enard systems, Andronov--Hopf bifurcation, quadratic systems}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Div}{\operatorname{div}}
+\newcommand{\Tr}{\operatorname{tr}}
+\newcommand{\Gt}{\widetilde G}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Banaji, Boros and Hofbauer classified the two-species, three-reaction mass-action networks with at most bimolecular
+sources that admit an Andronov--Hopf bifurcation. The two configurations that do are cases~9 and~10, with source
+complexes \(2X, X+Y, Y\) and \(2X, X+Y, 0\) and arbitrary targets. They asked whether the networks of these cases that
+admit no Andronov--Hopf bifurcation can nevertheless have a limit cycle. We show that they cannot: for every such
+network and every choice of rate constants, the mass-action system has no periodic orbit in the closed positive
+quadrant. Hence, granting their supercriticality computation, a network of case~9 or~10 has a limit cycle for some
+rate constants if and only if it admits an Andronov--Hopf bifurcation. The proof first reduces everything to three
+explicit families. These are linear in~\(y\), and become Li\'enard systems after a shear along the \(x\)-nullcline. A
+comparison lemma for Li\'enard systems then reduces non-existence to a single inequality that does not involve the
+rate constants, which we prove in closed form.
+\end{paperabstract}
+
+\section*{The question}
+
+Banaji, Boros and Hofbauer~\autocite{BBH2024} (BBH) list the ten configurations of three non-collinear, at most
+bimolecular source complexes on two species. Their Theorem~9 (arXiv numbering; Theorem~3 of the published version,
+with identical text) decides, for each configuration, which networks admit an Andronov--Hopf bifurcation. Only
+cases~9 (\(2X, X+Y, Y\)) and~10 (\(2X, X+Y, 0\)) contain such networks. In their Conclusions (§6) they write:
+
+\begin{openquote}
+``However, we leave it open whether the networks in cases 9 and 10 admitting no Andronov--Hopf bifurcations can have
+a limit cycle. For example, we do not know whether the system \(2X\to3X+2Y\), \(X+Y\to0\), \(Y\to X+Y\),
+\(\dot x=\kappa_1x^2-\kappa_2xy+\kappa_3y\), \(\dot y=2\kappa_1x^2-\kappa_2xy\) admits a limit cycle.''
+\end{openquote}
+
+The example was settled in~\autocite{Result2} with a Dulac function. Here we settle the general question.
+
+\begin{theorem}\label{thm:A}
+Let \(\mathcal N\) be a three-reaction mass-action network on two species whose sources are \(2X, X+Y, Y\) (case~9)
+or \(2X, X+Y, 0\) (case~10), with arbitrary target complexes. If \(\mathcal N\) does not satisfy the Andronov--Hopf
+condition of~\autocite[Theorem~9]{BBH2024}, then for every \(\kappa\in\R^3_{>0}\) its mass-action system has no
+periodic orbit in \(\R^2_{\ge0}\). In particular it has no limit cycle.
+\end{theorem}
+
+\begin{corollary}\label{cor:B}
+For a network of case~9 or~10, consider: (a) a periodic orbit exists for some \(\kappa\); (b) a limit cycle exists
+for some \(\kappa\); (c) BBH's Andronov--Hopf condition holds. Then (a)\(\Rightarrow\)(c) by \zcref{thm:A}, and
+(b)\(\Rightarrow\)(a) trivially. BBH state, from a computation of the first focal value, that the bifurcation is
+supercritical, which gives (c)\(\Rightarrow\)(b). Granting that computation, which we did not re-check, the three
+statements are equivalent.
+\end{corollary}
+
+\section{Setting}
+
+Following~\autocite[(13)--(18)]{BBH2024}, reaction \(i\) is \(a_iX+b_iY\to(a_i+c_i)X+(b_i+d_i)Y\), with integer
+\((c_i,d_i)\neq0\) and nonnegative target. The rate laws are \(\kappa_i m_i\), where
+\(m=(x^2,xy,y)\) in case~9 and \(m=(x^2,xy,1)\) in case~10. The admissible ranges are \(c_1\ge-2\), \(d_1\ge0\),
+\(c_2,d_2\ge-1\), \(c_3\ge0\), and \(d_3\ge-1\) (case~9) or \(d_3\ge0\) (case~10). Let \(u=c\times d\) and
+\(A:=c_1u_1-c_3u_3\).
+
+BBH's condition is the following. In case~9: either \(c_1>0\), \(c_2=-1\), \(c_3>0\), \(d_1>0\), \(d_2\ge-1\),
+\(d_3\ge-1\) and \(\tfrac12(d_3/c_3+d_1/c_1)<d_2/c_2<d_1/c_1\); or \(c_1>0\), \(c_2=-1\), \(c_3=0\), \(d_1>0\),
+\(d_2\ge-1\), \(d_3=-1\) and \(d_2/c_2<d_1/c_1\). In case~10: \(c_1>0\), \(c_2=-1\), \(c_3>0\), \(d_1>0\),
+\(d_2=-1\), \(d_3\ge0\) and \(\tfrac12(d_3/c_3+d_1/c_1)<d_2/c_2<d_1/c_1\).
+
+We use the following facts.
+
+\emph{(F1)} \(\R^2_{>0}\) is forward invariant: a reaction with \(c_i<0\) has \(a_i\ge1\), and similarly in \(y\). The
+boundary of the quadrant contains no Jordan curve. Hence every periodic orbit in \(\R^2_{\ge0}\) lies in
+\(\R^2_{>0}\).
+
+\emph{(F2)} If \(\operatorname{rank}\Gamma=2\), a positive equilibrium exists only if
+\(u\in\R^3_{>0}\cup\R^3_{<0}\), and then it is unique: \(\kappa_im_i(\bar x,\bar y)=\mu u_i\).
+
+\emph{(F3)} Put \(x=\bar xX\), \(y=\bar yY\) and \(t=(\bar x/\mu)T\). The system becomes
+\(X'=\sum_ic_iu_im_i(X,Y)\), \(Y'=\rho\sum_id_iu_im_i(X,Y)\), with \(\rho=\bar x/\bar y\in(0,\infty)\) and
+equilibrium \((1,1)\). There,
+\(\det J=\rho u_1u_2u_3\) (case~9) or \(2\rho u_1u_2u_3\) (case~10), and
+\(\Tr J=A-\rho d_1u_1\) (case~9) or \(A+\rho d_2u_2\) (case~10).
+
+\emph{(F4)} We use Poincar\'e index theory, the Jordan curve theorem and the Bendixson--Dulac criterion; see
+e.g.~\autocite[Ch.~3]{Perko2001}.
+
+\section{Reduction to three families}
+
+\begin{lemma}\label{lem:classes}
+There is no periodic orbit in \(\R^2_{\ge0}\), for any \(\kappa\), in each of the following cases:
+(i) \(\operatorname{rank}\Gamma\le1\);
+(ii) \(\operatorname{rank}\Gamma=2\) and \(u\notin\R^3_{>0}\cup\R^3_{<0}\);
+(iii) \(u\in\R^3_{<0}\);
+(iv) \(u\in\R^3_{>0}\) and \(c_1\le0\);
+(v) case~9, \(u\in\R^3_{>0}\), \(c_1>0\) and \(d_1=0\).
+\end{lemma}
+
+\begin{proof}
+(i) Trajectories lie on lines.
+
+(ii) \(u^\perp=\operatorname{im}\Gamma^\top\) contains some \(w\ge0\), \(w\neq0\). If \(u_i=0\) take
+\(w=e_i\); if \(u_i>0>u_j\) take \(w=|u_j|e_i+u_ie_j\). Then \(\lambda\cdot(x,y)\) with \(\Gamma^\top\lambda=w\) is
+strictly increasing on \(\R^2_{>0}\).
+
+(iii) The unique positive equilibrium is a saddle, of index \(-1\), and it is the only equilibrium inside any
+periodic orbit in the convex set \(\R^2_{>0}\). This contradicts index theory.
+
+(iv) In case~9, \(\Div(F/(xy))=(-d_1\kappa_1x^3+c_1\kappa_1x^2y-c_3\kappa_3y^2)/(x^2y^2)\). In case~10 it is
+\((-d_1\kappa_1x^3+c_1\kappa_1x^2y-c_3\kappa_3y-d_3\kappa_3x)/(x^2y^2)\). Both are negative on \(\R^2_{>0}\): if
+\(c_1<0\) the middle term is negative, and if \(c_1=0\) then \(d_1\ge1\). This is~\autocite[Lemma~4]{BBH2024}.
+
+(v) Here \(u>0\) forces \(d_2\ge1\), \(d_3=-1\), \(c_2=-1\) and \(c_3=0\), and then \(\Div(F/(xy))=c_1\kappa_1/y>0\)
+(cf.~\autocite[§4.2]{BBH2024}).
+\end{proof}
+
+\begin{lemma}\label{lem:hopf}
+If \(u\in\R^3_{>0}\), \(c_1>0\), \(d_1>0\) and \(A>0\), then BBH's condition holds.
+\end{lemma}
+
+\begin{proof}
+Case~9. Suppose \(c_2\ge0\). Then \(u_3>0\) gives \(d_2\ge1\), and \(u_1>0\) gives \(c_2,d_3>0\). If \(c_3=0\), then
+\(u_2<0\). If \(c_3>0\), then \(d_1<c_1d_2/c_2\) and \(d_3>c_3d_2/c_2\), so \(u_2=c_3d_1-c_1d_3<0\). Both contradict
+\(u>0\), so \(c_2=-1\). Then \(u_3>0\) reads \(d_2/c_2<d_1/c_1\). If \(c_3>0\), \(A>0\) reads
+\(\tfrac12(d_3/c_3+d_1/c_1)<d_2/c_2\). If \(c_3=0\), \(u_2>0\) gives \(d_3=-1\).
+
+Case~10. Some \(d_i<0\) is needed, so \(d_2=-1\). Then \(u_3>0\) forces \(c_2=-1\), and \(u_1>0\) gives
+\(c_3>d_3\ge0\). Conclude as in case~9.
+\end{proof}
+
+\begin{lemma}\label{lem:families}
+If \(u\in\R^3_{>0}\), \(c_1>0\), \(d_1>0\) and \(A\le0\), then \(c_1,c_3\ge1\), \(c_2=-1\), and the network is in
+exactly one of:
+\begin{description}
+\item[9a] \(2X\to(2+c_1)X+d_1Y\), \(X+Y\to0\), \(Y\to c_3X+(1+d_3)Y\), with \(d_1>c_1\), \(-1\le d_3<c_3\) and
+  \(d_1/c_1+d_3/c_3\ge2\);
+\item[9b] \(2X\to(2+c_1)X+d_1Y\), \(X+Y\to Y\), \(Y\to c_3X\), with \(c_3d_1\ge c_1\);
+\item[10a] \(2X\to(2+c_1)X+d_1Y\), \(X+Y\to0\), \(0\to c_3X+d_3Y\), with \(d_1>c_1\), \(0\le d_3<c_3\) and
+  \(d_1/c_1+d_3/c_3\ge2\).
+\end{description}
+In each, \(k:=c_3u_3/(c_1u_1)\ge1\), since \(A=c_1u_1(1-k)\).
+\end{lemma}
+
+\begin{proof}
+\(A\le0<c_1u_1\) gives \(c_3\ge1\), and \(c_2=-1\) as in \zcref{lem:hopf}.
+
+In case~9, \(u_1=-d_3-c_3d_2>0\) excludes \(d_2\ge1\). If \(d_2=-1\), we get 9a. If \(d_2=0\), then \(d_3=-1\) and
+we get 9b.
+
+In case~10, \(d_2=-1\) and we get 10a.
+\end{proof}
+
+\begin{proof}[of \zcref{thm:A}]
+In case~10, \(u>0\) and \(c_1>0\) already force \(d_1>0\). A network failing BBH's condition is therefore in
+\zcref{lem:classes}, or in a family of \zcref{lem:families} by \zcref{lem:hopf}. The families are treated by
+\zcref{thm:families}.
+\end{proof}
+
+\section{The families: a Li\'enard argument}
+
+\begin{theorem}\label{thm:families}
+Networks of 9a, 9b and 10a have no periodic orbit in \(\R^2_{\ge0}\), for every \(\kappa\).
+\end{theorem}
+
+Put \(\alpha_1=c_1u_1\), \(\alpha_2=u_2\), \(\alpha_3=c_3u_3\), \(\beta_1=d_1u_1\), \(\beta_2=-d_2u_2\ge0\) and
+\(\beta_3=d_3u_3\). Then \(\alpha_2=\alpha_1+\alpha_3\), \(\beta_2=\beta_1+\beta_3\) and \(k=\alpha_3/\alpha_1\ge1\).
+By (F3) the system reads
+\[
+\dot x=A(x)+B(x)y,\qquad \dot y=\rho\bigl(C(x)+D(x)y\bigr),
+\]
+with
+\begin{itemize}
+\item case~9: \(A=\alpha_1x^2\), \(B=\alpha_3-\alpha_2x\), \(C=\beta_1x^2\), \(D=\beta_3-\beta_2x\);
+\item case~10: \(A=\alpha_1x^2+\alpha_3\), \(B=-\alpha_2x\), \(C=\beta_1x^2+\beta_3\), \(D=-\alpha_2x\).
+\end{itemize}
+
+One checks:
+\begin{enumerate}
+\item \(BC-AD=u_1u_2u_3\,x^2(1-x)\) in case~9, and \(u_1u_2u_3\,x(1-x^2)\) in case~10.
+\item On \(I=(x_0,\infty)\), with \(x_0=\alpha_3/\alpha_2\in(0,1)\) (case~9) or \(x_0=0\) (case~10), we have \(B<0\)
+  and \(D/B>0\). In case~9, \(D(x_0)=-u_1u_3\) and \(D'=-\beta_2\le0\).
+\item The \(x\)-nullcline \(N=-A/B\) satisfies \(N(1)=1\) and \(N'(1)\le0\).
+\end{enumerate}
+Periodic orbits lie in \(I\times\R\). In case~9, at a minimum \(m\le x_0\) of \(x\) we would have
+\(\dot x\ge\alpha_1m^2>0\).
+
+\begin{lemma}\label{lem:lienard}
+Put \(f=N'-\rho D/B\), \(F=\int_1^xf\), \(g=-\rho(BC-AD)/B^2\), \(G=\int_1^xg\) and \(Y=y-N(x)+F(x)\). Then
+\(\dot x/B=Y-F(x)\) and \(\dot Y/B=-g(x)\). Since \(B<0\) on \(I\), periodic orbits in \(I\times\R\) correspond to
+periodic orbits of \(x'=Y-F(x)\), \(Y'=-g(x)\). Here \(F=N-1-\rho\psi\) with \(\psi=\int_1^xD/B\) increasing,
+\(f(1)<0\), \((x-1)g(x)>0\) on \(I\setminus\{1\}\), and \(G=\rho\Gt\) with \(\Gt\) independent of~\(\rho\).
+\end{lemma}
+
+\begin{lemma}\label{lem:comparison}
+Let \(I\ni\bar x\) be an open interval, \(F\in C^1(I)\) with \(F(\bar x)=0\) and \(f=F'\), and \(g\in C^1(I)\) with
+\((x-\bar x)g(x)>0\) for \(x\neq\bar x\). Let \(G=\int_{\bar x}^xg\). Assume \(f(\bar x)<0\), and \(F(a)>F(b)\)
+whenever \(a<\bar x<b\) in \(I\) and \(G(a)=G(b)\). Then \(x'=Y-F(x)\), \(Y'=-g(x)\) has no periodic orbit in
+\(I\times\R\).
+\end{lemma}
+
+\begin{proof}
+Suppose a periodic orbit \(\Gamma\) exists.
+
+\emph{\(\Gamma\) meets \(\{x=\bar x\}\) exactly twice.} Its crossings of the line are transversal, finite in number
+and at least one; otherwise \(Y\) would be monotone. They split \(\Gamma\) into right and left arcs. Each arc is a
+graph \(x=X(Y)\) over an interval containing~\(0\), because \(Y\) is strictly monotone on it. Disjoint arcs on the
+same side are strictly nested, by the intermediate value theorem. If there were two right arcs, the left arc leaving
+the bottom of the outermost right arc and the left arc arriving at its top would be distinct and not nested, which
+is impossible. So \(\Gamma=R\cup L\), both arcs being graphs over the same interval \([Y_-,Y_+]\), with
+\(Y_-<0<Y_+\).
+
+\emph{Comparison.} Let \(Z_{R,L}=G(X_{R,L}(Y))\). Then \(Z'=F(X)-Y\), so \(\Delta:=Z_L-Z_R\) satisfies
+\(\Delta'=F(X_L)-F(X_R)\) and \(\Delta(Y_\pm)=0\). Since \(f(\bar x)<0\), we have \(F(X_L)>0>F(X_R)\) near both ends.
+Hence \(\Delta>0\) near \(Y_-\) and \(\Delta<0\) near \(Y_+\). At the first zero \(Y^*\) of \(\Delta\) after
+\(Y_-\), we have \(\Delta'(Y^*)\le0\). But there \(G(X_L)=G(X_R)\), so the hypothesis gives
+\(\Delta'(Y^*)=F(X_L)-F(X_R)>0\), a contradiction.
+\end{proof}
+
+Since \(F(a)-F(b)=[N(a)-N(b)]+\rho[\psi(b)-\psi(a)]\) and the second bracket is positive, the hypothesis of
+\zcref{lem:comparison} holds for \emph{all}~\(\rho\) once
+\begin{equation}\label{eq:star}
+N(a)\ge N(b)\quad\text{whenever } a<1<b \text{ in } I \text{ and } \Gt(a)=\Gt(b).
+\end{equation}
+
+\begin{lemma}\label{lem:case9}
+\eqref{eq:star} holds in 9a and 9b.
+\end{lemma}
+
+\begin{proof}
+With \(x=(\eta+k)/(1+k)\), \(\eta\in(0,\infty)\), we get \(N=(\eta+k)^2/((1+k)^2\eta)\) and \(\Gt=K\,H_k(\eta)\)
+with \(K>0\), where
+\[
+H_k(\eta)=\int_1^\eta\frac{(\sigma+k)^2(\sigma-1)}{\sigma^2}\,d\sigma
+=\frac{\eta^2}{2}+(2k-1)\eta+(k^2-2k)\log\eta+\frac{k^2}{\eta}-\Bigl(k^2+2k-\frac12\Bigr).
+\]
+Let \(P(a)=H_k(k^2/a)-H_k(a)\). Then \(P'(a)=-Q(a)/a^3\), with
+\(Q(a)/a^2=8k(k-1)+(6k-2)s+s^2>0\), where \(s=(a-k)^2/a>0\) for \(0<a<1\le k\). Also \(P(1)=H_k(k^2)\ge0\). So
+\(P>0\) on \((0,1)\).
+
+Hence, if \(H_k(\eta_a)=H_k(\eta_b)\) with \(\eta_a<1<\eta_b\), then \(\eta_b<k^2/\eta_a\), i.e.
+\(\eta_a\eta_b<k^2\). Therefore
+\[
+N(a)-N(b)=\frac{(\eta_a-\eta_b)\bigl(1-k^2/(\eta_a\eta_b)\bigr)}{(1+k)^2}>0.
+\]
+\end{proof}
+
+\begin{lemma}\label{lem:case10}
+\eqref{eq:star} holds in 10a.
+\end{lemma}
+
+\begin{proof}
+Here \(g/\rho=(u_1u_3/u_2)\,h'\) with \(h=x^2/2-\log x\). The function \(t\mapsto h(1/t)-h(t)\) vanishes at~\(1\)
+and has derivative \(-(1-t^2)^2/t^3\). So pairs satisfy \(ab<1\le k\), and
+\(N(a)-N(b)=(a-b)(\alpha_1-\alpha_3/(ab))/\alpha_2>0\).
+\end{proof}
+
+\begin{proof}[of \zcref{thm:families}]
+Combine (F1), the confinement to \(I\times\R\), and Lemmas~\ref{lem:lienard}--\ref{lem:case10}.
+\end{proof}
+
+\begin{remark}
+In case~10 the computation of \zcref{lem:case10} works for every \(k\). For \emph{every} case-10 network with
+\(u>0\) and \(c_1>0\), Hopf networks included,
+\(F(a)-F(b)=(b-a)[\rho-(\alpha_1-\alpha_3/(ab))/\alpha_2]\), and \(\Tr J<0\iff\rho>N'(1)\). Hence there is no
+periodic orbit whenever \(\Tr J<0\). For case-9 Hopf networks we observed the analogous sharpness numerically, but
+we have not proved it.
+
+In the subfamily of~\autocite{Result2} (9a with \(d_3=0\)), \(k\ge1\) is \(d_1\ge2c_1\).
+\end{remark}
+
+\section{Computer verification}
+
+\begin{itemize}
+\item \texttt{scripts/certify\_lienard.py} (sympy, exact; 64 checks) verifies:
+  \begin{itemize}
+  \item the normalisation, the equilibrium formulas, \(\det J\) and \(\Tr J\);
+  \item the Li\'enard identity for general \(A,B,C,D\);
+  \item for the symbolic integer data of each family: \(u>0\), (1)--(3), \(f(1)<0\), and
+    \(A=\alpha_1-\alpha_3\) equal to BBH's inequality;
+  \item the \(\eta\)-substitution, the formula for \(H_k\) and for \(P'\), the decomposition of \(Q\), the
+    case-10 identities;
+  \item the Dulac divergences.
+  \end{itemize}
+\item \texttt{scripts/classify\_networks.py} enumerates all case-9 and case-10 networks whose target coefficients are
+  at most 20 (\(1.7\cdot10^8\) networks). It confirms that each one falls in exactly one class of
+  Lemmas~\ref{lem:classes}--\ref{lem:families} or is a BBH Hopf network, and that BBH's condition is equivalent to
+  \(u>0\), \(c_1>0\), \(d_1>0\), \(A>0\).
+\item \texttt{scripts/numerical\_sanity.py} (floating point, not part of the proof) finds no cycle in 128 backward
+  integrations of random family members, finds the cycles of Hopf networks past the bifurcation, and checks the
+  hypothesis of \zcref{lem:comparison} by quadrature.
+\end{itemize}
+
+\paperreferences
+\end{document}

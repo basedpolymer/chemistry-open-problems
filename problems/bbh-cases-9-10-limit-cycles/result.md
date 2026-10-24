@@ -31,9 +31,11 @@ The same holds after exchanging X and Y; BBH list the cases up to this exchange.
 - (b) it has a limit cycle for some κ;
 - (c) it satisfies BBH's Andronov–Hopf condition.
 
-Then (a) ⟺ (c), and (b) ⟹ (a). Theorem A gives (a) ⟹ (c); (b) ⟹ (a) is trivial. The converse (c) ⟹ (b) is BBH's
-claim that the Andronov–Hopf bifurcation is supercritical. They obtain it from a computation of the first focal value
-in their Mathematica notebook; we did not re-check it. Granting that claim, (a), (b) and (c) are all equivalent.
+Theorem A gives (a) ⟹ (c), and (b) ⟹ (a) is trivial. The direction (c) ⟹ (b) is BBH's claim that the
+Andronov–Hopf bifurcation is nondegenerate and supercritical. They obtain it from a computation of the first focal
+value in their Mathematica notebook; we did not re-check it. Granting that claim, (a), (b) and (c) are equivalent. So
+in cases 9 and 10 a network has a limit cycle, or a periodic orbit, for some κ if and only if it admits an
+Andronov–Hopf bifurcation.
 
 The example of §6 is the case k = 1 of family 9a below. It was already settled in this repository, result 2,
 `problems/bbh-three-reaction-no-limit-cycle/`; Theorem A re-proves it by a different route.
@@ -86,10 +88,10 @@ and contains no Jordan curve. **So every periodic orbit in ℝ²_{≥0} lies in 
 
 (F3) *Normalisation.* Assume u ∈ ℝ³₊ ∪ ℝ³₋. Put x = x̄X, y = ȳY and t = (x̄/μ)T. The system becomes
 
-  X' = Σ cᵢuᵢMᵢ(X, Y),  Y' = ρ Σ dᵢuᵢMᵢ(X, Y),  with ρ := x̄/ȳ > 0,
+  X' = Σ cᵢuᵢmᵢ(X, Y),  Y' = ρ Σ dᵢuᵢmᵢ(X, Y),  with ρ := x̄/ȳ > 0.
 
-where Mᵢ = mᵢ. The equilibrium is now (1, 1). This is a linear change of coordinates and a constant rescaling of time,
-so it preserves orbits and periodicity. As κ ranges over ℝ³₊, ρ ranges over (0, ∞). At (1, 1),
+The equilibrium is now (1, 1). This is a linear change of coordinates and a constant rescaling of time (reversing
+time if μ < 0), so it preserves orbits and periodicity. As κ ranges over ℝ³₊, ρ ranges over (0, ∞). At (1, 1),
 
   det J = ρu₁u₂u₃ (case 9), 2ρu₁u₂u₃ (case 10);
   tr J = A − ρd₁u₁ (case 9), A + ρd₂u₂ (case 10).
@@ -275,7 +277,7 @@ Moreover:
 
 ### 3.3 A comparison lemma for Liénard systems
 
-**Lemma 3.4.** Let I be an open interval containing x̄. Let F ∈ C²(I) with F(x̄) = 0 and f := F', and let g ∈ C¹(I)
+**Lemma 3.4.** Let I be an open interval containing x̄. Let F ∈ C¹(I) with F(x̄) = 0 and f := F', and let g ∈ C¹(I)
 with (x − x̄)g(x) > 0 for x ∈ I ∖ {x̄}. Put G(x) = ∫_{x̄}^x g. Assume:
 - (H1) f(x̄) < 0;
 - (H2) F(a) > F(b) for all a < x̄ < b in I with G(a) = G(b).
@@ -298,14 +300,18 @@ the only equilibrium (x̄, 0).
   where it leaves. So the arc is the graph x = X(Y) of a continuous function on an interval [β⁻, β⁺] ∋ 0, with
   X > x̄ inside and X = x̄ at the ends. X is C¹ in the interior, because Y' ≠ 0 there. Left arcs are similar.
 - Distinct right arcs are disjoint, since Γ is simple and they do not share endpoints.
-- Two disjoint right arcs over [α, β] and [α', β'] are strictly nested. Say α < α'. If also β < β', then on [α', β]
-  the difference X' − X is negative at α' (X'(α') = x̄ < X(α')) and positive at β. So the arcs would meet,
-  contradicting disjointness. Hence [α', β'] ⊂ (α, β). Left arcs are nested in the same way.
+- Two disjoint right arcs, x = X(Y) over [α, β] and x = X̃(Y) over [α̃, β̃], are strictly nested. Their endpoints
+  are distinct, so say α < α̃. If also β < β̃, then on [α̃, β] (nonempty, as α̃ < 0 < β) the difference X̃ − X is
+  negative at α̃ (X̃(α̃) = x̄ < X(α̃)) and positive at β (X(β) = x̄ < X̃(β)). So the arcs would meet, contradicting
+  disjointness. Hence [α̃, β̃] ⊂ (α, β). Left arcs are nested in the same way.
 - Suppose there were more than one right arc. Let R* be the outermost right arc, from P = (x̄, Y_top) down to
-  Q = (x̄, Y_bot). The left arc L₁ starting at Q ends at some P₁ ≠ P. P₁ is the top of an inner right arc, so it lies
-  strictly between Q and P on ℓ. The left arc L' ending at P starts at some Q' ≠ Q, the bottom of an inner right arc,
-  so Y_bot < Y(Q') < 0. Then L₁ lies over [Y_bot, Y(P₁)] and L' over [Y(Q'), Y_top], two intervals that are not
-  nested. This contradicts the nesting property.
+  Q = (x̄, Y_bot).
+  - The left arc L₁ starting at Q ends at some P₁ ≠ P. (If P₁ = P, the orbit would close up after R* and L₁, and
+    there would be only one right arc.) P₁ is the top of an inner right arc, so 0 < Y(P₁) < Y_top.
+  - The left arc L' ending at P starts at some Q' ≠ Q. (If Q' = Q, then L' = L₁, and P₁ = P.) Q' is the bottom of an
+    inner right arc, so Y_bot < Y(Q') < 0.
+  - Then L₁ lies over [Y_bot, Y(P₁)] and L' over [Y(Q'), Y_top]. These are distinct left arcs whose intervals are not
+    nested, which contradicts the nesting property.
 - Hence Γ = R ∪ L, with one right arc R and one left arc L, both graphs over the same interval [Y_bot, Y_top],
   Y_bot < 0 < Y_top.
 
@@ -409,8 +415,9 @@ So no such orbit exists. This contradiction proves Theorem 3.1, and with §2 als
    Theorem A, and is not separately scripted beyond S6.
 
 3. **Case-9 Hopf networks (numerical observation only).** For case-9 Hopf networks with c₃ > 0, we computed
-   numerically the supremum over G-paired points of (N(b) − N(a))/(ψ(b) − ψ(a)) for six networks. In every one it is
-   attained in the limit a, b → 1, where it equals the Hopf value ρ_H. This suggests the same conclusion, namely no
+   numerically the supremum over G-paired points of (N(b) − N(a))/(ψ(b) − ψ(a)) for four networks
+   (`numerical_sanity.py`, N4). In every one it is attained in the limit a, b → 1, where it equals the Hopf value
+   ρ_H. This suggests the same conclusion, namely no
    periodic orbit whenever tr J < 0, but **we have not proved it**. It is not part of any claim.
 
 4. **What is not claimed.**

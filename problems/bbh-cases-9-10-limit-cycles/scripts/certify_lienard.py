@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Exact symbolic certificate (sympy) for every identity and sign claim used in result.md.
 
-Environment: Python 3.12/3.13 + sympy 1.14. Single thread. Runtime: < 1 minute.
+Environment: Python 3.12/3.13 + sympy 1.14. Single thread. Runtime: < 10 s.
 Prints PASS/FAIL for each claim and exits with status 1 on any failure.
 
 Notation (result.md): reaction i has source (a_i, b_i) and reaction vector (c_i, d_i); u = c x d;

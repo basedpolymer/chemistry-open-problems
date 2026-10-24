@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Floating-point sanity checks. NOT part of the proof (the proof is result.md + certify_lienard.py).
 
-Environment: Python 3.12/3.13 + numpy + scipy (DOP853, quad, brentq). Single thread. Runtime: about 3-5 minutes.
+Environment: Python 3.12/3.13 + numpy + scipy (DOP853, quad, brentq). Single thread. Runtime: about 2-4 minutes.
 Deterministic (fixed seeds). Prints PASS/FAIL per claim, exits 1 on failure.
 
 N1  Backward integration, in the ORIGINAL mass-action coordinates (no normalisation), from a point close to the
@@ -12,6 +12,9 @@ N2  Controls (the detector works): for BBH's Hopf networks just past the supercr
     integration converges to a periodic orbit (successive returns to a section agree to 1e-7).
 N3  The Liénard comparison of result.md, computed by quadrature from the normalised system: F(a) - F(b) > 0 at
     G-paired points a < 1 < b for random non-Hopf networks and rho, and < 0 somewhere for Hopf networks.
+N4  Observation for result.md Remark 3 (not a claim of the result): for four case-9 Hopf networks with c3 > 0 (and two
+    case-10 Hopf networks, where Remark 2 proves it), sup over G-paired points of (N(b)-N(a))/(psi(b)-psi(a)) is
+    approached as a, b -> 1, where it equals the Hopf value rho_H = N'(1)/psi'(1).
 """
 import sys
 import time
@@ -195,6 +198,41 @@ for (case, c, d) in [(9, (2, -1, 1), (3, -1, 0)), (9, (2, -1, 1), (1, 0, -1)), (
     ok3b &= bool(w < 0)
     print(f"   Hopf     {case} {c} {d} rho=0.01: min F(a)-F(b) = {w:.3e}")
 check(ok3b, "N3 controls: for Hopf networks (small rho) the comparison fails somewhere, as it must")
+
+
+# ---------------------------------------------------------------- N4 sharpness observation (Remark 3)
+def sup_ratio(case, c, d, npts=200):
+    u1 = c[1] * d[2] - c[2] * d[1]; u2 = c[2] * d[0] - c[0] * d[2]; u3 = c[0] * d[1] - c[1] * d[0]
+    al1, al2, al3 = c[0] * u1, -c[1] * u2, c[2] * u3
+    be1, be2, be3 = d[0] * u1, -d[1] * u2, d[2] * u3
+    if case == 9:
+        A = lambda s: al1 * s * s; B = lambda s: al3 - al2 * s
+        C = lambda s: be1 * s * s; D = lambda s: be3 - be2 * s; x0 = al3 / al2
+    else:
+        A = lambda s: al1 * s * s + al3; B = lambda s: -al2 * s
+        C = lambda s: be1 * s * s + be3; D = lambda s: -be2 * s; x0 = 0.0
+    N = lambda s: -A(s) / B(s)
+    psi = lambda s: quad(lambda z: D(z) / B(z), 1, s, limit=200)[0]
+    Gt = lambda s: quad(lambda z: -(B(z) * C(z) - A(z) * D(z)) / B(z) ** 2, 1, s, limit=200)[0]
+    h = 1e-6
+    rhoH = ((N(1 + h) - N(1 - h)) / (2 * h)) / (D(1) / B(1))
+    best, arg = -np.inf, None
+    for aa in x0 + (1 - x0) * np.concatenate([np.linspace(0.001, 0.99, npts), 1 - np.logspace(-2, -5, 10)]):
+        Ga = Gt(aa); hi = 2.0
+        while Gt(hi) < Ga: hi *= 2
+        bb = brentq(lambda s: Gt(s) - Ga, 1 + 1e-13, hi, xtol=1e-14)
+        R = (N(bb) - N(aa)) / (psi(bb) - psi(aa))
+        if R > best: best, arg = R, aa
+    return rhoH, best, arg
+
+
+ok4 = True
+for (case, c, d) in [(9, (2, -1, 1), (3, -1, 0)), (9, (3, -1, 1), (4, -1, 0)), (9, (2, -1, 1), (1, 0, -1)),
+                     (9, (5, -1, 3), (7, -1, 1)), (10, (2, -1, 1), (3, -1, 0)), (10, (5, -1, 3), (7, -1, 1))]:
+    rhoH, best, arg = sup_ratio(case, c, d)
+    print(f"   Hopf {case} {c} {d}: rho_H = {rhoH:.6f}, sup ratio = {best:.6f} (at a = {arg:.5f})")
+    ok4 &= bool(abs(best - rhoH) < 1e-4 * rhoH and arg > 0.999)
+check(ok4, "N4 observation: the sup of the ratio is attained as a -> 1 and equals rho_H (numerical, not a claim)")
 print(f"runtime {time.time() - T0:.0f} s")
 print("ALL PASS" if not fails else f"{fails} FAILURES")
 sys.exit(1 if fails else 0)

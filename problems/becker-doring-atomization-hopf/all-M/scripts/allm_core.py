@@ -76,10 +76,12 @@ def Exfun(b):
     bound = rn * er / fact
     return s + acb(arb(0, bound), arb(0, bound))
 
-def eps_interval(lo, hi, k=120):
+def eps_interval(lo, hi, k=None):
     """ball containing the real interval [lo, hi] (0 <= lo < hi): endpoints rounded outwards to multiples of 2^-k,
     so that midpoint and radius are exact at the working precision (>= k + 10 bits) and the ball is exactly
     [lo', hi'] with lo' >= 0."""
+    if k is None:
+        k = ctx.prec - 20
     assert ctx.prec >= k + 10
     s = arb(2) ** k
     a = (arb(arb(lo).lower()) * s).floor().unique_fmpz()
@@ -331,35 +333,44 @@ def loc_check_I(eps, kap, R0, a1):
     return arb_up(s)
 
 def loc_check_II(eps, kap, a_lo, a_hi):
-    """On a in [a_lo, a_hi] (a_lo > 0): returns lower bound of
-         |phi|^(M_lo) * LB(|P2|)/M - UB(|P1|)/M - UB(exp-small)/M ,  M >= M_lo = 1/eps_hi^2,
-    over u in [u_min(a_lo), a_hi]; positive => no root of F there."""
+    """On a in [a_lo, a_hi] (a_lo > 0): returns a lower bound of
+         |phi|^M * LB(|P2|)/M - UB(|P1|)/M - UB(exp-small)/M
+    over all u in [u_min(a_lo), a_hi], all eps' in eps (eps' > 0, M = 1/eps'^2) and kappa' in kap; a positive value
+    proves that F has no zero phi with |phi - 1| in [a_lo, a_hi], |phi| >= 1, Re lambda >= 0.
+    Every quantity is monotone in (K, u, a, 1/M) >= 0, so lower/upper bounds are evaluated at the endpoints:
+       |K + A w|^2 = K^2 + 2 K A u + A^2 a^2,   |phi|^2 = 1 + 2u + a^2,   |A phi^2 - 1| <= K + 2Aa + Aa^2,
+       |P2| >= M A^2 a^2 |K+Aw| - |phi||K+Aw|^3 - A^2 a^2,
+       |P1| <= K(|K+Aw|^2 |phi|^2 + a^2) + (KM+1) a |K+Aw| |A phi^2 - 1|,
+       A^-M(|R1| + |R2|) <= T [A^2(|K+Aw|^2|phi|^2 + a^2) + A a^3 + A^2 |phi| |K+Aw|^2 (M a + |phi|)],
+       |phi|^M >= (1 + 2 u_min(a_lo) + a_lo^2)^(M_lo/2)."""
     eps = arb(eps); kap = arb(kap)
-    eh = arb_up(eps)
-    e = arb(0).union(eh)
-    K = kap * e; A = 1 + K
-    a = arb(a_lo).union(arb(a_hi))
-    u = u_min(a_lo, kap * eh).union(arb(a_hi))
-    invM = arb(0).union(eh * eh)
-    Mlo = 1 / (eh * eh)
-    kw = (K * K + 2 * K * A * u + A * A * a * a).sqrt()        # |K + A w|
-    ph2 = 1 + 2 * u + a * a                                   # |phi|^2
-    ph = ph2.sqrt()
-    LB2 = A * A * a * a * kw - (ph * kw ** 3 + A * A * a * a) * invM
-    UB1 = K * (kw * kw * ph2 + a * a) * invM + (K + invM) * a * kw * (K + 2 * A * a + A * a * a)
+    eh = arb_up(eps); el = arb(eps.lower())
+    if el < 0:
+        el = arb(0)
+    kl = arb(kap.lower()); kh = arb_up(kap)
+    Kl = kl * el; Kh = arb_up(kh * eh)
+    Al = 1 + Kl; Ah = 1 + Kh
+    al = arb(a_lo); ah = arb_up(a_hi)
+    ul = u_min(al, Kh); uh = ah
+    invMl = el * el; invMh = arb_up(eh * eh)
+    Mlo = 1 / invMh
+    kw_l = (Kl * Kl + 2 * Kl * Al * ul + Al * Al * al * al).sqrt()
+    kw_h = arb_up((Kh * Kh + 2 * Kh * Ah * uh + Ah * Ah * ah * ah).sqrt())
+    ph2_l = 1 + 2 * ul + al * al
+    ph2_h = arb_up(1 + 2 * uh + ah * ah)
+    ph_h = arb_up(ph2_h.sqrt())
+    LB2 = arb((Al * Al * al * al * kw_l - (ph_h * kw_h ** 3 + Ah * Ah * ah * ah) * invMh).lower())
+    UB1 = arb_up(Kh * (kw_h * kw_h * ph2_h + ah * ah) * invMh + (Kh + invMh) * ah * kw_h * (Kh + 2 * Ah * ah + Ah * ah * ah))
     if eh > 0:
         T = T_over_eps_bound(eps, kap, 0)
-        EXP = T * ((A * A * (kw * kw * ph2 + a * a) + A * a ** 3 + A * A * ph2 * kw * kw) * invM + A * A * ph * kw * kw * a)
+        EXP = arb_up(T * ((Ah * Ah * (kw_h * kw_h * ph2_h + ah * ah) + Ah * ah ** 3 + Ah * Ah * ph2_h * kw_h * kw_h) * invMh
+                          + Ah * Ah * ph_h * kw_h * kw_h * ah))
     else:
         EXP = arb(0)
-    # |phi|^M >= (u_min-based lower bound of |phi|^2)^(M_lo/2)
-    ph2_lo = arb((1 + 2 * u_min(a_lo, kap * eh) + arb(a_lo) ** 2).lower())
-    grow = ph2_lo ** (Mlo / 2) if Mlo.is_finite() else None
-    LB2l = arb(LB2.lower())
-    if not (LB2l > 0):
+    if not (LB2 > 0):
         return arb(-1)
-    val = grow * LB2l - arb_up(UB1) - arb_up(EXP)
-    return arb(val.lower())
+    grow = arb((ph2_l ** (Mlo / 2)).lower())
+    return arb((grow * LB2 - UB1 - EXP).lower())
 
 def loc_check_II_range(eps, kap, a1, amax=None, n0=64, depth=12):
     """verify loc_check_II > 0 on [a1, amax] by adaptive subdivision; returns (ok, number of intervals)"""

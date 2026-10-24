@@ -12,6 +12,7 @@
 #include <cstring>
 #include <algorithm>
 #include <limits>
+#include <cfenv>
 
 static inline double nup(double x) {
     if (std::isnan(x)) return x;
@@ -36,6 +37,35 @@ struct I {
     double mid() const { return 0.5 * (lo + hi); }
 };
 static inline I entire() { return I(-INF, INF); }
+static inline bool infinite(I a) { return !(std::fabs(a.lo) < INF && std::fabs(a.hi) < INF); }
+#ifdef HEX_UPWARD
+// Variant: the FPU rounding mode is set to FE_UPWARD once at program start (see hex_init_rounding());
+// upper ends are then computed directly and lower ends as -(round_up(-x)).  Requires -frounding-math.
+static inline I operator+(I a, I b) {
+    double lo = -((-a.lo) - b.lo), hi = a.hi + b.hi;
+    if (std::isnan(lo) || std::isnan(hi)) return entire();
+    return I(lo, hi);
+}
+static inline I operator-(I a, I b) {
+    double lo = -(b.hi - a.lo), hi = a.hi - b.lo;
+    if (std::isnan(lo) || std::isnan(hi)) return entire();
+    return I(lo, hi);
+}
+static inline I operator*(I a, I b) {
+    if (infinite(a) || infinite(b)) return entire();
+    double na = -a.lo, nA = -a.hi;
+    double hi = std::max(std::max(a.lo * b.lo, a.lo * b.hi), std::max(a.hi * b.lo, a.hi * b.hi));
+    double mlo = std::max(std::max(na * b.lo, na * b.hi), std::max(nA * b.lo, nA * b.hi));   // = -min(products), rounded up
+    return I(-mlo, hi);
+}
+static inline I operator/(I a, I b) {
+    if (infinite(a) || infinite(b)) return entire();
+    if (!(b.lo > 0 || b.hi < 0)) return entire();
+    double hi = std::max(std::max(a.lo / b.lo, a.lo / b.hi), std::max(a.hi / b.lo, a.hi / b.hi));
+    double mlo = std::max(std::max((-a.lo) / b.lo, (-a.lo) / b.hi), std::max((-a.hi) / b.lo, (-a.hi) / b.hi));
+    return I(-mlo, hi);
+}
+#else
 static inline I operator+(I a, I b) {
     double lo = a.lo + b.lo, hi = a.hi + b.hi;
     if (std::isnan(lo) || std::isnan(hi)) return entire();
@@ -46,14 +76,11 @@ static inline I operator-(I a, I b) {
     if (std::isnan(lo) || std::isnan(hi)) return entire();
     return I(ndn(lo), nup(hi));
 }
-static inline I operator-(I a) { return I(-a.hi, -a.lo); }
-static inline bool infinite(I a) { return !(std::fabs(a.lo) < INF && std::fabs(a.hi) < INF); }
 static inline I operator*(I a, I b) {
     if (infinite(a) || infinite(b)) return entire();
     double p1 = a.lo * b.lo, p2 = a.lo * b.hi, p3 = a.hi * b.lo, p4 = a.hi * b.hi;
     double lo = std::min(std::min(p1, p2), std::min(p3, p4));
     double hi = std::max(std::max(p1, p2), std::max(p3, p4));
-    if (std::isnan(lo) || std::isnan(hi)) return entire();   // 0*inf
     return I(ndn(lo), nup(hi));
 }
 static inline I operator/(I a, I b) {
@@ -62,10 +89,12 @@ static inline I operator/(I a, I b) {
     double p1 = a.lo / b.lo, p2 = a.lo / b.hi, p3 = a.hi / b.lo, p4 = a.hi / b.hi;
     double lo = std::min(std::min(p1, p2), std::min(p3, p4));
     double hi = std::max(std::max(p1, p2), std::max(p3, p4));
-    if (std::isnan(lo) || std::isnan(hi)) return entire();
     return I(ndn(lo), nup(hi));
 }
+#endif
+static inline I operator-(I a) { return I(-a.hi, -a.lo); }
 // sqrt of an interval whose exact (mathematical) argument is known to be >= 0
+// (in both variants: the computed sqrt is within one ulp of the exact value, so one ulp outward is safe)
 static inline I isqrt(I a) {
     double lo = a.lo <= 0 ? 0.0 : std::max(0.0, ndn(std::sqrt(a.lo)));
     double hi = a.hi <= 0 ? 0.0 : nup(std::sqrt(a.hi));
@@ -88,3 +117,9 @@ static inline A operator-(const A& a) { A r; r.v = -a.v; for (int k = 0; k < 3; 
 static inline A operator*(const A& a, const A& b) { A r; r.v = a.v * b.v; for (int k = 0; k < 3; k++) r.g[k] = a.g[k] * b.v + a.v * b.g[k]; return r; }
 static inline A operator/(const A& a, const A& b) { A r; r.v = a.v / b.v; for (int k = 0; k < 3; k++) r.g[k] = (a.g[k] - r.v * b.g[k]) / b.v; return r; }
 static inline A asqrt(const A& a) { A r; r.v = isqrt(a.v); I two_r = I(2.0) * r.v; for (int k = 0; k < 3; k++) r.g[k] = a.g[k] / two_r; return r; }
+
+static inline void hex_init_rounding() {
+#ifdef HEX_UPWARD
+    if (std::fesetround(FE_UPWARD) != 0) { std::abort(); }
+#endif
+}

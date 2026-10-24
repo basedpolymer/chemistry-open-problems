@@ -413,22 +413,32 @@ static CompResult components(const Bitmap& P12, const Bitmap& P23, const Bitmap&
         if (b > 0) link(i, (size_t)a * n + (b - 1));
         if (a > 0) link(i, (size_t)(a - 1) * n + b);
     }
-    unordered_map<int, vector<int>> comp;
-    for (int i = 0; i < R; i++) comp[d.f(i)].push_back(i);
-    res.ncomp = comp.size();
-    for (auto& kv : comp) {
-        uint64_t cells = 0;
-        for (int i : kv.second) cells += runs[i].c1 - runs[i].c0 + 1;
+    // group runs by root: compidx[root] -> component number
+    vector<int> compidx(R, -1);
+    vector<uint64_t> ccells; vector<int> cfirst, cnum;
+    vector<int> rootof(R);
+    for (int i = 0; i < R; i++) {
+        int r = d.f(i); rootof[i] = r;
+        if (compidx[r] < 0) { compidx[r] = ccells.size(); ccells.push_back(0); cfirst.push_back(i); cnum.push_back(0); }
+        int c = compidx[r];
+        ccells[c] += runs[i].c1 - runs[i].c0 + 1; cnum[c]++;
+    }
+    int NC = ccells.size();
+    res.ncomp = NC;
+    // members of each component, for choosing sample cells
+    vector<vector<int>> members(NC);
+    for (int i = 0; i < R; i++) { int c = compidx[rootof[i]]; if (members[c].size() < 64) members[c].push_back(i); }
+    for (int c = 0; c < NC; c++) {
         int verdict = -1;
-        int tries = 0;
-        for (size_t q = 0; q < kv.second.size() && tries < 8; q += max<size_t>(1, kv.second.size() / 8), tries++) {
-            const Run& r = runs[kv.second[q]];
+        const vector<int>& mem = members[c];
+        for (size_t q = 0; q < mem.size() && q < 16; q++) {
+            const Run& r = runs[mem[(q * 7) % mem.size()]];
             int kc[3] = {r.a, r.b, (r.c0 + r.c1) / 2};
             P3 V[6]; point_hexagon(Gc, Lth, kc, V);
             int f = fox3_certified(V);
             if (f >= 0) { verdict = f; break; }
         }
-        if (verdict == 9) res.cert += cells;
+        if (verdict == 9) res.cert += ccells[c];
         else if (verdict == 3) res.unknot++;
         else res.fail++;
     }
@@ -437,6 +447,7 @@ static CompResult components(const Bitmap& P12, const Bitmap& P23, const Bitmap&
 
 // ---------------------------------------------------------------------------------------------
 int main(int argc, char** argv) {
+    hex_init_rounding();
     const char* table = argc > 1 ? argv[1] : "trig_table.bin";
     if (argc > 2) USE_G = atoi(argv[2]) != 0;
     load_table(table);
