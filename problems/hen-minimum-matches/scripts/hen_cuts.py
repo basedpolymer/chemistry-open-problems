@@ -79,3 +79,91 @@ def cg_rows(rows, lams_per_row=3):
 def check_row_valid(inst, row):
     """Re-derive a K1/K2/P/CG row from the instance and confirm it is identical (used by the checker)."""
     raise NotImplementedError
+
+
+# ---------------------------------------------------------------------------------------------------------------
+# Residual-capped bounds.  In every feasible flow, sum_i r_{i,t} = R_{t+1} (sum of the balance equations of
+# intervals 0..t), hence 0 <= r_{i,t} <= min(R_{t+1}, H_i(<=t)) =: rc(i,t)   (rc(i,-1) = 0).
+# ---------------------------------------------------------------------------------------------------------------
+
+def rcap(inst, i, t):
+    """upper bound on the residual of hot i leaving interval t (t = -1 .. k-1)"""
+    if t < 0 or t >= inst.k - 1:
+        return Fraction(0)
+    return min(inst.R[t + 1], sum(inst.QH[i][: t + 1]))
+
+
+def cap_window(inst, i, s, t):
+    """max heat hot i can deliver to cold nodes in intervals s..t:  r_{i,s-1} + H_i[s..t]"""
+    return rcap(inst, i, s - 1) + sum(inst.QH[i][s: t + 1])
+
+
+def U_dp(inst, i, j, s=0, t=None):
+    """Exact min cut (= max flow) of the 2-stream network restricted to window s..t with carry caps rc:
+    source->hot_u (QH_iu), hot_u->hot_{u+1} (rc(i,u)), hot_u->cold_u (inf), cold_u->sink (QC_ju), plus an entry
+    arc source->hot_s of capacity rc(i,s-1).  Any cut is an upper bound on heat i->j in the window (weak duality).
+    DP over states: hot_u in S ('in', pay QC_ju) or not ('out', pay QH_iu); in->out transition pays rc(i,u)."""
+    if t is None:
+        t = inst.k - 1
+    INF = None
+    # entry: state before s is 'in' (source side); if hot_s is out we pay the entry arc rc(i,s-1)
+    best_in = inst.QC[j][s]
+    best_out = inst.QH[i][s] + rcap(inst, i, s - 1)
+    for u in range(s + 1, t + 1):
+        ni = min(best_in, best_out) + inst.QC[j][u]          # out->in is free (arc goes hot_u -> hot_{u+1})
+        no = min(best_in + rcap(inst, i, u - 1), best_out) + inst.QH[i][u]
+        best_in, best_out = ni, no
+    return min(best_in, best_out)
+
+
+def u_interval_capped(inst, i, j, t):
+    return min(inst.QC[j][t], inst.QH[i][t] + rcap(inst, i, t - 1))
+
+
+def window_rows(inst, cold=True, hot=True, only_pinch_starts=False):
+    """(W1) cold j, window [s,T] (QC_j[T] > 0):  sum_i min(D_j[s..T], cap_i(s,T)) y_ij >= D_j[s..T]
+       (W2) hot i, window [s,T] (QH_i[s] > 0):  sum_j min(H_i[s..T], D_j[s..T]) y_ij >= H_i[s..T] - rc(i,T)
+    Proofs: (W1) j's demand in [s,T] is supplied by heat delivered in [s,T]; hot i delivers there at most
+    r_{i,s-1} + H_i[s..T] and at most D_j[s..T] to j, and nothing if y_ij = 0.  (W2) heat of i originating in
+    [s,T] is delivered in [s,T] except the part carried below T, which is <= r_{i,T} <= rc(i,T)."""
+    n, m, k = inst.n, inst.m, inst.k
+    rows = []
+    starts = [s for s in range(k) if (not only_pinch_starts) or s == 0 or inst.R[s] == 0]
+    if cold:
+        for j in range(m):
+            for s in starts:
+                Dw = Fraction(0)
+                for T in range(s, k):
+                    Dw += inst.QC[j][T]
+                    if inst.QC[j][T] == 0 or Dw == 0:
+                        continue
+                    coef = {}
+                    for i in range(n):
+                        c = min(Dw, cap_window(inst, i, s, T))
+                        if c > 0:
+                            coef[(i, j)] = c
+                    rows.append((f"W1_c{j}_{s}_{T}", coef, Dw))
+    if hot:
+        for i in range(n):
+            for s in starts:
+                if inst.QH[i][s] == 0:
+                    continue
+                Hw = Fraction(0)
+                for T in range(s, k):
+                    Hw += inst.QH[i][T]
+                    b = Hw - rcap(inst, i, T)
+                    if b <= 0:
+                        continue
+                    coef = {}
+                    for j in range(m):
+                        c = min(Hw, sum(inst.QC[j][s: T + 1]))
+                        if c > 0:
+                            coef[(i, j)] = c
+                    rows.append((f"W2_h{i}_{s}_{T}", coef, b))
+    # remove dominated duplicates (same support and coefs scaled) cheaply: keep unique by (support, normalized)
+    uniq = {}
+    for name, coef, b in rows:
+        key = tuple(sorted((e, c / b) for e, c in coef.items() if c < b)) + (tuple(sorted(e for e, c in coef.items() if c >= b)),)
+        if key not in uniq:
+            uniq[key] = (name, coef, b)
+    return list(uniq.values())
