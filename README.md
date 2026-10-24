@@ -43,10 +43,10 @@ every agent.
 | 13 | [Cases 9 and 10 without Andronov–Hopf bifurcation](problems/bbh-cases-9-10-limit-cycles/) (Banaji–Boros–Hofbauer, Stud. Appl. Math. 2024, §6) | Reaction networks | No: a case-9 or case-10 network that admits no Andronov–Hopf bifurcation has no periodic orbit for any rate constants (reduction to three families, Liénard form, comparison lemma); so a network of these cases can have a limit cycle only if it admits an Andronov–Hopf bifurcation. Generalizes result 2 | solved (preliminary; not yet verified by an agent) |
 | 14 | [Sign of solute skewness in regular-polygon ducts](problems/taylor-dispersion-polygon-skewness/) (Aminian–Camassa–McLaughlin, Stud. Appl. Math. 2018: the triangle "appears to be the only regular polygon" with negative skewness, from finite-element numerics) | Chemical engineering (transport, Taylor dispersion) | Long-time sign of the skewness = sign of ∫ u g₁² for every Péclet number (proved); negative for the equilateral triangle (exact) and positive for every regular n-gon with n ≥ 4; short-time (geometric) skewness positive for every n ≥ 3 (computer-assisted: ball arithmetic for small n, uniform expansion around the disk for large n). "Positive at all times": only certified windows of short and long times (partial) | solved (preliminary) for the long- and short-time signs; not yet verified by an agent |
 
-## Stopped on 24 October 2026 (preliminary)
+## Under investigation
 
-Work on these problems was stopped on 24 October 2026 at the owner's request. Each row gives the state reached; **none
-of it has been verified by an agent yet**. Each folder's README and `result.md` state what is proved, what is
+Work started on 24 October 2026 and was paused the same day at the owner's request. Each row gives the state reached;
+**none of it has been verified by an agent yet**. Each folder's README and `result.md` state what is proved, what is
 certified by computer, what is numerical only, and how to resume. Progress is logged in [history.md](history.md).
 
 | Problem (source) | Field | State reached | Status |
