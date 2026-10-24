@@ -55,6 +55,10 @@ graph with n ≥ 3 vertices all of which are good. Hence every KS graph is 2-con
    not needed), Hamming H(d,q) (d, q ≤ 30), Johnson J(m,k) (m ≤ 40), the 13 cubic DRGs, cycles C_n (n ≤ 200):
    Δ_v ≠ 0 except for C₅. For all parameters (Prop. 13′) [proof]: incidence graphs of symmetric designs,
    of generalized quadrangles and hexagons of order (q,q), and crown graphs are not KS.
+   **Triangle-free distance-regular graphs** (Thm. 13″) [proof, using the Markowsky–Koolen resistance
+   bound and the classification of DRGs of valency 3, 4]: Δ_v = [(k−1)(n−1)² − 2k(n−k−1)Kf/n]/[k((k−2)n+2)];
+   C₅ is the only KS triangle-free DRG and the only KS DRG of valency ≤ 4; hypercubes and all Hamming
+   graphs H(d,q) have no good vertex; every DRG with a(G) ≥ 2(1 + 94/101) is not KS (Cor. 13‴).
 9. **Exhaustive searches** [exact computation]: no KS graph on 6 ≤ n ≤ 11 vertices (all 2-connected graphs,
    nauty geng −C, 910 914 360 graphs for n ≤ 11; the published range was n ≤ 9); no vertex-transitive
    KS graph on 6 ≤ n ≤ 47 vertices (full Holt–Royle census; published range n ≤ 23). Counts in §11.
@@ -204,6 +208,10 @@ and λ_max(L(Ḡ)) ≤ 2Δ(Ḡ) = 2(n − 1 − δ) by Gershgorin); (ii) a join 
 min(n₁ + a(H₂), n₂ + a(H₁))² > 2(n − 1), e.g. with min(n₁, n₂) > √(2(n − 1)), is not KS (the Laplacian
 spectrum of a join is {0, n} ∪ {λ + n₂ : λ ∈ spec L(H₁) minus one 0} ∪ {μ + n₁ : μ ∈ spec L(H₂) minus one 0}).
 
+*Remark (wheels).* For W_n = K₁ + C_{n−1} the hub is never good: Kf(W_n) ≤ Kf(K_{1,n−1}) = (n − 1)² (Rayleigh,
+spanning star) < ((n − 1)³ − (n − 1))/12 = Kf(C_{n−1}) for n ≥ 14; n ≤ 11 is covered by Theorem 14, and
+exactly Kf(W_12) = 9559/199 vs Kf(C_11) = 110, Kf(W_13) = 1733/30 vs Kf(C_12) = 143.
+
 Examples: the bound excludes all Johnson graphs J(m,k) (a = m, d = k(m − k) ≤ m²/4), Paley graphs P(q)
 for q ≥ 9 (a = (q − √q)/2), and every d-regular graph with second adjacency eigenvalue ≤ 2√(d − 1)
 (e.g. Ramanujan graphs) when d ≥ 12, since then a ≥ d − 2√(d − 1) and (d − 2√(d − 1))² > 2d. It is not tight for sparse graphs (C₅: a² ≈ 1.91 < 4).
@@ -352,6 +360,58 @@ N_6(q) = 2q¹³ − 4q¹¹ − 16q¹⁰ − 34q⁹ − 64q⁸ − 81q⁷ − 85q
 incidence graph). Check: `scripts/check_drg_symbolic.py` (symbolic derivation, positivity certificates,
 agreement with the exact formula at sample parameters).
 
+**Theorem 13″ (triangle-free distance-regular graphs; valency ≤ 4).**
+(i) Let G be distance-regular with a_1 = 0 (triangle-free), valency k ≥ 2, n vertices, diameter ≥ 2. At every
+vertex v,
+
+  Kf(G) − Kf(G − v) = [(k − 1)(n − 1)² − 2k(n − k − 1)·Kf(G)/n] / [k((k − 2)n + 2)],
+
+so G is KS iff Kf(G) = n(k − 1)(n − 1)²/(2k(n − k − 1)) (for C_n: Δ = −n(n − 1)(n − 5)/12).
+(ii) No triangle-free distance-regular graph other than C₅ is KS; for valency k ≥ 5 no vertex is good.
+(iii) No distance-regular graph of valency ≤ 4 other than C₅ is KS.
+(iv) For every d ≥ 2, Kf(Q_d − v) < Kf(Q_d) (self-contained; Kf(Q_d) = 2^{d−1}S₁, S₁ = Σ_i C(d,i)/i).
+(v) For every Hamming graph H(d,q), d ≥ 2, q ≥ 2 (n = q^d, k = d(q − 1), local graph dK_{q−1}):
+  Kf(G) − Kf(G − v) = [(d − 1)(n − 1)²(n(k − 1) + 1) − g·dn(n − k − 1)(n(2k − q) + q)] / [d(n(k − 1) + 1)(n(k − q) + q)]
+with g = Kf(G)/n² = S_q/(qn), S_q = Σ_{i=1}^d C(d,i)(q − 1)^i/i, and this is > 0: no vertex of a Hamming graph
+is good.
+
+*Proof.* (i) In Proposition 10 put b_1 = k − 1 (a_1 = 0) and express everything through Γ_0 = Kf/n² using
+r_1 = 2(n − 1)/(nk), r_2 − r_1 = 2(1 − (k + 1)/n)/(k(k − 1)) and the layer equations for Γ²; the terms in
+(Γ²)_0 cancel identically (sympy). (ii) k = 2: cycles. k ≥ 5: by Markowsky–Koolen [MK10, Theorem 1] every
+distance-regular graph of valency > 2 satisfies r_D ≤ K r_1 with K = 1 + 94/101 (r_D the largest
+resistance); hence Kf(G) ≤ C(n,2)·K r_1 = K(n − 1)²/k, and this is < n(k − 1)(n − 1)²/(2k(n − k − 1)) iff
+2K(n − k − 1) < n(k − 1), which holds since 2K < 4 ≤ k − 1; so the numerator in (i) is positive. k = 3, 4:
+the distance-regular graphs of valency 3 and of valency 4 with diameter > 2 are classified (Biggs–Boshier–
+Shawe-Taylor; BCN Thm 7.5.1; Brouwer–Koolen 1999; lists as quoted in [MK10], Cases 2 and 3: 10 cubic and 13
+quartic graphs); (i) or Proposition 10 gives Δ ≠ 0 for each (values in `certificates/check_triangle_free_drg.log`);
+diameter ≤ 2 means complete or strongly regular (Theorems 11, 12). (iii) Same lists, including the four
+quartic graphs with a_1 = 1 (local graph 2K₂). (iv) Δ(Q_d) > 0 ⟺ (d − 1)(n − 1)² > d(n − d − 1)S₁ (from (i));
+C(d,i)/i ≤ 2C(d+1,i+1)/(d + 1) gives S₁ < 4n/(d + 1), and (d² − 1)(n − 1)² > 4dn(n − d − 1) for d ≥ 5
+because n(n − d − 1) < (n − 1)² and d² − 1 ≥ 4d; d ≤ 4 exactly. (v) Proposition 10 with the local spectrum
+{q − 2 (d − 1 times), −1 (d(q − 2) times)} gives the formula, again with the (Γ²)_0 terms cancelling; the
+denominator is positive for d ≥ 2. As in (iv), S_q < 2qn/((d + 1)(q − 1)), so the subtracted term is
+< (2d/((d + 1)(q − 1)))·n(n − k − 1)(n(2k − q) + q) ≤ (4d/((d + 1)(q − 1)))(n − 1)²(n(k − 1) + 1), using
+n(n − k − 1) < (n − 1)² and n(2k − q) + q ≤ 2(n(k − 1) + 1) ⟺ (q − 2)(n − 1) ≥ 0. Hence Δ > 0 whenever
+(d − 1)(d + 1)(q − 1) ≥ 4d, i.e. except for q = 2, d ≤ 4 and (d,q) = (2,3), which are computed exactly. ∎
+
+Check: `scripts/check_triangle_free_drg.py` (symbolic identity; agreement with the exact formula on 509 arrays;
+hypercubes d ≤ 120 exactly and the inequality for d ≥ 5; the classification lists; direct check of the a_1 = 1
+case on L(Petersen)). The classification results for valency 3 and 4 are used as stated in [MK10]; we did
+not re-derive them.
+
+**Corollary 13‴ (distance-regular graphs with a spectral gap).** Every distance-regular graph of
+valency k ≥ 3 with algebraic connectivity a(G) = k − θ_1 ≥ 2(1 + 94/101) ≈ 3.861 is not KS, and if it is
+vertex-transitive no vertex is good.
+
+*Proof.* For a k-regular graph, Theorem 6 (sharp form) excludes G as soon as a(G)·n(n − 1)/k > 2Kf(G).
+By [MK10, Thm 1], Kf(G) ≤ C(n,2)·K r_1 = K(n − 1)²/k with K = 1 + 94/101, and a(G)·n > 2K(n − 1) holds when
+a(G) ≥ 2K. ∎
+
+Examples: folded cubes and Hamming graphs H(d,q) with q ≥ 4 (a = 4, resp. q), halved n-cubes (a = 2n − 2,
+n ≥ 3), point graphs of generalized quadrangles GQ(s,t) with st ≥ 3 (a = st + 1), Johnson graphs. Together
+with Theorem 13″ the open distance-regular cases have triangles (a_1 ≥ 1), valency ≥ 5, a(G) < 3.861 and
+are not Hamming graphs.
+
 ## 11. Exhaustive searches
 
 **Exact criterion (`scripts/kscheck.c`).** For each graph G (graph6, n ≤ 64): reject if G or some G − v
@@ -361,9 +421,15 @@ over 𝔽_p), p₁ = 1073741789 (fallback p₂ = 1073741783 if p | τ). Since k_
 k_p(G − v) implies p ∤ α(G)τ(G − v) − α(G − v)τ(G), hence Kf(G) ≠ Kf(G − v): a rigorous rejection.
 Vertices are tested in order until one fails; a graph passing all vertices for both primes is reported
 as SURVIVOR and checked with exact rationals; a graph where both primes divide some τ would be reported
-INCONCLUSIVE (never happened). In vertex-transitive mode (`-t`) only vertex 0 is tested. Validation:
-`scripts/test_kscheck_modular.py` compares the residues with exact rational values of Kf for 119 graphs
-(2 126 Kirchhoff indices, n ≤ 40).
+INCONCLUSIVE (never happened). In vertex-transitive mode (`-t`) only vertex 0 is tested before the full
+re-test of a survivor. `scripts/kscheck_fast.c` implements the same criterion with p₁ = 268435399,
+p₂ = 268435367 (< 2²⁸, so that dot products of up to 63 residues are accumulated exactly in 64-bit integers
+and vectorised); it was used for the census, the regular-graph, family and bicirculant searches, and
+`kscheck.c` for n ≤ 11 and the kernel enumeration. Validation: `scripts/test_kscheck_modular.py` compares the
+residues of each binary with exact rational values of Kf for 119 graphs (2 126 Kirchhoff indices,
+n ≤ 40); both binaries give identical verdicts on all 2-connected graphs with n ≤ 9 and on the census
+n ≤ 31; `scripts/validate_census_sample.py` re-checks a deterministic sample of census rejections with
+exact rationals (1 248 graphs, n ≤ 31).
 
 **Theorem 14 [exact computation].** C₅ is the only KS graph with at most 11 vertices.
 

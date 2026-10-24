@@ -1,0 +1,67 @@
+SCIP version 10.0.2 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 8.0.2] [GitHash: b8eaf98]
+Copyright (c) 2002-2026 Zuse Institute Berlin (ZIB)
+
+External libraries: 
+  Readline 8.2         GNU library for command line editing (gnu.org/s/readline)
+  SoPlex 8.0.2         Linear programming solver developed at Zuse Institute Berlin (soplex.zib.de) [GitHash: cfadddc
+  CppAD 20180000.0     Algorithmic Differentiation of C++ algorithms developed by B. Bell (github.com/coin-or/CppAD)
+  ZLIB 1.3             General purpose compression library by J. Gailly and M. Adler (zlib.net)
+  MPFR 4.2.1           GNU Multiple Precision Floating-Point Reliable Library (mpfr.org)
+  Boost 1.83.0         Boost C++ Libraries (boost.org)
+  TinyCThread 1.2      small portable implementation of the C11 threads API (tinycthread.github.io)
+  GMP 6.3.0            GNU Multiple Precision Arithmetic Library developed by T. Granlund (gmplib.org)
+  AMPL/MP 4.0.4        AMPL .nl file reader library (github.com/ampl/mp)
+  Nauty 2.8.8          Computing Graph Automorphism Groups by Brendan D. McKay (users.cecs.anu.edu.au/~bdm/nauty)
+  sassy 2.1            Symmetry preprocessor by Markus Anders (github.com/markusa4/sassy)
+
+user parameter file <scip.set> not found - using default parameters
+
+loaded parameter file <nocuts_mem.set>
+certificate/filename = u10s_24.vipr
+limits/time = 14000
+display/freq = 2000
+
+read problem <u10s_24.lp>
+============
+
+original problem has 1085 variables (122 bin, 0 int, 963 cont) and 2453 constraints
+
+presolving (in exact solving mode):
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   Symmetry detection interrupted: constraints of type exactlinear do not provide symmetry information.
+   If symmetries shall be detected, implement the CONSGETPERMSYMGRAPH callback.
+   (0.1s) could not compute symmetry
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1085 variables (122 bin, 0 int, 963 cont) and 2453 constraints
+   2453 constraints of type <exactlinear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.02
+storing certificate information in file <u10s_24.vipr>
+
+solving problem in exact solving mode
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  1.8s|     1 |     0 |  6331 |     - |    35M |   0 |1085 |1989 |2453 |   0 |  0 |   1 |   0 | 0.000000e+00 |      --      |    Inf | unknown
+  8.4s|     1 |     2 |  8523 |     - |    36M |   0 |1085 |1990 |2453 |   0 |  0 |   2 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+  264s|  2000 |    73 |  1012k| 502.4 |    42M |  48 |1085 |2023 |2453 |   0 |  0 | 273 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+  554s|  4000 |    75 |  2062k| 513.8 |    43M |  71 |1085 |2032 |2453 |   0 |  0 | 500 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+  807s|  6000 |    73 |  3356k| 558.2 |    44M |  71 |1085 |2038 |2453 |   0 |  0 | 818 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+ 1114s|  8000 |    79 |  4848k| 605.2 |    44M |  71 |1085 |2032 |2453 |   0 |  0 |1135 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+ 1411s| 10000 |    79 |  6044k| 603.7 |    45M |  71 |1085 |2037 |2453 |   0 |  0 |1527 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+ 1832s| 12000 |    51 |  8152k| 678.8 |    45M |  71 |1085 |2049 |2453 |   0 |  0 |1890 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+ 2247s| 14000 |    75 | 10299k| 735.1 |    45M |  71 |1085 |2047 |2453 |   0 |  0 |2234 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+ 2537s| 16000 |    67 | 11692k| 730.4 |    45M |  71 |1085 |2064 |2453 |   0 |  0 |2608 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+ 2894s| 18000 |    25 | 13254k| 735.9 |    46M |  71 |1085 |2026 |2453 |   0 |  0 |3017 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+ 3282s| 20000 |    17 | 15097k| 754.5 |    46M |  71 |1085 |2046 |2453 |   0 |  0 |3352 |  30 | 0.000000e+00 |      --      |    Inf | unknown
+
+SCIP Status        : problem is solved [infeasible]
+Solving Time (sec) : 3501.36
+Solving Nodes      : 21203
+Primal Bound       : +1.00000000000000e+20 (0 solutions)
+Dual Bound         : +1.00000000000000e+20
+Gap                : 0.00 %
+
+
+closing certificate file (wrote approx. 2089.5 MB)

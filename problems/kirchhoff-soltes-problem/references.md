@@ -63,6 +63,15 @@ Conclusion: the problem was open as of 24 Oct 2026 as far as could be checked.
 - N. Biggs, *Potential theory on distance-regular graphs*, Combin. Probab. Comput. 2 (1993) 243–255,
   doi:10.1017/S096354830000064X (resistances in DRGs from the intersection array; our layer-current
   derivation is self-contained). Not read.
+- G. Markowsky, J. Koolen, *A conjecture of Biggs concerning the resistance of a distance-regular graph*,
+  Electron. J. Combin. 17 (2010) R78, doi:10.37236/350, arXiv:1006.2687. **Read: full text of the arXiv
+  version** (PDF in certificates/sources/koolen-markowsky/). Used: Theorem 1 (r_D ≤ (1 + 94/101) r_1 for every
+  DRG of valency > 2) and the lists of DRGs of valency 3 (citing BCN Thm 7.5.1) and valency 4 with diameter > 2
+  (citing Brouwer–Koolen 1999) in the proof of Theorem 2, Cases 2–3. Related: J. Koolen, G. Markowsky, J. Park,
+  Eur. J. Combin. 34 (2013) 770–786, doi:10.1016/j.ejc.2012.12.001 (arXiv:1103.2810, not used).
+- A. E. Brouwer, A. M. Cohen, A. Neumaier, *Distance-Regular Graphs*, Springer 1989 (BCN), Theorem 7.5.1
+  (cubic DRGs); A. E. Brouwer, J. H. Koolen, *The distance-regular graphs of valency four*, J. Algebraic
+  Combin. 10 (1999) 5–24. Not read; used only through the lists quoted in Markowsky–Koolen 2010.
 - A. E. Brouwer, W. H. Haemers, *Spectra of Graphs*, Springer 2012 (SRG eigenvalue facts: integrality unless
   conference graph; interlacing). Standard; not re-read.
 - B. D. McKay, A. Piperno, *Practical graph isomorphism, II*, J. Symb. Comput. 60 (2014) 94–112,

@@ -448,6 +448,19 @@ def region_check(eps, kap, R0, sigma):
     c2 = -R0 + e * R0 ** 2 / kl
     return arb_up(arb_up(c1).max(arb_up(c2)) + corr)
 
+def region_check_sharp(eps, kap, R0, sigma):
+    """sharper upper bound of Re Lambda on {|z| <= R0, Re z <= -sigma} (result.md, Lemma 4.2'); must be < 0.
+    Needs q = eps^2 R0 <= 2/5.  Bound: max(g(-sigma), g(-R0)), g(x) = x + eps x^2/kappa + eps^3 |x|^3/(kappa(1-q)),
+    evaluated at eps = eps_hi, kappa = kappa_lo (g is increasing in eps and decreasing in kappa)."""
+    eps = arb(eps); kap = arb(kap); R0 = arb(R0); sigma = arb(sigma)
+    e = arb_up(eps)
+    kl = arb(kap.lower())
+    q = e * e * R0
+    assert arb_up(q) * 5 <= 2 and sigma > 0 and sigma <= R0
+    def g(a):                      # a = |x|
+        return -a + e * a * a / kl + e ** 3 * a ** 3 / (kl * (1 - q))
+    return arb_up(arb_up(g(sigma)).max(arb_up(g(R0))))
+
 # ------------------------------------------------------------------------------------------------ argument principle
 import math
 

@@ -3,4 +3,11 @@ PASS closed form = exact DRG formula on 509 triangle-free arrays
 PASS hypercubes: Delta(Q_d) > 0 and S_1 < 4n/(d+1) (d >= 5) for 2 <= d <= 120 (exact)
 PASS d >= 5: d^2 - 1 >= 4d (so (d^2-1)(n-1)^2 > 4d n(n-d-1) since n(n-d-1) < (n-1)^2)
 PASS cycles: Delta(C_n) = -n(n-1)(n-5)/12 (zero only for n = 5)
+PASS 2K < 4 (so 2K(n-k-1) < 2K n < (k-1) n for k >= 5)
+   Delta for the cubic (D>2), quartic triangle-free (D>2) and quartic a_1=1 (D>2) lists: [1.3333, 0.4048, -0.8667, -4.8857, -5.7167, -2.3455, -1.7394, -60.9077, -48.2217, -39.4449, 1.7348, 2.0929, 2.1863, 2.8397, 3.0455, 3.1607, 3.3737, 4.0556, 6.215, 1.5507, 1.0476, -3.3039, -44.1419]
+PASS valency 3 and 4 DRGs with D > 2 (classification lists): Delta != 0
+PASS L(Petersen): DRG formula with local graph 2K_2 equals direct exact values
+PASS Hamming: Delta = [(d-1)(n-1)^2(n(k-1)+1) - g d n (n-k-1)(n(2k-q)+q)] / [d(n(k-1)+1)(n(k-q)+q)], g = Kf/n^2
+PASS Hamming: Delta > 0 for 2 <= d, q <= 30 (exact), closed form = DRG formula (d, q <= 8), S_q bound
+PASS Hamming: (d-1)(d+1)(q-1) >= 4d except (q=2, d<=4) and (q=3, d=2)
 PASS triangle-free DRG theorem

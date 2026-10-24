@@ -256,6 +256,20 @@ $\operatorname{Re}\Lambda\le\max(-\sigma+\varepsilon\sigma^2/\kappa,\,-R_0+\vare
 $\operatorname{Re}z^2\le0$; otherwise $\operatorname{Re}z^2\le x^2$ and $x+\varepsilon x^2/\kappa$ is convex on
 $[-R_0,-\sigma]$. $\square$
 
+**Lemma 4.2′ (region, sharp form; used for $j\ge2$).** Let $0<\sigma\le R_0$, $q:=\varepsilon^2R_0\le2/5$ and
+$g(x):=x+\varepsilon x^2/\kappa+\varepsilon^3|x|^3/(\kappa(1-q))$. If $|z|\le R_0$ and $\operatorname{Re}z\le-\sigma$,
+then $\operatorname{Re}\Lambda\le\max(g(-\sigma),g(-R_0))$. On a box we evaluate $g$ at $\varepsilon=\varepsilon_{hi}$,
+$\kappa=\kappa_{lo}$ ($g$ is increasing in $\varepsilon$ and decreasing in $\kappa$ for fixed $x$) and certify
+$\max(g(-\sigma),g(-R_0))<0$ (`allm_core.region_check_sharp`).
+
+*Proof.* As above, $\operatorname{Re}\Lambda\le x+\frac\varepsilon\kappa(x^2-t)+\frac{\varepsilon^3}{\kappa(1-q)}
+(x^2+t)^{3/2}=:h(t)$ with $t=y^2\in[0,R_0^2-x^2]$, because $|z^2(1/\varphi-1)|\le\varepsilon^2|z|^3/(1-\varepsilon^2|z|)$.
+Then $h'(t)=\frac\varepsilon\kappa\big(-1+\frac32\varepsilon^2(x^2+t)^{1/2}/(1-q)\big)\le\frac\varepsilon\kappa
+\big(-1+\frac{3q}{2(1-q)}\big)\le0$ since $q\le2/5$; so $h(t)\le h(0)=g(x)$, and $g$ is convex on $[-R_0,-\sigma]$. $\square$
+
+(The cruder Lemma 4.2 loses $\varepsilon^3R_0^3/\kappa$ at $y=0$; with $R_0=20$ this is $\approx0.3$ at $M\approx200$ on
+branch 2, which is why the sharp form is needed there.)
+
 **Theorem 4.3 (H2, first branch).** Suppose that on a box $E\times X$ the checks of Section 2, Lemma 3.3
 ($R_0=8$), Lemma 4.2 ($\sigma=0.3$) hold, that $|z_H|<R_0$, $\operatorname{Re}z_H>-\sigma$ on $X$, and that the winding
 count of Lemma 4.1 on $\Gamma$ equals $4$. Then for every integer $M$ with $M^{-1/2}\in E$, at $\kappa=\kappa_1(M)$
@@ -281,13 +295,13 @@ on $\mathcal R$ (certified: `h2j_lib.mono_check`).
 with $\operatorname{Re}\Lambda<0$ on $x=\ell(y)$ and $\operatorname{Re}\Lambda>0$ on $x=r(y)$ (interval checks on
 every edge, for all parameters of the box), $R_0\le Y$, $x_{\min}=\min\ell<0$, and $P=\{\ell(y)<x<R_0,|y|<Y\}$,
 $P_-=\{\ell(y)<x<r(y),|y|<Y\}$. If Lemma 3.3′ (with $R_0$), Lemma 4.4 on $\mathcal R=[x_{\min},R_0]\times[-Y,Y]$,
-Lemma 4.2 with $\sigma=-x_{\min}$, $|y_H|<Y$, and the counts $N(P)=2j+2$, $N(P_-)=4$ hold, then at $\kappa_j(M)$: the only eigenvalues of $B$ on $i\mathbb R$ are $0,\pm i\omega$,
+Lemma 4.2′ with $\sigma=-x_{\min}$, $|y_H|<Y$, and the counts $N(P)=2j+2$, $N(P_-)=4$ hold, then at $\kappa_j(M)$: the only eigenvalues of $B$ on $i\mathbb R$ are $0,\pm i\omega$,
 and exactly $2j-2$ zeros of $F$ with $|\varphi|\ge1$ (with multiplicity) correspond to eigenvalues with
 $\operatorname{Re}\lambda>0$.
 
 *Proof.* Let $\lambda\ne0$ be an eigenvalue with $\operatorname{Re}\lambda\ge0$ and $\varphi$ its root with
 $|\varphi|\ge A^{-1/2}$ (so $|\varphi|\ge1$, Lemma 3.1). By Lemma 3.3′, $|z|<R_0$; hence $|y|<Y$, $x<R_0$, and
-$x>x_{\min}$ (Lemma 4.2), so $z\in\mathcal R$; by monotonicity along the horizontal line, $x>\ell(y)$: $z\in P$.
+$x>x_{\min}$ (Lemma 4.2′, since $\operatorname{Re}\Lambda=M\operatorname{Re}\lambda/K\ge0$), so $z\in\mathcal R$; by monotonicity along the horizontal line, $x>\ell(y)$: $z\in P$.
 If moreover $\operatorname{Re}\lambda=0$, then $\operatorname{Re}\Lambda(z)=0$ and monotonicity gives
 $\ell(y)<x<r(y)$: $z\in P_-$. Now $P_-$ contains the four zeros $0,0,z_H,\bar z_H$, hence no other; so
 $z\in\{z_H,\bar z_H\}$ and $\lambda=\pm i\omega$. Conversely, a zero of $Q^\varepsilon$ in $P\setminus P_-$ lies in

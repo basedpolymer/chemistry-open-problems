@@ -1,0 +1,3 @@
+PASS 1: LP file regenerated identically (f14c1e73571c266e...)
+step 2: PASS: every row/bound of the LP file re-derived exactly from the instance data
+step 3: PASS: certificate problem = relaxation of the LP-file MILP (every constraint matched exactly)

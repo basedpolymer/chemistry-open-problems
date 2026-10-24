@@ -45,14 +45,21 @@ Mat. Mex. 2025) treats a relaxed version.
 * **Strongly regular graphs** [proof + exact computation]: **C₅ is the only KS strongly regular graph**.
   For Moore graphs of diameter 2, Kf(G) − Kf(G − v) = k(k − 2)(k + 1)/(k² + 1), which also covers the
   hypothetical 57-regular graph.
-* **Distance-regular families** [exact, finite ranges]: hypercubes, odd graphs, generalized polygons,
-  Hamming, Johnson, all 13 cubic DRGs: Kf(G − v) ≠ Kf(G).
+* **Triangle-free distance-regular graphs** [proof; uses the Markowsky–Koolen resistance bound and the
+  classification of DRGs of valency 3 and 4]: at every vertex
+  Kf(G) − Kf(G − v) = [(k−1)(n−1)² − 2k(n−k−1)Kf(G)/n] / [k((k−2)n+2)]. **C₅ is the only KS
+  triangle-free DRG and the only KS DRG of valency ≤ 4.** Hypercubes and all Hamming graphs H(d,q)
+  are excluded for every d by self-contained arguments. Any DRG with a(G) ≥ 2(1 + 94/101) ≈ 3.86 is not
+  KS. Closed forms valid for all parameters also cover incidence graphs of symmetric designs and of
+  GQ(q,q) and GH(q,q). Exact values for many families (odd graphs, Johnson graphs, the 13 cubic DRGs,
+  etc.) are in Proposition 13.
 * **Exhaustive exact searches**: C₅ is the only KS graph on ≤ 11 vertices (910 914 360 2-connected graphs
   with 3 ≤ n ≤ 11). No vertex-transitive KS graph exists on 6–47 vertices (full Holt–Royle census, COUNT_VT
   graphs). Regular graphs: REGULAR_SUMMARY.
 
 A KS graph other than C₅, if one exists, therefore has ≥ 12 vertices, cyclomatic number ≥ 6, no three
 consecutive degree-2 vertices, small algebraic connectivity, and ≥ 48 vertices if it is vertex-transitive.
+It is neither strongly regular nor triangle-free distance-regular, nor complete multipartite.
 
 ## How to reproduce
 
@@ -61,7 +68,9 @@ From this folder (python 3.13, python-flint 0.9, numpy, sympy, gcc; nauty 2.8.9 
 
 ```bash
 gcc -O3 -march=native -o scripts/kscheck scripts/kscheck.c
+gcc -O3 -march=native -o scripts/kscheck_fast scripts/kscheck_fast.c
 python3 scripts/test_kscheck_modular.py      # modular filter vs exact rationals      (5 s)
+python3 scripts/test_kscheck_modular.py scripts/kscheck_fast 268435399   # same for the fast variant
 python3 scripts/check_thread_lemma.py        # Lemma 2, Corollary 3                   (5 s)
 python3 scripts/check_deletion_formula.py    # Proposition 9                          (10 s)
 python3 scripts/check_drg_formula.py         # Proposition 10                         (20 s)
@@ -69,6 +78,8 @@ python3 scripts/check_expander_dense.py      # Lemma 5, Theorems 6, 8           
 python3 scripts/check_multipartite.py        # Theorem 11                             (30 s)
 python3 scripts/check_srg_theorem.py         # Theorem 12                             (30 s)
 python3 scripts/drg_families.py              # Proposition 13                         (20 s)
+python3 scripts/check_drg_symbolic.py        # Proposition 13'                        (30 s)
+python3 scripts/check_triangle_free_drg.py   # Theorem 13''                           (30 s)
 python3 scripts/exact_small_cases.py         # C5, theta graphs, K_{4,3}              (1 s)
 scripts/run_geng_search.sh 3 11              # Theorem 14 (n = 11: about 1-2 h)
 for c in 2 3 4 5; do python3 scripts/kernel_enum.py $c | scripts/kscheck; done   # Theorem 4
@@ -84,7 +95,9 @@ multig complg` inside `certificates/sources/nauty/`.
 
 * `result.md`: theorems, proofs, search ranges and counts, exact filter, limitations.
 * `references.md`: sources and the novelty check. `NEEDS.md`: paywalled papers requested.
-* `scripts/kscheck.c`: exact modular filter (graph6 in, survivors out).
+* `scripts/kscheck.c`: exact modular filter (graph6 in, survivors out), used for n ≤ 11 and the kernels;
+  `scripts/kscheck_fast.c`: same criterion with primes < 2²⁸ and vectorised loops, used for the census,
+  regular graphs, families and bicirculants.
 * `scripts/kflib.py`: exact Kf (two methods).
 * `scripts/kernel_enum.py`, `run_geng_search.sh`, `run_census.sh`, `census_member.sh`,
   `run_regular_search.sh`: search drivers.
