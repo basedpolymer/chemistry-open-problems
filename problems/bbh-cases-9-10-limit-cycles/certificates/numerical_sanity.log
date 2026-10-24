@@ -1,0 +1,25 @@
+   N1 outcomes: {'left quadrant': 128}
+PASS N1 128 backward integrations (16 non-Hopf networks x 8 random kappa): no periodic orbit found
+   control 9 (1, -1, 0) (1, 0, -1) kappa=(1.02, 1.0, 1.0): nmax, last returns [np.float64(1.1897510878765611), np.float64(1.1897510878766193)]
+   control 9 (2, -1, 1) (3, -1, 0) kappa=(9.5653, 9.2784, 1.0): nmax, last returns [np.float64(0.38311937161023246), np.float64(0.38311937161026083)]
+   control 10 (2, -1, 1) (3, -1, 0) kappa=(9.5653, 9.2784, 1.0): nmax, last returns [np.float64(0.3831216811674357), np.float64(0.38312168116742024)]
+PASS N2 controls: past the supercritical Hopf point of three BBH Hopf networks, forward orbits converge to a cycle
+   non-Hopf 9 (1, -1, 5) (5, -1, 1) rho=0.0587: min F(a)-F(b) = 7.176e-03
+   non-Hopf 9 (5, -1, 2) (17, -1, 0) rho=4.46: min F(a)-F(b) = 4.883e-02
+   non-Hopf 9 (2, -1, 4) (11, -1, 2) rho=0.74: min F(a)-F(b) = 1.211e-02
+   non-Hopf 9 (5, -1, 5) (19, -1, 2) rho=0.0538: min F(a)-F(b) = 6.850e-03
+   non-Hopf 9 (2, -1, 5) (5, 0, -1) rho=1.16: min F(a)-F(b) = 1.070e-02
+   non-Hopf 9 (2, -1, 3) (17, 0, -1) rho=0.031: min F(a)-F(b) = 9.375e-03
+   non-Hopf 9 (5, -1, 1) (15, 0, -1) rho=5.4: min F(a)-F(b) = 4.563e-02
+   non-Hopf 9 (4, -1, 2) (19, 0, -1) rho=1.89: min F(a)-F(b) = 1.669e-02
+   non-Hopf 10 (4, -1, 6) (16, -1, 3) rho=0.00784: min F(a)-F(b) = 7.227e-03
+   non-Hopf 10 (1, -1, 2) (4, -1, 1) rho=0.745: min F(a)-F(b) = 1.460e-02
+   non-Hopf 10 (5, -1, 4) (18, -1, 3) rho=2.12: min F(a)-F(b) = 2.946e-02
+   non-Hopf 10 (5, -1, 5) (14, -1, 0) rho=8.14: min F(a)-F(b) = 8.435e-02
+PASS N3 non-Hopf networks: F(a) > F(b) at all sampled G-paired points
+   Hopf     9 (2, -1, 1) (3, -1, 0) rho=0.01: min F(a)-F(b) = -4.821e-01
+   Hopf     9 (2, -1, 1) (1, 0, -1) rho=0.01: min F(a)-F(b) = -4.962e-01
+   Hopf     10 (2, -1, 1) (3, -1, 0) rho=0.01: min F(a)-F(b) = -2.702e-01
+PASS N3 controls: for Hopf networks (small rho) the comparison fails somewhere, as it must
+runtime 95 s
+ALL PASS

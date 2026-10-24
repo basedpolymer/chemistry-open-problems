@@ -32,6 +32,7 @@ using namespace std;
 static int LT = 0;                // trig table level
 static vector<double> CLO, CHI, SLO, SHI;
 static I PI_I;
+static bool USE_G = true;
 
 static void load_table(const char* fn) {
     FILE* f = fopen(fn, "rb");
@@ -109,12 +110,14 @@ static const int PAIR_MV[3][2] = {{1, 3}, {3, 5}, {1, 5}};
 static const PierceSpec SPEC_A[3] = {{3, 4, 0, 1, 2}, {5, 0, 2, 3, 4}, {1, 2, 4, 5, 0}};
 static const PierceSpec SPEC_B[3] = {{0, 1, 2, 3, 4}, {2, 3, 4, 5, 0}, {4, 5, 0, 1, 2}};
 
-struct Coef { I M[3][3]; };       // F(ti,tj) = sum_kl M[k][l] u_k(ti) u_l(tj), u = (1, cos, sin)
+struct Coef { I M[3][3]; I Mc[3][3]; I G[3][3][3]; I dD[3]; bool useG; };       // F(ti,tj) = sum_kl M[k][l] u_k(ti) u_l(tj), u = (1, cos, sin)
 
 static void det_coef(const Geo& Gb, const Geo& Gc, const double* lo, const double* hi, const double* cen,
                      int pair, int w0, int w1, int w2, int w3, Coef& C) {
     int mi = PAIR_MV[pair][0], mj = PAIR_MV[pair][1];
     int w[4] = {w0, w1, w2, w3};
+    for (int m = 0; m < 3; m++) C.dD[m] = I(ndn(lo[m] - cen[m]), nup(hi[m] - cen[m]));
+    C.useG = USE_G;
     bool hasI = false, hasJ = false;
     for (int r = 0; r < 4; r++) {
         if (w[r] == mi) hasI = true;
@@ -122,7 +125,7 @@ static void det_coef(const Geo& Gb, const Geo& Gc, const double* lo, const doubl
         if ((w[r] & 1) && w[r] != mi && w[r] != mj) { fprintf(stderr, "determinant involves a third moving vertex\n"); exit(3); }
     }
     for (int k = 0; k < 3; k++) for (int l = 0; l < 3; l++) {
-        if ((k > 0 && !hasI) || (l > 0 && !hasJ)) { C.M[k][l] = I(0.0); continue; }
+        if ((k > 0 && !hasI) || (l > 0 && !hasJ)) { C.M[k][l] = I(0.0); C.Mc[k][l] = I(0.0); for (int m = 0; m < 3; m++) C.G[m][k][l] = I(0.0); continue; }
         const A* rb[4]; const A* rc[4];
         for (int r = 0; r < 4; r++) {
             int kk = (w[r] == mi) ? k : (w[r] == mj) ? l : 0;
@@ -135,6 +138,8 @@ static void det_coef(const Geo& Gb, const Geo& Gc, const double* lo, const doubl
         I r = meet(vb.v, cf);
         if (r.lo > r.hi) r = vb.v;   // cannot happen for correct enclosures; keep the naive one
         C.M[k][l] = r;
+        C.Mc[k][l] = vc.v;
+        for (int m = 0; m < 3; m++) C.G[m][k][l] = vb.g[m];
     }
 }
 
@@ -155,31 +160,44 @@ static inline Cell make_cell(int L, int k) {
 }
 
 // range of sum_k x_k sum_l M_kl y_l for x in box X (interval vector), y in box Y (y0 fixed, y1,y2 vary)
-static inline I bil(const Coef& C, const I* X, const I* Y) {
+static inline I bilM(const I (*M)[3], const I* X, const I* Y) {
     I res; bool first = true;
     for (int a = 0; a < 2; a++) for (int b = 0; b < 2; b++) {
         double y1 = a ? Y[1].hi : Y[1].lo, y2 = b ? Y[2].hi : Y[2].lo;
         I y0 = Y[0];
         I G[3];
-        for (int k = 0; k < 3; k++) G[k] = C.M[k][0] * y0 + C.M[k][1] * I(y1) + C.M[k][2] * I(y2);
+        for (int k = 0; k < 3; k++) G[k] = M[k][0] * y0 + M[k][1] * I(y1) + M[k][2] * I(y2);
         I F = X[0] * G[0] + X[1] * G[1] + X[2] * G[2];
         res = first ? F : hull(res, F); first = false;
     }
     return res;
 }
 
-static inline I evalF(const Coef& C, const Cell& ci, const Cell& cj) {
+// range over the cell (theta) for a fixed coefficient matrix M (interval entries)
+static inline I evalM(const I (*M)[3], const Cell& ci, const Cell& cj) {
     I Xb[3] = {I(1.0), ci.C, ci.S}, Yb[3] = {I(1.0), cj.C, cj.S};
-    I Fcorner = bil(C, Xb, Yb);
-    // mean value form
+    I Fcorner = bilM(M, Xb, Yb);
+    // mean value form in theta
     I Xc[3] = {I(1.0), ci.c, ci.s}, Yc[3] = {I(1.0), cj.c, cj.s};
-    I Fc = bil(C, Xc, Yc);
+    I Fc = bilM(M, Xc, Yc);
     I Xd[3] = {I(0.0), -ci.S, ci.C}, Yd[3] = {I(0.0), -cj.S, cj.C};
-    I dFi = bil(C, Xd, Yb);
-    I dFj = bil(C, Xb, Yd);
+    I dFi = bilM(M, Xd, Yb);
+    I dFj = bilM(M, Xb, Yd);
     I Fmv = Fc + ci.H * dFi + cj.H * dFj;
     I r = meet(Fcorner, Fmv);
     if (r.lo > r.hi) r = Fcorner;
+    return r;
+}
+// range over D x cell: meet of (box coefficients) and (centre coefficients + d-gradient form)
+static inline I evalF(const Coef& C, const Cell& ci, const Cell& cj) {
+    I r = evalM(C.M, ci, cj);
+    if (C.useG) {
+        I Xb[3] = {I(1.0), ci.C, ci.S}, Yb[3] = {I(1.0), cj.C, cj.S};
+        I f = evalM(C.Mc, ci, cj);
+        for (int m = 0; m < 3; m++) f = f + bilM(C.G[m], Xb, Yb) * C.dD[m];
+        I r2 = meet(r, f);
+        if (!(r2.lo > r2.hi)) r = r2;
+    }
     return r;
 }
 
@@ -414,6 +432,7 @@ static CompResult components(const Bitmap& P12, const Bitmap& P23, const Bitmap&
 // ---------------------------------------------------------------------------------------------
 int main(int argc, char** argv) {
     const char* table = argc > 1 ? argv[1] : "trig_table.bin";
+    if (argc > 2) USE_G = atoi(argv[2]) != 0;
     load_table(table);
     char line[512];
     while (fgets(line, sizeof line, stdin)) {

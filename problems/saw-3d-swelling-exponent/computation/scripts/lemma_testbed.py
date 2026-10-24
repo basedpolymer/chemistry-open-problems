@@ -281,6 +281,22 @@ def main():
     scan("D5 E_n|w_n|^2 >= E_n|w_k|^2 + E_n|w_{n-k}|^2, i.e. E_n[w_k.(w_n - w_k)] >= 0, all 1 <= k < n",
          range(2, N + 1), lambda n: next(("k=%d" % k for k in range(1, n) if E[n] < Ek[(k, n)] + Ek[(n - k, n)]), None))
     print("     note D5: by reversal (w_n - w_{n-i})_i is again uniform, so E_n|w_n - w_k|^2 = E_n|w_{n-k}|^2.")
+    # lower-bound CL3 margins: Delta_1(n) = E_n|w_{n-1}|^2 - E_{n-1}, Delta_2(n) = E_n[w_n . w_1] - 1.
+    # By reversal (w_n - w_{n-i})_i, E_n[w_n . w_1] = E_n[w_n . s_n] = E_n[w_{n-1} . s_n] + 1 and
+    # |w_n|^2 = |w_{n-1}|^2 + 2 w_{n-1}.s_n + 1, so Delta_2(n) = (E_n - E_n|w_{n-1}|^2 - 1)/2 (exact, from the M table).
+    d1 = {n: Ek[(n - 1, n)] - E[n - 1] for n in range(2, N + 1)}
+    d2 = {n: (E[n] - Ek[(n - 1, n)] - 1) / 2 for n in range(2, N + 1)}
+    print("     lower-bound CL3 margins (exact; Delta_1 + 2 Delta_2 = E_n - E_{n-1} - 1):")
+    for n in range(2, N + 1):
+        print("       n=%2d  Delta_1 = %-34s = %.6f   Delta_2 = %-34s = %.6f" % (n, d1[n], fl(d1[n]), d2[n], fl(d2[n])))
+    scan("D6 (I1) Delta_1(n) = E_n|w_{n-1}|^2 - E_{n-1}|w_{n-1}|^2 >= 0", range(2, N + 1),
+         lambda n: None if d1[n] >= 0 else "%s" % d1[n])
+    scan("D7 (I2) Delta_2(n) = E_n[w_n . w_1] - 1 >= 0", range(2, N + 1), lambda n: None if d2[n] >= 0 else "%s" % d2[n])
+    scan("D6b Delta_1(n) nondecreasing", range(2, N), lambda n: None if d1[n + 1] >= d1[n] else "")
+    scan("D6c Delta_1(n) nondecreasing within parity", range(2, N - 1), lambda n: None if d1[n + 2] >= d1[n] else "")
+    scan("D7b Delta_2(n) nondecreasing", range(2, N), lambda n: None if d2[n + 1] >= d2[n] else "")
+    print("     NUMERICS Delta_2(n)/n^{2 nu - 1}:", " ".join("%d:%.4f" % (n, fl(d2[n]) / n ** (2 * 0.587597 - 1))
+                                                       for n in range(2, N + 1)))
     print("     E_n|w_{n/2}|^2 / E_{n/2}:", " ".join("%d:%.4f" % (n, fl(Ek[(n // 2, n)] / E[n // 2])) for n in range(2, N + 1, 2)))
     mp = {n: F(D.max_point_mid(n // 2, n), D.c[n]) for n in range(2, N + 1)}
     print("     sup_x P_n(w_{floor(n/2)} = x) * n^{1/2} (DGHM 2016 Prop 1.3: bounded):",
@@ -318,6 +334,21 @@ def main():
 
     if gram_path:
         gram_section(gram_path)
+    es = os.path.join(ROOT, "data", "end_steps_N18.txt")
+    if os.path.exists(es):
+        print()
+        print("## G'. First/last step correlation from src/end_steps.cpp (independent program), data/end_steps_N18.txt")
+        rows = {}
+        for line in open(es):
+            t = line.split()
+            if t and t[0] == "E":
+                v = list(map(int, t[2:]))
+                rows[int(t[1])] = (6 * (v[0] - v[1]), 6 * sum(v))
+        for n in sorted(rows):
+            assert rows[n][1] == c[n]
+        scan("G1' E_n[s_1 . s_n] >= 0", sorted(rows), lambda n: None if rows[n][0] >= 0 else
+             "sum over n-step SAWs of s_1.s_n = %d, E_n[s_1.s_n] = %s" % (rows[n][0], F(rows[n][0], rows[n][1])))
+        print("     E_n[s_1 . s_n]:", " ".join("%d:%.4e" % (n, rows[n][0] / rows[n][1]) for n in sorted(rows)))
 
     print()
     print("## E. NUMERICS: amplitudes")

@@ -13,3 +13,19 @@ PASS C1 case 9: every network is classified (unclassified: 0)
 PASS C2 case 9: BBH-Hopf <=> (u>0, c1>0, d1>0, c1u1-c3u3>0) (mismatches: 0)
 PASS C3 case 9: families 9a/9b/10a have k>=1 and d2 in {-1,0} (violations: 0)
 PASS C4 case 9: LVA class has the stated shape (violations: 0)
+
+=== case 10: 85184000 networks
+   rank<2       27016   e.g. 2X -> 0,  X + Y -> Y,  0 -> X
+   trivial   85034404   e.g. 2X -> 0,  X + Y -> 0,  0 -> Y
+   saddle       35910   e.g. 2X -> 3X,  X + Y -> 0,  0 -> Y
+   c1<=0        46980   e.g. 2X -> 0,  X + Y -> 0,  0 -> 2X + Y
+   HOPF         11999   e.g. 2X -> 4X + 3Y,  X + Y -> 0,  0 -> X
+   10a          27691   e.g. 2X -> 3X + 2Y,  X + Y -> 0,  0 -> X
+PASS C1 case 10: every network is classified (unclassified: 0)
+PASS C2 case 10: BBH-Hopf <=> (u>0, c1>0, d1>0, c1u1-c3u3>0) (mismatches: 0)
+PASS C3 case 10: families 9a/9b/10a have k>=1 and d2 in {-1,0} (violations: 0)
+PASS C4 case 10: LVA class has the stated shape (violations: 0)
+PASS C5 BBH example is in family 9a with k = c3u3/(c1u1) = 1/1 = 1
+
+runtime 62.3 s
+ALL PASS

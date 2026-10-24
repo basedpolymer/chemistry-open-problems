@@ -1,0 +1,75 @@
+== S1 normalisation
+PASS S1 case 9: normalised system is X' = sum c_i u_i M_i, Y' = (xbar/ybar) sum d_i u_i M_i
+PASS S1 case 9: (1,1) is an equilibrium (sum c_i u_i = sum d_i u_i = 0 identically)
+PASS S1 case 10: normalised system is X' = sum c_i u_i M_i, Y' = (xbar/ybar) sum d_i u_i M_i
+PASS S1 case 10: (1,1) is an equilibrium (sum c_i u_i = sum d_i u_i = 0 identically)
+PASS S1 case 9: kappa1 x^2 = mu u1, kappa2 x y = mu u2, kappa3 y = mu u3 solved by x = k3u2/(k2u3), y = k1k3u2^2/(k2^2u1u3) (unique: x is forced by eqs 2/3, then y by eqs 1/2)
+PASS S1 case 10: mu = k3/u3, x = sqrt(mu u1/k1), y = mu u2/(k2 x) (unique positive solution)
+== S2 Liénard identity
+PASS S2 (1/B) xdot = Y - F(x)  with Y = y - N(x) + F(x), N = -A/B
+PASS S2 (1/B) dY/dt = -g(x)  with F' = f = N' - rho D/B, g = -rho (BC-AD)/B^2
+PASS S2 f(1) = -trJ(1,1)/B(1) (uses A(1) = -B(1), i.e. (1,1) on the x-nullcline)
+== S3 families 9a, 9b, 10a
+PASS S3 9a: u = (q, c1*q + c3*p, p) > 0 (polynomials with positive coefficients)
+PASS S3 9a: system is linear in y: A=c1*q*x**2, B=-c1*q*x - c3*p*x + c3*p
+PASS S3 9a: alpha2 = alpha1 + alpha3 (alpha1 = c1u1, alpha2 = u2, alpha3 = c3u3)
+PASS S3 9a: c1u1 - c3u3 = alpha1 - alpha3 = 2c1c3(-d2) - c1d3 - c3d1 (so BBH-Hopf fails <=> k = alpha3/alpha1 >= 1)
+PASS S3 9a: BC - AD = u1u2u3 * x^2(1-x)
+PASS S3 9a: B = alpha3 - alpha2 x, negative exactly for x > x0 = alpha3/alpha2
+PASS S3 9a: on x = x0, xdot = A(x0) = alpha1 x0^2 > 0
+PASS S3 9a: D(x0) = -p*q < 0 and D' = -c1*q - c3*p <= 0, hence D < 0 < -B on (x0, oo): D/B > 0
+PASS S3 9a: N'(1) = (alpha1-alpha3)/alpha1 = 1-k <= 0 iff k >= 1
+PASS S3 9a: D(1)/B(1) = (c1 + p)/c1 > 0, so f(1) = N'(1) - rho D(1)/B(1) < 0 when k >= 1
+PASS S3 9b: u = (1, c1 + c3*d1, d1) > 0 (polynomials with positive coefficients)
+PASS S3 9b: system is linear in y: A=c1*x**2, B=-c1*x - c3*d1*x + c3*d1
+PASS S3 9b: alpha2 = alpha1 + alpha3 (alpha1 = c1u1, alpha2 = u2, alpha3 = c3u3)
+PASS S3 9b: c1u1 - c3u3 = alpha1 - alpha3 = 2c1c3(-d2) - c1d3 - c3d1 (so BBH-Hopf fails <=> k = alpha3/alpha1 >= 1)
+PASS S3 9b: BC - AD = u1u2u3 * x^2(1-x)
+PASS S3 9b: B = alpha3 - alpha2 x, negative exactly for x > x0 = alpha3/alpha2
+PASS S3 9b: on x = x0, xdot = A(x0) = alpha1 x0^2 > 0
+PASS S3 9b: D(x0) = -d1 < 0 and D' = 0 <= 0, hence D < 0 < -B on (x0, oo): D/B > 0
+PASS S3 9b: N'(1) = (alpha1-alpha3)/alpha1 = 1-k <= 0 iff k >= 1
+PASS S3 9b: D(1)/B(1) = d1/c1 > 0, so f(1) = N'(1) - rho D(1)/B(1) < 0 when k >= 1
+PASS S3 10a: u = (q, c1*q + c3*p, p) > 0 (polynomials with positive coefficients)
+PASS S3 10a: system is linear in y: A=c1*q*x**2 + c3*p, B=-c1*q*x - c3*p*x
+PASS S3 10a: alpha2 = alpha1 + alpha3 (alpha1 = c1u1, alpha2 = u2, alpha3 = c3u3)
+PASS S3 10a: c1u1 - c3u3 = alpha1 - alpha3 = 2c1c3(-d2) - c1d3 - c3d1 (so BBH-Hopf fails <=> k = alpha3/alpha1 >= 1)
+PASS S3 10a: BC - AD = u1u2u3 * x(1-x^2)
+PASS S3 10a: B = -u2 x < 0 on (0, oo) and D/B = 1
+PASS S3 10a: on x = 0, xdot = alpha3 = c3 u3 > 0
+PASS S3 10a: N'(1) = (alpha1-alpha3)/alpha2 <= 0 iff k >= 1
+PASS S3 10a: D(1)/B(1) = 1 > 0, so f(1) = N'(1) - rho D(1)/B(1) < 0 when k >= 1
+== S4 case 9 in the variable eta
+PASS S4 9a: x = (eta+k)/(1+k) maps eta in (0,oo) increasingly onto (x0,oo), eta = 1 <-> x = 1
+PASS S4 9a: N(x(eta)) = (eta+k)^2 / ((1+k)^2 eta)
+PASS S4 9a: (g/rho) dx = K (eta+k)^2 (eta-1)/eta^2 d eta with K = c1**2*p*q**3/(c1*q + c3*p)**3 > 0
+PASS S4 9a: g/rho = u1u2u3 x^2 (x-1)/B^2 with u1u2u3 > 0, so (x-1) g(x) > 0 on I minus {1}
+PASS S4 9b: x = (eta+k)/(1+k) maps eta in (0,oo) increasingly onto (x0,oo), eta = 1 <-> x = 1
+PASS S4 9b: N(x(eta)) = (eta+k)^2 / ((1+k)^2 eta)
+PASS S4 9b: (g/rho) dx = K (eta+k)^2 (eta-1)/eta^2 d eta with K = c1**2*d1/(c1 + c3*d1)**3 > 0
+PASS S4 9b: g/rho = u1u2u3 x^2 (x-1)/B^2 with u1u2u3 > 0, so (x-1) g(x) > 0 on I minus {1}
+== S5 Lemma: H_k(k^2/a) > H_k(a) for 0<a<1, k>=1
+PASS S5 H_k(eta) := eta^2/2 + (2k-1)eta + (k^2-2k)log eta + k^2/eta - (k^2+2k-1/2) satisfies H_k(1)=0, H_k' = (eta+k)^2(eta-1)/eta^2
+PASS S5 P(a) := H_k(k^2/a) - H_k(a) has P'(a) = -Q(a)/a^3, Q = a^4+(2k-2)a^3+2k(k-2)a^2+(2k-2)k^2 a+k^4
+PASS S5 Q(a)/a^2 = 8k(k-1) + (6k-2)s + s^2 with s = (a-k)^2/a >= 0; hence Q > 0 for k >= 1 and a != k
+PASS S5 P(1) = H_k(k^2) >= 0 (H_k >= 0 on [1,oo) since H_k' >= 0 there)
+PASS S5 spot check: P(a) > 0 at 300 random rational (k >= 1, 0 < a < 1) (60-digit evaluation; illustration only)
+PASS S5 N(a) - N(b) = (a-b)(1 - k^2/(ab))/(1+k)^2 (eta variable); > 0 when a < b and ab < k^2
+== S6 case 10
+PASS S6 g/rho = (u1u3/u2) h'(x) with h(x) = x^2/2 - log x; (x-1)g > 0 on (0,oo) minus {1}
+PASS S6 N(x) = (alpha1 x^2 + alpha3)/(alpha2 x)
+PASS S6 N(a) - N(b) = (a-b)(alpha1 - alpha3/(ab))/alpha2; > 0 when a < b and ab < k = alpha3/alpha1
+PASS S6 h(1/t) - h(t) vanishes at t = 1 and has derivative -(1-t^2)^2/t^3 < 0: so h(1/a) > h(a) for 0 < a < 1
+== S7 Dulac 1/(xy) and boundary
+PASS S7 case 9: div(F/(xy)) = (-d1 k1 x^3 + c1 k1 x^2 y - c3 k3 y^2)/(x^2 y^2)
+     -> with d1 >= 0, c3 >= 0 (and d3 >= 0 in case 10): < 0 on the open quadrant if c1 < 0, or c1 = 0 (then d1 > 0)
+PASS S7 case 10: div(F/(xy)) = (-d1 k1 x^3 + c1 k1 x^2 y - c3 k3 y - d3 k3 x)/(x^2 y^2)
+     -> with d1 >= 0, c3 >= 0 (and d3 >= 0 in case 10): < 0 on the open quadrant if c1 < 0, or c1 = 0 (then d1 > 0)
+PASS S7 LVA type: div(F/(xy)) = c1 k1 / y > 0 for c1 >= 1
+     9a: xdot|x=0 = c3*kappa3*y,  ydot|y=0 = kappa1*x**2*(c1 + p)
+PASS S7 9a: xdot > 0 on {x=0, y>0} and ydot > 0 on {y=0, x>0}
+     9b: xdot|x=0 = c3*kappa3*y,  ydot|y=0 = d1*kappa1*x**2
+PASS S7 9b: xdot > 0 on {x=0, y>0} and ydot > 0 on {y=0, x>0}
+     10a: xdot|x=0 = kappa3*q + kappa3*r,  ydot|y=0 = c1*kappa1*x**2 + kappa1*p*x**2 + kappa3*r
+PASS S7 10a: xdot > 0 on {x=0, y>0} and ydot > 0 on {y=0, x>0}
+ALL PASS

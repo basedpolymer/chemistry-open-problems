@@ -105,6 +105,48 @@ def gram_all(N):
     return dict(G)
 
 
+def halfspace_all(N):
+    """brute force: B[(n,T)] bridges of height T; R[(n,T)] bridges of height 2T with a renewal at height T;
+    A[(n,M)] arches (x1(w_n) = 0, x1(w_i) > 0 for 0 < i < n) with max height M; H[n] half-space walks."""
+    B, R, A, H = defaultdict(int), defaultdict(int), defaultdict(int), defaultdict(int)
+    walk = [(0, 0, 0)]
+    seen = {(0, 0, 0)}
+
+    def visit():
+        m = len(walk) - 1
+        h = [p[0] for p in walk]
+        if m >= 1 and min(h[1:]) > 0:
+            H[m] += 1
+            if h[m] == max(h):
+                B[(m, h[m])] += 1
+                if h[m] % 2 == 0:
+                    T = h[m] // 2
+                    for i in range(m + 1):
+                        if h[i] == T and max(h[:i + 1]) <= T and min(h[i + 1:]) > T:
+                            R[(m, T)] += 1
+                            break
+        if m >= 2 and h[m] == 0 and min(h[1:m]) > 0:
+            A[(m, max(h))] += 1
+        if m == N:
+            return
+        e = walk[-1]
+        for s in STEPS:
+            q = (e[0] + s[0], e[1] + s[1], e[2] + s[2])
+            if q in seen:
+                continue
+            if m >= 1 and min(h[1:]) <= 0:
+                continue  # only half-space walks (and arches ending at height 0) are needed
+            seen.add(q)
+            walk.append(q)
+            visit()
+            walk.pop()
+            seen.discard(q)
+
+    visit()
+    H[0], B[(0, 0)], R[(0, 0)] = 1, 1, 1
+    return dict(B), dict(R), dict(A), dict(H)
+
+
 if __name__ == "__main__":
     import sys
 
