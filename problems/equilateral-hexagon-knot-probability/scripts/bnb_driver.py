@@ -23,6 +23,7 @@ import argparse, pickle, subprocess, sys, time, os
 from fractions import Fraction
 
 EXP = 600   # common exponent: values are stored as integers / 2^EXP
+OCT_LEVEL = 6   # boxes coarser than 2^-6 (in s, t; 2^-5 in d1/2) are split isotropically
 
 def weight_num(L1, a1, L2, a2, L3, a3, Lth):
     """w(D) * 2^EXP as an exact integer (w is a dyadic rational)."""
@@ -66,10 +67,19 @@ def compact(l):
 def refine(l, lth_max):
     """children boxes of leaf l (list), according to the uncertainty attribution"""
     L1, a1, L2, a2, L3, a3, Lth = l["box"]
+    m = min(L1 - 1, L2, L3)
+    if m < OCT_LEVEL:                     # large boxes: isotropic octree split, theta level tied to box size
+        nl = min(lth_max, max(Lth, m + 1 + 2))
+        return [(L1 + 1, 2 * a1 + i, L2 + 1, 2 * a2 + j, L3 + 1, 2 * a3 + k, nl)
+                for i in range(2) for j in range(2) for k in range(2)]
     at = list(l["attr"])
-    if Lth >= lth_max:
-        at[0] = -1.0
-    k = max(range(4), key=lambda i: at[i])
+    if Lth >= lth_max or Lth > min(L1 - 1, L2, L3) + 3:
+        at[0] = -1.0                      # theta grid already much finer than the d-box
+    if max(at) <= 0:                      # no usable attribution: bisect the coarsest d-axis
+        lev = {1: L1 - 1, 2: L2, 3: L3}
+        k = min((2, 3, 1), key=lambda i: lev[i])
+    else:
+        k = max(range(4), key=lambda i: at[i])
     if k == 0:
         return [(L1, a1, L2, a2, L3, a3, Lth + 1)]
     if k == 1:
@@ -111,7 +121,10 @@ def main():
     ap.add_argument("--lth-init", type=int, default=6)
     ap.add_argument("--lth-max", type=int, default=12)
     ap.add_argument("--hours", type=float, default=1e9)
+    ap.add_argument("--oct-level", type=int, default=6)
     args = ap.parse_args()
+    global OCT_LEVEL
+    OCT_LEVEL = args.oct_level
     t0 = time.time()
     cert = Certifier(args.bin, args.table)
     if os.path.exists(args.state):

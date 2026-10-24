@@ -1,0 +1,42 @@
+--- viprchk_orig.cpp	2026-10-24 09:59:35.937443857 +0000
++++ viprchk.cpp	2026-10-24 09:59:35.964996218 +0000
+@@ -652,13 +652,13 @@
+          if( lowerStr != "-inf" )
+          {
+             checkLower = true;
+-            lowerBound = mpq_class(lowerStr);
++            lowerBound = mpq_class(lowerStr); lowerBound.canonicalize(); // patch
+          }
+ 
+          if( upperStr != "inf" )
+          {
+             checkUpper = true;
+-            upperBound = mpq_class(upperStr);
++            upperBound = mpq_class(upperStr); upperBound.canonicalize(); // patch
+          }
+ 
+ 
+@@ -1292,6 +1292,7 @@
+       int index;
+ 
+       certificateFile >> index >> a;
++      a.canonicalize(); // patch: GMP requires canonical rationals
+ 
+       if( index < 0 )
+       {
+@@ -1367,6 +1368,7 @@
+          mpq_class a;
+ 
+          certificateFile >> index >> a;
++      a.canonicalize(); // patch: GMP requires canonical rationals
+          if (certificateFile.fail()) {
+             cerr << "Error reading integer-rational pair " << endl;
+             goto TERMINATE;
+@@ -1414,6 +1416,7 @@
+       }
+ 
+       certificateFile >> rhs;
++      rhs.canonicalize(); // patch: GMP requires canonical rationals
+ 
+       if( !certificateFile.fail() )
+          returnStatement = readConstraintCoefficients(coefficients, coefEqualsObj);

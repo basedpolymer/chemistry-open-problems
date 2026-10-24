@@ -1,0 +1,12 @@
+cycles C_4..C_200 (C_5: Delta = 0): 197 graphs, Delta>0: 1, Delta<0: 195, Delta=0: 1; smallest |Delta| (Delta != 0) = 1 at C4 (n=4)
+hypercubes Q_2..Q_120: 119 graphs, Delta>0: 119, Delta<0: 0, Delta=0: 0; smallest |Delta| (Delta != 0) = 1 at Q2 (n=4)
+odd graphs O_3..O_81: 79 graphs, Delta>0: 79, Delta<0: 0, Delta=0: 0; smallest |Delta| (Delta != 0) = 1.2 at O3 (n=10)
+incidence graphs of generalized triangles (projective planes) of order (q,q), q=2..150: 149 graphs, Delta>0: 149, Delta<0: 0, Delta=0: 0; smallest |Delta| (Delta != 0) = 0.404762 at GP3(2) (n=14)
+incidence graphs of generalized quadrangles of order (q,q), q=2..150: 149 graphs, Delta>0: 148, Delta<0: 1, Delta=0: 0; smallest |Delta| (Delta != 0) = 4.05556 at GP4(3) (n=80)
+incidence graphs of generalized hexagons of order (q,q), q=2..150: 149 graphs, Delta>0: 148, Delta<0: 1, Delta=0: 0; smallest |Delta| (Delta != 0) = 6.21496 at GP6(3) (n=728)
+Hamming graphs H(d,q), 2<=d,q<=30: 841 graphs, Delta>0: 841, Delta<0: 0, Delta=0: 0; smallest |Delta| (Delta != 0) = 1 at H(2,2) (n=4)
+Johnson graphs J(m,k), m<=40: 361 graphs, Delta>0: 361, Delta<0: 0, Delta=0: 0; smallest |Delta| (Delta != 0) = 1.16667 at J(4,2) (n=6)
+the 13 cubic distance-regular graphs: 13 graphs, Delta>0: 5, Delta<0: 8, Delta=0: 0; smallest |Delta| (Delta != 0) = 0.404762 at Heawood (n=14)
+Moore graphs {k,k-1;1,1}, k=3..300 (formula; exist only for k=3,7,(57)): 298 graphs, Delta>0: 298, Delta<0: 0, Delta=0: 0; smallest |Delta| (Delta != 0) = 1.2 at Moore3 (n=10)
+triangle-free SRG arrays {k,k-1;1,mu}, k<=120 (k=2,mu=1 is C5: Delta=0): 1382 graphs, Delta>0: 1381, Delta<0: 0, Delta=0: 1; smallest |Delta| (Delta != 0) = 1 at tfSRG(2,2) (n=4)
+PASS all DRG families: Delta != 0 except C5

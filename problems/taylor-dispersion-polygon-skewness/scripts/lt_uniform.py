@@ -122,8 +122,7 @@ allpos = True
 for i in range(PIECES):
     a = t0u * i / PIECES
     b = t0u * (i + 1) / PIECES
-    tb = arb((a + b) / 2, ((b - a) / 2).upper())
-    tb = tb.union(a).union(b)
+    tb = a.union(b)                 # ball containing [a, b]
     v = F_lower(tb)
     lo = v.lower()
     if worst is None or lo < worst:

@@ -165,3 +165,38 @@ def check_manifold(n, tets):
             tri_count[k] = tri_count.get(k, 0) + 1
     bad = [k for k, v in tri_count.items() if v != 2]
     return len(bad) == 0, len(tri_count)
+
+
+def tets_from_graph(n, edges):
+    """Periodic tetrahedra = 4-cliques of the periodic contact graph.
+    edges: set of (i, j, s) meaning site i (image 0) touches site j (image s)."""
+    nb = [set() for _ in range(n)]
+    for (i, j, s) in edges:
+        s = tuple(s)
+        nb[i].add((j, s))
+        nb[j].add((i, tuple(-x for x in s)))
+
+    def adj(a, sa, b, sb):
+        d = tuple(sb[c] - sa[c] for c in range(3))
+        return (b, d) in nb[a]
+
+    tets = set()
+    for i in range(n):
+        N = sorted(nb[i])
+        for x in range(len(N)):
+            for y in range(x + 1, len(N)):
+                if not adj(*N[x], *N[y]):
+                    continue
+                for z in range(y + 1, len(N)):
+                    if adj(*N[x], *N[z]) and adj(*N[y], *N[z]):
+                        key, _ = _canon_simplex([(i, (0, 0, 0)), N[x], N[y], N[z]])
+                        tets.add(key)
+    return sorted(tets)
+
+
+def tet_orientations(L, P, tets):
+    vols = []
+    for key in tets:
+        X = np.array([L @ (P[k] + np.array(s)) for (k, s) in key])
+        vols.append(np.linalg.det(X[1:] - X[0]) / 6.0)
+    return np.array(vols)

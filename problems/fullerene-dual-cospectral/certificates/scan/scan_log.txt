@@ -15,3 +15,8 @@ n=98 isomers=231017 oeis_ok=True | A(T): groups=12 mixed=0 classes=12 | A(T6): g
 n=100 isomers=285914 oeis_ok=True | A(T): groups=16 mixed=0 classes=16 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=263 | 2A+D(T): groups=0 mixed=0 classes=0 | A+D(T): groups=0 mixed=0 classes=0 | 79s+7s
 n=102 isomers=341658 oeis_ok=True | A(T): groups=28 mixed=0 classes=28 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=251 | 2A+D(T): groups=0 mixed=0 classes=0 | A+D(T): groups=0 mixed=0 classes=0 | 94s+14s
 n=104 isomers=419013 oeis_ok=True | A(T): groups=13 mixed=0 classes=13 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=265 | 2A+D(T): groups=0 mixed=0 classes=0 | A+D(T): groups=0 mixed=0 classes=0 | 123s+12s
+# from n=106: DUALSPEC_BIN=dualspec16 mask=23 (types 0,1,2,4) K=16
+n=106 isomers=497529 oeis_ok=True | A(T): groups=21 mixed=0 classes=21 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=254 | A+D(T): groups=0 mixed=0 classes=0 | 89s+26s
+n=108 isomers=604217 oeis_ok=True | A(T): groups=35 mixed=2 classes=33 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=265 | A+D(T): groups=0 mixed=0 classes=0 | 106s+17s
+n=110 isomers=713319 oeis_ok=True | A(T): groups=16 mixed=0 classes=16 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=254 | A+D(T): groups=0 mixed=0 classes=0 | 110s+28s
+n=112 isomers=860161 oeis_ok=True | A(T): groups=24 mixed=3 classes=21 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=266 | A+D(T): groups=1 mixed=1 classes=0 | 111s+19s

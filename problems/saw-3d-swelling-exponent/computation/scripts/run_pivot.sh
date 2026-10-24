@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # run_pivot.sh -- production pivot-algorithm runs (NUMERICS ONLY, a sanity check of the setup, not a result).
 # Environment: Linux, g++ >= 9, bash, xargs.  Runs at most 3 processes at a time (resource cap of the lab).
-# Runtime: about 30-60 min wall clock with 3 parallel processes (Xeon 2.8 GHz, machine shared); memory < 100 MB.
+# Runtime: about 15 min wall clock with 3 parallel processes on a free Xeon 2.8 GHz (much longer on a shared
+# machine); memory < 100 MB.
 # Deterministic: fixed seeds; every line of the output is reproducible bit for bit on the same compiler/CPU.
 # Output: ../data/pivot_runs.txt, one line per run:
 #   R n attempts acceptance_fraction mean_R2 err tau_int(attempts) var/mean^2 seconds
@@ -16,16 +17,15 @@ g++ -O3 -march=native -std=c++17 "$ROOT/src/pivot.cpp" -o "$TMP/pivot"
 OUT="$ROOT/data/pivot_runs.txt"
 # n attempts burnin seed  (burn-in >= 10 n attempts; from a straight rod)
 cat > "$TMP/jobs" <<'EOF'
-64000 3000000 1280000 11
-32000 5000000 640000 12
-16000 8000000 320000 14
-8000 12000000 160000 15
-4000 16000000 80000 16
-2000 24000000 40000 17
-1000 32000000 20000 18
-500 40000000 10000 19
-250 50000000 10000 20
-125 50000000 10000 21
+32000 2500000 640000 12
+16000 4000000 320000 14
+8000 6000000 160000 15
+4000 8000000 80000 16
+2000 12000000 40000 17
+1000 16000000 20000 18
+500 20000000 10000 19
+250 25000000 10000 20
+125 25000000 10000 21
 EOF
 {
   echo "# pivot runs, $(date -u +%Y-%m-%dT%H:%MZ), $(g++ --version | head -1), $(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2)"

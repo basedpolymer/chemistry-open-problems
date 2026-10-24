@@ -4,6 +4,7 @@ For an eps-box E and the Krawczyk box X of the Hopf point (kappa_j, z_H) (all ep
   (L)  localization (as in h2_lib): every zero phi of F with |phi| >= 1, Re lambda >= 0 has |z| < R0, z = M(phi-1);
   (Mo) monotonicity: Re Lambda'(z) > 0 on the rectangle Rect = [x_min, R0] x [-Y, Y] (R0 <= Y), where
        Lambda = z + eps z^2/(kappa phi), so x -> Re Lambda(x + i y) is strictly increasing there;
+  (R)  region: |z| <= R0 and Re z <= x_min imply Re Lambda < 0 (allm_core.region_check with sigma = -x_min);
   (P)  a polygon P = {l(y) < x < R0, |y| < Y} whose left chain l is a piecewise linear graph over y with
        Re Lambda < c_L < 0 on it (interval check on every edge);  winding number count N(P) = 2j + 2;
   (P-) a polygon P- = {l(y) < x < r(y), |y| < Y} whose right chain r has Re Lambda > c_R > 0 on it;
@@ -127,6 +128,13 @@ def h2j_checks(j, eb, box, R0, Y, cL, cR, a1="0.1", nchain=48):
     out["mono_ub"] = float(mono)
     if not (mono < 1) or not (R0 <= Y):
         out.update(ok=False, fail="monotonicity"); return out
+    # zeros with Re Lambda >= 0 and |z| <= R0 have Re z > xmin (Lemma 4.2 with sigma = -xmin), so they lie in Rect
+    if not (xmin < 0):
+        out.update(ok=False, fail="xmin"); return out
+    reg = C.region_check(eb, kap, R0, arb(-xmin))
+    out["region_ub"] = float(reg)
+    if not (reg < 0):
+        out.update(ok=False, fail="region"); return out
     # the Hopf zero must be strictly inside Rect (|y| < Y) -- it then lies in P- by monotonicity
     if not (C.arb_up(abs(box[2])) < Y):
         out.update(ok=False, fail="Hopf zero outside"); return out

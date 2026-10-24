@@ -108,6 +108,8 @@ def T_over_eps_bound(eps, kap, k):
     and eps -> exp(-c/eps)/eps^k is increasing on (0, c/k)."""
     eps = arb(eps); kap = arb(kap)
     e_hi = arb_up(eps)
+    if not (e_hi > 0):
+        return arb(0)            # eps = 0 exactly: the limit M = infinity, T = 0
     k_lo = arb(kap.lower()); k_hi = arb(kap.upper())
     assert e_hi < k_lo / max(k, 1), "eps too large for the monotonicity argument"
     return arb_up((-(k_lo / e_hi) + k_hi * k_hi / 2).exp() / e_hi ** k)
@@ -250,18 +252,33 @@ def newton(X0, eps, it=100):
             break
     return X
 
+def f_mid_split(Xm, eps):
+    """f(m; eps_m) (narrow) and d f/d eps (m; E) over the eps-ball E, for the mean value form in eps"""
+    kap, x, y = Xm
+    em = arb(arb(eps).mid())
+    Qm, Lm = QL(kap, acb(x, y), em)
+    Q, Lam = QL(kap, acb(x, y), eps)
+    f0 = [Qm.v.real, Qm.v.imag, Lm.v.real]
+    fe = [Q.de.real, Q.de.imag, Lam.de.real]
+    return f0, fe, em
+
 def krawczyk(Xm, rad, eps):
     """Krawczyk test on the box Xm +- rad, uniformly for all eps' in the ball eps.
-    Returns the Krawczyk image (subset of the box) or None."""
+    K = m - Y f(m; eps_m) - (Y d_eps f(m; E)) (E - eps_m) + (I - Y J(X; E)) (X - m)   (the product Y d_eps f is
+    formed before multiplying by the scalar interval E - eps_m, to avoid the wrapping effect).
+    Returns (Krawczyk image, box) or (None, box)."""
+    eps = arb(eps)
     box = [arb(Xm[i], rad[i]) for i in range(3)]
-    fm, Jm = fvec_jac(Xm, eps)
+    f0, fe, em = f_mid_split(Xm, eps)
     _, JX = fvec_jac(box, eps)
-    Jmid = fvec_jac(Xm, arb(arb(eps).mid()))[1]
+    Jmid = fvec_jac(Xm, em)[1]
     Y = arb_mat([[c.mid() for c in row] for row in Jmid]).inv()
     Y = arb_mat([[Y[i, j].mid() for j in range(3)] for i in range(3)])
-    I3 = arb_mat([[1 if i == j else 0 for j in range(3)] for i in range(3)])
+    I3 = arb_mat([[1 if i == k else 0 for k in range(3)] for i in range(3)])
     dev = arb_mat([[box[i] - Xm[i]] for i in range(3)])
-    Kx = arb_mat([[Xm[i]] for i in range(3)]) - Y * arb_mat([[c] for c in fm]) + (I3 - Y * arb_mat(JX)) * dev
+    de = eps - em
+    Yfe = Y * arb_mat([[c] for c in fe])
+    Kx = arb_mat([[Xm[i]] for i in range(3)]) - Y * arb_mat([[c] for c in f0]) - Yfe * de + (I3 - Y * arb_mat(JX)) * dev
     if all(box[i].contains_interior(Kx[i, 0]) for i in range(3)):
         return [Kx[i, 0] for i in range(3)], box
     return None, box

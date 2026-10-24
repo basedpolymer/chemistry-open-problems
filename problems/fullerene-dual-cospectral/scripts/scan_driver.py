@@ -12,7 +12,8 @@ Pipeline for each even n (C_n has a dual triangulation T_n with m = n/2 + 2 vert
   4. writes certificates/scan/n<NNN>.json (counts, classes with graph6 codes, timings).
 
 Matrix types: 0 A(T), 1 A(T6), 2 A(T5) (hash counts only), 3 2A+D on T, 4 A+D on T.
-Usage: python3 scan_driver.py NMIN NMAX [MASK] [K]
+Usage: [DUALSPEC_BIN=dualspec16|dualspec32] python3 scan_driver.py NMIN NMAX [MASK] [K]
+  (dualspec16 / dualspec32: traces mod 2^16 / 2^32; both complete, the exact settlement removes false positives)
 Environment: python3.13, python-flint 0.9, buckygen 1.1, nauty 2.8.8 (labelg); paths below.
 Runtime: n <= 100: minutes; n = 150: ~1 h on one (loaded) core.
 """
@@ -31,7 +32,7 @@ from planarcode import read_planar_code, to_graph6, check_triangulation_dual_of_
 
 SRC = os.path.join(ROOT, 'certificates', 'sources')
 BUCKYGEN = os.path.join(SRC, 'tools', 'bg', 'buckygen-1.1', 'buckygen')
-DUALSPEC = os.path.join(SRC, 'build', 'dualspec32')
+DUALSPEC = os.path.join(SRC, 'build', os.environ.get('DUALSPEC_BIN', 'dualspec32'))
 PCSELECT = os.path.join(SRC, 'build', 'pcselect')
 LABELG = os.path.join(SRC, 'tools', 'nauty2_8_8', 'labelg')
 OUTDIR = os.path.join(ROOT, 'certificates', 'scan')
@@ -137,7 +138,7 @@ def run_n(n, mask, K, oe):
         assert len(gl) == len(idx)
         sel = dict(zip(idx, gl))
     res = {'n': n, 'm': m, 'isomers': graphs, 'oeis_A007894': oe.get(n), 'count_matches_oeis': oe.get(n) == graphs,
-           'mask': mask, 'K': K, 'hash_seconds': round(t_hash, 1), 'types': {}}
+           'mask': mask, 'K': K, 'hash_binary': os.path.basename(DUALSPEC), 'hash_seconds': round(t_hash, 1), 'types': {}}
     for g in sel.values():
         errs = check_triangulation_dual_of_fullerene(g)
         assert not errs and len(g) == m, errs

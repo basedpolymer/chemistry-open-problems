@@ -3,12 +3,13 @@ objectives with many variables.  Deterministic."""
 import numpy as np
 
 
-def lbfgs(fg, x0, m=20, maxiter=10000, gtol=1e-13, stall_window=100, stall_tol=1e-14, callback=None):
+def lbfgs(fg, x0, m=20, maxiter=10000, gtol=1e-13, stall_window=100, stall_tol=1e-14, callback=None, noise=4e-15):
     x = x0.copy()
     f, g = fg(x)
     S, Y, RHO = [], [], []
     hist = [f]
     nfev = 1
+    nback = 0
     it = 0
     msg = "maxiter"
     for it in range(1, maxiter + 1):
@@ -33,9 +34,12 @@ def lbfgs(fg, x0, m=20, maxiter=10000, gtol=1e-13, stall_window=100, stall_tol=1
             S, Y, RHO = [], [], []
             d = -gamma * g if gamma > 0 else -g
             gd = g @ d
+        if -gd < noise * abs(f):
+            msg = "noise floor"
+            break
         t = 1.0
         accepted = False
-        for ls in range(40):
+        for ls in range(30):
             xn = x + t * d
             fn, gn = fg(xn)
             nfev += 1
@@ -43,6 +47,7 @@ def lbfgs(fg, x0, m=20, maxiter=10000, gtol=1e-13, stall_window=100, stall_tol=1
                 accepted = True
                 break
             t *= 0.5
+            nback += 1
         if not accepted:
             msg = "line search failed"
             break
@@ -63,4 +68,4 @@ def lbfgs(fg, x0, m=20, maxiter=10000, gtol=1e-13, stall_window=100, stall_tol=1
         if len(hist) > stall_window and (hist[-stall_window - 1] - hist[-1]) <= stall_tol * abs(hist[-1]):
             msg = "stall"
             break
-    return x, f, g, {"nit": it, "nfev": nfev, "msg": msg}
+    return x, f, g, {"nit": it, "nfev": nfev, "msg": msg, "nback": nback}

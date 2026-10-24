@@ -147,6 +147,16 @@ class Terms:
     def __sub__(self, o):
         return self + o.scale(-1)
 
+    def mul(self, o):
+        """Product, using Re(w^m) Re(w^l) = (Re(w^(m+l)) + r^(2 min(m,l)) Re(w^|m-l|)) / 2."""
+        r = Terms()
+        for (a, m), c in self.d.items():
+            for (b, l), d in o.d.items():
+                cd = c * d / 2
+                r.add(a + b, m + l, cd)
+                r.add(a + b + min(m, l), abs(m - l), cd)
+        return r
+
     def laplacian(self):
         r = Terms()
         for (a, m), c in self.d.items():

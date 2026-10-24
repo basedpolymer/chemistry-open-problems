@@ -214,7 +214,8 @@ struct DetTab {
         double w[4]; w[0] = wt.hi - wt.lo;
         for (int m = 0; m < 3; m++) { I x = (r.bm[m][0] + r.bm[m][1] * cj.U1 + r.bm[m][2] * cj.U2) * C->dD[m]; w[m + 1] = x.hi - x.lo; }
         double tot = w[0] + w[1] + w[2] + w[3];
-        if (!(tot > 0) || !std::isfinite(tot)) return;
+        if (!std::isfinite(tot)) { for (int k = 1; k < 4; k++) acc[k] += 1.0 / 3; return; }   // d-box too large
+        if (!(tot > 0)) return;
         for (int k = 0; k < 4; k++) acc[k] += w[k] / tot;
     }
 };

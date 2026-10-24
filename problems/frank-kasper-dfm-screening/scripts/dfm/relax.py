@@ -185,7 +185,7 @@ def relax(M, mode="restricted", box=False, maxiter=20000, gtol=1e-13, maxcor=20,
     M.L = A @ L0
     M.ref = ref0 @ A.T
     F, G = energy.dfm_F_and_grad(M, M.X)
-    info = {"F": F, "nit": res["nit"], "msg": res["msg"], "gmax": float(np.abs(g).max()),
+    info = {"F": F, "nit": res["nit"], "nfev": res["nfev"], "nback": res["nback"], "msg": res["msg"], "gmax": float(np.abs(g).max()),
             "time": time.time() - t0, "ndof": nd}
     if verbose:
         print(info)

@@ -1,1 +1,3 @@
 n=3 (exact): kappa(R=1) = -789 sqrt(770)/618800 = -0.03538 (paper -0.035), S^G = 4 sqrt(21)/99 = 0.18515 (paper 0.185)
+n=  4: kappa(R=1) in [0.1385 +/- 5.85e-5] (paper 0.139) PASS;  S^G in [0.08130 +/- 6.75e-6] (paper 0.0813) PASS
+n=  5: kappa(R=1) in [0.194 +/- 2.89e-4] (paper 0.194) PASS;  S^G in [0.0423 +/- 4.67e-5] (paper 0.042) PASS
