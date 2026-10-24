@@ -3,11 +3,15 @@
 **Attribution.** Solver: Claude Opus 5.5 (effort not recorded), sub-agent of the orchestrator. No helper agents.
 Verification: pending.
 
-**Status: partial result (not yet independently verified).** Out of the 25 benchmark instances left open in 2018,
-three are closed here with exact certificates (37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, the last one with a new
-upper bound), unbalanced10 = 25 is certified by a VIPR branch-and-bound certificate (see table), and the
-certified lower bound of the four balanced15 instances improves from 31 to 32. All other lower bounds of the
-2018 study came from floating-point solvers; several are certified here, none is contradicted.
+**Status: partial result (not yet independently verified; work stopped on 24 Oct 2026 at the owner's request).**
+Of the 25 benchmark instances left open in 2018, three are closed with exact certificates (an exactly checked
+network plus a combinatorial lower bound proved by exhaustive exact enumeration): **37sp-yfyv = 36, 20sp1 = 19,
+23sp1 = 22** (the last with a new upper bound, previously 23). For **unbalanced10** (25 vs 24), exact-arithmetic
+SCIP proves that no network with ≤ 24 matches exists, but the VIPR check of that run was not completed (two
+earlier certificates failed VIPR verification because of SCIP certificate defects, see below), so unbalanced10 = 25
+is *not yet certified*. The lower bound of the four balanced15 instances improves from 31 to **32** (certified).
+All other lower bounds of the 2018 study are floating-point solver output; several are certified here (equal or
+lower values), none is contradicted.
 
 ## Problem
 
@@ -39,7 +43,7 @@ bounds are floating-point solver output, not certificates.
 | 37sp-yfyv | 36 / 35 (LKM18; FS04 36) | **36 / 36** | **optimal = 36** | exact network (36) | Lemma 1, c_max = 2 (exact enumeration) |
 | 20sp1 | 19 / 16 (LKM18; FS04 19) | **19 / 19** | **optimal = 19** | exact network (19) | Lemma 1, c_max = 2 |
 | 23sp1 | 23 / 17 (LKM18; FS04 23) | **22 / 22** | **optimal = 22** (new UB) | exact network (22) | Lemma 1, c_max = 2 |
-| unbalanced10 | 25 / 24 (LKM18) | 25 / see note | VIPR run in progress | exact network (25) | VIPR (pending) |
+| unbalanced10 | 25 / 24 (LKM18) | 25 / 24 certified-by-nothing-new; ≤ 24 infeasible per exact SCIP | open (preliminary 25) | exact network (25) | exact SCIP 10.0.2 run: infeasible (10 233 nodes); VIPR check **not completed** |
 | unbalanced15 | 36 / 35 (LKM18) | 36 / 32 certified | open | exact network (36) | Lemma 1 |
 | 22sp1 | 25 / 23 (LKM18; FS04 25) | 25 / 23 certified | open | exact network | Lemma 1, c_max = 1 |
 | balanced12 | 28 / 26 | 28 / 26 certified | open | exact network | Lemma 1, c_max = 1 |
@@ -59,19 +63,33 @@ Side findings:
 - The 36-match network found by floating-point SCIP for 37sp-yfyv is infeasible in exact arithmetic (deficit 0.1),
   and every CPLEX/Gurobi match list in the repository for it needs 37 pairs exactly; an exact 36-match network
   exists (two spanning trees on a 2-block partition, `certificates/solutions/37sp-yfyv.json`).
-- SCIP 10.0.2 exact mode with its Gomory cuts produced certificates whose cut derivations could not be verified;
-  only cut-free trees are used. `viprchk` needed a canonicalisation patch (GMP reads "5/5" non-canonically).
+- SCIP 10.0.2 exact-mode certificates failed VIPR verification when Gomory cuts were used (also root-only) and when
+  conflict analysis was on (a conflict row valid only under local bounds was marked as globally derivable); only
+  cut-free, conflict-free runs are usable. `viprchk` needed a canonicalisation patch (GMP reads "5/5"
+  non-canonically and then compares it wrongly).
 
 ## Reproduce
 
 ```bash
 cd problems/hen-minimum-matches
 git clone https://github.com/dimletsios/min_matches_heuristics certificates/sources/min_matches_heuristics
-python3 scripts/check_solutions.py                      # exact check of all 22 networks (upper bounds), ~10 s
-bash scripts/run_block_bounds.sh                        # Lemma 1 lower bounds, ~2 min
-# VIPR (needs SCIP 10.0.2 exact build + patched viprchk, see certificates/vipr/README):
-bash scripts/verify_vipr.sh unbalanced10 24             # model re-derivation + certificate checks
+python3 scripts/check_solutions.py      # exact check of all 22 networks (upper bounds), ~10 s, ALL PASS
+bash scripts/run_block_bounds.sh        # Lemma 1 lower bounds (exact enumeration), ~1 min, ALL PASS
+python3 scripts/side_findings.py        # 37sp-yfyv floating-point findings, ALL PASS
 ```
+
+## How to resume (unbalanced10 and further instances)
+
+- Build: SCIP 10.0.2 (`-DEXACTSOLVE=on`) + SoPlex 8.0.2 with GMP/MPFR/Boost; VIPR tools from github.com/scipopt/vipr
+  (commit 30f2951) with `certificates/viprchk_canonicalize.patch` applied to `viprchk.cpp`; `viprcomp` needs TBB.
+- Run: `scip -c "set load certificates/vipr/scip_exact_safe.set" -c "set certificate filename u10.vipr"
+  -c "read certificates/vipr/unbalanced10_le24.lp" -c optimize -c quit` (≈ 5 min; certificate ≈ 0.54 GB; the
+  solver log of the completed run is `certificates/vipr/unbalanced10_le24_scip.log`).
+- Check: `VIPRCOMP=... VIPRCHK=... bash scripts/verify_vipr.sh unbalanced10 24 u10.vipr` (LP regeneration,
+  independent row re-derivation, certificate-problem match, completion, patched viprchk). Steps 1–3 passed on the
+  earlier runs; step 4 has not been run on the cut-free, conflict-free certificate.
+- Next targets: unbalanced15 (≤ 35), 22sp1 (≤ 23), balanced12/15 families (≤ 26 / ≤ 32) with the same pipeline;
+  LP files are generated by `scripts/hen_lpfile.py:write_lp_strong` with `hen_models.strong_rows`.
 
 ## Files
 
@@ -82,6 +100,9 @@ bash scripts/verify_vipr.sh unbalanced10 24             # model re-derivation + 
   (independent re-derivation of every LP row), `check_vipr_model.py` (certificate problem = LP model),
   `build_solution.py`.
 - `certificates/solutions/*.json` — exact rational networks; `claimed_upper_bounds.json`.
-- `certificates/block_bounds.log`, `certificates/vipr/` — logs, LP files, hashes of the VIPR certificates.
+- `certificates/block_bounds.log`; `certificates/vipr/` — LP model, SCIP settings and logs of the unbalanced10 runs
+  (run1: conflict analysis on, VIPR FAIL; run2: root Gomory cuts, VIPR FAIL; final: cut/conflict-free, solver says
+  infeasible, VIPR not checked). Certificates themselves (0.5–2.2 GB) are not stored.
+- `certificates/side/` — 37sp-yfyv floating-point side findings and log.
 - `certificates/viprchk_canonicalize.patch` — the patch to VIPR's checker.
 - `references.md` (sources, novelty check), `NEEDS.md`.
