@@ -72,7 +72,7 @@ Statement: G_{z_c}(e_1) = (mu/3) * sum_m m p_m mu^{-m} < inf in d = 3.
 - If true, together with sup_x G_{z_c}(x) <= C, it gives a subsequence version of nu >= 1/d (`attempts.md` A4).
 - Open (Madras-Slade p. 18).
 
-Requested (HEURISTIC): partial sums S(M) = sum_{m <= M} m p_m mu^{-m} with mu = 4.684039931 (numerical, Clisby),
+Requested (HEURISTIC): partial sums S(M) = sum_{m <= M} m p_m mu^{-m} with a numerical estimate of mu for Z^3 (about 4.684; take the lab's reference value),
 using the polygon counts in certificates/sources/lacecounts/poly_d3.txt (or the lab's own), and the local exponent of
 the increments m p_m mu^{-m} (expected ~ m^{-1.76}, so convergent). Also: is max_x G_{z}(x) attained at a neighbour of
 0 for z close to z_c? (The lab found that for fixed n the argmax of c_n(x) drifts outward, so the analogous GF

@@ -24,6 +24,8 @@ static inline double nup(double x) {
 }
 static inline double ndn(double x) { return -nup(-x); }
 
+static const double INF = std::numeric_limits<double>::infinity();
+struct I;
 struct I {
     double lo, hi;
     I() : lo(0), hi(0) {}
@@ -33,12 +35,21 @@ struct I {
     bool neg() const { return hi < 0; }
     double mid() const { return 0.5 * (lo + hi); }
 };
-static const double INF = std::numeric_limits<double>::infinity();
 static inline I entire() { return I(-INF, INF); }
-static inline I operator+(I a, I b) { return I(ndn(a.lo + b.lo), nup(a.hi + b.hi)); }
-static inline I operator-(I a, I b) { return I(ndn(a.lo - b.hi), nup(a.hi - b.lo)); }
+static inline I operator+(I a, I b) {
+    double lo = a.lo + b.lo, hi = a.hi + b.hi;
+    if (std::isnan(lo) || std::isnan(hi)) return entire();
+    return I(ndn(lo), nup(hi));
+}
+static inline I operator-(I a, I b) {
+    double lo = a.lo - b.hi, hi = a.hi - b.lo;
+    if (std::isnan(lo) || std::isnan(hi)) return entire();
+    return I(ndn(lo), nup(hi));
+}
 static inline I operator-(I a) { return I(-a.hi, -a.lo); }
+static inline bool infinite(I a) { return !(std::fabs(a.lo) < INF && std::fabs(a.hi) < INF); }
 static inline I operator*(I a, I b) {
+    if (infinite(a) || infinite(b)) return entire();
     double p1 = a.lo * b.lo, p2 = a.lo * b.hi, p3 = a.hi * b.lo, p4 = a.hi * b.hi;
     double lo = std::min(std::min(p1, p2), std::min(p3, p4));
     double hi = std::max(std::max(p1, p2), std::max(p3, p4));
@@ -46,7 +57,8 @@ static inline I operator*(I a, I b) {
     return I(ndn(lo), nup(hi));
 }
 static inline I operator/(I a, I b) {
-    if (b.lo <= 0 && b.hi >= 0) return entire();
+    if (infinite(a) || infinite(b)) return entire();
+    if (!(b.lo > 0 || b.hi < 0)) return entire();
     double p1 = a.lo / b.lo, p2 = a.lo / b.hi, p3 = a.hi / b.lo, p4 = a.hi / b.hi;
     double lo = std::min(std::min(p1, p2), std::min(p3, p4));
     double hi = std::max(std::max(p1, p2), std::max(p3, p4));

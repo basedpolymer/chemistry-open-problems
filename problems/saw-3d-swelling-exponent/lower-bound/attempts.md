@@ -73,7 +73,7 @@ Sub-attempts and where each stops:
     or slowly growing gain in the accessible range.
   - Rigorous zero density of renewal *levels* would need, at least for bridges under P_iSAB, E_iSAB[height] = inf,
     equivalently B_T(z_c) -> 0. This is **not known on Z^d** (literature/quick-facts.md: known only on the hexagonal
-    lattice, Krachun-Panagiotis Thm 2).
+    lattice, Krachun-Panagiotis Thm 2; secondary, per the literature agent).
   - DCH Thm 2.5 (E_iSAB|gamma| = inf) concerns renewal *times* and does not transfer.
   - Even granted, transferring from P_iSAB to the top of a uniform near walk needs DGHM-type comparison machinery
     (Lemma 3.3, shells), and the result would be non-quantitative: E/N^{4/(3d)} -> inf, not an exponent.
@@ -135,7 +135,7 @@ PROVED (`result.md` Thm 3 with alpha = 0): if P_N(span < N^{1/d+eta}) <= 1/4, th
 
 What is needed is quantitative non-compactness: walks in a box of side N^{1/d+eta} must be a small fraction of S_N.
 Obstructions:
-- every comparison with mu^N loses exp(C n^{2/5} log n) in d = 3 (Kesten 1964, Thm 2; the proof there is only
+- every comparison with mu^N loses exp(C n^{2/5} log n) in d = 3 (Kesten 1964, Thm 2, as reported in literature/quick-facts.md C3, not read by me; the proof there is only
   sketched) or exp(C sqrt n) (Hammersley-Welsh). The number of confined walks cannot be compared with c_N to
   precision 1/2 that way;
 - Kesten's pattern theorem is local, and a positive density of finite patterns is compatible with a compact walk;
@@ -160,7 +160,7 @@ Even P(span <= K N^{1/d}) -> 0 for fixed K would improve only constants.
 - What is known: theta >= 3/2 on a density-one set in d = 2 only (Hammond 2018); in d = 3, Madras 1991 "would assert
   lim theta_n >= 1" (Hammond's description; not read).
 - A weaker hypothesis sup_x G_z(x) <= chi(z)^{1-delta} also fails to follow from known bounds:
-  - Kesten (1.9) gives only p_n <~ mu^n;
+  - Kesten 1964 (1.9) gives only p_n <~ mu^n (secondary, per literature/quick-facts.md C3);
   - closing <= n^{-1/2} needs control of the z-law of the length, and c_n mu^{-n} is uncontrolled up to
     exp(C n^{2/5} log n), so GF statements do not transfer to fixed n anyway.
 
@@ -184,6 +184,17 @@ So E_n - E_{n-1} >= 1 follows from two inequalities:
 Computation lab (exact, finite n only): E_{n+1} - E_n >= 1 holds for n <= 35. Superadditivity holds for n <= 36.
 Both auxiliary inequalities hold for n <= 19.
 
+Partial exact fact (PROVED). Let F = {omega in S_n : omega(1) = e_1} and G = {omega in F : 2e_1 not in omega}. The
+map omega -> omega[0,1] ∘ U_1(omega[1,n]) is an involution of G, where U_1 is the reflection through x_1 = 1. It is
+valid because U_1(omega(k)) = 0 iff omega(k) = 2e_1, and it maps G to G. It sends omega^{(1)}(n) to
+2 - omega^{(1)}(n). Hence E_n[omega^{(1)}(n) | G] = 1 exactly, and **(I2) is equivalent to
+E_n[omega^{(1)}(n) | omega(1) = e_1, 2e_1 in omega] >= 1.**
+
+Iterating with planes x_1 = 2, 3, ... gives the same exact statement on further "valid reflection" subsets. But every
+step leaves a residual set (reflection blocked by the head) whose conditional mean is uncontrolled. Making the choice
+of reflection plane canonical *and* involutive on all of F is exactly Madras's open problem: a first-valid-time rule
+is not preserved by the reflection.
+
 Attempt at (I2) by reflection at the maximum: the head (containing the first step) is preserved, and the image ends at
 2 M_1 - omega_1(N) >= M_1 >= 1. But the map has the same window multiplicity as A2, so it bounds
 P(omega_1(N) <= 0 | s_1 = e_1) only by (range) x P(omega_1(N) >= 2), not by 1/2. Blocked for the same reason.
@@ -200,7 +211,7 @@ PROVED identity: for each k, E_N[ sum_{g valid at k} ( |omega(k) + g(omega_N - o
 ## A7. Bridges, renewal theory, Hammersley-Welsh — BLOCKED
 
 - Unfolding into a bridge costs exp(C sqrt N) and does not force displacement: a bridge can have small height.
-- Kesten's renewal identity and DCH Thm 2.5 control renewal *times*. Displacement needs renewal *heights*:
+- Kesten's renewal identity (DCH Lemma 2.2, read) and DCH Thm 2.5 control renewal *times*. Displacement needs renewal *heights*:
   E_iSAB[height] = inf, i.e. B_T(z_c) -> 0, which is open on Z^d. Even "irreducible heights have infinite mean"
   gives no rate.
 - End patterns (Madras 1988, Thm 2.1, lim inf c_N(P)/c_N > 0) give O(1)-scale smoothness of the endpoint law only.
