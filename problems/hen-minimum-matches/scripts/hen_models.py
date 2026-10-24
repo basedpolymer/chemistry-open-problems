@@ -51,17 +51,16 @@ def build_transshipment_scip(inst, disagg=True, cumul=False, scale=None, maxmatc
                 r[i, t] = M.addVar(lb=0.0, ub=float(hc[i][t]) / scale, name=f"r_{i}_{t}")
     for i in range(n):
         for t in range(k):
-            lhs = ps.quicksum(q[i, j, t] for j in range(m) if (i, j, t) in q)
+            terms = [(q[i, j, t], 1.0) for j in range(m) if (i, j, t) in q]
             if (i, t) in r:
-                lhs = lhs + r[i, t]
-            rhs = QH[i][t]
+                terms.append((r[i, t], 1.0))
             if (i, t - 1) in r:
-                M.addCons(lhs - r[i, t - 1] == rhs, name=f"hot_{i}_{t}")
-            else:
-                if isinstance(lhs, float) or (hasattr(lhs, "terms") and len(lhs.terms) == 0):
-                    assert abs(rhs) < 1e-12
-                    continue
-                M.addCons(lhs == rhs, name=f"hot_{i}_{t}")
+                terms.append((r[i, t - 1], -1.0))
+            rhs = QH[i][t]
+            if not terms:
+                assert rhs == 0
+                continue
+            M.addCons(ps.quicksum(c * v for v, c in terms) == rhs, name=f"hot_{i}_{t}")
     for j in range(m):
         for t in range(k):
             if inst.QC[j][t] > 0:
