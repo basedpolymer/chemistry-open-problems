@@ -1,13 +1,38 @@
 # Diblock foam model screen of the Frank–Kasper catalogue
 
-**Status: partial result — first exhaustive DFM screen of the Frank–Kasper catalogue (numerical, with exact upper-bound
-certificates); not independently verified.** σ remains the minimiser of the diblock foam model over all 121 catalogue
-structures (84 of Dutour Sikirić–Delgado-Friedrichs–Deza 2010 + 37 of part II, 2012), numerically, with a gap of
-0.022 %. Reproduction of Reddy et al. (2018): five values within 1.6×10⁻⁶; five published values are *above* our
-exactly certified upper bounds.
+**Status: partial result — global minimization remains unresolved.** The numerical screen reports its lowest
+energy for σ, with a gap of about 0.022 % to its best reported competitors. Exact certificates now verify all
+121 catalogue input topologies and six explicit energy witnesses. They do **not** establish separating lower bounds for
+the competing topology infima. Five certified witnesses lie below numbers printed in Reddy et al.'s preprint and published SI.
+
+**Continuation, 24 October 2026.** [Manuscript](paper.pdf), [proof source](paper.tex),
+[audit report](verification.md), [progress journal in French](JOURNAL.md). The proved global enclosure for the
+catalogue infimum is **1 ≤ inf 𝓕 ≤ 1.068575909**. A complete proof of σ's optimality has not been obtained.
 
 **Attribution.** Method, code, runs, certificates and write-up: Claude Opus 5.5 (effort not recorded), solver
-sub-agent of the orchestrator, 24 Oct 2026. Verification: pending.
+sub-agent of the orchestrator, 24 Oct 2026. Continuation, new certificate checks, analysis and manuscript:
+Codex (GPT-6; effort not recorded), without sub-agents. Fresh independent review of the new work: pending.
+
+The continuation's checks and their scope are summarized below. The [nine-page manuscript](paper.pdf) contains
+the proofs; [verification.md](verification.md) records the assumptions and the unresolved global comparison.
+
+| Result or check | Outcome | Scope |
+|---|---|---|
+| Catalogue geometry | 121 PASS, 0 FAIL | Exact embedded FK realizations; standalone integer data |
+| Energy witnesses | 6 PASS | Certified upper bounds, including transport to exact target boxes |
+| Restricted flat A15 family | 𝓕(c) > 1.0699 for every c ≥ 0 | One-parameter formula; does not cover arbitrary curved A15 cells |
+| Adversarial and invariance tests | 6 tests pass | Invalid geometry rejected; translation/scaling and box checks |
+| Published PNAS SI comparison | 12 DFM values and caption ratios agree with preprint inputs | Source read and checked visually; five improved witnesses confirmed |
+| Symmetry-breaking restarts | 24 completed stages | Two seeds for σ, E11, H and μ through levels 0–2; numerical evidence |
+
+The main contribution of this continuation is a reproducible geometric and energy audit, with a new certificate
+for the restricted A15 formula. The six energy witnesses were inherited from the original screen; their validation
+has been strengthened. The universal lower bound does not separate the competing topology infima, so the central
+global comparison remains open. No claim of a new global minimizer or a complete solution is made.
+
+The comparison concerns the translation periods represented by the catalogue inputs, with homogeneous box
+relaxation. It does not cover arbitrary larger supercells or all possible Frank–Kasper structures. Eight entries
+still have only unrelaxed starting values; degenerating limits have not been excluded globally.
 
 ## Problem
 
@@ -22,33 +47,35 @@ Frank–Kasper (FK) phases and BCC they find:
 
 The catalogue of FK structures of M. Dutour Sikirić, O. Delgado-Friedrichs, M. Deza (*Space fullerenes: a computer
 search for new Frank–Kasper structures*, Acta Cryst. A 66 (2010) 602; 84 structures, 9 of them in [1]) and its part II
-(Dutour Sikirić & Deza, Struct. Chem. 23 (2012) 1103; 37 structures) had never been evaluated in the DFM.
+(Dutour Sikirić & Deza, Struct. Chem. 23 (2012) 1103; 37 structures) extends the candidate set. No prior DFM
+evaluation of the full catalogue was found in the bounded literature search.
 **No source states this as an open problem**: "is σ the DFM minimiser over the whole catalogue?" is our framing.
 Novelty check (`references.md`): no prior DFM evaluation of catalogue structures found.
 
 ## Result in one paragraph
 
-We wrote a curved-cell DFM minimiser in which every candidate is an explicit triangulated partition whose 𝒜, cell
-volumes and second moments are evaluated **exactly** (polyhedral formulas), so every computed value is an upper bound
-on the infimum for its topology; meshes are refined to 2.6×10⁵–6.7×10⁵ triangles and extrapolated (observed O(h²)
-convergence, ratio 3.93). It reproduces [1] for A15, C15, Z, C14 and δ within 1.6×10⁻⁶ (A15 and C15, cubic, within
+The curved-cell DFM minimiser uses exact polyhedral formulas evaluated in floating point; six saved meshes are
+also checked with integer/rational arithmetic. A valid mesh supplies a feasible competitor, but its floating-point
+energy is not by itself a certified decimal upper bound. Meshes are refined to 2.6×10⁵–6.7×10⁵ triangles and
+extrapolated (observed O(h²) convergence, ratio about 3.93). The stored runs reproduce [1] for A15, C15, Z, C14 and δ within 1.6×10⁻⁶ (A15 and C15, cubic, within
 4.3×10⁻⁷), the Kelvin (1.097251) and Weaire–Phelan (1.093541) foams, and the paper's flat Voronoi values; for BCC, P,
-M, H and μ exact integer-arithmetic certificates show that the published values are not minimal (gaps 3×10⁻⁶ to
+M, H and μ exact certificates give energies below the numbers printed in arXiv v1 and the published SI (gaps 3×10⁻⁶ to
 1.2×10⁻⁴). For the screen we relaxed the box shape of every structure (the paper keeps metallic aspect ratios fixed,
-which penalises e.g. H by 3.9×10⁻⁴ and μ by ~7×10⁻⁴). Result: **σ is the lowest of all 124 structures** (121 catalogue
+which penalises e.g. H by 3.9×10⁻⁴ and μ by ~7×10⁻⁴). Result: **σ has the lowest reported trial energy among the 124 entries** (121 catalogue
 + P, M, BCC), 𝓕(σ) = 1.0685748 (certified upper bound 1.068575909), followed by a tie between the new catalogue entry
 **E11** (I4₁/amd) and **H**, both at +0.0219 % (2.34×10⁻⁴, about 2000 times our extrapolation uncertainty), then μ and
 zra-d (K₇Cs₆ type, new to the DFM) at +0.025 %, the new **N56** at +0.027 % and P at +0.028 %. Sixteen catalogue entries
-cannot be realised as Voronoi diagrams; they are geometrically frustrated and relax to values ≥ 1.5 % above σ, most
-with a vanishing foam edge. The ranking is numerical (no lower bounds): see the caveats in `result.md` §5.
+are not Voronoi-realised by their supplied coordinates. Their available values are about 1.0 % or more above σ,
+and eight entries have only unrelaxed starting values because the relaxation degenerates. These are not
+exclusions of their topology infima. The ranking is numerical: see `result.md` §5 and `verification.md`.
 
 ## Main table (box-relaxed DFM, all structures)
 
-`data/dfm_screen_boxrelaxed.csv` has every structure with all level values. 𝓕_L is the exact energy of the relaxed
-level-L partition (an upper bound for that topology in the relaxed box); "extrapolated" is the Richardson value
+`data/dfm_screen_boxrelaxed.csv` has every structure with all available level values. 𝓕_L is a floating-point
+evaluation of the level-L partition; only the six separate integer certificates give certified bounds. "Extrapolated" is the Richardson value
 (heuristic error). Cubic A15, C15, BCC: see also the fixed-box level-4 values (identical boxes).
 
-| # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (upper bound) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |
+| # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (mesh value) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | Phys26 — sigma (Cr46Fe54) | P42/mnm | 30 | 10/16/4/0 | 4 | 1.06857591 | 1.0685748 ± 8e-08 | +0.000% | 0.555 |
 | 2 | E11 | I41/amd | 44 | 16/20/8/0 | 4 | 1.06880987 | 1.0688088 ± 8e-08 | +0.022% | 0.551 |
@@ -177,7 +204,9 @@ level-L partition (an upper bound for that topology in the relaxed box); "extrap
 
 ## Milestone 1 — reproduction of [1] (`scripts/check_milestone1.py`: 0 FAIL)
 
-Fixed paper boxes, levels 0–4 (up to 4.9×10⁵ triangles), Richardson-extrapolated (error ≤ 1×10⁻⁷ except BCC 7×10⁻⁷):
+Detailed source numbers were transcribed from **arXiv v1** and checked against the published SI, Figs. S3–S14.
+These are stored fixed-box runs, levels 0–4 (up to 4.9×10⁵ triangles), Richardson-extrapolated
+(heuristic error estimate ≤ 1×10⁻⁷ except BCC 7×10⁻⁷). Certified comparisons use the separate witnesses in `verification.md`.
 
 | structure | ours (extrapolated) | published [1] | difference | status |
 |---|---|---|---|---|
@@ -200,12 +229,17 @@ BCC, A15, C15, H, P, δ, pσ, M. Details and diagnostics: `result.md` §3.
 
 ## How to reproduce
 
-Environment: Python 3.12+ with numpy, scipy, numba, gemmi (`pip install gemmi`); one thread (enforced by
+Environment: Python 3.12+ with numpy, scipy, numba, gemmi and python-flint; one thread (enforced by
 `scripts/dfm/__init__.py`). Catalogue data: Zenodo 10.5281/zenodo.13691342 (`SpaceFullerene.tar.gz`, md5
 582371cee665c62e01a2f47a73dd2c9d) unpacked into `certificates/sources/dutour2010/` (git-ignored).
 
 ```bash
 cd problems/frank-kasper-dfm-screening/scripts
+python3 audit_certificates.py        # 6 topology/energy/exact-box audits; ~1 min
+python3 certify_catalogue.py         # 121 exact embedded FK complexes; no external inputs needed
+python3 check_a15_family.py          # restricted flat A15 family: certified F > 1.0699
+python3 check_source_comparison.py   # SI transcription / preprint data / certificate thresholds
+python3 test_audit_certificates.py   # rejection/invariance tests for the new checker
 python3 check_certificates.py        # 6 exact certificates, ~1 min: PASS x6
 python3 check_catalogue.py           # 121 catalogue files: valid embedded FK tilings, ~5 min: 121 PASS
 python3 check_milestone1.py          # Milestone 1 (uses data/dfm_fixedbox_paper_structures.csv), ~5 min: 0 FAIL
@@ -220,9 +254,16 @@ python3 make_tables.py
 
 | path | content |
 |---|---|
+| `paper.tex`, `paper.pdf`, `references.bib` | proofs, certificate method, numerical comparison and unresolved global step |
+| `verification.md`, `JOURNAL.md` | audit verdicts and tracked continuation log |
+| `scripts/audit_certificates.py` | separate exact integration, topology and affine-box verification |
+| `scripts/check_a15_family.py` | certified polynomial inequality for the restricted flat A15 formula |
+| `data/pnas_si_crosscheck.json`, `scripts/check_source_comparison.py` | published SI provenance, visual transcription and consistency check |
+| `scripts/certify_catalogue.py`, `certificates/catalogue_topology.npz` | standalone exact topology certificates for 121 entries |
+| `scripts/check_restarts.py`, `data/symmetry_breaking_restarts.csv` | additional numerical restarts without imposed crystal symmetry |
 | `result.md` | method, validation (Milestone 1), screen, caveats |
 | `references.md` | sources (what was read) and novelty check |
-| `NEEDS.md` | paywalled sources requested |
+| `NEEDS.md` | received sources and optional remaining crystallographic references |
 | `scripts/dfm/` | engine: `topology.py` (periodic Delaunay, foam), `mesh.py` (periodic triangulated foam, refinement), `energy.py` (exact geometry, 𝓕, gradient, virial), `relax.py` (restricted motion, smoothing, box strain, embeddedness check), `lbfgs.py`, `constrained.py` (equal-volume problems), `cvp.py` (Lloyd), `cgd.py` (catalogue reader), `embed.py` (spring re-embedding), `registry.py` (structures), `structures.py` |
 | `scripts/run_dfm.py` | resumable relaxation driver (levels, checkpoints, JSON results) |
 | `scripts/screen_pipeline.py` | adaptive screen (L2 all, L3/L4 near σ) |
@@ -238,4 +279,3 @@ python3 make_tables.py
 | `certificates/meshes/*.npz`, `certificates/claims.json` | integer partitions (2⁻⁴⁴ grid) certifying upper bounds |
 | `certificates/logs/` | logs of the checks |
 | `data/frustrated_start_values.csv`, `data/nonvoronoi.txt` | frustrated (non-Voronoi) entries: valid starting values |
-| `PROGRESS.md` | work log (git-ignored); state at stop and resume instructions: `result.md` §6 |

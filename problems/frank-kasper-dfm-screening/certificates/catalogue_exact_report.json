@@ -1,0 +1,2019 @@
+[
+  {
+    "id": "I_E01",
+    "status": "PASS",
+    "cells": 26,
+    "tetrahedra": 148,
+    "degree": 1,
+    "smallest_positive_determinant": "169105784634509180843842904309570933808",
+    "coordination_histogram": {
+      "12": 14,
+      "14": 4,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E02",
+    "status": "PASS",
+    "cells": 52,
+    "tetrahedra": 296,
+    "degree": 1,
+    "smallest_positive_determinant": "91426389653572185857022763076255864416",
+    "coordination_histogram": {
+      "12": 28,
+      "14": 8,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E03",
+    "status": "PASS",
+    "cells": 28,
+    "tetrahedra": 160,
+    "degree": 1,
+    "smallest_positive_determinant": "171194520774296853522674174784287917928",
+    "coordination_histogram": {
+      "12": 12,
+      "14": 8,
+      "15": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E04",
+    "status": "PASS",
+    "cells": 56,
+    "tetrahedra": 320,
+    "degree": 1,
+    "smallest_positive_determinant": "83798756918960579792138456506929755992",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 16,
+      "15": 16
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E05",
+    "status": "PASS",
+    "cells": 56,
+    "tetrahedra": 320,
+    "degree": 1,
+    "smallest_positive_determinant": "82832546457919328024606713987601365704",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 16,
+      "15": 16
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E06",
+    "status": "PASS",
+    "cells": 28,
+    "tetrahedra": 160,
+    "degree": 1,
+    "smallest_positive_determinant": "162921298952767674494506780034207161344",
+    "coordination_histogram": {
+      "12": 12,
+      "14": 10,
+      "15": 4,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E07",
+    "status": "PASS",
+    "cells": 28,
+    "tetrahedra": 160,
+    "degree": 1,
+    "smallest_positive_determinant": "167960858202951446910416557892397278720",
+    "coordination_histogram": {
+      "12": 12,
+      "14": 10,
+      "15": 4,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E08",
+    "status": "PASS",
+    "cells": 56,
+    "tetrahedra": 320,
+    "degree": 1,
+    "smallest_positive_determinant": "78771513213196490374393036125863741248",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 20,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E09",
+    "status": "PASS",
+    "cells": 56,
+    "tetrahedra": 320,
+    "degree": 1,
+    "smallest_positive_determinant": "82821104569161217420815695725212388936",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 20,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E10",
+    "status": "PASS",
+    "cells": 56,
+    "tetrahedra": 320,
+    "degree": 1,
+    "smallest_positive_determinant": "82395085342905832813137687503133924216",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 20,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_E11",
+    "status": "PASS",
+    "cells": 44,
+    "tetrahedra": 252,
+    "degree": 1,
+    "smallest_positive_determinant": "111527487220919777426842039486123353912",
+    "coordination_histogram": {
+      "12": 16,
+      "14": 20,
+      "15": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N01",
+    "status": "PASS",
+    "cells": 38,
+    "tetrahedra": 216,
+    "degree": 1,
+    "smallest_positive_determinant": "101836000587356034974846722603269810048",
+    "coordination_histogram": {
+      "12": 22,
+      "14": 2,
+      "15": 8,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N02",
+    "status": "PASS",
+    "cells": 19,
+    "tetrahedra": 108,
+    "degree": 1,
+    "smallest_positive_determinant": "227730606545784284392215814925099508747",
+    "coordination_histogram": {
+      "12": 11,
+      "14": 2,
+      "15": 2,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N03",
+    "status": "PASS",
+    "cells": 38,
+    "tetrahedra": 216,
+    "degree": 1,
+    "smallest_positive_determinant": "113752000716641898604743550847912257573",
+    "coordination_histogram": {
+      "12": 22,
+      "14": 4,
+      "15": 4,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N04",
+    "status": "PASS",
+    "cells": 38,
+    "tetrahedra": 216,
+    "degree": 1,
+    "smallest_positive_determinant": "107326419657600557593530548514332160976",
+    "coordination_histogram": {
+      "12": 22,
+      "14": 4,
+      "15": 4,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N05",
+    "status": "PASS",
+    "cells": 38,
+    "tetrahedra": 216,
+    "degree": 1,
+    "smallest_positive_determinant": "107914502735634972411331205457627650000",
+    "coordination_histogram": {
+      "12": 22,
+      "14": 4,
+      "15": 4,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N06",
+    "status": "PASS",
+    "cells": 38,
+    "tetrahedra": 216,
+    "degree": 1,
+    "smallest_positive_determinant": "119457740544481048929613790354535556080",
+    "coordination_histogram": {
+      "12": 22,
+      "14": 4,
+      "15": 4,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N07",
+    "status": "PASS",
+    "cells": 38,
+    "tetrahedra": 216,
+    "degree": 1,
+    "smallest_positive_determinant": "109527092151776027284903399443669188608",
+    "coordination_histogram": {
+      "12": 22,
+      "14": 4,
+      "15": 4,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N08",
+    "status": "PASS",
+    "cells": 38,
+    "tetrahedra": 216,
+    "degree": 1,
+    "smallest_positive_determinant": "119560952527725439122592393968046491534",
+    "coordination_histogram": {
+      "12": 22,
+      "14": 4,
+      "15": 4,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N09",
+    "status": "PASS",
+    "cells": 57,
+    "tetrahedra": 324,
+    "degree": 1,
+    "smallest_positive_determinant": "71578981775926748587804137831762111972",
+    "coordination_histogram": {
+      "12": 33,
+      "14": 6,
+      "15": 6,
+      "16": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N10",
+    "status": "PASS",
+    "cells": 57,
+    "tetrahedra": 324,
+    "degree": 1,
+    "smallest_positive_determinant": "83142691331080908779973863063121415285",
+    "coordination_histogram": {
+      "12": 33,
+      "14": 6,
+      "15": 6,
+      "16": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N11",
+    "status": "PASS",
+    "cells": 76,
+    "tetrahedra": 432,
+    "degree": 1,
+    "smallest_positive_determinant": "59244433342855534106900287971489732888",
+    "coordination_histogram": {
+      "12": 44,
+      "14": 8,
+      "15": 8,
+      "16": 16
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N12",
+    "status": "PASS",
+    "cells": 76,
+    "tetrahedra": 432,
+    "degree": 1,
+    "smallest_positive_determinant": "59240960256279759526812653326121661900",
+    "coordination_histogram": {
+      "12": 44,
+      "14": 8,
+      "15": 8,
+      "16": 16
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N13",
+    "status": "PASS",
+    "cells": 32,
+    "tetrahedra": 182,
+    "degree": 1,
+    "smallest_positive_determinant": "127904413851896705587947002853424643344",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 4,
+      "15": 4,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N14",
+    "status": "PASS",
+    "cells": 20,
+    "tetrahedra": 114,
+    "degree": 1,
+    "smallest_positive_determinant": "237198961867458024744780105207449687520",
+    "coordination_histogram": {
+      "12": 10,
+      "14": 4,
+      "15": 4,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N15",
+    "status": "PASS",
+    "cells": 20,
+    "tetrahedra": 114,
+    "degree": 1,
+    "smallest_positive_determinant": "223102522495161480106503628663547213568",
+    "coordination_histogram": {
+      "12": 10,
+      "14": 4,
+      "15": 4,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N16",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "106607368422273927325630523954581717950",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N17",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "109175842239165008869281221917095755776",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N18",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "103636362546892992491500901510003294208",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N19",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "107408712444990565101725013173786695980",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N20",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "100066173474315483660715511522899356576",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N21",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "114932845953738377108445741397640481300",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N22",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "111607047549912233464898250189778459528",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N23",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "104053473902038844246236383410973881200",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N24",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "110855529273359199406433739324587165520",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N25",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "109925714804006195695459877465308771910",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N26",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "113098559081071365827018722166649288480",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 8,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N27",
+    "status": "PASS",
+    "cells": 60,
+    "tetrahedra": 342,
+    "degree": 1,
+    "smallest_positive_determinant": "71295982939328386993755059417608464687",
+    "coordination_histogram": {
+      "12": 30,
+      "14": 12,
+      "15": 12,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N28",
+    "status": "PASS",
+    "cells": 60,
+    "tetrahedra": 342,
+    "degree": 1,
+    "smallest_positive_determinant": "63166271807825321255714433311937864400",
+    "coordination_histogram": {
+      "12": 30,
+      "14": 12,
+      "15": 12,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N29",
+    "status": "PASS",
+    "cells": 60,
+    "tetrahedra": 342,
+    "degree": 1,
+    "smallest_positive_determinant": "75747455229826721176425625164405727481",
+    "coordination_histogram": {
+      "12": 30,
+      "14": 12,
+      "15": 12,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N30",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "49037666792655345344485567664490100128",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 16,
+      "15": 16,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N31",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "57304158958458158542523448165549859944",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 16,
+      "15": 16,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N32",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "59101814623807808335067208474752700276",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 16,
+      "15": 16,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N33",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "55513156401041924142216977986842748328",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 16,
+      "15": 16,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N34",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "105696649281758934265476039006992205408",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 12,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N35",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "101862385725075040188788229551663234384",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 12,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N36",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "110778143329465857432861881571021941010",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 12,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N37",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "58999068118730573970770453966637078888",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 12,
+      "15": 24,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N38",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "50820946363675576120143455756928047004",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 12,
+      "15": 24,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N39",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "50233901415805865152069568021614494348",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 12,
+      "15": 24,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N40",
+    "status": "PASS",
+    "cells": 20,
+    "tetrahedra": 114,
+    "degree": 1,
+    "smallest_positive_determinant": "201774657744444535805184769062606401024",
+    "coordination_histogram": {
+      "12": 10,
+      "14": 5,
+      "15": 2,
+      "16": 3
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N41",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "102489692866585876316004293521910697984",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 10,
+      "15": 4,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N42",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "107326965505246705117342579762438521384",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 10,
+      "15": 4,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N43",
+    "status": "PASS",
+    "cells": 40,
+    "tetrahedra": 228,
+    "degree": 1,
+    "smallest_positive_determinant": "102197484461217107703473487930312253216",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 10,
+      "15": 4,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N44",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "53804979547163773194344983552818805520",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 20,
+      "15": 8,
+      "16": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N45",
+    "status": "PASS",
+    "cells": 80,
+    "tetrahedra": 456,
+    "degree": 1,
+    "smallest_positive_determinant": "53107160086371646553742267011558949016",
+    "coordination_histogram": {
+      "12": 40,
+      "14": 20,
+      "15": 8,
+      "16": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N46",
+    "status": "PASS",
+    "cells": 68,
+    "tetrahedra": 388,
+    "degree": 1,
+    "smallest_positive_determinant": "68811599944947484105466456433232530392",
+    "coordination_histogram": {
+      "12": 32,
+      "14": 16,
+      "15": 16,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N47",
+    "status": "PASS",
+    "cells": 68,
+    "tetrahedra": 388,
+    "degree": 1,
+    "smallest_positive_determinant": "73189295103256661097657189046752278400",
+    "coordination_histogram": {
+      "12": 32,
+      "14": 16,
+      "15": 16,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N48",
+    "status": "PASS",
+    "cells": 68,
+    "tetrahedra": 388,
+    "degree": 1,
+    "smallest_positive_determinant": "62942032106092006916923123625180639952",
+    "coordination_histogram": {
+      "12": 32,
+      "14": 20,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N49",
+    "status": "PASS",
+    "cells": 68,
+    "tetrahedra": 388,
+    "degree": 1,
+    "smallest_positive_determinant": "64768912803438994650374865366163570860",
+    "coordination_histogram": {
+      "12": 32,
+      "14": 20,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N50",
+    "status": "PASS",
+    "cells": 28,
+    "tetrahedra": 160,
+    "degree": 1,
+    "smallest_positive_determinant": "158949189816584453295331823610637906896",
+    "coordination_histogram": {
+      "12": 12,
+      "14": 12,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N51",
+    "status": "PASS",
+    "cells": 28,
+    "tetrahedra": 160,
+    "degree": 1,
+    "smallest_positive_determinant": "150255724308395061333178813029265925000",
+    "coordination_histogram": {
+      "12": 12,
+      "14": 12,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N52",
+    "status": "PASS",
+    "cells": 56,
+    "tetrahedra": 320,
+    "degree": 1,
+    "smallest_positive_determinant": "82435118745415308491439463042767244832",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 24,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N53",
+    "status": "PASS",
+    "cells": 36,
+    "tetrahedra": 206,
+    "degree": 1,
+    "smallest_positive_determinant": "133048259110210949663151766458517881568",
+    "coordination_histogram": {
+      "12": 14,
+      "14": 14,
+      "15": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N54",
+    "status": "PASS",
+    "cells": 36,
+    "tetrahedra": 206,
+    "degree": 1,
+    "smallest_positive_determinant": "126777672631720578438189220387694356608",
+    "coordination_histogram": {
+      "12": 14,
+      "14": 16,
+      "15": 4,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N55",
+    "status": "PASS",
+    "cells": 60,
+    "tetrahedra": 344,
+    "degree": 1,
+    "smallest_positive_determinant": "65688297346808769207641232083161472076",
+    "coordination_histogram": {
+      "12": 28,
+      "14": 16,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N56",
+    "status": "PASS",
+    "cells": 76,
+    "tetrahedra": 436,
+    "degree": 1,
+    "smallest_positive_determinant": "64897121748533070856793760212063354880",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 44,
+      "15": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N57",
+    "status": "PASS",
+    "cells": 32,
+    "tetrahedra": 184,
+    "degree": 1,
+    "smallest_positive_determinant": "141188433728919644337188247283613149920",
+    "coordination_histogram": {
+      "12": 12,
+      "14": 12,
+      "15": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N58",
+    "status": "PASS",
+    "cells": 18,
+    "tetrahedra": 104,
+    "degree": 1,
+    "smallest_positive_determinant": "248252550765937742850853185868715640144",
+    "coordination_histogram": {
+      "12": 6,
+      "14": 8,
+      "15": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N59",
+    "status": "PASS",
+    "cells": 36,
+    "tetrahedra": 208,
+    "degree": 1,
+    "smallest_positive_determinant": "122811695658508305420175622326802333212",
+    "coordination_histogram": {
+      "12": 12,
+      "14": 16,
+      "15": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_N60",
+    "status": "PASS",
+    "cells": 54,
+    "tetrahedra": 312,
+    "degree": 1,
+    "smallest_positive_determinant": "77562665078154994581314578035627199566",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 24,
+      "15": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys01",
+    "status": "PASS",
+    "cells": 12,
+    "tetrahedra": 68,
+    "degree": 1,
+    "smallest_positive_determinant": "379848348278040728100719770554622710707",
+    "coordination_histogram": {
+      "12": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys02",
+    "status": "PASS",
+    "cells": 24,
+    "tetrahedra": 136,
+    "degree": 1,
+    "smallest_positive_determinant": "170141183460469231731687303715884105728",
+    "coordination_histogram": {
+      "12": 16,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys03",
+    "status": "PASS",
+    "cells": 24,
+    "tetrahedra": 136,
+    "degree": 1,
+    "smallest_positive_determinant": "172728690580575149825830861109928625544",
+    "coordination_histogram": {
+      "12": 16,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys04",
+    "status": "PASS",
+    "cells": 36,
+    "tetrahedra": 204,
+    "degree": 1,
+    "smallest_positive_determinant": "113824628436452696765229614809951706959",
+    "coordination_histogram": {
+      "12": 24,
+      "16": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys06",
+    "status": "PASS",
+    "cells": 54,
+    "tetrahedra": 306,
+    "degree": 1,
+    "smallest_positive_determinant": "76634476769134776376648762205196949932",
+    "coordination_histogram": {
+      "12": 36,
+      "16": 18
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys12",
+    "status": "PASS",
+    "cells": 26,
+    "tetrahedra": 148,
+    "degree": 1,
+    "smallest_positive_determinant": "164892025439997174388617907181873298066",
+    "coordination_histogram": {
+      "12": 14,
+      "14": 4,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys13",
+    "status": "PASS",
+    "cells": 26,
+    "tetrahedra": 148,
+    "degree": 1,
+    "smallest_positive_determinant": "172997754905745760295885805763212057432",
+    "coordination_histogram": {
+      "12": 14,
+      "14": 4,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys14",
+    "status": "PASS",
+    "cells": 39,
+    "tetrahedra": 222,
+    "degree": 1,
+    "smallest_positive_determinant": "110459703585414605851499809154267950415",
+    "coordination_histogram": {
+      "12": 21,
+      "14": 6,
+      "15": 6,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys18",
+    "status": "PASS",
+    "cells": 7,
+    "tetrahedra": 40,
+    "degree": 1,
+    "smallest_positive_determinant": "680563372709690426217340825548671846696",
+    "coordination_histogram": {
+      "12": 3,
+      "14": 2,
+      "15": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys20",
+    "status": "PASS",
+    "cells": 56,
+    "tetrahedra": 320,
+    "degree": 1,
+    "smallest_positive_determinant": "84442207594719410484125176431856621249",
+    "coordination_histogram": {
+      "12": 24,
+      "14": 20,
+      "15": 8,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys25",
+    "status": "PASS",
+    "cells": 30,
+    "tetrahedra": 172,
+    "degree": 1,
+    "smallest_positive_determinant": "164887553488371930970666963644011663960",
+    "coordination_histogram": {
+      "12": 10,
+      "14": 16,
+      "15": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys26",
+    "status": "PASS",
+    "cells": 30,
+    "tetrahedra": 172,
+    "degree": 1,
+    "smallest_positive_determinant": "160472515518705158076147398954423754880",
+    "coordination_histogram": {
+      "12": 10,
+      "14": 16,
+      "15": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "I_Phys27",
+    "status": "PASS",
+    "cells": 8,
+    "tetrahedra": 46,
+    "degree": 1,
+    "smallest_positive_determinant": "680559289334908973684015711847729594368",
+    "coordination_histogram": {
+      "12": 2,
+      "14": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_E01",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "110422997574438965776779440234579361792",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 12,
+      "15": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_E02",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "94259248615304628149095198239893387328",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 12,
+      "15": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_E03",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "111368136518349572726756957017884216392",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 12,
+      "15": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_E04",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "55493391449992278057085591172444414376",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 24,
+      "15": 24
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_E05",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "53546789096260605088503922241160283808",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 24,
+      "15": 24
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N01",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "102720670492218017398008824937796809984",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 14,
+      "15": 8,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N02",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "98851725825415202559462079484944291064",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 14,
+      "15": 8,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N03",
+    "status": "PASS",
+    "cells": 63,
+    "tetrahedra": 360,
+    "degree": 1,
+    "smallest_positive_determinant": "59534304064821125115798894583575665280",
+    "coordination_histogram": {
+      "12": 27,
+      "14": 21,
+      "15": 12,
+      "16": 3
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N04",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "109662757500693164933067603997398043680",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 14,
+      "15": 8,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N05",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "91851346424940763993381949772806263040",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 14,
+      "15": 8,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N06",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "53380370429466121064163394036938862080",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 28,
+      "15": 16,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N07",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "54669425411697339698234670309169331010",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 28,
+      "15": 16,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N08",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "54871726014324789062919848907671697582",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 28,
+      "15": 16,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N09",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "48730790623638427569051065522608796160",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 28,
+      "15": 16,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N10",
+    "status": "PASS",
+    "cells": 21,
+    "tetrahedra": 120,
+    "degree": 1,
+    "smallest_positive_determinant": "208227496672566402930828889427344804200",
+    "coordination_histogram": {
+      "12": 9,
+      "14": 8,
+      "15": 2,
+      "16": 2
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N11",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "103790365896601897711430499825444586128",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N12",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "103957350269118422550835257991614074056",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N13",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "108573249407402429983793822332283907384",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N14",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "106038947405743372172071585545229566520",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N15",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "111582889487597923992717696362466572672",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N16",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "108257175286627254507520261398489293936",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N17",
+    "status": "PASS",
+    "cells": 63,
+    "tetrahedra": 360,
+    "degree": 1,
+    "smallest_positive_determinant": "62730478009978899540651610520821078698",
+    "coordination_histogram": {
+      "12": 27,
+      "14": 24,
+      "15": 6,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N18",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "102000187474190574329798318915749340976",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N19",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "108366228262317556498333350473099569028",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N20",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "103176958447264253319375513888450479440",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N21",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 240,
+    "degree": 1,
+    "smallest_positive_determinant": "103839673228324422972277912403653833504",
+    "coordination_histogram": {
+      "12": 18,
+      "14": 16,
+      "15": 4,
+      "16": 4
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N22",
+    "status": "PASS",
+    "cells": 126,
+    "tetrahedra": 720,
+    "degree": 1,
+    "smallest_positive_determinant": "31387457683149894277795875119653505850",
+    "coordination_histogram": {
+      "12": 54,
+      "14": 48,
+      "15": 12,
+      "16": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N23",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "54232244874262165982447315412349446064",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 32,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N24",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "51562660630882337317624956493250493200",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 32,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N25",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "50716072174588264249446349527464918648",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 32,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_N26",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "51542597026796154166037260051950892312",
+    "coordination_histogram": {
+      "12": 36,
+      "14": 32,
+      "15": 8,
+      "16": 8
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_Y01",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 238,
+    "degree": 1,
+    "smallest_positive_determinant": "93501237566514335794523854883364744066",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 16,
+      "16": 6
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_Y02",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "42958858073047656493805102630386696140",
+    "coordination_histogram": {
+      "12": 44,
+      "14": 16,
+      "15": 8,
+      "16": 16
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_Y03",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 480,
+    "degree": 1,
+    "smallest_positive_determinant": "47819442822612949950171696313904180864",
+    "coordination_histogram": {
+      "12": 44,
+      "14": 16,
+      "15": 8,
+      "16": 16
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_Y04",
+    "status": "PASS",
+    "cells": 42,
+    "tetrahedra": 248,
+    "degree": 1,
+    "smallest_positive_determinant": "18735587889583617243684792903000790001",
+    "coordination_histogram": {
+      "12": 10,
+      "14": 20,
+      "15": 12
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_Y05",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 496,
+    "degree": 1,
+    "smallest_positive_determinant": "9760911731670470111634159986759811911",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 40,
+      "15": 24
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  },
+  {
+    "id": "II_Y06",
+    "status": "PASS",
+    "cells": 84,
+    "tetrahedra": 496,
+    "degree": 1,
+    "smallest_positive_determinant": "19681037357988003125980231494231132825",
+    "coordination_histogram": {
+      "12": 20,
+      "14": 40,
+      "15": 24
+    },
+    "oriented_faces_cancel": true,
+    "vertex_links_are_spheres": true,
+    "isolated_hexagons": true
+  }
+]

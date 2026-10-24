@@ -1,4 +1,4 @@
-rank,id,physical,group,ncell,Z12/Z14/Z15/Z16,maxlevel,F_maxlevel_upper_bound,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,run_used,aliases,F_by_level
+rank,id,physical,group,ncell,Z12/Z14/Z15/Z16,maxlevel,F_maxlevel_mesh_energy,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,run_used,aliases,F_by_level
 1,Phys26,sigma (Cr46Fe54),P42/mnm,30,10/16/4/0,4,1.0685759088,1.068574762,8.3e-08,+0.000e+00,0.5546,0.0967,sigma,cat:Phys26 catR:Phys26 sigma,1.0688326416;1.0686446227;1.0685928566;1.0685793482;1.0685759088
 2,E11,,I41/amd,44,16/20/8/0,4,1.0688098687,1.068808776,7.8e-08,+2.190e-04,0.5510,0.1149,cat:E11,cat:E11 catR:E11,1.0690545932;1.0688754005;1.0688260246;1.0688131467;1.0688098687
 3,Phys25,H (complex),Cmmm,30,10/16/4/0,4,1.0688103901,1.068809247,8.4e-08,+2.194e-04,0.5654,0.1015,H,H cat:Phys25 catR:Phys25,1.0690662885;1.0688788796;1.0688272866;1.0688138195;1.0688103901

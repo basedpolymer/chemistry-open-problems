@@ -1,0 +1,4 @@
+PASS flat A15 family: F(c) > 1.0699 for all c >= 0
+PASS F(1.22) < 1.0701; this is only a feasible sample, not a claimed minimizer
+PASS finite degeneration limit in (1.157, 1.158): [1.15713180798400727834444526425468111572628780189322498983 +/- 3.83e-57]
+PASS Bernstein cover: 6 intervals; 192-bit outward enclosures

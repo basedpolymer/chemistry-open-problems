@@ -1,0 +1,243 @@
+BUILD I_E01 26 148
+BUILD I_E02 52 296
+BUILD I_E03 28 160
+BUILD I_E04 56 320
+BUILD I_E05 56 320
+BUILD I_E06 28 160
+BUILD I_E07 28 160
+BUILD I_E08 56 320
+BUILD I_E09 56 320
+BUILD I_E10 56 320
+BUILD I_E11 44 252
+BUILD I_N01 38 216
+BUILD I_N02 19 108
+BUILD I_N03 38 216
+BUILD I_N04 38 216
+BUILD I_N05 38 216
+BUILD I_N06 38 216
+BUILD I_N07 38 216
+BUILD I_N08 38 216
+BUILD I_N09 57 324
+BUILD I_N10 57 324
+BUILD I_N11 76 432
+BUILD I_N12 76 432
+BUILD I_N13 32 182
+BUILD I_N14 20 114
+BUILD I_N15 20 114
+BUILD I_N16 40 228
+BUILD I_N17 40 228
+BUILD I_N18 40 228
+BUILD I_N19 40 228
+BUILD I_N20 40 228
+BUILD I_N21 40 228
+BUILD I_N22 40 228
+BUILD I_N23 40 228
+BUILD I_N24 40 228
+BUILD I_N25 40 228
+BUILD I_N26 40 228
+BUILD I_N27 60 342
+BUILD I_N28 60 342
+BUILD I_N29 60 342
+BUILD I_N30 80 456
+BUILD I_N31 80 456
+BUILD I_N32 80 456
+BUILD I_N33 80 456
+BUILD I_N34 40 228
+BUILD I_N35 40 228
+BUILD I_N36 40 228
+BUILD I_N37 80 456
+BUILD I_N38 80 456
+BUILD I_N39 80 456
+BUILD I_N40 20 114
+BUILD I_N41 40 228
+BUILD I_N42 40 228
+BUILD I_N43 40 228
+BUILD I_N44 80 456
+BUILD I_N45 80 456
+BUILD I_N46 68 388
+BUILD I_N47 68 388
+BUILD I_N48 68 388
+BUILD I_N49 68 388
+BUILD I_N50 28 160
+BUILD I_N51 28 160
+BUILD I_N52 56 320
+BUILD I_N53 36 206
+BUILD I_N54 36 206
+BUILD I_N55 60 344
+BUILD I_N56 76 436
+BUILD I_N57 32 184
+BUILD I_N58 18 104
+BUILD I_N59 36 208
+BUILD I_N60 54 312
+BUILD I_Phys01 12 68
+BUILD I_Phys02 24 136
+BUILD I_Phys03 24 136
+BUILD I_Phys04 36 204
+BUILD I_Phys06 54 306
+BUILD I_Phys12 26 148
+BUILD I_Phys13 26 148
+BUILD I_Phys14 39 222
+BUILD I_Phys18 7 40
+BUILD I_Phys20 56 320
+BUILD I_Phys25 30 172
+BUILD I_Phys26 30 172
+BUILD I_Phys27 8 46
+BUILD II_E01 42 240
+BUILD II_E02 42 240
+BUILD II_E03 42 240
+BUILD II_E04 84 480
+BUILD II_E05 84 480
+BUILD II_N01 42 240
+BUILD II_N02 42 240
+BUILD II_N03 63 360
+BUILD II_N04 42 240
+BUILD II_N05 42 240
+BUILD II_N06 84 480
+BUILD II_N07 84 480
+BUILD II_N08 84 480
+BUILD II_N09 84 480
+BUILD II_N10 21 120
+BUILD II_N11 42 240
+BUILD II_N12 42 240
+BUILD II_N13 42 240
+BUILD II_N14 42 240
+BUILD II_N15 42 240
+BUILD II_N16 42 240
+BUILD II_N17 63 360
+BUILD II_N18 42 240
+BUILD II_N19 42 240
+BUILD II_N20 42 240
+BUILD II_N21 42 240
+BUILD II_N22 126 720
+BUILD II_N23 84 480
+BUILD II_N24 84 480
+BUILD II_N25 84 480
+BUILD II_N26 84 480
+BUILD II_Y01 42 238
+BUILD II_Y02 84 480
+BUILD II_Y03 84 480
+BUILD II_Y04 42 248
+BUILD II_Y05 84 496
+BUILD II_Y06 84 496
+PASS I_E01 exact embedded FK complex 26 cells 0.03s
+PASS I_E02 exact embedded FK complex 52 cells 0.05s
+PASS I_E03 exact embedded FK complex 28 cells 0.03s
+PASS I_E04 exact embedded FK complex 56 cells 0.05s
+PASS I_E05 exact embedded FK complex 56 cells 0.05s
+PASS I_E06 exact embedded FK complex 28 cells 0.03s
+PASS I_E07 exact embedded FK complex 28 cells 0.03s
+PASS I_E08 exact embedded FK complex 56 cells 0.05s
+PASS I_E09 exact embedded FK complex 56 cells 0.05s
+PASS I_E10 exact embedded FK complex 56 cells 0.05s
+PASS I_E11 exact embedded FK complex 44 cells 0.04s
+PASS I_N01 exact embedded FK complex 38 cells 0.04s
+PASS I_N02 exact embedded FK complex 19 cells 0.02s
+PASS I_N03 exact embedded FK complex 38 cells 0.04s
+PASS I_N04 exact embedded FK complex 38 cells 0.04s
+PASS I_N05 exact embedded FK complex 38 cells 0.04s
+PASS I_N06 exact embedded FK complex 38 cells 0.04s
+PASS I_N07 exact embedded FK complex 38 cells 0.04s
+PASS I_N08 exact embedded FK complex 38 cells 0.04s
+PASS I_N09 exact embedded FK complex 57 cells 0.06s
+PASS I_N10 exact embedded FK complex 57 cells 0.05s
+PASS I_N11 exact embedded FK complex 76 cells 0.07s
+PASS I_N12 exact embedded FK complex 76 cells 0.07s
+PASS I_N13 exact embedded FK complex 32 cells 0.03s
+PASS I_N14 exact embedded FK complex 20 cells 0.02s
+PASS I_N15 exact embedded FK complex 20 cells 0.02s
+PASS I_N16 exact embedded FK complex 40 cells 0.04s
+PASS I_N17 exact embedded FK complex 40 cells 0.04s
+PASS I_N18 exact embedded FK complex 40 cells 0.04s
+PASS I_N19 exact embedded FK complex 40 cells 0.04s
+PASS I_N20 exact embedded FK complex 40 cells 0.04s
+PASS I_N21 exact embedded FK complex 40 cells 0.04s
+PASS I_N22 exact embedded FK complex 40 cells 0.04s
+PASS I_N23 exact embedded FK complex 40 cells 0.04s
+PASS I_N24 exact embedded FK complex 40 cells 0.04s
+PASS I_N25 exact embedded FK complex 40 cells 0.04s
+PASS I_N26 exact embedded FK complex 40 cells 0.05s
+PASS I_N27 exact embedded FK complex 60 cells 0.06s
+PASS I_N28 exact embedded FK complex 60 cells 0.06s
+PASS I_N29 exact embedded FK complex 60 cells 0.06s
+PASS I_N30 exact embedded FK complex 80 cells 0.07s
+PASS I_N31 exact embedded FK complex 80 cells 0.08s
+PASS I_N32 exact embedded FK complex 80 cells 0.07s
+PASS I_N33 exact embedded FK complex 80 cells 0.08s
+PASS I_N34 exact embedded FK complex 40 cells 0.04s
+PASS I_N35 exact embedded FK complex 40 cells 0.04s
+PASS I_N36 exact embedded FK complex 40 cells 0.04s
+PASS I_N37 exact embedded FK complex 80 cells 0.07s
+PASS I_N38 exact embedded FK complex 80 cells 0.08s
+PASS I_N39 exact embedded FK complex 80 cells 0.08s
+PASS I_N40 exact embedded FK complex 20 cells 0.02s
+PASS I_N41 exact embedded FK complex 40 cells 0.04s
+PASS I_N42 exact embedded FK complex 40 cells 0.04s
+PASS I_N43 exact embedded FK complex 40 cells 0.04s
+PASS I_N44 exact embedded FK complex 80 cells 0.08s
+PASS I_N45 exact embedded FK complex 80 cells 0.08s
+PASS I_N46 exact embedded FK complex 68 cells 0.06s
+PASS I_N47 exact embedded FK complex 68 cells 0.06s
+PASS I_N48 exact embedded FK complex 68 cells 0.06s
+PASS I_N49 exact embedded FK complex 68 cells 0.07s
+PASS I_N50 exact embedded FK complex 28 cells 0.03s
+PASS I_N51 exact embedded FK complex 28 cells 0.03s
+PASS I_N52 exact embedded FK complex 56 cells 0.05s
+PASS I_N53 exact embedded FK complex 36 cells 0.04s
+PASS I_N54 exact embedded FK complex 36 cells 0.04s
+PASS I_N55 exact embedded FK complex 60 cells 0.06s
+PASS I_N56 exact embedded FK complex 76 cells 0.07s
+PASS I_N57 exact embedded FK complex 32 cells 0.03s
+PASS I_N58 exact embedded FK complex 18 cells 0.02s
+PASS I_N59 exact embedded FK complex 36 cells 0.04s
+PASS I_N60 exact embedded FK complex 54 cells 0.05s
+PASS I_Phys01 exact embedded FK complex 12 cells 0.01s
+PASS I_Phys02 exact embedded FK complex 24 cells 0.02s
+PASS I_Phys03 exact embedded FK complex 24 cells 0.02s
+PASS I_Phys04 exact embedded FK complex 36 cells 0.03s
+PASS I_Phys06 exact embedded FK complex 54 cells 0.06s
+PASS I_Phys12 exact embedded FK complex 26 cells 0.03s
+PASS I_Phys13 exact embedded FK complex 26 cells 0.03s
+PASS I_Phys14 exact embedded FK complex 39 cells 0.04s
+PASS I_Phys18 exact embedded FK complex 7 cells 0.01s
+PASS I_Phys20 exact embedded FK complex 56 cells 0.05s
+PASS I_Phys25 exact embedded FK complex 30 cells 0.03s
+PASS I_Phys26 exact embedded FK complex 30 cells 0.03s
+PASS I_Phys27 exact embedded FK complex 8 cells 0.01s
+PASS II_E01 exact embedded FK complex 42 cells 0.04s
+PASS II_E02 exact embedded FK complex 42 cells 0.04s
+PASS II_E03 exact embedded FK complex 42 cells 0.04s
+PASS II_E04 exact embedded FK complex 84 cells 0.09s
+PASS II_E05 exact embedded FK complex 84 cells 0.08s
+PASS II_N01 exact embedded FK complex 42 cells 0.04s
+PASS II_N02 exact embedded FK complex 42 cells 0.04s
+PASS II_N03 exact embedded FK complex 63 cells 0.06s
+PASS II_N04 exact embedded FK complex 42 cells 0.04s
+PASS II_N05 exact embedded FK complex 42 cells 0.04s
+PASS II_N06 exact embedded FK complex 84 cells 0.08s
+PASS II_N07 exact embedded FK complex 84 cells 0.08s
+PASS II_N08 exact embedded FK complex 84 cells 0.08s
+PASS II_N09 exact embedded FK complex 84 cells 0.08s
+PASS II_N10 exact embedded FK complex 21 cells 0.02s
+PASS II_N11 exact embedded FK complex 42 cells 0.04s
+PASS II_N12 exact embedded FK complex 42 cells 0.04s
+PASS II_N13 exact embedded FK complex 42 cells 0.04s
+PASS II_N14 exact embedded FK complex 42 cells 0.04s
+PASS II_N15 exact embedded FK complex 42 cells 0.04s
+PASS II_N16 exact embedded FK complex 42 cells 0.04s
+PASS II_N17 exact embedded FK complex 63 cells 0.06s
+PASS II_N18 exact embedded FK complex 42 cells 0.04s
+PASS II_N19 exact embedded FK complex 42 cells 0.04s
+PASS II_N20 exact embedded FK complex 42 cells 0.04s
+PASS II_N21 exact embedded FK complex 42 cells 0.04s
+PASS II_N22 exact embedded FK complex 126 cells 0.12s
+PASS II_N23 exact embedded FK complex 84 cells 0.08s
+PASS II_N24 exact embedded FK complex 84 cells 0.08s
+PASS II_N25 exact embedded FK complex 84 cells 0.08s
+PASS II_N26 exact embedded FK complex 84 cells 0.08s
+PASS II_Y01 exact embedded FK complex 42 cells 0.04s
+PASS II_Y02 exact embedded FK complex 84 cells 0.08s
+PASS II_Y03 exact embedded FK complex 84 cells 0.08s
+PASS II_Y04 exact embedded FK complex 42 cells 0.04s
+PASS II_Y05 exact embedded FK complex 84 cells 0.08s
+PASS II_Y06 exact embedded FK complex 84 cells 0.08s
+121 PASS; 0 FAIL

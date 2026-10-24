@@ -133,3 +133,28 @@ sub-agents of the orchestrator (effort not recorded); credits per problem in eac
   fullerene duals: arXiv-v1 Conjecture 1(a) already refuted by the authors, published Conjecture 1(b) proved in two
   residue classes mod 24, the authors' 2025 Conjecture 3 refuted for alpha = beta. Verification of results 13, 14 and
   of the extension of result 8 was not started.
+
+### Frank–Kasper continuation at the owner's request
+
+Codex (GPT-6; effort not recorded), one agent, no sub-agents. Restored the
+Zenodo catalogue (MD5 verified) and read the 2010/2012 articles plus the PNAS
+main article supplied by the owner. The PNAS SI was subsequently retrieved
+via Europe PMC; all twelve unconstrained DFM energies and caption ratios
+agree with the preprint inputs.
+
+- Original six certificates, catalogue check and Milestone 1 replayed successfully.
+- Added a separate exact energy/topology audit, including rigorous affine
+  transport to the intended boxes: 6 PASS. Saved standalone integer topology
+  certificates for all 121 catalogue entries: 121 PASS. Six adversarial and
+  invariance regression tests pass.
+- Added two symmetry-breaking restarts for σ, E11, H and μ through levels
+  0–2; all 24 stages pass the floating-point geometry check and keep the
+  observed ordering. These are numerical evidence only.
+- Proved the universal lower bound F ≥ 1, a limitation of isolated-cell
+  graph bounds, and a certified lower bound F > 1.0699 for the one-parameter
+  flat A15 formula. Its finite-energy cell-collapse limit illustrates why
+  degenerating sequences need separate analysis.
+- Added the proof manuscript and same-agent verification record. Corrected
+  claims equating floating-point values with exact certificates or failed
+  relaxations with energetic exclusions. **Global σ optimality remains
+  unproved**; the catalogue infimum is enclosed in [1, 1.068575909].

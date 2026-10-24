@@ -1,0 +1,6 @@
+PASS BCC F <= 1.071107810 topology / exact energy / box
+PASS P F <= 1.068897166 topology / exact energy / box
+PASS M F <= 1.069011740 topology / exact energy / box
+PASS H F <= 1.069208084 topology / exact energy / box
+PASS mu F <= 1.069546495 topology / exact energy / box
+PASS sigma F <= 1.068575909 topology / exact energy / box

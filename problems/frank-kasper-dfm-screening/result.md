@@ -1,7 +1,8 @@
 # Diblock foam model on the Frank–Kasper catalogue: method, validation, screen
 
-*Status: partial result (numerical screen with exact upper-bound certificates; not independently verified). Summary
-table: README.md; all data: `data/`.*
+*Status: partial result; global minimization remains unresolved. The continuation adds exact topology certificates
+for 121 entries, a separate audit of six energy witnesses, a universal lower bound and a restricted A15 bound.
+Proofs: [paper.pdf](paper.pdf). Checks and limitations: [verification.md](verification.md). No fresh independent review.*
 
 ## 1. Question and framing
 
@@ -13,7 +14,7 @@ partition X of space into n cells (per period) with a prescribed cell topology,
 where Aᵢ is the area of cell i, Iᵢ = ∫_{Vᵢ}|x − xᵢ|² d³x its second moment about its centroid xᵢ ([1], Eqs. (1)–(2)
 and Appendix A). Cells are curved, volumes free, topology fixed; [1] minimises 𝓕 with Surface Evolver at **fixed
 periodicity** ([1], Appendix B: "for a given set of constraints, fixed periodicity, number of cells …"; the box
-aspect ratios are given in the captions of Figs. 7–18). Among 11 FK phases (+ BCC) σ is the minimiser ([1], p. 7:
+aspect ratios are given in the captions of Figs. 7–18). Among the tested 11 FK phases (+ BCC) σ has the lowest reported value ([1], p. 7:
 "Among these nearly degenerate, fully unconstrained DFM structures, the σ phase overtakes A15 (minimal for fixed,
 equal volume) as the minimal energy phase (with next lowest energy for P)").
 
@@ -46,27 +47,36 @@ motion was tried first: it lets triangles degenerate and needs ~10⁴ iterations
 subdivided optimum of the previous level. Optional **box relaxation**: a symmetric homogeneous strain of the box (6
 dof; 𝓕 is scale invariant) with the exact virial gradient (checked by finite differences).
 
-**Continuum extrapolation.** The sequences 𝓕_L converge as O(h²): successive-difference ratios are 3.88–3.95 for
-every structure. We report R_L = 𝓕_L − (𝓕_{L−1} − 𝓕_L)/3 with an uncertainty max(|R_K − R_{K−1}|, |R_K − Aitken|);
+**Continuum extrapolation.** The leading converged sequences exhibit O(h²) behaviour: successive-difference ratios
+are about 3.88–3.95. This is not asserted for the degenerate runs. We report R_L = 𝓕_L − (𝓕_{L−1} − 𝓕_L)/3 with an uncertainty max(|R_K − R_{K−1}|, |R_K − Aitken|);
 for BCC, R₄ and R₅ (an extra level-5 run) agree to 7×10⁻⁸. This error estimate is heuristic, not rigorous.
 
-**Exact certificates** (`scripts/certify_upper_bound.py`). A relaxed mesh is rounded to the dyadic grid 2⁻⁴⁴. In
-exact integer/rational arithmetic we check: (i) every cell boundary is a closed oriented surface; (ii) every cone
-tetrahedron (apex = rounded centroid of the cell, base = a boundary triangle) has positive volume; (iii) Σᵢ Vᵢ = det L.
-By the degree argument (the cones form a closed oriented pseudomanifold mapping to the torus with all local degrees
-+1 and total degree Σ Vᵢ / det L = 1), the cells then form a genuine partition with the stated topology. Then
-𝓕³ ≤ 20 A_up² Σ Iᵢ / (27 V_box³) with exact rational Iᵢ and triangle areas bounded above by integer ceiling square
-roots. This certifies inf 𝓕 ≤ 𝓕_up for that topology and (rounded) box; for non-dyadic boxes the rounding changes the
-box by ~10⁻¹⁴ relative, which moves 𝓕 by O(10⁻¹³), far below every margin used. **No lower bounds** are certified.
+**Exact certificates.** Six relaxed meshes are stored on the dyadic grid 2⁻⁴⁴. The new, separate implementation
+`scripts/audit_certificates.py` checks spherical cell boundaries with circular vertex links, disk faces, the simple
+foam incidences and the identity of the periodic dual complex. Coning the cell boundaries therefore gives a closed
+oriented 3-manifold. Every cone determinant is strictly positive and their volumes sum exactly to det L. The degree-one
+argument in the manuscript proves embeddedness, including on the skeleton. Exact rational moments and integer
+floor/ceiling square roots enclose the energy of each individual mesh.
+
+The audit also rigorously transports each witness to its intended exact box. If T = B L̂⁻¹ and ‖T−I‖₂ ≤ ε < 1,
+then 𝓕(TX) ≤ [(1+ε)/(1−ε)]² 𝓕(X). Arb at 192 bits proves the stronger Frobenius estimate with ε = 10⁻¹²,
+including the hexagonal box involving √3. The nine-decimal bounds are unchanged. There are no **separating** lower
+bounds for the topology infima; the universal lower bound 𝓕 ≥ 1 follows from isoperimetry, the moment bound for a
+ball, and Hölder. Thus the infimum over the catalogue is enclosed in **[1, 1.068575909]**.
 
 ## 3. Validation against [1] (Milestone 1) — `scripts/check_milestone1.py` (0 FAIL)
+
+Detailed values were originally taken from **arXiv:1806.01726v1**. The twelve unconstrained DFM values and caption
+ratios were checked against the published SI, Figs. S3–S14, and agree (`data/pnas_si_crosscheck.json`).
+The continuation recomputes flat inputs and equal-volume examples, but compares stored
+data for the historical high-resolution DFM runs.
 
 *(a) Inputs.* The flat Voronoi values ("Initial Voronoi" rows) are reproduced to the printed 6 decimals for BCC, A15,
 C15, H, P, δ, pσ, M with our coordinates (crystallographic files of the archive of [2]) and the caption boxes,
 except: H requires the Z12 sites at Wyckoff 4f (as the caption of [1] Fig. 9 says; 4e gives a degenerate Delaunay
 complex); M is Pnma with box (1.89, 1, 3.3) (= Pnam 1.89:3.3:1); Z matches with c/a = 0.9935 (caption 0.993). For σ,
-μ, C14 our coordinates differ from the paper's (their Voronoi rows are not reproduced); the relaxed DFM value does
-not depend on the starting points, only on topology and box.
+μ, C14 our coordinates differ from the paper's (their Voronoi rows are not reproduced). The DFM infimum depends
+only on topology and box. A numerical optimizer may nevertheless depend on its starting points.
 
 *(b) Kelvin problem* (equal volumes, minimal area; augmented Lagrangian, `scripts/dfm/constrained.py`): BCC (Kelvin
 foam) 1.0972512 (paper 1.097251), A15 (Weaire–Phelan) 1.0935413 (paper 1.093541). A15 equal-volume DFM: ≈1.069742
@@ -74,7 +84,7 @@ foam) 1.0972512 (paper 1.097251), A15 (Weaire–Phelan) 1.0935413 (paper 1.09354
 
 *(c) Unconstrained DFM, fixed paper boxes, levels 0–4* (`data/dfm_fixedbox_paper_structures.csv`):
 
-| structure | 𝓕₄ (exact, upper bound) | extrapolated | published [1] | difference |
+| structure | 𝓕₄ (floating-point mesh value) | extrapolated | preprint [1] | difference |
 |---|---|---|---|---|
 | σ (a/c = 1.9) | 1.0685800 | 1.0685789(1) | 1.068583 | −4.1×10⁻⁶ |
 | P | 1.0688820 | 1.0688810(1) | 1.068909 | −2.8×10⁻⁵ |
@@ -106,14 +116,14 @@ For σ the box is ambiguous: the paper's own CVP row (A 1.094909, I 1.023207) is
 ratio 1.9297), not by the caption's 1.9; with a/c = 1.9297 our σ value is 1.0685970 (level 4: 1.0685982; higher than
 published by 1.4×10⁻⁵), with 1.9 it is 1.0685789 (lower by 4.1×10⁻⁶). The paper's large low-symmetry cells (P, M, μ, H) also have CVP stretching values
 above ours for the same box (P: ours I = 1.025510, paper 1.025525), and our optimal cell volumes are more
-dispersed than the paper's histograms (μ: Z16 cells 1.227 V₀ versus ≈1.20). The most likely explanation is
-incomplete relaxation in [1] for large cells (their stopping rule is a per-step change below 10⁻⁶), but we cannot
-verify their runs. The ranking among the structures of [1] at fixed boxes is unchanged except that **M (1.068998) now
+dispersed than the paper's histograms (μ: Z16 cells 1.227 V₀ versus ≈1.20). Incomplete relaxation in [1] is one
+possible explanation (their stopping rule is a per-step change below 10⁻⁶), but their runs are unavailable and the
+cause has not been established. The observed ranking at fixed boxes is unchanged except that **M (1.068998) now
 lies below A15 (1.069037)**.
 
 A diagnostic (`scripts/diagnostics/se_quadrature_bias.py`) shows that the one-point facet-centroid rule written in
-[1] Eq. (B2) would bias ℐ by ≈ −1.5×10⁻⁴ at our level 4; the agreement for A15/C15/Z/C14 implies that [1] actually
-used an exact facet integral (Evolver's `facet_general_integral`), as their text says.
+[1] Eq. (B2) would bias ℐ by ≈ −1.5×10⁻⁴ at our level 4. Agreement for A15/C15/Z/C14 is consistent with the exact
+facet integral (Evolver's `facet_general_integral`) named in their text; it does not establish how their code ran.
 
 ## 4. Screen of the catalogue
 
@@ -125,10 +135,10 @@ and their neighbours ("edges" = shared faces). We expand the orbits with gemmi (
 files print special positions with a +10⁻⁶ offset, e.g. 0.500001), locate every edge endpoint on an expanded site
 (no miss in 121 files), and build the periodic **contact graph**. In three part-II files (N22, Y02, Y06) every edge
 line is duplicated (declared coordination 24/28/30/32); the de-duplicated graph is used. For all 121 structures the
-4-cliques of the contact graph form a periodic triangulation of the 3-torus (each triangle in exactly two
-tetrahedra, Euler characteristic 0, all tetrahedra non-degenerate and Σ|vol| = box volume with the given
-coordinates, i.e. embedded), whose dual is a foam with only pentagonal and hexagonal faces and Z − 12 hexagons in
-every cell: all 121 are genuine FK tilings (`scripts/check_catalogue.py`: 121 PASS).
+4-cliques of the contact graph now have exact certificates of periodic embeddedness. The new verifier checks
+oriented face cancellation, spherical vertex links, positive determinants and total degree one, plus the four FK
+cell types with isolated hexagons. Its barycentric dual is an embedded FK tiling. Both the original floating-point
+check and `scripts/certify_catalogue.py` pass all 121 entries. The saved integer certificate is standalone.
 
 *Voronoi test.* For 78/84 (part I) and 27/37 (part II) structures the Delaunay triangulation of the given points
 equals the contact triangulation (the initial foam is then their Voronoi diagram). The others — N28, N55, N57, N58,
@@ -159,13 +169,14 @@ lowers 𝓕 by 4×10⁻⁶ (σ, relaxed a/c = 1.909), 2×10⁻⁴ (Z, c/a 0.9935
 
 `scripts/screen_pipeline.py`: levels 0–2 for all structures; level 3 for those whose level-2 extrapolation lies
 within 5×10⁻⁴ of σ's; level 4 for those within 3×10⁻⁴. Results: `data/dfm_screen_boxrelaxed.csv`
-(`scripts/make_tables.py`), with all level values (each an exact upper bound for its topology at the relaxed box).
+(`scripts/make_tables.py`), with all available level values. Eight failed relaxations are represented only by their
+unrelaxed starts. These floating-point energies are not certified decimal upper bounds.
 
 ### 4.4 Results (box relaxed)
 
-All 121 catalogue structures plus P, M (not in the catalogue) and BCC were relaxed; the complete table is
-`data/dfm_screen_boxrelaxed.csv` and README.md. Leading structures (𝓕_L is an exact upper bound for that topology
-in the relaxed box; extrapolated values with the heuristic error of §2; relative difference to σ):
+Relaxations were attempted for all 121 catalogue structures plus P, M and BCC; the complete table is
+`data/dfm_screen_boxrelaxed.csv` and README.md. Leading structures (𝓕_L is a floating-point mesh energy;
+extrapolated values have the heuristic error of §2; relative difference to σ):
 
 | structure | group, cells | Z12/14/15/16 | L | 𝓕_L | 𝓕 extrapolated | Δ vs σ | 𝒜 | ℐ | V_rms/V₀ |
 |---|---|---|---|---|---|---|---|---|---|
@@ -191,19 +202,24 @@ in the relaxed box; extrapolated values with the heuristic error of §2; relativ
 
 (* cubic: the relaxed box is the cubic box; values from the fixed-box runs to level 4.)
 
-**Answer (numerical).** σ remains the DFM minimiser over the whole catalogue (84 + 37 structures) and over the 11
-structures of [1], once every box is relaxed. The runner-up is a tie between the catalogue entry **E11** (never
-considered before) and **H**, 2.34×10⁻⁴ (0.022 %) above σ, followed by μ and zra-d (K₇Cs₆ type, never evaluated in the
-DFM) at +0.025 %, N56 (new) at +0.027 % and P at +0.028 %. The gap σ → E11 is about 2000 times the extrapolation
+**Numerical finding.** σ has the lowest reported trial energy among the 124 entries. The next values are a near-tie
+between **E11** and **H**, 2.34×10⁻⁴ (0.022 %) above σ, followed by μ and zra-d (K₇Cs₆ type) at +0.025 %, N56 at
++0.027 % and P at +0.028 %. No previous DFM evaluation of E11, zra-d or N56 was found in the bounded literature
+search. The gap σ → E11 is about 2000 times the extrapolation
 uncertainty and 200 times the whole level-4 discretisation correction of σ (𝓕₄ − 𝓕_∞ ≈ 1.1×10⁻⁶); the exact level-4
 upper bound for σ, inf 𝓕 ≤ 1.068575909 (certified, `scripts/certify_upper_bound.py`), is below every extrapolated
-competitor value by more than 2.3×10⁻⁴. No structure falls below σ and none lies within 0.02 % of it (E11 and H lie
-just outside, at 0.0219 %).
+competitor value by more than 2.3×10⁻⁴. This compares reported values, not the true topology infima; the eight
+unrelaxed entries in particular remain unresolved.
 
 **Robustness.** For σ, H, μ, zra-d, N16, N53 and N02 a second relaxation started from a different initial geometry
 (spring re-embedding of the contact graph instead of the catalogue/crystal coordinates) reaches the same level-2 value
 to ≤ 2.3×10⁻¹⁰ (`work/logs/robustness_reembed_L2.log`). The relaxed boxes keep the crystal metric (σ: a/c = 1.909;
 H: b/a = 3.73, c/a = 1.012; E11: c/a = 5.42 for the body-centred conventional cell).
+
+The preceding robustness runs are historical; their ignored checkpoints were absent from this checkout. In this
+continuation, two new random perturbations of all coordinates and the box for σ, E11, H and μ were run through
+levels 0–2 without imposing crystallographic symmetry. All 24 stages pass the floating-point cone test; final
+seed-to-seed differences are below 1.6×10⁻⁹. Data: `data/symmetry_breaking_restarts.csv`.
 
 **Box relaxation reorders the structures of [1].** At fixed boxes [1] ranks σ < P < A15 ≈ M < pσ < C14 < H < C15 < Z <
 μ < δ (our fixed-box values: σ < P < M < A15 < pσ < C14 < H < C15 < Z < μ < δ); with relaxed boxes the order is
@@ -226,7 +242,7 @@ foam edge to zero length: N57 (1.1030) and N58 (1.0992) stay embedded; for N55, 
 relaxation became degenerate (cone volumes ≤ 10⁻¹³, or negative with a collapsing box for Y04–Y06), so we report only
 the valid unrelaxed starting partitions (𝓕 = 1.13–1.20 for N55, N59, N60, Y02, Y03; 1.57–1.62 for Y04–Y06;
 `data/frustrated_start_values.csv`). All of these lie far above σ; their reported values are upper bounds reached,
-not converged infima of their (unstable) topologies.
+not converged infima. Their behaviour in these runs does not establish instability of the entire topology class.
 
 **Further check.** σ in the box of the paper's CVP row (a/c = 1.9297, fixed): 1.0685970; the E11 restart from the
 re-embedded geometry reproduces level 2 (1.0688260).
@@ -240,23 +256,31 @@ spectrum), **N56** (I4₁/amd, 76 cells, new) and **P**. Next (≤ 0.035 %): N16
 
 ## 5. What is and is not established (caveats)
 
-* **Certified** (exact integer/rational arithmetic, `scripts/check_certificates.py`): six explicit embedded partitions
+* **Certified** (integer/rational and outward ball arithmetic, `scripts/audit_certificates.py`): six explicit embedded partitions
   with the stated topologies and boxes, giving inf 𝓕 ≤ 1.071107810 (BCC, cubic), ≤ 1.068897166 (P), ≤ 1.069011740 (M),
   ≤ 1.069208084 (H), ≤ 1.069546495 (μ), all below the values published in [1] for the same topology and box, and
   inf 𝓕(σ) ≤ 1.068575909 (σ, relaxed box). The embeddedness argument (positive cones + Σ Vᵢ = det L ⇒ partition) is a
-  standard degree argument written out in §2, not taken from a reference. The boxes of the certificates are the
-  dyadic roundings of the intended boxes (relative change ~10⁻¹⁴).
+  degree argument, with the necessary manifold hypotheses now checked explicitly and proved in the manuscript.
+  Rigorous affine transport covers the intended exact boxes, not only their stored dyadic roundings.
+* **Certified catalogue feasibility**: all 121 contact complexes have standalone integer certificates. This does
+  not constitute a new proof of catalogue exhaustiveness.
+* **Analytic lower bound**: 𝓕 ≥ 1 for every admissible partition. The face graph of an isolated curved cell cannot
+  improve the ball constants: a sphere can be subdivided with that graph. Any useful stronger bound must control
+  compatibility between neighbouring cells. For the specific one-parameter flat A15 formula in [1], a Bernstein
+  positivity certificate proves 𝓕(c) > 1.0699 for all c ≥ 0; this does not cover arbitrary curved A15 partitions.
 * **Numerical, not certified**: every extrapolated value, every ranking statement, and in particular "σ is the DFM
-  minimiser over the catalogue". We have no lower bounds: a structure whose relaxation stopped in a non-global local
+  minimiser over the catalogue". We have no separating lower bounds: a structure whose relaxation stopped in a non-global local
   minimum *within its topology* could have a lower true infimum. Mitigations: restarts from different initial geometries
-  give identical values for the leading structures (§4.4); every level is a monotone-in-refinement exact upper bound with
-  clean O(h²) convergence; the gap σ → next structure (2.3×10⁻⁴) is large compared with all observed numerical
+  give close values for the leading structures (§4.4); their observed level sequences decrease with
+  O(h²) behaviour; the gap σ → next structure (2.3×10⁻⁴) is large compared with the reported numerical
   effects (extrapolation ≤ 10⁻⁶, start dependence ≤ 10⁻⁹).
 * **Error estimates** of the extrapolations are heuristic (stability of Richardson values between levels; checked for BCC
   with a fifth level: R₄ and R₅ agree to 7×10⁻⁸).
 * **Topology constraint.** As in [1], the cell topology is fixed. The DFM optimum of a topology may sit at the boundary
-  of its class (vanishing foam edge): this happens for the strongly frustrated non-Voronoi entries (§4.5), for which the
-  reported numbers are the values reached, not converged infima. For all 108 Voronoi-realised structures the shortest
+  of its class (vanishing foam edge); some runs approach such degenerations (§4.5), and their reported numbers are
+  values reached, not converged infima. In the A15 formula of [1], vanishing Z12 volumes have finite limiting energy
+  1.157131807984…, so an energy bound alone does not prevent degeneration. For the 108 Voronoi-realised inputs
+  (105 catalogue entries plus P, M and BCC), the stored screen reports a shortest
   foam edge stays ≥ 0.29 R₀ (≥ 0.51 R₀ for all structures within 0.1 % of σ), and every level sequence decreases
   monotonically.
 * **Box.** [1] fixes the box; we report both (fixed boxes for the validation, relaxed boxes for the screen). Box
@@ -264,8 +288,9 @@ spectrum), **N56** (I4₁/amd, 76 cells, new) and **P**. Next (≤ 0.035 %): N16
   breaking with a larger period is not excluded.
 * **Model scope.** The DFM is the strong-stretching, polyhedral-interface limit of [1]; its ranking need not coincide
   with SCFT at finite segregation (SCFT is out of scope; §4.6 lists candidates).
-* **Inputs.** The catalogue files are used as published on Zenodo (the 2010/2012 articles themselves were not read;
-  NEEDS.md); the identification of `ListDATApaperStr` with part II rests on the archive's own LaTeX tables.
+* **Inputs.** The 2010 and 2012 articles supplied by the user were read for their definitions and enumeration scope.
+  The part-II table families match the archive. The six-page published PNAS article was read and its 17-page SI
+  retrieved via Europe PMC. The unconstrained DFM energies and caption ratios in Figs. S3–S14 match the preprint.
 
 ## References
 
@@ -274,10 +299,10 @@ A 66 (2010) 602; data Zenodo 10.5281/zenodo.13691342. [3] Dutour Sikirić, Deza,
 Full list and novelty check: references.md.
 
 
-## 6. State at stop and how to resume
+## 6. Historical pause and subsequent continuation
 
-Work was stopped on request (24 Oct 2026, ~12:45). Done: Milestone 1 (all 12 structures of [1], fixed boxes, levels
-0–4); box-relaxed screen of all 124 structures at level 2, level 3 for the 20 within 5×10⁻⁴ of σ, level 4 for the 7 within
+The original run was stopped on request (24 Oct 2026, ~12:45). It reported Milestone 1 (all 12 structures of [1], fixed boxes, levels
+0–4); attempted box-relaxed screen of all 124 structures, level 3 for the 20 within 5×10⁻⁴ of σ, level 4 for the 7 within
 3×10⁻⁴ (σ, E11, H, μ, zra-d, N56, P) and for BCC; frustrated entries at levels 0–2; six exact certificates.
 Not done: level 3+ for structures more than 0.047 % above σ (their level-2 extrapolations carry ±6×10⁻⁶); converged
 values for the degenerate frustrated entries; CVP checks of the paper's δ, pσ, M, μ, H rows; an independent
@@ -286,3 +311,8 @@ Surface Evolver cross-check. To resume (checkpoints in `work/runs/<name>__<box>/
 `python3 scripts/screen_pipeline.py data/screen_order.txt --win3 X --win4 Y` reruns the adaptive selection;
 `python3 scripts/make_tables.py` rebuilds the tables. If `work/` is lost, the runs are deterministic and can be
 regenerated (hours).
+
+The owner subsequently requested continuation without sub-agents. That continuation is recorded progressively in
+`JOURNAL.md`, with complete proofs of the new partial results in `paper.tex` and a same-agent audit in
+`verification.md`. The remaining central task is a global comparison of topology infima, including their
+degenerating limits; further local relaxation alone will not establish it.

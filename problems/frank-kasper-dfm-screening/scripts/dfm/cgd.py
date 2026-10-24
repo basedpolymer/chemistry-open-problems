@@ -8,6 +8,7 @@ fractional coordinates of its neighbours ('edge' lines).  Atoms are the centres
 of the Frank-Kasper cells; edges are the contacts (shared faces) between cells.
 """
 import numpy as np
+from fractions import Fraction
 from .structures import lattice_from_params
 
 # Systre group names -> gemmi names (Systre uses the first ITA setting, origin
@@ -30,9 +31,9 @@ def parse_cgd(path):
         elif k == "group":
             blk["group"] = w[1]
         elif k == "atom":
-            blk["atoms"].append((int(w[1]), int(w[2]), np.array([float(eval(x)) for x in w[3:6]])))
+            blk["atoms"].append((int(w[1]), int(w[2]), np.array([float(Fraction(x)) for x in w[3:6]])))
         elif k == "edge":
-            blk["edges"].setdefault(int(w[1]), []).append(np.array([float(eval(x)) for x in w[2:5]]))
+            blk["edges"].setdefault(int(w[1]), []).append(np.array([float(Fraction(x)) for x in w[2:5]]))
     return blk
 
 

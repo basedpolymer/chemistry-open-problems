@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "source": "PNAS DOI 10.1073/pnas.1809655115, SI Eq. (S16); arXiv:1806.01726v1, Eq. (A16)",
+  "scope": "one-parameter flat A15 formula, c >= 0; not general curved A15",
+  "strict_lower_bound": "10699/10000",
+  "upper_at_c_1_22": "[1.07000904380174631678393975762677684743147839334458167209 +/- 2.92e-57]",
+  "bernstein_cover_of_0_to_2": [
+    [
+      "0",
+      "1"
+    ],
+    [
+      "1",
+      "9/8"
+    ],
+    [
+      "9/8",
+      "19/16"
+    ],
+    [
+      "19/16",
+      "5/4"
+    ],
+    [
+      "5/4",
+      "3/2"
+    ],
+    [
+      "3/2",
+      "2"
+    ]
+  ],
+  "c_ge_2": "derivative has strictly positive grouped terms",
+  "c_zero_limit": "[1.15713180798400727834444526425468111572628780189322498983 +/- 3.83e-57]",
+  "precision_bits": 192
+}

@@ -1,0 +1,25 @@
+{
+  "source_doi": "10.1073/pnas.1809655115",
+  "download_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6187128/supplementaryFiles",
+  "filename": "pnas.1809655115.sapp.pdf",
+  "sha256": "473054cfad31dd5b41e64f940eb60dd8a921dbcbe554f835f13df213ee473d59",
+  "pages": 17,
+  "checked_on": "2026-10-24",
+  "method": "Visual reading of full rendered pages 6-12; manual transcription of the Unconstrained / Minimal F / F entries and caption box ratios. Not an OCR certificate.",
+  "rows": [
+    {"name": "BCC", "figure": "S3", "page": 6, "F": "1.071111", "box": "1:1:1"},
+    {"name": "A15", "figure": "S4", "page": 6, "F": "1.069037", "box": "1:1:1"},
+    {"name": "H", "figure": "S5", "page": 7, "F": "1.069219", "box": "1:3.88:1"},
+    {"name": "sigma", "figure": "S6", "page": 7, "F": "1.068583", "box": "1.9:1.9:1"},
+    {"name": "Z", "figure": "S7", "page": 8, "F": "1.069250", "box": "hexagonal 1:1:0.993"},
+    {"name": "P", "figure": "S8", "page": 8, "F": "1.068909", "box": "1.91:3.57:1"},
+    {"name": "delta", "figure": "S9", "page": 9, "F": "1.069677", "box": "1.03:1.03:1"},
+    {"name": "psigma", "figure": "S10", "page": 9, "F": "1.069068", "box": "1.95:1.64:1"},
+    {"name": "M", "figure": "S11", "page": 10, "F": "1.069038", "box": "Pnam 1.89:3.3:1"},
+    {"name": "mu", "figure": "S12", "page": 11, "F": "1.069662", "box": "hexagonal 1:1:5.2"},
+    {"name": "C14", "figure": "S13", "page": 11, "F": "1.069071", "box": "hexagonal 1:1:1.63"},
+    {"name": "C15", "figure": "S14", "page": 12, "F": "1.069243", "box": "1:1:1"}
+  ],
+  "comparison": "All 12 transcribed DFM values and caption box ratios agree with the values used from arXiv v1. Hexagonal Z, mu and C14 captions explicitly describe a doubled orthorhombic SE repeat.",
+  "additional_reading": "Pages 4-5: A15 Eq. S16 matches arXiv Eq. A16; c->0 vanishing Z12 limit; fixed periodicity and 1e-6 relaxation/refinement criteria; facet_general_integral."
+}

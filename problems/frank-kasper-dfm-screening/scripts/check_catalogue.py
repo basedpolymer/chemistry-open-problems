@@ -29,9 +29,11 @@ SRC = os.path.join(ROOT, "certificates", "sources", "dutour2010", "SpaceFulleren
 rows = ["id,group,n,Z12/Z14/Z15/Z16,miss,coord_ok,doubled,manifold,euler0,embedded,fk_faces,voronoi_realised,spring_energy_per_contact"]
 nfail = 0
 for part, sub in ((1, "ListDATApaper"), (2, "ListDATApaperStr")):
-    for f in sorted(glob.glob(os.path.join(SRC, sub, "*.cgd"))):
-        if "total" in f:
-            continue
+    files = [f for f in sorted(glob.glob(os.path.join(SRC, sub, "*.cgd"))) if "total" not in f]
+    expected = 84 if part == 1 else 37
+    if len(files) != expected:
+        sys.exit("FAIL missing catalogue inputs: expected %d files in %s, found %d" % (expected, sub, len(files)))
+    for f in files:
         cid = ("" if part == 1 else "II:") + os.path.basename(f)[:-4]
         blk = cgd.parse_cgd(f)
         L, P, coord, edges, nmiss, sg = cgd.expand_cgd(blk)

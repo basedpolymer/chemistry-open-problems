@@ -1,0 +1,18 @@
+PASS local SI PDF SHA-256
+PASS SI S3 BCC F = 1.071111
+PASS SI S4 A15 F = 1.069037
+PASS SI S5 H F = 1.069219
+PASS SI S6 sigma F = 1.068583
+PASS SI S7 Z F = 1.069250
+PASS SI S8 P F = 1.068909
+PASS SI S9 delta F = 1.069677
+PASS SI S10 psigma F = 1.069068
+PASS SI S11 M F = 1.069038
+PASS SI S12 mu F = 1.069662
+PASS SI S13 C14 F = 1.069071
+PASS SI S14 C15 F = 1.069243
+PASS witness comparison threshold BCC
+PASS witness comparison threshold P
+PASS witness comparison threshold M
+PASS witness comparison threshold H
+PASS witness comparison threshold mu

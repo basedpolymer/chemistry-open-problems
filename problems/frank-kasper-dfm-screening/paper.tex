@@ -1,0 +1,515 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+\newcommand*{\PaperTitle}{Frank--Kasper partitions in the diblock foam model}
+\newcommand*{\PaperTitlePlain}{Frank-Kasper partitions in the diblock foam model}
+\newcommand*{\PaperShortTitle}{Frank--Kasper: certificates and global comparison}
+\newcommand*{\PaperSubtitle}{Exact certificates and the unresolved global comparison}
+\newcommand*{\PaperCredits}{Original numerical screen: Claude Opus 5.5 (effort not recorded).\\
+Audit, additional certificates, analysis and manuscript: Codex, GPT-6 (effort not recorded).\\
+24 October 2026. No sub-agents used in the continuation. Independent review pending.}
+\newcommand*{\PaperKeywords}{Frank-Kasper, diblock foam, periodic partition, exact certificate}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+\newcommand{\DF}{\mathcal F}
+\newcommand{\Ar}{\mathcal A}
+\newcommand{\Mo}{\mathcal I}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+The diblock foam model balances interface area against the second moments of
+space-filling cells. An existing numerical screen of 121 catalogue
+Frank--Kasper topologies, with three additional comparators, finds its lowest
+value for the $\sigma$ phase. We audit that screen and provide exact,
+reproducible geometric results. Integer certificates verify embedded
+tetrahedral realizations of all 121 catalogue entries. A second implementation
+checks six explicit foam partitions, their topology and their energy bounds,
+including rigorous transport to the intended crystallographic boxes. Five
+competitors have energies below the values printed in the source preprint;
+for a relaxed $\sigma$ box we certify $\inf\DF\leq1.068575909$.
+The universal lower bound is $\DF\geq1$. Neither these certificates nor
+additional symmetry-breaking restarts establish the ordering of the topology
+infima. We give complete proofs of the certified statements and identify the
+missing global inequality. This is a partial result, not a solution of the
+global minimization problem.
+\end{paperabstract}
+
+\section{The precise question and its scope}
+
+Reddy et al.\autocite{Reddy2018} compare 11 Frank--Kasper (FK) structures and
+body-centred cubic (BCC) partitions in the diblock foam model (DFM). Their
+numerical comparison favours $\sigma$. Extending this comparison to the
+catalogues of Dutour Sikirić, Delgado-Friedrichs and Deza\autocite{Dutour2010}
+and Dutour Sikirić and Deza\autocite{Dutour2012} is the question studied here.
+It is a question framed by this project; these sources do not formulate the
+catalogue-wide DFM minimization as an explicit open conjecture.
+
+The catalogues contain 84 and 37 structures, respectively. Their enumeration
+is bounded by 20 and 21 cells in a reduced fundamental domain under a
+fixed-point-free crystallographic group. This number is generally smaller
+than the number of cells in the translation period used by the computations.
+The catalogue is not a classification of all FK structures.
+
+An admissible partition consists of bounded cells with positive volumes,
+periodic under $L\mathbb Z^3$, with the prescribed face, edge and vertex
+incidences. Faces may be curved: this is part of the source definitions.
+Piecewise smooth and piecewise planar competitors are included. Cells have
+spherical boundaries, faces are disks, and the topology is kept fixed.
+Write $\mathcal P_T(L)$ for this class for topology $T$. With box relaxation,
+the quantity to compare is
+\[
+ m_T=\inf_{\det L>0}\ \inf_{X\in\mathcal P_T(L)}\DF(X).
+\]
+Each topology uses the translation period represented by its input complex;
+arbitrary larger supercells are a separate enlargement of this problem.
+The desired conclusion would be $m_\sigma\leq m_T$ for every competitor $T$.
+An optimizer returning a feasible $X_T$ establishes only
+$m_T\leq\DF(X_T)$.
+
+\section{Energy identity and a universal lower bound}
+
+Let $V=\det L$, let $n$ be the number of cells per period, and set
+$V_0=V/n=4\pi R_0^3/3$. For a lifted cell $\Omega_i$, define
+\[
+ v_i=|\Omega_i|,\qquad
+ c_i=v_i^{-1}\int_{\Omega_i}x\,dx,\qquad
+ J_i=\int_{\Omega_i}|x-c_i|^2\,dx.
+\]
+Let $A$ denote the total interface area per period, counting each interface
+once, and let $J=\sum_i J_i$. Thus $\sum_i|\partial\Omega_i|=2A$ and
+\[
+ \Ar=\frac{2A/n}{4\pi R_0^2},\qquad
+ \Mo=\frac{J/n}{4\pi R_0^5/5},\qquad
+ \DF=(\Ar^2\Mo)^{1/3}.
+\]
+Substitution eliminates both $n$ and $\pi$:
+\begin{equation}\label{eq:energy}
+ \boxed{\DF^3=\frac{20A^2J}{27V^3}.}
+\end{equation}
+The expression is unchanged by translation, rotation or uniform rescaling.
+
+\begin{theorem}\label{thm:lower}
+Every admissible partition satisfies $\DF\geq1$. In fact $\DF>1$ for a
+face-to-face periodic tiling by bounded cells with positive interface areas.
+This strict pointwise inequality does not assert a uniform positive gap
+between an infimum and 1.
+\end{theorem}
+\begin{proof}
+The Euclidean isoperimetric inequality gives
+\[
+ A\geq\tfrac12(36\pi)^{1/3}\sum_i v_i^{2/3}.
+\]
+For completeness, the moment bound needs no convexity assumption. Fix the
+centroid $c_i$ and let $B_i$ be the ball of volume $v_i$ centred there, with
+radius $r_i$. The sets $\Omega_i\setminus B_i$ and $B_i\setminus\Omega_i$
+have equal measure. On the former $|x-c_i|^2\geq r_i^2$, and on the latter
+$|x-c_i|^2\leq r_i^2$. Subtracting the two integrals proves
+\[
+ J_i\geq\int_{B_i}|x-c_i|^2\,dx
+       =\frac35\left(\frac3{4\pi}\right)^{2/3}v_i^{5/3}.
+\]
+Equation~\eqref{eq:energy} consequently yields
+\[
+ \DF^3\geq
+ \frac{\bigl(\sum_i v_i^{2/3}\bigr)^2\sum_i v_i^{5/3}}{V^3}\geq1.
+\]
+The last inequality is Hölder applied to
+$v_i=(v_i^{2/3})^{2/3}(v_i^{5/3})^{1/3}$ with exponents $3/2$ and 3.
+Equality with all $v_i>0$ requires equal volumes and spherical cells.
+Two disjoint equal-volume balls cannot share a face of positive area, so
+they cannot form the stipulated tiling. This excludes pointwise equality,
+but is not a compactness argument for a uniform gap.
+\end{proof}
+
+\begin{proposition}\label{prop:cellwise}
+For an isolated curved cell, its FK face-incidence graph does not improve
+the ball constants in Theorem~\ref{thm:lower}. This cellwise relaxation
+cannot distinguish catalogue entries.
+\end{proposition}
+\begin{proof}
+Each FK cell graph is the graph of a polyhedral sphere. Map this sphere
+homeomorphically onto a round sphere and regard its images of vertices,
+edges and faces as a subdivision of that round sphere. The resulting curved
+cell has precisely that face-incidence graph and achieves both ball
+constants. If nonzero dihedral features are required, arbitrarily small
+smooth or piecewise planar perturbations approach the same constants.
+For any list of cell types, the relaxation that forgets compatibility
+between neighbouring cells can therefore use equal-volume balls for all
+types. It has value 1. Compatibility between different cells is exactly
+what this relaxation has discarded.
+\end{proof}
+
+\section{Why the integer geometry certificates prove embeddedness}
+
+The following elementary degree statement makes the geometric verification
+precise. A periodic piecewise affine map is described by finitely many
+vertex representatives and integer lattice shifts.
+
+\begin{lemma}\label{lem:degree}
+Let $K$ be a closed connected oriented triangulated 3-manifold and let
+$f:K\to\mathbb R^3/L\mathbb Z^3$ be piecewise affine. Suppose its determinant
+on every oriented tetrahedron is strictly positive. If the sum of its
+tetrahedron volumes is $\det L$, then $f$ is a homeomorphism.
+\end{lemma}
+\begin{proof}
+Integrating the volume form gives $\deg(f)=1$, since
+\[
+ \deg(f)\det L=\sum_\tau\operatorname{vol}(f(\tau))=\det L.
+\]
+A regular value outside the finite image of the two-dimensional skeleton
+has one preimage: all local orientation signs are positive.
+
+To include the skeleton, the fibre over any point is finite, since $f$ is
+injective on each tetrahedron. Isolate each preimage in a neighbourhood
+whose boundary does not map to the chosen value. Its local degree is
+positive: a sufficiently close regular value in the image of an incident
+tetrahedron has at least one positively oriented preimage in that
+neighbourhood, and every other contribution is nonnegative. The sum of
+these positive local degrees is 1. Thus every fibre is a singleton.
+The continuous bijection from a compact space to the torus is a
+homeomorphism.
+\end{proof}
+
+\subsection{All 121 catalogue topologies}
+
+The certificate stores fractional vertex positions on the grid $2^{-44}$.
+It lists the periodic tetrahedra of each catalogue contact complex.
+Crystallographic expansion and floating-point coordinates are used only
+to propose these data. The verifier uses integers for the following tests:
+every tetrahedron has nonzero volume; after positive orientation every
+triangle occurs twice with cancelling orientations; the vertex links are
+connected oriented triangulated 2-spheres; and the sum of determinants is
+exactly $6\,2^{132}$, the value for a unit-volume torus.
+
+The face pairing and spherical links give a 3-manifold. The degree argument
+then verifies its embedded periodic realization, not merely a volume
+identity within a tolerance. Connectedness is also forced by positivity
+and total degree one: every closed component would have positive integer
+degree.
+
+In each vertex link the verifier checks 12, 14, 15 or 16 vertices, all of
+degree 5 or 6, exactly twelve of degree 5, and no edge joining two
+degree-6 vertices. The dual cells therefore have the four FK types, with
+isolated hexagons. The barycentric dual of the certified triangulation is
+a genuine embedded foam with that topology.
+
+\begin{theorem}\label{thm:catalogue}
+The 121 integer data sets in
+\texttt{certificates/catalogue\_topology.npz} give embedded periodic FK
+complexes with the incidence structures extracted from the 84 part-I and
+37 part-II catalogue files. All 121 exact checks pass.
+\end{theorem}
+
+This verifies the supplied realizations. The identification of the
+catalogue and its enumeration range comes from the source papers and
+archive\autocite{Dutour2010,Dutour2012,CatalogueData}, not from a new
+enumeration in this work. The manifest retains hashes of the CGD inputs.
+An entry that is not Delaunay at its supplied coordinates is not thereby
+proved incapable of another Voronoi realization.
+
+\subsection{The six energy witnesses}
+
+Each energy certificate instead stores the actual refined foam triangles,
+their shared vertex representatives, periodic shifts, cell incidences and
+a chosen interior apex for each cell. The audit checks every cell boundary
+as a connected oriented 2-sphere, including circular vertex links. Each
+coarse interface is a disk with one boundary circle. Periodic cell
+interfaces are unique, each foam edge meets three cells and faces, and
+each foam vertex meets four cells and six faces. The extracted labelled
+periodic dual tetrahedra agree exactly with the corresponding complex
+reconstructed from the crystallographic registry.
+
+Coning the cell boundaries to their apices gives the requisite triangulated
+3-manifold. Strict positivity of all cone determinants and the exact
+volume identity then allow Lemma~\ref{lem:degree} to be applied. Thus the
+triangles describe an embedded partition with the declared topology.
+
+\section{Exact integration and box correction}
+
+For an oriented boundary triangle with vertices $a,b,c$ relative to its
+cell apex, let $d=\det(a,b,c)>0$ and $w=d/6$. The contribution of its cone
+to volume, first moment and second moment is
+\begin{align}
+ v_\tau&=w,\qquad
+ M_\tau=\frac w4(a+b+c),\label{eq:first}\\
+ S_\tau&=\frac w{20}\left(|a+b+c|^2+|a|^2+|b|^2+|c|^2\right).
+ \label{eq:second}
+\end{align}
+Indeed, for the three nonzero barycentric coordinates of a uniform
+tetrahedron, the averages are $1/4$, their squares have average $1/10$,
+and distinct products have average $1/20$. Expanding the integrands proves
+these formulas. After summing over a cell,
+\[
+ J_i=S_i-\frac{|M_i|^2}{v_i}.
+\]
+All these quantities are rational on the integer grid. A triangle area
+equals $\sqrt{q}/2$, where $q$ is the squared integer cross-product norm,
+with the grid scale understood. Integer floor and ceiling square roots
+enclose every area. Substitution into~\eqref{eq:energy}, followed by exact
+rational comparisons of cubes, encloses the energy of the particular mesh.
+The lower endpoint is \emph{not} a lower bound on $m_T$.
+
+\begin{lemma}\label{lem:transport}
+Let $T$ be linear with $\|T-I\|_2\leq\varepsilon<1$ and $\det T>0$.
+For any partition $X$,
+\[
+ \DF(TX)\leq\frac{(1+\varepsilon)^2}{(1-\varepsilon)^2}\DF(X).
+\]
+\end{lemma}
+\begin{proof}
+Areas increase by at most $(1+\varepsilon)^2$. Centroids transform by $T$,
+so $J(TX)\leq\det(T)(1+\varepsilon)^2J(X)$, while
+$V(TX)=\det(T)V(X)$. Consequently~\eqref{eq:energy} gives
+$\DF(TX)\leq(1+\varepsilon)^2\det(T)^{-2/3}\DF(X)$.
+Since $\det T\geq(1-\varepsilon)^3$, the claimed bound follows.
+\end{proof}
+
+For each fixed box the audit forms $T=B\widehat L^{-1}$, where
+$\widehat L$ is the stored dyadic box and $B$ is the exact intended box.
+Arb ball arithmetic at 192-bit precision proves
+$\|T-I\|_F<10^{-12}$. Rectangular aspect ratios are exact rationals;
+the hexagonal box uses $\sqrt3/2$. The Frobenius bound implies the operator
+norm bound in Lemma~\ref{lem:transport}. The correction leaves all
+nine-decimal upper bounds unchanged.
+
+\begin{theorem}\label{thm:witnesses}
+The six certificates give the following upper bounds on the appropriate
+topology infima. The first five are in the exact stated boxes; the last
+uses the exact relaxed dyadic box stored in its certificate.
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Topology & Box convention & Certified upper bound & Source value\\
+\midrule
+BCC & cubic & 1.071107810 & 1.071111\\
+$P$ & $1.91:3.57:1$ & 1.068897166 & 1.068909\\
+$M$ & $1.89:1:3.3$ ($Pnma$) & 1.069011740 & 1.069038\\
+$H$ & $1:3.88:1$ & 1.069208084 & 1.069219\\
+$\mu$ & hexagonal, $c/a=5.2$ & 1.069546495 & 1.069662\\
+$\sigma$ & relaxed dyadic box & 1.068575909 & --\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each of the first five bounds is also below the lower rounding endpoint
+of the corresponding printed six-decimal number.
+\end{theorem}
+
+The tabulated source values agree in arXiv:1806.01726v1 and the published
+PNAS SI Appendix, Figs.~S3, S8, S11, S5 and S12. The SI was retrieved from
+Europe PMC; all twelve unconstrained DFM energies and caption box ratios
+were checked visually. For the hexagonal cases the source uses a doubled
+orthorhombic repeat. Repeating our hexagonal witness in that supercell
+preserves $\DF$, since $A,J,V$ all double in~\eqref{eq:energy}.
+These are improved feasible competitors, not a contradiction of a proved
+theorem. No unique cause of the numerical differences is established.
+
+Combining Theorems~\ref{thm:lower} and~\ref{thm:witnesses} yields the global,
+but insufficiently narrow, enclosure
+\begin{equation}\label{eq:global}
+ 1\leq\min_{T\text{ in the catalogue}}m_T\leq1.068575909.
+\end{equation}
+The same enclosure holds upon adding $P$, $M$ and BCC.
+
+\section{Numerical evidence and its limits}
+
+The inherited screen uses triangulated interfaces, midpoint refinements,
+analytic gradients and restricted normal-motion L-BFGS cycles, with
+tangential smoothing. It includes homogeneous box strains. Its leading
+Richardson-extrapolated energies are as follows; these estimates have
+\emph{no certified lower error endpoints}.
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Topology & Extrapolated $\DF$ & Relative gap from $\sigma$\\
+\midrule
+$\sigma$ & 1.0685748 & 0\\
+E11 & 1.0688088 & $0.0219\%$\\
+$H$ & 1.0688092 & $0.0219\%$\\
+$\mu$ & 1.0688388 & $0.0247\%$\\
+K$_7$Cs$_6$ type & 1.0688396 & $0.0248\%$\\
+N56 & 1.0688683 & $0.0275\%$\\
+$P$ & 1.0688742 & $0.0281\%$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The full historical table contains 124 entries. Of the 121 catalogue
+structures, 105 have their supplied contact triangulation realized as a
+Delaunay triangulation; 16 do not at those coordinates. Several of the
+latter relaxations collapse an edge or become invalid. Eight reported
+entries are only valid unrelaxed starting values. Those entries have not
+been energetically excluded. Finite mesh values calculated in floating
+point should not be described as exact numerical certificates merely
+because the underlying integration formulas are exact.
+
+The validation script recomputes the flat-input checks and equal-volume
+Kelvin and Weaire--Phelan examples, and compares the stored fixed-box data
+against the source tables. It finishes with zero failed checks. Agreement
+on stored data is distinguished from recomputing every high-resolution
+relaxation: most historical checkpoint files were absent from this checkout.
+
+Additional restarts perturb all vertex coordinates by independent Gaussian
+noise of scale $0.015R_0$, and the box by symmetric random strains of scale
+about $0.01$. No crystallographic symmetry is imposed. Two fixed seeds,
+1701 and 2903, were run through refinement levels 0--2 for $\sigma$, E11,
+$H$ and $\mu$. All 24 completed stages pass the floating-point cone test.
+The largest difference between the two level-2 results of the same
+structure is $1.6\times10^{-9}$; the ordering remains unchanged. This
+evidence concerns only the tested starts and resolutions.
+
+\section{The missing global step}
+
+A certified ordering would follow from a feasible $\sigma$ energy $U$ and
+bounds $L_T$ such that $\DF(X)\geq L_T>U$ for \emph{every} admissible
+$X$ of every other topology. No such bounds are supplied by the screen.
+Refinement and restarts do not supply them either. A positive Hessian at a
+particular stationary mesh would only be a local statement, and would
+still require a continuum error argument.
+
+The obstruction is not missing optimization software. It is control over
+all admissible curved faces, all positive cell volumes and all allowed
+box shapes, including degenerating sequences. A fixed-topology class need
+not be closed under such degenerations, so an attained minimizer cannot
+be presumed.
+
+\subsection{A certified restricted family and a finite degeneration}
+
+The one-parameter flat-face A15 family in the source SI, Eq.~(S16)
+(preprint Eq.~(A16)), has energy
+\[
+ F_c^3=\frac5{55296}(a+bc^2)^2(3c^4-5c^3+10),\qquad
+ a=12+12\sqrt6,\quad b=6\sqrt5-4\sqrt6-3>0.
+\]
+Here the cubic period has side length 2, and the two $Z_{12}$ cells have
+volume $c^3/2$ each. The other six cells have volume $(4-c^3/2)/3$.
+The parameter range on which this formula describes the family includes
+positive $c$ approaching zero and the sample $c=1.22$ used below.
+
+\begin{proposition}\label{prop:a15}
+For every $c\geq0$ the displayed algebraic expression satisfies
+$F_c>1.0699$. Moreover $F_{1.22}<1.0701$. Thus no admissible member of
+this particular flat A15 family improves the certified $\sigma$ witness.
+This is not a lower bound for unrestricted curved A15 cells.
+\end{proposition}
+\begin{proof}
+Let
+$P(c)=5(a+bc^2)^2(3c^4-5c^3+10)-55296(1.0699)^3$.
+On $[0,2]$ we verify positivity by Bernstein coefficients, using outward
+ball arithmetic with 192-bit precision for the radicals. The six intervals
+have endpoints
+\[
+ 0,\quad 1,\quad 9/8,\quad 19/16,\quad 5/4,\quad 3/2,\quad 2.
+\]
+For clarity, the complete conversion rule is as follows. If
+$P(c)=\sum_{j=0}^8p_jc^j$, then on $[l,l+h]$ set
+$q_i=h^i\sum_{j=i}^8\binom ji p_jl^{j-i}$. Its Bernstein coefficients
+are $\beta_k=\sum_{i=0}^k q_i\binom ki/\binom8i$.
+The verifier proves every $\beta_k>0$ on each interval. Since the
+Bernstein basis is nonnegative and sums to one, $P>0$ there.
+
+For $c\geq2$, the derivative of $(a+bc^2)^2(3c^4-5c^3+10)$ equals
+\[
+ c(a+bc^2)\bigl[bc^3(24c-35)+3ac(4c-5)+40b\bigr]>0.
+\]
+The already checked value at 2 completes the half-line argument.
+Direct outward evaluation at the rational sample $61/50$ proves the
+upper bound. All steps are implemented in
+\texttt{scripts/check\_a15\_family.py}; no sampled minimization is used.
+\end{proof}
+
+As $c\downarrow0$, the two $Z_{12}$ cells disappear, but
+\[
+ F_c\longrightarrow
+ \left(\frac{50(12+12\sqrt6)^2}{55296}\right)^{1/3}
+ =1.157131807984\ldots.
+\]
+Thus bounded energy alone does not prevent vanishing cell volumes even
+within an FK family. This particular limit is above the $\sigma$ witness;
+it does not settle other degenerating families or show that degenerations
+can occur near the observed optimum. Any exclusion of those limits needs
+an additional argument.
+
+\subsection{Necessary stationarity is not global minimality}
+
+For a smooth interface oriented outward from cell $i$ toward cell $j$,
+let $h=\operatorname{div}_{\!S}n$ be the sum of principal curvatures. A
+normal displacement $u$ has first variations
+\[
+ \delta A=\int h u\,dS,\qquad
+ \delta J=\int\bigl(|x-c_i|^2-|x-c_j|^2\bigr)u\,dS.
+\]
+The dependence of the centroids causes no additional term, since
+$\int_{\Omega_i}(x-c_i)\,dx=0$. Thus an interior stationary partition
+in a fixed box must satisfy
+\[
+ 2J h+A\bigl(|x-c_i|^2-|x-c_j|^2\bigr)=0
+\]
+on each smooth interface. Triple-line variations additionally give the
+usual equal-tension force balance. These are necessary conditions, not a
+convexity or uniqueness theorem.
+
+\subsection{A sufficient form of a global lower certificate}
+
+Normalize $V=1$ by scaling. For positive $A,J$,
+\begin{equation}\label{eq:linearization}
+ \DF=\frac{20^{1/3}}9\inf_{s>0}\bigl(2sA+s^{-2}J\bigr),
+\end{equation}
+because the optimizing value satisfies $s^3=J/A$.
+This infimum identity warns against bounding just one chosen linear
+combination: a lower bound is needed uniformly in $s$.
+
+Here is one possible sufficient mechanism. Index all periodic copies of
+the cells by $\alpha$, with centres $c_\alpha$, and choose continuously
+differentiable vector fields $\xi_\alpha$ equivariant under lattice
+translation. Suppose that for every pair and every position
+$|\xi_\alpha-\xi_\beta|\leq2s$. Summing the divergence theorem over
+the cells in a period gives
+\[
+ 2sA+s^{-2}J\geq
+ \int_{\mathbb R^3/L\mathbb Z^3}
+ \inf_\alpha\left(\operatorname{div}\xi_\alpha(x)
+                  +s^{-2}|x-c_\alpha|^2\right)dx.
+\]
+At a shared interface this follows from
+$(\xi_\alpha-\xi_\beta)\cdot n\leq2s$; the remaining inequality is
+pointwise. A uniform lower bound $9U/20^{1/3}$ on the right for all $s$,
+centres and allowed boxes would prove $\DF\geq U$ through
+\eqref{eq:linearization}. No fields attaining such a bound near the
+observed $\sigma$ value have been constructed here. Restrictions to a
+fixed set of centres would leave the original question unresolved.
+
+\section{Reproduction and verification status}
+
+From the problem directory, with Python 3.12 or later:
+\begin{verbatim}
+python scripts/audit_certificates.py
+python scripts/certify_catalogue.py
+python scripts/test_audit_certificates.py
+python scripts/check_a15_family.py
+python scripts/check_milestone1.py
+python scripts/check_restarts.py
+\end{verbatim}
+The standalone catalogue certificate needs no third-party archive at
+verification time. Regeneration uses
+\texttt{certify\_catalogue.py --build}, after restoring the Zenodo archive
+with MD5 \texttt{582371cee665c62e01a2f47a73dd2c9d}. The manifest records
+its input filenames and individual SHA-256 hashes. Source PDFs remain
+local and are excluded from redistribution by the repository ignore rules.
+
+The energy audit has a separate exact integration implementation from the
+optimizer and the original certificate program. It also verifies manifold
+links, interface topology and affine transport. Its regression checks
+reject reversed triangles, missing tetrahedra, duplicated faces and a
+pinched surface, and check invariance under translation and scaling.
+These are implementation checks, not a formal proof-assistant verification.
+
+This continuation used a single agent, as requested. The new code and
+mathematical arguments have not undergone a fresh independent review.
+The global ordering $m_\sigma\leq m_T$ remains unproved; the numerical
+screen, the exact feasibility statements and the global enclosure
+\eqref{eq:global} are the conclusions supported by the present work.
+
+\paperreferences
+\end{document}

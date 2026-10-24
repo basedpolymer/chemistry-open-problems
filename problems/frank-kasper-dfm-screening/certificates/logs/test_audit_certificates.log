@@ -1,0 +1,11 @@
+test_catalogue_rejects_missing_tetrahedron (__main__.AuditTests.test_catalogue_rejects_missing_tetrahedron) ... ok
+test_energy_invariance_and_orientation (__main__.AuditTests.test_energy_invariance_and_orientation) ... ok
+test_hexagonal_interval_transport (__main__.AuditTests.test_hexagonal_interval_transport) ... ok
+test_periodic_canonicalization (__main__.AuditTests.test_periodic_canonicalization) ... ok
+test_pinched_link_is_rejected (__main__.AuditTests.test_pinched_link_is_rejected) ... ok
+test_sphere_and_disk (__main__.AuditTests.test_sphere_and_disk) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.920s
+
+OK

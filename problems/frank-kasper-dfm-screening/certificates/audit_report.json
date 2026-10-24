@@ -1,0 +1,233 @@
+{
+  "python": "3.12.15",
+  "claims": [
+    {
+      "name": "BCC",
+      "file": "BCC_fixedbox_L4.npz",
+      "sha256": "16690515c5c39d19456eea19a9cf130190fef46cf0b4b6f67931a1d219dbadd7",
+      "status": "PASS",
+      "topology": {
+        "cells": 2,
+        "faces": 14,
+        "foam_vertices": 12,
+        "cell_degree_histogram": {
+          "14": 2
+        },
+        "face_size_histogram": {
+          "4": 6,
+          "6": 8
+        },
+        "cell_boundaries": "connected oriented 2-spheres with circular vertex links",
+        "faces_topology": "disks with one boundary circle",
+        "identity": "exact equality of periodic labelled dual tetrahedra"
+      },
+      "geometry": {
+        "positive_cones": true,
+        "exact_volume_sum": true,
+        "smallest_cone_determinant": "41254460397789655739086689195419012",
+        "mesh_energy_lower": "1071107809177/1000000000000",
+        "mesh_energy_upper": "535553904589/500000000000"
+      },
+      "box_transport": {
+        "box": "exact caption metric",
+        "frobenius_error_bound": "1/1000000000000",
+        "affine_factor_bound": "1000000000002000000000001/999999999998000000000001"
+      },
+      "intended_box_upper_9dp": "1.071107810",
+      "threshold": "1071111/1000000",
+      "runtime_s": 2.641
+    },
+    {
+      "name": "P",
+      "file": "P_fixedbox_L2.npz",
+      "sha256": "c0d5845c35d3b05c16c1d61cf2f93593ceb58b0fa5e8c364c2d2c742b6422f33",
+      "status": "PASS",
+      "topology": {
+        "cells": 56,
+        "faces": 376,
+        "foam_vertices": 320,
+        "cell_degree_histogram": {
+          "12": 24,
+          "14": 20,
+          "15": 8,
+          "16": 4
+        },
+        "face_size_histogram": {
+          "5": 336,
+          "6": 40
+        },
+        "cell_boundaries": "connected oriented 2-spheres with circular vertex links",
+        "faces_topology": "disks with one boundary circle",
+        "identity": "exact equality of periodic labelled dual tetrahedra"
+      },
+      "geometry": {
+        "positive_cones": true,
+        "exact_volume_sum": true,
+        "smallest_cone_determinant": "1749605654803454262862098450080035876",
+        "mesh_energy_lower": "1068897165219/1000000000000",
+        "mesh_energy_upper": "53444858261/50000000000"
+      },
+      "box_transport": {
+        "box": "exact caption metric",
+        "frobenius_error_bound": "1/1000000000000",
+        "affine_factor_bound": "1000000000002000000000001/999999999998000000000001"
+      },
+      "intended_box_upper_9dp": "1.068897166",
+      "threshold": "1068909/1000000",
+      "runtime_s": 3.181
+    },
+    {
+      "name": "M",
+      "file": "M_fixedbox_L2.npz",
+      "sha256": "32b6c5b76e7a9df5afabbbb553a15b6981a0ba5a83a7db05a8c42d33f6f671c3",
+      "status": "PASS",
+      "topology": {
+        "cells": 52,
+        "faces": 348,
+        "foam_vertices": 296,
+        "cell_degree_histogram": {
+          "12": 28,
+          "14": 8,
+          "15": 8,
+          "16": 8
+        },
+        "face_size_histogram": {
+          "5": 312,
+          "6": 36
+        },
+        "cell_boundaries": "connected oriented 2-spheres with circular vertex links",
+        "faces_topology": "disks with one boundary circle",
+        "identity": "exact equality of periodic labelled dual tetrahedra"
+      },
+      "geometry": {
+        "positive_cones": true,
+        "exact_volume_sum": true,
+        "smallest_cone_determinant": "1742787944077169411041151661443461876",
+        "mesh_energy_lower": "133626467431/125000000000",
+        "mesh_energy_upper": "1069011739449/1000000000000"
+      },
+      "box_transport": {
+        "box": "exact caption metric",
+        "frobenius_error_bound": "1/1000000000000",
+        "affine_factor_bound": "1000000000002000000000001/999999999998000000000001"
+      },
+      "intended_box_upper_9dp": "1.069011740",
+      "threshold": "534519/500000",
+      "runtime_s": 2.825
+    },
+    {
+      "name": "H",
+      "file": "H_fixedbox_L3.npz",
+      "sha256": "0bdedd4f72ce876d9d3fb9cfefbb234d50106d01b6e0d551960f3923ceeb8432",
+      "status": "PASS",
+      "topology": {
+        "cells": 30,
+        "faces": 202,
+        "foam_vertices": 172,
+        "cell_degree_histogram": {
+          "12": 10,
+          "14": 16,
+          "15": 4
+        },
+        "face_size_histogram": {
+          "5": 180,
+          "6": 22
+        },
+        "cell_boundaries": "connected oriented 2-spheres with circular vertex links",
+        "faces_topology": "disks with one boundary circle",
+        "identity": "exact equality of periodic labelled dual tetrahedra"
+      },
+      "geometry": {
+        "positive_cones": true,
+        "exact_volume_sum": true,
+        "smallest_cone_determinant": "367223150231755149433364193356218431",
+        "mesh_energy_lower": "66825505233/62500000000",
+        "mesh_energy_upper": "1069208083729/1000000000000"
+      },
+      "box_transport": {
+        "box": "exact caption metric",
+        "frobenius_error_bound": "1/1000000000000",
+        "affine_factor_bound": "1000000000002000000000001/999999999998000000000001"
+      },
+      "intended_box_upper_9dp": "1.069208084",
+      "threshold": "1069219/1000000",
+      "runtime_s": 6.514
+    },
+    {
+      "name": "mu",
+      "file": "mu_fixedbox_L2.npz",
+      "sha256": "27f63d8ee9a798a2d64544de9cf327abc7549256f8837d66c9a09bc938a44e06",
+      "status": "PASS",
+      "topology": {
+        "cells": 39,
+        "faces": 261,
+        "foam_vertices": 222,
+        "cell_degree_histogram": {
+          "12": 21,
+          "14": 6,
+          "15": 6,
+          "16": 6
+        },
+        "face_size_histogram": {
+          "5": 234,
+          "6": 27
+        },
+        "cell_boundaries": "connected oriented 2-spheres with circular vertex links",
+        "faces_topology": "disks with one boundary circle",
+        "identity": "exact equality of periodic labelled dual tetrahedra"
+      },
+      "geometry": {
+        "positive_cones": true,
+        "exact_volume_sum": true,
+        "smallest_cone_determinant": "1722272001660691911165131773283368852",
+        "mesh_energy_lower": "1069546494351/1000000000000",
+        "mesh_energy_upper": "66846655897/62500000000"
+      },
+      "box_transport": {
+        "box": "exact caption metric",
+        "frobenius_error_bound": "1/1000000000000",
+        "affine_factor_bound": "1000000000002000000000001/999999999998000000000001"
+      },
+      "intended_box_upper_9dp": "1.069546495",
+      "threshold": "534831/500000",
+      "runtime_s": 2.067
+    },
+    {
+      "name": "sigma",
+      "file": "sigma_relaxedbox_L4.npz",
+      "sha256": "c6906051388b0203262f9278c87f7b71ec5a3ea1b7df245434334fd0ecade9d2",
+      "status": "PASS",
+      "topology": {
+        "cells": 30,
+        "faces": 202,
+        "foam_vertices": 172,
+        "cell_degree_histogram": {
+          "12": 10,
+          "14": 16,
+          "15": 4
+        },
+        "face_size_histogram": {
+          "5": 180,
+          "6": 22
+        },
+        "cell_boundaries": "connected oriented 2-spheres with circular vertex links",
+        "faces_topology": "disks with one boundary circle",
+        "identity": "exact equality of periodic labelled dual tetrahedra"
+      },
+      "geometry": {
+        "positive_cones": true,
+        "exact_volume_sum": true,
+        "smallest_cone_determinant": "66660410892094299035356263658775840",
+        "mesh_energy_lower": "213715181753/200000000000",
+        "mesh_energy_upper": "534287954383/500000000000"
+      },
+      "box_transport": {
+        "box": "exact dyadic matrix in certificate",
+        "affine_factor_bound": "1"
+      },
+      "intended_box_upper_9dp": "1.068575909",
+      "threshold": "33393/31250",
+      "runtime_s": 28.785
+    }
+  ]
+}

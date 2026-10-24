@@ -1,0 +1,854 @@
+{
+  "grid_exponent": 44,
+  "archive_md5": "582371cee665c62e01a2f47a73dd2c9d",
+  "npz_sha256": "fcc62b01fac3a61ef023ed2b84a4bdb466feac0f3932bb460f65d780049149a7",
+  "entries": [
+    {
+      "id": "I_E01",
+      "group": "Cmmm",
+      "source": "ListDATApaper/E01.cgd",
+      "source_sha256": "9874b87273803f44d50814999b917b50a59a9e0beda876a0eec60c214a4d39ec",
+      "ncell": 26
+    },
+    {
+      "id": "I_E02",
+      "group": "Cmcm",
+      "source": "ListDATApaper/E02.cgd",
+      "source_sha256": "757190b34598671e4a5744c54f4ac9a5bee6f561024950788bd004b78d088b5c",
+      "ncell": 52
+    },
+    {
+      "id": "I_E03",
+      "group": "Cmca",
+      "source": "ListDATApaper/E03.cgd",
+      "source_sha256": "598ae91bad7c9f0c27e21ace08a1c940137d9ef675a2ceb08a3e6cf78950f25a",
+      "ncell": 28
+    },
+    {
+      "id": "I_E04",
+      "group": "Cmca",
+      "source": "ListDATApaper/E04.cgd",
+      "source_sha256": "eeca1f6aa5d224146eca14fcce27c450fd7ca9bae6f0ff4abffff7c1818fe8a0",
+      "ncell": 56
+    },
+    {
+      "id": "I_E05",
+      "group": "Cmcm",
+      "source": "ListDATApaper/E05.cgd",
+      "source_sha256": "605837c122f4f61c7390c7f4c12f3c9fe082a93866e4b5ba4850a9e28281c572",
+      "ncell": 56
+    },
+    {
+      "id": "I_E06",
+      "group": "I-4m2",
+      "source": "ListDATApaper/E06.cgd",
+      "source_sha256": "7690427eaf70ecac90ad3ccb1e2319c985aa843426fa52d43f9307faa4280f03",
+      "ncell": 28
+    },
+    {
+      "id": "I_E07",
+      "group": "P21212",
+      "source": "ListDATApaper/E07.cgd",
+      "source_sha256": "7694e46373cedc201f144bf4a04328981bb1596ba8e314275429bf4921c1e76e",
+      "ncell": 28
+    },
+    {
+      "id": "I_E08",
+      "group": "Cmc21",
+      "source": "ListDATApaper/E08.cgd",
+      "source_sha256": "338d805d5afeac7dc6214e3d1c5c0c591fbdd72ca899e20311214dcb8dd5d93d",
+      "ncell": 56
+    },
+    {
+      "id": "I_E09",
+      "group": "Cmc21",
+      "source": "ListDATApaper/E09.cgd",
+      "source_sha256": "198e854ae0e92640f414d802f70bb025edc4c441fea15b163a0f3be8e92982a8",
+      "ncell": 56
+    },
+    {
+      "id": "I_E10",
+      "group": "P212121",
+      "source": "ListDATApaper/E10.cgd",
+      "source_sha256": "96edd2817eafbb059696b2e93d80fbb79fff6d6b3f2d6549236aa8bb78ed0b53",
+      "ncell": 56
+    },
+    {
+      "id": "I_E11",
+      "group": "I41/amd",
+      "source": "ListDATApaper/E11.cgd",
+      "source_sha256": "709d5ae2adb496f8cd4a3f5182712f41b081dfca13549164bb978363e8e138c0",
+      "ncell": 44
+    },
+    {
+      "id": "I_N01",
+      "group": "Pmmn",
+      "source": "ListDATApaper/N01.cgd",
+      "source_sha256": "a8567754177bc2de7a9f4e0486c9a0dcb5721a3b3b265435b5854b47e453692e",
+      "ncell": 38
+    },
+    {
+      "id": "I_N02",
+      "group": "P-6m2",
+      "source": "ListDATApaper/N02.cgd",
+      "source_sha256": "9ab1bfa5f2f51ea1ddce327575a2fc5734f9a3cccd44f2499012268c3a4880e1",
+      "ncell": 19
+    },
+    {
+      "id": "I_N03",
+      "group": "P63/mmc",
+      "source": "ListDATApaper/N03.cgd",
+      "source_sha256": "080b5c74cc7d081deb0a96893ce06b8eaeb813fbc836a57dd88e1016f208f1d6",
+      "ncell": 38
+    },
+    {
+      "id": "I_N04",
+      "group": "P63/mmc",
+      "source": "ListDATApaper/N04.cgd",
+      "source_sha256": "c1a938c34d5aaf0a1832cc908895fd1ff17b6ffe92d57ae86dbc8cad9bd8a2b2",
+      "ncell": 38
+    },
+    {
+      "id": "I_N05",
+      "group": "Cmmm",
+      "source": "ListDATApaper/N05.cgd",
+      "source_sha256": "8c8c61b5674f23b60eb1f6686ccb54b7306122e93eac7f00bd7fd47e4d247d32",
+      "ncell": 38
+    },
+    {
+      "id": "I_N06",
+      "group": "Immm",
+      "source": "ListDATApaper/N06.cgd",
+      "source_sha256": "94ae4c55fc7900de05cf85cc36cf4998572d61fbdd8fb8fee3debdf23672c641",
+      "ncell": 38
+    },
+    {
+      "id": "I_N07",
+      "group": "Pmmn",
+      "source": "ListDATApaper/N07.cgd",
+      "source_sha256": "aa6c26e4377f6a5305dc7586595a45df386374c984defe3c79dd7935faeb8db5",
+      "ncell": 38
+    },
+    {
+      "id": "I_N08",
+      "group": "Pmma",
+      "source": "ListDATApaper/N08.cgd",
+      "source_sha256": "74c662619a1a501ea8b5423ab89818da26328f9666606b489c929f6da40d63b7",
+      "ncell": 38
+    },
+    {
+      "id": "I_N09",
+      "group": "R-3m",
+      "source": "ListDATApaper/N09.cgd",
+      "source_sha256": "83832b242fada831d182d9ea4e17bc0da33fb20b63132692053d538716e87052",
+      "ncell": 57
+    },
+    {
+      "id": "I_N10",
+      "group": "P3221",
+      "source": "ListDATApaper/N10.cgd",
+      "source_sha256": "80c9c29bbf22c9137b5e53e933d3631bc8ea64ac3a6b1d10154a4541e0d03d0f",
+      "ncell": 57
+    },
+    {
+      "id": "I_N11",
+      "group": "Cmcm",
+      "source": "ListDATApaper/N11.cgd",
+      "source_sha256": "02bcc0724493d22c535db09d2c95fdd4a866f7d027afe0c6865d682f81e8b407",
+      "ncell": 76
+    },
+    {
+      "id": "I_N12",
+      "group": "Cmc21",
+      "source": "ListDATApaper/N12.cgd",
+      "source_sha256": "2cc64c45f59655ccd330686762950f1ba8f5504eac4be5ff01c4cbca5a411a99",
+      "ncell": 76
+    },
+    {
+      "id": "I_N13",
+      "group": "P42/mmc",
+      "source": "ListDATApaper/N13.cgd",
+      "source_sha256": "bab05cf16aabb691c6effb89b581ae6ab768d6d5ea2470d4c4d7647c93b5984a",
+      "ncell": 32
+    },
+    {
+      "id": "I_N14",
+      "group": "P42/mmc",
+      "source": "ListDATApaper/N14.cgd",
+      "source_sha256": "e9b38102734f2e85ad1960d690d633188b753feba5e495488ba4101ee36ca5de",
+      "ncell": 20
+    },
+    {
+      "id": "I_N15",
+      "group": "P12/m1",
+      "source": "ListDATApaper/N15.cgd",
+      "source_sha256": "368669514ea914918bbc9b9f0eacf45081c95c344b2f082557b8c5aaac8d3946",
+      "ncell": 20
+    },
+    {
+      "id": "I_N16",
+      "group": "P63/mmc",
+      "source": "ListDATApaper/N16.cgd",
+      "source_sha256": "03e172f170b2a6a1c06630ea4940dd082f178c3496ebd35b9d13eafdf1cc1bcd",
+      "ncell": 40
+    },
+    {
+      "id": "I_N17",
+      "group": "Imma",
+      "source": "ListDATApaper/N17.cgd",
+      "source_sha256": "c8f2c37cc996a9df01fdf764cc57aa6cea15fe1b0c23737f7135e4e7dd616a53",
+      "ncell": 40
+    },
+    {
+      "id": "I_N18",
+      "group": "Cmcm",
+      "source": "ListDATApaper/N18.cgd",
+      "source_sha256": "7e7a7fd30e11aefc616694ee66491851d3e02fbbd44308b4ea03572318e34cc8",
+      "ncell": 40
+    },
+    {
+      "id": "I_N19",
+      "group": "Pmna",
+      "source": "ListDATApaper/N19.cgd",
+      "source_sha256": "e7761897b688fcbec4ede89b7999f8f6c06b590a6d85c9493669ec275130f04a",
+      "ncell": 40
+    },
+    {
+      "id": "I_N20",
+      "group": "Pmna",
+      "source": "ListDATApaper/N20.cgd",
+      "source_sha256": "05abfd099828f6a33a8a6989b44e1250b6002debec38f666a37a1f54172fe0bd",
+      "ncell": 40
+    },
+    {
+      "id": "I_N21",
+      "group": "Pbam",
+      "source": "ListDATApaper/N21.cgd",
+      "source_sha256": "813b1b8bd0518f2ae4a6157deedde7208c4a32110603de9b1cb313bbe68bc0ae",
+      "ncell": 40
+    },
+    {
+      "id": "I_N22",
+      "group": "Ima2",
+      "source": "ListDATApaper/N22.cgd",
+      "source_sha256": "35fb4778e900a594fa354876f243a9533151604874aa380ec915f416c4f52c66",
+      "ncell": 40
+    },
+    {
+      "id": "I_N23",
+      "group": "Pnma",
+      "source": "ListDATApaper/N23.cgd",
+      "source_sha256": "63d24a54a6e19de6a1da4cb28886d9847b781db381242eac68f04a90cf57265a",
+      "ncell": 40
+    },
+    {
+      "id": "I_N24",
+      "group": "Pmma",
+      "source": "ListDATApaper/N24.cgd",
+      "source_sha256": "54c68f3ccbec1c2f3e2c4e358276f37c0722b2809422822bdc98cfd6ce9e02f7",
+      "ncell": 40
+    },
+    {
+      "id": "I_N25",
+      "group": "Pmc21",
+      "source": "ListDATApaper/N25.cgd",
+      "source_sha256": "5fd14aa5603f584ba1de37b9a02e64f03379bb02436817643c9cabf1443a894d",
+      "ncell": 40
+    },
+    {
+      "id": "I_N26",
+      "group": "Pmc21",
+      "source": "ListDATApaper/N26.cgd",
+      "source_sha256": "8e7d42e9da6dc2dd773f8b8aedbe2b7848abdb7326a68e634a0356958709d1e7",
+      "ncell": 40
+    },
+    {
+      "id": "I_N27",
+      "group": "R-3m",
+      "source": "ListDATApaper/N27.cgd",
+      "source_sha256": "23ec2422326e94eff6426d113768f94c93610b376ea6203d81d1972d152454bf",
+      "ncell": 60
+    },
+    {
+      "id": "I_N28",
+      "group": "P6222",
+      "source": "ListDATApaper/N28.cgd",
+      "source_sha256": "49af0dde0d791509bf48d4e6c1420fac57ac1c0f54cd24481a59ba20834fbf90",
+      "ncell": 60
+    },
+    {
+      "id": "I_N29",
+      "group": "P3221",
+      "source": "ListDATApaper/N29.cgd",
+      "source_sha256": "23fffa75036fd91f7c086e47047bd38d019b87c99f57a73a882392381341bedc",
+      "ncell": 60
+    },
+    {
+      "id": "I_N30",
+      "group": "Fmmm",
+      "source": "ListDATApaper/N30.cgd",
+      "source_sha256": "bb213654f9b017b69577bfb2e08e854b8b6a5cfcf78e610801292355c7aaaeda",
+      "ncell": 80
+    },
+    {
+      "id": "I_N31",
+      "group": "Cmcm",
+      "source": "ListDATApaper/N31.cgd",
+      "source_sha256": "4e6db3ce7a3771287ca44a4b611bd4771400c679e5ae1a4fdbde76978a17b86a",
+      "ncell": 80
+    },
+    {
+      "id": "I_N32",
+      "group": "Cmcm",
+      "source": "ListDATApaper/N32.cgd",
+      "source_sha256": "d95a840aecf32e903f26c7f58b901c257c155fa5c25bf7fbf53254ded59ca6c5",
+      "ncell": 80
+    },
+    {
+      "id": "I_N33",
+      "group": "Cmc21",
+      "source": "ListDATApaper/N33.cgd",
+      "source_sha256": "e470aec23f31ef13ee0db2cf1d204a66c751445b5775de30ab386dd19d183b54",
+      "ncell": 80
+    },
+    {
+      "id": "I_N34",
+      "group": "Cccm",
+      "source": "ListDATApaper/N34.cgd",
+      "source_sha256": "c82bd9029d53e9a8371740852d2e1e2a8e4dd6ca3c58f86bd8707b34fe505a9d",
+      "ncell": 40
+    },
+    {
+      "id": "I_N35",
+      "group": "Pmna",
+      "source": "ListDATApaper/N35.cgd",
+      "source_sha256": "c09ec0104e52d025b5a5620b26181796cbc3d8df11616a75050583cb68c45d3d",
+      "ncell": 40
+    },
+    {
+      "id": "I_N36",
+      "group": "Pmma",
+      "source": "ListDATApaper/N36.cgd",
+      "source_sha256": "7dad4546d1e3d56e16e03d5cc6904e257d458c62386ae8577ba708e5cd9b2bc8",
+      "ncell": 40
+    },
+    {
+      "id": "I_N37",
+      "group": "Cmcm",
+      "source": "ListDATApaper/N37.cgd",
+      "source_sha256": "602620353d977f293594b168f9421d3a11c39937282894b94e6317f4e0c37eba",
+      "ncell": 80
+    },
+    {
+      "id": "I_N38",
+      "group": "Cmc21",
+      "source": "ListDATApaper/N38.cgd",
+      "source_sha256": "125c0b24aad37f5d9c5f8d68a33bb0e3a869563ddc3d8298275e00d84d179e8a",
+      "ncell": 80
+    },
+    {
+      "id": "I_N39",
+      "group": "C2221",
+      "source": "ListDATApaper/N39.cgd",
+      "source_sha256": "e9a686ed4bc0c78303eaf3adc57b07bb4211a158da5c68e62814b337b6226733",
+      "ncell": 80
+    },
+    {
+      "id": "I_N40",
+      "group": "P-4m2",
+      "source": "ListDATApaper/N40.cgd",
+      "source_sha256": "c1674cdbe3d2b223858b41c81babd59a9b09588671165ccc5f762b6407e4ed69",
+      "ncell": 20
+    },
+    {
+      "id": "I_N41",
+      "group": "Pmn21",
+      "source": "ListDATApaper/N41.cgd",
+      "source_sha256": "3043eda29edca74957730d9ccde564279bb2eb2c609e353547a2465beb378057",
+      "ncell": 40
+    },
+    {
+      "id": "I_N42",
+      "group": "Pmn21",
+      "source": "ListDATApaper/N42.cgd",
+      "source_sha256": "56f80e0213dc54e223c54b8aa265809bfa39dd5be2e1c0c0c4e8fde6a9ae222d",
+      "ncell": 40
+    },
+    {
+      "id": "I_N43",
+      "group": "Pmc21",
+      "source": "ListDATApaper/N43.cgd",
+      "source_sha256": "0c9e283ab665197412f2fee0dd567fe0416d650505df72154db0feee79b125c1",
+      "ncell": 40
+    },
+    {
+      "id": "I_N44",
+      "group": "Cmc21",
+      "source": "ListDATApaper/N44.cgd",
+      "source_sha256": "42932926e056d02cf7fa056509b1d58eb3c219693bf4fcf3641b1b3b9f2d9cf3",
+      "ncell": 80
+    },
+    {
+      "id": "I_N45",
+      "group": "Cmc21",
+      "source": "ListDATApaper/N45.cgd",
+      "source_sha256": "363575f84e37a40ae04053f5e65284f299b5e2e9497fb30d01303f31bf2b00de",
+      "ncell": 80
+    },
+    {
+      "id": "I_N46",
+      "group": "I41/amd",
+      "source": "ListDATApaper/N46.cgd",
+      "source_sha256": "b305dfb82136f72ccb7e62b185a17bd07517bd39d80fa19e8e6f5795ba2c5cc3",
+      "ncell": 68
+    },
+    {
+      "id": "I_N47",
+      "group": "I41/amd",
+      "source": "ListDATApaper/N47.cgd",
+      "source_sha256": "a1d7673230c70bef05280c5d81eeb4c35b3e6ee9a053f90c5d7411d5d880fe70",
+      "ncell": 68
+    },
+    {
+      "id": "I_N48",
+      "group": "I41/amd",
+      "source": "ListDATApaper/N48.cgd",
+      "source_sha256": "05b326f5ae9c23b6090286435f61b7d25af6b57ae11c22e7ee0d29457292ace5",
+      "ncell": 68
+    },
+    {
+      "id": "I_N49",
+      "group": "I4122",
+      "source": "ListDATApaper/N49.cgd",
+      "source_sha256": "3f1d448e6bec6a1559e48650b7aa6989c646cbc97dee52470d20f4b0304a21b8",
+      "ncell": 68
+    },
+    {
+      "id": "I_N50",
+      "group": "Cmma",
+      "source": "ListDATApaper/N50.cgd",
+      "source_sha256": "d4eb4f8be4703a21b081ecb0da01f8bc6e32904f49eba0c76f5a332fe255b031",
+      "ncell": 28
+    },
+    {
+      "id": "I_N51",
+      "group": "Pmna",
+      "source": "ListDATApaper/N51.cgd",
+      "source_sha256": "c3693c5cc8be09e4c5abe1e33d805752677f66775b19c5eae530f6db0fb29b03",
+      "ncell": 28
+    },
+    {
+      "id": "I_N52",
+      "group": "Cmcm",
+      "source": "ListDATApaper/N52.cgd",
+      "source_sha256": "748d46c3b9cc57e0380e6d8abaf66ca2407cd4a3fe8522da1062b5d672672dab",
+      "ncell": 56
+    },
+    {
+      "id": "I_N53",
+      "group": "P42/mmc",
+      "source": "ListDATApaper/N53.cgd",
+      "source_sha256": "a1f9515d42410801fa6cf84b81677aa1a4435ab02c2674e8f4eed4643fa63fe5",
+      "ncell": 36
+    },
+    {
+      "id": "I_N54",
+      "group": "P42/mmc",
+      "source": "ListDATApaper/N54.cgd",
+      "source_sha256": "a295b445b356c878ec143eac503ab9c0a1fdb286c7061f8c778ade49d16988f6",
+      "ncell": 36
+    },
+    {
+      "id": "I_N55",
+      "group": "P43212",
+      "source": "ListDATApaper/N55.cgd",
+      "source_sha256": "a8699523481e7200a5924625129b944b87ce595b8d22b7414ba34120a9ee9aae",
+      "ncell": 60
+    },
+    {
+      "id": "I_N56",
+      "group": "I41/amd",
+      "source": "ListDATApaper/N56.cgd",
+      "source_sha256": "9111700bbe41e7c3a154391ea83c31ddaab04ceaeb968dc95967d9a48009a494",
+      "ncell": 76
+    },
+    {
+      "id": "I_N57",
+      "group": "P42/mnm",
+      "source": "ListDATApaper/N57.cgd",
+      "source_sha256": "9c83e04bcb3d35a1fc3641c89bace614ed8b0082439156db65f322fda61f39b3",
+      "ncell": 32
+    },
+    {
+      "id": "I_N58",
+      "group": "P42/mnm",
+      "source": "ListDATApaper/N58.cgd",
+      "source_sha256": "d08224b57fcd776760451495d61641a86312bbe995f94022bb905b48121f2e90",
+      "ncell": 18
+    },
+    {
+      "id": "I_N59",
+      "group": "Pccn",
+      "source": "ListDATApaper/N59.cgd",
+      "source_sha256": "f01719c30fe41a967ecc54027806d44a32d45aa4cda4a41e106b2fa87b37abb3",
+      "ncell": 36
+    },
+    {
+      "id": "I_N60",
+      "group": "P6422",
+      "source": "ListDATApaper/N60.cgd",
+      "source_sha256": "ce906e6e178eee66c1010cff9d8198ef78365ff2fb89d187777e3ed4d5b4705a",
+      "ncell": 54
+    },
+    {
+      "id": "I_Phys01",
+      "group": "P63/mmc",
+      "source": "ListDATApaper/Phys01.cgd",
+      "source_sha256": "2795781a3b43a67221a0c7de807b5dd6d5d112ebe738362cd60b6e13c6427ed8",
+      "ncell": 12
+    },
+    {
+      "id": "I_Phys02",
+      "group": "Fd-3m",
+      "source": "ListDATApaper/Phys02.cgd",
+      "source_sha256": "c28d3b5e984c973352b4e40c4ad7a21480804c488e007117db2e48bf39dd068b",
+      "ncell": 24
+    },
+    {
+      "id": "I_Phys03",
+      "group": "P63/mmc",
+      "source": "ListDATApaper/Phys03.cgd",
+      "source_sha256": "b62ac498d84389ef176238e7e739880fb177d50d5310680c2c3bd651f534c232",
+      "ncell": 24
+    },
+    {
+      "id": "I_Phys04",
+      "group": "P63/mmc",
+      "source": "ListDATApaper/Phys04.cgd",
+      "source_sha256": "7847b7b70fe5ad18e3d63508b171f102f9e233dec571d190b8fefec5a5de3fa6",
+      "ncell": 36
+    },
+    {
+      "id": "I_Phys06",
+      "group": "R-3m",
+      "source": "ListDATApaper/Phys06.cgd",
+      "source_sha256": "7ce1e47ac09459d8ec2d214348e66e71a4762a0d60cd1e4d3a377e279c9ce354",
+      "ncell": 54
+    },
+    {
+      "id": "I_Phys12",
+      "group": "P63/mmc",
+      "source": "ListDATApaper/Phys12.cgd",
+      "source_sha256": "87b23c1750a2c4f65c3a0f03c4ddbb02af9ad8b5258a929990654cd0be4e9c16",
+      "ncell": 26
+    },
+    {
+      "id": "I_Phys13",
+      "group": "Pbam",
+      "source": "ListDATApaper/Phys13.cgd",
+      "source_sha256": "0746a3c83024dca1a3d1a5063f5a9a50ae43032bd90036d06494ad6e63103457",
+      "ncell": 26
+    },
+    {
+      "id": "I_Phys14",
+      "group": "R-3m",
+      "source": "ListDATApaper/Phys14.cgd",
+      "source_sha256": "00107cf3b3e2c8b4d187f5ec90c47c1e0086323076370bf406640dfe1b074235",
+      "ncell": 39
+    },
+    {
+      "id": "I_Phys18",
+      "group": "P6/mmm",
+      "source": "ListDATApaper/Phys18.cgd",
+      "source_sha256": "1b780442df1dc66929617ac5eb5e478627f84067ff33830f6e67f7ff9680c157",
+      "ncell": 7
+    },
+    {
+      "id": "I_Phys20",
+      "group": "P212121",
+      "source": "ListDATApaper/Phys20.cgd",
+      "source_sha256": "bbe5b0ab8e3edf7311f2f6a5294569b07e93e7ff62836dc357914ce9a4902c93",
+      "ncell": 56
+    },
+    {
+      "id": "I_Phys25",
+      "group": "Cmmm",
+      "source": "ListDATApaper/Phys25.cgd",
+      "source_sha256": "ebb376529b6440a1ea7480ed55cbfb532c6317219d6cf1f82b2fa8fd12ffd826",
+      "ncell": 30
+    },
+    {
+      "id": "I_Phys26",
+      "group": "P42/mnm",
+      "source": "ListDATApaper/Phys26.cgd",
+      "source_sha256": "459368da6166a4ba17e87d6dda562c29fd103aa9d2ec853530cc4cab48977a9c",
+      "ncell": 30
+    },
+    {
+      "id": "I_Phys27",
+      "group": "Pm-3n",
+      "source": "ListDATApaper/Phys27.cgd",
+      "source_sha256": "b6d22cfad17ff30c1f5531f86340a352fbdefced079d263c7466cd218261c73a",
+      "ncell": 8
+    },
+    {
+      "id": "II_E01",
+      "group": "Pmmn",
+      "source": "ListDATApaperStr/E01.cgd",
+      "source_sha256": "c0e1b330deca13cdad4c10a8f01135dad200358ad18c5ffdce6b1fe2dbe71709",
+      "ncell": 42
+    },
+    {
+      "id": "II_E02",
+      "group": "P21212",
+      "source": "ListDATApaperStr/E02.cgd",
+      "source_sha256": "7af51f469e527b68d8951b51ce1cce92f72abfb35d06668cfa71eb1d6cd8b5fb",
+      "ncell": 42
+    },
+    {
+      "id": "II_E03",
+      "group": "C12/m1",
+      "source": "ListDATApaperStr/E03.cgd",
+      "source_sha256": "e817eeb68fc6665341cbd0ce8107208eeb19a846a72d0adbc5981887a1ff5096",
+      "ncell": 42
+    },
+    {
+      "id": "II_E04",
+      "group": "Cmca",
+      "source": "ListDATApaperStr/E04.cgd",
+      "source_sha256": "41c479f0c598a7dca9dd023bf5b373046cd5d7863bb84e273b1e9301268c0338",
+      "ncell": 84
+    },
+    {
+      "id": "II_E05",
+      "group": "Cmcm",
+      "source": "ListDATApaperStr/E05.cgd",
+      "source_sha256": "cb78cd1bb721264e2417c74a58428cbbe29baed026dd5665e648e2971616141b",
+      "ncell": 84
+    },
+    {
+      "id": "II_N01",
+      "group": "Pmc21",
+      "source": "ListDATApaperStr/N01.cgd",
+      "source_sha256": "8f9be6f0a8e227a4048f5adeaa02263bd239bc57e06e02093a60ad723469507e",
+      "ncell": 42
+    },
+    {
+      "id": "II_N02",
+      "group": "Pmc21",
+      "source": "ListDATApaperStr/N02.cgd",
+      "source_sha256": "f6d9c44d6310d7ebbf7502351d5877d93a0e86a7ca1e6d70a60d50f3e16833c9",
+      "ncell": 42
+    },
+    {
+      "id": "II_N03",
+      "group": "P64",
+      "source": "ListDATApaperStr/N03.cgd",
+      "source_sha256": "edf89b96304d1f2a4871c7633715ebdc06ce4c6d6a6d3895b40c2a0a08f0a3a7",
+      "ncell": 63
+    },
+    {
+      "id": "II_N04",
+      "group": "Amm2",
+      "source": "ListDATApaperStr/N04.cgd",
+      "source_sha256": "c8c12c0eaa874fb6e4460961b3cbb80730e5f340d8e49ea088a6d36ccdf90a49",
+      "ncell": 42
+    },
+    {
+      "id": "II_N05",
+      "group": "Cmm2",
+      "source": "ListDATApaperStr/N05.cgd",
+      "source_sha256": "cc156cec9f7270735100fcf5c462ad908d23973009f2c86a52c690143a2f19f7",
+      "ncell": 42
+    },
+    {
+      "id": "II_N06",
+      "group": "Cmc21",
+      "source": "ListDATApaperStr/N06.cgd",
+      "source_sha256": "d6e4f2f8c6bd808bf87f66ee098dc818461cfd1f6501a152be8712d2784f8a55",
+      "ncell": 84
+    },
+    {
+      "id": "II_N07",
+      "group": "Cmc21",
+      "source": "ListDATApaperStr/N07.cgd",
+      "source_sha256": "1474a7c64ff5db493f4f78ae41ff0be47d585eeea856a8cafc7a38506331fb3e",
+      "ncell": 84
+    },
+    {
+      "id": "II_N08",
+      "group": "Cmc21",
+      "source": "ListDATApaperStr/N08.cgd",
+      "source_sha256": "b06a8f8855c79b52acd247ef49d038c3b74a995d5e1ea18d16a4f8d5a9ecd3a6",
+      "ncell": 84
+    },
+    {
+      "id": "II_N09",
+      "group": "Cmc21",
+      "source": "ListDATApaperStr/N09.cgd",
+      "source_sha256": "aec6757ca48e49ab57384b62957d5c1eb35d2740d4a8ab8b49668f30539ab8d0",
+      "ncell": 84
+    },
+    {
+      "id": "II_N10",
+      "group": "P12/m1",
+      "source": "ListDATApaperStr/N10.cgd",
+      "source_sha256": "d4dc992800adec6081c62228d84f05a02672b6f4d35d2dee39c18d6de14f8022",
+      "ncell": 21
+    },
+    {
+      "id": "II_N11",
+      "group": "Pnnm",
+      "source": "ListDATApaperStr/N11.cgd",
+      "source_sha256": "093a3f8c1838cd620c4a3bc19b460d29054a5398bef12f58f54e6fe6f74f0bd8",
+      "ncell": 42
+    },
+    {
+      "id": "II_N12",
+      "group": "Pmma",
+      "source": "ListDATApaperStr/N12.cgd",
+      "source_sha256": "721d9f996981e12dc528eea2b5e90b8bd547a52be48e4962a2cc1fc7c99830e0",
+      "ncell": 42
+    },
+    {
+      "id": "II_N13",
+      "group": "Pmmn",
+      "source": "ListDATApaperStr/N13.cgd",
+      "source_sha256": "0da535a03f88874700ba08a70a74eb227d726c79ec933ffefe1172c4672d6ca1",
+      "ncell": 42
+    },
+    {
+      "id": "II_N14",
+      "group": "Pmn21",
+      "source": "ListDATApaperStr/N14.cgd",
+      "source_sha256": "524fb04d82901691c43a92d0c460bb6542cbfb0fdbd0d26ac88334cd61739de6",
+      "ncell": 42
+    },
+    {
+      "id": "II_N15",
+      "group": "Pmc21",
+      "source": "ListDATApaperStr/N15.cgd",
+      "source_sha256": "e940145e3a5989c1b08f380b4d879cfe60aa87311ec6b903bd2543d809773e5a",
+      "ncell": 42
+    },
+    {
+      "id": "II_N16",
+      "group": "Pmc21",
+      "source": "ListDATApaperStr/N16.cgd",
+      "source_sha256": "20e34082724894c1ea01fb7f3b9b2f69bf5ee0b5959dfa8a9be94deae550e756",
+      "ncell": 42
+    },
+    {
+      "id": "II_N17",
+      "group": "P3121",
+      "source": "ListDATApaperStr/N17.cgd",
+      "source_sha256": "9d167270d916790039d4952d7f8db5b6d7900d1e10df0c337f1f9e3546c15fc0",
+      "ncell": 63
+    },
+    {
+      "id": "II_N18",
+      "group": "Cmmm",
+      "source": "ListDATApaperStr/N18.cgd",
+      "source_sha256": "1d535b3d862f59bb58657ecc51e39f24bfd642aa5979a8d8e5f5f7bdf3a3b42b",
+      "ncell": 42
+    },
+    {
+      "id": "II_N19",
+      "group": "C12/m1",
+      "source": "ListDATApaperStr/N19.cgd",
+      "source_sha256": "5b58eaac6786a8fa8a6826061f807a9803148471566221fd03ccbb06955f35d6",
+      "ncell": 42
+    },
+    {
+      "id": "II_N20",
+      "group": "C12/m1",
+      "source": "ListDATApaperStr/N20.cgd",
+      "source_sha256": "3aaef42957ed069c2c063bd6bbfcabe743922af84b5962d322a63912f83614d3",
+      "ncell": 42
+    },
+    {
+      "id": "II_N21",
+      "group": "Imm2",
+      "source": "ListDATApaperStr/N21.cgd",
+      "source_sha256": "ec628d55a2a2f3f9feb450c75774fa47df6ac2cfe684528e6a69148f2b6180e0",
+      "ncell": 42
+    },
+    {
+      "id": "II_N22",
+      "group": "P6122",
+      "source": "ListDATApaperStr/N22.cgd",
+      "source_sha256": "ea3845d65b3376e2fbe362f3bfae30519b3ae503eac6c1f8b59ff33e48ad5f45",
+      "ncell": 126
+    },
+    {
+      "id": "II_N23",
+      "group": "Cmca",
+      "source": "ListDATApaperStr/N23.cgd",
+      "source_sha256": "e6628d3d8ae45df66b47d2545345385c4ed59dcb2dac4ccc78e66d7850e08e48",
+      "ncell": 84
+    },
+    {
+      "id": "II_N24",
+      "group": "Cmca",
+      "source": "ListDATApaperStr/N24.cgd",
+      "source_sha256": "9bdf4ad3753afe5dc54f47958bc35dc19b54246f6a6856fd311881809cc5c9c0",
+      "ncell": 84
+    },
+    {
+      "id": "II_N25",
+      "group": "Cmc21",
+      "source": "ListDATApaperStr/N25.cgd",
+      "source_sha256": "340d293de09526a3059443bbddffc7ab6c9bb8a31e12fe9e00c3713ce0529abf",
+      "ncell": 84
+    },
+    {
+      "id": "II_N26",
+      "group": "Cmc21",
+      "source": "ListDATApaperStr/N26.cgd",
+      "source_sha256": "d60e42d7e3f6160c5a0b6f013cea101fa1377ede7a9483cf9719a46ddfea950c",
+      "ncell": 84
+    },
+    {
+      "id": "II_Y01",
+      "group": "P63/mcm",
+      "source": "ListDATApaperStr/Y01.cgd",
+      "source_sha256": "d62ac3a9fc9898ae3ace29ae911541ce56a866c59270d18d1babc458d62d3b30",
+      "ncell": 42
+    },
+    {
+      "id": "II_Y02",
+      "group": "P41212",
+      "source": "ListDATApaperStr/Y02.cgd",
+      "source_sha256": "e2aa010e245a081d444adb3c940776f52a8b3ba6da476eee3e05a59fa1ea7235",
+      "ncell": 84
+    },
+    {
+      "id": "II_Y03",
+      "group": "P43212",
+      "source": "ListDATApaperStr/Y03.cgd",
+      "source_sha256": "18dabc8d95182f94b224f7175cdbec490d6ec4351ee37d7b2667078f94e5e70a",
+      "ncell": 84
+    },
+    {
+      "id": "II_Y04",
+      "group": "P42/m",
+      "source": "ListDATApaperStr/Y04.cgd",
+      "source_sha256": "61fb9394206c28d1e55c36003f417e505a27fec94ea9de0e829d2bf3446d5f11",
+      "ncell": 42
+    },
+    {
+      "id": "II_Y05",
+      "group": "P43",
+      "source": "ListDATApaperStr/Y05.cgd",
+      "source_sha256": "b1514f5bde933c9929ec25637da360a8de46e88a286612a917c98b3730798742",
+      "ncell": 84
+    },
+    {
+      "id": "II_Y06",
+      "group": "P41",
+      "source": "ListDATApaperStr/Y06.cgd",
+      "source_sha256": "a5b450d7c01f880456038a0034580004ff446a21134d32f7886f4a9c306fead3",
+      "ncell": 84
+    }
+  ]
+}

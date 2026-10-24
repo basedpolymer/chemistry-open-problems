@@ -1,0 +1,39 @@
+(a) flat Voronoi partitions of the paper's inputs
+PASS BCC     A=1.099000 (pub 1.099000)  I=1.020481 (pub 1.020481)
+PASS A15     A=1.094924 (pub 1.094924)  I=1.022976 (pub 1.022976)
+PASS C15     A=1.093382 (pub 1.093382)  I=1.030807 (pub 1.030807)
+PASS H       A=1.096675 (pub 1.096676)  I=1.027439 (pub 1.027440)
+PASS P       A=1.093971 (pub 1.093971)  I=1.026022 (pub 1.026022)
+PASS delta   A=1.095161 (pub 1.095161)  I=1.026938 (pub 1.026939)
+PASS psigma  A=1.093502 (pub 1.093503)  I=1.028443 (pub 1.028443)
+PASS M       A=1.093469 (pub 1.093470)  I=1.028674 (pub 1.028675)
+info Z       A=1.093040 (pub 1.093039)  I=1.028173 (pub 1.028173)  [matches]
+info C14     A=1.093383 (pub 1.093388)  I=1.029901 (pub 1.029898)  [inputs differ from the paper's; not claimed]
+info sigma   A=1.094634 (pub 1.094267)  I=1.023240 (pub 1.023697)  [inputs differ from the paper's; not claimed]
+info mu      A=1.094538 (pub 1.094440)  I=1.030775 (pub 1.030821)  [inputs differ from the paper's; not claimed]
+(b) equal-volume minimal area (Kelvin problem), levels 1-3 + Richardson
+PASS BCC minimal equal-volume area: levels ['1.0990005', '1.0977602', '1.0973842', '1.0972844'] -> 1.0972512 (pub 1.097251)
+PASS A15 minimal equal-volume area: levels ['1.0940056', '1.0936548', '1.0935697', '1.0935484'] -> 1.0935413 (pub 1.093541)
+(c) unconstrained DFM value, fixed paper box (stored runs, levels 0-4)
+PASS A15     F_L4=1.0690386523  F_extrap=1.0690374 +- 9.8e-08  published 1.069037  diff +3.82e-07
+PASS C15     F_L4=1.0692440927  F_extrap=1.0692434 +- 3.5e-08  published 1.069243  diff +4.30e-07
+PASS Z       F_L4=1.0692510773  F_extrap=1.0692501 +- 6.8e-08  published 1.069250  diff +9.52e-08
+PASS C14     F_L4=1.0690711018  F_extrap=1.0690704 +- 3.6e-08  published 1.069071  diff -5.62e-07
+PASS delta   F_L4=1.0696765629  F_extrap=1.0696755 +- 7.6e-08  published 1.069677  diff -1.55e-06
+info sigma   F_L4=1.0685800110  F_extrap=1.0685789 +- 8.3e-08  published 1.068583  diff -4.14e-06
+info psigma  F_L4=1.0690664956  F_extrap=1.0690656 +- 5.5e-08  published 1.069068  diff -2.36e-06
+info H       F_L4=1.0692046451  F_extrap=1.0692035 +- 8.4e-08  published 1.069219  diff -1.55e-05
+info P       F_L4=1.0688820097  F_extrap=1.0688810 +- 7.0e-08  published 1.068909  diff -2.80e-05
+info M       F_L4=1.0689991733  F_extrap=1.0689983 +- 5.4e-08  published 1.069038  diff -3.97e-05
+info mu      F_L4=1.0695338852  F_extrap=1.0695330 +- 5.5e-08  published 1.069662  diff -1.29e-04
+info BCC     F_L4=1.0711078092  F_extrap=1.0711023 +- 6.8e-07  published 1.071111  diff -8.73e-06
+(d) exact certificates
+PASS BCC      box=fixed L4 ntri=  18432  inf F <= 1.071107810  < 1.071111  (published BCC value (Reddy et al. 2018, Fig. 7) is not the infimum for the cubic box)
+PASS P        box=fixed L2 ntri=  30720  inf F <= 1.068897166  < 1.068909  (published P value (Fig. 12) is not the infimum for box 1.91:3.57:1)
+PASS M        box=fixed L2 ntri=  28416  inf F <= 1.069011740  < 1.069038  (published M value (Fig. 15) is not the infimum for box 1.89:3.3:1 (Pnam) = (1.89,1,3.3) Pnma)
+PASS H        box=fixed L3 ntri=  66048  inf F <= 1.069208084  < 1.069219  (published H value (Fig. 9) is not the infimum for box 1:3.88:1, Z12 at 2a+4f)
+PASS mu       box=fixed L2 ntri=  21312  inf F <= 1.069546495  < 1.069662  (published mu value (Fig. 16) is not the infimum for hexagonal box c/a = 5.2)
+PASS sigma    box=relax L4 ntri= 264192  inf F <= 1.068575909  < 1.0685760  (upper bound for the sigma topology in its DFM-relaxed box (a/c = 1.909); the box is the one stored in the file)
+PASS all certificates in certificates/claims.json
+
+0 FAIL

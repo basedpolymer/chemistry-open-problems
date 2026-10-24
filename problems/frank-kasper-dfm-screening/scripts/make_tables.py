@@ -107,9 +107,9 @@ def main():
             r["key"] = 10.0 + (r["start"][0] if r["start"] else 0.0)
     rows.sort(key=lambda r: r["key"])
     sig = [r for r in rows if r["id"] == "Phys26"][0]["key"]
-    hdr = "rank,id,physical,group,ncell,Z12/Z14/Z15/Z16,maxlevel,F_maxlevel_upper_bound,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,run_used,aliases,F_by_level"
+    hdr = "rank,id,physical,group,ncell,Z12/Z14/Z15/Z16,maxlevel,F_maxlevel_mesh_energy,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,run_used,aliases,F_by_level"
     lines = [hdr]
-    md = ["| # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (upper bound) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |",
+    md = ["| # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (mesh value) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |",
           "|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(rows, 1):
         if r.get("invalid"):

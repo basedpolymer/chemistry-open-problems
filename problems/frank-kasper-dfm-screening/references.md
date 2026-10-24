@@ -7,11 +7,19 @@
    doi:10.1073/pnas.1809655115; arXiv:1806.01726 (v1, 5 June 2018).
    **Read: full text of arXiv v1** (`certificates/sources/reddy2018/`, git-ignored), including Appendix A (model,
    Eqs. (1)–(2), (A1)–(A17)), Appendix B (Surface Evolver method, Eqs. (B1)–(B3), "fixed periodicity", convergence
-   criterion 1e-6) and the tables of Figs. 7–18 (transcribed to `data/published_reddy2018.csv`). The PNAS version
-   and SI were not read (see NEEDS.md).
+   criterion 1e-6) and the tables of Figs. 7–18 (transcribed to `data/published_reddy2018.csv`). The six-page published
+   PNAS article supplied as `Downloads/reddy2018.pdf` was read during the continuation. The **17-page SI Appendix**
+   was subsequently retrieved from the [Europe PMC supplement endpoint](https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6187128/supplementaryFiles).
+   Pages 4–5 (A15 formula and numerical method) and 6–12 (Figs. S3–S14) were read and rendered for visual checking.
+   All twelve unconstrained DFM energies and caption ratios agree with the preprint inputs. The source hash and
+   manual transcription are in `data/pnas_si_crosscheck.json`. The five certified improvements therefore also
+   compare against the published SI. Eq. (S16), identical to preprint Eq. (A16), supplies the restricted flat A15
+   formula checked by `scripts/check_a15_family.py`.
 2. **M. Dutour Sikirić, O. Delgado-Friedrichs, M. Deza**, *Space fullerenes: a computer search for new Frank–Kasper
    structures*, Acta Cryst. A **66** (2010) 602–615, doi:10.1107/S0108767310022932.
-   **Not read** (IUCr returns HTTP 403 to the container, ANU repository copy embargoed): only abstract/metadata.
+   **Read during continuation:** user-supplied `Downloads/10.1107@S0108767310022932.pdf`; introduction, definitions,
+   enumeration method and catalogue discussion. Curved faces are allowed, and the enumeration bound concerns a
+   reduced fundamental domain. Local copy: `certificates/sources/dutour2010/article.pdf`.
    **Data used**: *Dataset and programs for the work on space-fullerenes*, Zenodo record 13691342
    (doi:10.5281/zenodo.13691342, 5 Sep 2024, file `SpaceFullerene.tar.gz`, 182,836,409 bytes,
    md5 582371cee665c62e01a2f47a73dd2c9d), folder `ListDATApaper` (84 CGD files: E01–E11, N01–N60, Phys01, 02, 03, 04,
@@ -20,10 +28,12 @@
    26 σ, 27 A15). Note: the repository is on Zenodo (linked from the author's publication page
    https://mathieudutsik.github.io/Publications/), not on GitHub as stated in the brief.
 3. **M. Dutour Sikirić, M. Deza**, *Space fullerenes: computer search for new Frank–Kasper structures II*,
-   Struct. Chem. **23** (2012) 1103–1114, doi:10.1007/s11224-012-0005-3. **Not read** (paywalled). The same Zenodo
-   archive contains folder `ListDATApaperStr` with 37 CGD files (E01–E05, N01–N26, Y01–Y06) whose groups match the
-   21-cell tables `LatexFiles21/*.tex` (e.g. N01 = entry 1, `idx=[21,1]`, Pmc2₁); we treat them as the part-II
-   structures (37 new structures with 21 cells in the reduced fundamental domain, as stated in the part-II abstract).
+   Struct. Chem. **23** (2012) 1103–1114, doi:10.1007/s11224-012-0005-3. **Read during continuation:** user-supplied
+   `Downloads/10.1007@s11224-012-0005-3.pdf`, definitions, search scope and tables 2–4; pages 1103 and 1107 also
+   inspected visually. The archive contains `ListDATApaperStr` with 37 CGD files (E01–E05, N01–N26, Y01–Y06),
+   matching these table families and `LatexFiles21/*.tex`. The 21-cell count is for a reduced fundamental domain;
+   translation-period counts can be larger. The paper defines normal, simple, face-to-face FK tilings with
+   possibly curved faces and the four fullerene types with isolated hexagons.
    Contrary to the brief, the part-II data **are** in the archive.
 
 ## Methods and validation references (read: abstract or known content only)
@@ -44,6 +54,10 @@
    read (NEEDS.md).
 
 ## Novelty check (24 Oct 2026)
+
+The search record below is inherited from the original screen. Its ignored API snapshots were absent from this
+checkout; this continuation restored the primary articles and archive, but does not claim to have rerun every API
+query listed below. A bounded search cannot establish that no relevant work exists.
 
 Question: has anyone evaluated the diblock foam model (DFM) of [1] on the Frank–Kasper catalogue [2,3], or otherwise
 screened FK structures beyond the 11 of [1] with the DFM?
