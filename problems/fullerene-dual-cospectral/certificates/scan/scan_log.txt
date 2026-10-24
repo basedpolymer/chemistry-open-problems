@@ -48,3 +48,4 @@ n=130 isomers=3580637 oeis_ok=True | A(T): groups=155 mixed=109 classes=46 | A(T
 n=132 isomers=4182071 oeis_ok=True | A(T): groups=249 mixed=179 classes=70 | A(T6): groups=3 mixed=3 classes=0 | T5 multi=268 | 381s+119s
 n=134 isomers=4787715 oeis_ok=True | A(T): groups=233 mixed=193 classes=41 | A(T6): groups=1 mixed=1 classes=0 | T5 multi=254 | 455s+128s
 n=136 isomers=5566949 oeis_ok=True | A(T): groups=374 mixed=316 classes=58 | A(T6): groups=2 mixed=2 classes=0 | T5 multi=273 | 503s+158s
+n=138 isomers=6344698 oeis_ok=True | A(T): groups=494 mixed=415 classes=79 | A(T6): groups=1 mixed=1 classes=0 | T5 multi=255 | 468s+161s

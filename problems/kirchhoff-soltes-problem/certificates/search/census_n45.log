@@ -16,3 +16,10 @@ alltrans45_k=26.gz graphs_read 47263 unparsable 0 n<3 0 disconnected 0 rejected 
 alltrans45_k=28.gz graphs_read 30492 unparsable 0 n<3 0 disconnected 0 rejected 30492 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans45_k=30.gz graphs_read 16334 unparsable 0 n<3 0 disconnected 0 rejected 16334 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
 alltrans45_k=32.gz graphs_read 7231 unparsable 0 n<3 0 disconnected 0 rejected 7231 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans45_k=34.gz graphs_read 2600 unparsable 0 n<3 0 disconnected 0 rejected 2600 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans45_k=36.gz graphs_read 756 unparsable 0 n<3 0 disconnected 0 rejected 756 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans45_k=38.gz graphs_read 171 unparsable 0 n<3 0 disconnected 0 rejected 171 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans45_k=40.gz graphs_read 33 unparsable 0 n<3 0 disconnected 0 rejected 33 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans45_k=42.gz graphs_read 5 unparsable 0 n<3 0 disconnected 0 rejected 5 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans45_k=44.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+elapsed_seconds 36
