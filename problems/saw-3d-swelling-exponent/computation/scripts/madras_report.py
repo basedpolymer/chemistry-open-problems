@@ -72,7 +72,7 @@ def mc_section(paths):
                 m, nK, pn, kap, ek = int(t[1]), float(t[2]), float(t[3]), float(t[4]), float(t[5])
                 print("    %3d  %.5f  %6.0f  %.3f +- %.3f  %7.2f  %.3f +- %.3f  %.3f +- %.3f  %.4f" % (
                     m, pn, nK, kap, ek, float(t[6]), float(t[8]), float(t[9]), float(t[10]), float(t[11]), float(t[12])))
-                if nK >= 50 and float(t[12]) < 0.01:
+                if nK >= 30 and float(t[12]) < 0.01:
                     ms.append(m)
                     ks.append((kap, ek))
         if len(ms) >= 3:
