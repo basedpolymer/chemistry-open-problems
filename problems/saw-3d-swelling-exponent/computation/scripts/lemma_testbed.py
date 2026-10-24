@@ -2,15 +2,18 @@
 """lemma_testbed.py -- evaluate candidate finite-n statements on exact SAW data on Z^3.
 
 Environment: Python 3.8+ standard library only (fractions, math).  Runtime < 1 min.
-Usage: python3 lemma_testbed.py [data file, default ../data/saw_enum_N21.txt.gz]
+Usage: python3 lemma_testbed.py [data file, default ../data/saw_enum_N21.txt.gz] [gram file, optional]
 
 Inputs: the exact enumeration (src/saw_enum.cpp output: endpoint distributions, bridges, half-space walks,
-intermediate-point distributions, n <= N) and the published series c_n, P_n = sum |omega_n|^2 for n <= 36
-(data/reference_series.tsv; Schram-Barkema-Bisseling 2011 Table I, agreeing with our enumeration for n <= N).
+intermediate-point distributions, n <= N), the published series c_n, P_n = sum |omega_n|^2 for n <= 36
+(data/reference_series.tsv; Schram-Barkema-Bisseling 2011 Table I, agreeing with our enumeration for n <= N),
+and optionally the step-correlation (Gram) data of src/saw_gram.cpp.
 
-Every verdict of the form "HOLDS for n <= N" / "FAILS at n = ..." is an exact statement (integer / rational
-arithmetic).  Lines tagged NUMERICS are floating-point summaries (local exponents etc.) and prove nothing.
-Exit code 0 unless a sanity check of the data fails.
+Verdicts.  For a statement S(n) tested on a range of n:
+  HOLDS for all n in [a, b]                         -- exact, every tested n
+  FAILS at n = n1 (exact) ...; failing n: [...]     -- exact counterexamples, with the full list of failing n,
+                                                       so that "fails only for small n" is visible
+Lines tagged NUMERICS are floating-point summaries (local exponents etc.): they prove nothing.
 """
 import math
 import os
@@ -24,272 +27,349 @@ from sawdata import SawData, read_reference  # noqa: E402
 ROOT = os.path.dirname(HERE)
 
 
-def verdict(name, first_fail, nmax, detail=""):
-    if first_fail is None:
-        print("[%s] HOLDS for all tested n <= %d%s" % (name, nmax, ("; " + detail) if detail else ""))
-    else:
-        print("[%s] FAILS at n = %s (exact)%s" % (name, first_fail, ("; " + detail) if detail else ""))
+def scan(name, ns, pred):
+    """pred(n) -> None if S(n) holds, else a short string describing the counterexample at n."""
+    ns = list(ns)
+    fails = [(n, pred(n)) for n in ns]
+    fails = [(n, d) for n, d in fails if d is not None]
+    if not fails:
+        print("[%s] HOLDS for all n in [%d, %d]" % (name, ns[0], ns[-1]))
+        return
+    fl = [n for n, _ in fails]
+    tail = ""
+    if fl[-1] < ns[-1]:
+        tail = "; HOLDS for %d < n <= %d" % (fl[-1], ns[-1])
+    print("[%s] FAILS at n = %d (exact): %s; failing n (%d of %d tested): %s%s" %
+          (name, fl[0], fails[0][1], len(fl), len(ns), compress(fl), tail))
+
+
+def compress(lst):
+    out, i = [], 0
+    while i < len(lst):
+        j = i
+        step = 1
+        if j + 1 < len(lst):
+            step = lst[j + 1] - lst[j]
+        while j + 1 < len(lst) and lst[j + 1] - lst[j] == step and step in (1, 2):
+            j += 1
+        if j - i >= 2:
+            out.append("%d..%d%s" % (lst[i], lst[j], "" if step == 1 else " step 2"))
+            i = j + 1
+        else:
+            out.append(str(lst[i]))
+            i += 1
+    return "[" + ", ".join(out) + "]"
+
+
+def fl(x):
+    return float(x)
 
 
 def main():
-    path = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "data", "saw_enum_N21.txt.gz")
+    args = sys.argv[1:]
+    path = args[0] if args else os.path.join(ROOT, "data", "saw_enum_N21.txt.gz")
+    gram_path = args[1] if len(args) > 1 else None
     D = SawData(path)
     N = D.N
     ref = {int(r[0]): r for r in read_reference(os.path.join(ROOT, "data", "reference_series.tsv"))}
     R = max(ref)
     c = {n: int(ref[n][1]) for n in ref}
     P = {n: int(ref[n][2]) for n in ref}
-    # sanity: own data agrees with the reference
-    for n in range(N + 1):
+    for n in range(N + 1):  # sanity: own data agrees with the published series
         assert D.c[n] == c[n] and D.S(n) == P[n], n
-    E = {n: F(P[n], c[n]) for n in range(R + 1)}  # E_n |omega_n|^2, exact, n <= 36
+    E = {n: F(P[n], c[n]) for n in range(R + 1)}  # E_n |omega_n|^2, exact
     print("# lemma testbed: own enumeration n <= %d (%s); published c_n, P_n for n <= %d" % (N, os.path.basename(path), R))
     print()
-    print("## A. Mean-square end-to-end distance (exact, n <= %d from published series)" % R)
+    print("## A. Mean-square end-to-end distance E_n = E_n|w_n|^2 (exact; n <= %d from the published series)" % R)
+    rng = range(1, R + 1)
+    scan("A1 E_n >= n", rng, lambda n: None if E[n] >= n else "E_n/n = %.5f" % fl(E[n] / n))
+    print("     E_n/n:", " ".join("%d:%.4f" % (n, fl(E[n] / n)) for n in rng))
+    scan("A2 E_{n+1}/(n+1) >= E_n/n", range(1, R), lambda n: None if E[n + 1] / (n + 1) >= E[n] / n else "")
+    scan("A2b E_{n+1} >= E_n", range(0, R), lambda n: None if E[n + 1] >= E[n] else "")
+    scan("A2c E_{n+1}/(n+1)^2 <= E_n/n^2", range(1, R), lambda n: None if E[n + 1] / (n + 1) ** 2 <= E[n] / n ** 2 else "")
+    scan("A2d convexity E_{n+1}-E_n >= E_n-E_{n-1}", range(1, R),
+         lambda n: None if E[n + 1] - E[n] >= E[n] - E[n - 1] else "%.4f < %.4f" % (fl(E[n + 1] - E[n]), fl(E[n] - E[n - 1])))
+    scan("A2e convexity within parity E_{n+2}-E_n >= E_n-E_{n-2}", range(2, R - 1),
+         lambda n: None if E[n + 2] - E[n] >= E[n] - E[n - 2] else "")
+    scan("A2f E_{n+1} - E_n >= 1", range(0, R), lambda n: None if E[n + 1] - E[n] >= 1 else "")
+    scan("A2g E_{n+2} - E_n >= 2 E_n/n (i.e. E_n/n increasing at step 2 by...)", range(1, R - 1),
+         lambda n: None if E[n + 2] - E[n] >= 2 * E[n] / n else "")
 
-    # A1  E_n >= n
-    ff = next((n for n in range(1, R + 1) if E[n] < n), None)
-    mins = min((E[n] / n, n) for n in range(1, R + 1))
-    verdict("A1 E_n|w_n|^2 >= n", ff, R, "min_n E_n/n = %.6f at n = %d" % (float(mins[0]), mins[1]))
-    # A1b E_n >= n + something: report E_n - n
-    # A2 E_n/n nondecreasing
-    ff = next((n for n in range(1, R) if E[n + 1] / (n + 1) < E[n] / n), None)
-    verdict("A2 E_n/n nondecreasing in n", ff, R)
-    # A2b E_n nondecreasing
-    ff = next((n for n in range(0, R) if E[n + 1] < E[n]), None)
-    verdict("A2b E_n nondecreasing in n", ff, R)
-    # A2c E_n / n^2 nonincreasing
-    ff = next((n for n in range(1, R) if E[n + 1] / (n + 1) ** 2 > E[n] / n ** 2), None)
-    verdict("A2c E_n/n^2 nonincreasing", ff, R)
-    # A2d E_{n+1} - E_n nondecreasing (convexity of n -> E_n)
-    ff = next((n for n in range(1, R) if E[n + 1] - E[n] < E[n] - E[n - 1]), None)
-    verdict("A2d n -> E_n convex (E_{n+1}-E_n nondecreasing)", ff, R)
-    # A2e increments E_{n+1}-E_n >= 1
-    ff = next((n for n in range(0, R) if E[n + 1] - E[n] < 1), None)
-    verdict("A2e E_{n+1} - E_n >= 1", ff, R)
-    # A3 superadditivity
-    ff = None
-    for s in range(2, R + 1):
+    def sup(s):
         for m in range(1, s // 2 + 1):
             if E[s] < E[m] + E[s - m]:
-                ff = "%d (= %d + %d)" % (s, m, s - m)
-                break
-        if ff:
-            break
-    verdict("A3 superadditivity E_{n+m} >= E_n + E_m", ff, R)
-    # A3b strict superadditive margin: min over n+m<=R of E_{n+m} - E_n - E_m
+                return "E_%d < E_%d + E_%d" % (s, m, s - m)
+        return None
+    scan("A3 superadditivity E_{m+k} >= E_m + E_k (all m+k = n)", range(2, R + 1), sup)
     mg = min((E[a + b] - E[a] - E[b], a, b) for a in range(1, R) for b in range(a, R - a + 1))
-    print("     min_{n<=m, n+m<=%d} (E_{n+m} - E_n - E_m) = %.6f at (n,m) = (%d,%d)" % (R, float(mg[0]), mg[1], mg[2]))
-    # A3c E_{2n} >= 2 E_n  and stronger E_{2n} >= 2^{2*0.5} ... report ratio E_{2n}/E_n
-    rat = ["%d:%.4f" % (n, float(E[2 * n] / E[n])) for n in range(1, R // 2 + 1)]
-    print("     NUMERICS E_{2n}/E_n (= 2^{2 nu_eff}):", " ".join(rat))
-    # A4 Madras 2014 bound
-    ff = next((n for n in range(1, R + 1) if E[n] < n ** (4.0 / 9) / 36), None)
-    verdict("A4 Madras 2014 Prop 1.1 (p=2,d=3): E_n >= n^{4/9}/36 (float comparison, margin huge)", ff, R)
-    # A5 log-concavity of c_n (c_{n+1}/c_n nonincreasing) and of P_n
-    ff = next((n for n in range(1, R) if c[n] * c[n] < c[n - 1] * c[n + 1]), None)
-    verdict("A5 c_n^2 >= c_{n-1} c_{n+1} (c_{n+1}/c_n nonincreasing)", ff, R)
-    ff = next((n for n in range(2, R) if P[n] * P[n] < P[n - 1] * P[n + 1]), None)
-    verdict("A5b P_n^2 >= P_{n-1} P_{n+1}", ff, R)
-    # A5c: c_{n+2}/c_n nonincreasing
-    ff = next((n for n in range(1, R - 2) if F(c[n + 3], c[n + 1]) > F(c[n + 2], c[n])), None)
-    verdict("A5c c_{n+2}/c_n nonincreasing", ff, R)
-    # A6 local exponent (numerics)
+    print("     min over m <= k, m+k <= %d of E_{m+k} - E_m - E_k = %s = %.5f at (m,k) = (%d,%d)" %
+          (R, mg[0], fl(mg[0]), mg[1], mg[2]))
+
+    def supmult(s):  # E_{m+k}/(m+k)^{2a} type: test E_{2n} >= 2^{2*0.5} E_n trivially implied by A3; test 2^{1.1}
+        return None
+    for alpha in (1.0, 1.1, 1.15, 1.17, 1.175):
+        scan("A3b E_{2n} >= 2^{%.3f} E_n (float)" % alpha, range(1, R // 2 + 1),
+             lambda n, a=alpha: None if fl(E[2 * n]) >= 2 ** a * fl(E[n]) else "ratio %.4f" % fl(E[2 * n] / E[n]))
+    print("     NUMERICS E_{2n}/E_n:", " ".join("%d:%.4f" % (n, fl(E[2 * n] / E[n])) for n in range(1, R // 2 + 1)))
+    scan("A4 Madras 2014 Prop 1.1 (p=2, d=3): E_n >= n^{4/9}/36 (float; margin huge)", rng,
+         lambda n: None if fl(E[n]) >= n ** (4.0 / 9) / 36 else "")
+    scan("A5 log-concavity c_n^2 >= c_{n-1} c_{n+1}", range(1, R),
+         lambda n: None if c[n] ** 2 >= c[n - 1] * c[n + 1] else "")
+    scan("A5b c_{n+2}/c_n nonincreasing", range(1, R - 2),
+         lambda n: None if F(c[n + 3], c[n + 1]) <= F(c[n + 2], c[n]) else "")
+    scan("A5c P_n^2 >= P_{n-1} P_{n+1}", range(2, R), lambda n: None if P[n] ** 2 >= P[n - 1] * P[n + 1] else "")
+    scan("A5d c_{n+1}/c_n >= mu_lower = 4.572 (float)", range(0, R),
+         lambda n: None if c[n + 1] / c[n] >= 4.572 else "%.4f" % (c[n + 1] / c[n]))
     print("     NUMERICS nu_eff(n) = log(E_{n+1}/E_{n-1}) / (2 log((n+1)/(n-1))):")
-    line = []
-    for n in range(2, R):
-        v = math.log(E[n + 1] / E[n - 1]) / (2 * math.log((n + 1) / (n - 1)))
-        line.append("%d:%.4f" % (n, v))
-    print("       " + " ".join(line))
+    print("       " + " ".join("%d:%.4f" % (n, math.log(E[n + 1] / E[n - 1]) / (2 * math.log((n + 1) / (n - 1))))
+                               for n in range(2, R)))
 
     print()
-    print("## B. Endpoint distribution (exact, n <= %d, own enumeration)" % N)
-    # B1 argmax and max probability
-    rows = []
+    print("## B. Endpoint distribution c_n(x) (exact, n <= %d, own enumeration)" % N)
+    rows = {}
     for n in range(1, N + 1):
         best, arg = D.max_point(n)
-        rows.append((n, best, arg, F(best, D.c[n])))
-    print("     n  argmax-class  max_x P_n(w_n=x)")
-    for n, best, arg, p in rows:
-        print("     %2d  %-14s %.6e" % (n, ",".join("(%d,%d,%d)" % a for a in arg), float(p)))
-    # B1a: max attained at nearest neighbour for odd n
-    ff = next((n for n, b, arg, p in rows if n % 2 == 1 and arg != [(1, 0, 0)]), None)
-    verdict("B1a odd n: c_n(x) maximised (uniquely, up to symmetry) at x = e1", ff, N)
-    ff = next((n for n, b, arg, p in rows if n % 2 == 0 and n >= 2 and arg != [(1, 1, 0)]), None)
-    verdict("B1b even n >= 2: c_n(x) maximised (uniquely, up to symmetry) at x = e1+e2", ff, N)
-    # decay: max_x P_n is nonincreasing in n within each parity
-    pm = {n: p for n, b, a, p in rows}
-    ff = next((n for n in range(1, N - 1) if pm[n + 2] > pm[n]), None)
-    verdict("B1c max_x P_n(w_n=x) nonincreasing in n within each parity class", ff, N)
-    print("     NUMERICS local exponent of max_x P_n (same parity): log(p_{n-2}/p_n)/log(n/(n-2)):")
-    print("       " + " ".join("%d:%.3f" % (n, math.log(pm[n - 2] / pm[n]) / math.log(n / (n - 2)))
-                               for n in range(4, N + 1)))
-    # B2 P_n(w_n = x) for fixed small x, nonincreasing in n (same parity)
-    pts = [(1, 0, 0), (2, 0, 0), (1, 1, 0), (3, 0, 0), (2, 1, 0), (1, 1, 1), (4, 0, 0), (2, 2, 0), (3, 1, 0),
-           (2, 1, 1), (5, 0, 0), (3, 2, 0), (1, 1, 1)]
-    for x in pts[:10]:
-        par = sum(x) % 2
-        ns = [n for n in range(1, N + 1) if n % 2 == par and n >= sum(x)]
-        pr = {n: F(D.cnx(n, x), D.c[n]) for n in ns}
-        ff = next((n for n in ns if n + 2 in pr and pr[n] > 0 and pr[n + 2] > pr[n]), None)
-        nz = [n for n in ns if pr[n] > 0]
-        loc = ""
-        if len(nz) >= 3:
-            n1, n0 = nz[-1], nz[-2]
-            loc = "NUMERICS local exponent at n=%d: %.3f" % (n1, math.log(pr[n0] / pr[n1]) / math.log(n1 / n0))
-        # nonincreasing only from the first n where the point is reached with positive probability + 2 (rise first)
-        first_dec = None
-        ups = [n for n in nz if n + 2 in pr and pr[n + 2] > pr[n]]
-        print("[B2 x=%s] P_n(w_n=x) over n=%d..%d (step 2): increases at n -> n+2 for n in %s; %s" %
-              (x, nz[0], nz[-1], ups if ups else "none", loc))
-    # P_n(|w_n| = 1) exact
-    print("     P_n(|w_n|=1) = 6 c_n(e1)/c_n (odd n):", " ".join("%d:%.5e" % (n, 6 * D.cnx(n, (1, 0, 0)) / D.c[n])
-                                                         for n in range(1, N + 1, 2)))
-    # B3 monotonicity along axes / diagonals / coordinatewise
-    fa = fd = fd3 = fco = fco2 = None
+        rows[n] = (best, arg, F(best, D.c[n]))
+    print("     n  argmax class(es)   max_x P_n(w_n = x)   |argmax|/sqrt(E_n)")
     for n in range(1, N + 1):
-        for k in range(0, n + 1):
-            if (k - n) % 2 == 0 and k + 2 <= n and fa is None:
-                if D.cnx(n, (k + 2, 0, 0)) > D.cnx(n, (k, 0, 0)) and not (k == 0):
-                    fa = "%d (k=%d)" % (n, k)
-        for k in range(0, n):
-            if n % 2 == 0 and 2 * (k + 1) <= n and k >= 1 and fd is None:
-                if D.cnx(n, (k + 1, k + 1, 0)) > D.cnx(n, (k, k, 0)):
-                    fd = "%d (k=%d)" % (n, k)
-            if (3 * k - n) % 2 == 0 and 3 * (k + 2) <= n and k >= 1 and fd3 is None:
-                if D.cnx(n, (k + 2, k + 2, k + 2)) > D.cnx(n, (k, k, k)):
-                    fd3 = "%d (k=%d)" % (n, k)
-        # coordinatewise: c_n(x) >= c_n(x + 2 e_i) for x_i >= 0, x != 0 (x=0 excluded: c_n(0)=0)
-        for (a, b, cc) in list(D.A[n].keys()) + [(0, 0, 0)]:
+        best, arg, p = rows[n]
+        r = math.sqrt(sum(v * v for v in arg[0]) / fl(E[n]))
+        print("     %2d  %-18s %.6e         %.3f" % (n, ",".join("(%d,%d,%d)" % a for a in arg), fl(p), r))
+    scan("B1a odd n: max_x c_n(x) attained at x = e1 only", range(1, N + 1, 2),
+         lambda n: None if rows[n][1] == [(1, 0, 0)] else "argmax %s" % rows[n][1])
+    scan("B1b even n: max_x c_n(x) attained at |x|_1 = 2 only", range(2, N + 1, 2),
+         lambda n: None if all(sum(a) == 2 for a in rows[n][1]) else "argmax %s" % rows[n][1])
+    scan("B1c max_x P_n(w_n = x) >= max_x P_{n+2}(w_{n+2} = x)", range(1, N - 1),
+         lambda n: None if rows[n + 2][2] <= rows[n][2] else "")
+    scan("B1d max_x P_n(w_n = x) >= max_x P_{n+1}(w_{n+1} = x)", range(1, N),
+         lambda n: None if rows[n + 1][2] <= rows[n][2] else "")
+    pm = {n: rows[n][2] for n in rows}
+    print("     NUMERICS local exponent of max_x P_n (same parity) log(p_{n-2}/p_n)/log(n/(n-2)):")
+    print("       " + " ".join("%d:%.3f" % (n, math.log(pm[n - 2] / pm[n]) / math.log(n / (n - 2))) for n in range(4, N + 1)))
+    print("     NUMERICS n^{3 nu} max_x P_n (nu = 0.5876):", " ".join("%d:%.4f" % (n, fl(pm[n]) * n ** (3 * 0.587597))
+                                                                 for n in range(1, N + 1)))
+    # fixed points
+    pts = [(1, 0, 0), (2, 0, 0), (1, 1, 0), (3, 0, 0), (2, 1, 0), (1, 1, 1), (4, 0, 0), (2, 2, 0), (3, 1, 0), (2, 1, 1)]
+    for x in pts:
+        par = sum(x) % 2
+        ns = [n for n in range(sum(x), N + 1) if n % 2 == par]
+        pr = {n: F(D.cnx(n, x), D.c[n]) for n in ns}
+        n0 = next(n for n in ns if pr[n] > 0)
+        scan("B2 P_n(w_n=%s) >= P_{n+2}(w_{n+2}=%s)" % (str(x).replace(" ", ""), str(x).replace(" ", "")),
+             [n for n in ns if n >= n0 and n + 2 <= N], lambda n: None if pr[n + 2] <= pr[n] else "")
+        last = [n for n in ns if pr[n] > 0][-2:]
+        print("     NUMERICS local exponent at n=%d: %.3f;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: %s" %
+              (last[1], math.log(pr[last[0]] / pr[last[1]]) / math.log(last[1] / last[0]),
+               " ".join("%d:%.4f" % (n, fl(pr[n]) * n ** 1.92) for n in ns[-4:])))
+    print("     P_n(|w_n| = 1) = 6 c_n(e1)/c_n (odd n):", " ".join("%d:%.5e" % (n, 6 * D.cnx(n, (1, 0, 0)) / D.c[n])
+                                                               for n in range(1, N + 1, 2)))
+
+    def axis(n):
+        for k in range(1, n - 1):
+            if (k - n) % 2 == 0 and D.cnx(n, (k + 2, 0, 0)) > D.cnx(n, (k, 0, 0)):
+                return "c_%d(%d e1) = %d < c_%d(%d e1) = %d" % (n, k, D.cnx(n, (k, 0, 0)), n, k + 2, D.cnx(n, (k + 2, 0, 0)))
+        return None
+    scan("B3a axis: c_n(k e1) >= c_n((k+2) e1) for all k >= 1", range(1, N + 1), axis)
+
+    def axis_far(n):  # monotone beyond the maximum?
+        vals = [(k, D.cnx(n, (k, 0, 0))) for k in range(n % 2 if n % 2 else 2, n + 1, 2)]
+        kmax = max(vals, key=lambda t: t[1])[0]
+        for (k1, v1), (k2, v2) in zip(vals, vals[1:]):
+            if k1 >= kmax and v2 > v1:
+                return "k=%d" % k1
+        return None
+    scan("B3a' axis, unimodal: k -> c_n(k e1) nonincreasing beyond its maximum", range(1, N + 1), axis_far)
+
+    def diag(n):
+        if n % 2:
+            return None
+        for k in range(1, n // 2):
+            if D.cnx(n, (k + 1, k + 1, 0)) > D.cnx(n, (k, k, 0)):
+                return "k=%d" % k
+        return None
+    scan("B3b plane diagonal: c_n(k,k,0) >= c_n(k+1,k+1,0), k >= 1 (even n)", range(2, N + 1, 2), diag)
+
+    def diag3(n):
+        for k in range(1, n):
+            if 3 * (k + 2) <= n and (3 * k - n) % 2 == 0 and D.cnx(n, (k + 2,) * 3) > D.cnx(n, (k,) * 3):
+                return "k=%d" % k
+        return None
+    scan("B3c body diagonal: c_n(k,k,k) >= c_n(k+2,k+2,k+2), k >= 1", range(1, N + 1), diag3)
+
+    def coord(n, far=False):
+        for (a, b, cc) in D.A[n]:
             x = (a, b, cc)
-            if x == (0, 0, 0):
-                continue
             for i in range(3):
                 y = list(x)
                 y[i] += 2
-                if D.cnx(n, y) > D.cnx(n, x) and fco is None:
-                    fco = "%d (x=%s -> %s)" % (n, x, tuple(y))
-                # move +1 in two coordinates (parity preserving): x -> x + e_i + e_j, i != j
-                for j in range(i + 1, 3):
-                    z = list(x)
-                    z[i] += 1
-                    z[j] += 1
-                    if D.cnx(n, z) > D.cnx(n, x) and fco2 is None:
-                        fco2 = "%d (x=%s -> %s)" % (n, x, tuple(z))
-    verdict("B3a axis monotonicity: c_n(k e1) >= c_n((k+2) e1), k >= 1", fa, N)
-    verdict("B3b diagonal: c_n(k,k,0) >= c_n(k+1,k+1,0), k >= 1", fd, N)
-    verdict("B3c body diagonal: c_n(k,k,k) >= c_n(k+2,k+2,k+2), k >= 1", fd3, N)
-    verdict("B3d coordinatewise: c_n(x) >= c_n(x + 2 e_i) for x in the closed positive octant, x != 0", fco, N)
-    verdict("B3e c_n(x) >= c_n(x + e_i + e_j) (i != j) for x in the closed positive octant, x != 0", fco2, N)
-    # B3f: |x| larger => fewer walks (Euclidean norm), same parity
-    ff = None
-    for n in range(1, N + 1):
-        pts_n = sorted(((a * a + b * b + cc * cc), Ns // orb, (a, b, cc)) for (a, b, cc), (Ns, orb) in D.A[n].items())
-        for i in range(len(pts_n)):
-            for j in range(len(pts_n)):
-                if pts_n[i][0] < pts_n[j][0] and pts_n[i][1] < pts_n[j][1]:
-                    ff = "%d (|x|^2=%d %s has %d < %d for |y|^2=%d %s)" % (
-                        n, pts_n[i][0], pts_n[i][2], pts_n[i][1], pts_n[j][1], pts_n[j][0], pts_n[j][2])
-                    break
-            if ff:
-                break
-        if ff:
-            break
-    verdict("B3f radial monotonicity: |x| < |y| (same parity) => c_n(x) >= c_n(y)", ff, N)
-    # B3g: l1-radial: |x|_1 < |y|_1 => c_n(x) >= c_n(y)
-    ff = None
-    for n in range(1, N + 1):
-        L = sorted(((a + b + cc), Ns // orb, (a, b, cc)) for (a, b, cc), (Ns, orb) in D.A[n].items())
+                if D.cnx(n, y) > D.cnx(n, x):
+                    if far and x[i] * x[i] * 3 < fl(E[n]):
+                        continue
+                    return "c(%s)=%d < c(%s)=%d" % (x, D.cnx(n, x), tuple(y), D.cnx(n, y))
+        return None
+    scan("B3d coordinatewise: c_n(x) >= c_n(x + 2 e_i) for x in the closed positive octant, x != 0",
+         range(1, N + 1), coord)
+    scan("B3d' same, restricted to x_i >= sqrt(E_n/3)", range(1, N + 1), lambda n: coord(n, True))
+
+    def radial(n, l1=False):
+        L = sorted((((a + b + cc) if l1 else (a * a + b * b + cc * cc)), Ns // orb, (a, b, cc))
+                   for (a, b, cc), (Ns, orb) in D.A[n].items())
         for i in range(len(L)):
             for j in range(len(L)):
                 if L[i][0] < L[j][0] and L[i][1] < L[j][1]:
-                    ff = "%d (%s: %d < %s: %d)" % (n, L[i][2], L[i][1], L[j][2], L[j][1])
-                    break
-            if ff:
-                break
-        if ff:
-            break
-    verdict("B3g l1-radial monotonicity: |x|_1 < |y|_1 => c_n(x) >= c_n(y)", ff, N)
+                    return "c(%s)=%d < c(%s)=%d" % (L[i][2], L[i][1], L[j][2], L[j][1])
+        return None
+    scan("B3f radial: |x| < |y| => c_n(x) >= c_n(y)", range(1, N + 1), radial)
+    scan("B3g l1-radial: |x|_1 < |y|_1 => c_n(x) >= c_n(y)", range(1, N + 1), lambda n: radial(n, True))
 
-    # B4 hyperplane
+    def radial_far(n):
+        r0 = 1.0 * fl(E[n])
+        L = sorted(((a * a + b * b + cc * cc), Ns // orb, (a, b, cc)) for (a, b, cc), (Ns, orb) in D.A[n].items())
+        L = [t for t in L if t[0] >= r0]
+        for i in range(len(L)):
+            for j in range(len(L)):
+                if L[i][0] < L[j][0] and L[i][1] < L[j][1]:
+                    return "c(%s)=%d < c(%s)=%d" % (L[i][2], L[i][1], L[j][2], L[j][1])
+        return None
+    scan("B3h radial beyond the rms radius: E_n <= |x|^2 < |y|^2 => c_n(x) >= c_n(y)", range(1, N + 1), radial_far)
+
     print()
-    print("## C. Hyperplane x_1 = 0, bridges, half-space walks")
+    print("## C. Hyperplane x_1 = 0, bridges, half-space walks (exact, n <= %d)" % N)
     q = {n: F(D.ending_on_plane(n), D.c[n]) for n in range(N + 1)}
-    print("     P_n(x_1(w_n)=0) exact values:", " ".join("%d:%.5f" % (n, float(q[n])) for n in range(1, N + 1)))
-    ff = next((n for n in range(1, N - 1) if q[n + 2] > q[n]), None)
-    verdict("C1 P_n(x_1(w_n) = 0) nonincreasing in n within parity", ff, N)
-    print("     NUMERICS local exponent of P_n(x_1=0) (same parity):",
+    print("     P_n(x_1(w_n) = 0):", " ".join("%d:%.5f" % (n, fl(q[n])) for n in range(1, N + 1)))
+    scan("C1 P_n(x_1(w_n)=0) >= P_{n+2}(x_1(w_{n+2})=0)", range(1, N - 1), lambda n: None if q[n + 2] <= q[n] else "")
+    scan("C1b P_n(x_1(w_n)=0) >= P_{n+1}(x_1(w_{n+1})=0)", range(1, N), lambda n: None if q[n + 1] <= q[n] else "")
+    print("     NUMERICS local exponent of P_n(x_1 = 0) (same parity):",
           " ".join("%d:%.3f" % (n, math.log(q[n - 2] / q[n]) / math.log(n / (n - 2))) for n in range(4, N + 1)))
-    print("     NUMERICS sqrt(E_n) * P_n(x_1=0):", " ".join("%d:%.4f" % (n, math.sqrt(E[n]) * float(q[n]))
-                                                         for n in range(1, N + 1)))
+    print("     NUMERICS E_n^{1/2} P_n(x_1 = 0):", " ".join("%d:%.4f" % (n, math.sqrt(E[n]) * fl(q[n])) for n in range(1, N + 1)))
     bc = {n: F(D.b[n], D.c[n]) for n in range(N + 1)}
-    print("     b_n/c_n:", " ".join("%d:%.5f" % (n, float(bc[n])) for n in range(1, N + 1)))
-    ff = next((n for n in range(1, N) if bc[n + 1] > bc[n]), None)
-    verdict("C2 b_n/c_n nonincreasing", ff, N)
-    print("     NUMERICS local exponent of b_n/c_n: log(r_{n-1}/r_{n+1})/log((n+1)/(n-1)):",
+    print("     b_n/c_n:", " ".join("%d:%.5f" % (n, fl(bc[n])) for n in range(1, N + 1)))
+    scan("C2 b_n/c_n >= b_{n+1}/c_{n+1}", range(1, N), lambda n: None if bc[n + 1] <= bc[n] else "")
+    print("     NUMERICS local exponent of b_n/c_n:",
           " ".join("%d:%.3f" % (n, math.log(bc[n - 1] / bc[n + 1]) / math.log((n + 1) / (n - 1))) for n in range(2, N)))
-    # supermultiplicativity of bridges (proved, sanity)
-    ff = next(("%d+%d" % (m, k) for m in range(1, N) for k in range(1, N - m + 1) if D.b[m] * D.b[k] > D.b[m + k]), None)
-    verdict("C3 b_m b_n <= b_{m+n} (PROVED in the literature; sanity check)", ff, N)
+    scan("C3 b_m b_k <= b_{m+k} (PROVED, sanity)", range(2, N + 1),
+         lambda n: next(("m=%d" % m for m in range(1, n) if D.b[m] * D.b[n - m] > D.b[n]), None))
+    scan("C3b b_n^2 >= b_{n-1} b_{n+1} (log-concave bridges)", range(1, N),
+         lambda n: None if D.b[n] ** 2 >= D.b[n - 1] * D.b[n + 1] else "")
     hc = {n: F(D.h[n], D.c[n]) for n in range(N + 1)}
-    print("     h_n/c_n:", " ".join("%d:%.5f" % (n, float(hc[n])) for n in range(1, N + 1)))
+    print("     h_n/c_n:", " ".join("%d:%.5f" % (n, fl(hc[n])) for n in range(1, N + 1)))
     Eb = {n: F(D.S_bridge(n), D.b[n]) for n in range(1, N + 1)}
-    ff = next((n for n in range(1, N + 1) if Eb[n] < E[n]), None)
-    verdict("C4 E[|w_n|^2 | bridge] >= E_n|w_n|^2", ff, N,
-            "ratio at n=%d: %.4f" % (N, float(Eb[N] / E[N])))
     Eh = {n: F(D.S_half(n), D.h[n]) for n in range(1, N + 1)}
-    ff = next((n for n in range(1, N + 1) if Eh[n] < E[n]), None)
-    verdict("C5 E[|w_n|^2 | half-space] >= E_n|w_n|^2", ff, N, "ratio at n=%d: %.4f" % (N, float(Eh[N] / E[N])))
-    ff = next((n for n in range(1, N + 1) if Eb[n] < Eh[n]), None)
-    verdict("C6 E[|w_n|^2 | bridge] >= E[|w_n|^2 | half-space]", ff, N)
-    # mean span of bridges
+    scan("C4 E[|w_n|^2 | bridge] >= E_n", range(1, N + 1), lambda n: None if Eb[n] >= E[n] else "")
+    scan("C5 E[|w_n|^2 | half-space] >= E_n", range(1, N + 1), lambda n: None if Eh[n] >= E[n] else "")
+    scan("C6 E[|w_n|^2 | bridge] >= E[|w_n|^2 | half-space]", range(1, N + 1), lambda n: None if Eb[n] >= Eh[n] else "")
+    print("     E[|w_n|^2|bridge]/E_n:", " ".join("%d:%.4f" % (n, fl(Eb[n] / E[n])) for n in range(1, N + 1)))
     sp = {n: F(sum(k * v for k, v in D.bridge_span_dist(n).items()), D.b[n]) for n in range(1, N + 1)}
-    ff = next((n for n in range(1, N + 1) if sp[n] ** 2 * 3 < E[n]), None)
-    verdict("C7 3 (E[span | bridge])^2 >= E_n|w_n|^2", ff, N)
-    ff = next((n for n in range(1, N) if sp[n + 1] < sp[n]), None)
-    verdict("C8 mean bridge span nondecreasing in n", ff, N)
+    scan("C7 E[span | bridge] nondecreasing", range(1, N), lambda n: None if sp[n + 1] >= sp[n] else "")
+    print("     E[span|bridge]/sqrt(E_n):", " ".join("%d:%.4f" % (n, fl(sp[n]) / math.sqrt(E[n])) for n in range(1, N + 1)))
 
     print()
-    print("## D. Intermediate points (exact, n <= %d)" % N)
+    print("## D. Intermediate points (exact, n <= %d): E_n|w_k|^2 for k < n" % N)
     Ek = {(k, n): F(D.S_mid(k, n), D.c[n]) for n in range(1, N + 1) for k in range(0, n + 1)}
-    # D1 E_n|w_k|^2 >= E_k|w_k|^2
-    ff = None
-    worst = None
-    for n in range(2, N + 1):
-        for k in range(1, n):
-            r = Ek[(k, n)] / E[k]
-            if worst is None or r < worst[0]:
-                worst = (r, k, n)
-            if Ek[(k, n)] < E[k] and ff is None:
-                ff = "%d (k=%d)" % (n, k)
-    verdict("D1 E_n|w_k|^2 >= E_k|w_k|^2 for 1 <= k < n (initial segments of longer walks more extended)", ff, N,
-            "min ratio %.6f at (k,n)=(%d,%d)" % (float(worst[0]), worst[1], worst[2]))
-    # D2 monotone in n for fixed k
-    ff = next(("%d (k=%d)" % (n, k) for n in range(2, N) for k in range(1, n + 1) if Ek[(k, n + 1)] < Ek[(k, n)]), None)
-    verdict("D2 n -> E_n|w_k|^2 nondecreasing for fixed k (n >= k)", ff, N)
-    # D3 E_n|w_k|^2 >= k
-    ff = next(("%d (k=%d)" % (n, k) for n in range(1, N + 1) for k in range(1, n + 1) if Ek[(k, n)] < k), None)
-    verdict("D3 E_n|w_k|^2 >= k for all k <= n", ff, N)
-    # D4 k -> E_n|w_k|^2 nondecreasing
-    ff = next(("%d (k=%d)" % (n, k) for n in range(1, N + 1) for k in range(0, n) if Ek[(k + 1, n)] < Ek[(k, n)]), None)
-    verdict("D4 k -> E_n|w_k|^2 nondecreasing in k for fixed n", ff, N)
-    # D5 E_n|w_n|^2 >= E_n|w_k|^2 + E_n|w_n - w_k|^2 ?  (needs w_n - w_k: not available in general) -- the special
-    # case k = n/2 via reversal: E_n|w_n - w_{n-k}|^2 = E_n|w_k|^2.  So test E_n|w_n|^2 >= E_n|w_k|^2 + E_n|w_{n-k}|^2.
-    ff = next(("%d (k=%d)" % (n, k) for n in range(2, N + 1) for k in range(1, n) if E[n] < Ek[(k, n)] + Ek[(n - k, n)]),
-              None)
-    verdict("D5 E_n|w_n|^2 >= E_n|w_k|^2 + E_n|w_{n-k}|^2 for 1 <= k < n",
-            ff, N)
-    print("     note D5: by reversal E_n|w_n - w_k|^2 = E_n|w_{n-k}|^2, so D5 <=> E_n[w_k . (w_n - w_k)] >= 0 for all k.")
-    # D6 midpoint sup probability (DGHM Prop 1.3: <= C n^{-1/2})
+    scan("D1 E_n|w_k|^2 >= E_k|w_k|^2 for all 1 <= k < n", range(2, N + 1),
+         lambda n: next(("k=%d" % k for k in range(1, n) if Ek[(k, n)] < E[k]), None))
+    worst = min((Ek[(k, n)] / E[k], k, n) for n in range(2, N + 1) for k in range(1, n))
+    print("     min ratio E_n|w_k|^2 / E_k|w_k|^2 = %.6f at (k,n) = (%d,%d)" % (fl(worst[0]), worst[1], worst[2]))
+    scan("D2 E_{n+1}|w_k|^2 >= E_n|w_k|^2 for all k <= n", range(1, N),
+         lambda n: next(("k=%d" % k for k in range(1, n + 1) if Ek[(k, n + 1)] < Ek[(k, n)]), None))
+    scan("D2b E_{n+2}|w_k|^2 >= E_n|w_k|^2 for all k <= n", range(1, N - 1),
+         lambda n: next(("k=%d" % k for k in range(1, n + 1) if Ek[(k, n + 2)] < Ek[(k, n)]), None))
+    scan("D3 E_n|w_k|^2 >= k for all k <= n", range(1, N + 1),
+         lambda n: next(("k=%d" % k for k in range(1, n + 1) if Ek[(k, n)] < k), None))
+    scan("D4 E_n|w_{k+1}|^2 >= E_n|w_k|^2 for all k < n", range(1, N + 1),
+         lambda n: next(("k=%d" % k for k in range(0, n) if Ek[(k + 1, n)] < Ek[(k, n)]), None))
+    scan("D5 E_n|w_n|^2 >= E_n|w_k|^2 + E_n|w_{n-k}|^2, i.e. E_n[w_k.(w_n - w_k)] >= 0, all 1 <= k < n",
+         range(2, N + 1), lambda n: next(("k=%d" % k for k in range(1, n) if E[n] < Ek[(k, n)] + Ek[(n - k, n)]), None))
+    print("     note D5: by reversal (w_n - w_{n-i})_i is again uniform, so E_n|w_n - w_k|^2 = E_n|w_{n-k}|^2.")
+    print("     E_n|w_{n/2}|^2 / E_{n/2}:", " ".join("%d:%.4f" % (n, fl(Ek[(n // 2, n)] / E[n // 2])) for n in range(2, N + 1, 2)))
     mp = {n: F(D.max_point_mid(n // 2, n), D.c[n]) for n in range(2, N + 1)}
-    print("     sup_x P_n(w_{floor(n/2)} = x) * n^{1/2}:", " ".join("%d:%.4f" % (n, float(mp[n]) * math.sqrt(n))
-                                                             for n in range(2, N + 1)))
-    print("     NUMERICS sup_x P_n(w_{n/2}=x) * n^{3 nu}, nu=0.5876:",
-          " ".join("%d:%.4f" % (n, float(mp[n]) * n ** (3 * 0.587597)) for n in range(2, N + 1, 2)))
+    print("     sup_x P_n(w_{floor(n/2)} = x) * n^{1/2} (DGHM 2016 Prop 1.3: bounded):",
+          " ".join("%d:%.4f" % (n, fl(mp[n]) * math.sqrt(n)) for n in range(2, N + 1)))
+    print("     NUMERICS sup_x P_n(w_{n/2} = x) * n^{3 nu}:",
+          " ".join("%d:%.4f" % (n, fl(mp[n]) * n ** (3 * 0.587597)) for n in range(2, N + 1)))
+
+    if gram_path:
+        gram_section(gram_path)
+
     print()
     print("## E. NUMERICS: amplitudes")
-    print("     E_n/n^{2 nu} (nu = 0.587597):", " ".join("%d:%.4f" % (n, float(E[n]) / n ** (2 * 0.587597))
+    print("     E_n/n^{2 nu} (nu = 0.587597):", " ".join("%d:%.4f" % (n, fl(E[n]) / n ** (2 * 0.587597))
                                                   for n in range(1, R + 1)))
+
+
+def gram_section(path):
+    """step-correlation data: lines 'G n i j value' = sum over n-step SAWs of w_i . w_j (i <= j <= n)."""
+    G = {}
+    cn = {}
+    for line in open(path):
+        t = line.split()
+        if not t or t[0].startswith("#"):
+            continue
+        if t[0] == "G":
+            G[(int(t[1]), int(t[2]), int(t[3]))] = int(t[4])
+        elif t[0] == "T":
+            cn[int(t[1])] = int(t[2])
+    Ng = max(cn)
+
+    def g(n, i, j):
+        if i == 0 or j == 0:
+            return 0
+        if i > j:
+            i, j = j, i
+        return G[(n, i, j)]
+
+    def corr(n, i, j):  # sum over walks of s_i . s_j, s_i = w_i - w_{i-1}
+        return g(n, i, j) - g(n, i - 1, j) - g(n, i, j - 1) + g(n, i - 1, j - 1)
+    print()
+    print("## G. Step correlations E_n[s_i . s_j] (exact, n <= %d, src/saw_gram.cpp)" % Ng)
+    # sanity: diagonal = c_n (|s_i| = 1)
+    assert all(corr(n, i, i) == cn[n] for n in range(1, Ng + 1) for i in range(1, n + 1))
+
+    def pos(n):
+        for i in range(1, n + 1):
+            for j in range(i + 1, n + 1):
+                if corr(n, i, j) < 0:
+                    return "E_%d[s_%d . s_%d] = %s" % (n, i, j, F(corr(n, i, j), cn[n]))
+        return None
+    scan("G1 E_n[s_i . s_j] >= 0 for all 1 <= i < j <= n", range(1, Ng + 1), pos)
+    neg = [(n, i, j) for n in range(1, Ng + 1) for i in range(1, n + 1) for j in range(i + 1, n + 1) if corr(n, i, j) < 0]
+    print("     number of negative step correlations per n:",
+          " ".join("%d:%d" % (n, sum(1 for t in neg if t[0] == n)) for n in range(1, Ng + 1)))
+    if neg:
+        print("     negative (n,i,j) for the largest n: %s" % [t[1:] for t in neg if t[0] == Ng][:40])
+
+    def rowsum(n):  # sum_j E[s_i.s_j] >= 0 for each i  (=> E|w_n|^2 >= ... )
+        for i in range(1, n + 1):
+            if sum(corr(n, i, j) for j in range(1, n + 1)) < cn[n]:
+                return "i=%d" % i
+        return None
+    scan("G2 E_n[s_i . w_n] >= 1 for all i (row sums of the correlation matrix >= diagonal)", range(1, Ng + 1), rowsum)
+
+    def wk(n):  # E_n[w_k . s_{k+1}] >= 0
+        for k in range(1, n):
+            if g(n, k, k + 1) - g(n, k, k) < 0:
+                return "k=%d" % k
+        return None
+    scan("G3 E_n[w_k . s_{k+1}] >= 0 for all k (the next step points outward on average)", range(1, Ng + 1), wk)
+
+    def wkn(n):  # E_n[w_k . (w_n - w_k)] >= 0
+        for k in range(1, n):
+            if g(n, k, n) - g(n, k, k) < 0:
+                return "k=%d" % k
+        return None
+    scan("G4 E_n[w_k . (w_n - w_k)] >= 0 for all k (same as D5)", range(1, Ng + 1), wkn)
+
+    def mono(n):  # j -> E[s_1 . s_j] nonincreasing
+        v = [corr(n, 1, j) for j in range(2, n + 1)]
+        for a, b in zip(v, v[1:]):
+            if b > a:
+                return "E[s_1.s_j] increases somewhere"
+        return None
+    scan("G5 j -> E_n[s_1 . s_j] nonincreasing", range(3, Ng + 1), mono)
+    n = Ng
+    print("     E_%d[s_1 . s_j], j = 2..%d:" % (n, n), " ".join("%.5f" % (corr(n, 1, j) / cn[n]) for j in range(2, n + 1)))
+    m = n // 2
+    print("     E_%d[s_%d . s_j], j = 1..%d:" % (n, m, n), " ".join("%.5f" % (corr(n, m, j) / cn[n]) for j in range(1, n + 1)))
 
 
 if __name__ == "__main__":

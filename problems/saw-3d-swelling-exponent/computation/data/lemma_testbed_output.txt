@@ -1,0 +1,131 @@
+# lemma testbed: own enumeration n <= 19 (saw_enum_N19.txt.gz); published c_n, P_n for n <= 36
+
+## A. Mean-square end-to-end distance E_n = E_n|w_n|^2 (exact; n <= 36 from the published series)
+[A1 E_n >= n] HOLDS for all n in [1, 36]
+     E_n/n: 1:1.0000 2:1.2000 3:1.2933 4:1.3884 5:1.4469 6:1.5118 7:1.5567 8:1.6056 9:1.6423 10:1.6817 11:1.7129 12:1.7461 13:1.7732 14:1.8020 15:1.8262 16:1.8517 17:1.8735 18:1.8964 19:1.9163 20:1.9371 21:1.9554 22:1.9745 23:1.9915 24:2.0092 25:2.0251 26:2.0415 27:2.0564 28:2.0718 29:2.0859 30:2.1003 31:2.1136 32:2.1273 33:2.1399 34:2.1529 35:2.1649 36:2.1773
+[A2 E_{n+1}/(n+1) >= E_n/n] HOLDS for all n in [1, 35]
+[A2b E_{n+1} >= E_n] HOLDS for all n in [0, 35]
+[A2c E_{n+1}/(n+1)^2 <= E_n/n^2] HOLDS for all n in [1, 35]
+[A2d convexity E_{n+1}-E_n >= E_n-E_{n-1}] FAILS at n = 6 (exact): 1.8267 < 1.8362; failing n (15 of 35 tested): [6..34 step 2]; HOLDS for 34 < n <= 35
+[A2e convexity within parity E_{n+2}-E_n >= E_n-E_{n-2}] HOLDS for all n in [2, 34]
+[A2f E_{n+1} - E_n >= 1] HOLDS for all n in [0, 35]
+[A2g E_{n+2} - E_n >= 2 E_n/n (i.e. E_n/n increasing at step 2 by...)] HOLDS for all n in [1, 34]
+[A3 superadditivity E_{m+k} >= E_m + E_k (all m+k = n)] HOLDS for all n in [2, 36]
+     min over m <= k, m+k <= 36 of E_{m+k} - E_m - E_k = 2/5 = 0.40000 at (m,k) = (1,1)
+[A3b E_{2n} >= 2^{1.000} E_n (float)] HOLDS for all n in [1, 18]
+[A3b E_{2n} >= 2^{1.100} E_n (float)] HOLDS for all n in [1, 18]
+[A3b E_{2n} >= 2^{1.150} E_n (float)] HOLDS for all n in [1, 18]
+[A3b E_{2n} >= 2^{1.170} E_n (float)] HOLDS for all n in [1, 18]
+[A3b E_{2n} >= 2^{1.175} E_n (float)] HOLDS for all n in [1, 18]
+     NUMERICS E_{2n}/E_n: 1:2.4000 2:2.3140 3:2.3378 4:2.3129 5:2.3247 6:2.3100 7:2.3151 8:2.3065 9:2.3094 10:2.3037 11:2.3055 12:2.3014 13:2.3026 14:2.2994 15:2.3002 16:2.2977 17:2.2983 18:2.2962
+[A4 Madras 2014 Prop 1.1 (p=2, d=3): E_n >= n^{4/9}/36 (float; margin huge)] HOLDS for all n in [1, 36]
+[A5 log-concavity c_n^2 >= c_{n-1} c_{n+1}] FAILS at n = 4 (exact): ; failing n (16 of 35 tested): [4..34 step 2]; HOLDS for 34 < n <= 35
+[A5b c_{n+2}/c_n nonincreasing] HOLDS for all n in [1, 33]
+[A5c P_n^2 >= P_{n-1} P_{n+1}] HOLDS for all n in [2, 35]
+[A5d c_{n+1}/c_n >= mu_lower = 4.572 (float)] HOLDS for all n in [0, 35]
+     NUMERICS nu_eff(n) = log(E_{n+1}/E_{n-1}) / (2 log((n+1)/(n-1))):
+       2:0.6171 3:0.6052 4:0.6098 5:0.6049 6:0.6088 7:0.6047 8:0.6064 9:0.6037 10:0.6048 11:0.6030 12:0.6037 13:0.6023 14:0.6028 15:0.6018 16:0.6021 17:0.6013 18:0.6015 19:0.6008 20:0.6010 21:0.6004 22:0.6006 23:0.6000 24:0.6002 25:0.5997 26:0.5998 27:0.5994 28:0.5995 29:0.5991 30:0.5992 31:0.5989 32:0.5989 33:0.5986 34:0.5986 35:0.5984
+
+## B. Endpoint distribution c_n(x) (exact, n <= 19, own enumeration)
+     n  argmax class(es)   max_x P_n(w_n = x)   |argmax|/sqrt(E_n)
+      1  (1,0,0)            1.666667e-01         1.000
+      2  (1,1,0)            6.666667e-02         0.913
+      3  (1,1,1)            4.000000e-02         0.879
+      4  (1,1,0)            2.203857e-02         0.600
+      5  (1,1,1)            1.528014e-02         0.644
+      6  (1,1,0),(2,0,0)    1.087085e-02         0.470
+      7  (1,1,1)            8.698857e-03         0.525
+      8  (2,0,0)            6.742859e-03         0.558
+      9  (1,1,1)            5.673488e-03         0.451
+     10  (2,1,1)            4.713346e-03         0.597
+     11  (2,1,0)            4.030200e-03         0.515
+     12  (2,1,1)            3.504086e-03         0.535
+     13  (2,1,0)            3.038827e-03         0.466
+     14  (2,1,1)            2.708274e-03         0.488
+     15  (2,1,0)            2.375006e-03         0.427
+     16  (2,1,1)            2.156768e-03         0.450
+     17  (2,2,1)            1.927758e-03         0.532
+     18  (2,2,0)            1.759045e-03         0.484
+     19  (2,2,1)            1.604444e-03         0.497
+[B1a odd n: max_x c_n(x) attained at x = e1 only] FAILS at n = 3 (exact): argmax [(1, 1, 1)]; failing n (9 of 10 tested): [3..19 step 2]
+[B1b even n: max_x c_n(x) attained at |x|_1 = 2 only] FAILS at n = 10 (exact): argmax [(2, 1, 1)]; failing n (5 of 9 tested): [10..18 step 2]
+[B1c max_x P_n(w_n = x) >= max_x P_{n+2}(w_{n+2} = x)] HOLDS for all n in [1, 17]
+[B1d max_x P_n(w_n = x) >= max_x P_{n+1}(w_{n+1} = x)] HOLDS for all n in [1, 18]
+     NUMERICS local exponent of max_x P_n (same parity) log(p_{n-2}/p_n)/log(n/(n-2)):
+       4:1.597 5:1.884 6:1.743 7:1.674 8:1.660 9:1.701 10:1.605 11:1.704 12:1.626 13:1.690 14:1.671 15:1.722 16:1.705 17:1.667 18:1.731 19:1.651
+     NUMERICS n^{3 nu} max_x P_n (nu = 0.5876): 1:0.1667 2:0.2262 3:0.2774 4:0.2538 5:0.2608 6:0.2558 7:0.2687 8:0.2635 9:0.2729 10:0.2730 11:0.2761 12:0.2799 13:0.2795 14:0.2838 15:0.2811 16:0.2860 17:0.2845 18:0.2871 19:0.2881
+[B2 P_n(w_n=(1,0,0)) >= P_{n+2}(w_{n+2}=(1,0,0))] HOLDS for all n in [1, 17]
+     NUMERICS local exponent at n=19: 1.846;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 13:0.3080 15:0.3122 17:0.3154 19:0.3180
+[B2 P_n(w_n=(2,0,0)) >= P_{n+2}(w_{n+2}=(2,0,0))] HOLDS for all n in [2, 16]
+     NUMERICS local exponent at n=18: 1.781;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.3995 14:0.4106 16:0.4193 18:0.4262
+[B2 P_n(w_n=(1,1,0)) >= P_{n+2}(w_{n+2}=(1,1,0))] HOLDS for all n in [2, 16]
+     NUMERICS local exponent at n=18: 1.826;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.3772 14:0.3841 16:0.3896 18:0.3939
+[B2 P_n(w_n=(3,0,0)) >= P_{n+2}(w_{n+2}=(3,0,0))] FAILS at n = 3 (exact): ; failing n (1 of 8 tested): [3]; HOLDS for 3 < n <= 17
+     NUMERICS local exponent at n=19: 1.642;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 13:0.3980 15:0.4200 17:0.4372 19:0.4509
+[B2 P_n(w_n=(2,1,0)) >= P_{n+2}(w_{n+2}=(2,1,0))] HOLDS for all n in [3, 17]
+     NUMERICS local exponent at n=19: 1.765;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 13:0.4183 15:0.4303 17:0.4397 19:0.4474
+[B2 P_n(w_n=(1,1,1)) >= P_{n+2}(w_{n+2}=(1,1,1))] HOLDS for all n in [3, 17]
+     NUMERICS local exponent at n=19: 1.812;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 13:0.4096 15:0.4176 17:0.4239 19:0.4290
+[B2 P_n(w_n=(4,0,0)) >= P_{n+2}(w_{n+2}=(4,0,0))] FAILS at n = 4 (exact): ; failing n (2 of 7 tested): [4, 6]; HOLDS for 6 < n <= 16
+     NUMERICS local exponent at n=18: 1.314;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.2955 14:0.3396 16:0.3741 18:0.4017
+[B2 P_n(w_n=(2,2,0)) >= P_{n+2}(w_{n+2}=(2,2,0))] FAILS at n = 4 (exact): ; failing n (1 of 7 tested): [4]; HOLDS for 4 < n <= 16
+     NUMERICS local exponent at n=18: 1.667;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.4004 14:0.4222 16:0.4390 18:0.4523
+[B2 P_n(w_n=(3,1,0)) >= P_{n+2}(w_{n+2}=(3,1,0))] FAILS at n = 4 (exact): ; failing n (1 of 7 tested): [4]; HOLDS for 4 < n <= 16
+     NUMERICS local exponent at n=18: 1.588;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.3773 14:0.4053 16:0.4268 18:0.4438
+[B2 P_n(w_n=(2,1,1)) >= P_{n+2}(w_{n+2}=(2,1,1))] HOLDS for all n in [4, 16]
+     NUMERICS local exponent at n=18: 1.731;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.4136 14:0.4298 16:0.4423 18:0.4523
+     P_n(|w_n| = 1) = 6 c_n(e1)/c_n (odd n): 1:1.00000e+00 3:1.60000e-01 5:7.47029e-02 7:4.06930e-02 9:2.60210e-02 11:1.81736e-02 13:1.34261e-02 15:1.03378e-02 17:8.21391e-03 19:6.68894e-03
+[B3a axis: c_n(k e1) >= c_n((k+2) e1) for all k >= 1] FAILS at n = 9 (exact): c_9(1 e1) = 8040 < c_9(3 e1) = 8936; failing n (6 of 19 tested): [9..19 step 2]
+[B3a' axis, unimodal: k -> c_n(k e1) nonincreasing beyond its maximum] HOLDS for all n in [1, 19]
+[B3b plane diagonal: c_n(k,k,0) >= c_n(k+1,k+1,0), k >= 1 (even n)] FAILS at n = 10 (exact): k=1; failing n (5 of 9 tested): [10..18 step 2]
+[B3c body diagonal: c_n(k,k,k) >= c_n(k+2,k+2,k+2), k >= 1] HOLDS for all n in [1, 19]
+[B3d coordinatewise: c_n(x) >= c_n(x + 2 e_i) for x in the closed positive octant, x != 0] FAILS at n = 5 (exact): c((1, 0, 0))=44 < c((1, 2, 0))=47; failing n (14 of 19 tested): [5, 7..19]
+[B3d' same, restricted to x_i >= sqrt(E_n/3)] HOLDS for all n in [1, 19]
+[B3f radial: |x| < |y| => c_n(x) >= c_n(y)] FAILS at n = 3 (exact): c((1, 0, 0))=4 < c((1, 1, 1))=6; failing n (15 of 19 tested): [3..7 step 2, 8..19]
+[B3g l1-radial: |x|_1 < |y|_1 => c_n(x) >= c_n(y)] FAILS at n = 3 (exact): c((1, 0, 0))=4 < c((1, 1, 1))=6; failing n (16 of 19 tested): [3, 5..19]
+[B3h radial beyond the rms radius: E_n <= |x|^2 < |y|^2 => c_n(x) >= c_n(y)] FAILS at n = 7 (exact): c((4, 3, 0))=35 < c((5, 1, 1))=42; failing n (13 of 19 tested): [7..19]
+
+## C. Hyperplane x_1 = 0, bridges, half-space walks (exact, n <= 19)
+     P_n(x_1(w_n) = 0): 1:0.66667 2:0.40000 3:0.29333 4:0.23691 5:0.21845 6:0.19544 7:0.18336 8:0.16743 9:0.15872 10:0.14768 11:0.14143 12:0.13331 13:0.12849 14:0.12219 15:0.11832 16:0.11326 17:0.11008 18:0.10591 19:0.10322
+[C1 P_n(x_1(w_n)=0) >= P_{n+2}(x_1(w_{n+2})=0)] HOLDS for all n in [1, 17]
+[C1b P_n(x_1(w_n)=0) >= P_{n+1}(x_1(w_{n+1})=0)] HOLDS for all n in [1, 18]
+     NUMERICS local exponent of P_n(x_1 = 0) (same parity): 4:0.756 5:0.577 6:0.475 7:0.520 8:0.538 9:0.574 10:0.562 11:0.575 12:0.562 13:0.574 14:0.565 15:0.576 16:0.568 17:0.577 18:0.570 19:0.578
+     NUMERICS E_n^{1/2} P_n(x_1 = 0): 1:0.6667 2:0.6197 3:0.5778 4:0.5583 5:0.5876 6:0.5886 7:0.6053 8:0.6001 9:0.6102 10:0.6056 11:0.6139 12:0.6102 13:0.6169 14:0.6137 15:0.6193 16:0.6165 17:0.6212 18:0.6188 19:0.6229
+     b_n/c_n: 1:0.16667 2:0.16667 3:0.14000 4:0.12259 5:0.10441 6:0.09175 7:0.08076 8:0.07268 9:0.06586 10:0.06054 11:0.05593 12:0.05214 13:0.04874 14:0.04586 15:0.04323 16:0.04095 17:0.03886 18:0.03701 19:0.03530
+[C2 b_n/c_n >= b_{n+1}/c_{n+1}] HOLDS for all n in [1, 18]
+     NUMERICS local exponent of b_n/c_n: 2:0.159 3:0.443 4:0.574 5:0.715 6:0.763 7:0.810 8:0.812 9:0.819 10:0.814 11:0.820 12:0.823 13:0.832 14:0.839 15:0.847 16:0.853 17:0.859 18:0.863
+[C3 b_m b_k <= b_{m+k} (PROVED, sanity)] HOLDS for all n in [2, 19]
+[C3b b_n^2 >= b_{n-1} b_{n+1} (log-concave bridges)] FAILS at n = 1 (exact): ; failing n (16 of 18 tested): [1..5 step 2, 6..18]
+     h_n/c_n: 1:0.16667 2:0.16667 3:0.14000 4:0.12810 5:0.11573 6:0.10948 7:0.10238 8:0.09786 9:0.09292 10:0.08939 11:0.08569 12:0.08287 13:0.07996 14:0.07764 15:0.07527 16:0.07332 17:0.07135 18:0.06968 19:0.06799
+[C4 E[|w_n|^2 | bridge] >= E_n] HOLDS for all n in [1, 19]
+[C5 E[|w_n|^2 | half-space] >= E_n] HOLDS for all n in [1, 19]
+[C6 E[|w_n|^2 | bridge] >= E[|w_n|^2 | half-space]] HOLDS for all n in [1, 19]
+     E[|w_n|^2|bridge]/E_n: 1:1.0000 2:1.0000 3:1.1414 4:1.1977 5:1.2740 6:1.3093 7:1.3494 8:1.3700 9:1.3930 10:1.4065 11:1.4225 12:1.4333 13:1.4462 14:1.4556 15:1.4665 16:1.4747 17:1.4840 18:1.4911 19:1.4992
+[C7 E[span | bridge] nondecreasing] HOLDS for all n in [1, 18]
+     E[span|bridge]/sqrt(E_n): 1:1.0000 2:0.7746 3:0.7494 4:0.7438 5:0.7627 6:0.7770 7:0.7962 8:0.8096 9:0.8230 10:0.8322 11:0.8411 12:0.8477 13:0.8544 14:0.8597 15:0.8652 16:0.8698 17:0.8746 18:0.8786 19:0.8828
+
+## D. Intermediate points (exact, n <= 19): E_n|w_k|^2 for k < n
+[D1 E_n|w_k|^2 >= E_k|w_k|^2 for all 1 <= k < n] HOLDS for all n in [2, 19]
+     min ratio E_n|w_k|^2 / E_k|w_k|^2 = 1.000000 at (k,n) = (1,2)
+[D2 E_{n+1}|w_k|^2 >= E_n|w_k|^2 for all k <= n] FAILS at n = 4 (exact): k=2; failing n (11 of 18 tested): [4..12 step 2, 13..18]
+[D2b E_{n+2}|w_k|^2 >= E_n|w_k|^2 for all k <= n] FAILS at n = 6 (exact): k=2; failing n (11 of 17 tested): [6, 8..17]
+[D3 E_n|w_k|^2 >= k for all k <= n] HOLDS for all n in [1, 19]
+[D4 E_n|w_{k+1}|^2 >= E_n|w_k|^2 for all k < n] HOLDS for all n in [1, 19]
+[D5 E_n|w_n|^2 >= E_n|w_k|^2 + E_n|w_{n-k}|^2, i.e. E_n[w_k.(w_n - w_k)] >= 0, all 1 <= k < n] HOLDS for all n in [2, 19]
+     note D5: by reversal (w_n - w_{n-i})_i is again uniform, so E_n|w_n - w_k|^2 = E_n|w_{n-k}|^2.
+     E_n|w_{n/2}|^2 / E_{n/2}: 2:1.0000 4:1.0055 6:1.0288 8:1.0282 10:1.0392 12:1.0377 14:1.0436 16:1.0428 18:1.0466
+     sup_x P_n(w_{floor(n/2)} = x) * n^{1/2} (DGHM 2016 Prop 1.3: bounded): 2:0.2357 3:0.2887 4:0.1322 5:0.1481 6:0.0990 7:0.1067 8:0.0567 9:0.0603 10:0.0453 11:0.0476 12:0.0343 13:0.0358 14:0.0292 15:0.0303 16:0.0250 17:0.0258 18:0.0214 19:0.0220
+     NUMERICS sup_x P_n(w_{n/2} = x) * n^{3 nu}: 2:0.5656 3:1.1559 4:0.7614 5:1.1300 6:0.9511 7:1.2454 8:0.7841 9:0.9665 10:0.8302 11:0.9831 12:0.7918 13:0.9120 14:0.8188 15:0.9248 16:0.8300 17:0.9235 18:0.8247 19:0.9073
+
+## G. Step correlations E_n[s_i . s_j] (exact, n <= 13, src/saw_gram.cpp)
+[G1 E_n[s_i . s_j] >= 0 for all 1 <= i < j <= n] HOLDS for all n in [1, 13]
+     number of negative step correlations per n: 1:0 2:0 3:0 4:0 5:0 6:0 7:0 8:0 9:0 10:0 11:0 12:0 13:0
+[G2 E_n[s_i . w_n] >= 1 for all i (row sums of the correlation matrix >= diagonal)] HOLDS for all n in [1, 13]
+[G3 E_n[w_k . s_{k+1}] >= 0 for all k (the next step points outward on average)] HOLDS for all n in [1, 13]
+[G4 E_n[w_k . (w_n - w_k)] >= 0 for all k (same as D5)] HOLDS for all n in [1, 13]
+[G5 j -> E_n[s_1 . s_j] nonincreasing] FAILS at n = 9 (exact): E[s_1.s_j] increases somewhere; failing n (3 of 11 tested): [9..13 step 2]
+     E_13[s_1 . s_j], j = 2..13: 0.20687 0.07439 0.02636 0.02094 0.01057 0.00966 0.00502 0.00462 0.00214 0.00208 0.00067 0.00092
+     E_13[s_6 . s_j], j = 1..13: 0.01057 0.03282 0.05677 0.12099 0.22572 1.00000 0.22571 0.12295 0.06253 0.04381 0.02420 0.01491 0.00502
+
+## E. NUMERICS: amplitudes
+     E_n/n^{2 nu} (nu = 0.587597): 1:1.0000 2:1.0628 3:1.0669 4:1.0890 5:1.0914 6:1.1045 7:1.1070 8:1.1154 9:1.1176 10:1.1235 11:1.1253 12:1.1298 13:1.1314 14:1.1349 15:1.1363 16:1.1392 17:1.1405 18:1.1429 19:1.1440 20:1.1461 21:1.1471 22:1.1489 23:1.1498 24:1.1514 25:1.1522 26:1.1536 27:1.1544 28:1.1556 29:1.1563 30:1.1575 31:1.1581 32:1.1591 33:1.1597 34:1.1607 35:1.1613 36:1.1621

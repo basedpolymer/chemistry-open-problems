@@ -76,6 +76,35 @@ def enumerate_all(N):
     return out
 
 
+def gram_all(N):
+    """G[(n,i,j)] = sum over n-step SAWs of w_i . w_j for 1 <= i <= j <= n (brute force, no symmetry)."""
+    G = defaultdict(int)
+    walk = [(0, 0, 0)]
+    seen = {(0, 0, 0)}
+
+    def visit():
+        m = len(walk) - 1
+        for i in range(1, m + 1):
+            for j in range(i, m + 1):
+                a, b = walk[i], walk[j]
+                G[(m, i, j)] += a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+        if m == N:
+            return
+        e = walk[-1]
+        for s in STEPS:
+            q = (e[0] + s[0], e[1] + s[1], e[2] + s[2])
+            if q in seen:
+                continue
+            seen.add(q)
+            walk.append(q)
+            visit()
+            walk.pop()
+            seen.discard(q)
+
+    visit()
+    return dict(G)
+
+
 if __name__ == "__main__":
     import sys
 
