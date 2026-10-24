@@ -22,7 +22,7 @@ open) / HEURISTIC.
 | U1 | explicit rate, e.g. n^2/(log n)^c | OPEN / NOT FOUND on Z^d for any d. Known only on the hexagonal lattice H: n^2/(log n)^2 follows from Krachun-Panagiotis Thm 1. | Slade 2019 ("there is no bound on the rate"); KP 2026 |
 | U2 | n^{2-delta} | OPEN on Z^d (DCH Question 1; BDGS (1.30); Slade 2019: "it is not proved that ... R_n <= C n^{0.99999}"). On H: claimed only in an unrefereed AI catalogue (OpenAI entry 237, diameter n^{3/4+o(1)}), not verified. | see `open-statements.md`, `novelty.md` |
 | E1 | lim log E_n\|omega_n\|^2 / log n exists | OPEN in d = 2, 3, 4 ("existence of nu"; Slade 2019: "For d = 2, 3, 4, none of the entries in Table 1 have been proved") | Slade 2019 Sec. 2.1.3; Madras 2014 p. 114 |
-| (T) | E_n\|omega_n\|^2 = n^{2 nu + o(1)}, determine nu | OPEN; "no conjectures regarding exact values of critical exponents" in d = 3 (Hutchcroft ICM 2026 lecture, for percolation and in general for d = 3, 4, 5); BDGS 1.6.3: "For d = 3, there are no rigorous results for critical exponents" | BDGS Sec. 1.6.3; Hutchcroft arXiv:2510.03951 |
+| (T) | E_n\|omega_n\|^2 = n^{2 nu + o(1)}, determine nu | OPEN. BDGS 1.6.3: "For d = 3, there are no rigorous results for critical exponents, and no mathematically well-defined candidate has been proposed for the scaling limit"; MS p. 8: "There is no analogous exact solution in three dimensions, and the d = 3 values [...] are from numerical results and field-theoretic calculations"; DCH p. 2: "no significant physical predictions have been made regarding the scaling limit of self-avoiding walk in three dimensions"; Guttmann-Jensen p. 4 (for gamma): "In three dimensions there is no conjectured exact value" | BDGS; MS; DCH; GJ22 |
 
 Related quantities:
 
@@ -220,7 +220,11 @@ quantitatively. *(a)* all d. *(b)* no rate.
    inputs: (i) B_T(z_c) <= C T^{-eps} for the critical bridge partition function of height T; (ii) finiteness of the
    critical generating function of half-space arches (walks from the boundary hyperplane back to it, KP's sum G_k).
    On Z^3 both are NOT FOUND. Heuristically (ii) should hold (arch count ~ mu^n n^{gamma_11 - 1} with surface exponent
-   gamma_11 < 0; HEURISTIC). Even B_T(z_c) -> 0 on Z^d was not found; a qualitative proof of B_T(z_c) -> 0 on Z^3 would
+   gamma_11 < 0; HEURISTIC), and Duplantier-Guttmann (arXiv:1908.03872, physics, abstract only) give the scaling
+   relation gamma_b = gamma_{1,1} + nu for the bridge exponent, "with compelling numerical evidence" in d = 2, 3; combined
+   with b_n ~ mu^n n^{gamma_b - 1} this suggests B_T(z_c) ~ T^{-a} with a = -gamma_{1,1}/nu (= 1/4 in d = 2, matching
+   KP's prediction B_T ~ T^{-1/4}). HEURISTIC only. The upper-bound agent's `upper-bound/result.md` develops this route
+   (conditional theorem under sum_T B_T(z_c)^2 < inf). Even B_T(z_c) -> 0 on Z^d was not found; a qualitative proof of B_T(z_c) -> 0 on Z^3 would
    itself be a new, checkable sub-goal (equivalently, by Kesten's renewal theory, infinite mean height of irreducible
    bridges -- my reading). KP explicitly call (i) "a major obstacle".
 5. **Quantitative DCH in bridge form gives quantitative Hammersley-Welsh** (source: Hutchcroft 2018 Thm 1.4, Cor 1.5,

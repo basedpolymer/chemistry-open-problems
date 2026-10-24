@@ -85,6 +85,17 @@ def main():
             dv = math.hypot(rows[i][2] / rows[i][1], rows[i + 1][2] / rows[i + 1][1]) / (2 * math.log(n2 / n1))
             print("    (%6d, %6d): %.5f +- %.5f" % (n1, n2, v, dv))
         fits(ns, np.log(m), e / m, "weighted fits of log E_n (sigma = relative error)")
+        srows = []
+        for line in open(path):
+            t = line.split()
+            if t and t[0] == "S":
+                srows.append((int(t[1]), float(t[2]), float(t[3]), float(t[4]), float(t[5])))
+        if srows:
+            print("\n  end-step correlations (pivot): n, E[s_1.s_n] +- err, E[s_1.(w_n - w_0)] +- err,"
+                  " and E[s_1.(w_n-w_0)] / n^{2 nu - 1}")
+            for r in sorted(srows):
+                print("    %7d  %+.3e +- %.1e   %.4f +- %.4f   %.4f" % (r[0], r[1], r[2], r[3], r[4],
+                                                                     r[3] / r[0] ** (2 * NU_REF - 1)))
     # exact series
     ref = {}
     for line in open(os.path.join(ROOT, "data", "reference_series.tsv")):

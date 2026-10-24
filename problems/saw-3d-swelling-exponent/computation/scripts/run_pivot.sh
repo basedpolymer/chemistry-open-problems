@@ -5,6 +5,7 @@
 # Deterministic: fixed seeds; every line of the output is reproducible bit for bit on the same compiler/CPU.
 # Output: ../data/pivot_runs.txt, one line per run:
 #   R n attempts acceptance_fraction mean_R2 err tau_int(attempts) var/mean^2 seconds
+#   S n E[s_1.s_n] err E[s_1.(w_n-w_0)] err
 # (err = largest batch-means error over the blocking levels; see src/pivot.cpp).
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -29,8 +30,8 @@ cat > "$TMP/jobs" <<'EOF'
 EOF
 {
   echo "# pivot runs, $(date -u +%Y-%m-%dT%H:%MZ), $(g++ --version | head -1), $(grep -m1 'model name' /proc/cpuinfo | cut -d: -f2)"
-  echo "# columns: R n attempts acc_frac mean_R2 err tau_int var/mean^2 seconds"
-  xargs -P 3 -L 1 "$TMP/pivot" < "$TMP/jobs" | grep '^R' | sort -k2,2n
+  echo "# columns: R n attempts acc_frac mean_R2 err tau_int var/mean^2 seconds ; S n E[s_1.s_n] err E[s_1.(w_n-w_0)] err"
+  xargs -P 3 -L 1 "$TMP/pivot" < "$TMP/jobs" | grep '^[RS] ' | sort -k1,1 -k2,2n
 } > "$OUT.tmp"
 mv "$OUT.tmp" "$OUT"
 cat "$OUT"

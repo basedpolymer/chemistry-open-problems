@@ -11,7 +11,8 @@
 // attempt.  Error bars: batch means over 2^m batches; the integrated autocorrelation time is estimated from the
 // growth of the batch-mean variance.
 //
-// Usage: pivot n attempts burnin seed      Output: one summary line (see printf at the end).
+// Also records the end-step correlations s_1 . s_n and s_1 . (omega_n - omega_0) (invariant under rigid motions).
+// Usage: pivot n attempts burnin seed      Output: summary lines "R ..." and "S ..." (see printf at the end).
 // Build: g++ -O3 -march=native -std=c++17 pivot.cpp -o pivot
 #include <chrono>
 #include <cmath>
@@ -158,6 +159,10 @@ int main(int argc, char** argv) {
   long long bcnt = 0;
   long double tot = 0, tot2 = 0;
   long long rec = 0;
+  // end-step correlations: s_1 . s_n and s_1 . (omega_n - omega_0), with batch means for errors
+  long double ts = 0, tsr = 0;
+  std::vector<double> bms, bmr;
+  double bss = 0, bsr = 0;
   for (long long it = 0; it < B + T; it++) {
     int k = 1 + (int)rng.below(n - 1);
     const Sym& g = SYM[1 + rng.below(47)];
@@ -207,9 +212,21 @@ int main(int argc, char** argv) {
       tot2 += (long double)r2 * r2;
       rec++;
       bsum += r2;
+      int s1x = w[1].x - w[0].x, s1y = w[1].y - w[0].y, s1z = w[1].z - w[0].z;
+      int snx = w[n].x - w[n - 1].x, sny = w[n].y - w[n - 1].y, snz = w[n].z - w[n - 1].z;
+      double d11 = s1x * snx + s1y * sny + s1z * snz;
+      double d1r = s1x * dx + s1y * dy + s1z * dz;
+      ts += d11;
+      tsr += d1r;
+      bss += d11;
+      bsr += d1r;
       if (++bcnt == perBatch) {
         bm.push_back(bsum / perBatch);
+        bms.push_back(bss / perBatch);
+        bmr.push_back(bsr / perBatch);
         bsum = 0;
+        bss = 0;
+        bsr = 0;
         bcnt = 0;
       }
     }
@@ -258,8 +275,27 @@ int main(int argc, char** argv) {
   printf("\n");
   double naiveErr = std::sqrt(var / rec);
   double tauint = 0.5 * (bestErr / naiveErr) * (bestErr / naiveErr);
+  // blocking error for the end-step correlations (largest over levels)
+  auto blockErr = [](std::vector<double> v) {
+    double best = 0;
+    while (v.size() >= 16) {
+      double m = 0, q = 0;
+      for (double x : v) m += x;
+      m /= v.size();
+      for (double x : v) q += (x - m) * (x - m);
+      q /= (v.size() - 1);
+      double e = std::sqrt(q / v.size());
+      if (e > best) best = e;
+      std::vector<double> nx;
+      for (size_t i = 0; i + 1 < v.size(); i += 2) nx.push_back(0.5 * (v[i] + v[i + 1]));
+      v.swap(nx);
+    }
+    return best;
+  };
   // n attempts acc_frac mean_R2 err(blocking max) tau_int(attempts) var/mean^2 seconds
   printf("R %d %lld %.6f %.8g %.4g %.3g %.5f %.1f\n", n, T, (double)acc / (B + T), mean, bestErr, tauint,
          var / (mean * mean), secs);
+  // n  E[s_1 . s_n] err  E[s_1 . (omega_n - omega_0)] err
+  printf("S %d %.6e %.2e %.6e %.2e\n", n, (double)(ts / rec), blockErr(bms), (double)(tsr / rec), blockErr(bmr));
   return 0;
 }
