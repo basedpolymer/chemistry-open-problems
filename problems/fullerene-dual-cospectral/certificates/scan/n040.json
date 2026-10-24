@@ -1,0 +1,100 @@
+{
+ "n": 40,
+ "m": 22,
+ "isomers": 40,
+ "oeis_A007894": 40,
+ "count_matches_oeis": true,
+ "mask": 31,
+ "K": 20,
+ "hash_seconds": 0.0,
+ "types": {
+  "0": {
+   "name": "A(T)",
+   "distinct_keys": 40,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "1": {
+   "name": "A(T6)",
+   "distinct_keys": 39,
+   "keys_with_multiple_graphs": 1,
+   "graphs_in_multiple_keys": 2,
+   "hash_collisions": 1,
+   "key_groups": 1,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 1,
+   "isomers_in_cospectral_classes": 2,
+   "classes": [
+    {
+     "buckygen_indices": [
+      33,
+      36
+     ],
+     "graph6_dual": [
+      "U|eMID`GH_a@E@A?`_GM@?OK@oG?_G?wC?FB??Zg",
+      "U|eMID`KG_b@A@B?__GM@?OK@oG?oG?[C?B`??Jw"
+     ],
+     "duals_pairwise_nonisomorphic_labelg": true,
+     "charpoly_degree": 10,
+     "charpoly_coeffs_low_to_high": [
+      "-1",
+      "8",
+      "12",
+      "-36",
+      "-52",
+      "24",
+      "44",
+      "-4",
+      "-12",
+      "0",
+      "1"
+     ],
+     "T6_graph6": [
+      "I|@?_W??w",
+      "I|@?_W??w"
+     ],
+     "T6_graphs_all_isomorphic_labelg": true,
+     "T6_graphs_pairwise_nonisomorphic_labelg": false
+    }
+   ]
+  },
+  "2": {
+   "name": "A(T5)",
+   "distinct_keys": 37,
+   "keys_with_multiple_graphs": 3,
+   "graphs_in_multiple_keys": 6,
+   "note": "hash counts only (traces mod 2^32, k <= min(K,12)); not settled exactly"
+  },
+  "3": {
+   "name": "2A+D(T)",
+   "distinct_keys": 40,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "4": {
+   "name": "A+D(T)",
+   "distinct_keys": 40,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  }
+ },
+ "settle_seconds": 0.0
+}

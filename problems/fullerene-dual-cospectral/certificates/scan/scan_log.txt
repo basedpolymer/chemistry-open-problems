@@ -1,0 +1,2 @@
+n=72 isomers=11190 oeis_ok=True | A(T): groups=7 mixed=0 classes=7 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=237 | 2A+D(T): groups=0 mixed=0 classes=0 | A+D(T): groups=0 mixed=0 classes=0 | 2s+0s
+n=74 isomers=14246 oeis_ok=True | A(T): groups=3 mixed=0 classes=3 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=233 | 2A+D(T): groups=0 mixed=0 classes=0 | A+D(T): groups=0 mixed=0 classes=0 | 2s+0s

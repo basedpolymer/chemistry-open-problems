@@ -1,0 +1,171 @@
+{
+ "n": 68,
+ "m": 36,
+ "isomers": 6332,
+ "oeis_A007894": 6332,
+ "count_matches_oeis": true,
+ "mask": 31,
+ "K": 20,
+ "hash_seconds": 0.5,
+ "types": {
+  "0": {
+   "name": "A(T)",
+   "distinct_keys": 6330,
+   "keys_with_multiple_graphs": 2,
+   "graphs_in_multiple_keys": 4,
+   "hash_collisions": 2,
+   "key_groups": 2,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 2,
+   "isomers_in_cospectral_classes": 4,
+   "classes": [
+    {
+     "buckygen_indices": [
+      1326,
+      5085
+     ],
+     "graph6_dual": [
+      "c|eMID@WH?e@E@A?`_GG@@_CB?GA?GB?C?_@?K?G?o?_@?@?B_@??o?_?G?G?B_@??C?K??W?G??[?G??F?C???_F???N?G???GX_???|@",
+      "c|eMID@WH?e@C@E?`?GW@@?CE?GE?GB?C?w@?A?W?W?_?o@??o@??W?_?E?G??o@??A?C??M?G??E_W???oS???K@???@wG???@`_???BL"
+     ],
+     "duals_pairwise_nonisomorphic_labelg": true,
+     "charpoly_degree": 36,
+     "charpoly_coeffs_low_to_high": [
+      "34376868",
+      "319073796",
+      "769078029",
+      "-1591963172",
+      "-10459010587",
+      "-11340428950",
+      "27688193276",
+      "79452710110",
+      "29555156621",
+      "-130254137212",
+      "-178046100729",
+      "15805193998",
+      "204979741626",
+      "128546194708",
+      "-72493747712",
+      "-120541885976",
+      "-22134241960",
+      "43712760928",
+      "25910434053",
+      "-4812744846",
+      "-8717222265",
+      "-1366489522",
+      "1425646931",
+      "565289662",
+      "-99579659",
+      "-90701424",
+      "-3327252",
+      "8051048",
+      "1222896",
+      "-413150",
+      "-103459",
+      "11520",
+      "4467",
+      "-136",
+      "-102",
+      "0",
+      "1"
+     ]
+    },
+    {
+     "buckygen_indices": [
+      6163,
+      6164
+     ],
+     "graph6_dual": [
+      "c|eMID@WH?e@C@E?`_GG@@_CB?GA?GB?C?_@?K?G?o?_@A@?B_@??w?_?E?w??oW??B?C??E?G??E?G??B?C???o@???EEG????X_????|",
+      "c|eMID@WH?e@C@E?`_GG@@_CB?GA?GB?C?_@?K?G?o?_@A@?B_@??w?_?E?w??oW??B?C??E?G??C?G??F?C???_B???K?G???oo_???@v"
+     ],
+     "duals_pairwise_nonisomorphic_labelg": true,
+     "charpoly_degree": 36,
+     "charpoly_coeffs_low_to_high": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "-967458816",
+      "-2902376448",
+      "4246069248",
+      "24302923776",
+      "13825105920",
+      "-57467501568",
+      "-89493548544",
+      "19068569856",
+      "139110311232",
+      "83409171840",
+      "-65435515392",
+      "-97913172608",
+      "-13712401680",
+      "40971162240",
+      "22897443392",
+      "-5339163888",
+      "-8410916052",
+      "-1214313672",
+      "1431314496",
+      "553682016",
+      "-102227235",
+      "-90537336",
+      "-3192966",
+      "8063760",
+      "1221363",
+      "-413496",
+      "-103476",
+      "11520",
+      "4467",
+      "-136",
+      "-102",
+      "0",
+      "1"
+     ]
+    }
+   ]
+  },
+  "1": {
+   "name": "A(T6)",
+   "distinct_keys": 6332,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "2": {
+   "name": "A(T5)",
+   "distinct_keys": 265,
+   "keys_with_multiple_graphs": 217,
+   "graphs_in_multiple_keys": 6284,
+   "note": "hash counts only (traces mod 2^32, k <= min(K,12)); not settled exactly"
+  },
+  "3": {
+   "name": "2A+D(T)",
+   "distinct_keys": 6332,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "4": {
+   "name": "A+D(T)",
+   "distinct_keys": 6332,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  }
+ },
+ "settle_seconds": 0.1
+}

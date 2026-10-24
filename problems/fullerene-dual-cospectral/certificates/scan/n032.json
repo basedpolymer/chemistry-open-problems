@@ -1,0 +1,96 @@
+{
+ "n": 32,
+ "m": 18,
+ "isomers": 6,
+ "oeis_A007894": 6,
+ "count_matches_oeis": true,
+ "mask": 31,
+ "K": 20,
+ "hash_seconds": 0.0,
+ "types": {
+  "0": {
+   "name": "A(T)",
+   "distinct_keys": 6,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "1": {
+   "name": "A(T6)",
+   "distinct_keys": 5,
+   "keys_with_multiple_graphs": 1,
+   "graphs_in_multiple_keys": 2,
+   "hash_collisions": 1,
+   "key_groups": 1,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 1,
+   "isomers_in_cospectral_classes": 2,
+   "classes": [
+    {
+     "buckygen_indices": [
+      4,
+      5
+     ],
+     "graph6_dual": [
+      "Q|eMID`GH_b@B@@?_wGB`?E[?NG",
+      "Q|eMID`GH_b@A@B?_wGBB?Ks?]G"
+     ],
+     "duals_pairwise_nonisomorphic_labelg": true,
+     "charpoly_degree": 6,
+     "charpoly_coeffs_low_to_high": [
+      "-4",
+      "0",
+      "9",
+      "0",
+      "-6",
+      "0",
+      "1"
+     ],
+     "T6_graph6": [
+      "EqGW",
+      "EqGW"
+     ],
+     "T6_graphs_all_isomorphic_labelg": true,
+     "T6_graphs_pairwise_nonisomorphic_labelg": false
+    }
+   ]
+  },
+  "2": {
+   "name": "A(T5)",
+   "distinct_keys": 6,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "note": "hash counts only (traces mod 2^32, k <= min(K,12)); not settled exactly"
+  },
+  "3": {
+   "name": "2A+D(T)",
+   "distinct_keys": 6,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "4": {
+   "name": "A+D(T)",
+   "distinct_keys": 6,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  }
+ },
+ "settle_seconds": 0.0
+}

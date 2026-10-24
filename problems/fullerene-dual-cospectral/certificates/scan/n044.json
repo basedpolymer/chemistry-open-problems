@@ -1,0 +1,148 @@
+{
+ "n": 44,
+ "m": 24,
+ "isomers": 89,
+ "oeis_A007894": 89,
+ "count_matches_oeis": true,
+ "mask": 31,
+ "K": 20,
+ "hash_seconds": 0.0,
+ "types": {
+  "0": {
+   "name": "A(T)",
+   "distinct_keys": 88,
+   "keys_with_multiple_graphs": 1,
+   "graphs_in_multiple_keys": 2,
+   "hash_collisions": 1,
+   "key_groups": 1,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 1,
+   "isomers_in_cospectral_classes": 2,
+   "classes": [
+    {
+     "buckygen_indices": [
+      79,
+      80
+     ],
+     "graph6_dual": [
+      "W|eMID`GH_a@E@B?__GK@?oC@_G@_G?`C?[@?@oG?BB_?Fw",
+      "W|eMID@WH?e@C@E?`_GG@@oC@_G@oG?Oc?M@??wG?@b_?Bw"
+     ],
+     "duals_pairwise_nonisomorphic_labelg": true,
+     "charpoly_degree": 24,
+     "charpoly_coeffs_low_to_high": [
+      "0",
+      "-52488",
+      "-274104",
+      "163296",
+      "2985093",
+      "3764232",
+      "-6546258",
+      "-18811008",
+      "-11120643",
+      "9318384",
+      "14157000",
+      "2425920",
+      "-5003222",
+      "-2689584",
+      "493572",
+      "704896",
+      "73890",
+      "-81000",
+      "-20096",
+      "4320",
+      "1713",
+      "-88",
+      "-66",
+      "0",
+      "1"
+     ]
+    }
+   ]
+  },
+  "1": {
+   "name": "A(T6)",
+   "distinct_keys": 89,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "2": {
+   "name": "A(T5)",
+   "distinct_keys": 71,
+   "keys_with_multiple_graphs": 15,
+   "graphs_in_multiple_keys": 33,
+   "note": "hash counts only (traces mod 2^32, k <= min(K,12)); not settled exactly"
+  },
+  "3": {
+   "name": "2A+D(T)",
+   "distinct_keys": 89,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "4": {
+   "name": "A+D(T)",
+   "distinct_keys": 88,
+   "keys_with_multiple_graphs": 1,
+   "graphs_in_multiple_keys": 2,
+   "hash_collisions": 1,
+   "key_groups": 1,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 1,
+   "isomers_in_cospectral_classes": 2,
+   "classes": [
+    {
+     "buckygen_indices": [
+      7,
+      47
+     ],
+     "graph6_dual": [
+      "W|eMID@WH_a@E@B?__GM@?OK@_G@_G?wC?C@?@wG?@P_?@|",
+      "W|eMID@WH_b@A@B?__GM@?OK@_G@oG?WC?E@??wG?@W_??~"
+     ],
+     "duals_pairwise_nonisomorphic_labelg": true,
+     "charpoly_degree": 24,
+     "charpoly_coeffs_low_to_high": [
+      "71700225443187200",
+      "-369599465091815040",
+      "907359322107042432",
+      "-1411682042947044960",
+      "1562475789559796160",
+      "-1309199295721941648",
+      "862799669804522152",
+      "-458679513327542952",
+      "200156478581732748",
+      "-72573525733180068",
+      "22048726101666246",
+      "-5643766731276984",
+      "1220874374181649",
+      "-223404563995488",
+      "34541197513788",
+      "-4497582292124",
+      "490390902051",
+      "-44390328708",
+      "3294885342",
+      "-197035488",
+      "9254031",
+      "-328488",
+      "8280",
+      "-132",
+      "1"
+     ]
+    }
+   ]
+  }
+ },
+ "settle_seconds": 0.0
+}

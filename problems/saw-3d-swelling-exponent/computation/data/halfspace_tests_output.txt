@@ -1,14 +1,15 @@
-PASS [x1] bridges by height b_{n,T} identical in halfspace_enum and saw_enum, n <= 17
-PASS [x2] half-space totals h_n identical, n <= 17
+PASS [x1] bridges by height b_{n,T} identical in halfspace_enum and saw_enum, n <= 19
+PASS [x2] half-space totals h_n identical, n <= 19
 PASS [x3] arch totals = (n-1)-step half-space walks ending at height 1, not at e1 (saw_enum H table)
+PASS [x4] irreducible bridges by height (from b_{n,T}) = CCG 2016 Table 7 for n <= 19; known arXiv typo at (18,1): ours 46466676, printed 464666767
 
-## CL1 (arch lemma) a_{n,M} <= sum_k b_{k,M} b_{n-k,M}, exact, n <= 17
-[CL1] HOLDS for all n in [2, 17] and all M
-     sum_M a_{n,M} / sum_M sum_k b_{k,M} b_{n-k,M}: 2:0.0000 3:0.5000 4:0.2927 5:0.2174 6:0.1750 7:0.1634 8:0.1514 9:0.1488 10:0.1420 11:0.1398 12:0.1340 13:0.1313 14:0.1262 15:0.1236 16:0.1193 17:0.1171
-     arches a_n = sum_M a_{n,M}: 2:0 3:4 4:12 5:40 6:136 7:528 8:2032 9:8344 10:33576 11:140912 12:582088 13:2482240 14:10451064 15:45101536 16:192562328 17:838630216
+## CL1 (arch lemma) a_{n,M} <= sum_k b_{k,M} b_{n-k,M}, exact, n <= 19
+[CL1] HOLDS for all n in [2, 19] and all M
+     sum_M a_{n,M} / sum_M sum_k b_{k,M} b_{n-k,M}: 2:0.0000 3:0.5000 4:0.2927 5:0.2174 6:0.1750 7:0.1634 8:0.1514 9:0.1488 10:0.1420 11:0.1398 12:0.1340 13:0.1313 14:0.1262 15:0.1236 16:0.1193 17:0.1171 18:0.1136 19:0.1119
+     arches a_n = sum_M a_{n,M}: 2:0 3:4 4:12 5:40 6:136 7:528 8:2032 9:8344 10:33576 11:140912 12:582088 13:2482240 14:10451064 15:45101536 16:192562328 17:838630216 18:3619073608 19:15876846888
 
-## CL2 (renewal identity) r_{n,T} = sum_k b_{k,T} b_{n-k,T}, exact, n <= 17
-[CL2] HOLDS for all n in [1, 17], all T >= 1 (72 pairs (n,T), 72 with r > 0)
-     fraction of height-2T bridges with a renewal at height T (n = 17): T=1:0.1825 T=2:0.7472 T=3:0.9394 T=4:0.9869 T=5:0.9978 T=6:0.9998 T=7:1.0000 T=8:1.0000
+## CL2 (renewal identity) r_{n,T} = sum_k b_{k,T} b_{n-k,T}, exact, n <= 19
+[CL2] HOLDS for all n in [1, 19], all T >= 1 (90 pairs (n,T), 90 with r > 0)
+     fraction of height-2T bridges with a renewal at height T (n = 19): T=1:0.1172 T=2:0.6543 T=3:0.9007 T=4:0.9727 T=5:0.9935 T=6:0.9988 T=7:0.9999 T=8:1.0000 T=9:1.0000
 
 ALL CROSS-CHECKS PASS

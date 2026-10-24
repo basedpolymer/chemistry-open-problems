@@ -1,0 +1,107 @@
+{
+ "n": 42,
+ "m": 23,
+ "isomers": 45,
+ "oeis_A007894": 45,
+ "count_matches_oeis": true,
+ "mask": 31,
+ "K": 20,
+ "hash_seconds": 0.0,
+ "types": {
+  "0": {
+   "name": "A(T)",
+   "distinct_keys": 44,
+   "keys_with_multiple_graphs": 1,
+   "graphs_in_multiple_keys": 2,
+   "hash_collisions": 1,
+   "key_groups": 1,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 1,
+   "isomers_in_cospectral_classes": 2,
+   "classes": [
+    {
+     "buckygen_indices": [
+      32,
+      40
+     ],
+     "graph6_dual": [
+      "V|eMID`GH_a@E@B?__GK@?oC@oG?`G?wC?F@??Ww?@{?",
+      "V|eMID@WH_a@E@B?_oGE@?OC@_G@oG?W[?CX?@oG?B`_"
+     ],
+     "duals_pairwise_nonisomorphic_labelg": true,
+     "charpoly_degree": 23,
+     "charpoly_coeffs_low_to_high": [
+      "-19440",
+      "-115992",
+      "1404",
+      "1171962",
+      "1898460",
+      "-2199987",
+      "-8179896",
+      "-5192475",
+      "5023808",
+      "7772140",
+      "1137952",
+      "-3290096",
+      "-1738312",
+      "408770",
+      "529528",
+      "50826",
+      "-67344",
+      "-16676",
+      "3876",
+      "1542",
+      "-84",
+      "-63",
+      "0",
+      "1"
+     ]
+    }
+   ]
+  },
+  "1": {
+   "name": "A(T6)",
+   "distinct_keys": 45,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "2": {
+   "name": "A(T5)",
+   "distinct_keys": 42,
+   "keys_with_multiple_graphs": 3,
+   "graphs_in_multiple_keys": 6,
+   "note": "hash counts only (traces mod 2^32, k <= min(K,12)); not settled exactly"
+  },
+  "3": {
+   "name": "2A+D(T)",
+   "distinct_keys": 45,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  },
+  "4": {
+   "name": "A+D(T)",
+   "distinct_keys": 45,
+   "keys_with_multiple_graphs": 0,
+   "graphs_in_multiple_keys": 0,
+   "hash_collisions": 0,
+   "key_groups": 0,
+   "key_groups_not_a_single_spectrum": 0,
+   "cospectral_classes_exact": 0,
+   "isomers_in_cospectral_classes": 0,
+   "classes": []
+  }
+ },
+ "settle_seconds": 0.0
+}

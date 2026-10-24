@@ -156,20 +156,25 @@ def run_n(n, mask, K, oe):
             res['types'][str(ty)] = entry
             continue
         cl = [(i, j) for (t, i, j) in coll if t == ty]
-        cp = {}
-        genuine, false_pos = [], []
+        # key groups: dualspec reports (first graph with this key, new graph); partition each group EXACTLY
+        groups = {}
         for (i, j) in cl:
-            for x in (i, j):
+            groups.setdefault(i, {i}).add(j)
+        cp = {}
+        classes = []
+        nonsplit = 0
+        for first, members in sorted(groups.items()):
+            parts = {}
+            for x in sorted(members):
                 if x not in cp:
                     cp[x] = charpoly(sel[x], ty)
-            (genuine if cp[i] == cp[j] else false_pos).append((i, j))
-        # classes (union of genuine pairs: same key means pairs share the first index)
-        classes = {}
-        for (i, j) in genuine:
-            classes.setdefault(i, {i}).add(j)
+                parts.setdefault(cp[x], []).append(x)
+            real = [sorted(v) for v in parts.values() if len(v) > 1]
+            classes.extend(real)
+            if len(parts) > 1:
+                nonsplit += 1
         cls_out = []
-        for first, members in sorted(classes.items()):
-            mem = sorted(members)
+        for mem in sorted(classes):
             cans = [canon_T[x] for x in mem]
             item = {'buckygen_indices': mem, 'graph6_dual': [to_graph6(sel[x]) for x in mem],
                     'duals_pairwise_nonisomorphic_labelg': len(set(cans)) == len(cans),
@@ -182,7 +187,8 @@ def run_n(n, mask, K, oe):
                 item['T6_graphs_all_isomorphic_labelg'] = len(set(sc)) == 1
                 item['T6_graphs_pairwise_nonisomorphic_labelg'] = len(set(sc)) == len(sc)
             cls_out.append(item)
-        entry.update({'hash_collisions': len(cl), 'false_positives': len(false_pos),
+        entry.update({'hash_collisions': len(cl), 'key_groups': len(groups),
+                      'key_groups_not_a_single_spectrum': nonsplit,
                       'cospectral_classes_exact': len(cls_out),
                       'isomers_in_cospectral_classes': sum(len(c['buckygen_indices']) for c in cls_out),
                       'classes': cls_out})
@@ -195,8 +201,9 @@ def run_n(n, mask, K, oe):
         if ty == '2':
             line += ' | T5 multi=%d' % e['keys_with_multiple_graphs']
         else:
-            line += ' | %s: coll=%d fp=%d classes=%d' % (e['name'], e['hash_collisions'], e['false_positives'],
-                                                         e['cospectral_classes_exact'])
+            line += ' | %s: groups=%d mixed=%d classes=%d' % (e['name'], e['key_groups'],
+                                                             e['key_groups_not_a_single_spectrum'],
+                                                             e['cospectral_classes_exact'])
     line += ' | %.0fs+%.0fs' % (t_hash, res['settle_seconds'])
     print(line, flush=True)
     return res
