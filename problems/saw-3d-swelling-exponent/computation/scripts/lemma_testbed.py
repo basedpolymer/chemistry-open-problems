@@ -161,6 +161,16 @@ def main():
         print("     NUMERICS local exponent at n=%d: %.3f;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: %s" %
               (last[1], math.log(pr[last[0]] / pr[last[1]]) / math.log(last[1] / last[0]),
                " ".join("%d:%.4f" % (n, fl(pr[n]) * n ** 1.92) for n in ns[-4:])))
+    # line bound (lower-bound attempts.md A1): P_n(w_n on the x1-axis), and on a ray {t e1 : t >= 1}
+    line = {n: F(sum(D.cnx(n, (t, 0, 0)) for t in range(-n, n + 1)), D.c[n]) for n in range(1, N + 1)}
+    ray = {n: F(sum(D.cnx(n, (t, 0, 0)) for t in range(1, n + 1)), D.c[n]) for n in range(1, N + 1)}
+    print("     P_n(w_n in the x1-axis line):", " ".join("%d:%.4e" % (n, fl(line[n])) for n in range(1, N + 1)))
+    print("     NUMERICS local exponent of P_n(w_n in line) (same parity):",
+          " ".join("%d:%.3f" % (n, math.log(line[n - 2] / line[n]) / math.log(n / (n - 2))) for n in range(4, N + 1)))
+    scan("B2b P_n(w_n in x1-axis) >= P_{n+2}(w_{n+2} in x1-axis)", range(1, N - 1),
+         lambda n: None if line[n + 2] <= line[n] else "")
+    print("     (ray {t e1, t >= 1}: P = line/2 exactly by symmetry; lower-bound A1 needs a decay exponent b > 2/3)")
+    assert all(2 * ray[n] == line[n] for n in ray)
     print("     P_n(|w_n| = 1) = 6 c_n(e1)/c_n (odd n):", " ".join("%d:%.5e" % (n, 6 * D.cnx(n, (1, 0, 0)) / D.c[n])
                                                                for n in range(1, N + 1, 2)))
 
