@@ -1,7 +1,7 @@
 """allm_core -- eps-regular formulation of the Becker-Doring/atomization Hopf problem (all-M extension of result 8).
 
 Model: Pego & Velazquez, Nonlinearity 33 (2020) 1812-1846, eqs (1)-(4).  Matrix B (27), characteristic function
-F (71)/(76), scaled variables kappa = K sqrt(M), z = M (phi - 1), eps = M^(-1/2) (their Sec. 6-9).
+F (71)/(76), scaled variables kappa = K sqrt(M), z = M (phi - 1), eps = M^(-1/2) (their Sec. 6-10; numbering of the arXiv v2 PDF).
 
 Everything here is written as an explicit function of (eps, kappa, z) that is REGULAR at eps = 0, so that eps can be
 a ball (interval) containing 0.  This file is self-contained (it does not import result 8's bdlib).

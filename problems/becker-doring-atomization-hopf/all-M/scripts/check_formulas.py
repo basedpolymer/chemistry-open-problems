@@ -4,7 +4,7 @@
 Environment: Python 3.13, sympy, python-flint 0.9.  Runtime: about 1-2 minutes.  1 thread.
 Claims (PASS/FAIL):
   F1  (sympy, exact) Pego-Velazquez sorted representation F = -P1 + phi^M P2 + A^-M R1 + (A phi)^-M R2 with the
-      closed forms of P1, P2, R1, R2 used here equals the determinant definition (f1 g2 - g1 f2, paper (76)),
+      closed forms of P1, P2, R1, R2 (PV (102),(103),(140),(141)) equals the determinant definition (PV (71)),
       for symbolic phi, K, M (phi^M and (A phi)^-M as independent symbols X, Y; A^-M = X Y).
   F2  (sympy, exact) regular forms: P2/K^3 = P2t, P1/K^3 = P1t, (R1 + phi^-M R2)/K^3 = W/(eps E) ... with
       K = kappa eps, M = eps^-2, phi = 1 + eps^2 z, E = phi^M treated as a symbol.
@@ -49,8 +49,8 @@ P2 = phi*(A*phi - 1)**3 - A**2*(phi - 1)**2 + Msym1*(A*phi - 1)*A**2*(phi - 1)**
 R1 = -A**2*((A*phi - 1)**2*phi**2 - (phi - 1)**2)
 R2 = A*(phi - 1)**3 + A**2*phi*(A*phi - 1)**2*(Msym1*(phi - 1) + phi)
 okF1 = sp.expand(f1*g2 - g1*f2 - (-P1 + X*P2 + X*Y*R1 + Y*R2)) == 0
-report("F1", okF1, "F = f1 g2 - g1 f2 (paper (76)) = -P1 + phi^M P2 + A^-M R1 + (A phi)^-M R2 with the closed forms "
-       "(e:P1-1), (e:P2-1), (e:r1), (e:r2) -- exact, symbolic M")
+report("F1", okF1, "F = f1 g2 - g1 f2 (PV (71)) = -P1 + phi^M P2 + A^-M R1 + (A phi)^-M R2 (PV (76)) with the closed forms "
+       "PV (102), (103), (140), (141) -- exact, symbolic M")
 
 # ------------------------------------------------------------------------------------------------ F2
 eps, kap, z, E, Mv = sp.symbols("epsilon kappa z E M", positive=True)

@@ -47,7 +47,7 @@ which every leading-order cancellation (boundary layers, monomer row, geometric 
 $\varepsilon$ is treated as an interval: 654 boxes cover $\varepsilon\in[0,161^{-1/2}]$ (the box $[0,10^{-5}]$
 contains $M=\infty$). On each box: a parametric Krawczyk test encloses the Hopf point for all $\varepsilon$ in the
 box; simplicity and transversality; $\widehat L=\ell_1(q_1=1)/M<0$ by a mean value form with automatic
-differentiation; and H2 via an explicit localization lemma (an explicit version of PV's Props. 6.1–7.2) plus a
+differentiation; and H2 via an explicit localization lemma (an explicit version of PV's Props. 8.1–9.2) plus a
 rigorous winding-number count of the zeros of $Q^\varepsilon$ (exactly 4: $z=0$ twice and the Hopf pair).
 
 ## Reproduce

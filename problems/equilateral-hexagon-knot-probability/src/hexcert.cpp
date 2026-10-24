@@ -171,27 +171,36 @@ static inline I dot3(const I* a, I u0, I u1, I u2) { return a[0] * u0 + a[1] * u
 
 struct DetTab {
     const Coef* C; int Lmax;
-    vector<vector<RowData>> rows;    // rows[L][k]
-    void build(const Coef* C_, int Lmax_, const vector<vector<Cell>>& cells) {
-        C = C_; Lmax = Lmax_;
-        rows.assign(Lmax + 1, {});
-        for (int L = 0; L <= Lmax; L++) {
-            int n = 1 << L; rows[L].resize(n);
-            for (int k = 0; k < n; k++) {
-                const Cell& z = cells[L][k];
-                RowData& r = rows[L][k];
-                for (int l = 0; l < 3; l++) {
-                    r.ac[l] = C->Mc[0][l] + C->Mc[1][l] * z.c + C->Mc[2][l] * z.s;
-                    r.ap[l] = C->Mc[1][l] * (-z.S) + C->Mc[2][l] * z.C;
-                    r.ab[l] = C->M[0][l] + C->M[1][l] * z.C + C->M[2][l] * z.S;
-                    for (int m = 0; m < 3; m++) r.bm[m][l] = C->G[m][0][l] + C->G[m][1][l] * z.C + C->G[m][2][l] * z.S;
-                }
+    const vector<vector<Cell>>* cells;
+    // rows are computed lazily (only those visited by the quadtree) and cached; stamp marks validity
+    vector<RowData> buf; vector<unsigned> stamp; vector<int> off; unsigned gen = 0;
+    void build(const Coef* C_, int Lmax_, const vector<vector<Cell>>& cells_) {
+        C = C_; Lmax = Lmax_; cells = &cells_;
+        size_t tot = (size_t)2 << Lmax;
+        if (buf.size() < tot) { buf.resize(tot); stamp.assign(tot, 0); }
+        off.resize(Lmax + 1);
+        for (int L = 0; L <= Lmax; L++) off[L] = (1 << L) - 1;
+        gen++;
+        if (gen == 0) { std::fill(stamp.begin(), stamp.end(), 0); gen = 1; }
+    }
+    inline const RowData& row(int L, int k) {
+        size_t idx = off[L] + k;
+        if (stamp[idx] != gen) {
+            const Cell& z = (*cells)[L][k];
+            RowData& r = buf[idx];
+            for (int l = 0; l < 3; l++) {
+                r.ac[l] = C->Mc[0][l] + C->Mc[1][l] * z.c + C->Mc[2][l] * z.s;
+                r.ap[l] = C->Mc[1][l] * (-z.S) + C->Mc[2][l] * z.C;
+                r.ab[l] = C->M[0][l] + C->M[1][l] * z.C + C->M[2][l] * z.S;
+                for (int m = 0; m < 3; m++) r.bm[m][l] = C->G[m][0][l] + C->G[m][1][l] * z.C + C->G[m][2][l] * z.S;
             }
+            stamp[idx] = gen;
         }
+        return buf[idx];
     }
     // enclosure of F over D x cell_i x cell_j
-    inline I eval(int L, int ki, const ColData& cj, const Cell& ci) const {
-        const RowData& r = rows[L][ki];
+    inline I eval(int L, int ki, const ColData& cj, const Cell& ci) {
+        const RowData& r = row(L, ki);
         I F2 = r.ab[0] + r.ab[1] * cj.U1 + r.ab[2] * cj.U2;
         if (!C->useG) return F2;
         I Fc = r.ac[0] + r.ac[1] * cj.c1 + r.ac[2] * cj.c2;
@@ -205,9 +214,9 @@ struct DetTab {
     }
     // Heuristic only (no influence on the certified counts): split the width of the centred-form enclosure
     // into the parts due to the theta-cell and to each d-coordinate; adds normalised shares to acc[0..3].
-    inline void attrib(int L, int ki, const ColData& cj, const Cell& ci, double* acc) const {
+    inline void attrib(int L, int ki, const ColData& cj, const Cell& ci, double* acc) {
         if (!C->useG) return;
-        const RowData& r = rows[L][ki];
+        const RowData& r = row(L, ki);
         I dj = r.ac[1] * cj.p1 + r.ac[2] * cj.p2;
         I di = r.ap[0] + r.ap[1] * cj.U1 + r.ap[2] * cj.U2;
         I wt = ci.H * di + cj.H * dj;
@@ -220,11 +229,12 @@ struct DetTab {
     }
 };
 static double ATTR[4];
+static long long NEVAL = 0, NUNK = 0;
 
 // pierce status: +1 certified true, -1 certified false, 0 unknown; sg[5] = known signs (0 = unknown), updated
 static inline int sgn(I a) { return a.lo > 0 ? 1 : (a.hi < 0 ? -1 : 0); }
-static inline int pierce_status(const DetTab* T5, int L, int ki, int kj, const Cell& ci, const ColData& cj, signed char* sg) {
-    auto get = [&](int q) { if (!sg[q]) sg[q] = (signed char)sgn(T5[q].eval(L, ki, cj, ci)); return (int)sg[q]; };
+static inline int pierce_status(DetTab* T5, int L, int ki, int kj, const Cell& ci, const ColData& cj, signed char* sg) {
+    auto get = [&](int q) { if (!sg[q]) { NEVAL++; sg[q] = (signed char)sgn(T5[q].eval(L, ki, cj, ci)); } return (int)sg[q]; };
     int sP = get(0), sQ = get(1);
     if (sP != 0 && sQ != 0 && sP == sQ) return -1;
     int s1 = get(2), s2 = get(3);
@@ -256,7 +266,7 @@ struct Bitmap {
 
 struct PairMaps { Bitmap Ain, Aout, Bin, Bout; };
 
-struct QuadCtx { const DetTab* TA; const DetTab* TB; const vector<vector<Cell>>* cells; const vector<vector<ColData>>* cols; int Lmax; PairMaps* PM; };
+struct QuadCtx { DetTab* TA; DetTab* TB; const vector<vector<Cell>>* cells; const vector<vector<ColData>>* cols; int Lmax; PairMaps* PM; };
 static void quad(const QuadCtx& Q, int L, int ki, int kj, bool needA, bool needB, const signed char* sgA0, const signed char* sgB0) {
     const Cell& ci = (*Q.cells)[L][ki];
     const ColData& cj = (*Q.cols)[L][kj];
@@ -273,12 +283,14 @@ static void quad(const QuadCtx& Q, int L, int ki, int kj, bool needA, bool needB
     bool uA = needA && stA == 0, uB = needB && stB == 0;
     if (!uA && !uB) return;
     if (L == Q.Lmax) {
+        NUNK += uA + uB;
         if (uA) PM.Aout.set_block(r0, r1, c0, c1);
         if (uB) PM.Bout.set_block(r0, r1, c0, c1);
-        for (int q = 0; q < 5; q++) {
-            if (uA && sgA[q] == 0) Q.TA[q].attrib(L, ki, cj, ci, ATTR);
-            if (uB && sgB[q] == 0) Q.TB[q].attrib(L, ki, cj, ci, ATTR);
-        }
+        if (((ki * 7 + kj * 13) & 7) == 0)        // heuristic attribution on a 1/8 subsample of the cells
+            for (int q = 0; q < 5; q++) {
+                if (uA && sgA[q] == 0) Q.TA[q].attrib(L, ki, cj, ci, ATTR);
+                if (uB && sgB[q] == 0) Q.TB[q].attrib(L, ki, cj, ci, ATTR);
+            }
         return;
     }
     for (int a = 0; a < 2; a++) for (int b = 0; b < 2; b++)
@@ -395,28 +407,26 @@ struct DSU { vector<int> p; int f(int x) { while (p[x] != x) x = p[x] = p[p[x]];
 static CompResult components(const Bitmap& P12, const Bitmap& P23, const Bitmap& P13, const Geo& Gc, int Lth) {
     int n = P12.n, W = P12.W;
     struct Run { int a, b, c0, c1; };
-    vector<Run> runs;
-    vector<int> rowstart((size_t)n * n + 1, -1);   // index of first run of row (a,b)
-    vector<int> rowcount((size_t)n * n, 0);
+    static vector<Run> runs; runs.clear();
+    static vector<int> rowstart, rowcount;
+    if (rowstart.size() < (size_t)n * n) { rowstart.assign((size_t)n * n, -1); rowcount.assign((size_t)n * n, 0); }
     for (int a = 0; a < n; a++) {
         const uint64_t* r12 = P12.row(a); const uint64_t* r13 = P13.row(a);
-        for (int b = 0; b < n; b++) {
-            if (!((r12[b >> 6] >> (b & 63)) & 1)) continue;
+        for (int wb = 0; wb < W; wb++) for (uint64_t mb = r12[wb]; mb; mb &= mb - 1) {
+            int b = wb * 64 + __builtin_ctzll(mb);
             const uint64_t* r23 = P23.row(b);
             int start = runs.size();
             int c = 0;
             while (c < n) {
-                // find next set bit
                 int wi = c >> 6; uint64_t m = (r23[wi] & r13[wi]) & (~0ULL << (c & 63));
                 while (!m) { wi++; if (wi >= W) break; m = r23[wi] & r13[wi]; }
                 if (wi >= W) break;
                 int c0 = wi * 64 + __builtin_ctzll(m);
-                // find next zero bit after c0
-                int c1 = c0;
-                while (c1 + 1 < n) {
-                    int w2 = (c1 + 1) >> 6, b2 = (c1 + 1) & 63;
-                    if ((((r23[w2] & r13[w2]) >> b2) & 1)) c1++; else break;
-                }
+                // first zero bit at or after c0
+                int w2 = c0 >> 6; uint64_t z = ~(r23[w2] & r13[w2]) & (~0ULL << (c0 & 63));
+                while (!z) { w2++; if (w2 >= W) break; z = ~(r23[w2] & r13[w2]); }
+                int c1 = (w2 >= W) ? n - 1 : w2 * 64 + __builtin_ctzll(z) - 1;
+                if (c1 > n - 1) c1 = n - 1;
                 runs.push_back({a, b, c0, c1});
                 c = c1 + 1;
             }
@@ -466,6 +476,7 @@ static CompResult components(const Bitmap& P12, const Bitmap& P23, const Bitmap&
         else if (verdict == 3) res.unknot++;
         else res.fail++;
     }
+    for (const Run& r : runs) rowcount[(size_t)r.a * n + r.b] = 0;
     return res;
 }
 
@@ -515,7 +526,7 @@ int main(int argc, char** argv) {
                 det_coef(Gb, Gc, lo, hi, cen, pr, S.p, S.q, S.b, S.c, D[3]);
                 det_coef(Gb, Gc, lo, hi, cen, pr, S.p, S.q, S.c, S.a, D[4]);
             }
-            DetTab TA[5], TB[5];
+            static DetTab TA[5], TB[5];
             for (int q = 0; q < 5; q++) { TA[q].build(&DA[q], Lth, cells); TB[q].build(&DB[q], Lth, cells); }
             PM[pr].Ain.init(n); PM[pr].Aout.init(n); PM[pr].Bin.init(n); PM[pr].Bout.init(n);
             QuadCtx Q{TA, TB, &cells, &cols, Lth, &PM[pr]};
@@ -536,6 +547,8 @@ int main(int argc, char** argv) {
                (unsigned long long)outL, (unsigned long long)inL, (unsigned long long)cL.cert,
                cR.ncomp, cL.ncomp, cR.fail, cL.fail, cR.unknot, cL.unknot,
                ATTR[0] / at, ATTR[1] / at, ATTR[2] / at, ATTR[3] / at);
+        if (getenv("HEXCERT_DEBUG")) fprintf(stderr, "evals %lld unknown-leaf-cells %lld\n", NEVAL, NUNK);
+        NEVAL = NUNK = 0;
         fflush(stdout);
     }
     return 0;

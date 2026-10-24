@@ -74,9 +74,16 @@
      NUMERICS local exponent at n=18: 1.588;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.3773 14:0.4053 16:0.4268 18:0.4438
 [B2 P_n(w_n=(2,1,1)) >= P_{n+2}(w_{n+2}=(2,1,1))] HOLDS for all n in [4, 16]
      NUMERICS local exponent at n=18: 1.731;  n^{1+gamma-alpha}-scaling check n^1.92 P_n: 12:0.4136 14:0.4298 16:0.4423 18:0.4523
+     P_n(w_n in the x1-axis line): 1:3.3333e-01 2:6.6667e-02 3:6.6667e-02 4:3.5813e-02 5:3.9049e-02 6:2.6586e-02 7:2.7743e-02 8:1.9966e-02 9:2.0939e-02 10:1.5944e-02 11:1.6717e-02 12:1.3249e-02 13:1.3854e-02 14:1.1299e-02 15:1.1787e-02 16:9.8277e-03 17:1.0228e-02 18:8.6792e-03 19:9.0148e-03
+     NUMERICS local exponent of P_n(w_n in line) (same parity): 4:0.896 5:1.047 6:0.735 7:1.016 8:0.995 9:1.120 10:1.008 11:1.122 12:1.016 13:1.125 14:1.033 15:1.130 16:1.045 17:1.133 18:1.055 19:1.136
+[B2b P_n(w_n in x1-axis) >= P_{n+2}(w_{n+2} in x1-axis)] HOLDS for all n in [1, 17]
+     (ray {t e1, t >= 1}: P = line/2 exactly by symmetry; lower-bound A1 needs a decay exponent b > 2/3)
      P_n(|w_n| = 1) = 6 c_n(e1)/c_n (odd n): 1:1.00000e+00 3:1.60000e-01 5:7.47029e-02 7:4.06930e-02 9:2.60210e-02 11:1.81736e-02 13:1.34261e-02 15:1.03378e-02 17:8.21391e-03 19:6.68894e-03
 [B3a axis: c_n(k e1) >= c_n((k+2) e1) for all k >= 1] FAILS at n = 9 (exact): c_9(1 e1) = 8040 < c_9(3 e1) = 8936; failing n (6 of 19 tested): [9..19 step 2]
 [B3a' axis, unimodal: k -> c_n(k e1) nonincreasing beyond its maximum] HOLDS for all n in [1, 19]
+[B3u ray unimodality: k -> c_n(k d) unimodal (k >= 1, same parity), d = (1,0,0)] HOLDS for all n in [1, 19]
+[B3u ray unimodality: k -> c_n(k d) unimodal (k >= 1, same parity), d = (1,1,0)] HOLDS for all n in [1, 19]
+[B3u ray unimodality: k -> c_n(k d) unimodal (k >= 1, same parity), d = (1,1,1)] HOLDS for all n in [1, 19]
 [B3b plane diagonal: c_n(k,k,0) >= c_n(k+1,k+1,0), k >= 1 (even n)] FAILS at n = 10 (exact): k=1; failing n (5 of 9 tested): [10..18 step 2]
 [B3c body diagonal: c_n(k,k,k) >= c_n(k+2,k+2,k+2), k >= 1] HOLDS for all n in [1, 19]
 [B3d coordinatewise: c_n(x) >= c_n(x + 2 e_i) for x in the closed positive octant, x != 0] FAILS at n = 5 (exact): c((1, 0, 0))=44 < c((1, 2, 0))=47; failing n (14 of 19 tested): [5, 7..19]

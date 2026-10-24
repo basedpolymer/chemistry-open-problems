@@ -5,15 +5,16 @@
 - R. L. Pego, J. J. L. Velázquez, *Temporal oscillations in Becker–Döring equations with atomization*,
   Nonlinearity 33 (2020) 1812–1846, doi:10.1088/1361-6544/ab6815, arXiv:1905.02605.
   **Read in full** (arXiv v2, LaTeX source, downloaded to `certificates/sources/pv2020/`, git-ignored).
-  Used: model (1)–(4); matrix $B$ (27); Lemma 3.1 (simple zero eigenvalue); Theorems 3.2–3.3 and the open sentence
-  (§3.3, source lines 658–660: "We have not managed to determine analytically whether the bifurcating solutions are
-  stable (the supercritical case) or not."); the reduction to $F(\varphi)$ (§5: (39)–(41), $f,g$, $\delta$,
-  (76) $F=f_1g_2-g_1f_2$, the sorted representation (77) and the closed forms of $P_1,P_2$ ((e:P1-1), (e:P2-1))
-  and $R_1,R_2$ ((e:r1), (e:r2)), all re-checked symbolically here, `check_formulas.py` F1); Prop. 5.1
-  (eigenvalues ↔ zeros of $F$); Lemma 5.4 (simplicity; first step corrected by result 8's verifier); the limit
-  function $Q(z;\kappa)$ (87) and its imaginary roots (89)–(91); Lemma 6.3 (Re λ ≥ 0 ⇒ Re φ ≥ 1); the structure
-  (not the constants) of Props. 6.1, 6.4, 7.1, 7.2 and of the proof of Theorem 3.2 (§§6–9), whose constants
-  $M_{0,k}$ are not explicit — replaced here by the explicit Lemma 3.3 of `result.md`. The typeset version
+  Numbering below is that of the arXiv v2 PDF. Used: model (1)–(4); matrix $B$ (27); Lemma 3.1 (simple zero
+  eigenvalue); Theorems 3.2–3.3 and the open sentence (§3.3, right after Theorem 3.3: "We have not managed to
+  determine analytically whether the bifurcating solutions are stable (the supercritical case) or not."); the
+  reduction to $F(\varphi)$ (§5: (54)–(61), $f,g$, $\delta$ (65), $F=f_1g_2-g_1f_2$ (71)–(75), the sorted
+  representation (76), $S$ (79)) and the closed forms of $P_1,P_2$ ((102), (103)) and $R_1,R_2$ ((140), (141)), all
+  re-checked symbolically here (`check_formulas.py` F1); Prop. 5.3 (eigenvalues ↔ zeros of $F$); Lemma 5.4
+  (simplicity; first step corrected by result 8's verifier); the limit function $Q(z;\kappa)$ (87), its imaginary
+  roots (89)–(91) and Lemmas 7.1–7.3; Lemma 8.3 (Re λ ≥ 0 ⇒ Re φ ≥ 1); Prop. 9.1(i) (double root of $F$ at
+  $\varphi=1$); the structure (not the constants) of Props. 8.1, 8.4, 9.1, 9.2 and of the proof of Theorem 3.2
+  (§§8–10), whose constants $M_{0,k}$ are not explicit — replaced here by the explicit Lemma 3.3 of `result.md`. The typeset version
   (paywalled) was not seen; result 8's novelty sub-agent reported that the open sentence is identical in arXiv v1, v2
   and the accepted manuscript.
 

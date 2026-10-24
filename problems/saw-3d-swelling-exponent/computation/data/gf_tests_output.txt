@@ -10,6 +10,20 @@
   z = 1/5   (0.200): tail <= 2.135e+01; VERIFIED for T in []; REFUTED for T in none; UNDECIDED from T = 0
       B_T(z) enclosures T=0..6: [1.00000, 22.34866]  [0.58598, 21.93464]  [0.37273, 21.72139]  [0.23564, 21.58430]  [0.14197, 21.49063]  [0.07958, 21.42824]  [0.04055, 21.38921]
 
+## U4'. Same test with CITED inputs for a sharper tail (exact rationals):
+  tail_{n>N} <= sum_{N<n<=28} b_n z^n + sum_{n>28} (mu_+ z)^n, with b_n from Clisby-Conway-Guttmann 2016
+  Table 6 (data/reference_bridges.tsv; equal to our b_n for n <= N), b_n <= mu^n (BDGS lectures,
+  arXiv:1206.2092, eq. (2.4)) and mu <= mu_+ = 4.7388 (Ponitz-Tittmann, Electron. J. Combin. 7 (2000) R21,
+  doi:10.37236/1499, Table 2: 4.7387; quoted as 4.73871 by Kim-Pinna 2025).
+  z = 1/10  (own b_n + mu^n)      : tail <= 6.198e-07; VERIFIED for T in [0..7]; REFUTED for T in none; first UNDECIDED T = 8
+  z = 1/10  (with CCG b_n, n<=28) : tail <= 3.153e-08; VERIFIED for T in [0..9]; REFUTED for T in none; first UNDECIDED T = 10
+  z = 3/20  (own b_n + mu^n)      : tail <= 3.750e-03; VERIFIED for T in [0..4]; REFUTED for T in none; first UNDECIDED T = 5
+  z = 3/20  (with CCG b_n, n<=28) : tail <= 3.434e-04; VERIFIED for T in [0..6]; REFUTED for T in none; first UNDECIDED T = 7
+  z = 9/50  (own b_n + mu^n)      : tail <= 2.828e-01; VERIFIED for T in [0]; REFUTED for T in none; first UNDECIDED T = 1
+  z = 9/50  (with CCG b_n, n<=28) : tail <= 7.741e-02; VERIFIED for T in [0..2]; REFUTED for T in none; first UNDECIDED T = 3
+  z = 1/5   (own b_n + mu^n)      : tail <= 6.546e+00; VERIFIED for T in []; REFUTED for T in none; first UNDECIDED T = 0
+  z = 1/5   (with CCG b_n, n<=28) : tail <= 4.150e+00; VERIFIED for T in []; REFUTED for T in none; first UNDECIDED T = 0
+
 ## U3. NUMERICS: B_T(z_c), z_c = 1/4.684039931
   T=1  B_T^(N=19)(z_c) = 0.69676   last term ratio q = 0.5740   extrapolated 0.69679   (tail/total 0.00)
   T=2  B_T^(N=19)(z_c) = 0.54886   last term ratio q = 0.7734   extrapolated 0.55671   (tail/total 0.01)

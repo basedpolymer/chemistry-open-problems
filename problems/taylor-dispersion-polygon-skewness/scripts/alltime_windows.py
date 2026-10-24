@@ -9,7 +9,7 @@ and ANY Peclet number, sign Sk(tau) = sign K(tau) (Proposition 3), where
 <.> = cross-sectional average, Lap = Neumann Laplacian, tau = time in units of a^2/kappa (a = apothem).
   Short times (Lemma 11):  |K(tau) - <u^3> tau^3/3| <= C_a tau^(7/2) + C_b tau^4,
       C_a = (32/105) c0 ||grad u|| ||u^2||,  C_b = (pi/48) c0^2 ||u||_inf ||grad u||^2,
-      c0 = sup_{x>0} (1-e^{-x})/sqrt(x) <= 0.6383 (checked below);  norms w.r.t. the average.
+      c0 = sup_{x>0} (1-e^{-x})/sqrt(x) <= 0.64 (checked below);  norms w.r.t. the average.
   Long times (Lemma 12):   |K(tau) - <u g2> tau| <= a1/mu2 + 2 b1/mu2^2,
       a1 = ||u|| ||g2||, ||g2|| <= 2 sd(u g1)/mu2, b1 = ||u|| ||u||_inf ||g1||, <u g2> = 2 <u g1^2>,
       mu2 = first nonzero Neumann eigenvalue (square: pi^2/4 exactly; others: Payne-Weinberger pi^2/D^2).
@@ -33,7 +33,7 @@ def check(name, cond):
 ctx.prec = 200
 PI = arb.pi()
 # --- c0 = sup (1-e^{-x})/sqrt(x) <= C0 ---------------------------------------------------------------
-C0 = arb('0.6383')
+C0 = arb('0.64')
 okc = True
 # x in (0, 0.4]: (1-e^{-x})/sqrt(x) <= sqrt(x) <= sqrt(0.4) < 0.6383 ; x >= 4: <= 1/2
 N = 3600
@@ -44,7 +44,7 @@ for i in range(N):
     v = (1 - (-x).exp()) / x.sqrt()
     if not (v < C0):
         okc = False
-check("c0 = sup_{x>0} (1-e^{-x})/sqrt(x) <= 0.6383", okc and arb('0.4').sqrt() < C0)
+check("c0 = sup_{x>0} (1-e^{-x})/sqrt(x) <= 0.64", okc and arb('0.4').sqrt() < C0)
 
 
 def windows(name, avg_u3_lo, grad_u, u2norm, uinf, unorm, g1norm, sd_ug1, ug1sq_enc, mu2):

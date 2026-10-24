@@ -1,0 +1,27 @@
+instance 37sp-yfyv: N = n+m = 38; zero-sum nonempty subsets: 4833; blocks: 2431; 2-block partitions: 14; 3-block partition exists: False (7.6s)
+block-partition lower bound: 36  (claimed 36) -> PASS
+instance 20sp1: N = n+m = 21; zero-sum nonempty subsets: 15; blocks: 12; 2-block partitions: 4; 3-block partition exists: False (0.0s)
+block-partition lower bound: 19  (claimed 19) -> PASS
+instance 23sp1: N = n+m = 24; zero-sum nonempty subsets: 17; blocks: 12; 2-block partitions: 3; 3-block partition exists: False (0.0s)
+block-partition lower bound: 22  (claimed 22) -> PASS
+instance 22sp1: N = n+m = 24; zero-sum nonempty subsets: 1; blocks: 1; 2-block partitions: 0; 3-block partition exists: False (0.0s)
+block-partition lower bound: 23  (claimed 23) -> PASS
+instance balanced12: N = n+m = 27; zero-sum nonempty subsets: 60937; blocks: 18702; 2-block partitions: 0; 3-block partition exists: False (0.1s)
+block-partition lower bound: 26  (claimed 26) -> PASS
+instance balanced12_random0: N = n+m = 27; zero-sum nonempty subsets: 61329; blocks: 18356; 2-block partitions: 0; 3-block partition exists: False (0.2s)
+block-partition lower bound: 26  (claimed 26) -> PASS
+instance balanced12_random1: N = n+m = 27; zero-sum nonempty subsets: 59241; blocks: 17824; 2-block partitions: 0; 3-block partition exists: False (0.5s)
+block-partition lower bound: 26  (claimed 26) -> PASS
+instance balanced12_random2: N = n+m = 27; zero-sum nonempty subsets: 61629; blocks: 18972; 2-block partitions: 0; 3-block partition exists: False (0.2s)
+block-partition lower bound: 26  (claimed 26) -> PASS
+instance balanced15: N = n+m = 33; zero-sum nonempty subsets: 1817217; blocks: 518054; 2-block partitions: 0; 3-block partition exists: False (9.3s)
+block-partition lower bound: 32  (claimed 32) -> PASS
+instance balanced15_random0: N = n+m = 33; zero-sum nonempty subsets: 1751773; blocks: 626312; 2-block partitions: 0; 3-block partition exists: False (8.7s)
+block-partition lower bound: 32  (claimed 32) -> PASS
+instance balanced15_random1: N = n+m = 33; zero-sum nonempty subsets: 1780365; blocks: 653487; 2-block partitions: 0; 3-block partition exists: False (8.3s)
+block-partition lower bound: 32  (claimed 32) -> PASS
+instance balanced15_random2: N = n+m = 33; zero-sum nonempty subsets: 3416031; blocks: 1001510; 2-block partitions: 0; 3-block partition exists: False (16.1s)
+block-partition lower bound: 32  (claimed 32) -> PASS
+instance unbalanced15: N = n+m = 33; zero-sum nonempty subsets: 470203; blocks: 94888; 2-block partitions: 0; 3-block partition exists: False (2.7s)
+block-partition lower bound: 32  (claimed 32) -> PASS
+ALL PASS

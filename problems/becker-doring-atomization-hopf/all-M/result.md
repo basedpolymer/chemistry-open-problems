@@ -3,7 +3,7 @@
 Extension of result 8 (`../README.md`, `../paper.tex`, `../verification.md`) to all $M$.
 Primary source: R. L. Pego, J. J. L. Velázquez, *Temporal oscillations in Becker–Döring equations with atomization*,
 Nonlinearity 33 (2020) 1812–1846, doi:10.1088/1361-6544/ab6815, arXiv:1905.02605 (v2, read in full). We write
-"PV (n)" for equation (n) and "PV Lemma/Prop. x" for their numbered statements; numbering is that of arXiv v2.
+"PV (n)" for equation (n) and "PV Lemma/Prop. x" for their numbered statements; numbering is that of the arXiv v2 PDF.
 
 Everything below marked **[certificate]** is a computer-assisted step in Arb ball arithmetic (python-flint 0.9,
 192 bits); every such step is re-done by a script that prints PASS/FAIL (Section 9). Steps marked **[result 8]** or
@@ -70,9 +70,8 @@ What is **not** proved is listed in Section 10.
 ## 1. The $\varepsilon$-regular characteristic function
 
 PV reduce the eigenvalue problem $BV=\lambda V$ to the zeros of
-$F(\varphi)=f_1g_2-g_1f_2$ (PV (76)), with $\lambda=(A-\varphi^{-1})(\varphi-1)$ (PV (40)) and the sorted
-representation (PV (77)) $F=-P_1+\varphi^MP_2+A^{-M}R_1+(A\varphi)^{-M}R_2$, where (PV (e:P1-1), (e:P2-1), (e:r1),
-(e:r2))
+$F(\varphi)=f_1g_2-g_1f_2$ (PV (71)–(75)), with $\lambda=(A-\varphi^{-1})(\varphi-1)$ (PV (61)) and the sorted
+representation (PV (76)) $F=-P_1+\varphi^MP_2+A^{-M}R_1+(A\varphi)^{-M}R_2$, where (PV (102), (103), (140), (141))
 $$P_1=K[(A\varphi-1)^2\varphi^2-(\varphi-1)^2]+(KM+1)S(\varphi),\quad S=(\varphi-1)(A\varphi-1)(A\varphi^2-1),$$
 $$P_2=\varphi(A\varphi-1)^3-A^2(\varphi-1)^2+M(A\varphi-1)A^2(\varphi-1)^2,$$
 $$R_1=-A^2[(A\varphi-1)^2\varphi^2-(\varphi-1)^2],\qquad R_2=A(\varphi-1)^3+A^2\varphi(A\varphi-1)^2(M(\varphi-1)+\varphi).$$
@@ -107,7 +106,7 @@ upper endpoint only. Functions $\mathsf L$, $\mathsf M_1=\mathsf L'$, $\mathrm{E
 $\mathrm{Ex}_1=\mathrm{Ex}'$, $\mathrm{Ex}_2=\mathrm{Ex}_1'$, $\mathsf N_1(u)=(1-\mathsf L(u))/u$ are evaluated by
 their power series with explicit tail bounds (`ad.py`), so they are valid on balls containing $0$.
 
-**Lemma 1.2 (eigenvalues ↔ zeros).** (PV Prop. 5.1) If $\lambda\ne-1-A\pm2\sqrt A$ is an eigenvalue of $B$, then
+**Lemma 1.2 (eigenvalues ↔ zeros).** (PV Prop. 5.3) If $\lambda\ne-1-A\pm2\sqrt A$ is an eigenvalue of $B$, then
 $F(\varphi)=0$ for both roots $\varphi$, $1/(A\varphi)$ of $A\varphi^2-(\lambda+A+1)\varphi+1=0$. (PV Lemma 5.4,
 with the correction of result 8's verifier) if $S(\varphi)\ne0$, $\varphi$ is a simple zero of $F$ and
 $f(\varphi)\ne0$ or $f(1/(A\varphi))\ne0$, where $\varphi f(\varphi)=A\varphi^M+\varphi-1=AE+\varepsilon^2z$, then
@@ -156,7 +155,7 @@ $dE/dz=E/\varphi$ and $dE/d\varepsilon=2\varepsilon z^2E\,\mathsf M_1(\varepsilo
 
 ---------------------------------------------------------------------------------------------------------------
 
-## 3. Localization of the unstable spectrum (explicit form of PV Props. 6.1, 6.4, 7.2)
+## 3. Localization of the unstable spectrum (explicit form of PV Props. 8.1, 8.4, 9.1, 9.2)
 
 Write $w=\varphi-1$, $a=|w|$, $u=\operatorname{Re}w$.
 
@@ -167,7 +166,7 @@ $|K+Aw|^2=K^2+2KAu+A^2a^2\ge\max(K,Aa)^2$) and $u\ge u_{\min}(a)$, the positive 
 $2Au^2+(K+Aa^2)u-a^2=0$; $u_{\min}$ is increasing in $a$ and decreasing in $K$.
 
 *Proof of $u\ge0$:* with $\varphi=re^{i\theta}$, $r\ge1$: $\operatorname{Re}\lambda=\cos\theta(Ar+1/r)-(A+1)\ge0$ gives
-$\operatorname{Re}\varphi=r\cos\theta\ge(A+1)r^2/(Ar^2+1)\ge1$ (PV Lemma 6.3). The rest is algebra. $\square$
+$\operatorname{Re}\varphi=r\cos\theta\ge(A+1)r^2/(Ar^2+1)\ge1$ (PV Lemma 8.3). The rest is algebra. $\square$
 
 **Lemma 3.2 (Gershgorin).** If $K<1$ and $\operatorname{Re}\lambda\ge0$ then $|\lambda|\le2A+2$, hence (with
 $|\lambda|\ge a\,Aa/(1+a)$) $a\le a_{\max}:=2+2\sqrt2$.
@@ -246,7 +245,7 @@ count of Lemma 4.1 on $\Gamma$ equals $4$. Then for every integer $M$ with $M^{-
 (the zero in $X$): the eigenvalues of $B$ with $\operatorname{Re}\lambda\ge0$ are exactly $0,\pm i\omega$, all
 simple; all other eigenvalues of $B|_H$ have negative real part.
 
-*Proof.* $z=0$ is a zero of multiplicity $\ge2$ ($F(1)=F'(1)=0$, *check F3*, PV Prop. 7.1(i)), and $z_H\ne\bar z_H$
+*Proof.* $z=0$ is a zero of multiplicity $\ge2$ ($F(1)=F'(1)=0$, *check F3*, PV Prop. 9.1(i)), and $z_H\ne\bar z_H$
 are zeros in $D$: these are 4 zeros, so there are no others in $\Gamma$. Let $\lambda\ne0$ be an eigenvalue with
 $\operatorname{Re}\lambda\ge0$; by Lemma 1.2 and Lemma 3.1 there is a zero $\varphi$ of $F$ with $|\varphi|\ge1$ and
 $\lambda=\lambda(\varphi)$; by Lemma 3.3 $|z|<R_0$; since $\operatorname{Re}\Lambda=M\operatorname{Re}\lambda/K\ge0$,
@@ -440,7 +439,7 @@ statements of Section 7 on the stated ranges.
 **Standard results used, not re-proved.** The Hopf bifurcation theorem in $\mathbb R^n$ with the centre manifold
 reduction and the sign rule of the first Lyapunov coefficient (Kuznetsov, *Elements of Applied Bifurcation
 Theory*, 3rd ed., §3.5 and §5.4; the formula was validated in result 8 by a planar test, simulations and
-BifurcationKit); the Krawczyk–Moore theorem; correctness of Arb (python-flint 0.9). PV Prop. 5.1, Lemma 3.1 and Lemma
+BifurcationKit); the Krawczyk–Moore theorem; correctness of Arb (python-flint 0.9). PV Prop. 5.3, Lemma 3.1 and Lemma
 5.4 (with the verifier's correction of its first step, re-checked here as $f(\varphi)\ne0$).
 
 **Not proved.**
