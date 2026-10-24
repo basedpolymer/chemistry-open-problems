@@ -17,8 +17,10 @@ of the orchestrator. No helper agents. Not yet independently verified.
   **false for α = β** (C44:72 / C44:80, signless-Laplacian-cospectral duals) — solved (preliminary), pending a
   check of the JCIM wording (NEEDS.md).
 
-N = largest n of the exhaustive scan (see `certificates/counts_per_n.csv` and PROGRESS.md; target 150, the range
-claimed by the authors).
+**N = 138**: the exhaustive scan covers every even n with 20 ≤ n ≤ 138 (it was stopped at the owner's request during
+n = 140; the authors claim a check up to 150). Resume with
+`DUALSPEC_BIN=dualspec16 nice -n 10 python3 scripts/scan_driver.py 140 150 7 16 >> certificates/scan/scan_log.txt`,
+then `make_certificates.py` and `verify_pairs.py`.
 
 ## Problem
 
@@ -72,7 +74,7 @@ gcc -O3 -o certificates/sources/build/pcselect scripts/pcselect.c
 python3 scripts/scan_driver.py 20 104 31 20                               # exhaustive scan (types A, A6, A5, 2A+D, A+D)
 DUALSPEC_BIN=dualspec16 python3 scripts/scan_driver.py 106 122 23 16      # A, A6, A5, A+D
 DUALSPEC_BIN=dualspec16 python3 scripts/scan_driver.py 124 150 7 16       # A, A6, A5 (hours)
-python3 scripts/make_certificates.py 70                                   # certificate files, Atlas numbers n <= 70
+python3 scripts/make_certificates.py 70                                   # certificate files (Atlas numbers for n <= 70; the stored files were made with 44)
 python3 -I scripts/verify_pairs.py --exhaustive-small                      # PASS/FAIL re-check from graph6 codes
 python3 scripts/tube_family.py 12                                          # Theorem 2: cap rotation families
 python3 -I scripts/describe_pairs.py                                       # headline pairs, fullerene graphs
@@ -100,7 +102,7 @@ python3 scripts/scan_exact_small.py certificates/sources/tools/bg/buckygen-1.1/b
 | `scripts/t6_ds_all_graphs.py` | literal Conjecture 1(a): T^6 versus all graphs (geng) |
 | `scripts/planarcode.py`, `scripts/spiral.py` | planar code / graph6 I/O; face spirals and Atlas numbering |
 | `certificates/counts_per_n.csv` | per n: isomers (= OEIS A007894), numbers of cospectral classes for A(T), A(T6), A+D, 2A+D, T5 |
-| `certificates/cospectral_pairs_T.json` | every A(T)-cospectral class (graph6, spirals, Atlas numbers n ≤ 70, polynomial) |
+| `certificates/cospectral_pairs_T.json` | every A(T)-cospectral class, 890 classes for n ≤ 138 (graph6, canonical spirals, Atlas numbers for n ≤ 44, polynomial) |
 | `certificates/cospectral_pairs_signless_laplacian.json`, `certificates/cospectral_pairs_2A_plus_D.json` | same for A+D and 2A+D |
 | `certificates/T6_cospectral_classes.json` | T^6-cospectral classes (n = 32, 36, 40, 52) |
 | `certificates/headline_pairs.json` | C42 pair, C44 pair, C44 A+D pair: duals, fullerene graphs, polynomials |

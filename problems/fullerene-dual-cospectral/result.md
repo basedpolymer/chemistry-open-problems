@@ -61,8 +61,9 @@ arXiv Conjecture 1(a) fourteen years before it was stated, but it is not a refut
 
 ## 2. Results
 
-Throughout, N denotes the largest n of the exhaustive scan: **N = 150 (see §4; counts per n in
-`certificates/counts_per_n.csv`)**. [If the final scan stopped earlier, PROGRESS.md / README.md give the value.]
+Throughout, N denotes the largest n of the exhaustive scan: **N = 138** (every even n with 20 ≤ n ≤ 138; the scan was
+stopped at the owner's request during n = 140; counts per n in `certificates/counts_per_n.csv`). Matrix types
+scanned: A(T), A(T^6), A(T^5) for all n ≤ 138; A + D for n ≤ 122; 2A + D for n ≤ 104.
 
 **R1 (arXiv Conjecture 1(a)) — false; already refuted in print by the authors' own journal version.**
 The smallest counterexample is **n = 42**: the isomers **C42:6** and **C42:22** (canonical spirals
@@ -223,8 +224,8 @@ mechanism does not reach the residue class n ≡ 0 (mod 12); it also does not ex
    VF2, recomputation of the recorded spirals, consistency of the counts table with the class files and OEIS, the
    C34:2 example, and (with `--exhaustive-small`) the minimality n = 42 by an exact exhaustive recount.
 
-Cost: the whole scan to n = N took ≈ [see scan_log.txt] hours of one (heavily shared) core; C150 alone has
-14 059 174 isomers.
+Cost: the scan to n = 138 took about 4 hours of one heavily shared core (timings per n in scan_log.txt); C138 has
+6 344 698 isomers, C150 would have 14 059 174.
 
 ## 5. What is proved, certified, or only numerical; assumptions
 

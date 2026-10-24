@@ -1,0 +1,23 @@
+PASS  V1 cospectral_pairs_T.json (890 classes): all graphs are fullerene duals
+PASS  V2 cospectral_pairs_T.json (890 classes): equal exact characteristic polynomials of A(T)
+PASS  V3 cospectral_pairs_T.json (890 classes): members pairwise non-isomorphic (spirals + VF2)
+PASS  V4 cospectral_pairs_T.json (890 classes): recorded canonical spirals recomputed
+PASS  V1 cospectral_pairs_signless_laplacian.json (3 classes): all graphs are fullerene duals
+PASS  V2 cospectral_pairs_signless_laplacian.json (3 classes): equal exact characteristic polynomials of A+D(T)
+PASS  V3 cospectral_pairs_signless_laplacian.json (3 classes): members pairwise non-isomorphic (spirals + VF2)
+PASS  V4 cospectral_pairs_signless_laplacian.json (3 classes): recorded canonical spirals recomputed
+PASS  V1 T6_cospectral_classes.json (4 classes): all graphs are fullerene duals
+PASS  V2 T6_cospectral_classes.json (4 classes): equal exact characteristic polynomials of A(T6)
+PASS  V3 T6_cospectral_classes.json (4 classes): members pairwise non-isomorphic (spirals + VF2)
+PASS  V4 T6_cospectral_classes.json (4 classes): recorded canonical spirals recomputed
+PASS  V5 T6_cospectral_classes.json (4 classes): T6 subgraphs and their isomorphism status confirmed
+PASS  V2b smallest n with an A(T)-cospectral class in the certificate is 42 (one class of size 2)  atlas numbers [22, 6]
+PASS  V2c signless-Laplacian cospectral pair at n = 44 (Atlas 72, 80)
+PASS  V6a counts table consistent with class files and with OEIS A007894 for every scanned n (20..138)
+PASS  V6b every n in 60..138 has >= 1 A(T)-cospectral class (Conjecture 1(b) of the VOR, finite range)
+PASS  V6c no n in 54..138 has a T6-cospectral pair of isomers (Conjecture 1(c) of the VOR, finite range)
+PASS  V6d every T6-cospectral class found (n <= 138) consists of isomers with ISOMORPHIC T6 graphs
+PASS  V7 C6+K1 and the subdivided claw S(2,2,2) are cospectral and non-isomorphic
+PASS  V7b T6(C34:2) is C6+K1 (VF2) and n = 34 is the first n with a T6 having a cospectral mate among all graphs (geng-exhaustive record for n <= 38)
+runtime 150.5 s
+ALL PASS

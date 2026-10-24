@@ -1,0 +1,7 @@
+PASS V1 leaves tile the chart [0,2]x[0,1]^2 (k-d tree check) (245448 leaves)
+PASS V1 total chart volume = 2 (2)
+PASS V2 recomputed counts match (300 leaves recomputed, 0 mismatches)
+PASS V2 no component certified unknotted 
+PASS V3 exact sums equal the summary 
+   upper U = 8.494446213400e-04   lower L = 3.067561320913e-05   U/L = 27.691203
+PASS V4 0 < L <= U < (14-3pi)/192 (Hake) 
