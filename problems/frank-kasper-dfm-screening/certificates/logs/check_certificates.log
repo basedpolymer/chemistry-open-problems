@@ -1,0 +1,6 @@
+PASS BCC      box=fixed L4 ntri=  18432  inf F <= 1.071107810  < 1.071111  (published BCC value (Reddy et al. 2018, Fig. 7) is not the infimum for the cubic box)
+PASS P        box=fixed L2 ntri=  30720  inf F <= 1.068897166  < 1.068909  (published P value (Fig. 12) is not the infimum for box 1.91:3.57:1)
+PASS M        box=fixed L2 ntri=  28416  inf F <= 1.069011740  < 1.069038  (published M value (Fig. 15) is not the infimum for box 1.89:3.3:1 (Pnam) = (1.89,1,3.3) Pnma)
+PASS H        box=fixed L3 ntri=  66048  inf F <= 1.069208084  < 1.069219  (published H value (Fig. 9) is not the infimum for box 1:3.88:1, Z12 at 2a+4f)
+PASS mu       box=fixed L2 ntri=  21312  inf F <= 1.069546495  < 1.069662  (published mu value (Fig. 16) is not the infimum for hexagonal box c/a = 5.2)
+PASS sigma    box=relax L4 ntri= 264192  inf F <= 1.068575909  < 1.0685760  (upper bound for the sigma topology in its DFM-relaxed box (a/c = 1.909); the box is the one stored in the file)

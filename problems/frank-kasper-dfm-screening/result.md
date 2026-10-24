@@ -103,8 +103,8 @@ exact certificate shows that the published number is not the infimum for the sta
 | μ (c/a = 5.2, level 2) | inf 𝓕 ≤ 1.069546495 | 1.069662 |
 
 For σ the box is ambiguous: the paper's own CVP row (A 1.094909, I 1.023207) is matched by a/c ≈ 1.93 (the ICSD
-ratio 1.9297), not by the caption's 1.9; with a/c = 1.93 our σ value would be ≈1.0685975 (higher than published),
-with 1.9 it is 1.0685789 (lower). The paper's large low-symmetry cells (P, M, μ, H) also have CVP stretching values
+ratio 1.9297), not by the caption's 1.9; with a/c = 1.9297 our σ value is 1.0685970 (level 4: 1.0685982; higher than
+published by 1.4×10⁻⁵), with 1.9 it is 1.0685789 (lower by 4.1×10⁻⁶). The paper's large low-symmetry cells (P, M, μ, H) also have CVP stretching values
 above ours for the same box (P: ours I = 1.025510, paper 1.025525), and our optimal cell volumes are more
 dispersed than the paper's histograms (μ: Z16 cells 1.227 V₀ versus ≈1.20). The most likely explanation is
 incomplete relaxation in [1] for large cells (their stopping rule is a per-step change below 10⁻⁶), but we cannot
@@ -217,9 +217,19 @@ to 1.7×10⁻⁴), but we have not checked the layer decompositions.
 
 **Frustrated (non-Voronoi) entries.** *(see §4.5)*
 
-### 4.5 Non-Voronoi entries
+### 4.5 Non-Voronoi (frustrated) entries
 
-*(filled at the end of the runs)*
+Relaxed from the spring re-embedding (levels 0–1, 10-min cap; N28 to level 2) and, for N57/N58, also from the catalogue
+coordinates (level 2): mildly frustrated entries stay embedded and relax to 𝓕 ≈ 1.080–1.089 (N28 1.0851 at level 2;
+part-II N05, N17, N22, N03, Y01 1.080–1.089 at level 1), i.e. ≥ 1.0 % above σ. Strongly frustrated entries drive a
+foam edge to zero length: N57 (1.1030) and N58 (1.0992) stay embedded; for N55, N59, N60 and part-II Y02–Y06 the
+relaxation became degenerate (cone volumes ≤ 10⁻¹³, or negative with a collapsing box for Y04–Y06), so we report only
+the valid unrelaxed starting partitions (𝓕 = 1.13–1.20 for N55, N59, N60, Y02, Y03; 1.57–1.62 for Y04–Y06;
+`data/frustrated_start_values.csv`). All of these lie far above σ; their reported values are upper bounds reached,
+not converged infima of their (unstable) topologies.
+
+**Further check.** σ in the box of the paper's CVP row (a/c = 1.9297, fixed): 1.0685970; the E11 restart from the
+re-embedded geometry reproduces level 2 (1.0688260).
 
 ### 4.6 Candidates for SCFT
 
@@ -247,7 +257,8 @@ spectrum), **N56** (I4₁/amd, 76 cells, new) and **P**. Next (≤ 0.035 %): N16
 * **Topology constraint.** As in [1], the cell topology is fixed. The DFM optimum of a topology may sit at the boundary
   of its class (vanishing foam edge): this happens for the strongly frustrated non-Voronoi entries (§4.5), for which the
   reported numbers are the values reached, not converged infima. For all 108 Voronoi-realised structures the shortest
-  foam edge stays ≥ 0.3 R₀ (≥ 0.5 R₀ for all structures within 0.1 % of σ).
+  foam edge stays ≥ 0.29 R₀ (≥ 0.51 R₀ for all structures within 0.1 % of σ), and every level sequence decreases
+  monotonically.
 * **Box.** [1] fixes the box; we report both (fixed boxes for the validation, relaxed boxes for the screen). Box
   relaxation is restricted to homogeneous strains of the given periodic cell; no supercells were tried, so symmetry
   breaking with a larger period is not excluded.
@@ -261,3 +272,17 @@ spectrum), **N56** (I4₁/amd, 76 cells, new) and **P**. Next (≤ 0.035 %): N16
 [1] Reddy et al., PNAS 115 (2018) 10233, arXiv:1806.01726. [2] Dutour Sikirić, Delgado-Friedrichs, Deza, Acta Cryst.
 A 66 (2010) 602; data Zenodo 10.5281/zenodo.13691342. [3] Dutour Sikirić, Deza, Struct. Chem. 23 (2012) 1103.
 Full list and novelty check: references.md.
+
+
+## 6. State at stop and how to resume
+
+Work was stopped on request (24 Oct 2026, ~12:45). Done: Milestone 1 (all 12 structures of [1], fixed boxes, levels
+0–4); box-relaxed screen of all 124 structures at level 2, level 3 for the 20 within 5×10⁻⁴ of σ, level 4 for the 7 within
+3×10⁻⁴ (σ, E11, H, μ, zra-d, N56, P) and for BCC; frustrated entries at levels 0–2; six exact certificates.
+Not done: level 3+ for structures more than 0.047 % above σ (their level-2 extrapolations carry ±6×10⁻⁶); converged
+values for the degenerate frustrated entries; CVP checks of the paper's δ, pσ, M, μ, H rows; an independent
+Surface Evolver cross-check. To resume (checkpoints in `work/runs/<name>__<box>/state.pkl`, git-ignored):
+`python3 scripts/run_dfm.py <names> --box relax --maxlev K` continues from the last level;
+`python3 scripts/screen_pipeline.py data/screen_order.txt --win3 X --win4 Y` reruns the adaptive selection;
+`python3 scripts/make_tables.py` rebuilds the tables. If `work/` is lost, the runs are deterministic and can be
+regenerated (hours).
