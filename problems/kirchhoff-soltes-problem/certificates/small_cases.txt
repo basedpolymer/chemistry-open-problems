@@ -1,0 +1,71 @@
+C5  graph6=Dhc  n=5  Kf(G)=10
+   v=0 (deg 2): Kf(G-v)=10  GOOD
+   v=1 (deg 2): Kf(G-v)=10  GOOD
+   v=2 (deg 2): Kf(G-v)=10  GOOD
+   v=3 (deg 2): Kf(G-v)=10  GOOD
+   v=4 (deg 2): Kf(G-v)=10  GOOD
+PASS C5: Kirchhoff Soltes = True (expected True)
+theta(1, 2, 2)  graph6=C}  n=4  Kf(G)=4
+   v=0 (deg 3): Kf(G-v)=4  GOOD
+   v=1 (deg 3): Kf(G-v)=4  GOOD
+   v=2 (deg 2): Kf(G-v)=2  Kf(G)-Kf(G-v)=2
+   v=3 (deg 2): Kf(G-v)=2  Kf(G)-Kf(G-v)=2
+PASS theta(1, 2, 2): Kirchhoff Soltes = False (expected False)
+theta(1, 2, 3)  graph6=D{S  n=5  Kf(G)=90/11
+   v=0 (deg 3): Kf(G-v)=10  Kf(G)-Kf(G-v)=-20/11
+   v=1 (deg 3): Kf(G-v)=10  Kf(G)-Kf(G-v)=-20/11
+   v=2 (deg 2): Kf(G-v)=5  Kf(G)-Kf(G-v)=35/11
+   v=3 (deg 2): Kf(G-v)=19/3  Kf(G)-Kf(G-v)=61/33
+   v=4 (deg 2): Kf(G-v)=19/3  Kf(G)-Kf(G-v)=61/33
+PASS theta(1, 2, 3): Kirchhoff Soltes = False (expected False)
+theta(1, 3, 3)  graph6=Er`G  n=6  Kf(G)=71/5
+   v=0 (deg 3): Kf(G-v)=20  Kf(G)-Kf(G-v)=-29/5
+   v=1 (deg 3): Kf(G-v)=20  Kf(G)-Kf(G-v)=-29/5
+   v=2 (deg 2): Kf(G-v)=23/2  Kf(G)-Kf(G-v)=27/10
+   v=3 (deg 2): Kf(G-v)=23/2  Kf(G)-Kf(G-v)=27/10
+   v=4 (deg 2): Kf(G-v)=23/2  Kf(G)-Kf(G-v)=27/10
+   v=5 (deg 2): Kf(G-v)=23/2  Kf(G)-Kf(G-v)=27/10
+PASS theta(1, 3, 3): Kirchhoff Soltes = False (expected False)
+theta(2, 2, 2)  graph6=D]o  n=5  Kf(G)=23/3
+   v=0 (deg 3): Kf(G-v)=9  Kf(G)-Kf(G-v)=-4/3
+   v=1 (deg 3): Kf(G-v)=9  Kf(G)-Kf(G-v)=-4/3
+   v=2 (deg 2): Kf(G-v)=5  Kf(G)-Kf(G-v)=8/3
+   v=3 (deg 2): Kf(G-v)=5  Kf(G)-Kf(G-v)=8/3
+   v=4 (deg 2): Kf(G-v)=5  Kf(G)-Kf(G-v)=8/3
+PASS theta(2, 2, 2): Kirchhoff Soltes = False (expected False)
+theta(2, 2, 3)  graph6=E]`G  n=6  Kf(G)=27/2
+   v=0 (deg 3): Kf(G-v)=18  Kf(G)-Kf(G-v)=-9/2
+   v=1 (deg 3): Kf(G-v)=18  Kf(G)-Kf(G-v)=-9/2
+   v=2 (deg 2): Kf(G-v)=10  Kf(G)-Kf(G-v)=7/2
+   v=3 (deg 2): Kf(G-v)=10  Kf(G)-Kf(G-v)=7/2
+   v=4 (deg 2): Kf(G-v)=23/2  Kf(G)-Kf(G-v)=2
+   v=5 (deg 2): Kf(G-v)=23/2  Kf(G)-Kf(G-v)=2
+PASS theta(2, 2, 3): Kirchhoff Soltes = False (expected False)
+theta(2, 3, 3)  graph6=F[UAG  n=7  Kf(G)=64/3
+   v=0 (deg 3): Kf(G-v)=31  Kf(G)-Kf(G-v)=-29/3
+   v=1 (deg 3): Kf(G-v)=31  Kf(G)-Kf(G-v)=-29/3
+   v=2 (deg 2): Kf(G-v)=35/2  Kf(G)-Kf(G-v)=23/6
+   v=3 (deg 2): Kf(G-v)=19  Kf(G)-Kf(G-v)=7/3
+   v=4 (deg 2): Kf(G-v)=19  Kf(G)-Kf(G-v)=7/3
+   v=5 (deg 2): Kf(G-v)=19  Kf(G)-Kf(G-v)=7/3
+   v=6 (deg 2): Kf(G-v)=19  Kf(G)-Kf(G-v)=7/3
+PASS theta(2, 3, 3): Kirchhoff Soltes = False (expected False)
+theta(3, 3, 3)  graph6=GR`KAC  n=8  Kf(G)=94/3
+   v=0 (deg 3): Kf(G-v)=48  Kf(G)-Kf(G-v)=-50/3
+   v=1 (deg 3): Kf(G-v)=48  Kf(G)-Kf(G-v)=-50/3
+   v=2 (deg 2): Kf(G-v)=88/3  Kf(G)-Kf(G-v)=2
+   v=3 (deg 2): Kf(G-v)=88/3  Kf(G)-Kf(G-v)=2
+   v=4 (deg 2): Kf(G-v)=88/3  Kf(G)-Kf(G-v)=2
+   v=5 (deg 2): Kf(G-v)=88/3  Kf(G)-Kf(G-v)=2
+   v=6 (deg 2): Kf(G-v)=88/3  Kf(G)-Kf(G-v)=2
+   v=7 (deg 2): Kf(G-v)=88/3  Kf(G)-Kf(G-v)=2
+PASS theta(3, 3, 3): Kirchhoff Soltes = False (expected False)
+K_{4,3}  graph6=F?~v_  n=7  Kf(G)=23/2
+   v=0 (deg 3): Kf(G-v)=9  Kf(G)-Kf(G-v)=5/2
+   v=1 (deg 3): Kf(G-v)=9  Kf(G)-Kf(G-v)=5/2
+   v=2 (deg 3): Kf(G-v)=9  Kf(G)-Kf(G-v)=5/2
+   v=3 (deg 3): Kf(G-v)=9  Kf(G)-Kf(G-v)=5/2
+   v=4 (deg 4): Kf(G-v)=23/2  GOOD
+   v=5 (deg 4): Kf(G-v)=23/2  GOOD
+   v=6 (deg 4): Kf(G-v)=23/2  GOOD
+PASS K_{4,3}: Kirchhoff Soltes = False (expected False)

@@ -18,6 +18,8 @@ Claims (PASS/FAIL):
       (mu - B) r = S q (r in H for mu = 0), and l1 (dense Kuznetsov formula, M = 40, 100) = M Lhat (l1reg).
   F6  closed forms of the pair sums / mass sums / values (l1reg.psum, mass, val) agree with direct summation
       for random atoms at M = 37, 200 (exponentially small parts included in the enclosures).
+  F7  (sympy, exact) expansion of P2 in powers of phi used by allm_core.loc_check_II2 / loc_tail, and the
+      elementary inequalities used for the tail constants (r >= 2).
 """
 import sys, os, random
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -238,6 +240,21 @@ for Mv in [37, 200]:
                 cf = R.val(cx, Y, where); cv = cf.v*acb(eps_b)**cf.p
                 okF6 &= cv.overlaps(atom_at(cx, Y, l, Mv))
 report("F6", okF6, "pair sums, mass sums and boundary values = direct summation (M = 37, 200, random atoms)")
+
+# ------------------------------------------------------------------------------------------------ F7
+phs7, A7, M7 = sp.symbols("phi A M")
+P2_7 = phs7*(A7*phs7 - 1)**3 - A7**2*(phs7 - 1)**2 + M7*(A7*phs7 - 1)*A7**2*(phs7 - 1)**2
+c2 = 3*A7 - M7*A7**2*(1 + 2*A7) - A7**2; c1 = -1 + M7*A7**2*(2 + A7) + 2*A7**2; c0 = -(M7*A7**2 + A7**2)
+exp7 = A7**3*phs7**4 + (M7*A7**3 - 3*A7**2)*phs7**3 + c2*phs7**2 + c1*phs7 + c0
+okF7 = sp.expand(P2_7 - exp7) == 0
+# tail constants: for r >= 2: K + A(r+1) <= (K/2 + 1.5A) r, K + 2A a + A a^2 <= (K/4 + 3.75A) r^2 with a <= 1.5 r
+rr, Kk, Aa = sp.symbols("r K A", positive=True)
+lin = (Kk/2 + sp.Rational(3, 2)*Aa)*rr - (Kk + Aa*(rr + 1))
+okF7 &= bool(sp.expand(lin.subs(rr, 2)).is_nonnegative) and bool(sp.diff(lin, rr).is_nonnegative)
+q7 = (Kk/4 + sp.Rational(15, 4)*Aa)*rr**2 - (Kk + 2*Aa*sp.Rational(3, 2)*rr + Aa*sp.Rational(9, 4)*rr**2)
+okF7 &= bool(sp.expand(q7.subs(rr, 2)).is_nonnegative) and bool(sp.expand(sp.diff(q7, rr).subs(rr, 2)).is_nonnegative) \
+        and bool(sp.expand(sp.diff(q7, rr, 2)).is_nonnegative)
+report("F7", bool(okF7), "expansion of P2 in powers of phi (localization without Gershgorin) and the tail constants")
 
 print("SUMMARY:", "PASS" if fails == 0 else "FAIL")
 sys.exit(0 if fails == 0 else 1)

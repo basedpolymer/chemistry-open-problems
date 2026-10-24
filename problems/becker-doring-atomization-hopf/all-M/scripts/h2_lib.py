@@ -19,18 +19,32 @@ from flint import arb, acb, ctx
 import allm_core as C
 
 def hopf_box(eps_lo, eps_hi, X0):
-    """parametric Krawczyk over [eps_lo, eps_hi]; radii from the predicted variation of the solution"""
+    """parametric Krawczyk over [eps_lo, eps_hi]: initial radii from the variation of the Newton solutions at the
+    two ends and the middle, then epsilon-inflation (rad_i <- max(rad_i, 1.25 |K_i - m_i|) + tiny) until the
+    Krawczyk image lies in the interior of the box (at most 30 rounds)."""
     eb = C.eps_interval(eps_lo, eps_hi)
     sols = []
     for e in (arb(eps_lo), arb(eb.mid()), arb(eps_hi)):
         sols.append(C.newton(X0, e))
     Xm = sols[1]
     dev = [max(abs(float(s[i].mid()) - float(Xm[i].mid())) for s in sols) for i in range(3)]
-    for fac in (1.5, 4, 16, 64):
-        rad = [arb(fac * dev[i] + 1e-25 * (1 + abs(float(Xm[i].mid())))) for i in range(3)]
+    rad = [arb(1.5 * dev[i] + 1e-25 * (1 + abs(float(Xm[i].mid())))) for i in range(3)]
+    for _ in range(30):
         enc, box = C.krawczyk(Xm, rad, eb)
         if enc is not None:
             return eb, Xm, rad, enc, box
+        # Krawczyk image (recomputed for inflation)
+        Kx = C.krawczyk_image(Xm, rad, eb)
+        if Kx is None:
+            break
+        new = []
+        for i in range(3):
+            d = abs(Kx[i] - Xm[i])
+            dup = float(arb(d.upper())) if d.is_finite() else float("inf")
+            new.append(arb(max(float(rad[i]) * 1.1, 1.25 * dup + 1e-30)))
+        if not all(abs(float(r)) < 1e3 for r in new):
+            break
+        rad = new
     return eb, Xm, None, None, None
 
 def h2_checks(eb, box, R0=8, sigma="0.3", a1="0.1", n_arc=96, n_seg=24):

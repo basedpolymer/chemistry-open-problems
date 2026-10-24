@@ -54,7 +54,7 @@ def terms_float(T):
     return {k: float(v.mid()) for k, v in T.d.items()}
 
 
-def certify_sg(n, K=None, J=None, pieces=200, verbose=True):
+def certify_sg(n, K=None, J=None, pieces=200, verbose=True, raw=False):
     K = default_K(n) if K is None else K
     J = K if J is None else J
     t0 = time.time()
@@ -122,6 +122,8 @@ def certify_sg(n, K=None, J=None, pieces=200, verbose=True):
                second=float(second.upper()), lower=float(L.lower()), SG=SG.str(6),
                a_coef=[float(x).hex() for x in a_coef], c_coef=[float(x).hex() for x in c_coef],
                S=S.hex(), PASS=ok, seconds=round(dt, 1))
+    if raw:
+        res['raw'] = dict(L=L, upper=I3 - 3 * B1 + rell + second, area=area, I2=I2, epsE=epsE)
     if verbose:
         print(f"n={n:3d} K={K:2d} ||E||<={res['L2_E']:.1e} ||rho||<={res['L2_rho']:.1e} int u_N^3={float(I3.mid()):.5e} "
               f"3B1={float(B1.mid())*3:.2e} rell<={res['rellich']:.1e} 2nd<={res['second']:.1e} "

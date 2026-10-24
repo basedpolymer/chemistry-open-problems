@@ -1,0 +1,5 @@
+(a) 1177 (partition, part) cases checked exactly
+(b) closed form for K_{k x s} checked, all positive
+(c) phi'(x) numerator after n = x+2+y, x = 1+z: (2*y + 3)*(y + z + 1)*(y + z + 2)
+PASS phi strictly increasing for 1 <= x <= n-2
+PASS complete multipartite theorem

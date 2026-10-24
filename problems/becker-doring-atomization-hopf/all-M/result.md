@@ -136,8 +136,10 @@ G(m;E))(E-\varepsilon_m)$. Hence the Krawczyk operator of $G(\cdot;\varepsilon)$
 R. E. Moore, SIAM J. Numer. Anal. 14 (1977)) satisfies $K_\varepsilon(X)\subset\mathcal K\subset\operatorname{int}X$,
 which gives existence and uniqueness. $G$ is $C^1$ in $X$, and $C^1$ in $\varepsilon\in[0,\varepsilon_{hi}]$ up to
 $\varepsilon=0$ (the $T$-part and its derivatives tend to $0$). $\square$
-(`allm_core.krawczyk`; forming $Y\partial_\varepsilon G$ first avoids the wrapping effect: on the second branch near
-$M=230$ it shrinks the admissible boxes' size requirement by a factor $\approx40$.)
+(`allm_core.krawczyk`; forming $Y\partial_\varepsilon G$ first avoids the wrapping effect, which on the second branch
+near $M\approx230$ made the boxes $\approx40$ times too large. The box is found by $\epsilon$-inflation from the
+variation of Newton solutions at the ends of $E$, `h2_lib.hopf_box`; only the final inclusion test matters for the
+proof, and it is re-done from the stored box by `verify_sweep.py`.)
 
 Derivatives are computed by forward dual numbers in $(z,\kappa,\varepsilon)$ (`allm_core.DN`), with
 $dE/dz=E/\varphi$ and $dE/d\varepsilon=2\varepsilon z^2E\,\mathsf M_1(\varepsilon^2z)$ (exact).
@@ -364,7 +366,9 @@ midpoint $c$ and the disks $\nu_i\in\mathcal D_i$ valid on $\mathcal B$:
 $\widehat L(\xi)\in\Phi(c;\mathcal D)+\nabla\Phi(\mathcal B;\mathcal D)\cdot(\mathcal B-c)$ for all $\xi\in\mathcal B$.
 *Proof.* $\widehat L(\xi)=\Phi(c;\nu(\xi))+[\Phi(\xi;\nu(\xi))-\Phi(c;\nu(\xi))]$ and the mean value theorem in the
 first four variables at fixed $\nu$. $\square$ The gradient is computed by forward AD in 4 real directions (`ad.py`,
-`l1reg.Lhat_box`). Example: on $\varepsilon\in[0,10^{-8}]$ this gives $\widehat L=-0.0093114\pm3.6\cdot10^{-8}$
+`l1reg.Lhat_box`). The disks $\mathcal D_i$ are computed once, from the box evaluation (all inputs are balls over
+$\mathcal B$), and **replayed** in the midpoint evaluation, so that $\nu(\xi)\in\mathcal D$ for every
+$\xi\in\mathcal B$ (`l1reg.expsmall`, record/replay). Example: on $\varepsilon\in[0,10^{-8}]$ this gives $\widehat L=-0.0093114\pm3.6\cdot10^{-8}$
 (naive interval evaluation: $\pm2.9\cdot10^{-5}$).
 
 ---------------------------------------------------------------------------------------------------------------

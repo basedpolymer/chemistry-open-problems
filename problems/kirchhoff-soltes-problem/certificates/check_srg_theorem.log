@@ -1,1 +1,19 @@
 PASS row sums of M_NN equal 1
+PASS n = P/mu
+PASS base term equals Rt(v) = 2 Kf/n
+PASS (n-1) w/z = -((n-1)/P) W/Q
+PASS Kf(G) = k(k^2-2k lam+2k mu-k+lam^2-2 lam mu+lam+mu^2-2mu)/mu^2
+PASS triangle-free Delta = N/Den
+PASS Moore: Delta(mu=1) = k(k-2)(k+1)/(k^2+1)
+PASS k >= 4: every mu-coefficient of N is a polynomial in (k-4) with nonnegative coefficients and positive constant
+PASS k = 2: N = 3mu^3+4mu^2-mu-6 = (mu-1)(3mu^2+7mu+6), zero only at mu=1 (C5)
+PASS k = 3: N = 4mu^3+16mu^2+16mu-12 > 0 for mu >= 1
+PASS denominator positive for k >= 2, mu >= 1
+PASS conference graphs: X^2(X-1)^2 > 4X^2-4 for X >= 3 (n >= 9)
+PASS integral primitive: ((k+1)/2)^2 > 2k for k >= 6
+feasible primitive SRG parameter sets with k <= 5: [(5, 2, 0, 1), (9, 4, 1, 2), (10, 3, 0, 1), (16, 5, 0, 2)]
+PASS srg(5, 2, 0, 1) (C5): Delta = 0
+PASS srg(9, 4, 1, 2): Delta in [64/45, 8/5], > 0
+PASS srg(10, 3, 0, 1): Delta in [6/5, 6/5], > 0
+PASS srg(16, 5, 0, 2): Delta in [47/20, 47/20], > 0
+PASS SRG theorem computations

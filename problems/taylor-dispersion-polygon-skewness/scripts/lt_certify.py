@@ -71,7 +71,7 @@ def float_eval(terms_f, tau, n_deriv=False):
     return out
 
 
-def certify(n, K=None, J=None, pieces=240, verbose=True):
+def certify(n, K=None, J=None, pieces=240, verbose=True, raw=False):
     K = choose_K(n) if K is None else K
     J = K if J is None else J
     t0 = time.time()
@@ -174,6 +174,14 @@ def certify(n, K=None, J=None, pieces=240, verbose=True):
         print(f"n={n:3d} K={K:2d} delta={res['delta']:.2e} ||E||<={res['L2_E']:.2e} ||e||<={res['L2_e']:.2e} "
               f"I_N={float(I_N.mid()):.6e} Err<={res['Err']:.2e} I>={res['I_lower']:.4e} "
               f"kappa(R=1) in {kappa_circ.str(4)}  [{dt:.1f}s]  {'PASS' if ok else 'FAIL'}")
+    if raw:
+        # raw ball quantities for alltime_windows.py (all integrals over P, not averages)
+        intU2 = 2 * n * (U * U).int_T(t)
+        intU4 = 2 * n * ((U * U) * (U * U)).int_T(t)
+        intU3 = 2 * n * ((U * U) * U).int_T(t)
+        res['raw'] = dict(area=area, R=R, t=t, m_u=m_u, delta=delta, osc=osc, epsE=epsE, eta=eta, omega=omega,
+                          Uinf=Uinf, I_N=I_N, Err=Err, intG2=intG2, intUG=intUG, sd_UG=sd_UG, gradG2=gradG2,
+                          intU2=intU2, intU3=intU3, intU4=intU4)
     return res
 
 

@@ -95,6 +95,8 @@ def get(name):
             delaunay = False
         info = {"group": blk["group"], "nmiss": nmiss, "manifold": ok, "embedded": bool(embedded),
                 "delaunay": bool(delaunay), "cell_cgd": blk["cell"]}
-        return {"name": name, "L": L, "P": P, "labels": coord, "tets": tets,
+        deg = cgd.contact_degree(len(P), edges)
+        info["coord_declared_doubled"] = bool(np.all(np.array(coord) == 2 * deg))
+        return {"name": name, "L": L, "P": P, "labels": deg.tolist(), "tets": tets,
                 "init": "circ" if delaunay else "centroid", "info": info}
     raise KeyError(name)

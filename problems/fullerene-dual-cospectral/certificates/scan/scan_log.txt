@@ -20,3 +20,5 @@ n=106 isomers=497529 oeis_ok=True | A(T): groups=21 mixed=0 classes=21 | A(T6): 
 n=108 isomers=604217 oeis_ok=True | A(T): groups=35 mixed=2 classes=33 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=265 | A+D(T): groups=0 mixed=0 classes=0 | 106s+17s
 n=110 isomers=713319 oeis_ok=True | A(T): groups=16 mixed=0 classes=16 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=254 | A+D(T): groups=0 mixed=0 classes=0 | 110s+28s
 n=112 isomers=860161 oeis_ok=True | A(T): groups=24 mixed=3 classes=21 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=266 | A+D(T): groups=1 mixed=1 classes=0 | 111s+19s
+n=114 isomers=1008444 oeis_ok=True | A(T): groups=44 mixed=4 classes=40 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=258 | A+D(T): groups=0 mixed=0 classes=0 | 167s+43s
+n=116 isomers=1207119 oeis_ok=True | A(T): groups=35 mixed=10 classes=25 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=263 | A+D(T): groups=2 mixed=2 classes=0 | 218s+49s

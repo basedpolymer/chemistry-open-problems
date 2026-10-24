@@ -103,14 +103,13 @@ def subdivide(pts, nper):
 def h2j_checks(j, eb, box, R0, Y, cL, cR, a1="0.1", nchain=48):
     out = dict(j=j, R0=R0, Y=Y, cL=cL, cR=cR)
     kap = box[0]
-    if not (C.arb_up(kap) * C.arb_up(eb) < 1):
-        out.update(ok=False, fail="K>=1"); return out
     el = arb(eb.lower())
+    # localization (Lemma 3.3 with part II replaced by loc_check_II2_range: no Gershgorin, any K)
     sI = C.loc_check_I(eb, kap, R0, a1)
-    okL = bool(sI < 1) and C.loc_check_II_range(eb, kap, a1)[0]
-    mode = "I+II"
+    okL = bool(sI < 1) and C.loc_check_II2_range(eb, kap, a1)[0]
+    mode = "I+II2"
     if not okL and el > 0:
-        okL = C.loc_check_II_range(eb, kap, arb(R0) * el * el, n0=256, depth=18)[0]; mode = "II"
+        okL = C.loc_check_II2_range(eb, kap, arb(R0) * el * el, n0=128, depth=18)[0]; mode = "II2"
     out.update(loc_ok=okL, loc_mode=mode, rhoI=float(sI))
     if not okL:
         out.update(ok=False, fail="localization"); return out

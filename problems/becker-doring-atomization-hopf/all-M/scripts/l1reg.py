@@ -62,15 +62,28 @@ def snsum(lst):
         out = out + x
     return out
 
+_DISK_MODE = None      # None: compute; "record": compute and store radii; "replay": reuse stored radii in order
+_DISK_LOG = []
+
 def expsmall(fac, j, p):
-    """T eps^-j * (complex number of modulus <= fac), represented as an SN at power p (T = A^-M)"""
+    """T eps^-j * (complex number of modulus <= fac), represented as an SN at power p (T = A^-M).
+    In "replay" mode the radius computed in the preceding "record" pass (box evaluation) is reused, so that the
+    midpoint evaluation of the mean value form uses disks valid on the whole box (result.md, Lemma 5.2)."""
+    global _DISK_LOG
+    if _DISK_MODE == "replay":
+        jj, pp, rad = _DISK_LOG.pop(0)
+        assert (jj, pp) == (j, p), "replay mismatch"
+        return SN(C.disk(rad), p)
     k = j + p
     fac = C.arb_up(fac)
     if k >= 0:
         t = C.T_over_eps_bound(_EPSBALL, _KAP, k)
     else:
         t = C.T_over_eps_bound(_EPSBALL, _KAP, 0) * C.arb_up(_EPSBALL) ** (-k)
-    return SN(C.disk(t * fac), p)
+    rad = C.arb_up(t * fac)
+    if _DISK_MODE == "record":
+        _DISK_LOG.append((j, p, rad))
+    return SN(C.disk(rad), p)
 
 # ------------------------------------------------------------------------------------------------ atoms
 def _cv(x):
@@ -326,16 +339,28 @@ def Lhat_box(eps_box, kap_box, x_box, y_box):
     form: value at the midpoint (exponentially small terms as disks over the whole box) + gradient over the box
     (forward AD in the 4 real directions, the exponentially small disks being held fixed) times the half-widths.
     Returns an arb."""
+    global _DISK_MODE, _DISK_LOG
     eps_box = arb(eps_box); kap_box = arb(kap_box); x_box = arb(x_box); y_box = arb(y_box)
     em, km, xm, ym = [arb(b.mid()) for b in (eps_box, kap_box, x_box, y_box)]
-    F = blocks(em, km, acb(xm, ym), eps_box, kap_box)["Lhat"]
-    if F is None:
-        return None
     AD.n = 4
     kv = AD.var(kap_box, 0); xv = AD.var(x_box, 1); yv = AD.var(y_box, 2); ev = AD.var(eps_box, 3)
     zv = xv + yv * acb(0, 1)
-    G = blocks(ev, kv, zv, eps_box, kap_box)["Lhat"]
+    # box evaluation (values and gradient over the whole box); record the exponentially small disks
+    _DISK_MODE = "record"; _DISK_LOG = []
+    try:
+        G = blocks(ev, kv, zv, eps_box, kap_box)["Lhat"]
+    finally:
+        _DISK_MODE = None
     if G is None:
+        return None
+    # midpoint evaluation with the SAME disks (valid on the whole box)
+    _DISK_MODE = "replay"
+    try:
+        F = blocks(em, km, acb(xm, ym), eps_box, kap_box)["Lhat"]
+        assert not _DISK_LOG, "replay incomplete"
+    finally:
+        _DISK_MODE = None
+    if F is None:
         return None
     val = acb(F)
     for i, (b, m) in enumerate(zip((kap_box, x_box, y_box, eps_box), (km, xm, ym, em))):

@@ -1,0 +1,78 @@
+**Attribution.** Solver: Claude Opus 5.5 (effort not recorded), sub-agent of the orchestrator. Builds on result 8
+(`../README.md`; solver, editor and verifier credited there). Independent verification of this extension: pending.
+
+# Becker–Döring with atomization: Hopf criticality for every M (extension of result 8)
+
+## Problem
+
+R. L. Pego and J. J. L. Velázquez, *Temporal oscillations in Becker–Döring equations with atomization*,
+Nonlinearity 33 (2020) 1812–1846, doi:10.1088/1361-6544/ab6815, arXiv:1905.02605. After their Theorem 3.3 (Hopf
+bifurcation at $\kappa=\kappa_j(M)$, $\kappa=K\sqrt M$, for $j\le k$ and $M>M_{0,k}$, $M_{0,k}$ not explicit),
+§3.3 says (verbatim):
+
+> "We have not managed to determine analytically whether the bifurcating solutions are stable (the supercritical
+> case) or not. Many of our numerical computations, as in Fig. 1, are consistent with the presence of stable
+> periodic solutions, however."
+
+Result 8 certified $\ell_1<0$ for $16\le M\le10^5$ ($\ell_1>0$ at $M=15$) on branches 1–3, but the spectral
+hypothesis H2 only for $M\le160$, and nothing for $M>10^5$. This folder closes both gaps on the first branch.
+
+## Status
+
+**Branch 1 (the first Hopf bifurcation): solved (preliminary)** — a complete answer for every $M$, not yet
+independently verified. **Branches 2–3: partial result** (centre-manifold supercriticality on the stated ranges).
+**Branches $j\ge4$: open** (only result 8's formal limit).
+
+## Result
+
+For every integer $M\ge16$ the Hopf bifurcation of the constant equilibrium at $\kappa_1(M)$ (system restricted to
+the mass hyperplane) is **supercritical, and the bifurcating periodic orbits are orbitally asymptotically stable**:
+at $\kappa_1(M)$ the eigenvalues $\pm i\omega$ are simple, the crossing is transversal, every other eigenvalue has
+negative real part, and $\ell_1<0$. At $M=15$ it is subcritical (result 8), and for $3\le M\le14$ there is no Hopf
+bifurcation (result 8's verifier). So the answer to the open question for the first branch is: *stable for every
+$M\ge16$, unstable (subcritical) for $M=15$*. Moreover $\ell_1(q_1=1)/M\to L_1=-0.0093114\ldots$; the limit is
+enclosed in $[-0.00931144,-0.00931137]$ and agrees with result 8's formal closed form to about 56 digits.
+
+For $j=2,3$: $\ell_1<0$ for every $M$ on which the branch was certified (result 8 for $M\le10^5$, this work for all
+larger $M$), and H2 holds at $\kappa_j(M)$ on the ranges of `result.md` §7; there the bifurcation is supercritical
+on the centre manifold, but the bifurcating orbits are **unstable** in the full system (the equilibrium already has
+$j-1$ unstable pairs).
+
+**How (for $M\ge161$).** Everything is written in Pego–Velázquez's scaled variables
+$\varepsilon=M^{-1/2}$, $z=M(\varphi-1)$, $\kappa$, as expressions that are *regular at $\varepsilon=0$*:
+the characteristic function $Q^\varepsilon(z;\kappa)=K^{-3}F(1+z/M)$ (exponentially small part $A^{-M}$ in a
+disk), and — the main new ingredient — the first Lyapunov coefficient, rewritten in transfer-function form
+$\ell_1=\omega^{-1}\operatorname{Re}[\dots]$ with resolvents computed from exact exponential-sequence formulas in
+which every leading-order cancellation (boundary layers, monomer row, geometric sums) is done analytically. Then
+$\varepsilon$ is treated as an interval: 654 boxes cover $\varepsilon\in[0,161^{-1/2}]$ (the box $[0,10^{-5}]$
+contains $M=\infty$). On each box: a parametric Krawczyk test encloses the Hopf point for all $\varepsilon$ in the
+box; simplicity and transversality; $\widehat L=\ell_1(q_1=1)/M<0$ by a mean value form with automatic
+differentiation; and H2 via an explicit localization lemma (an explicit version of PV's Props. 6.1–7.2) plus a
+rigorous winding-number count of the zeros of $Q^\varepsilon$ (exactly 4: $z=0$ twice and the Hopf pair).
+
+## Reproduce
+
+From this folder (`scripts/`), Python 3.13 with python-flint 0.9, sympy, mpmath; one thread.
+
+| script | claims | runtime |
+|---|---|---|
+| `check_formulas.py` | F1–F7: exact identities (sympy), entrywise dense enclosure test of every block of the regular $\ell_1$ formula at $M=40,100,300$, closed-form sums vs direct summation | 2 min |
+| `l1_sweep.py 1 0 0.0788111 OUT --h2` | Theorem 7.1: all $M\ge161$, branch 1 (Hopf box, simplicity, transversality, $\widehat L<0$, H2) | 9 min |
+| `l1_sweep.py J 0 0.0788111 OUT` | branches 2, 3: Hopf box, $\widehat L<0$ | see `result.md` §7 |
+| `h2j_sweep.py J IN OUT R0 Y cL cR` | H2 and unstable count at $\kappa_j$, on the boxes of an `l1_sweep` file | ~2 s/box |
+| `verify_sweep.py FILE EPS_LO EPS_HI [--h2] [STRIDE]` | re-proves every certificate line from the stored data, and the coverage | as the sweep |
+| `check_vs_result8.py J OURS R8FILES` | result 8's Hopf points ($161\le M\le10^5$) lie in our unique-zero boxes; result 8's $\ell_1$ values inside our enclosures | 1 min |
+| `asymptotics.py` | A1–A4: limit $M\to\infty$ on branches 1–3, comparison with result 8's closed form | 10 s |
+| `h2_sweep.py OUT 161` | H2 only, branch 1 (superseded by `l1_sweep --h2`) | 1 min |
+
+Every script prints PASS/FAIL per claim and exits non-zero on failure. Logs: `certificates/logs/`.
+
+## Files
+
+- `result.md`: statements, complete proofs with explicit constants, certificate description, what is not proved.
+- `references.md`, `NEEDS.md` (optional DOIs), `PROGRESS.md` (log, git-ignored).
+- `scripts/`: `allm_core.py` (regular $Q^\varepsilon$, parametric Krawczyk, localization, region, winding number),
+  `l1reg.py` (regular $\ell_1$), `ad.py` (automatic differentiation and series), `h2_lib.py`, `h2j_lib.py`, and the
+  scripts above.
+- `certificates/`: `l1h2_j1.csv` (branch 1, 654 boxes), `l1_j2.csv`, `l1_j3.csv`, `h2j_j2.csv`, `h2j_j3.csv`,
+  `h2_j1.csv`; `logs/`; `sources/` (git-ignored copy of arXiv:1905.02605).

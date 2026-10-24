@@ -262,6 +262,21 @@ def f_mid_split(Xm, eps):
     fe = [Q.de.real, Q.de.imag, Lam.de.real]
     return f0, fe, em
 
+def krawczyk_image(Xm, rad, eps):
+    """the Krawczyk image (list of 3 arb) of the box Xm +- rad (same formula as krawczyk)"""
+    eps = arb(eps)
+    box = [arb(Xm[i], rad[i]) for i in range(3)]
+    f0, fe, em = f_mid_split(Xm, eps)
+    _, JX = fvec_jac(box, eps)
+    Jmid = fvec_jac(Xm, em)[1]
+    Y = arb_mat([[c.mid() for c in row] for row in Jmid]).inv()
+    Y = arb_mat([[Y[i, j].mid() for j in range(3)] for i in range(3)])
+    I3 = arb_mat([[1 if i == k else 0 for k in range(3)] for i in range(3)])
+    dev = arb_mat([[box[i] - Xm[i]] for i in range(3)])
+    Yfe = Y * arb_mat([[c] for c in fe])
+    Kx = arb_mat([[Xm[i]] for i in range(3)]) - Y * arb_mat([[c] for c in f0]) - Yfe * (eps - em) + (I3 - Y * arb_mat(JX)) * dev
+    return [Kx[i, 0] for i in range(3)]
+
 def krawczyk(Xm, rad, eps):
     """Krawczyk test on the box Xm +- rad, uniformly for all eps' in the ball eps.
     K = m - Y f(m; eps_m) - (Y d_eps f(m; E)) (E - eps_m) + (I - Y J(X; E)) (X - m)   (the product Y d_eps f is
@@ -498,3 +513,92 @@ def contour_D(R0, sigma, n_arc=96, n_seg=24):
         pts.append(complex(xs, Y1 - 2 * Y1 * k / n_seg))
     pts.append(pts[0])
     return pts, R1
+
+# ------------------------------------------------------------------------------------------------ localization without Gershgorin
+# P2 = A^3 phi^4 + (M A^3 - 3A^2) phi^3 + c2 phi^2 + c1 phi + c0,  c2 = 3A - M A^2 (1+2A) - A^2,
+# c1 = -1 + M A^2 (2+A) + 2A^2,  c0 = -(M A^2 + A^2)   (check_formulas.py F7);  for Re phi >= 1, |phi + M| >= M + 1:
+# |P2|/M >= A^3 r^3 - [3A^2 r^3 + (3A + A^2) r^2]/M - A^2(1+2A) r^2 - A^2(2+A) r - (1+2A^2) r/M - A^2 (1 + 1/M), r = |phi|.
+
+def _lb2b(Al, Ah, rl, rh, invMh):
+    return Al ** 3 * rl ** 3 - (3 * Ah ** 2 * rh ** 3 + (3 * Ah + Ah ** 2) * rh ** 2) * invMh \
+        - Ah ** 2 * (1 + 2 * Ah) * rh ** 2 - Ah ** 2 * (2 + Ah) * rh - (1 + 2 * Ah ** 2) * rh * invMh - Ah ** 2 * (1 + invMh)
+
+def loc_check_II2(eps, kap, a_lo, a_hi):
+    """as loc_check_II, with |P2| bounded below by max(LB2a, LB2b) (LB2b: large |phi|); no use of Gershgorin"""
+    eps = arb(eps); kap = arb(kap)
+    eh = arb_up(eps); el = arb(eps.lower())
+    if el < 0:
+        el = arb(0)
+    kl = arb(kap.lower()); kh = arb_up(kap)
+    Kl = kl * el; Kh = arb_up(kh * eh)
+    Al = 1 + Kl; Ah = 1 + Kh
+    al = arb(a_lo); ah = arb_up(a_hi)
+    ul = u_min(al, Kh); uh = ah
+    invMh = arb_up(eh * eh)
+    Mlo = 1 / invMh
+    kw_l = (Kl * Kl + 2 * Kl * Al * ul + Al * Al * al * al).sqrt()
+    kw_h = arb_up((Kh * Kh + 2 * Kh * Ah * uh + Ah * Ah * ah * ah).sqrt())
+    ph2_l = 1 + 2 * ul + al * al
+    ph2_h = arb_up(1 + 2 * uh + ah * ah)
+    ph_h = arb_up(ph2_h.sqrt()); ph_l = arb(ph2_l.sqrt().lower())
+    LB2a = arb((Al * Al * al * al * kw_l - (ph_h * kw_h ** 3 + Ah * Ah * ah * ah) * invMh).lower())
+    LB2b = arb(_lb2b(Al, Ah, ph_l, ph_h, invMh).lower())
+    LB2 = LB2a.max(LB2b)
+    UB1 = arb_up(Kh * (kw_h * kw_h * ph2_h + ah * ah) * invMh + (Kh + invMh) * ah * kw_h * (Kh + 2 * Ah * ah + Ah * ah * ah))
+    if eh > 0:
+        T = T_over_eps_bound(eps, kap, 0)
+        EXP = arb_up(T * ((Ah * Ah * (kw_h * kw_h * ph2_h + ah * ah) + Ah * ah ** 3 + Ah * Ah * ph2_h * kw_h * kw_h) * invMh
+                          + Ah * Ah * ph_h * kw_h * kw_h * ah))
+    else:
+        EXP = arb(0)
+    if not (LB2 > 0):
+        return arb(-1)
+    grow = arb((ph2_l ** (Mlo / 2)).lower())
+    return arb((grow * LB2 - UB1 - EXP).lower())
+
+def loc_tail(eps, kap, a_big):
+    """tail a >= a_big (>= 3): with r = |phi| >= a_big - 1 =: r_b >= 2, a <= 1.5 r, |K + A w| <= alpha r,
+    K + 2Aa + Aa^2 <= beta r^2 (alpha = K/2 + 1.5A, beta = K/4 + 3.75A):  UB1/M <= C1 r^4, EXP/M <= C2 r^4,
+    LB2b/M >= c r^3 (c = bracket at r_b, increasing in r);  F != 0 if r_b^(M_lo - 1) c > C1 + C2.  Returns margin."""
+    eps = arb(eps); kap = arb(kap)
+    eh = arb_up(eps); kh = arb_up(kap); kl = arb(kap.lower())
+    el = arb(eps.lower()); el = arb(0) if el < 0 else el
+    Kh = arb_up(kh * eh); Ah = 1 + Kh; Al = 1 + kl * el
+    invMh = arb_up(eh * eh); Mlo = 1 / invMh
+    rb = arb(a_big) - 1
+    assert rb >= 2
+    alpha = Kh / 2 + arb("1.5") * Ah; beta = Kh / 4 + arb("3.75") * Ah
+    C1 = Kh * (alpha ** 2 + arb("0.5625")) * invMh + arb("1.5") * (Kh + invMh) * alpha * beta
+    T = T_over_eps_bound(eps, kap, 0) if eh > 0 else arb(0)
+    C2 = T * ((Ah ** 2 * (alpha ** 2 + arb("0.5625")) + Ah * arb("1.6875") + Ah ** 2 * alpha ** 2) * invMh + Ah ** 2 * alpha ** 2 * arb("1.5"))
+    c = Al ** 3 - 3 * Ah ** 2 * invMh - (3 * Ah + Ah ** 2) * invMh / rb - Ah ** 2 * (1 + 2 * Ah) / rb \
+        - Ah ** 2 * (2 + Ah) / rb ** 2 - (1 + 2 * Ah ** 2) * invMh / rb ** 2 - Ah ** 2 * (1 + invMh) / rb ** 3
+    if not (c > 0):
+        return arb(-1)
+    return arb((rb ** (Mlo - 1) * c - C1 - C2).lower())
+
+def loc_check_II2_range(eps, kap, a_lo, a_big=12, n0=64, depth=14):
+    """F != 0 for a in [a_lo, infinity) (|phi| >= 1, Re lambda >= 0): adaptive cover of [a_lo, a_big] by
+    loc_check_II2, plus loc_tail on [a_big, infinity).  Returns (ok, count)."""
+    a_lo = arb(a_lo); a_big = arb(a_big)
+    if not (loc_tail(eps, kap, a_big) > 0):
+        return False, 0
+    # geometric subdivision
+    import math
+    l0 = math.log(float(a_lo.upper())); l1 = math.log(float(a_big))
+    stack = []
+    for i in range(n0):
+        lo = arb(math.exp(l0 + (l1 - l0) * i / n0)) if i else a_lo
+        hi = arb(math.exp(l0 + (l1 - l0) * (i + 1) / n0)) if i < n0 - 1 else a_big
+        stack.append((arb(arb(lo).lower()), arb_up(hi), 0))
+    cnt = 0
+    while stack:
+        lo, hi, d = stack.pop()
+        cnt += 1
+        if loc_check_II2(eps, kap, lo, hi) > 0:
+            continue
+        if d >= depth:
+            return False, cnt
+        mid = arb(((lo + hi) / 2).mid())
+        stack.append((lo, mid, d + 1)); stack.append((mid, hi, d + 1))
+    return True, cnt
