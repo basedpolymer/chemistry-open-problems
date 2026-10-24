@@ -3,7 +3,7 @@
 Solver: Claude Opus 5.5 (effort not recorded). Date: 2026-10-24. Status: **no unconditional progress on U1/U2.**
 What is proved below is a *conditional* quantitative sub-ballisticity theorem for strict SAW on Z^3, an
 unconditional inequality behind it, and an elementary lemma that reduces the two critical inputs of the
-Krachun–Panagiotis method to a single one in dimension three. None of this is U1 or U2; see Section 6.
+Krachun–Panagiotis method to a single one in dimension three. None of this is U1 or U2; see Sections 6-7.
 
 ## 0. Summary of claims
 
@@ -15,6 +15,8 @@ Krachun–Panagiotis method to a single one in dimension three. None of this is 
 | TA | **Theorem A** (unconditional): explicit bound on P_n(max_k ||gamma_k||_inf >= h) in terms of B_m(z_c) and sum_M e^{-2tM} B_M(z_c)^2 | PROVED (Section 4) |
 | CB | **Corollary B** (conditional U1): if S := sum_{T>=1} B_T(z_c)^2 < infinity then P_n(max_k ||gamma_k||_inf >= 24 log(2K) n/log n) <= exp(-(log(2K)/4) n^{2/3}) for n >= n_0(S), K = max(1, 4 z_c + 2S); hence E_n||gamma_n||^2 <= (1+o(1)) 1728 (log 2K)^2 n^2/(log n)^2 | PROVED, conditional on hypothesis (H) |
 | CB2 | Same with the weaker hypothesis sum_{M<=L} B_M(z_c)^2 <= C_2 (1+log L)^p: rate n log log n / log n | PROVED, conditional (Section 5) |
+| P5 | GF version: m(z_c e^{-t}) >= (1/m) log(1/B_m(z_c)) whenever z_c e^{-t} theta^{1/m} < z_c, theta >= 1 + 4z' + 2A(z') | PROVED (Section 5) |
+| CC | **Corollary C** (conditional): under (H), the mass satisfies m(z_c e^{-t}) >= t log(1/t)/(9 log(1 + 4z_c + 2S)) for small t (correlation length o((z_c - z)^{-1}) with a log rate) | PROVED, conditional on (H) |
 | P4 | B_T(z_c) is the renewal sequence of the heights of irreducible bridges; B_T(z_c) -> 1/E_iSAB[height]; (H) implies E_iSAB[height] = infinity | PROVED from CITED (Section 6) |
 | H | (H) holds in d = 3 (B_T(z_c) ~ T^{-a}, a = 1 - gamma_b/nu ~ 0.66 > 1/2) and fails in d = 2 (a = 1/4) | HEURISTIC (scaling + numerics, Section 6) |
 
@@ -37,7 +39,7 @@ height of omega(i), |omega| for its number of steps.
   **Lower arch**: same with "<". A(z) = sum over upper arches from 0 of z^{|omega|}; by the reflection
   x_1 -> -x_1 the lower arches from 0 have the same generating function.
 * P_D(A) = number of ways to write A = A_1 + ... + A_k with A_1 > ... > A_k >= 1 (BDGS Theorem 2.4 notation);
-  P*_D(N) = max(1, max_{1<=A<=N} P_D(A)).
+  P*_D(N) = max(1, max_{1<=A<=N} P_D(A)) for N >= 0 (so P*_D(0) = 1).
 * **Hypothesis (H)**: S := sum_{T>=1} B_T(z_c)^2 < infinity.
 
 Cited facts (each read in the source):
@@ -209,19 +211,61 @@ L >= 1, some C_2 > 0, p > 0 (this includes B_T(z_c) <= C_1 T^{-1/2}, with p = 1)
 such that P_n(max_k ||gamma(k)||_inf >= C n log log n / log n) <= exp(-c n^{2/3}) for n >= n_0; hence
 E_n||gamma(n)||^2 = O(n^2 (log log n)^2/(log n)^2).
 
-*Proof.* Apply Theorem A with t = 1/m. Then e^{t(n+1)} (2K_t)^{(n+2)/m} <= (2e K_t)^{(n+2)/m} and the factor
-e^{-tms} <= 1 is dropped. Splitting M into blocks [jm, (j+1)m),
-  sum_M e^{-2M/m} B_M(z_c)^2 <= sum_{j>=0} e^{-2j} C_2 (1 + log m + j)^p <= C_2 c_p (1 + log m)^p,
+*Proof.* Let n >= 8, M = ceil(n^{1/3}), and choose m in [M, 2M) with
+B_m(z_c)^2 <= (1/M) sum_{k<2M} B_k(z_c)^2 <= C_2 (1 + log 2M)^p / M. Then
+  log(1/B_m(z_c)) >= g0 := (1/6) log n - (p/2) log(1 + log(4 n^{1/3})) - (1/2) log C_2 = (1/6 - eps_n) log n,
+with eps_n = O(log log n / log n). Apply Theorem A with t = 1/m: e^{t(n+1)} (2K_t)^{(n+2)/m} <= (2e K_t)^{(n+2)/m},
+and the factor e^{-tms} <= 1 is dropped. Splitting the summation index k into blocks [jm, (j+1)m), on which
+e^{-2k/m} <= e^{-2j}, and using log((j+1)m) <= log m + j and 1 + a + b <= (1+a)(1+b),
+  sum_{k>=1} e^{-2k/m} B_k(z_c)^2 <= sum_{j>=0} e^{-2j} C_2 (1 + log m + j)^p <= C_2 c_p (1 + log m)^p,
   c_p := sum_{j>=0} e^{-2j} (1+j)^p,
-so log(2e K_t) <= p log(1 + log m) + C_3. Choosing, as before, m in [M, 2M) with
-B_m(z_c)^2 <= C_2 (1 + log 2M)^p / M and M = ceil(n^{1/3}), we get log(1/B_m) >= (1/6) log n - O(log log n).
-The computation of Corollary B with log(2K) replaced by log(2e K_t) = O(log log n) and the gain
-s log(1/B_m) >= (h/(2M) - 2) ((1/6) log n - O(log log n)) gives the claim with
-h = C n log log n / log n for C large enough. QED
+so Lambda_n := log(2e K_{1/m}) <= p log(1 + log(2M)) + C_3 = O(log log n), and Lambda_n >= log(2e) > 1.
+Let h = ceil(24 Lambda_n n / log n) (so h = O(n log log n/log n) and h >= 2m for n large). Then
+s = floor(h/m) - 1 >= 12 Lambda_n n/(M log n) - 2 and s log(1/B_m) >= s g0, so by Theorem A
+  log P <= E(n) + Lambda_n (n+2)/M - (12 Lambda_n n/(M log n) - 2) (1/6 - eps_n) log n
+        <= - Lambda_n (n/M) (1 - 12 eps_n) + 2 Lambda_n/M + (1/3) log n + E(n),
+with E(n) = O(sqrt(n) log n) as in Corollary B. For n large, 12 eps_n <= 1/4 and the last three terms are
+<= (1/4) n/M <= (1/4) Lambda_n n/M, so log P <= -(1/2) Lambda_n n/M <= -(1/4) n^{2/3}. The second-moment bound
+follows as in Corollary B. QED
 
-**Remark (what the method cannot give).** (i) Polynomial rates (U2) are out of reach of Theorem A: the gain per
-bridge block of height m is log(1/B_m(z_c)), which is O(log m) because B_T(z_c) cannot decay faster than ~1/T on
-average (Section 6, item 4); so the method stops at n/log n, as in Krachun–Panagiotis. (ii) If only
+**Proposition 5 (generating-function version: mass).** Let m(z) be the mass of the two-point function; for
+0 < z < z_c, m(z) = lim_{L->inf} -(1/L) log B_L(z) [Madras–Slade Proposition 4.1.8 (existence of the limit
+Mbar(z) for the point-to-plane bridge generating function B_z(L) = B_L(z)) and Theorem 4.1.14 (m = Mbar on
+(0, z_c))]. (Notation clash: m(.) is the mass, the integer m is the block height.) Let t > 0, theta >= 1 and
+m >= 1 be such that z' := z_c e^{-t} theta^{1/m} < z_c and
+theta >= 1 + 4z' + 2A(z'). Then
+  m(z_c e^{-t}) >= (1/m) log(1/B_m(z')) >= (1/m) log(1/B_m(z_c)).
+
+*Proof.* Put z = z_c e^{-t} and fix L >= 2m. For a bridge gamma of height exactly L (any length) choose i with
+V_i(gamma) <= (|gamma|+1)/m (pigeonhole as in Proposition 3); then theta^{(|gamma|+1)/m - V_i(gamma)} >= 1, so
+  B_L(z) <= sum_i sum_gamma z^{|gamma|} theta^{(|gamma|+1)/m - V_i(gamma)}
+         = theta^{1/m} sum_i sum_gamma (z')^{|gamma|} theta^{-V_i(gamma)}.
+Decompose gamma exactly as in Proposition 3 (with h = L, s = floor(L/m) - 1) and use theta^{-V_i} <=
+theta^{-(I_0 + ... + I_s)}. The c_j-factor becomes, for each j, sum_{I>=1} theta^{-I} (4z' + 2A(z'))^{I-1}
+= 1/(theta - 4z' - 2A(z')) <= 1. Hence
+  B_L(z) <= theta^{1/m} m . m . B_m(z')^{floor(L/m)-1} . B(z'),   B(z') = sum_T B_T(z') < infinity (z' < z_c).
+Take -(1/L) log and let L -> infinity. The last inequality is B_m(z') <= B_m(z_c). QED
+
+**Corollary C (mass under (H)).** Assume (H) and put theta_0 = 1 + 4z_c + 2S. There is t_0(S) > 0 such that for
+0 < t <= t_0,
+  m(z_c e^{-t}) >= t log(1/t) / (9 log theta_0),
+i.e. the correlation length xi(z) = 1/m(z) satisfies xi(z) (z_c - z) -> 0 at rate O(1/log(1/(z_c - z))).
+
+*Proof.* By Lemma 1, 1 + 4z' + 2A(z') <= theta_0 for every z' <= z_c, so theta = theta_0 is admissible as soon as
+m > log(theta_0)/t. Let M = ceil(2 log(theta_0)/t); every m in [M, 2M) qualifies, and one of them has
+B_m(z_c)^2 <= S/M. Proposition 5 gives m(z_c e^{-t}) >= (1/(2M)) (1/2) log(M/S) = log(M/S)/(4M). As t -> 0,
+M ~ 2 log(theta_0)/t and log(M/S) = log(1/t) + O(1), so the right side is (1 + o(1)) t log(1/t)/(8 log theta_0),
+which is >= t log(1/t)/(9 log theta_0) for t small. QED
+
+(Consistency check, not needed elsewhere: Corollary C with the elementary inequality of `attempts.md` C1,
+P_n(||gamma(n)||_inf >= L) <= 6 z^{-2} e^{tn + 8/t} e^{-m(z) L}/(1 - e^{-m(z)}), at t = n^{-1/2} again gives an
+endpoint bound at scale L ~ C n/log n.)
+
+**Remark (what the method cannot give; heuristic).** (i) The gain per bridge block of height m is
+log(1/B_m(z_c)); a polynomial rate (U2) from Theorem A would need log(1/B_m(z_c)) >> log m, i.e. B_m(z_c) decaying
+faster than any power along usable m. Section 6, item 4 shows that B_T(z_c) is not o(1/T) on average (Abel sense);
+isolated very small values are not excluded rigorously, but nothing suggests them. So the method is expected to
+stop at n/log n, as in Krachun–Panagiotis. (ii) If only
 B_T(z_c) <= C T^{-a} with a < 1/2 is known, Theorem A with t = 1/m gives (by the computation of Corollary B2, with
 K_t <= C' m^{1-2a}) only a linear-speed bound with v > (1 - 2a)/a + o(1) — nontrivial only for a > 1/3, and not
 sub-ballisticity. This remark is a computation, not a verified claim.
@@ -236,14 +280,15 @@ sub-ballisticity. This remark is a computation, not a verified claim.
    its irreducible pieces gives
      B_T(z_c) = sum_k P(H_1 + ... + H_k = T) =: u_T,   H_i i.i.d. ~ P_iSAB(H in .),
    i.e. B_T(z_c) is the renewal sequence of the heights. Since P_iSAB(H = 1) >= P_iSAB(gamma = one step) =
-   mu^{-1} > 0 the renewal is aperiodic, and the Erdos–Feller–Pollard renewal theorem gives
-   B_T(z_c) -> 1/E_iSAB[H] (= 0 if the mean is infinite). Hence **B_T(z_c) -> 0 iff E_iSAB[H] = infinity**, and
+   mu^{-1} > 0, the Renewal Theorem in the form of Madras–Slade Theorem 4.2.2(b) (hypothesis f_1 > 0, f = 1;
+   here f_k = P_iSAB(H = k), g_n = delta_{n,0}) gives B_T(z_c) -> 1/E_iSAB[H] (= 0 if the mean is infinite). Hence **B_T(z_c) -> 0 iff E_iSAB[H] = infinity**, and
    (H) implies both. (DCH Theorem 2.5 gives E_iSAB[|gamma|] = infinity, the statement about *lengths*; the
    statement about *heights* is stronger, since H <= |gamma|. For lengths, Madras–Slade (1993, p. 92) still wrote
    "it is believed that lim_N b_N/mu^N = 0, but there is no known proof of this"; DCH settled that, without rate.)
-2. (Elementary.) sum_T u_T^2 is the expected number of common renewal heights of two independent copies, so
-   (H) says: two independent critical infinite bridges (DCH's P_iSAB^{tensor N}) have a.s. finitely many common
-   cut-plane heights. Equivalently (Lemma 0(a) is an identity here) sum_T B_T(z_c)^2 is the critical weight of
+2. (Elementary.) sum_T u_T^2 is the expected number of common renewal heights of two independent copies of the
+   height renewal process; so (H) implies that two independent critical infinite bridges (DCH's
+   P_iSAB^{tensor N}) a.s. have finitely many common cut-plane heights (and conversely, since the common renewal
+   heights form a renewal process, which is a.s. finite only if its expected number of points is finite). Equivalently (Lemma 0(a) is an identity here) sum_T B_T(z_c)^2 is the critical weight of
    bridges of height 2T having a renewal point at height T, summed over T.
 3. (Open as far as I could find.) I did not find a proof of B_T(z_c) -> 0 on Z^d, d = 2, 3, 4, in the sources
    read (DCH 2013, DGHM 2016, DCGHM 2020, Hutchcroft 2018, Hammond 2019 x2, BDGS lectures, Glazman–Manolescu 2020,
@@ -253,8 +298,9 @@ sub-ballisticity. This remark is a computation, not a verified claim.
    function of bridges of a given height at the critical point x_c = 1/µ that goes to 0 as the height goes to
    infinity."
 4. (CITED, constraint.) Madras–Slade (3.1.14), as restated in Hutchcroft Remark 2.5: B((1-e) z_c) >=
-   1 + (1/2) log[(1-e) z_c] + (1/2) log(1/e). With Lemma 0(c), sum_T e^{-tT} B_T(z_c) >= (1/2) log(1/t) - O(1):
-   B_T(z_c) is not o(1/T) in the Abel sense. So (H) requires a decay exponent a in (1/2, 1].
+   1 + (1/2) log[(1-e) z_c] + (1/2) log(1/e). With Lemma 0(c) (z = z_c e^{-t}, e = 1 - e^{-t} <= t),
+   sum_T e^{-tT} B_T(z_c) >= B(z) >= (1/2) log(1/t) - O(1). Hence B_T(z_c) <= eps/T for all large T is impossible
+   for eps < 1/2. So a power law B_T(z_c) ~ T^{-a} compatible with (H) must have a in (1/2, 1].
 5. (HEURISTIC.) Scaling: if B_T(z) ~ T^{-a} g(T/xi(z)) with xi ~ (z_c - z)^{-nu}, then
    B(z) = sum_T B_T(z) ~ (z_c - z)^{-nu(1-a)}, so gamma_b = nu (1 - a), a = 1 - gamma_b/nu, where
    b_n ~ mu^n n^{gamma_b - 1}; equivalently a = -gamma_11/nu with the (physics) scaling relation
@@ -264,7 +310,7 @@ sub-ballisticity. This remark is a computation, not a verified claim.
    gamma_b = 0.199 +- 0.002 (and gamma_11 = -0.3874 +- 0.0024); with nu = 0.587597 this gives
    a ~ 0.661, 2a ~ 1.32 > 1: **(H) is expected to hold in d = 3**, with some margin, and the conditional theorem
    is expected to be "true but unproved input" in d = 3, and false-input in d = 2. In mean field (d >= 5) a = 1.
-6. My own exact enumeration (n <= 19, `attempts.md`, Section G) confirms Lemma 1 coefficientwise but is far too
+6. My own exact enumeration (n <= 17, `attempts.md`, Section G) confirms Lemma 1 coefficientwise but is far too
    short to estimate a.
 
 ## 7. Novelty assessment (honest)
@@ -275,8 +321,12 @@ sub-ballisticity. This remark is a computation, not a verified claim.
   sum_k G_k, which KP obtain from the parafermionic observable and say is "only known in the case of the
   hexagonal lattice among low dimensional lattices") by sum_M B_M(z)^2; and the resulting observation that in
   d = 3 the KP route needs **one** critical input, (H), which is heuristically true in d = 3 and false in d = 2.
-  Lemma 1 is elementary; I would not be surprised if it is folklore. Not checked: Madras–Slade's book (requested in
-  NEEDS.md), Glazman–Manolescu in full, Beaton et al. 2014.
+  Lemma 1 itself is elementary and its technique is standard: Glazman–Manolescu (arXiv:1708.00395v3, Section 5.4,
+  proof of Theorem 3) split a walk at its first visit to its extreme column into two pieces that are (after local
+  modification) bridges and bound the result by delta sum_T B_{T}(x, y)^2; Madras–Slade Lemma 4.1.12 and
+  Hammersley–Welsh use related reflections. What I have not seen is its use as a substitute for KP's Lemma 2.2 and
+  the resulting single-hypothesis statement on Z^3. Madras–Slade Ch. 3-4 (owner-supplied excerpts) contain no
+  statement on B_{z_c}(L) as L -> infinity. Not read in full: Beaton et al. 2014, Glazman–Manolescu.
 * This is **not** U1 or U2: no explicit rate for E_n|omega_n|^2 on Z^3 is proved unconditionally. DCH's
   Question 1 and the literature's "it is not proved that R_n <= C n^{0.99999}" (Slade 2019, Sec. 2.1.3, via
   literature/quick-facts.md A5) stand.

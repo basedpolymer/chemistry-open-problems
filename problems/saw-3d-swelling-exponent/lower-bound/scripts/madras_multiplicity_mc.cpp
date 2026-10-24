@@ -66,7 +66,7 @@ int main(int argc,char**argv){
   long acc=0; for(long t=0;t<40L*N;t++) acc+=pivot_attempt();
   const int NM=6; int ms[NM]={2,4,8,16,32,64};
   long nnear[NM]={0}; double sumK[NM]={0}, sumRt[NM]={0}, sumRh[NM]={0}, sumCand[NM]={0}, sumCandRen[NM]={0}, sumCandSAW[NM]={0};
-  long histK[NM][8]={{0}}; long pivok[NM][8]={{0}};
+  long histK[NM][8]={{0}}; long pivok[NM][8]={{0}}; long smallspan[NM]={0}; double sumspan[NM]={0};
   double sumE2=0;
   int stride = 10;
   for(long s=0;s<samples;s++){
@@ -79,7 +79,7 @@ int main(int argc,char**argv){
     int b = psi[N][d.I]; int bn = ninf(psi[N]); int sg = (b>0)?1:-1;
     // renewal depth counts (orientation: top at H, sign sg0 = sign(H))
     int s0 = (d.H>0)?1:-1; int Ha = abs(d.H);
-    for(int mi=0;mi<NM;mi++){ int m=ms[mi]; if(en>m) continue; nnear[mi]++;
+    for(int mi=0;mi<NM;mi++){ int m=ms[mi]; if(en>m) continue; nnear[mi]++; if(d.span<=m) smallspan[mi]++; sumspan[mi]+=d.span;
       // renewal depths of tail and head within m of the top
       int Rt=0,Rh=0;
       for(int j=1;j<=m && j<=2*Ha;j++){ int lev=Ha-j; // in oriented coordinate y = s0*x_I
@@ -116,10 +116,10 @@ int main(int argc,char**argv){
     }
   }
   printf("# N=%d samples=%ld stride=%d  mean |w_N|^2 = %.2f\n",N,samples,stride,sumE2/samples);
-  printf("# m  n_near  P(near)  meanK  m+1  meanCand  meanCandRenewal  meanCandSAW  meanRtail  meanRhead  histK[0..7+]  transversePivotValidFrac[g0..g7]\n");
+  printf("# m  n_near  P(near)  meanK  m+1  meanCand  meanCandRenewal  meanCandSAW  meanRtail  meanRhead  histK[0..7+]  transversePivotValidFrac[g0..g7]  fracSpan<=m meanSpan\n");
   for(int mi=0;mi<NM;mi++){ double n=nnear[mi]; if(n==0){ printf("%d 0\n",ms[mi]); continue; }
     printf("%d %ld %.5f %.3f %d %.3f %.3f %.3f %.3f %.3f  ",ms[mi],nnear[mi],n/samples,sumK[mi]/n,ms[mi]+1,sumCand[mi]/n,sumCandRen[mi]/n,sumCandSAW[mi]/n,sumRt[mi]/n,sumRh[mi]/n);
     for(int k=0;k<8;k++) printf("%ld ",histK[mi][k]); printf(" ");
-    for(int g=0;g<8;g++) printf("%.3f ",pivok[mi][g]/n); printf("\n"); }
+    for(int g=0;g<8;g++) printf("%.3f ",pivok[mi][g]/n); printf(" fracSpan<=m=%.4f meanSpan=%.1f\n",smallspan[mi]/n,sumspan[mi]/n); }
   return 0;
 }

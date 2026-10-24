@@ -48,8 +48,8 @@ f(k) of iterated-logarithmic type. I did not carry this out, because of A4.
 P(height >= vn) >= e^{-eps n} implies P(|R| >= delta(v) n) >= e^{-g(eps, v) n} with g -> 0, and then contradict
 the renewal large deviation P_SAB_n(|R| >= rho n) <= exp(-I_R(rho) n + C sqrt n). Two facts:
 * (PROVED, elementary) I_R(rho) <= rho log mu + o(1): concatenating rho n one-step bridges with a bridge of length
-  (1 - rho) n gives P_SAB_n(|R| >= rho n) >= b_{(1-rho)n} mu^{-rho n}/b_n >= mu^{-rho n} e^{-C sqrt n}
-  (b_n <= mu^n, b_k >= mu^k e^{-C sqrt k}). Moreover I_R(rho) = rho Lambda*(1/rho) (Cramer for the i.i.d. lengths)
+  (1 - rho) n gives P_SAB_n(|R| >= rho n) >= b_{(1-rho)n}/b_n >= b_{(1-rho)n}/mu^n >= mu^{-rho n} e^{-C sqrt n}
+  (b_n <= mu^n, BDGS (2.4); b_k >= mu^{k-1} e^{-B sqrt(k-1)}, BDGS Cor. 2.7). Moreover I_R(rho) = rho Lambda*(1/rho) (Cramer for the i.i.d. lengths)
   and Lambda*(x) -> 0 as x -> infinity, so I_R(rho) = o(rho) (heuristically ~ rho^{1/(1-gamma_b)} ~ rho^{1.25} in
   d = 3).
 * (Bookkeeping of DCH's proof) The three cases of Prop. 3.2 with explicit parameters: zigzag density threshold eta,
@@ -115,7 +115,8 @@ B(z_c e^{-t}) <= 1/(1-e^{-t}) <= 2/t for t <= 1 (Hutchcroft, proof of Prop. 2.2)
   P_n(||gamma(n)||_inf >= L) <= 6 sum_{L'>=L} G_z(L') z^{-n}/c_n <= 6 z^{-2} e^{tn + 8/t} e^{-m(z) L}/(1 - e^{-m(z)}).
 So, on the exponential scale, a rate for sub-ballisticity is the same problem as a bound
 m(z_c e^{-t}) >= t psi(t) with explicit psi -> infinity ("correlation length << (z_c - z)^{-1}"). Under (H) the GF version of Proposition 3 (sum over all lengths, weight
-theta^{(|gamma|+1)/m - V_i}) gives m(z_c e^{-t}) >= c t log(1/t) (sketch, not written up).
+theta^{(|gamma|+1)/m - V_i}) gives m(z_c e^{-t}) >= c t log(1/t): written up and PROVED as result.md
+Proposition 5 / Corollary C.
 
 **C2. Irreducible-bridge formulation (elementary).** B(z, s) = sum_T B_T(z) e^{sT} = 1/(1 - Lambda(z, s)),
 Lambda(z_c e^{-t}, s) = E_iSAB[e^{sH - tL}]; m(z_c e^{-t}) = sup{s : Lambda <= 1}. Sub-ballisticity with rate psi
