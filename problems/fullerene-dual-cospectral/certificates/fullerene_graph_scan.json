@@ -1,0 +1,290 @@
+{
+ "20": {
+  "n": 20,
+  "isomers": 1,
+  "oeis": 1,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "24": {
+  "n": 24,
+  "isomers": 1,
+  "oeis": 1,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "26": {
+  "n": 26,
+  "isomers": 1,
+  "oeis": 1,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.1
+ },
+ "28": {
+  "n": 28,
+  "isomers": 2,
+  "oeis": 2,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.1
+ },
+ "30": {
+  "n": 30,
+  "isomers": 3,
+  "oeis": 3,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "32": {
+  "n": 32,
+  "isomers": 6,
+  "oeis": 6,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.1
+ },
+ "34": {
+  "n": 34,
+  "isomers": 6,
+  "oeis": 6,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "36": {
+  "n": 36,
+  "isomers": 15,
+  "oeis": 15,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "38": {
+  "n": 38,
+  "isomers": 17,
+  "oeis": 17,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "40": {
+  "n": 40,
+  "isomers": 40,
+  "oeis": 40,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "42": {
+  "n": 42,
+  "isomers": 45,
+  "oeis": 45,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "44": {
+  "n": 44,
+  "isomers": 89,
+  "oeis": 89,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "46": {
+  "n": 46,
+  "isomers": 116,
+  "oeis": 116,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "48": {
+  "n": 48,
+  "isomers": 199,
+  "oeis": 199,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "50": {
+  "n": 50,
+  "isomers": 271,
+  "oeis": 271,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "52": {
+  "n": 52,
+  "isomers": 437,
+  "oeis": 437,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.0
+ },
+ "54": {
+  "n": 54,
+  "isomers": 580,
+  "oeis": 580,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.1
+ },
+ "56": {
+  "n": 56,
+  "isomers": 924,
+  "oeis": 924,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.1
+ },
+ "58": {
+  "n": 58,
+  "isomers": 1205,
+  "oeis": 1205,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.1
+ },
+ "60": {
+  "n": 60,
+  "isomers": 1812,
+  "oeis": 1812,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.2
+ },
+ "62": {
+  "n": 62,
+  "isomers": 2385,
+  "oeis": 2385,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.2
+ },
+ "64": {
+  "n": 64,
+  "isomers": 3465,
+  "oeis": 3465,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.2
+ },
+ "66": {
+  "n": 66,
+  "isomers": 4478,
+  "oeis": 4478,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.8
+ },
+ "68": {
+  "n": 68,
+  "isomers": 6332,
+  "oeis": 6332,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 0.7
+ },
+ "70": {
+  "n": 70,
+  "isomers": 8149,
+  "oeis": 8149,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 1.0
+ },
+ "72": {
+  "n": 72,
+  "isomers": 11190,
+  "oeis": 11190,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 1.3
+ },
+ "74": {
+  "n": 74,
+  "isomers": 14246,
+  "oeis": 14246,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 1.6
+ },
+ "76": {
+  "n": 76,
+  "isomers": 19151,
+  "oeis": 19151,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 2.4
+ },
+ "78": {
+  "n": 78,
+  "isomers": 24109,
+  "oeis": 24109,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 3.2
+ },
+ "80": {
+  "n": 80,
+  "isomers": 31924,
+  "oeis": 31924,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 3.3
+ },
+ "82": {
+  "n": 82,
+  "isomers": 39718,
+  "oeis": 39718,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 5.9
+ },
+ "84": {
+  "n": 84,
+  "isomers": 51592,
+  "oeis": 51592,
+  "K": 24,
+  "key_collisions": 0,
+  "cospectral_classes_exact": [],
+  "seconds": 5.7
+ }
+}

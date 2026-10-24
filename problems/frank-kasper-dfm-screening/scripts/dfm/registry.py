@@ -77,8 +77,9 @@ def get(name):
         L, P, lab = PAPER[name]()
         tets, info = topology.periodic_delaunay(L, P, reach=1)
         return {"name": name, "L": L, "P": P, "labels": lab, "tets": tets, "init": "circ", "info": info}
-    if name.startswith("cat:") or name.startswith("cat2:"):
-        part = 1 if name.startswith("cat:") else 2
+    if name.split(":")[0] in ("cat", "cat2", "catR", "cat2R"):
+        pref = name.split(":")[0]
+        part = 1 if pref in ("cat", "catR") else 2
         cid = name.split(":", 1)[1]
         d = os.path.join(SRC, "ListDATApaper" if part == 1 else "ListDATApaperStr")
         blk = cgd.parse_cgd(os.path.join(d, cid + ".cgd"))
@@ -96,6 +97,18 @@ def get(name):
         info = {"group": blk["group"], "nmiss": nmiss, "manifold": ok, "embedded": bool(embedded),
                 "delaunay": bool(delaunay), "cell_cgd": blk["cell"]}
         deg = cgd.contact_degree(len(P), edges)
+        if pref.endswith("R"):
+            # spring re-embedding of the contact graph (see embed.py); tetrahedra stay positive
+            from . import embed
+            L, P, eS, nitS = embed.reembed(L, P, edges, tets, deg)
+            info["reembedded"] = True
+            info["spring_energy"] = float(eS)
+            try:
+                dt, dinfo = topology.periodic_delaunay(L, P, reach=1)
+                delaunay = set(dt) == set(tets)
+            except Exception:
+                delaunay = False
+            info["delaunay"] = bool(delaunay)
         info["coord_declared_doubled"] = bool(np.all(np.array(coord) == 2 * deg))
         return {"name": name, "L": L, "P": P, "labels": deg.tolist(), "tets": tets,
                 "init": "circ" if delaunay else "centroid", "info": info}

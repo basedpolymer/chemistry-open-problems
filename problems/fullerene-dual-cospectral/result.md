@@ -110,10 +110,14 @@ cospectral T^6 graphs of two C_n isomers are isomorphic), it holds for every n �
 
 **R6 (Conjecture 3 of arXiv:2410.19322) — false for every α = β ∈ (0, 1).** The duals of **C44:72** and
 **C44:80** are non-isomorphic and have the same signless Laplacian A + D characteristic polynomial (exact), hence
-ch_{α,α}(T) = tr exp(α(A + D)) coincide for every α. Further A + D-cospectral pairs at n = 84 and 92 (none other
-for n ≤ 104 with K = 20; for 106 ≤ n ≤ N the scan with K = 16 found no further one). For the authors' preferred
+ch_{α,α}(T) = tr exp(α(A + D)) coincide for every α. Further A + D-cospectral pairs: one each at n = 84 and n = 92, and none other for
+n ≤ 122 (the A + D type was scanned exhaustively up to n = 122 only). For the authors' preferred
 parameters (α, β) = (1/2, 1/4), i.e. the matrix 2A + D, no cospectral pair exists for n ≤ 104 (exhaustive); a
-coincidence of these transcendental characters without cospectrality was not investigated.
+coincidence of these transcendental characters without cospectrality was not investigated. Hence: under the
+natural (universal) reading "for all α, β ∈ (0, 1)" Conjecture 3 is false; under an existential reading (some
+fixed pair (α, β) separates all duals) our pair only excludes the diagonal α = β. Since 2A + D-cospectrality is
+implied by "A + cD-cospectral for every c", no two duals with n ≤ 104 have the same bivariate polynomial
+det(xI − A − cD) either.
 
 ## 3. Theorem 2 (cap rotation) and its proof
 

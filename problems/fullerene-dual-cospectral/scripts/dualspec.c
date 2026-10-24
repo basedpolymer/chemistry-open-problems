@@ -17,6 +17,7 @@
  *   4  : A(T5)           adjacency matrix of the subgraph induced by degree-5 vertices (pentagons)
  *   8  : 2A + D  on T    (spectrum determines the (1/2,1/4)-character tr exp(A/2 + D/4))
  *  16  : A + D   on T    (signless Laplacian; (1/2,1/2)-character)
+ *  64  : GENERIC mode: hash only A(G) of the input graph G, any degrees (used for the fullerene graphs)
  *  32  : A + tP  on T    P = diag(1 on pentagons), t = fixed odd 64-bit constant: detects pairs with equal
  *                        bivariate polynomial det(xI - A - sP) (=> A + cD cospectral for every real c)
  *
@@ -174,6 +175,10 @@ static long tinsert(table *T, u64 h1, u64 h2, uint32_t idx) {
 int main(int argc, char **argv) {
     if (argc < 2) { fprintf(stderr, "usage: dualspec MASK [K]\n"); return 1; }
     int mask = atoi(argv[1]);
+    /* mask 64: GENERIC mode -- the input graphs are arbitrary (e.g. the fullerene graphs themselves, buckygen -d);
+       only type 0 = adjacency matrix of the input graph is hashed, no degree checks */
+    int generic = (mask & 64) != 0;
+    if (generic) mask = 1;
     int Karg = argc > 2 ? atoi(argv[2]) : 0;
     int print5 = argc > 3 ? atoi(argv[3]) : 0; /* print T5 collisions too */
     char hdr[16];
@@ -197,9 +202,9 @@ int main(int argc, char **argv) {
             all[v] = v; dzero[v] = 0;
             if (deg[v] == 5) { v5[n5++] = v; }
             else if (deg[v] == 6) { v6[n6++] = v; }
-            else { fprintf(stderr, "degree not 5/6 in graph %llu\n", (unsigned long long)count); return 2; }
+            else if (!generic) { fprintf(stderr, "degree not 5/6 in graph %llu\n", (unsigned long long)count); return 2; }
         }
-        if (n5 != 12) { fprintf(stderr, "n5 != 12\n"); return 2; }
+        if (n5 != 12 && !generic) { fprintf(stderr, "n5 != 12\n"); return 2; }
         nsum5 += n5; nsum6 += n6;
         uint32_t idx = (uint32_t)count;
         for (int ty = 0; ty < 6; ty++) {
