@@ -89,3 +89,22 @@ screened FK structures beyond the 11 of [1] with the DFM?
 
 Conclusion: no prior DFM evaluation of the catalogue structures was found (bounded search; OpenAlex and GitHub-user
 checks incomplete for the reasons stated).
+
+## Continuation sources and bounded search, 25 Oct 2026
+
+- H. F. Blichfeldt, *The minimum value of quadratic forms, and the closest packing of spheres*,
+  Math. Ann. 101 (1929) 605–608, [DOI 10.1007/BF01454863](https://doi.org/10.1007/BF01454863).
+  Publisher metadata checked; full article not obtained. The elementary weight argument needed for
+  the bound 5/(4√2) is rederived in full in our manuscript, without relying on unread proof details.
+- T. Hales et al., *A formal proof of the Kepler conjecture*, Forum Math. Pi 5 (2017), e2,
+  [DOI 10.1017/fmp.2017.1](https://doi.org/10.1017/fmp.2017.1), arXiv:1501.02155.
+  Read abstract, introduction and Section 3 of the [arXiv HTML](https://arxiv.org/html/1501.02155v1),
+  including the packing-density bound π/√18 and its quantifiers. Journal metadata confirmed at
+  Cambridge. Used as an established theorem; no claim to have reviewed the complete formal proof
+  or rerun Flyspeck. The DFM-specific reduction and rational constants are supplied here.
+- A new bounded web search for “Frank Kasper diblock foam model sigma globally minimal 2025 2026”
+  and “foam area moment energy Frank Kasper phase optimization lower bound sigma Reddy” returned
+  the original DFM work, reviews, and SCFT/experimental studies. The publisher abstract for
+  Zhuang et al., DOI 10.1021/acs.macromol.4c02119, concerns seven-phase SCF comparisons, not a
+  global geometric DFM proof. No complete catalogue-wide proof was found in this search.
+  This is not an exhaustive literature claim or a novelty claim for the analytic reductions.

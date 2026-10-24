@@ -178,3 +178,86 @@ Le classement global des infima n'est ni prouvé ni réfuté. Il manque une
 borne inférieure assez forte sur les classes concurrentes, incluant leurs
 limites dégénérées ; aucun article supplémentaire identifié ne ferme ce
 point. Aucun sous-agent n'a été utilisé.
+
+## 2026-10-25 — 7. Reprise : écart uniforme au modèle sphérique
+
+La demande de résolution complète est reprise au niveau des minorants, sans
+sous-agents. Répéter les optimisations locales ne fermerait pas ce verrou.
+L'analyse porte sur une éventuelle suite de partitions dont F tendrait vers 1,
+en autorisant toutes les boîtes et des volumes positifs arbitrairement petits.
+
+Une normalisation des rayons équivalents r_i par la moyenne harmonique,
+pondérée par les volumes, donne une estimation simultanée de leur dispersion
+et du volume manquant aux boules centrées aux centroïdes. Les boules des
+cellules satisfaisant deux seuils explicites peuvent ensuite être rétrécies
+en un empilement de boules égales. La borne élémentaire de Blichfeldt, dont
+une preuve complète est incluse, ou le théorème de Kepler, interdisent que
+cet empilement occupe presque tout l'espace.
+
+Le script `check_uniform_gap.py` vérifie uniquement les constantes rationnelles
+de cet argument. Il ne doit pas être confondu avec une formalisation de la
+preuve géométrique ni avec une nouvelle vérification de Flyspeck. Résultat
+et contrôle du manuscrit à consigner après exécution. Cette piste vise une
+borne universelle très faible, pas encore une séparation entre topologies.
+
+**Contrôle des constantes : PASS.** La preuve élémentaire donne
+F > 1,000000004 ; l'utilisation du théorème de Kepler donne
+**F > 1,00000025**. Les inégalités entre constantes sont vérifiées avec
+`Fraction`, sans arrondi flottant. L'infimum du catalogue appartient donc
+à [1,00000025 ; 1,068575909]. Le gain numérique est minuscule ; il ferme
+le cas d'une suite tendant vers 1, mais pas les dégénérescences proches de σ.
+L'énoncé de Kepler a été lu à la source (DOI 10.1017/fmp.2017.1, section 3
+du préprint) ; sa formalisation n'a pas été réexécutée. Le manuscrit contient
+la preuve complète de la réduction DFM et de la version élémentaire.
+
+## 2026-10-25 — 8. Résolution globale d'une sous-famille : transformations affines
+
+Pour une partition **fixée**, toutes ses déformations affines se paramètrent
+par une matrice symétrique positive G = TᵀT. Les facteurs de déterminant
+s'annulent dans F³. Après normalisation du moment, minimiser F revient à
+minimiser une fonction convexe de G sous une contrainte linéaire.
+Une matrice duale positive fournit donc un véritable minorant global sur
+cette famille, et non un simple test stationnaire.
+
+Le nouveau script `check_affine_orbits.py` intègre le tenseur des moments en
+rationnels et certifie le minorant par Arb à 192 bits. Les six matrices de
+métrique sont enregistrées en rationnels ; une seconde vérification peut les
+relire sans relancer l'optimiseur. Résultats :
+
+| Maillage fixé | Infimum sur toutes ses déformations affines |
+|---|---|
+| BCC | [1,071107807 ; 1,071107811] |
+| P | [1,068892909 ; 1,068892956] |
+| M | [1,068962667 ; 1,068962682] |
+| H | [1,068948492 ; 1,068948499] |
+| μ | [1,069099093 ; 1,069099122] |
+| σ | [1,068575891 ; 1,068575910] |
+
+Ainsi, aucune déformation affine des cinq maillages concurrents sauvegardés
+ne bat le témoin σ. **Cela ne couvre pas leurs autres géométries internes.**
+Le calcul historique avec relaxation interne de H est d'ailleurs plus bas
+que la borne affine du maillage H à boîte fixée : ce sont bien deux domaines
+d'optimisation distincts. Trois tests analytiques supplémentaires passent
+(cube, tenseur sous cisaillement et translation, rejet de faux certificats).
+
+La comparaison générale des infima des topologies reste non résolue.
+Les nouveaux minorants sont uniformes sur leurs domaines explicités ; aucun
+ne permet encore de séparer toutes les géométries concurrentes de σ.
+
+## 2026-10-25 — 9. Vérification et portée finale de cette reprise
+
+La seconde exécution des six certificats affines, utilisant seulement les
+métriques rationnelles sauvegardées, reproduit les mêmes intervalles :
+6 PASS. Les constantes de la borne uniforme passent également ; les trois
+nouveaux tests analytiques sont sauvegardés dans les journaux d'exécution.
+Le manuscrit compilé compte treize pages. Le contrôle structurel PDF par
+pikepdf/qpdf ne signale ni erreur ni avertissement et LaTeX ne signale aucun
+débordement. Les pages rendues sont inspectées, avec les références regroupées
+sur une page distincte pour éviter une dernière référence isolée.
+
+Les deux README, le manuscrit, les sources et le rapport d'audit reflètent
+les nouveaux résultats. La revue indépendante reste à faire ; aucun
+sous-agent n'a été utilisé. **La résolution complète n'a pas été obtenue.**
+La recherche a produit un écart uniforme au modèle sphérique et des minorants
+globaux pour six familles affines. Elle n'a produit ni minorant séparant σ de
+toutes les topologies concurrentes, ni contre-exemple à son optimalité.

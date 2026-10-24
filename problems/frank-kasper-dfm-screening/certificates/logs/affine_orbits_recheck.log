@@ -1,0 +1,12 @@
+Checking BCC triangles 18432
+PASS BCC affine infimum in 1.071107807 1.071107811
+Checking P triangles 30720
+PASS P affine infimum in 1.068892909 1.068892956
+Checking M triangles 28416
+PASS M affine infimum in 1.068962667 1.068962682
+Checking H triangles 66048
+PASS H affine infimum in 1.068948492 1.068948499
+Checking mu triangles 21312
+PASS mu affine infimum in 1.069099093 1.069099122
+Checking sigma triangles 264192
+PASS sigma affine infimum in 1.068575891 1.068575910

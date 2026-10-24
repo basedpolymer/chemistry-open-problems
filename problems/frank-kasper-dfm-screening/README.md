@@ -5,30 +5,36 @@ energy for σ, with a gap of about 0.022 % to its best reported competitors. Exa
 121 catalogue input topologies and six explicit energy witnesses. They do **not** establish separating lower bounds for
 the competing topology infima. Five certified witnesses lie below numbers printed in Reddy et al.'s preprint and published SI.
 
-**Continuation, 24 October 2026.** [Manuscript](paper.pdf), [proof source](paper.tex),
+**Continuation, 24–25 October 2026.** [Manuscript](paper.pdf), [proof source](paper.tex),
 [audit report](verification.md), [progress journal in French](JOURNAL.md). The proved global enclosure for the
-catalogue infimum is **1 ≤ inf 𝓕 ≤ 1.068575909**. A complete proof of σ's optimality has not been obtained.
+catalogue infimum is **1.00000025 ≤ inf 𝓕 ≤ 1.068575909**. The lower bound is uniform even when cell volumes
+or box shapes degenerate, but remains far below σ. A complete proof of σ's optimality has not been obtained.
 
 **Attribution.** Method, code, runs, certificates and write-up: Claude Opus 5.5 (effort not recorded), solver
 sub-agent of the orchestrator, 24 Oct 2026. Continuation, new certificate checks, analysis and manuscript:
 Codex (GPT-6; effort not recorded), without sub-agents. Fresh independent review of the new work: pending.
 
-The continuation's checks and their scope are summarized below. The [nine-page manuscript](paper.pdf) contains
+The continuation's checks and their scope are summarized below. The [manuscript](paper.pdf) contains
 the proofs; [verification.md](verification.md) records the assumptions and the unresolved global comparison.
 
 | Result or check | Outcome | Scope |
 |---|---|---|
 | Catalogue geometry | 121 PASS, 0 FAIL | Exact embedded FK realizations; standalone integer data |
 | Energy witnesses | 6 PASS | Certified upper bounds, including transport to exact target boxes |
+| Uniform gap above the spherical relaxation | 𝓕 > 1.00000025 | All admissible periods and positive volumes; uses Kepler's theorem; elementary version > 1.000000004 |
+| Global affine minimization of stored meshes | 6 PASS | Entire affine families certified; five competitor families lie above the σ witness; not full topology classes |
 | Restricted flat A15 family | 𝓕(c) > 1.0699 for every c ≥ 0 | One-parameter formula; does not cover arbitrary curved A15 cells |
 | Adversarial and invariance tests | 6 tests pass | Invalid geometry rejected; translation/scaling and box checks |
+| Affine tensor and convex-bound tests | 3 tests pass | Analytic cube, shear and translation, rejection of invalid dual bounds |
 | Published PNAS SI comparison | 12 DFM values and caption ratios agree with preprint inputs | Source read and checked visually; five improved witnesses confirmed |
 | Symmetry-breaking restarts | 24 completed stages | Two seeds for σ, E11, H and μ through levels 0–2; numerical evidence |
 
-The main contribution of this continuation is a reproducible geometric and energy audit, with a new certificate
-for the restricted A15 formula. The six energy witnesses were inherited from the original screen; their validation
-has been strengthened. The universal lower bound does not separate the competing topology infima, so the central
-global comparison remains open. No claim of a new global minimizer or a complete solution is made.
+The continuation adds a reproducible geometric and energy audit, a certificate for the restricted A15 formula,
+a uniform gap above 1, and a convex reduction certifying all affine deformations of six fixed meshes.
+The six original energy witnesses were inherited from the screen; their validation has been strengthened.
+The global affine infimum for the stored σ mesh lies in [1.068575891, 1.068575910]. Independent deformations of
+its cells remain outside that family. The uniform lower bound and the affine bounds do not separate the competing
+topology infima, so the central global comparison remains open. No complete solution is claimed.
 
 The comparison concerns the translation periods represented by the catalogue inputs, with homogeneous box
 relaxation. It does not cover arbitrary larger supercells or all possible Frank–Kasper structures. Eight entries
@@ -238,6 +244,9 @@ cd problems/frank-kasper-dfm-screening/scripts
 python3 audit_certificates.py        # 6 topology/energy/exact-box audits; ~1 min
 python3 certify_catalogue.py         # 121 exact embedded FK complexes; no external inputs needed
 python3 check_a15_family.py          # restricted flat A15 family: certified F > 1.0699
+python3 check_uniform_gap.py         # exact constants: uniform F > 1.00000025, all topologies
+python3 check_affine_orbits.py       # 6 GLOBAL affine-family bounds; saved metrics, no optimizer rerun
+python3 test_affine_orbits.py        # 3 analytic and rejection tests for tensor/convex bounds
 python3 check_source_comparison.py   # SI transcription / preprint data / certificate thresholds
 python3 test_audit_certificates.py   # rejection/invariance tests for the new checker
 python3 check_certificates.py        # 6 exact certificates, ~1 min: PASS x6
@@ -258,6 +267,8 @@ python3 make_tables.py
 | `verification.md`, `JOURNAL.md` | audit verdicts and tracked continuation log |
 | `scripts/audit_certificates.py` | separate exact integration, topology and affine-box verification |
 | `scripts/check_a15_family.py` | certified polynomial inequality for the restricted flat A15 formula |
+| `scripts/check_uniform_gap.py`, `certificates/uniform_gap_report.json` | uniform gap proof constants, checked with rational arithmetic |
+| `scripts/check_affine_orbits.py`, `certificates/affine_orbits_report.json` | convex affine minimization, exact moment tensors and global interval bounds |
 | `data/pnas_si_crosscheck.json`, `scripts/check_source_comparison.py` | published SI provenance, visual transcription and consistency check |
 | `scripts/certify_catalogue.py`, `certificates/catalogue_topology.npz` | standalone exact topology certificates for 121 entries |
 | `scripts/check_restarts.py`, `data/symmetry_breaking_restarts.csv` | additional numerical restarts without imposed crystal symmetry |

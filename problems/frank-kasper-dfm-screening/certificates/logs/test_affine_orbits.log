@@ -1,0 +1,8 @@
+test_cube_moments_and_global_affine_minimum (__main__.AffineTests.test_cube_moments_and_global_affine_minimum) ... ok
+test_invalid_metric_and_false_dual_bound_rejected (__main__.AffineTests.test_invalid_metric_and_false_dual_bound_rejected) ... ok
+test_shear_and_translation_tensor_law (__main__.AffineTests.test_shear_and_translation_tensor_law) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.022s
+
+OK

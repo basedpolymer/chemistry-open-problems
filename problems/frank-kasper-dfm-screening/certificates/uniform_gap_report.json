@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "scope": "every periodic partition in the manuscript class, uniformly in topology, number of cells, positive cell volumes and box; no exclusion of vanishing-volume sequences near sigma",
+  "method": "exact rational checks of constants in the analytical proof",
+  "external_theorem": "Kepler sphere packing, DOI 10.1017/fmp.2017.1",
+  "certificates": [
+    {
+      "name": "elementary Blichfeldt bound, reproved in manuscript",
+      "status": "PASS",
+      "eta": "3/4000",
+      "lambda": "1/32",
+      "tau": "7/10000",
+      "strict_F_lower_bound": "250000001/250000000",
+      "packing_density_squared_upper": "25/32",
+      "overlap_margin_divided_by_4pi_over3": "113176680196587/2621440000000000000",
+      "defect_coefficient_C": "782824441/1440000000000000",
+      "radius_ratio_q": "123907/128096",
+      "delta_if_F_equals_target": "187500000750000001/15625000000000000000000000",
+      "required_packing_density": "181674343821285213589736293/205261145686400000000000000",
+      "packing_density_squared_margin": "89834446258986201737427209199761368459713281381849/42132137928493525327144960000000000000000000000000000"
+    },
+    {
+      "name": "Kepler theorem and pi < 22/7",
+      "status": "PASS",
+      "eta": "9/2500",
+      "lambda": "7/100",
+      "tau": "7/2000",
+      "strict_F_lower_bound": "4000001/4000000",
+      "packing_density_squared_upper": "242/441",
+      "overlap_margin_divided_by_4pi_over3": "793077455247/31250000000000000",
+      "defect_coefficient_C": "81/6250000",
+      "radius_ratio_q": "231663/250900",
+      "delta_if_F_equals_target": "48000012000001/64000000000000000000",
+      "required_packing_density": "359833750441781878586447935139/485202684794880000000000000000",
+      "packing_density_squared_margin": "14309606517080401221163645641848048575239732927040796516729/11535660621275824101836036505600000000000000000000000000000000"
+    }
+  ],
+  "global_catalogue_enclosure": [
+    "1.00000025",
+    "1.068575909"
+  ],
+  "topology_ordering": "UNRESOLVED"
+}

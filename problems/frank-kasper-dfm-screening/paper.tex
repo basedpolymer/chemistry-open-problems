@@ -8,7 +8,7 @@
 \newcommand*{\PaperSubtitle}{Exact certificates and the unresolved global comparison}
 \newcommand*{\PaperCredits}{Original numerical screen: Claude Opus 5.5 (effort not recorded).\\
 Audit, additional certificates, analysis and manuscript: Codex, GPT-6 (effort not recorded).\\
-24 October 2026. No sub-agents used in the continuation. Independent review pending.}
+24--25 October 2026. No sub-agents used in the continuation. Independent review pending.}
 \newcommand*{\PaperKeywords}{Frank-Kasper, diblock foam, periodic partition, exact certificate}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -30,7 +30,12 @@ checks six explicit foam partitions, their topology and their energy bounds,
 including rigorous transport to the intended crystallographic boxes. Five
 competitors have energies below the values printed in the source preprint;
 for a relaxed $\sigma$ box we certify $\inf\DF\leq1.068575909$.
-The universal lower bound is $\DF\geq1$. Neither these certificates nor
+We strengthen the spherical relaxation to the uniform lower bound
+$\DF>1.00000025$, using the Kepler sphere-packing theorem and exact rational
+constants; a self-contained elementary version gives $\DF>1.000000004$.
+We also certify global bounds for all affine images of the six stored meshes
+by reducing their deformation problem to convex minimization.
+Neither these certificates nor
 additional symmetry-breaking restarts establish the ordering of the topology
 infima. We give complete proofs of the certified statements and identify the
 missing global inequality. This is a partial result, not a solution of the
@@ -94,8 +99,8 @@ The expression is unchanged by translation, rotation or uniform rescaling.
 \begin{theorem}\label{thm:lower}
 Every admissible partition satisfies $\DF\geq1$. In fact $\DF>1$ for a
 face-to-face periodic tiling by bounded cells with positive interface areas.
-This strict pointwise inequality does not assert a uniform positive gap
-between an infimum and 1.
+This initial argument alone does not assert a uniform positive gap
+between an infimum and 1; the next section establishes such a gap.
 \end{theorem}
 \begin{proof}
 The Euclidean isoperimetric inequality gives
@@ -141,6 +146,133 @@ between neighbouring cells can therefore use equal-volume balls for all
 types. It has value 1. Compatibility between different cells is exactly
 what this relaxation has discarded.
 \end{proof}
+
+\section{A uniform gap above 1}\label{sec:gap}
+
+The gap below is intentionally modest. It controls all periods and all
+positive cell volumes, but is far too weak to order FK topology infima.
+Its purpose is to retain a quantitative part of the compatibility between
+cells that the isolated-ball relaxation loses.
+
+\begin{lemma}\label{lem:moment-defect}
+Let $B$ be the ball of volume $v$ and radius $r$ centred at the centroid of
+a cell $\Omega$, and put $t=|B\setminus\Omega|/v$. Then
+\[
+ J_\Omega-\frac35vr^2\ \geq\ \frac23vr^2t^2.
+\]
+\end{lemma}
+\begin{proof}
+The missing and excess sets both have volume $tv$. The smallest extra
+moment comes from adding the shell just outside $B$ and removing the
+shell just inside its boundary. This follows directly by comparing
+$|x-c|^2$ on each side of the corresponding shell boundary. Thus the
+moment excess is at least
+\[
+ \frac35vr^2\bigl((1+t)^{5/3}+(1-t)^{5/3}-2\bigr).
+\]
+The expression in parentheses has value and derivative zero at zero.
+Its second derivative is
+$\frac{10}{9}((1+t)^{-1/3}+(1-t)^{-1/3})\geq20/9$ for $0\leq t<1$,
+by convexity. Two integrations and continuity at $t=1$ give the result.
+\end{proof}
+
+\begin{lemma}\label{lem:packing-gap}
+Let $\rho<1$ be an upper bound for the density of any periodic packing of
+equal balls in $\mathbb R^3$. Choose $0<\eta,\lambda,\tau<1$, and set
+\[
+ a=1-\eta,\quad b=1+\eta,\quad
+ q=\frac{a(1-\lambda)}b,\quad
+ C=\min\left\{\eta^2,\frac{10}{9}a^2\tau^2\right\}.
+\]
+If $a^3\lambda^2(3-\lambda)/2>2\tau b^3$, every admissible partition obeys
+\begin{equation}\label{eq:packing-gap}
+ \DF^3\geq 1+C\left(1-\frac{\rho}{q^3}\right).
+\end{equation}
+\end{lemma}
+\begin{proof}
+For each cell let $r_i=(3v_i/(4\pi))^{1/3}$ and let $t_i$ be as in
+Lemma~\ref{lem:moment-defect}. Write
+$\mathbb E f=V^{-1}\sum_i v_i f_i$. Uniformly rescale the partition so that
+$\mathbb E(1/r)=1$. The area bound now gives $A\geq3V/2$, hence
+\[
+ \DF^3\geq\frac{5J}{3V}
+ \geq\mathbb E r^2+\frac{10}{9}\mathbb E(r^2t^2).
+\]
+Cauchy--Schwarz gives $\mathbb E r\geq1$. Consequently, for
+$\delta=\DF^3-1$,
+\begin{equation}\label{eq:defect-budget}
+ \mathbb E\left((r-1)^2+\frac{10}{9}r^2t^2\right)\leq\delta.
+\end{equation}
+Call a cell good if $a\leq r_i\leq b$ and $t_i\leq\tau$.
+Every other cell contributes at least $C$ per unit of its volume weight
+to the left-hand side. The good cells therefore occupy a fraction at
+least $1-\delta/C$ of the volume. This estimate remains valid when that
+lower bound is negative.
+
+Consider any two distinct good cells in the infinite periodic tiling,
+including different translates of the same representative. Their
+centroid balls $B_i,B_j$ have intersection volume at most
+$t_iv_i+t_jv_j\leq2\tau(4\pi/3)b^3$: the cells themselves are disjoint
+up to sets of measure zero. If their centres had distance at most
+$2a(1-\lambda)$, the radius-$a$ balls at those centres would intersect in
+volume at least
+\[
+ \frac{4\pi}{3}a^3\frac{\lambda^2(3-\lambda)}2.
+\]
+This is the volume of two spherical caps of height $a\lambda$.
+The assumed strict inequality excludes such a pair. Thus radius
+$R=a(1-\lambda)$ balls at all good centres form a periodic packing.
+
+If there are $m$ good representatives, their total cell volume is at
+most $m(4\pi/3)b^3$. The packing density is consequently at least
+$(1-\delta/C)(R/b)^3=(1-\delta/C)q^3$ and at most $\rho$.
+Rearrangement proves~\eqref{eq:packing-gap}. No lower bound on any
+individual cell volume or on the box aspect ratio was assumed.
+\end{proof}
+
+For a self-contained packing estimate, the classical Blichfeldt weight
+$f(x)=\max\{1-|x|^2/2,0\}$ gives $\rho\leq5/(4\sqrt2)$.
+Indeed, for unit-ball centres separated by at least 2, let $m$ centres
+lie at distance less than $\sqrt2$ from a point $x$. If $m>0$, then
+\[
+ \sum_{i=1}^m|c_i-x|^2
+ =\frac1m\sum_{i<j}|c_i-c_j|^2+m|\bar c-x|^2\geq2(m-1).
+\]
+It follows that $\sum_i f(x-c_i)\leq1$; for $m=0$ this is immediate.
+Integration over one period, with
+$\int_{\mathbb R^3}f=16\pi\sqrt2/15$, proves the density bound.
+The historical reference is Blichfeldt\autocite{Blichfeldt1929}; the
+argument needed here has just been given in full.
+
+\begin{theorem}\label{thm:uniform-gap}
+Every admissible partition satisfies $\DF>1.000000004$ by the elementary
+argument above. Using the established Kepler theorem, the stronger bound
+is $\DF>1.00000025$. Both constants are uniform in topology, number of
+cells per period, positive cell volumes and nonsingular box shape.
+\end{theorem}
+\begin{proof}
+For the elementary version choose
+$(\eta,\lambda,\tau)=(3/4000,1/32,7/10000)$ and
+$u=1.000000004$. Set $p=q^3(1-(u^3-1)/C)$.
+Exact rational arithmetic verifies the strict lens condition, $p>0$,
+and $p^2>25/32=\rho^2$. Equation~\eqref{eq:packing-gap} then gives
+$\DF>u$.
+
+The Kepler theorem\autocite{Hales2017} gives
+$\rho=\pi/\sqrt{18}$. Choose
+$(\eta,\lambda,\tau)=(9/2500,7/100,7/2000)$ and $u=1.00000025$.
+The same exact checks now give $p>0$ and $p^2>242/441>\pi^2/18$,
+where the latter inequality uses $\pi<22/7$.
+For example, that elementary bound follows by integrating the positive
+function $x^4(1-x)^4/(1+x^2)$ on $(0,1)$: its integral is $22/7-\pi$.
+The script \texttt{check\_uniform\_gap.py} verifies all rational constants
+and writes their strict margins. It does not reverify the Kepler theorem
+or formalize the geometric proof.
+\end{proof}
+
+Thus degenerating sequences cannot approach energy 1. This is not a
+compactness theorem near $\sigma$: the A15 vanishing-cell example below
+is compatible with the new bound, which is much smaller than $1.068575909$.
 
 \section{Why the integer geometry certificates prove embeddedness}
 
@@ -306,12 +438,117 @@ preserves $\DF$, since $A,J,V$ all double in~\eqref{eq:energy}.
 These are improved feasible competitors, not a contradiction of a proved
 theorem. No unique cause of the numerical differences is established.
 
-Combining Theorems~\ref{thm:lower} and~\ref{thm:witnesses} yields the global,
+Combining Theorems~\ref{thm:uniform-gap} and~\ref{thm:witnesses} yields the global,
 but insufficiently narrow, enclosure
 \begin{equation}\label{eq:global}
- 1\leq\min_{T\text{ in the catalogue}}m_T\leq1.068575909.
+ 1.00000025\leq\min_{T\text{ in the catalogue}}m_T\leq1.068575909.
 \end{equation}
 The same enclosure holds upon adding $P$, $M$ and BCC.
+
+\section{Global affine minimization of a fixed partition}\label{sec:affine}
+
+One part of the optimization does admit a convex reduction. Here the
+entire cell geometry is fixed before one applies a common affine map.
+This does not include independent changes of faces or cell volumes.
+
+Let $S=\sum_i\int_{\Omega_i}(x-c_i)(x-c_i)^{\mathsf T}dx$ be the
+centred moment tensor of a fixed partition $X$, with period volume $V$.
+It is positive definite. Integrate once over each interface, and write
+$n$ for its unit normal; its sign is immaterial. For $G\succ0$ define
+\[
+ a(G)=\int\sqrt{n^{\mathsf T}G^{-1}n}\,dA,
+ \qquad j(G)=\operatorname{tr}(GS).
+\]
+If $T^{\mathsf T}T=G$, area transforms by
+$|\det T|\,|T^{-\mathsf T}n|$, the moment tensor by
+$|\det T|TST^{\mathsf T}$, and volume by $|\det T|$.
+All determinant factors cancel from the energy identity:
+\begin{equation}\label{eq:affine-energy}
+ \DF(TX)^3=\frac{20}{27V^3}a(G)^2j(G).
+\end{equation}
+
+\begin{theorem}\label{thm:affine}
+The minimization of $\DF(TX)$ over nonsingular affine maps is equivalent
+to minimizing the convex function $a(G)$ subject to
+$G\succ0$ and $\operatorname{tr}(GS)=j_0$, for any fixed $j_0>0$.
+At a chosen $G\succ0$ put $a=a(G)$, $j=j(G)$ and
+\[
+ K=\int\frac{G^{-1}nn^{\mathsf T}G^{-1}}
+                   {\sqrt{n^{\mathsf T}G^{-1}n}}\,dA.
+\]
+If $\kappa S-K$ is positive semidefinite and $b=(3a-\kappa j)/2>0$,
+then every nonsingular affine map satisfies
+\begin{equation}\label{eq:affine-lower}
+ \DF(TX)^3\geq\frac{20b^2j}{27V^3}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+For fixed $n$, the identity
+\[
+ \sqrt{n^{\mathsf T}G^{-1}n}
+ =\sup_{z\ne0,\ n^{\mathsf T}z\geq0}
+       \frac{n^{\mathsf T}z}{\sqrt{z^{\mathsf T}Gz}}
+\]
+is Cauchy--Schwarz in the $G$ metric, with equality at $z=G^{-1}n$.
+Each function in the supremum is convex in $G$, since $u\mapsto u^{-1/2}$
+is convex for $u>0$. Integration proves convexity of $a$.
+Scaling $G$ multiplies $a$ by the inverse square root and $j$ by the
+scale, leaving $a^2j$ unchanged. This proves the normalization claim.
+
+Differentiation gives $\nabla a(G)=-K/2$, and
+$\operatorname{tr}(KG)=a$. For any $H\succ0$ normalized by
+$\operatorname{tr}(HS)=j$, the supporting-plane inequality gives
+\[
+ a(H)\geq a-\tfrac12\operatorname{tr}(K(H-G))
+ =\tfrac32a-\tfrac12\operatorname{tr}(KH)
+ \geq\tfrac12(3a-\kappa j)=b.
+\]
+The last step follows from $\kappa S-K\succeq0$ and $H\succ0$.
+Equation~\eqref{eq:affine-energy} completes the global bound.
+\end{proof}
+
+\subsection{Six certified affine families}
+
+The script \texttt{check\_affine\_orbits.py} integrates all six components
+of $S$ by exact rational cone formulas. If $d>0$ is the determinant of
+a tetrahedral cone with apex at zero, other vertices $u,v,w$, and
+$s=u+v+w$, its second-moment matrix is
+\[
+ \frac d{120}(ss^{\mathsf T}+uu^{\mathsf T}+vv^{\mathsf T}+ww^{\mathsf T}).
+\]
+After summing per cell, subtract the outer product of its first moment
+divided by its volume. This also recovers the scalar moments of the
+previous energy audit.
+
+A floating-point convex optimizer proposes a metric, which is rounded to
+an exact dyadic matrix. It is not part of the proof. Outward ball
+arithmetic at 192 bits verifies positive definiteness of $G$, $S$ and
+$\kappa S-K$ by Sylvester's criterion, evaluates~\eqref{eq:affine-lower},
+and checks rational decimal endpoints. The saved rational metrics can be
+checked without running the optimizer again. Hashes identify the meshes
+covered by the earlier topology audit.
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Stored partition & Lower bound on affine infimum & Upper bound \\
+\midrule
+BCC & 1.071107807 & 1.071107811 \\
+$P$ & 1.068892909 & 1.068892956 \\
+$M$ & 1.068962667 & 1.068962682 \\
+$H$ & 1.068948492 & 1.068948499 \\
+$\mu$ & 1.069099093 & 1.069099122 \\
+$\sigma$ & 1.068575891 & 1.068575910 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In particular, every affine image of each of the five stored competitor
+meshes lies above the existing $\sigma$ witness. This is a comparison of
+six affine families, not of six topology classes. Internal relaxation of
+the cells after a box change enlarges those families and may lower their
+infima; indeed the inherited box-relaxed $H$ run is below the affine lower
+bound for the stored fixed-box $H$ mesh. There is no contradiction.
 
 \section{Numerical evidence and its limits}
 
@@ -488,6 +725,9 @@ python scripts/audit_certificates.py
 python scripts/certify_catalogue.py
 python scripts/test_audit_certificates.py
 python scripts/check_a15_family.py
+python scripts/check_uniform_gap.py
+python scripts/check_affine_orbits.py
+python scripts/test_affine_orbits.py
 python scripts/check_milestone1.py
 python scripts/check_restarts.py
 \end{verbatim}
@@ -505,11 +745,16 @@ reject reversed triangles, missing tetrahedra, duplicated faces and a
 pinched surface, and check invariance under translation and scaling.
 These are implementation checks, not a formal proof-assistant verification.
 
+The affine-orbit tests additionally check the exact tensor of a cube,
+its transformation under a non-diagonal shear and translation, the known
+affine minimum of the cube, and rejection of false dual certificates.
+
 This continuation used a single agent, as requested. The new code and
 mathematical arguments have not undergone a fresh independent review.
 The global ordering $m_\sigma\leq m_T$ remains unproved; the numerical
 screen, the exact feasibility statements and the global enclosure
 \eqref{eq:global} are the conclusions supported by the present work.
 
+\clearpage
 \paperreferences
 \end{document}

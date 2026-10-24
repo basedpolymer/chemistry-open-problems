@@ -158,3 +158,19 @@ agree with the preprint inputs.
   claims equating floating-point values with exact certificates or failed
   relaxations with energetic exclusions. **Global σ optimality remains
   unproved**; the catalogue infimum is enclosed in [1, 1.068575909].
+
+### Frank–Kasper continuation, 25 October 2026
+
+Codex (GPT-6; effort not recorded), without sub-agents. Derived a uniform
+DFM lower bound F > 1.00000025 using a quantitative moment defect and the
+Kepler packing theorem, with exact rational constants. The fully reproduced
+elementary Blichfeldt argument gives F > 1.000000004. These bounds are uniform
+in periods, positive volumes and box shapes, but remain far below σ.
+
+Reduced all homogeneous affine deformations of any fixed partition to convex
+minimization with a global supporting-plane certificate. Exact tensor
+integration and Arb verification enclose the six stored affine-family infima;
+all five competitor families lie above the σ witness. Three analytic tests
+pass. This resolves these affine subproblems, not the unrestricted topology
+comparison. Manuscript, source record, READMEs and progress journal updated;
+fresh independent review remains pending and global σ optimality is unproved.

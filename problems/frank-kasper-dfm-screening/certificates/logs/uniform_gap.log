@@ -1,0 +1,5 @@
+PASS elementary Blichfeldt bound, reproved in manuscript
+  F > 250000001/250000000 ; all overlap and packing margins strictly positive (exact)
+PASS Kepler theorem and pi < 22/7
+  F > 4000001/4000000 ; all overlap and packing margins strictly positive (exact)
+PASS unsupported near-sigma targets rejected

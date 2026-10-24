@@ -1,7 +1,8 @@
 # Diblock foam model on the Frank–Kasper catalogue: method, validation, screen
 
 *Status: partial result; global minimization remains unresolved. The continuation adds exact topology certificates
-for 121 entries, a separate audit of six energy witnesses, a universal lower bound and a restricted A15 bound.
+for 121 entries, a separate audit of six energy witnesses, the uniform bound F > 1.00000025, a restricted A15 bound,
+and global affine-family bounds for the six saved meshes. None bounds the full competing topology infima above σ.
 Proofs: [paper.pdf](paper.pdf). Checks and limitations: [verification.md](verification.md). No fresh independent review.*
 
 ## 1. Question and framing

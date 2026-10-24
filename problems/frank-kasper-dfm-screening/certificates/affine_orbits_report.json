@@ -1,0 +1,185 @@
+{
+  "status": "PASS",
+  "claims": [
+    {
+      "name": "BCC",
+      "status": "PASS",
+      "mesh_sha256": "16690515c5c39d19456eea19a9cf130190fef46cf0b4b6f67931a1d219dbadd7",
+      "scope": "all nonsingular affine images of this stored mesh, NOT its topology class",
+      "metric": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "kappa": "24756835190925/1099511627776",
+      "affine_inf_lower_9dp": "1.071107807",
+      "affine_inf_upper_9dp": "1.071107811",
+      "original_mesh_energy": "[1.07110780917734609559208963343858318734424657809231171 +/- 4.80e-54]",
+      "precision_bits": 192,
+      "proposal_status": "not used; saved rational metric",
+      "runtime_s": 1.267
+    },
+    {
+      "name": "P",
+      "status": "PASS",
+      "mesh_sha256": "c0d5845c35d3b05c16c1d61cf2f93593ceb58b0fa5e8c364c2d2c742b6422f33",
+      "scope": "all nonsingular affine images of this stored mesh, NOT its topology class",
+      "metric": [
+        [
+          "34527866595/34359738368",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "547643917781/549755813888",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1098409657277/1099511627776"
+        ]
+      ],
+      "kappa": "100006797495267/1099511627776",
+      "affine_inf_lower_9dp": "1.068892909",
+      "affine_inf_upper_9dp": "1.068892956",
+      "original_mesh_energy": "[1.06889716521950838128813792269335061266209107454520394 +/- 5.85e-54]",
+      "precision_bits": 192,
+      "proposal_status": "not used; saved rational metric",
+      "runtime_s": 2.156
+    },
+    {
+      "name": "M",
+      "status": "PASS",
+      "mesh_sha256": "32b6c5b76e7a9df5afabbbb553a15b6981a0ba5a83a7db05a8c42d33f6f671c3",
+      "scope": "all nonsingular affine images of this stored mesh, NOT its topology class",
+      "metric": [
+        [
+          "559535655285/549755813888",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1088871544973/1099511627776",
+          "-1/1099511627776"
+        ],
+        [
+          "0",
+          "-1/1099511627776",
+          "545605485715/549755813888"
+        ]
+      ],
+      "kappa": "100983394479761/1099511627776",
+      "affine_inf_lower_9dp": "1.068962667",
+      "affine_inf_upper_9dp": "1.068962682",
+      "original_mesh_energy": "[1.06901173944866967411029317310320985797463027448002610 +/- 4.44e-54]",
+      "precision_bits": 192,
+      "proposal_status": "not used; saved rational metric",
+      "runtime_s": 2.001
+    },
+    {
+      "name": "H",
+      "status": "PASS",
+      "mesh_sha256": "0bdedd4f72ce876d9d3fb9cfefbb234d50106d01b6e0d551960f3923ceeb8432",
+      "scope": "all nonsingular affine images of this stored mesh, NOT its topology class",
+      "metric": [
+        [
+          "69511228363/68719476736",
+          "5/549755813888",
+          "1/549755813888"
+        ],
+        [
+          "5/549755813888",
+          "1057764663669/1099511627776",
+          "-17/1099511627776"
+        ],
+        [
+          "1/549755813888",
+          "-17/1099511627776",
+          "35361541303/34359738368"
+        ]
+      ],
+      "kappa": "94468962070967/1099511627776",
+      "affine_inf_lower_9dp": "1.068948492",
+      "affine_inf_upper_9dp": "1.068948499",
+      "original_mesh_energy": "[1.0692080837288047269699903477019145084708649253597362 +/- 4.99e-53]",
+      "precision_bits": 192,
+      "proposal_status": "not used; saved rational metric",
+      "runtime_s": 4.714
+    },
+    {
+      "name": "mu",
+      "status": "PASS",
+      "mesh_sha256": "27f63d8ee9a798a2d64544de9cf327abc7549256f8837d66c9a09bc938a44e06",
+      "scope": "all nonsingular affine images of this stored mesh, NOT its topology class",
+      "metric": [
+        [
+          "1071618085049/1099511627776",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1071618085049/1099511627776",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "580338242815/549755813888"
+        ]
+      ],
+      "kappa": "6549533988731/68719476736",
+      "affine_inf_lower_9dp": "1.069099093",
+      "affine_inf_upper_9dp": "1.069099122",
+      "original_mesh_energy": "[1.06954649435144233955818043318129250625615209949942367 +/- 4.44e-54]",
+      "precision_bits": 192,
+      "proposal_status": "not used; saved rational metric",
+      "runtime_s": 1.483
+    },
+    {
+      "name": "sigma",
+      "status": "PASS",
+      "mesh_sha256": "c6906051388b0203262f9278c87f7b71ec5a3ea1b7df245434334fd0ecade9d2",
+      "scope": "all nonsingular affine images of this stored mesh, NOT its topology class",
+      "metric": [
+        [
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "kappa": "792267140061/8589934592",
+      "affine_inf_lower_9dp": "1.068575891",
+      "affine_inf_upper_9dp": "1.068575910",
+      "original_mesh_energy": "[1.0685759087657669920573972029323388127373122172860014 +/- 4.26e-53]",
+      "precision_bits": 192,
+      "proposal_status": "not used; saved rational metric",
+      "runtime_s": 18.133
+    }
+  ]
+}
