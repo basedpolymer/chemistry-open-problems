@@ -159,58 +159,59 @@ static inline Cell make_cell(int L, int k) {
     return z;
 }
 
-// range of sum_k x_k sum_l M_kl y_l for x in box X (interval vector), y in box Y (y0 fixed, y1,y2 vary)
-static inline I bilM(const I (*M)[3], const I* X, const I* Y) {
-    I res; bool first = true;
-    for (int a = 0; a < 2; a++) for (int b = 0; b < 2; b++) {
-        double y1 = a ? Y[1].hi : Y[1].lo, y2 = b ? Y[2].hi : Y[2].lo;
-        I y0 = Y[0];
-        I G[3];
-        for (int k = 0; k < 3; k++) G[k] = M[k][0] * y0 + M[k][1] * I(y1) + M[k][2] * I(y2);
-        I F = X[0] * G[0] + X[1] * G[1] + X[2] * G[2];
-        res = first ? F : hull(res, F); first = false;
-    }
-    return res;
-}
+// Per-level cell data for the column angle (theta_j): U = (1,C,S) box, uc = centre, up = derivative box.
+struct ColData { I U1, U2, c1, c2, p1, p2, H; };
+// Per-level, per-cell data of one determinant for the row angle (theta_i):
+//   ac = Mc^T u(centre_i), ap = Mc^T u'(cell_i), bm[m] = G[m]^T U(cell_i), ab = M^T U(cell_i)
+struct RowData { I ac[3], ap[3], bm[3][3], ab[3]; };
 
-// range over the cell (theta) for a fixed coefficient matrix M (interval entries)
-static inline I evalM(const I (*M)[3], const Cell& ci, const Cell& cj) {
-    I Xb[3] = {I(1.0), ci.C, ci.S}, Yb[3] = {I(1.0), cj.C, cj.S};
-    I Fcorner = bilM(M, Xb, Yb);
-    // mean value form in theta
-    I Xc[3] = {I(1.0), ci.c, ci.s}, Yc[3] = {I(1.0), cj.c, cj.s};
-    I Fc = bilM(M, Xc, Yc);
-    I Xd[3] = {I(0.0), -ci.S, ci.C}, Yd[3] = {I(0.0), -cj.S, cj.C};
-    I dFi = bilM(M, Xd, Yb);
-    I dFj = bilM(M, Xb, Yd);
-    I Fmv = Fc + ci.H * dFi + cj.H * dFj;
-    I r = meet(Fcorner, Fmv);
-    if (r.lo > r.hi) r = Fcorner;
-    return r;
-}
-// range over D x cell: meet of (box coefficients) and (centre coefficients + d-gradient form)
-static inline I evalF(const Coef& C, const Cell& ci, const Cell& cj) {
-    I r = evalM(C.M, ci, cj);
-    if (C.useG) {
-        I Xb[3] = {I(1.0), ci.C, ci.S}, Yb[3] = {I(1.0), cj.C, cj.S};
-        I f = evalM(C.Mc, ci, cj);
-        for (int m = 0; m < 3; m++) f = f + bilM(C.G[m], Xb, Yb) * C.dD[m];
-        I r2 = meet(r, f);
-        if (!(r2.lo > r2.hi)) r = r2;
-    }
-    return r;
-}
+static inline I dot3(const I* a, I u0, I u1, I u2) { return a[0] * u0 + a[1] * u1 + a[2] * u2; }
 
-// pierce status: +1 certified true, -1 certified false, 0 unknown
+struct DetTab {
+    const Coef* C; int Lmax;
+    vector<vector<RowData>> rows;    // rows[L][k]
+    void build(const Coef* C_, int Lmax_, const vector<vector<Cell>>& cells) {
+        C = C_; Lmax = Lmax_;
+        rows.assign(Lmax + 1, {});
+        for (int L = 0; L <= Lmax; L++) {
+            int n = 1 << L; rows[L].resize(n);
+            for (int k = 0; k < n; k++) {
+                const Cell& z = cells[L][k];
+                RowData& r = rows[L][k];
+                for (int l = 0; l < 3; l++) {
+                    r.ac[l] = C->Mc[0][l] + C->Mc[1][l] * z.c + C->Mc[2][l] * z.s;
+                    r.ap[l] = C->Mc[1][l] * (-z.S) + C->Mc[2][l] * z.C;
+                    r.ab[l] = C->M[0][l] + C->M[1][l] * z.C + C->M[2][l] * z.S;
+                    for (int m = 0; m < 3; m++) r.bm[m][l] = C->G[m][0][l] + C->G[m][1][l] * z.C + C->G[m][2][l] * z.S;
+                }
+            }
+        }
+    }
+    // enclosure of F over D x cell_i x cell_j
+    inline I eval(int L, int ki, const ColData& cj, const Cell& ci) const {
+        const RowData& r = rows[L][ki];
+        I F2 = r.ab[0] + r.ab[1] * cj.U1 + r.ab[2] * cj.U2;
+        if (!C->useG) return F2;
+        I Fc = r.ac[0] + r.ac[1] * cj.c1 + r.ac[2] * cj.c2;
+        I dj = r.ac[1] * cj.p1 + r.ac[2] * cj.p2;
+        I di = r.ap[0] + r.ap[1] * cj.U1 + r.ap[2] * cj.U2;
+        I F1 = Fc + ci.H * di + cj.H * dj;
+        for (int m = 0; m < 3; m++) F1 = F1 + (r.bm[m][0] + r.bm[m][1] * cj.U1 + r.bm[m][2] * cj.U2) * C->dD[m];
+        I F = meet(F1, F2);
+        if (F.lo > F.hi) return F2;   // cannot happen for correct enclosures
+        return F;
+    }
+};
+
+// pierce status: +1 certified true, -1 certified false, 0 unknown; sg[5] = known signs (0 = unknown), updated
 static inline int sgn(I a) { return a.lo > 0 ? 1 : (a.hi < 0 ? -1 : 0); }
-static inline int pierce_status(const Coef* D5, const Cell& ci, const Cell& cj) {
-    int sP = sgn(evalF(D5[0], ci, cj));
-    int sQ = sgn(evalF(D5[1], ci, cj));
+static inline int pierce_status(const DetTab* T5, int L, int ki, int kj, const Cell& ci, const ColData& cj, signed char* sg) {
+    auto get = [&](int q) { if (!sg[q]) sg[q] = (signed char)sgn(T5[q].eval(L, ki, cj, ci)); return (int)sg[q]; };
+    int sP = get(0), sQ = get(1);
     if (sP != 0 && sQ != 0 && sP == sQ) return -1;
-    int s1 = sgn(evalF(D5[2], ci, cj));
-    int s2 = sgn(evalF(D5[3], ci, cj));
+    int s1 = get(2), s2 = get(3);
     if (s1 != 0 && s2 != 0 && s1 != s2) return -1;
-    int s3 = sgn(evalF(D5[4], ci, cj));
+    int s3 = get(4);
     if (s3 != 0 && ((s1 != 0 && s1 != s3) || (s2 != 0 && s2 != s3))) return -1;
     if (sP != 0 && sQ != 0 && sP != sQ && s1 != 0 && s1 == s2 && s2 == s3) return 1;
     return 0;
@@ -237,24 +238,29 @@ struct Bitmap {
 
 struct PairMaps { Bitmap Ain, Aout, Bin, Bout; };
 
-static void quad(int pair, const Coef* DA, const Coef* DB, int L, int Lmax, int ki, int kj, bool needA, bool needB, PairMaps& PM) {
-    Cell ci = make_cell(L, ki), cj = make_cell(L, kj);
+struct QuadCtx { const DetTab* TA; const DetTab* TB; const vector<vector<Cell>>* cells; const vector<vector<ColData>>* cols; int Lmax; PairMaps* PM; };
+static void quad(const QuadCtx& Q, int L, int ki, int kj, bool needA, bool needB, const signed char* sgA0, const signed char* sgB0) {
+    const Cell& ci = (*Q.cells)[L][ki];
+    const ColData& cj = (*Q.cols)[L][kj];
+    signed char sgA[5], sgB[5];
+    memcpy(sgA, sgA0, 5); memcpy(sgB, sgB0, 5);
     int stA = 0, stB = 0;
-    if (needA) stA = pierce_status(DA, ci, cj);
-    if (needB) stB = pierce_status(DB, ci, cj);
-    int sh = Lmax - L;
+    if (needA) stA = pierce_status(Q.TA, L, ki, kj, ci, cj, sgA);
+    if (needB) stB = pierce_status(Q.TB, L, ki, kj, ci, cj, sgB);
+    int sh = Q.Lmax - L;
     int r0 = ki << sh, r1 = (ki + 1) << sh, c0 = kj << sh, c1 = (kj + 1) << sh;
+    PairMaps& PM = *Q.PM;
     if (needA && stA == 1) { PM.Ain.set_block(r0, r1, c0, c1); PM.Aout.set_block(r0, r1, c0, c1); }
     if (needB && stB == 1) { PM.Bin.set_block(r0, r1, c0, c1); PM.Bout.set_block(r0, r1, c0, c1); }
     bool uA = needA && stA == 0, uB = needB && stB == 0;
     if (!uA && !uB) return;
-    if (L == Lmax) {
+    if (L == Q.Lmax) {
         if (uA) PM.Aout.set_block(r0, r1, c0, c1);
         if (uB) PM.Bout.set_block(r0, r1, c0, c1);
         return;
     }
     for (int a = 0; a < 2; a++) for (int b = 0; b < 2; b++)
-        quad(pair, DA, DB, L + 1, Lmax, 2 * ki + a, 2 * kj + b, uA, uB, PM);
+        quad(Q, L + 1, 2 * ki + a, 2 * kj + b, uA, uB, sgA, sgB);
 }
 
 // count sum_{a,b} P12[a][b] popcount(P23[b] & P13[a])
@@ -451,6 +457,15 @@ int main(int argc, char** argv) {
         build_geo(db[0], db[1], db[2], Gb);
         build_geo(dc[0], dc[1], dc[2], Gc);
         int n = 1 << Lth;
+        vector<vector<Cell>> cells(Lth + 1);
+        vector<vector<ColData>> cols(Lth + 1);
+        for (int L = 0; L <= Lth; L++) {
+            cells[L].resize(1 << L); cols[L].resize(1 << L);
+            for (int k = 0; k < (1 << L); k++) {
+                Cell z = make_cell(L, k); cells[L][k] = z;
+                cols[L][k] = ColData{z.C, z.S, z.c, z.s, -z.S, z.C, z.H};
+            }
+        }
         PairMaps PM[3];
         for (int pr = 0; pr < 3; pr++) {
             Coef DA[5], DB[5];
@@ -464,8 +479,12 @@ int main(int argc, char** argv) {
                 det_coef(Gb, Gc, lo, hi, cen, pr, S.p, S.q, S.b, S.c, D[3]);
                 det_coef(Gb, Gc, lo, hi, cen, pr, S.p, S.q, S.c, S.a, D[4]);
             }
+            DetTab TA[5], TB[5];
+            for (int q = 0; q < 5; q++) { TA[q].build(&DA[q], Lth, cells); TB[q].build(&DB[q], Lth, cells); }
             PM[pr].Ain.init(n); PM[pr].Aout.init(n); PM[pr].Bin.init(n); PM[pr].Bout.init(n);
-            quad(pr, DA, DB, 0, Lth, 0, 0, true, true, PM[pr]);
+            QuadCtx Q{TA, TB, &cells, &cols, Lth, &PM[pr]};
+            signed char z5[5] = {0, 0, 0, 0, 0};
+            quad(Q, 0, 0, 0, true, true, z5, z5);
         }
         uint64_t outR = trace3(PM[0].Aout, PM[1].Aout, PM[2].Aout);
         uint64_t inR = trace3(PM[0].Ain, PM[1].Ain, PM[2].Ain);

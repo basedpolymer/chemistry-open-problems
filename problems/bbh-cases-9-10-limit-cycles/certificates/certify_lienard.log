@@ -3,6 +3,8 @@ PASS S1 case 9: normalised system is X' = sum c_i u_i M_i, Y' = (xbar/ybar) sum 
 PASS S1 case 9: (1,1) is an equilibrium (sum c_i u_i = sum d_i u_i = 0 identically)
 PASS S1 case 10: normalised system is X' = sum c_i u_i M_i, Y' = (xbar/ybar) sum d_i u_i M_i
 PASS S1 case 10: (1,1) is an equilibrium (sum c_i u_i = sum d_i u_i = 0 identically)
+PASS S1 case 9: at (1,1) det J = 1 rho u1u2u3 and tr J = (c1u1 - c3u3) - rho d1 u1
+PASS S1 case 10: at (1,1) det J = 2 rho u1u2u3 and tr J = (c1u1 - c3u3) + rho d2 u2
 PASS S1 case 9: kappa1 x^2 = mu u1, kappa2 x y = mu u2, kappa3 y = mu u3 solved by x = k3u2/(k2u3), y = k1k3u2^2/(k2^2u1u3) (unique: x is forced by eqs 2/3, then y by eqs 1/2)
 PASS S1 case 10: mu = k3/u3, x = sqrt(mu u1/k1), y = mu u2/(k2 x) (unique positive solution)
 == S2 Liénard identity

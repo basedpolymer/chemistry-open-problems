@@ -160,3 +160,20 @@ def load_solution(path):
     matches = [tuple(p) for p in d["matches"]]
     q = {(a, b, c): Fraction(v) for a, b, c, v in d["q"]}
     return d, matches, q
+
+
+def prune_matches(inst, matches):
+    """Greedily drop matches that are not needed (exact max-flow test).  Returns a feasible subset."""
+    cur = list(matches)
+    ok, _ = flow_for_matches(inst, cur)
+    assert ok, "initial match set infeasible"
+    changed = True
+    while changed:
+        changed = False
+        for e in list(cur):
+            trial = [f for f in cur if f != e]
+            ok, _ = flow_for_matches(inst, trial)
+            if ok:
+                cur = trial
+                changed = True
+    return cur

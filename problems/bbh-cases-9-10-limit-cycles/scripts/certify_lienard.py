@@ -79,6 +79,18 @@ for case in (9, 10):
     check(is_zero(NX.subs({X: 1, Y: 1}) - sum(c[i] * u[i] for i in range(3))) and
           is_zero(sum(c[i] * u[i] for i in range(3))) and is_zero(sum(d[i] * u[i] for i in range(3))),
           f"S1 case {case}: (1,1) is an equilibrium (sum c_i u_i = sum d_i u_i = 0 identically)")
+# Jacobian of the normalised system at (1,1): det and trace
+for case in (9, 10):
+    m = [mon(s_, X, Y) for s_ in SRC[case]]
+    NX = sum(c[i] * u[i] * m[i] for i in range(3))
+    NY = rho * sum(d[i] * u[i] * m[i] for i in range(3))
+    J = sp.Matrix([NX, NY]).jacobian([X, Y]).subs({X: 1, Y: 1})
+    fac = 1 if case == 9 else 2
+    Abbh = C1 * u[0] - C3 * u[2]
+    trt = Abbh - rho * D1 * u[0] if case == 9 else Abbh + rho * D2 * u[1]
+    check(is_zero(J.det() - fac * rho * u[0] * u[1] * u[2]) and is_zero(J.trace() - trt),
+          f"S1 case {case}: at (1,1) det J = {fac} rho u1u2u3 and tr J = (c1u1 - c3u3) "
+          + ("- rho d1 u1" if case == 9 else "+ rho d2 u2"))
 # uniqueness of the positive equilibrium (u > 0): explicit solution of kappa_i M_i(x,y) = mu u_i
 U1, U2, U3 = sp.symbols("u1 u2 u3", positive=True)
 xs9 = k3 * U2 / (k2 * U3); ys9 = k1 * k3 * U2 ** 2 / (k2 ** 2 * U1 * U3); mus9 = k3 * ys9 / U3
