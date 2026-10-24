@@ -33,17 +33,15 @@ def hopf_box(eps_lo, eps_hi, X0):
             return eb, Xm, rad, enc, box
     return eb, Xm, None, None, None
 
-def certify_box(eps_lo, eps_hi, X0, R0=8, sigma="0.3", a1="0.1", n_arc=96, n_seg=24):
-    """returns dict with all checks (see module docstring); 'ok' is True iff all hold"""
-    out = dict(eps_lo=str(eps_lo), eps_hi=str(eps_hi), R0=R0, sigma=sigma, a1=a1)
-    eb, Xm, rad, enc, box = hopf_box(eps_lo, eps_hi, X0)
-    out["Xm"] = Xm; out["rad"] = rad; out["box"] = box
-    if enc is None:
-        out["ok"] = False; out["fail"] = "krawczyk"; return out
-    simple, tr, fphi, laim = C.hopf_checks(box, eb)
-    imz_pos = arb(box[2].lower()) > 0
-    out.update(simple=simple, transv_lo=float(arb(tr.lower())), fphi_lo=float(fphi.abs_lower()), imz_pos=imz_pos)
+def h2_checks(eb, box, R0=8, sigma="0.3", a1="0.1", n_arc=96, n_seg=24):
+    """checks (L), (R), (W) of the module docstring for the Krawczyk box `box` and eps-ball eb; returns dict"""
+    out = {}
     kap = box[0]
+    # Gershgorin step of the localization lemma needs K = kappa eps < 1
+    if not (C.arb_up(kap) * C.arb_up(eb) < 1):
+        out.update(ok=False, fail="K>=1", loc_mode="", rhoI=float("nan"), loc_ok=False, region_ub=float("nan"),
+                   count=None, nseg="", inD=False)
+        return out
     # localization
     el = arb(eb.lower())
     sI = C.loc_check_I(eb, kap, R0, a1)
@@ -58,16 +56,31 @@ def certify_box(eps_lo, eps_hi, X0, R0=8, sigma="0.3", a1="0.1", n_arc=96, n_seg
     # region
     reg = C.region_check(eb, kap, R0, sigma)
     out["region_ub"] = float(reg); okR = bool(reg < 0)
-    # containment of the Hopf zero in D (strictly), with margin
+    # containment of the Hopf zero in D (strictly)
     zb = acb(box[1], box[2])
     inD = bool(acb_abs_up(zb) < R0) and bool(arb(box[1].lower()) > -arb(sigma))
     # winding
     pts, R1 = C.contour_D(R0, float(sigma), n_arc, n_seg)
     n, nseg = C.winding_count(pts, kap, eb)
     out.update(count=n, nseg=nseg if n is not None else str(nseg), inD=inD)
-    out["ok"] = bool(simple and tr > 0 and fphi.abs_lower() > 0 and imz_pos and okL and okR and inD and n == 4)
+    out["ok"] = bool(okL and okR and inD and n == 4)
+    return out
+
+def certify_box(eps_lo, eps_hi, X0, R0=8, sigma="0.3", a1="0.1", n_arc=96, n_seg=24):
+    """returns dict with all checks (see module docstring); 'ok' is True iff all hold"""
+    out = dict(eps_lo=str(eps_lo), eps_hi=str(eps_hi), R0=R0, sigma=sigma, a1=a1)
+    eb, Xm, rad, enc, box = hopf_box(eps_lo, eps_hi, X0)
+    out["Xm"] = Xm; out["rad"] = rad; out["box"] = box
+    if enc is None:
+        out["ok"] = False; out["fail"] = "krawczyk"; return out
+    simple, tr, fphi, laim = C.hopf_checks(box, eb)
+    imz_pos = arb(box[2].lower()) > 0
+    out.update(simple=simple, transv_lo=float(arb(tr.lower())), fphi_lo=float(fphi.abs_lower()), imz_pos=imz_pos)
+    h = h2_checks(eb, box, R0, sigma, a1, n_arc, n_seg)
+    out.update({k: v for k, v in h.items() if k != "ok"})
+    out["ok"] = bool(simple and tr > 0 and fphi.abs_lower() > 0 and imz_pos and h["ok"])
     if not out["ok"]:
-        out["fail"] = "checks"
+        out["fail"] = h.get("fail", "checks")
     return out
 
 def acb_abs_up(z):

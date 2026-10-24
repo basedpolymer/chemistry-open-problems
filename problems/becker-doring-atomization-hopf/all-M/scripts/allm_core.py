@@ -110,7 +110,6 @@ def T_over_eps_bound(eps, kap, k):
     e_hi = arb_up(eps)
     k_lo = arb(kap.lower()); k_hi = arb(kap.upper())
     assert e_hi < k_lo / max(k, 1), "eps too large for the monotonicity argument"
-    assert e_hi * k_hi < 1
     return arb_up((-(k_lo / e_hi) + k_hi * k_hi / 2).exp() / e_hi ** k)
 
 # ------------------------------------------------------------------------------------------------ dual numbers

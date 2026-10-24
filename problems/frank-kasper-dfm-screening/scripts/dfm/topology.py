@@ -49,11 +49,16 @@ def periodic_delaunay(L, P, reach=1, check_degenerate=True, tol=1e-9):
             pts.append(L @ (P[k] + np.array(s)))
             lab.append((k, s))
     pts = np.array(pts)
+    vol_scale = abs(np.linalg.det(L)) / n
     tri = Delaunay(pts, qhull_options="Qbb Qc Qz Q12")
     tets = {}
     for simp in tri.simplices:
         vs = [lab[i] for i in simp]
         if not any(s == (0, 0, 0) for (_, s) in vs):
+            continue
+        Xs = pts[simp]
+        vol = abs(np.linalg.det(Xs[1:] - Xs[0])) / 6.0
+        if vol < 1e-10 * vol_scale:
             continue
         key, t = _canon_simplex(vs)
         if key in tets:
@@ -64,6 +69,11 @@ def periodic_delaunay(L, P, reach=1, check_degenerate=True, tol=1e-9):
         tets[key] = (c, R)
     tets_list = list(tets.keys())
     info = {"n_tets": len(tets_list)}
+    vsum = 0.0
+    for key in tets_list:
+        X = np.array([L @ (P[k] + np.array(s)) for (k, s) in key])
+        vsum += abs(np.linalg.det(X[1:] - X[0])) / 6.0
+    info["vol_ratio"] = vsum / abs(np.linalg.det(L))
     # sanity: each canonical tet must have been seen with all its vertices in range;
     # check degeneracy: count points on / inside circumsphere
     if check_degenerate:

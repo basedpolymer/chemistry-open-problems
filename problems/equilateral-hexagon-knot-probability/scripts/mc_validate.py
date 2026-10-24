@@ -13,8 +13,8 @@ Checks (each prints PASS/FAIL):
   C1  Fox-3 count in {3, 9} for every sample;
   C2  Fox-3 == 9  <=>  Delta_2, Delta_4, Delta_6 all nonzero (Calvo's criterion);
   C3  knotted => every triangle T_1..T_6 is pierced exactly once (Lemma 2.3 of result.md);
-  C4  never (A12 and B13), (A23 and B12), (A13 and B23)  [incompatibility lemma]; equivalently pairs that
-      share an angle pair are exclusive;
+  C4  never (A12 and B12), (A23 and B23), (A13 and B13): the two conditions on the same angle pair exclude
+      each other (Lemma 2.1 / Proposition 3.2);
   C5  for theta in (0,pi)^3: knotted <=> (A12 & A23 & A13) or (B12 & B23 & B13); R-knots have Delta = +1;
   C6  knotted => theta in (0,pi)^3 or (pi,2pi)^3;
   C7  the Monte Carlo knotting frequency is compatible (|z| < 4) with the certified interval given on the
@@ -184,7 +184,7 @@ def run(n, seed, R):
         A12 = pierce(V, 3, 4, 0, 1, 2) != 0; B12 = pierce(V, 0, 1, 2, 3, 4) != 0
         A23 = pierce(V, 5, 0, 2, 3, 4) != 0; B23 = pierce(V, 2, 3, 4, 5, 0) != 0
         A13 = pierce(V, 1, 2, 4, 5, 0) != 0; B13 = pierce(V, 4, 5, 0, 1, 2) != 0
-        if (A12 and B13) or (A23 and B12) or (A13 and B23):
+        if (A12 and B12) or (A23 and B23) or (A13 and B13):
             c[5] += 1
         upper = t1 < np.pi and t2 < np.pi and t3 < np.pi
         lower = t1 > np.pi and t2 > np.pi and t3 > np.pi

@@ -59,7 +59,9 @@ static int read_graph(FILE *f) {
 }
 
 /* ---------- traces of M^k mod 2^64 for M = a*A_sub + diag(dd) on vertex subset ---------- */
-#ifdef WORD32
+#if defined(WORD16)
+typedef uint16_t wt;   /* traces mod 2^16 (ring homomorphism Z -> Z/2^16: no false negatives; more false positives) */
+#elif defined(WORD32)
 typedef uint32_t wt;   /* traces mod 2^32 (still a ring homomorphism Z -> Z/2^32: no false negatives) */
 #else
 typedef uint64_t wt;   /* traces mod 2^64 */
@@ -81,7 +83,7 @@ static void traces(int k, const int *verts, const u64 *dd, u64 a, int K, u64 *t)
         }
     }
     /* rows are padded with zero columns up to kp (a multiple of 16); the padding stays zero */
-    int kp = (k + 15) & ~15;
+    int kp = (k + 31) & ~31;
     if (kp > MAXM) kp = MAXM;
     wt (*X)[MAXM] = BUF1, (*Y)[MAXM] = BUF2;
     for (int i = 0; i < k; i++) {

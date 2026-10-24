@@ -2,8 +2,8 @@
 """Independent check of the branch-and-bound certificate.
 
 Checks (PASS/FAIL):
-  V1  the leaves are dyadic boxes of the chart [0,2]x[0,1]^2 with L1 = L2 + 1 = L3 + 1, pairwise
-      non-nested (hence with disjoint interiors), and their total volume is exactly 2 (so they tile the chart);
+  V1  the leaves are dyadic boxes of the chart [0,2]x[0,1]^2 forming a k-d tree partition (recursive bisection
+      check) and their total volume is exactly 2 (so they tile the chart);
   V2  recomputing every leaf (or a random sample with --sample K) with the certifier reproduces the stored
       counts outR, certR, outL, certL exactly, with zero 'unknot' anomalies;
   V3  the exact dyadic sums U = sum w(D)(outR+outL), L = sum w(D)(certR+certL) (formula (3) of result.md)
@@ -30,23 +30,32 @@ def main():
     def chk(name, cond, info=""):
         nonlocal ok
         print(("PASS" if cond else "FAIL"), name, info, flush=True); ok = ok and cond
-    # V1 tiling
-    keys = set()
-    good = True
-    vol = 0
-    for r in rows:
-        L1, a1, L2, a2, L3, a3 = r[:6]
-        if not (L1 == L2 + 1 == L3 + 1 and 0 <= a1 < 2 ** L1 and 0 <= a2 < 2 ** L2 and 0 <= a3 < 2 ** L3):
-            good = False
-        keys.add((L2, a1, a2, a3))
-        vol += Fraction(2, 2 ** (L1 + L2 + L3))
-    for (L, a1, a2, a3) in keys:
-        b1, b2, b3, l = a1, a2, a3, L
-        while l > 0:
-            b1, b2, b3, l = b1 // 2, b2 // 2, b3 // 2, l - 1
-            if (l, b1, b2, b3) in keys:
-                good = False; break
-    chk("V1 leaves are non-nested dyadic boxes", good and len(keys) == len(rows), "(%d leaves)" % len(rows))
+    # V1 tiling: recursive bisection check (every node of the k-d tree is either a leaf or is bisected along an
+    # axis on which all leaves inside it are finer, and both halves are tiled), plus exact volume = 2
+    sys.setrecursionlimit(10000)
+    good = all(0 <= r[1] < 2 ** r[0] and 0 <= r[3] < 2 ** r[2] and 0 <= r[5] < 2 ** r[4] for r in rows)
+    boxes = [r[:6] for r in rows]
+    def tiled(node, items):
+        if len(items) == 1 and boxes[items[0]] == node:
+            return True
+        if not items:
+            return False
+        for k in range(3):
+            Lk, ak = node[2 * k], node[2 * k + 1]
+            if all(boxes[i][2 * k] > Lk for i in items):
+                halves = ([], [])
+                for i in items:
+                    Li, ai = boxes[i][2 * k], boxes[i][2 * k + 1]
+                    halves[(ai >> (Li - Lk - 1)) - 2 * ak].append(i)
+                for h in range(2):
+                    child = list(node); child[2 * k] = Lk + 1; child[2 * k + 1] = 2 * ak + h
+                    if not tiled(tuple(child), halves[h]):
+                        return False
+                return True
+        return False
+    good = good and tiled((0, 0, 0, 0, 0, 0), list(range(len(rows))))
+    vol = sum(Fraction(2, 2 ** (r[0] + r[2] + r[4])) for r in rows)
+    chk("V1 leaves tile the chart [0,2]x[0,1]^2 (k-d tree check)", good, "(%d leaves)" % len(rows))
     chk("V1 total chart volume = 2", vol == 2, "(%s)" % vol)
     # V2 recomputation
     idx = list(range(len(rows)))
@@ -60,7 +69,7 @@ def main():
             p.stdin.write("%d %d %d %d %d %d %d %d\n" % ((i,) + rows[i][:7]))
         p.stdin.flush()
         for i in part:
-            f = list(map(int, p.stdout.readline().split()))
+            f = list(map(int, p.stdout.readline().split()[:14]))
             assert f[0] == i
             Lth, outR, inR, certR, outL, inL, certL = f[1:8]
             unk = f[12] + f[13]

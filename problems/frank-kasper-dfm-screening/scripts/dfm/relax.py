@@ -83,7 +83,8 @@ def restricted_basis(M):
     nrm = np.cross(P[:, 1] - P[:, 0], P[:, 2] - P[:, 0])
     vn = np.zeros((nv, 3))
     for k in range(3):
-        np.add.at(vn, M.tri[:, k], nrm)
+        for c in range(3):
+            vn[:, c] += np.bincount(M.tri[:, k], weights=nrm[:, c], minlength=nv)
     # edge tangents from boundary loops
     tang = np.zeros((nv, 3))
     for loop in M.fbnd:
@@ -97,75 +98,94 @@ def restricted_basis(M):
                 if tang[v] @ t < 0:
                     t = -t
                 tang[v] += t
-    for v in range(nv):
-        ty = M.vtype[v]
-        if ty == 0:
-            dirs[v] = np.eye(3); cnt[v] = 3
-        elif ty == 1:
-            t = tang[v] / np.linalg.norm(tang[v])
-            tmp = np.array([1.0, 0, 0]) if abs(t[0]) < 0.9 else np.array([0, 1.0, 0])
-            e1 = np.cross(t, tmp); e1 /= np.linalg.norm(e1)
-            e2 = np.cross(t, e1)
-            dirs[v, 0] = e1; dirs[v, 1] = e2; cnt[v] = 2
-        else:
-            n = vn[v] / np.linalg.norm(vn[v])
-            dirs[v, 0] = n; cnt[v] = 1
+    ty = M.vtype
+    # foam vertices
+    m0 = ty == 0
+    dirs[m0] = np.eye(3)[None, :, :]
+    cnt[m0] = 3
+    # foam-edge vertices
+    m1 = ty == 1
+    t = tang[m1] / np.linalg.norm(tang[m1], axis=1)[:, None]
+    tmp = np.where((np.abs(t[:, 0]) < 0.9)[:, None], np.array([1.0, 0, 0]), np.array([0, 1.0, 0]))
+    e1 = np.cross(t, tmp); e1 /= np.linalg.norm(e1, axis=1)[:, None]
+    e2 = np.cross(t, e1)
+    dirs[m1, 0] = e1; dirs[m1, 1] = e2; cnt[m1] = 2
+    # face-interior vertices
+    m2 = ty == 2
+    dirs[m2, 0] = vn[m2] / np.linalg.norm(vn[m2], axis=1)[:, None]
+    cnt[m2] = 1
     start = np.concatenate([[0], np.cumsum(cnt)[:-1]])
     return start, cnt, dirs
 
 
-def relax(M, mode="full", maxiter=20000, gtol=1e-12, maxcor=30, stall_window=200, stall_tol=1e-13, verbose=False):
-    """Minimise F over vertex positions.  mode 'full' (3 dof per vertex) or
-    'restricted' (normal motion).  Stops on L-BFGS convergence or when the
-    relative decrease of F over `stall_window` iterations is below stall_tol."""
+def _sym_from6(e):
+    return np.array([[e[0], e[3], e[4]], [e[3], e[1], e[5]], [e[4], e[5], e[2]]])
+
+
+def relax(M, mode="restricted", box=False, maxiter=20000, gtol=1e-13, maxcor=20, stall_window=100,
+          stall_tol=1e-14, verbose=False):
+    """Minimise F over vertex positions ('full': 3 dof per vertex, 'restricted':
+    normal motion) and, if box=True, over a symmetric homogeneous strain of the
+    periodic box (shape and volume; F is scale invariant)."""
+    from .lbfgs import lbfgs
     X0 = M.X.copy()
+    L0 = M.L.copy()
+    ref0 = M.ref.copy()
     if mode == "full":
         nd = X0.size
-        def tox(y):
-            return X0 + y.reshape(X0.shape)
+        def disp(y):
+            return y.reshape(X0.shape)
         def tog(G):
             return G.ravel()
     else:
-        start, cnt, dirs = restricted_basis(M)
-        nd = int(cnt.sum())
         import scipy.sparse as sp
+        start_, cnt, dirs = restricted_basis(M)
+        nd = int(cnt.sum())
         vidx = np.repeat(np.arange(len(X0)), cnt)
         kidx = np.concatenate([np.arange(c) for c in cnt])
-        D = dirs[vidx, kidx]               # (nd,3)
+        D = dirs[vidx, kidx]
         rows = (3 * vidx[:, None] + np.arange(3)[None, :]).ravel()
         cols = np.repeat(np.arange(nd), 3)
         B = sp.csr_matrix((D.ravel(), (rows, cols)), shape=(X0.size, nd))
         BT = B.T.tocsr()
-        def tox(y):
-            return X0 + (B @ y).reshape(X0.shape)
+        def disp(y):
+            return (B @ y).reshape(X0.shape)
         def tog(G):
             return BT @ G.ravel()
-    hist = []
 
-    def fun(y):
-        F, G = energy.dfm_F_and_grad(M, tox(y))
+    def apply(z):
+        y = z[:nd]
+        if box:
+            A = np.eye(3) + _sym_from6(z[nd:])
+        else:
+            A = np.eye(3)
+        X = (X0 + disp(y)) @ A.T
+        return X, A
+
+    def fun(z):
+        X, A = apply(z)
+        if box:
+            M.L = A @ L0
+            M.ref = ref0 @ A.T
+            F, G, dE = energy.dfm_F_grad_virial(M, X)
+            gy = tog(G @ A)
+            dEt = dE @ np.linalg.inv(A).T
+            ge = np.array([dEt[0, 0], dEt[1, 1], dEt[2, 2], dEt[0, 1] + dEt[1, 0], dEt[0, 2] + dEt[2, 0],
+                           dEt[1, 2] + dEt[2, 1]])
+            return F, np.concatenate([gy, ge])
+        F, G = energy.dfm_F_and_grad(M, X)
         return F, tog(G)
 
-    best = {"F": np.inf, "y": np.zeros(nd)}
-
-    def fun_rec(y):
-        F, g = fun(y)
-        if F < best["F"]:
-            best["F"] = F; best["y"] = y.copy()
-        return F, g
-
-    def callback(intermediate_result):
-        hist.append(intermediate_result.fun)
-        if len(hist) > stall_window and (hist[-stall_window - 1] - hist[-1]) < stall_tol * abs(hist[-1]):
-            raise StopIteration
-
     t0 = time.time()
-    res = minimize(fun_rec, np.zeros(nd), jac=True, method="L-BFGS-B", callback=callback,
-                   options={"maxiter": maxiter, "maxfun": 3 * maxiter, "gtol": gtol, "ftol": 1e-17, "maxcor": maxcor})
-    M.X = tox(best["y"])
+    z0 = np.zeros(nd + (6 if box else 0))
+    z, F, g, res = lbfgs(fun, z0, m=maxcor, maxiter=maxiter, gtol=gtol,
+                         stall_window=stall_window, stall_tol=stall_tol)
+    X, A = apply(z)
+    M.X = X
+    M.L = A @ L0
+    M.ref = ref0 @ A.T
     F, G = energy.dfm_F_and_grad(M, M.X)
-    g = tog(G)
-    info = {"F": F, "nit": res.nit, "msg": str(res.message), "gmax": float(np.abs(g).max()),
+    info = {"F": F, "nit": res["nit"], "msg": res["msg"], "gmax": float(np.abs(g).max()),
             "time": time.time() - t0, "ndof": nd}
     if verbose:
         print(info)
@@ -208,26 +228,28 @@ def _neighbours(M):
 def smooth_tangential(M, sweeps=3, omega=0.5):
     """Laplacian smoothing projected on the tangent plane (interior vertices) or
     on the edge tangent (foam-edge vertices).  Foam vertices are not moved."""
-    idx, sh, ptr = _neighbours(M)
+    if getattr(M, "_nbcache", None) is None or M._nbcache[0] != len(M.X):
+        idx, sh, ptr = _neighbours(M)
+        M._nbcache = (len(M.X), idx, sh, ptr)
+    _, idx, sh, ptr = M._nbcache
+    deg = np.diff(ptr)
+    owner = np.repeat(np.arange(len(M.X)), deg)
     for _ in range(sweeps):
         start, cnt, dirs = restricted_basis(M)
         X = M.X
-        Xn = X.copy()
         nbpos = X[idx] + sh @ M.L.T
-        for v in range(len(X)):
-            ty = M.vtype[v]
-            if ty == 0:
-                continue
-            avg = nbpos[ptr[v]:ptr[v + 1]].mean(axis=0)
-            d = avg - X[v]
-            if ty == 2:
-                n = dirs[v, 0]
-                d = d - (d @ n) * n
-            else:
-                t = np.cross(dirs[v, 0], dirs[v, 1])
-                d = (d @ t) * t
-            Xn[v] = X[v] + omega * d
-        M.X = Xn
+        avg = np.zeros_like(X)
+        for c in range(3):
+            avg[:, c] = np.bincount(owner, weights=nbpos[:, c], minlength=len(X))
+        dg = np.maximum(deg, 1)[:, None]
+        d = avg / dg - X
+        ty = M.vtype
+        n = dirs[:, 0]
+        t = np.cross(dirs[:, 0], dirs[:, 1])
+        dint = d - np.sum(d * n, axis=1)[:, None] * n
+        dedge = np.sum(d * t, axis=1)[:, None] * t
+        disp = np.where((ty == 2)[:, None], dint, np.where((ty == 1)[:, None], dedge, 0.0))
+        M.X = X + omega * disp
 
 
 def relax_cycles(M, cycles=3, sweeps=3, **kw):
@@ -237,3 +259,26 @@ def relax_cycles(M, cycles=3, sweeps=3, **kw):
         if c < cycles - 1:
             smooth_tangential(M, sweeps=sweeps)
     return infos
+
+
+def cone_check(M):
+    """Embeddedness certificate (floating point): for every cell, the tetrahedra
+    (centroid_i, triangle) over its oriented boundary triangles must all have
+    positive volume.  Then the cones tile the torus exactly once (degree argument),
+    i.e. the triangulated cells form a genuine partition.  Returns the minimum
+    cone volume relative to the mean cell volume."""
+    from .energy import geometry
+    Atot, V, Mo, S = geometry(M)
+    cen = M.ref + Mo / V[:, None]
+    L = M.L
+    P = M.X[M.tri] + np.einsum("ij,tkj->tki", L, M.tsh)
+    f = M.tface
+    oi = cen[M.fi[f]]
+    oj = cen[M.fj[f]] + M.fsj[f] @ L.T
+    def vol(o, sg):
+        a = P[:, 0] - o; b = P[:, 1] - o; c = P[:, 2] - o
+        return sg * np.einsum("ij,ij->i", a, np.cross(b, c)) / 6.0
+    vi = vol(oi, 1.0)
+    vj = vol(oj, -1.0)
+    vmean = abs(np.linalg.det(L)) / M.ncell
+    return float(min(vi.min(), vj.min()) / vmean)

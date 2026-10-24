@@ -36,6 +36,12 @@ from polylib import Terms, PF, sup_abs_on, range_on, ub, lb, sqrt_ub
 ctx.prec = 320
 
 
+def set_prec(n, maxdeg):
+    """Working precision: the tau-monomial representation of Re((1+i tau)^m) has cancellation of about
+    m log2(1+t) bits; we add a safety margin.  (Any precision is rigorous; too low only widens balls.)"""
+    ctx.prec = 160 + int(1.25 * maxdeg * math.log2(1 + math.tan(math.pi / n)))
+
+
 def choose_K(n):
     # number of harmonic correction terms (heuristic choice; any choice is rigorous)
     if n <= 5:
@@ -69,6 +75,7 @@ def certify(n, K=None, J=None, pieces=240, verbose=True):
     K = choose_K(n) if K is None else K
     J = K if J is None else J
     t0 = time.time()
+    set_prec(n, 4 * (n * max(K, J) + 4))
     h = math.pi / n
     tf = math.tan(h)
     S = float(1 / math.cos(h))          # exact binary scale factor for the basis (any value is fine)

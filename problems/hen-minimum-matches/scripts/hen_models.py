@@ -205,3 +205,67 @@ def build_transshipment_highs(inst, disagg=True, cumul=False, scale=None, maxmat
     if maxmatches is not None:
         addrow(-inf, float(maxmatches), [(col[("y", i, j)], 1.0) for (i, j) in pairs])
     return h, col, scale
+
+
+def strong_rows(inst, windows=True, counts=True, cg=0, only_pinch_starts=False):
+    """valid y-rows (Fraction data): W1/W2 window knapsacks, their partner-count covers, optional CG roundings"""
+    from hen_cuts import window_rows, count_rows, cg_rows
+    rows = window_rows(inst, only_pinch_starts=only_pinch_starts) if windows else []
+    out = list(rows)
+    if counts:
+        out += count_rows(rows)
+    if cg:
+        out += cg_rows(rows, cg)
+    return out
+
+
+def build_strong_scip(inst, rows=None, scale=None, maxmatches=None, cumul=False):
+    """Transshipment MILP with residual-capped big-Ms (U_dp, u_interval_capped, r <= rc) plus extra y-rows."""
+    import pyscipopt as ps
+    from hen_cuts import U_dp, u_interval_capped, rcap
+    n, m, k = inst.n, inst.m, inst.k
+    if scale is None:
+        scale = float(max(max(max(r) for r in inst.QH), max(max(r) for r in inst.QC))) / 1000.0
+    M = ps.Model(inst.name + "_strong")
+    y, q, r = {}, {}, {}
+    U = {(i, j): U_dp(inst, i, j) for i in range(n) for j in range(m)}
+    pairs = [p for p in U if U[p] > 0]
+    for p in pairs:
+        y[p] = M.addVar(vtype="B", name="y_%d_%d" % p, obj=1.0)
+    for (i, j) in pairs:
+        for t in range(k):
+            u = u_interval_capped(inst, i, j, t)
+            if u > 0:
+                q[i, j, t] = M.addVar(lb=0.0, ub=float(u) / scale, name=f"q_{i}_{j}_{t}")
+    for i in range(n):
+        for t in range(k - 1):
+            rc = rcap(inst, i, t)
+            if rc > 0:
+                r[i, t] = M.addVar(lb=0.0, ub=float(rc) / scale, name=f"r_{i}_{t}")
+    for i in range(n):
+        for t in range(k):
+            terms = [(q[i, j, t], 1.0) for j in range(m) if (i, j, t) in q]
+            if (i, t) in r:
+                terms.append((r[i, t], 1.0))
+            if (i, t - 1) in r:
+                terms.append((r[i, t - 1], -1.0))
+            if not terms:
+                assert inst.QH[i][t] == 0, (i, t)
+                continue
+            M.addCons(ps.quicksum(c * v for v, c in terms) == float(inst.QH[i][t]) / scale, name=f"hot_{i}_{t}")
+    for j in range(m):
+        for t in range(k):
+            if inst.QC[j][t] > 0:
+                M.addCons(ps.quicksum(q[i, j, t] for i in range(n) if (i, j, t) in q) == float(inst.QC[j][t]) / scale,
+                          name=f"cold_{j}_{t}")
+    for (i, j) in pairs:
+        M.addCons(ps.quicksum(q[i, j, t] for t in range(k) if (i, j, t) in q) - float(U[i, j]) / scale * y[i, j] <= 0)
+        for t in range(k):
+            if (i, j, t) in q:
+                M.addCons(q[i, j, t] - float(u_interval_capped(inst, i, j, t)) / scale * y[i, j] <= 0)
+    for name, coef, b in (rows or []):
+        M.addCons(ps.quicksum(float(c) * y[e] for e, c in coef.items() if e in y) >= float(b), name=name)
+    if maxmatches is not None:
+        M.addCons(ps.quicksum(y.values()) <= maxmatches, name="maxmatches")
+    M.setMinimize()
+    return M, y, q, r, scale

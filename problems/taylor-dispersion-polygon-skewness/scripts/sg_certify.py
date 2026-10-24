@@ -22,7 +22,7 @@ from flint import arb, arb_poly, ctx
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from polylib import Terms, PF, range_on, ub
-from lt_certify import float_eval
+from lt_certify import float_eval, set_prec
 
 ctx.prec = 320
 
@@ -48,6 +48,7 @@ def fit_ut(n, K, M=6000):
 def certify_sg(n, K=None, pieces=400, verbose=True):
     K = default_K(n) if K is None else K
     t0 = time.time()
+    set_prec(n, 4 * n * K + 8)
     S, a_coef = fit_ut(n, K)
     Sa = arb(S)
     t = (arb.pi() / n).tan()

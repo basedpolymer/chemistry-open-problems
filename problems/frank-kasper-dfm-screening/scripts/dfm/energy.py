@@ -139,6 +139,95 @@ def _grad(X, L, tri, tsh, tface, fi, fj, fsj, ref, ncell, gA, gV, gM, gS):
     return G
 
 
+@nb.njit(cache=True)
+def _grad_virial(X, L, tri, tsh, tface, fi, fj, fsj, ref, ncell, gA, gV, gM, gS):
+    """Gradient of  gA*Atot + sum_i (gV_i V_i + gM_i . M_i + gS_i S_i)  w.r.t. X."""
+    T = tri.shape[0]
+    G = np.zeros(X.shape)
+    W = np.zeros((3, 3))
+    Ds = np.zeros(3)
+    P = np.zeros((3, 3))
+    R = np.zeros((3, 3))
+    D = np.zeros((3, 3))
+    for t in range(T):
+        for k in range(3):
+            v = tri[t, k]
+            for c in range(3):
+                P[k, c] = X[v, c] + L[c, 0] * tsh[t, k, 0] + L[c, 1] * tsh[t, k, 1] + L[c, 2] * tsh[t, k, 2]
+        for k in range(3):
+            for c in range(3):
+                D[k, c] = 0.0
+        # area gradient
+        e1x = P[1, 0] - P[0, 0]; e1y = P[1, 1] - P[0, 1]; e1z = P[1, 2] - P[0, 2]
+        e2x = P[2, 0] - P[0, 0]; e2y = P[2, 1] - P[0, 1]; e2z = P[2, 2] - P[0, 2]
+        nx = e1y * e2z - e1z * e2y
+        ny = e1z * e2x - e1x * e2z
+        nz = e1x * e2y - e1y * e2x
+        nn = np.sqrt(nx * nx + ny * ny + nz * nz)
+        if nn > 0.0:
+            ux = nx / nn; uy = ny / nn; uz = nz / nn
+            for k in range(3):
+                kp = (k + 1) % 3
+                km = (k + 2) % 3
+                # dA/dP_k = 0.5 * u x (P_km - P_kp)
+                wx = P[km, 0] - P[kp, 0]; wy = P[km, 1] - P[kp, 1]; wz = P[km, 2] - P[kp, 2]
+                D[k, 0] += gA * 0.5 * (uy * wz - uz * wy)
+                D[k, 1] += gA * 0.5 * (uz * wx - ux * wz)
+                D[k, 2] += gA * 0.5 * (ux * wy - uy * wx)
+        f = tface[t]
+        for side in range(2):
+            if side == 0:
+                ci = fi[f]
+                ox = ref[ci, 0]; oy = ref[ci, 1]; oz = ref[ci, 2]
+                sg = 1.0
+            else:
+                ci = fj[f]
+                ox = ref[ci, 0] + L[0, 0] * fsj[f, 0] + L[0, 1] * fsj[f, 1] + L[0, 2] * fsj[f, 2]
+                oy = ref[ci, 1] + L[1, 0] * fsj[f, 0] + L[1, 1] * fsj[f, 1] + L[1, 2] * fsj[f, 2]
+                oz = ref[ci, 2] + L[2, 0] * fsj[f, 0] + L[2, 1] * fsj[f, 1] + L[2, 2] * fsj[f, 2]
+                sg = -1.0
+            for k in range(3):
+                R[k, 0] = P[k, 0] - ox; R[k, 1] = P[k, 1] - oy; R[k, 2] = P[k, 2] - oz
+            ax = R[0, 0]; ay = R[0, 1]; az = R[0, 2]
+            bx = R[1, 0]; by = R[1, 1]; bz = R[1, 2]
+            cx = R[2, 0]; cy = R[2, 1]; cz = R[2, 2]
+            det = ax * (by * cz - bz * cy) - ay * (bx * cz - bz * cx) + az * (bx * cy - by * cx)
+            vt = sg * det / 6.0
+            sx = ax + bx + cx; sy = ay + by + cy; sz = az + bz + cz
+            q = (ax * ax + ay * ay + az * az + bx * bx + by * by + bz * bz + cx * cx + cy * cy + cz * cz
+                 + ax * bx + ay * by + az * bz + bx * cx + by * cy + bz * cz + cx * ax + cy * ay + cz * az)
+            gv = gV[ci]; gmx = gM[ci, 0]; gmy = gM[ci, 1]; gmz = gM[ci, 2]; gs = gS[ci]
+            gms = gmx * sx + gmy * sy + gmz * sz
+            Ds[0] = 0.0; Ds[1] = 0.0; Ds[2] = 0.0
+            # coefficient multiplying dV_t
+            cV = gv + gms / 4.0 + gs * q / 10.0
+            for k in range(3):
+                kp = (k + 1) % 3
+                km = (k + 2) % 3
+                # dV_t/dR_k = sg/6 * (R_kp x R_km)
+                dvx = sg / 6.0 * (R[kp, 1] * R[km, 2] - R[kp, 2] * R[km, 1])
+                dvy = sg / 6.0 * (R[kp, 2] * R[km, 0] - R[kp, 0] * R[km, 2])
+                dvz = sg / 6.0 * (R[kp, 0] * R[km, 1] - R[kp, 1] * R[km, 0])
+                # dq/dR_k = 2 R_k + R_kp + R_km = R_k + s
+                dqx = R[k, 0] + sx; dqy = R[k, 1] + sy; dqz = R[k, 2] + sz
+                g0 = cV * dvx + vt / 4.0 * gmx + gs * vt / 10.0 * dqx
+                g1 = cV * dvy + vt / 4.0 * gmy + gs * vt / 10.0 * dqy
+                g2 = cV * dvz + vt / 4.0 * gmz + gs * vt / 10.0 * dqz
+                D[k, 0] += g0; D[k, 1] += g1; D[k, 2] += g2
+                Ds[0] += g0; Ds[1] += g1; Ds[2] += g2
+            # origin of this side moves with the box: dF/dO = -sum_k dF/dR_k
+            W[0, 0] -= Ds[0] * ox; W[0, 1] -= Ds[0] * oy; W[0, 2] -= Ds[0] * oz
+            W[1, 0] -= Ds[1] * ox; W[1, 1] -= Ds[1] * oy; W[1, 2] -= Ds[1] * oz
+            W[2, 0] -= Ds[2] * ox; W[2, 1] -= Ds[2] * oy; W[2, 2] -= Ds[2] * oz
+        for k in range(3):
+            v = tri[t, k]
+            G[v, 0] += D[k, 0]; G[v, 1] += D[k, 1]; G[v, 2] += D[k, 2]
+            for a in range(3):
+                for b in range(3):
+                    W[a, b] += D[k, a] * P[k, b]
+    return G, W
+
+
 def geometry(M, X=None):
     if X is None:
         X = M.X
@@ -185,3 +274,26 @@ def area_volume_grad(M, X, gA, gV):
     n = M.ncell
     return _grad(X, M.L, M.tri, M.tsh, M.tface, M.fi, M.fj, M.fsj, M.ref, n, gA,
                  np.asarray(gV, dtype=float), np.zeros((n, 3)), np.zeros(n))
+
+
+def dfm_F_grad_virial(M, X):
+    """F, dF/dX and dF/dE for a homogeneous deformation x -> (1+E) x applied to
+    all positions, the lattice and the cell reference points (fixed vertex dofs)."""
+    Atot, V, Mo, S = geometry(M, X)
+    n = M.ncell
+    Vbox = abs(np.linalg.det(M.L))
+    R0 = (3.0 * Vbox / (FOURPI * n)) ** (1.0 / 3.0)
+    Mo2 = np.sum(Mo ** 2, axis=1)
+    I = S - Mo2 / V
+    sumI = I.sum()
+    Abar = (2.0 * Atot / n) / (FOURPI * R0 ** 2)
+    Ibar = (sumI / n) / (FOURPI * R0 ** 5 / 5.0)
+    F = (Abar ** 2 * Ibar) ** (1.0 / 3.0)
+    gA = 2.0 * F / (3.0 * Atot)
+    cI = F / (3.0 * sumI)
+    gS = np.full(n, cI)
+    gM = -cI * 2.0 * Mo / V[:, None]
+    gV = cI * Mo2 / V ** 2
+    G, W = _grad_virial(X, M.L, M.tri, M.tsh, M.tface, M.fi, M.fj, M.fsj, M.ref, n, gA, gV, gM, gS)
+    dE = W - F * np.eye(3)
+    return F, G, dE

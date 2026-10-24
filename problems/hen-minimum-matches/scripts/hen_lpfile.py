@@ -130,3 +130,83 @@ def write_lp(inst, path, disagg=True, cumul=False, maxmatches=None, scale_pow=No
     with open(path, "w") as f:
         f.write("\n".join(lines) + "\n")
     return {"pairs": pairs, "nq": len(qv), "nr": len(rv), "scale_pow": scale_pow}
+
+
+def write_lp_strong(inst, path, rows=(), maxmatches=None, scale_pow=None, objective=True):
+    """Strong transshipment MILP (residual-capped bounds, see hen_cuts.py) with extra y-rows, exact decimals.
+      hot_i_t, cold_j_t as in write_lp;  link_i_j: sum_t q_ijt - U_dp(i,j) y_ij <= 0;
+      dl_i_j_t: q_ijt - u_cap(i,j,t) y_ij <= 0;  bounds 0 <= q_ijt <= u_cap, 0 <= r_it <= rc(i,t);
+      rows: sum coef*y >= rhs (W1/W2/P families);  maxm: sum y <= K."""
+    from hen_cuts import U_dp, u_interval_capped, rcap
+    n, m, k = inst.n, inst.m, inst.k
+    if scale_pow is None:
+        mx = max(max(max(r) for r in inst.QH), max(max(r) for r in inst.QC))
+        scale_pow = 0
+        while mx / Fraction(10) ** scale_pow > 10000:
+            scale_pow += 1
+    S = Fraction(10) ** scale_pow
+    D = exact_decimal
+    U = {(i, j): U_dp(inst, i, j) for i in range(n) for j in range(m)}
+    pairs = [p for p in sorted(U) if U[p] > 0]
+    pset = set(pairs)
+    uq = {(i, j, t): u_interval_capped(inst, i, j, t) for (i, j) in pairs for t in range(k)}
+    qv = sorted(key for key, u in uq.items() if u > 0)
+    qset = set(qv)
+    rv = sorted((i, t) for i in range(n) for t in range(k - 1) if rcap(inst, i, t) > 0)
+    rset = set(rv)
+    L = []
+    w = L.append
+    w("\\ strong transshipment MILP (residual-capped), instance " + inst.name + f", heat scaled by 10^-{scale_pow}")
+    w("Minimize")
+    w(" obj: " + (" + ".join("y_%d_%d" % p for p in pairs) if objective else "0 y_%d_%d" % pairs[0]))
+    w("Subject To")
+
+    def row(name, terms, sense, rhs):
+        parts = []
+        for c, v in terms:
+            if c == 0:
+                continue
+            parts.append(("- " if c < 0 else "+ ") + f"{D(abs(c))} {v}")
+        s = " ".join(parts)
+        if s.startswith("+ "):
+            s = s[2:]
+        w(f" {name}: {s} {sense} {D(rhs)}")
+    for i in range(n):
+        for t in range(k):
+            terms = [(Fraction(1), f"q_{i}_{j}_{t}") for j in range(m) if (i, j, t) in qset]
+            if (i, t) in rset:
+                terms.append((Fraction(1), f"r_{i}_{t}"))
+            if (i, t - 1) in rset:
+                terms.append((Fraction(-1), f"r_{i}_{t-1}"))
+            if not terms:
+                assert inst.QH[i][t] == 0
+                continue
+            row(f"hot_{i}_{t}", terms, "=", inst.QH[i][t] / S)
+    for j in range(m):
+        for t in range(k):
+            if inst.QC[j][t] > 0:
+                terms = [(Fraction(1), f"q_{i}_{j}_{t}") for i in range(n) if (i, j, t) in qset]
+                row(f"cold_{j}_{t}", terms, "=", inst.QC[j][t] / S)
+    for (i, j) in pairs:
+        terms = [(Fraction(1), f"q_{i}_{j}_{t}") for t in range(k) if (i, j, t) in qset] + [(-U[i, j] / S, f"y_{i}_{j}")]
+        row(f"link_{i}_{j}", terms, "<=", 0)
+        for t in range(k):
+            if (i, j, t) in qset:
+                row(f"dl_{i}_{j}_{t}", [(Fraction(1), f"q_{i}_{j}_{t}"), (-uq[i, j, t] / S, f"y_{i}_{j}")], "<=", 0)
+    for name, coef, b in rows:
+        terms = [(c, "y_%d_%d" % e) for e, c in sorted(coef.items()) if e in pset]
+        row(name, terms, ">=", b)
+    if maxmatches is not None:
+        row("maxm", [(Fraction(1), "y_%d_%d" % p) for p in pairs], "<=", Fraction(maxmatches))
+    w("Bounds")
+    for (i, j, t) in qv:
+        w(f" 0 <= q_{i}_{j}_{t} <= {D(uq[i, j, t] / S)}")
+    for (i, t) in rv:
+        w(f" 0 <= r_{i}_{t} <= {D(rcap(inst, i, t) / S)}")
+    w("Binaries")
+    for p in pairs:
+        w(" y_%d_%d" % p)
+    w("End")
+    with open(path, "w") as f:
+        f.write("\n".join(L) + "\n")
+    return {"pairs": pairs, "nq": len(qv), "nr": len(rv), "scale_pow": scale_pow, "nrows": len(rows)}

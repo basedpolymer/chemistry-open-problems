@@ -1,0 +1,239 @@
+[
+ {
+  "n": 32,
+  "matrix": "A(T6)",
+  "graph6_dual": [
+   "Q|eMID`GH_b@B@@?_wGB`?E[?NG",
+   "Q|eMID`GH_b@A@B?_wGBB?Ks?]G"
+  ],
+  "canonical_spirals": [
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    12,
+    13,
+    15,
+    16,
+    17,
+    18
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    5,
+    9,
+    12,
+    13,
+    14,
+    16,
+    17,
+    18
+   ]
+  ],
+  "atlas_numbers": [
+   2,
+   3
+  ],
+  "charpoly_coeffs_low_to_high": [
+   "-4",
+   "0",
+   "9",
+   "0",
+   "-6",
+   "0",
+   "1"
+  ],
+  "T6_graph6": [
+   "EqGW",
+   "EqGW"
+  ],
+  "T6_graphs_all_isomorphic": true
+ },
+ {
+  "n": 36,
+  "matrix": "A(T6)",
+  "graph6_dual": [
+   "S|eMID`KG_b@B@@?_wGAB?[C?WG?]G?A{",
+   "S|eMID`GH_b@A@B?_wGAB?WC?oG?{G?E{"
+  ],
+  "canonical_spirals": [
+   [
+    1,
+    2,
+    3,
+    5,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16,
+    17,
+    19
+   ],
+   [
+    1,
+    2,
+    3,
+    5,
+    7,
+    10,
+    12,
+    15,
+    16,
+    18,
+    19,
+    20
+   ]
+  ],
+  "atlas_numbers": [
+   12,
+   11
+  ],
+  "charpoly_coeffs_low_to_high": [
+   "1",
+   "0",
+   "-10",
+   "0",
+   "15",
+   "0",
+   "-7",
+   "0",
+   "1"
+  ],
+  "T6_graph6": [
+   "GoO_oG",
+   "GoS_?K"
+  ],
+  "T6_graphs_all_isomorphic": true
+ },
+ {
+  "n": 40,
+  "matrix": "A(T6)",
+  "graph6_dual": [
+   "U|eMID`GH_a@E@A?`_GM@?OK@oG?_G?wC?FB??Zg",
+   "U|eMID`KG_b@A@B?__GM@?OK@oG?oG?[C?B`??Jw"
+  ],
+  "canonical_spirals": [
+   [
+    1,
+    2,
+    3,
+    5,
+    7,
+    10,
+    13,
+    16,
+    18,
+    20,
+    21,
+    22
+   ],
+   [
+    1,
+    2,
+    3,
+    5,
+    10,
+    11,
+    14,
+    15,
+    16,
+    19,
+    20,
+    22
+   ]
+  ],
+  "atlas_numbers": [
+   21,
+   25
+  ],
+  "charpoly_coeffs_low_to_high": [
+   "-1",
+   "8",
+   "12",
+   "-36",
+   "-52",
+   "24",
+   "44",
+   "-4",
+   "-12",
+   "0",
+   "1"
+  ],
+  "T6_graph6": [
+   "I|@?_W??w",
+   "I|@?_W??w"
+  ],
+  "T6_graphs_all_isomorphic": true
+ },
+ {
+  "n": 52,
+  "matrix": "A(T6)",
+  "graph6_dual": [
+   "[|eMID@WH?e@C@E?`_GG@@_CB?GA?GB?C?o@?E?G?[?_?WB??[@??Co_?BoG??Bm",
+   "[|eMID@WH?e@C@E?`_GK@?oC@_G@?G@_C?W@?A?G?[?_?WB??WD??K__?BoG??Fe"
+  ],
+  "canonical_spirals": [
+   [
+    1,
+    2,
+    3,
+    4,
+    11,
+    14,
+    15,
+    18,
+    25,
+    26,
+    27,
+    28
+   ],
+   [
+    1,
+    2,
+    3,
+    4,
+    12,
+    16,
+    20,
+    22,
+    24,
+    26,
+    27,
+    28
+   ]
+  ],
+  "atlas_numbers": null,
+  "charpoly_coeffs_low_to_high": [
+   "-240",
+   "-576",
+   "1976",
+   "4464",
+   "-2711",
+   "-9272",
+   "-462",
+   "7872",
+   "2623",
+   "-2928",
+   "-1484",
+   "464",
+   "327",
+   "-24",
+   "-30",
+   "0",
+   "1"
+  ],
+  "T6_graph6": [
+   "O|bIJ?OA?C?G?H?K_BG?^",
+   "O|pBHCO?GO__?O?K_Bg?N"
+  ],
+  "T6_graphs_all_isomorphic": true
+ }
+]

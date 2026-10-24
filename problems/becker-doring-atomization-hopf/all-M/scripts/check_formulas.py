@@ -5,7 +5,7 @@ Environment: Python 3.13, sympy, python-flint 0.9.  Runtime: about 1-2 minutes. 
 Claims (PASS/FAIL):
   F1  (sympy, exact) Pego-Velazquez sorted representation F = -P1 + phi^M P2 + A^-M R1 + (A phi)^-M R2 with the
       closed forms of P1, P2, R1, R2 used here equals the determinant definition (f1 g2 - g1 f2, paper (76)),
-      for symbolic phi, K and M = 3..12 (exact polynomial identity after multiplying by phi^M (A phi)^M).
+      for symbolic phi, K, M (phi^M and (A phi)^-M as independent symbols X, Y; A^-M = X Y).
   F2  (sympy, exact) regular forms: P2/K^3 = P2t, P1/K^3 = P1t, (R1 + phi^-M R2)/K^3 = W/(eps E) ... with
       K = kappa eps, M = eps^-2, phi = 1 + eps^2 z, E = phi^M treated as a symbol.
   F3  (sympy, exact) lambda = (A - 1/phi)(phi - 1) = w (K + A w)/(1 + w) and Re lambda >= 0  <=>
@@ -33,28 +33,22 @@ def report(name, ok, extra=""):
     print("%-4s %s %s" % (name, "PASS" if ok else "FAIL", extra), flush=True)
 
 # ------------------------------------------------------------------------------------------------ F1
-phi, K = sp.symbols("phi K")
+phi, K, Msym1, X, Y = sp.symbols("phi K M X Y")      # X = phi^M, Y = (A phi)^-M, A^-M = X Y
 A = 1 + K
-okF1 = True
-for Mv in range(3, 13):
-    f1 = (phi - 1) + phi**Mv * A
-    f2 = (1 - A*phi) + (A*phi)**(-Mv) * A**2 * phi
-    G1 = phi*(1 - A*phi)*(K*phi + (K*Mv + 1)*(phi - 1))
-    G2 = (1 - A*phi)*(A*Mv*(phi - 1) + K*phi + A*phi*(phi - 1))
-    H1 = (phi - 1)*(K + (K*Mv + 1)*(1 - A*phi))
-    H2 = (phi - 1)*((A + Mv*A**2*phi)*(1 - A*phi) + K*A*phi)
-    g1 = G1 - phi**Mv*G2; g2 = H1 - (A*phi)**(-Mv)*H2
-    Fdet = f1*g2 - g1*f2
-    # closed forms used (paper (e:P1-1), (e:P2-1), (e:r1), (e:r2))
-    S = (phi - 1)*(A*phi - 1)*(A*phi**2 - 1)
-    P1 = K*((A*phi - 1)**2*phi**2 - (phi - 1)**2) + (K*Mv + 1)*S
-    P2 = phi*(A*phi - 1)**3 - A**2*(phi - 1)**2 + Mv*(A*phi - 1)*A**2*(phi - 1)**2
-    R1 = -A**2*((A*phi - 1)**2*phi**2 - (phi - 1)**2)
-    R2 = A*(phi - 1)**3 + A**2*phi*(A*phi - 1)**2*(Mv*(phi - 1) + phi)
-    Fsort = -P1 + phi**Mv*P2 + A**(-Mv)*R1 + (A*phi)**(-Mv)*R2
-    d = sp.expand((Fdet - Fsort)*phi**Mv*(A*phi)**Mv*A**Mv)
-    okF1 &= (d == 0)
-report("F1", okF1, "sorted representation of F (paper (76), (77), (e:r1), (e:r2)) exact for M = 3..12")
+G1 = phi*(1 - A*phi)*(K*phi + (K*Msym1 + 1)*(phi - 1))
+G2 = (1 - A*phi)*(A*Msym1*(phi - 1) + K*phi + A*phi*(phi - 1))
+H1 = (phi - 1)*(K + (K*Msym1 + 1)*(1 - A*phi))
+H2 = (phi - 1)*((A + Msym1*A**2*phi)*(1 - A*phi) + K*A*phi)
+f1 = (phi - 1) + X*A; f2 = (1 - A*phi) + Y*A**2*phi
+g1 = G1 - X*G2; g2 = H1 - Y*H2
+S = (phi - 1)*(A*phi - 1)*(A*phi**2 - 1)
+P1 = K*((A*phi - 1)**2*phi**2 - (phi - 1)**2) + (K*Msym1 + 1)*S
+P2 = phi*(A*phi - 1)**3 - A**2*(phi - 1)**2 + Msym1*(A*phi - 1)*A**2*(phi - 1)**2
+R1 = -A**2*((A*phi - 1)**2*phi**2 - (phi - 1)**2)
+R2 = A*(phi - 1)**3 + A**2*phi*(A*phi - 1)**2*(Msym1*(phi - 1) + phi)
+okF1 = sp.expand(f1*g2 - g1*f2 - (-P1 + X*P2 + X*Y*R1 + Y*R2)) == 0
+report("F1", okF1, "F = f1 g2 - g1 f2 (paper (76)) = -P1 + phi^M P2 + A^-M R1 + (A phi)^-M R2 with the closed forms "
+       "(e:P1-1), (e:P2-1), (e:r1), (e:r2) -- exact, symbolic M")
 
 # ------------------------------------------------------------------------------------------------ F2
 eps, kap, z, E, Mv = sp.symbols("epsilon kappa z E M", positive=True)
@@ -172,6 +166,8 @@ for Mv in [40, 100, 300]:
     rows[0] = [acb(1)] + [acb(0)]*(Mv - 1)
     rhs = acb_mat([[1]] + [[0]]*(Mv - 1))
     qd = acb_mat(rows).solve(rhs)
+    ovl = lambda d, s: d.overlaps(s)
+    okov = all(ovl(qd[l - 1, 0], seq_at(cx, out["q"], l, Mv)) for l in range(1, Mv + 1))
     errq = max(float(abs(qd[l - 1, 0] - seq_at(cx, out["q"], l, Mv)).mid()) for l in range(1, Mv + 1))
     # p: p (B - i omega) = 0, normalized <p,q> = 1: transpose system with one equation replaced by <p,q> = 1
     rowsT = [[Mq[k, i] for k in range(Mv)] for i in range(Mv)]
@@ -179,17 +175,20 @@ for Mv in [40, 100, 300]:
     rhsT = acb_mat([[0], [1]] + [[0]]*(Mv - 2))
     pd = acb_mat(rowsT).solve(rhsT)
     pS = acb_mat([[pd[k, 0] for k in range(Mv)]])*Sm
+    okov &= all(ovl(pS[0, k - 1], seq_at(cx, out["pS"], k, Mv) if k < Mv else acb(0)) for k in range(1, Mv + 1))
     errpS = max(float(abs(pS[0, k - 1] - (seq_at(cx, out["pS"], k, Mv) if k < Mv else 0)).mid()) for k in range(1, Mv + 1))
     Sq = Sm*qd
     # r(2 i omega) = (2 i omega - B)^{-1} S q
     I = acb_mat([[1 if i == k else 0 for k in range(Mv)] for i in range(Mv)])
     r2d = (2*iom*I - Bm).solve(Sq)
+    okov &= all(ovl(r2d[l - 1, 0], seq_at(cx, out["r2"], l, Mv)) for l in range(1, Mv + 1))
     errr2 = max(float(abs(r2d[l - 1, 0] - seq_at(cx, out["r2"], l, Mv)).mid()) for l in range(1, Mv + 1))
     # r(0): (-B) r = S q with sum l r_l = 0 replacing the first row
     rows0 = [[-Bm[i, k] for k in range(Mv)] for i in range(Mv)]
     rows0[0] = [acb(k + 1) for k in range(Mv)]
     rhs0 = acb_mat([[0]] + [[Sq[i, 0]] for i in range(1, Mv)])
     r0d = acb_mat(rows0).solve(rhs0)
+    okov &= all(ovl(r0d[l - 1, 0], seq_at(cx, out["r0"], l, Mv)) for l in range(1, Mv + 1))
     errr0 = max(float(abs(r0d[l - 1, 0] - seq_at(cx, out["r0"], l, Mv)).mid()) for l in range(1, Mv + 1))
     scale = max(float(abs(r0d[l, 0]).mid()) for l in range(Mv))
     # dense Kuznetsov l1 (normalization q_1 = 1)
@@ -204,12 +203,13 @@ for Mv in [40, 100, 300]:
         c = -2*(pv*Bil(qd, w11))[0, 0] + (pv*Bil(qbar, w20))[0, 0]
         l1d = c.real/(2*lam.imag)
         rel = float(abs(l1d/Mv - out["Lhat"].real).mid()/abs(l1d/Mv).mid())
-        okF5 &= rel < 1e-30
+        okF5 &= acb(l1d/Mv).overlaps(acb(out["Lhat"]))
         line = " l1(dense)/M = %s, Lhat = %s (rel %.1e)" % (arb(l1d/Mv).str(12), arb(out["Lhat"].real).str(12), rel)
-    ok = errq < 1e-40 and errpS < 1e-40 and errr2 < 1e-35*max(1, scale) and errr0 < 1e-35*max(1, scale)
+    ok = okov
     okF5 &= ok
-    print("   M=%d: max entry errors q %.1e, pS %.1e, r(2iw) %.1e, r(0) %.1e%s" % (Mv, errq, errpS, errr2, errr0, line))
-report("F5", okF5, "atoms of q, pS, r(0), r(2 i omega) = dense solutions entrywise; Lhat = dense Kuznetsov l1/M")
+    print("   M=%d: all entries overlap: %s; max |difference of midpoints| q %.1e, pS %.1e, r(2iw) %.1e, r(0) %.1e "
+          "(= size of the exp-small enclosures)%s" % (Mv, okov, errq, errpS, errr2, errr0, line))
+report("F5", okF5, "atoms of q, pS, r(0), r(2 i omega) enclose the dense solutions entrywise; Lhat encloses dense l1/M")
 
 # ------------------------------------------------------------------------------------------------ F6
 random.seed(20261024)

@@ -19,7 +19,9 @@
 // Input (stdin), one box per line:  id L1 a1 L2 a2 L3 a3 Lth
 //   d1 in [a1, a1+1] * 2 / 2^L1,  s in [a2, a2+1] / 2^L2,  t in [a3, a3+1] / 2^L3,  n = 2^Lth.
 // Output, one line per box:
-//   id Lth outR inR certR outL inL certL ncompR ncompL failR failL unknotR unknotL
+//   id Lth outR inR certR outL inL certL ncompR ncompL failR failL unknotR unknotL  aTh aD1 aS aT
+// (the last four numbers are a non-rigorous attribution of the remaining uncertainty to the theta grid and to
+//  the three d-coordinates, used only to choose how to refine; they do not enter the bounds)
 // (counts of fine 3D theta cells; cert = cells in components certified knotted by Fox colouring;
 //  fail = components where the sample-point certification failed; unknot = components whose
 //  sample point was certified UNKNOTTED, which would contradict Calvo's theorem; must be 0).
@@ -201,7 +203,22 @@ struct DetTab {
         if (F.lo > F.hi) return F2;   // cannot happen for correct enclosures
         return F;
     }
+    // Heuristic only (no influence on the certified counts): split the width of the centred-form enclosure
+    // into the parts due to the theta-cell and to each d-coordinate; adds normalised shares to acc[0..3].
+    inline void attrib(int L, int ki, const ColData& cj, const Cell& ci, double* acc) const {
+        if (!C->useG) return;
+        const RowData& r = rows[L][ki];
+        I dj = r.ac[1] * cj.p1 + r.ac[2] * cj.p2;
+        I di = r.ap[0] + r.ap[1] * cj.U1 + r.ap[2] * cj.U2;
+        I wt = ci.H * di + cj.H * dj;
+        double w[4]; w[0] = wt.hi - wt.lo;
+        for (int m = 0; m < 3; m++) { I x = (r.bm[m][0] + r.bm[m][1] * cj.U1 + r.bm[m][2] * cj.U2) * C->dD[m]; w[m + 1] = x.hi - x.lo; }
+        double tot = w[0] + w[1] + w[2] + w[3];
+        if (!(tot > 0) || !std::isfinite(tot)) return;
+        for (int k = 0; k < 4; k++) acc[k] += w[k] / tot;
+    }
 };
+static double ATTR[4];
 
 // pierce status: +1 certified true, -1 certified false, 0 unknown; sg[5] = known signs (0 = unknown), updated
 static inline int sgn(I a) { return a.lo > 0 ? 1 : (a.hi < 0 ? -1 : 0); }
@@ -257,6 +274,10 @@ static void quad(const QuadCtx& Q, int L, int ki, int kj, bool needA, bool needB
     if (L == Q.Lmax) {
         if (uA) PM.Aout.set_block(r0, r1, c0, c1);
         if (uB) PM.Bout.set_block(r0, r1, c0, c1);
+        for (int q = 0; q < 5; q++) {
+            if (uA && sgA[q] == 0) Q.TA[q].attrib(L, ki, cj, ci, ATTR);
+            if (uB && sgB[q] == 0) Q.TB[q].attrib(L, ki, cj, ci, ATTR);
+        }
         return;
     }
     for (int a = 0; a < 2; a++) for (int b = 0; b < 2; b++)
@@ -310,6 +331,8 @@ static inline I orient2(const P3& p, const P3& q, const P3& r) {
 static int fox3_certified(const P3* V) {
     struct Cr { int over, under; I tov, tun; };
     vector<Cr> cr;
+    // regularity at the vertices: consecutive edges are not collinear in projection
+    for (int i = 0; i < 6; i++) if (!sgn(orient2(V[i], V[(i + 1) % 6], V[(i + 2) % 6]))) return -1;
     for (int i = 0; i < 6; i++) for (int j = i + 2; j < 6; j++) {
         if (i == 0 && j == 5) continue;
         const P3 &p = V[i], &q = V[(i + 1) % 6], &r = V[j], &s = V[(j + 1) % 6];
@@ -478,6 +501,7 @@ int main(int argc, char** argv) {
             }
         }
         PairMaps PM[3];
+        for (int k = 0; k < 4; k++) ATTR[k] = 0;
         for (int pr = 0; pr < 3; pr++) {
             Coef DA[5], DB[5];
             const PierceSpec* sp[2] = {&SPEC_A[pr], &SPEC_B[pr]};
@@ -504,10 +528,13 @@ int main(int argc, char** argv) {
         CompResult cR, cL;
         if (inR) cR = components(PM[0].Ain, PM[1].Ain, PM[2].Ain, Gc, Lth);
         if (inL) cL = components(PM[0].Bin, PM[1].Bin, PM[2].Bin, Gc, Lth);
-        printf("%lld %d %llu %llu %llu %llu %llu %llu %d %d %d %d %d %d\n", id, Lth,
+        double at = ATTR[0] + ATTR[1] + ATTR[2] + ATTR[3];
+        if (!(at > 0)) at = 1;
+        printf("%lld %d %llu %llu %llu %llu %llu %llu %d %d %d %d %d %d %.4f %.4f %.4f %.4f\n", id, Lth,
                (unsigned long long)outR, (unsigned long long)inR, (unsigned long long)cR.cert,
                (unsigned long long)outL, (unsigned long long)inL, (unsigned long long)cL.cert,
-               cR.ncomp, cL.ncomp, cR.fail, cL.fail, cR.unknot, cL.unknot);
+               cR.ncomp, cL.ncomp, cR.fail, cL.fail, cR.unknot, cL.unknot,
+               ATTR[0] / at, ATTR[1] / at, ATTR[2] / at, ATTR[3] / at);
         fflush(stdout);
     }
     return 0;
