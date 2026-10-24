@@ -63,6 +63,31 @@ def main():
     def b(k, T):
         return B.get((k, T), 0)
 
+    # [x4] irreducible bridges i_{n,T} from 1/(1 - I(z,x)) = B(z,x) against Clisby-Conway-Guttmann 2016 Table 7
+    ref_irr = {}
+    rp = os.path.join(ROOT, "data", "reference_irreducible_bridges.tsv")
+    if os.path.exists(rp):
+        for line in open(rp):
+            if not line.startswith("#"):
+                t = line.split()
+                ref_irr[(int(t[0]), int(t[1]))] = int(t[2])
+        Irr = {}
+        for n in range(1, N + 1):
+            for T in range(1, n + 1):
+                s = b(n, T)
+                for (n1, T1), v in Irr.items():
+                    if n1 < n and T1 < T:
+                        s -= v * b(n - n1, T - T1)
+                Irr[(n, T)] = s
+        mism = [(k, Irr[k], ref_irr.get(k, 0)) for k in Irr if Irr[k] != ref_irr.get(k, 0)]
+        typo = [m for m in mism if m[0] == (18, 1)]
+        other = [m for m in mism if m[0] != (18, 1)]
+        ok = not other
+        print("%s [x4] irreducible bridges by height (from b_{n,T}) = CCG 2016 Table 7 for n <= %d%s" % (
+            "PASS" if ok else "FAIL", N,
+            "; known arXiv typo at (18,1): ours %d, printed %d" % (typo[0][1], typo[0][2]) if typo else ""))
+        fails += not ok
+
     # CL1
     first_fail = None
     print("\n## CL1 (arch lemma) a_{n,M} <= sum_k b_{k,M} b_{n-k,M}, exact, n <= %d" % N)
