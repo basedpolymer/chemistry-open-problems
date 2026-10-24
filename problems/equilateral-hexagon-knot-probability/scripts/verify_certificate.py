@@ -23,6 +23,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("leaves"); ap.add_argument("summary"); ap.add_argument("bin"); ap.add_argument("table")
     ap.add_argument("--sample", type=int, default=0); ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--only", default="", help="comma-separated leaf indices to recompute (testing)")
+    ap.add_argument("--workers", type=int, default=1, help="parallel certifier processes")
     a = ap.parse_args()
     rows = [tuple(map(int, line.split())) for line in gzip.open(a.leaves, "rt")]
     summ = json.load(open(a.summary))
@@ -61,28 +63,37 @@ def main():
     idx = list(range(len(rows)))
     if a.sample:
         random.Random(a.seed).shuffle(idx); idx = sorted(idx[:a.sample])
-    p = subprocess.Popen([a.bin, a.table, "1"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
-    mism = 0; anom = 0
-    for k in range(0, len(idx), 200):
-        part = idx[k:k + 200]
-        for i in part:
-            p.stdin.write("%d %d %d %d %d %d %d %d\n" % ((i,) + rows[i][:7]))
-        p.stdin.flush()
-        for i in part:
-            f = list(map(int, p.stdout.readline().split()[:14]))
-            assert f[0] == i
-            Lth, outR, inR, certR, outL, inL, certL = f[1:8]
-            unk = f[12] + f[13]
-            if (outR, certR, outL, certL) != rows[i][7:11] or Lth != rows[i][6]:
-                mism += 1
-            anom += unk
-    p.stdin.close(); p.wait()
+    if a.only:
+        idx = sorted(int(x) for x in a.only.split(","))
+    from concurrent.futures import ThreadPoolExecutor
+    def work(sub):
+        p = subprocess.Popen([a.bin, a.table, "1"], stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
+        mm = 0; an = 0
+        for k in range(0, len(sub), 100):
+            part = sub[k:k + 100]
+            for i in part:
+                p.stdin.write("%d %d %d %d %d %d %d %d\n" % ((i,) + tuple(rows[i][:7])))
+            p.stdin.flush()
+            for i in part:
+                f = list(map(int, p.stdout.readline().split()[:14]))
+                assert f[0] == i
+                Lth, outR, inR, certR, outL, inL, certL = f[1:8]
+                if (outR, certR, outL, certL) != tuple(rows[i][7:11]) or Lth != rows[i][6]:
+                    mm += 1
+                an += f[12] + f[13]
+        p.stdin.close(); p.wait()
+        return mm, an
+    K = max(1, a.workers)
+    parts = [idx[j::K] for j in range(K)]
+    with ThreadPoolExecutor(K) as ex:
+        res = list(ex.map(work, parts))
+    mism = sum(r[0] for r in res); anom = sum(r[1] for r in res)
     chk("V2 recomputed counts match", mism == 0, "(%d leaves recomputed, %d mismatches)" % (len(idx), mism))
     chk("V2 no component certified unknotted", anom == 0)
     # V3 sums
     up = sum(weight_num(*r[:7]) * (r[7] + r[9]) for r in rows)
     lo = sum(weight_num(*r[:7]) * (r[8] + r[10]) for r in rows)
-    chk("V3 exact sums equal the summary", str(up) == summ["upper_num"] and str(lo) == summ["lower_num"])
+    chk("V3 exact sums equal the summary", summ["EXP"] == EXP and str(up) == summ["upper_num"] and str(lo) == summ["lower_num"])
     U = Fraction(up, 1 << EXP); L = Fraction(lo, 1 << EXP)
     print("   upper U = %.12e   lower L = %.12e   U/L = %.6f" % (float(U), float(L), float(U / L) if L else float("inf")))
     chk("V4 0 < L <= U < (14-3pi)/192 (Hake)", 0 < L <= U and U < (Fraction(14) - 3 * Fraction("3.14159265358980")) / 192)

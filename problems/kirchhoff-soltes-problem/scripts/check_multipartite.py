@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""check_multipartite.py -- Theorem 8 of result.md (complete multipartite graphs).
+"""check_multipartite.py -- Theorem 11 of result.md (complete multipartite graphs).
 
 For G = K_{n_1,...,n_k} (n = sum n_i >= 3, k >= 2, not a star) and v in a part of size n_j:
    Kf(G) - Kf(G - v) = phi(n_j) - S,

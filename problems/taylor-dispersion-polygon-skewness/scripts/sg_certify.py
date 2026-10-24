@@ -27,7 +27,7 @@ import numpy as np
 from flint import arb, arb_poly, ctx
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from polylib import Terms, PF, range_on
+from polylib import Terms, PF, range_on, lo_hi
 from lt_certify import float_eval, set_prec
 
 
@@ -119,7 +119,7 @@ def certify_sg(n, K=None, J=None, pieces=200, verbose=True, raw=False):
     res = dict(n=n, K=K, J=J, prec=ctx.prec, delta=float(delta.upper()), L2_E=float(epsE.upper()),
                L2_rho=float(rho2.sqrt().upper()), L2_dseb=float(deb2.sqrt().upper()),
                int_uN3=I3.str(10), boundary_term=(3 * B1).str(6), rellich=float(rell.upper()),
-               second=float(second.upper()), lower=float(L.lower()), SG=SG.str(6),
+               second=float(second.upper()), lower=float(L.lower()), SG=lo_hi(SG),
                a_coef=[float(x).hex() for x in a_coef], c_coef=[float(x).hex() for x in c_coef],
                S=S.hex(), PASS=ok, seconds=round(dt, 1))
     if raw:
@@ -127,7 +127,7 @@ def certify_sg(n, K=None, J=None, pieces=200, verbose=True, raw=False):
     if verbose:
         print(f"n={n:3d} K={K:2d} ||E||<={res['L2_E']:.1e} ||rho||<={res['L2_rho']:.1e} int u_N^3={float(I3.mid()):.5e} "
               f"3B1={float(B1.mid())*3:.2e} rell<={res['rellich']:.1e} 2nd<={res['second']:.1e} "
-              f"L>={res['lower']:.4e} S^G in {SG.str(4)} [{dt:.1f}s] {'PASS' if ok else 'FAIL'}", flush=True)
+              f"L>={res['lower']:.4e} S^G in [{lo_hi(SG)[0]:.5g}, {lo_hi(SG)[1]:.5g}] [{dt:.1f}s] {'PASS' if ok else 'FAIL'}", flush=True)
     return res
 
 

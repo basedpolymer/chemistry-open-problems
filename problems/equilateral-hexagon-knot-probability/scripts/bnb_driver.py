@@ -7,7 +7,8 @@ Usage:
   python3 bnb_driver.py --state STATE.pkl --bin HEXCERT --table TRIG.bin [--rounds R] [--batch B]
          [--init-level L0] [--lth-init T0] [--lth-max TMAX] [--hours H]
 The state file is rewritten (atomically) after every round, so the run can be interrupted and resumed with
-the same command (resumable chunks).  One thread; memory grows with the number of leaves (~300 B per leaf).
+the same command (resumable chunks).  One thread by default; --workers K runs K certifier processes in
+parallel (identical results).  Memory grows with the number of leaves (~300 B per leaf).
 
 A leaf is a dyadic box D = [2 a1, 2 a1 + 2]/2^L1 x [a2, a2+1]/2^L2 x [a3, a3+1]/2^L3 of the (d1, s, t) chart
 with a theta level Lth and certified counts (outR, certR, outL, certL).  Its contribution to the knotting
@@ -52,6 +53,23 @@ class Certifier:
         return out
     def close(self):
         self.p.stdin.close(); self.p.wait()
+
+class MultiCertifier:
+    """k independent certifier processes; boxes are split into k contiguous chunks (results are identical to
+    a single process, since each box is certified independently)."""
+    def __init__(self, binpath, table, k):
+        self.c = [Certifier(binpath, table) for _ in range(k)]
+    def run(self, boxes):
+        k = len(self.c)
+        if k == 1:
+            return self.c[0].run(boxes)
+        from concurrent.futures import ThreadPoolExecutor
+        n = len(boxes); parts = [boxes[i * n // k:(i + 1) * n // k] for i in range(k)]
+        with ThreadPoolExecutor(k) as ex:
+            res = list(ex.map(lambda ip: self.c[ip[0]].run(ip[1]), enumerate(parts)))
+        return [r for part in res for r in part]
+    def close(self):
+        for c in self.c: c.close()
 
 def leaf_record(box, res):
     (Lth_out, outR, inR, certR, outL, inL, certL, ncR, ncL, failR, failL, unkR, unkL, a0, a1, a2, a3) = res
@@ -122,11 +140,12 @@ def main():
     ap.add_argument("--lth-max", type=int, default=12)
     ap.add_argument("--hours", type=float, default=1e9)
     ap.add_argument("--oct-level", type=int, default=6)
+    ap.add_argument("--workers", type=int, default=1, help="number of certifier processes (default 1)")
     args = ap.parse_args()
     global OCT_LEVEL
     OCT_LEVEL = args.oct_level
     t0 = time.time()
-    cert = Certifier(args.bin, args.table)
+    cert = MultiCertifier(args.bin, args.table, args.workers)
     if os.path.exists(args.state):
         with open(args.state, "rb") as f:
             state = pickle.load(f)

@@ -39,6 +39,8 @@ graph with n ≥ 3 vertices all of which are good. Hence every KS graph is 2-con
    graphs; c = 3, 4, 5: 1 038, 76 603 and N₅ candidate graphs, all rejected; see §11 for N₅).
 3. **Expander bound** (Thm. 6) [proof]. If G is KS then a(G)·(n − 1)·Σ_v 1/d_v ≤ 2 Kf(G); in particular
    a(G)² ≤ 2n / Σ_v d_v^{−1} ≤ 2·(average degree). For vertex-transitive G violating it, *no* vertex is good.
+   Corollary 7: no KS graph has minimum degree δ > (n − 2 + √(2(n − 1)))/2; joins with both sides larger
+   than √(2(n − 1)) are not KS.
 4. **Dense bound** (Thm. 8) [proof]. If a(G) > 1 then Δ_v(G) ≥ 1 − Σ_i (n − μ_i)/(μ_i(μ_i − 1)) for every v
    (sharp: equality for the source's graphs G_s with half of the vertices good).
 5. **Local deletion formula** (Prop. 9) [proof] expressing Kf(G − v) through Γ and Γ² on the closed
@@ -189,6 +191,12 @@ over v and use Σ_v Rt(v) = 2Kf and Lemma 5′. For the second inequality use 1 
 a(G − v) ≥ a(G) − 1; proof: for x ⊥ 1 on V∖v extended by x_v = 0, a(G)‖x‖² ≤ xᵀL_Gx = xᵀL_{G−v}x + Σ_{y∼v}x_y²
 ≤ xᵀL_{G−v}x + ‖x‖²) and ε_v ≥ (n − 1)/d_v. Finally Kf(G) = nΣ1/μ_i ≤ n(n − 1)/a(G). For vertex-transitive G
 all Δ_v are equal. ∎
+
+**Corollary 7.** Since d_v ≤ n − 1, every graph with a(G)² > 2(n − 1) is not KS. In particular:
+(i) if δ(G) > (n − 2 + √(2(n − 1)))/2 then G is not KS (because a(G) ≥ 2δ − n + 2: a(G) = n − λ_max(L(Ḡ))
+and λ_max(L(Ḡ)) ≤ 2Δ(Ḡ) = 2(n − 1 − δ) by Gershgorin); (ii) a join G = H₁ + H₂ with
+min(n₁ + a(H₂), n₂ + a(H₁))² > 2(n − 1), e.g. with min(n₁, n₂) > √(2(n − 1)), is not KS (the Laplacian
+spectrum of a join is {0, n} ∪ {λ + n₂ : λ ∈ spec L(H₁) minus one 0} ∪ {μ + n₁ : μ ∈ spec L(H₂) minus one 0}).
 
 Examples: the bound excludes all Johnson graphs J(m,k) (a = m, d = k(m − k) ≤ m²/4), Paley graphs P(q)
 for q ≥ 9 (a = (q − √q)/2), and every d-regular graph with second adjacency eigenvalue ≤ 2√(d − 1)

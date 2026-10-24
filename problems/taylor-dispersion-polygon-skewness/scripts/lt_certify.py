@@ -31,7 +31,7 @@ import numpy as np
 from flint import arb, arb_poly, ctx
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from polylib import Terms, PF, sup_abs_on, range_on, ub, lb, sqrt_ub
+from polylib import Terms, PF, sup_abs_on, range_on, ub, lb, sqrt_ub, lo_hi
 
 ctx.prec = 320
 
@@ -167,7 +167,7 @@ def certify(n, K=None, J=None, pieces=240, verbose=True, raw=False):
                L2_E=float(epsE.upper()), L2_e=float(eN.upper()), eta=float(eta.upper()), omega=float(omega.upper()),
                I_N=I_N.str(12), Err=float(Err.upper()), I_lower=float(lower.lower()),
                terms=[float(T1.upper()), float(T2.upper()), float(T3.upper()), float(T4.upper())],
-               mean_g_check=intG.str(5), kappa_apothem1=kappa.str(6), kappa_circumradius1=kappa_circ.str(6),
+               mean_g_check=intG.str(5), kappa_apothem1=lo_hi(kappa), kappa_circumradius1=lo_hi(kappa_circ),
                a_coef=[float(x).hex() for x in a_coef], b_coef=[float(x).hex() for x in b_coef],
                S=S.hex(), pieces=pieces, prec=ctx.prec, seconds=round(dt, 2), PASS=ok)
     if verbose:

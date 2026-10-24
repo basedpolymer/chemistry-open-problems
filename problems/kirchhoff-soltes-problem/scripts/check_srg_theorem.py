@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""check_srg_theorem.py -- computer-algebra steps of Theorem 9 (strongly regular graphs) in result.md.
+"""check_srg_theorem.py -- computer-algebra steps of Theorem 12 (strongly regular graphs) in result.md.
 
 (1) Symbolic DRG formula for an SRG {k, k-1-lambda; 1, mu} (sympy): Kf(G), and
       Delta = Kf(G) - Kf(G-v) = Rt(v) - ((n-1)/P) * sum_theta W(theta)/Q(theta),   P = mu n,
@@ -9,7 +9,7 @@
 (2) Triangle-free case (lambda = 0, theta = 0): Delta = N(k,mu)/(mu (k+mu-2)(k^2+k mu-k+mu)); N > 0 for all
     k >= 2, mu >= 1 except (k,mu) = (2,1) [C5]; Moore case mu = 1: Delta = k(k-2)(k+1)/(k^2+1).
 (3) Conference graphs with n >= 9 and primitive SRGs with integral eigenvalues and k >= 6 satisfy
-    a(G)^2 > 2k (a = k - r), so they are excluded by Theorem 5 (expander bound).
+    a(G)^2 > 2k (a = k - r), so they are excluded by Theorem 6 (expander bound).
 (4) All feasible primitive parameter sets with k <= 5: exact rational interval for Delta (Jensen lower bound
     and chord upper bound for sum 1/(Q0 - theta), theta in [s, r], mean -lambda/(k-1)); Delta > 0 except C5.
 PASS/FAIL, exit 1 on failure.  Runtime ~1 min (sympy).

@@ -1,4 +1,4 @@
-"""deletion_formula.py -- the local vertex-deletion formula (Proposition 6 of result.md).
+"""deletion_formula.py -- the local vertex-deletion formula (Proposition 9 of result.md).
 
 For a connected graph G on n vertices with Gamma = L^+ and a non-cut vertex v with neighbourhood N (|N| = d):
   M  = grounded Green function at v:  M_ab = G_ab - G_av - G_vb + G_vv         (G = Gamma)

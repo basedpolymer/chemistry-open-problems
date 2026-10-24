@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""check_expander_dense.py -- checks for Lemma 4 and Theorems 5, 6 of result.md (expander and dense bounds).
+"""check_expander_dense.py -- checks for Lemmas 5, 5' and Theorems 6, 8 of result.md (expander and dense bounds).
 
 Exact part (python-flint rationals), on deterministic random 2-connected graphs n = 4..11:
   (E1) sum_v n sigma_v = 2 Kf(G), where n sigma_v = sum_{u<w} E_v(u,w) = n tr(Gamma^2 L*_v);
-  (E2) for every v and every pair u,w != v:  r_{G-v}(u,w) - r_G(u,w) >= E_v(u,w)   (lower half of Lemma 4);
+  (E2) for every v and every pair u,w != v:  r_{G-v}(u,w) - r_G(u,w) >= E_v(u,w)   (lower half of Lemma 5);
   (E3) eps_v = sum_w E_v(v,w) >= (n-1)/d_v.
 Floating-point sanity part (numpy, tolerance 1e-9; the inequalities involve irrational eigenvalues):
-  (F1) r_{G-v}(u,w) - r_G(u,w) <= (1 + 1/a(G-v)) E_v(u,w)        (upper half of Lemma 4);
-  (F2) sum_v [Kf(G)-Kf(G-v)] >= (1+1/a_*) sum_v eps_v - 2Kf/a_*    (Theorem 5, sharp form);
-  (F3) a(G) > 1  =>  Kf(G)-Kf(G-v) >= 1 - sum_i (n-mu_i)/(mu_i(mu_i-1)) for every v   (Theorem 6).
+  (F1) r_{G-v}(u,w) - r_G(u,w) <= (1 + 1/a(G-v)) E_v(u,w)        (upper half of Lemma 5);
+  (F2) sum_v [Kf(G)-Kf(G-v)] >= (1+1/a_*) sum_v eps_v - 2Kf/a_*    (Theorem 6, sharp form);
+  (F3) a(G) > 1  =>  Kf(G)-Kf(G-v) >= 1 - sum_i (n-mu_i)/(mu_i(mu_i-1)) for every v   (Theorem 8).
 PASS/FAIL, exit 1 on failure.  Runtime ~1-2 min.
 """
 import os

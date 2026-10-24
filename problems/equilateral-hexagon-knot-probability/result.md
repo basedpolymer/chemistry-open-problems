@@ -215,4 +215,33 @@ Then U = Σ_D w(D)(outR + outL) and L = Σ_D w(D)(certR + certL) satisfy L ≤ p
 
 ## 7. Numerical validation (not part of the proof)
 
+* **Monte Carlo, 10⁸ samples** (`scripts/mc_validate.py 100000000 2026`, log `certificates/mc_validate.log`):
+  d uniform in P (rejection from [0,2]³), θ uniform in [0,2π)³, floating point. Knotted fraction
+  **[RUN-MC]**; the classifier used for "knotted" is the exact Fox 3-colouring count of the projection on a random
+  plane (integer arithmetic mod 3 on the Gauss diagram). Checks, all PASS: the count is always 3 or 9 (C1); it agrees
+  with Calvo's criterion on every sample (C2); every knotted sample has each T_i pierced exactly once (C3, Lemma 2.3);
+  the A/B conditions on the same angle pair never hold together (C4, Lemma 2.1); in (0,π)³ knotted ⇔ R or L (C5),
+  with Δ = +1 on R and −1 on L (C5'); knots occur only in (0,π)³ ∪ (π,2π)³ (C6, Lemma 2.4).
+* **Box-level consistency** (`scripts/check_boxes_mc.py`): for 10 boxes of various sizes, the Monte Carlo frequency
+  of R and L inside D × (0,π)³ (4·10⁵ samples each, independent Python implementation of the geometry) lies within
+  the certified [inner, outer] interval (±4 s.e.), and every certified component was certified knotted.
+* **Hake's lemmas** (`scripts/hake_lemma_check.py`, certified with ball arithmetic, not numerics): knotted
+  hexagons with curl +1 such that d1 > d2 > d3 and θ2 > π/2, resp. d1² > d2² + d3² and θ1 < π/2, exist; this
+  contradicts Lemmas 3.9/3.12 of arXiv:1810.11882 (the same assertion for J = (±1, 1)), which her proof of
+  Theorem 4.1 uses. In the Monte Carlo sample of knots in the chamber C × (0,π)³ (22 090 knots), 0.6 % violate the
+  first and 1.4 % the second assertion, all of them in pattern L; Lemma 3.8 (θ_i + θ_j < π) was never violated.
+
 ## 8. Assumptions, limitations, what is not proved
+
+* **Used without proof:** F1–F3 (classical knot theory), the measure-preserving property of the action-angle
+  map (Cantarella–Shonkwiler, Theorems 1 and 13, resting on Duistermaat–Heckman, Kapovich–Millson,
+  Howard–Manon–Millson, Hitchin), correctness of IEEE-754 arithmetic as implemented by the hardware/compiler with
+  the stated flags (tested against exact rationals), and of mpmath's cos/sin at 60 digits (used with a 10⁻⁴⁰ margin).
+* **Not used:** Calvo's Δ-criterion, Hake's lemmas, any Monte Carlo result.
+* **Heuristics** (the refinement order, the attribution of the uncertainty used to choose the split axis, the
+  sample cells used for the Fox test) influence only the tightness, never the validity, of the bounds: every leaf
+  of the final tiling is re-certifiable from scratch by `verify_certificate.py`.
+* **Gap.** The enclosure is limited by first-order blur: a cell is counted as certainly knotted only if it is
+  knotted for all d in the box, so the error is proportional to the area of the boundary of the knotted set times the
+  box size, in the d-directions (dominant) and in θ. Halving the d-box size costs a factor 8 (or 2 per axis), so
+  the gap shrinks slowly with computing time; see README for running with more cores.

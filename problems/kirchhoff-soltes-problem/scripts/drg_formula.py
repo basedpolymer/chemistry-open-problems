@@ -1,5 +1,5 @@
 """drg_formula.py -- exact Kf(G) and Kf(G - v) for a distance-regular graph from its intersection array
-and the spectrum of its local graph (Proposition 7 of result.md).  Exact rational arithmetic (fractions).
+and the spectrum of its local graph (Proposition 10 of result.md).  Exact rational arithmetic (fractions).
 
 Intersection array {b_0,...,b_{D-1}; c_1,...,c_D}, k = b_0, k_{i+1} = k_i b_i / c_{i+1}, n = sum k_i.
 Radial Green functions (layer-current argument):  if L psi = f with f radial, sum_l k_l f_l = 0, then

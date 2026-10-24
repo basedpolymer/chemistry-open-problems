@@ -256,3 +256,11 @@ def lb(x):
 
 def sqrt_ub(x):
     return arb(arb(x.upper()).sqrt().upper())
+
+
+def lo_hi(x):
+    """Outward-rounded float enclosure [lo, hi] of a ball (for reporting only)."""
+    import math
+    lo = float(x.lower())
+    hi = float(x.upper())
+    return [math.nextafter(lo, -math.inf), math.nextafter(hi, math.inf)]
