@@ -75,7 +75,7 @@ def main():
     merged = []
     for idn, lst in groups.items():
         # prefer embedded (cone_min > 0) results, then the deepest level, then the lowest value
-        lst.sort(key=lambda r: (r["cone"] <= 0, -r["K"], r["key"]))
+        lst.sort(key=lambda r: (r["cone"] <= 1e-10, -r["K"], r["key"]))
         b = dict(lst[0])
         b["id"] = idn
         b["aliases"] = " ".join(sorted(x["name"] for x in lst))
@@ -88,9 +88,23 @@ def main():
         b["label"] = idn
         merged.append(b)
     rows = merged
+    # valid starting partitions of the frustrated entries (scripts/frustrated_start_values.py)
+    start = {}
+    fs = os.path.join(ROOT, "data", "frustrated_start_values.csv")
+    if os.path.exists(fs):
+        for line in open(fs).read().split("\n")[1:]:
+            if not line:
+                continue
+            nm, how, Fs, cone = line.split(",")
+            if float(cone) > 1e-10:
+                key = ("II:" if nm.startswith("cat2") else "") + nm.split(":")[1]
+                if key not in start or float(Fs) < start[key][0]:
+                    start[key] = (float(Fs), how)
     for r in rows:
-        if r["cone"] <= 0:      # relaxation left the class of embedded partitions: no valid value
-            r["key"] = float("inf")
+        if r["cone"] <= 1e-10:  # relaxation degenerate / not embedded: use the valid starting partition
+            r["invalid"] = True
+            r["start"] = start.get(r["id"])
+            r["key"] = 10.0 + (r["start"][0] if r["start"] else 0.0)
     rows.sort(key=lambda r: r["key"])
     sig = [r for r in rows if r["id"] == "Phys26"][0]["key"]
     hdr = "rank,id,physical,group,ncell,Z12/Z14/Z15/Z16,maxlevel,F_maxlevel_upper_bound,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,run_used,aliases,F_by_level"
@@ -98,11 +112,14 @@ def main():
     md = ["| # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (upper bound) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |",
           "|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(rows, 1):
-        if r["cone"] <= 0:
-            lines.append("%d,%s,%s,%s,%s,%s,%d,,,,,,,%s,%s,INVALID (relaxation not embedded: cone_min=%.1e)" % (
-                i, r["id"], r["phys"], r["group"], r["n"], r["comp"], r["K"], r["name"], r["aliases"], r["cone"]))
-            md.append("| %d | %s | %s | %s | %s | %d | — | relaxation degenerates (not embedded) | — | %.3f |" % (
-                i, r["label"], r["group"], r["n"], r["comp"], r["K"], r["min_edge"]))
+        if r.get("invalid"):
+            Fs = r["start"][0] if r["start"] else float("nan")
+            d = (Fs - sig) / sig
+            lines.append("%d,%s,%s,%s,%s,%s,0,%.10f,,,%+.3e,,,%s,%s,relaxation degenerate (cone_min=%.1e): value of the valid unrelaxed %s start" % (
+                i, r["id"], r["phys"], r["group"], r["n"], r["comp"], Fs, d, r["name"], r["aliases"], r["cone"],
+                r["start"][1] if r["start"] else "?"))
+            md.append("| %d | %s (frustrated) | %s | %s | %s | start | %.5f (unrelaxed; relaxation degenerates) | — | %+.1f%% | — |" % (
+                i, r["label"], r["group"], r["n"], r["comp"], Fs, 100 * d))
             continue
         d = (r["key"] - sig) / sig
         lines.append("%d,%s,%s,%s,%s,%s,%d,%.10f,%s,%s,%+.3e,%.4f,%.4f,%s,%s,%s" % (
