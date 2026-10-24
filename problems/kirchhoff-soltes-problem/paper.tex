@@ -1,0 +1,262 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{The Kirchhoff \v{S}olt\'es problem: non-existence theorems and exhaustive searches}
+\newcommand*{\PaperTitlePlain}{The Kirchhoff Soltes problem: non-existence theorems and exhaustive searches}
+\newcommand*{\PaperShortTitle}{Kirchhoff \v{S}olt\'es problem}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 24 October 2026 \textperiodcentered{} preliminary (draft by the solver)}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort not recorded) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{Kirchhoff index, resistance distance, \v{S}olt\'es problem, distance-regular graphs, vertex-transitive graphs}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand{\Kf}{\operatorname{Kf}}
+\newcommand{\Rt}{\operatorname{Rt}}
+\newcommand{\one}{\mathbf{1}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Gottwald, Majstorovi\'c Ergoti\'c and Do\v{s}li\'c asked for all graphs $G$ with $\Kf(G-v)=\Kf(G)$ for every
+vertex $v$ (Kirchhoff index $=$ sum of effective resistances); only the cycle $C_5$ is known. We prove
+non-existence for several classes and extend the published searches. Along a path of degree-two vertices,
+$\Kf(G-v_i)$ is a strictly convex quadratic in the position $i$; hence a solution other than $C_5$ with
+cyclomatic number $c$ has at most $8(c-1)$ vertices, and a kernel enumeration shows that there is none with
+$c\le 5$. Every solution satisfies $a(G)^2\le 2n/\sum_v d_v^{-1}$ ($a$ the algebraic connectivity). Complete
+multipartite graphs, strongly regular graphs other than $C_5$, triangle-free distance-regular graphs other
+than $C_5$, distance-regular graphs of valency at most four other than $C_5$, all hypercubes and all Hamming
+graphs are not solutions; for triangle-free distance-regular graphs we give the closed form
+$\Kf(G)-\Kf(G-v)=[(k-1)(n-1)^2-2k(n-k-1)\Kf(G)/n]/[k((k-2)n+2)]$. An exact modular criterion shows that $C_5$
+is the only solution on at most $11$ vertices ($910\,914\,360$ two-connected graphs) and that there is no
+vertex-transitive solution on $6$ to $47$ vertices (Holt--Royle census). The problem remains open.
+\end{paperabstract}
+
+\section*{The question}
+Source \autocite{GMD26}, p.~5 of arXiv:2609.13751:
+\begin{openquote}
+``Problem 3. Find all graphs $G$ so that the equality $Kf(G) = Kf(G - v)$ holds for all $v \in V(G)$.''
+\end{openquote}
+and p.~9: ``Our numerical studies failed to identify any additional Kirchhoff \v{S}olt\'es graphs. We
+investigated connected graphs with up to 9 vertices. [\dots] we examined all vertex-transitive graphs with up to
+23 vertices [\dots]. None of these graphs were Kirchhoff \v{S}olt\'es.'' The problem is the resistance-distance
+analogue of \v{S}olt\'es's problem for the Wiener index \autocite{Soltes91,KMS18a,KMS18b,BJM21,AOVVVY23,BKS23}; a
+relaxed version is studied in \autocite{MEG25}.
+
+\paragraph{Conventions.} $\Kf(G)=\sum_{u<w}r_G(u,w)=n\sum_{i=1}^{n-1}1/\mu_i$ \autocite{KR93,GM96}, where
+$\mu_1\ge\dots\ge\mu_{n-1}>0$ are the non-zero Laplacian eigenvalues; $a(G)=\mu_{n-1}$; $\Gamma=L(G)^+$;
+$\Rt_G(v)=\sum_u r_G(u,v)$; $\tau(G)$ is the number of spanning trees; $\Delta_v(G)=\Kf(G)-\Kf(G-v)$. As in
+the source, $v$ is \emph{good} if $G-v$ is connected and $\Delta_v=0$, and a \emph{Kirchhoff \v{S}olt\'es (KS)
+graph} is a connected graph on $n\ge3$ vertices all of whose vertices are good. Every KS graph is
+$2$-connected.
+
+\section{Tools}
+\begin{lemma}[note=grounded formula]\label{lem:grounded}
+Let $H$ be connected on $N$ vertices, $g\in V(H)$, $A$ the Laplacian of $H$ with the row and column of $g$
+deleted and $M=A^{-1}$. Then $\det A=\tau(H)$ and $\Kf(H)=N\operatorname{tr}M-\one^{\mathsf T}M\one$; in
+particular $\tau(H)\Kf(H)\in\mathbb Z$.
+\end{lemma}
+\begin{proof}
+$M$ is the Green function grounded at $g$, so $r(u,g)=M_{uu}$ and $r(u,w)=M_{uu}+M_{ww}-2M_{uw}$ for
+$u,w\ne g$. Summing over pairs gives $(N-2)\operatorname{tr}M-(\one^{\mathsf T}M\one-\operatorname{tr}M)
++\operatorname{tr}M$. Integrality: $M=\operatorname{adj}(A)/\det A$.
+\end{proof}
+We use Rayleigh monotonicity, $r_H(x,y)\le d_H(x,y)$, Kron reduction (eliminating a vertex $v$ of degree $d$
+replaces its star by a complete graph on $N(v)$ with conductances $1/d$) and the Woodbury identity.
+
+\section{Threads and bounded cyclomatic number}
+\begin{lemma}[note=thread formula]\label{lem:thread}
+Let $G$ be connected and $P=xv_1\cdots v_{\ell-1}y$ ($\ell\ge2$) a path whose internal vertices have degree
+$2$, $x\ne y$, and $R=G-\{v_1,\dots,v_{\ell-1}\}$ connected with $n_R$ vertices. For $a=i-1$, $b=\ell-1-i$,
+\[
+\Kf(G-v_i)=\Kf(R)+n_R\Bigl[\tbinom{a+1}{2}+\tbinom{b+1}{2}\Bigr]+a\Rt_R(x)+b\Rt_R(y)+\tfrac{a^3-a}{6}
++\tfrac{b^3-b}{6}+\tfrac{ab(a+b+2)}{2}+ab\,r_R(x,y).
+\]
+For fixed $s=a+b$ this is a polynomial of degree $\le2$ in $a$ with leading coefficient $n_R-1-r_R(x,y)$.
+\end{lemma}
+\begin{proof}
+$G-v_i$ is $R$ with pendant paths of $a$ vertices at $x$ and $b$ vertices at $y$; pendant paths hang on
+bridges, so all resistances involving them are sums. Summing the six types of pairs gives the formula.
+With $b=s-a$: $n_R[a(a+1)+b(b+1)]/2$ contributes $n_Ra^2$, $(a^3+b^3)/6$ contributes $(s/2)a^2$, and
+$ab=sa-a^2$ contributes $-((s+2)/2+r_R(x,y))a^2$.
+\end{proof}
+\begin{lemma}\label{lem:rpath}
+For connected $R$ and $x\ne y$, $r_R(x,y)\le n_R-1$, with equality iff $R$ is a path with ends $x$ and $y$.
+\end{lemma}
+\begin{proof}
+$r_R(x,y)\le d_R(x,y)\le n_R-1$. If equality holds a shortest $x$--$y$ path $P'$ is Hamiltonian, and any
+further edge $p_ip_j$ ($j\ge i+2$) puts a unit resistor in parallel with a segment of resistance $j-i$,
+giving $r<n_R-1$.
+\end{proof}
+\begin{corollary}\label{cor:thread}
+Let $G$ be $2$-connected but not a cycle. At most two internal vertices of any thread (maximal path of
+degree-two vertices) are good; if a thread has exactly two internal vertices and both are good then
+$\Rt_R(x)=\Rt_R(y)$. Hence a KS graph is $C_5$ or has all threads with at most two internal vertices.
+\end{corollary}
+\begin{proof}
+The ends $x\ne y$ of a thread have degree $\ge3$, and $R$ is connected (otherwise $x$ would be a cut vertex);
+$R$ is not an $x$--$y$ path. By \zcref{lem:thread,lem:rpath}, $a\mapsto\Kf(G-v_{a+1})$ is a strictly convex
+quadratic, which takes the value $\Kf(G)$ at most twice. For $\ell=3$ the two values differ by
+$\Rt_R(x)-\Rt_R(y)$. A KS cycle $C_n$ needs $(n^3-n)/12=(n-2)(n-1)n/6$, i.e.\ $n=5$ \autocite{GMD26}.
+\end{proof}
+\begin{theorem}\label{thm:cyclomatic}
+A KS graph $G\ne C_5$ with cyclomatic number $c=m-n+1$ satisfies $c\ge2$ and $n\le 8(c-1)$, and is a
+subdivision, with $0$, $1$ or $2$ new vertices per edge, of a loopless multigraph without cut vertex, of
+minimum degree $\ge3$, with $n_K\le 2(c-1)$ vertices and $m_K\le3(c-1)$ edges. There is no such graph with
+$c\le5$; hence every KS graph other than $C_5$ has $m\ge n+5$.
+\end{theorem}
+\begin{proof}
+The kernel (suppress degree-two vertices) is loopless, has no cut vertex and the same cyclomatic number;
+$2m_K\ge3n_K$ and \zcref{cor:thread} give the bounds. The kernels are enumerated with nauty
+\autocite{MP14} (\texttt{geng -C} for the underlying simple graph, \texttt{multig -e} for multiplicities) and
+every admissible subdivision is tested with the exact criterion of \zcref{sec:search}: $c=2$: 7 graphs (the
+theta graphs with path lengths in $\{1,2,3\}$); $c=3$: 4 kernels, $1\,038$ graphs; $c=4$: 17 kernels,
+$76\,603$ graphs; $c=5$: 118 kernels, $7\,665\,126$ graphs ($5\le n\le32$). None is KS.
+\end{proof}
+
+\section{An expander bound and a dense bound}
+For $u\ne w$ let $\varphi=\Gamma(e_u-e_w)$ and $E_v(u,w)=\sum_{x\sim v}(\varphi_x-\varphi_v)^2$.
+\begin{lemma}\label{lem:pair}
+If $G$ and $H=G-v$ are connected and $a_v=a(H)$, then for $u,w\in V(H)$
+\[
+E_v(u,w)\le r_H(u,w)-r_G(u,w)\le(1+1/a_v)\,E_v(u,w).
+\]
+\end{lemma}
+\begin{proof}
+Kron reduction gives $L_{H'}=L_H+S$ with $S=P_N-\frac1d\one_N\one_N^{\mathsf T}$, the orthogonal projector onto
+$Y_N=\{y:\operatorname{supp}y\subseteq N(v),\ \sum y=0\}$; write $S=QQ^{\mathsf T}$. On $\one^\perp$,
+$X=L_{H'}^{-1}$ and Woodbury give $r_H-r_G=c^{\mathsf T}(I-K)^{-1}c$, $c=Q^{\mathsf T}Xb$,
+$K=Q^{\mathsf T}XQ$. From $L_H\succeq a_vI$ we get $L_H+S\succeq a_vI+S$, which acts as $(1+a_v)$ on $Y_N$, so
+$0\preceq K\preceq(1+a_v)^{-1}I$ and $I\preceq(I-K)^{-1}\preceq(1+1/a_v)I$. Finally
+$\|c\|^2=\sum_{x\sim v}(\varphi_x-\varphi_v)^2$ because $\varphi$ is harmonic at $v$.
+\end{proof}
+\begin{theorem}[note=expander bound]\label{thm:expander}
+Let $G$ be $2$-connected, $a_*=\min_va(G-v)$ and $\varepsilon_v=\sum_{w\ne v}E_v(v,w)\ge(n-1)/d_v$. Then
+\[
+\sum_v\Delta_v(G)\ \ge\ (1+1/a_*)\sum_v\varepsilon_v-2\Kf(G)/a_*\ \ge\ \tfrac1{a_*}\Bigl[a(G)(n-1)\sum_v d_v^{-1}-2\Kf(G)\Bigr].
+\]
+Hence $G$ is not KS if $a(G)(n-1)\sum_vd_v^{-1}>2\Kf(G)$, in particular if $a(G)^2>2n/\sum_vd_v^{-1}$; if $G$ is
+vertex-transitive, no vertex is good.
+\end{theorem}
+\begin{proof}
+$\Delta_v=\Rt_G(v)-\sum_{u<w;\,u,w\ne v}(r_{G-v}-r_G)$, bounded with \zcref{lem:pair}. One checks
+$\sum_{u<w}E_v(u,w)=n\operatorname{tr}(\Gamma^2L^\star_v)$ with $L^\star_v$ the Laplacian of the star at $v$, and
+$\sum_vL^\star_v=2L$, so these sums add up to $2\Kf(G)$. The edge currents at $v$ sum to $1$, which gives
+$\varepsilon_v\ge(n-1)/d_v$. Further $1+a_*\ge a(G)$ (Fiedler \autocite{Fiedler73}: extend a Fiedler vector of $G-v$
+by $0$) and $\Kf(G)\le n(n-1)/a(G)$.
+\end{proof}
+\begin{corollary}\label{cor:expander}
+Every graph with $a(G)^2>2(n-1)$ is not KS; in particular graphs with minimum degree
+$\delta>(n-2+\sqrt{2(n-1)})/2$ (since $a\ge2\delta-n+2$), joins $H_1+H_2$ with $\min(n_1,n_2)>\sqrt{2(n-1)}$,
+Johnson graphs, Paley graphs $P(q)$ with $q\ge9$, and $d$-regular graphs with second eigenvalue
+$\le2\sqrt{d-1}$ and $d\ge12$.
+\end{corollary}
+\begin{theorem}[note=dense bound]\label{thm:dense}
+If $a(G)>1$ then for every $v$,
+$\Delta_v(G)\ge1-\sum_{i=1}^{n-1}\frac{n-\mu_i}{\mu_i(\mu_i-1)}$. The bound is attained by the graphs
+$K_s+K_{s+1,1}$ of \autocite{GMD26} (half of whose vertices are good).
+\end{theorem}
+\begin{proof}
+With $\Phi(F,N)=\sum_{\theta\in\operatorname{spec}L(F)}\theta/(N-\theta)$, $\Kf(G)=n-1+\Phi(\bar G,n)$ and
+$\Kf(G-v)=n-2+\Phi(\bar G-v,n-1)$. Deleting the edges of $\bar G$ at $v$ lowers every eigenvalue (Weyl), and
+$\theta/(n-1-\theta)$ is increasing on $[0,n-1)$; so
+$\Delta_v\ge1-\sum_\theta\theta/((n-\theta)(n-1-\theta))$ with $\theta=n-\mu$.
+\end{proof}
+
+\section{A local deletion formula}
+\begin{proposition}\label{prop:local}
+Let $v$ be a non-cut vertex, $N=N(v)$, $d=|N|$, $\Gamma_2=\Gamma^2$, and for $a,b\in N$:
+$M_{ab}=\Gamma_{ab}-\Gamma_{av}-\Gamma_{vb}+\Gamma_{vv}$,
+$(M^2)_{ab}=(\Gamma_2)_{ab}-(\Gamma_2)_{av}-(\Gamma_2)_{vb}+(\Gamma_2)_{vv}+n(\Gamma_{av}-\Gamma_{vv})(\Gamma_{bv}-\Gamma_{vv})$,
+$s_a=n(\Gamma_{vv}-\Gamma_{av})$, $t_a=-n[(\Gamma_2)_{av}-(\Gamma_2)_{vv}]-n^2\Gamma_{vv}(\Gamma_{av}-\Gamma_{vv})$,
+\[
+Z=\begin{pmatrix}M_{NN}-I&s\\s^{\mathsf T}&n-1+n^2\Gamma_{vv}\end{pmatrix},\quad
+W=\begin{pmatrix}M^2_{NN}&t\\t^{\mathsf T}&n^2(\Gamma_2)_{vv}+n^3\Gamma_{vv}^2\end{pmatrix}.
+\]
+Then $\Kf(G-v)=(n-1)[\Rt_G(v)-1-\operatorname{tr}(Z^{-1}W)]$ with $\Rt_G(v)=\operatorname{tr}\Gamma+n\Gamma_{vv}$.
+\end{proposition}
+\begin{proof}
+With $M=L_v^{-1}$ (grounded at $v$), $L_{G-v}=M^{-1}-P_N$ and
+$\Kf(G-v)=(n-1)(\operatorname{tr}Y^{-1}-1)$ for $Y=L_{G-v}+J/(n-1)=M^{-1}+UCU^{\mathsf T}$, $U=[E_N,\one]$,
+$C=\operatorname{diag}(-I_d,1/(n-1))$; apply Woodbury and express $M$, $M^2$ through $\Gamma$.
+\end{proof}
+For a distance-regular graph with intersection array $\{b_0,\dots;c_1,\dots\}$, $\Gamma$ and $\Gamma^2$ are
+radial and follow from the layer equations $k_ib_i(\psi_i-\psi_{i+1})=\sum_{l\le i}k_lf_l$ \autocite{Biggs93};
+two neighbours of $v$ are at distance $1$ or $2$, so $\operatorname{tr}(Z^{-1}W)$ splits over the eigenvalues of the
+local graph (\texttt{scripts/drg\_formula.py}, validated against direct exact computation on 17 graphs).
+
+\section{Complete multipartite and strongly regular graphs}
+\begin{theorem}\label{thm:multipartite}
+For $G=K_{n_1,\dots,n_k}$ (not a star) and $v$ in a part of size $n_j$, $\Delta_v=\phi(n_j)-S$ with
+$\phi(x)=\frac{n+x-2}{n-x}+\frac{x(x-1)}{(n-x)(n-1-x)}$ strictly increasing and
+$S=\sum_i\frac{n_i(n_i-1)}{(n-n_i)(n-1-n_i)}$. The good vertices form the union of the parts of one size, and
+$G$ is never KS: for $K_{k\times s}$, $\Delta_v=\frac{k(k-1)s^2-2ks+2}{(k-1)s((k-1)s-1)}>0$.
+\end{theorem}
+\begin{theorem}\label{thm:srg}
+$C_5$ is the only strongly regular KS graph. For a triangle-free $\mathrm{SRG}(n,k,0,\mu)$,
+\[
+\Delta_v=\frac{k^4+3k^3\mu-5k^3+3k^2\mu^2-9k^2\mu+5k^2+k\mu^3-3k\mu^2+5k\mu-k+\mu^3-2\mu^2+\mu}{\mu(k+\mu-2)(k^2+k\mu-k+\mu)}>0
+\]
+unless $(k,\mu)=(2,1)$; for Moore graphs of diameter two $\Delta_v=k(k-2)(k+1)/(k^2+1)$.
+\end{theorem}
+\begin{proof}
+Imprimitive SRGs are complete multipartite (\zcref{thm:multipartite}). Conference graphs with $n\ge9$ have
+$a^2=((n-\sqrt n)/2)^2>2k$, and primitive SRGs with integral eigenvalues $r\ge1$, $s\le-2$ have
+$\mu=k+rs\le k-2r$, hence $a=k-r\ge(k+1)/2$ and $a^2>2k$ for $k\ge6$; both are excluded by
+\zcref{thm:expander}. The feasible primitive parameter sets with $k\le5$ are $(5,2,0,1)$, $(9,4,1,2)$,
+$(10,3,0,1)$, $(16,5,0,2)$; the closed form (and, for $(9,4,1,2)$, Jensen and chord bounds on the local-graph
+eigenvalue sum, $\Delta\in[64/45,8/5]$) settles them.
+\end{proof}
+
+\section{Distance-regular graphs}
+\begin{theorem}\label{thm:drg}
+(i) If $G$ is distance-regular with $a_1=0$, valency $k\ge2$ and diameter $\ge2$, then at every vertex
+\[
+\Kf(G)-\Kf(G-v)=\frac{(k-1)(n-1)^2-2k(n-k-1)\Kf(G)/n}{k((k-2)n+2)}.
+\]
+(ii) $C_5$ is the only KS triangle-free distance-regular graph; for valency $\ge5$ no vertex is good.
+(iii) $C_5$ is the only KS distance-regular graph of valency at most four.
+(iv) No vertex of a hypercube $Q_d$ or of a Hamming graph $H(d,q)$ ($d,q\ge2$) is good.
+(v) A distance-regular graph of valency $\ge3$ with $a(G)\ge2(1+94/101)$ is not KS.
+\end{theorem}
+\begin{proof}
+(i) is \zcref{prop:local} with $b_1=k-1$; the $\Gamma^2$ terms cancel. (ii) For $k\ge5$, Markowsky and Koolen
+\autocite[Theorem~1]{MK10} give $r_D\le Kr_1$, $K=1+94/101$, hence $\Kf\le K(n-1)^2/k$, below the threshold
+$n(k-1)(n-1)^2/(2k(n-k-1))$ because $2K<4\le k-1$. For $k=3,4$ use the classification lists
+\autocite{BCN89,BK99} quoted in \autocite[Cases 2--3]{MK10} and exact evaluation; $k=2$ gives
+$\Delta(C_n)=-n(n-1)(n-5)/12$. (iii) The same lists, including the four quartic graphs with $a_1=1$.
+(iv) $\Delta(Q_d)>0\iff(d-1)(n-1)^2>d(n-d-1)S_1$, $S_1=\sum_i\binom di/i<4n/(d+1)$; for $H(d,q)$ the analogous
+closed form is linear in $\Kf$ and $S_q=\sum_i\binom di(q-1)^i/i<2qn/((d+1)(q-1))$ suffices except for finitely
+many cases computed exactly. (v) Combine \zcref{thm:expander} with $\Kf\le K(n-1)^2/k$.
+\end{proof}
+Closed forms valid for all parameters are also obtained for incidence graphs of symmetric designs, of
+generalized quadrangles and hexagons of order $(q,q)$ and for crown graphs (\texttt{check\_drg\_symbolic.py}).
+
+\section{Exhaustive searches}\label{sec:search}
+\paragraph{Exact criterion.} For $H\in\{G,G-v\}$, $k_p(H)=N\operatorname{tr}A^{-1}-\one^{\mathsf T}A^{-1}\one\bmod p$
+(\zcref{lem:grounded}, LDL$^{\mathsf T}$ over $\mathbb F_p$) equals $\tau(H)\Kf(H)\cdot\tau(H)^{-1}$; if
+$k_p(G)\ne k_p(G-v)$ then $p\nmid\tau(G-v)\tau(G)\Kf(G)-\tau(G)\tau(G-v)\Kf(G-v)$, so $\Kf(G)\ne\Kf(G-v)$. Graphs
+passing every vertex for two primes are re-checked in exact rationals. Implementations:
+\texttt{kscheck.c} ($p=1073741789$, $1073741783$) and \texttt{kscheck\_fast.c} ($p=268435399$, $268435367$),
+validated against exact rational values (2\,126 Kirchhoff indices).
+
+\begin{theorem}\label{thm:small}
+$C_5$ is the only KS graph with at most $11$ vertices (all $910\,914\,360$ two-connected graphs on
+$3\le n\le11$ vertices generated by \texttt{geng -C}; counts equal to OEIS A002218).
+\end{theorem}
+\begin{theorem}\label{thm:vt}
+There is no vertex-transitive KS graph on $6\le n\le47$ vertices (every graph of the Holt--Royle census
+\autocite{HR20,HRdata}, all valencies; counts per $n$ equal to OEIS A006799).
+\end{theorem}
+CENSUSTABLE
+
+\section{Limitations}
+No KS graph other than $C_5$ was found; the general problem remains open. The searches are exact but finite;
+floating-point scans of larger families (lattice quotients of $\mathbb Z^2$ up to $1000$ vertices,
+generalized Petersen graphs up to $GP(1000,k)$) are explorations only and are not used in any statement.
+The valency-$3$ and $4$ classification of distance-regular graphs is used as quoted in \autocite{MK10}.
+
+\paperreferences
+\end{document}

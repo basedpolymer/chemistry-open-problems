@@ -1,0 +1,30 @@
+graphs_read 7665126 unparsable 0 n<3 0 disconnected 0 rejected 7665126 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+n=5 count 1
+n=6 count 19
+n=7 count 165
+n=8 count 896
+n=9 count 3568
+n=10 count 11305
+n=11 count 29896
+n=12 count 68050
+n=13 count 136073
+n=14 count 242382
+n=15 count 388236
+n=16 count 562611
+n=17 count 740196
+n=18 count 885410
+n=19 count 962764
+n=20 count 950252
+n=21 count 849139
+n=22 count 684504
+n=23 count 495411
+n=24 count 319963
+n=25 count 182943
+n=26 count 91635
+n=27 count 39635
+n=28 count 14507
+n=29 count 4357
+n=30 count 1022
+n=31 count 170
+n=32 count 16
+elapsed_seconds 424

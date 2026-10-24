@@ -86,16 +86,36 @@ def check_row_valid(inst, row):
 # intervals 0..t), hence 0 <= r_{i,t} <= min(R_{t+1}, H_i(<=t)) =: rc(i,t)   (rc(i,-1) = 0).
 # ---------------------------------------------------------------------------------------------------------------
 
+def _prefix(inst):
+    """cached prefix sums PH[i][t] = H_i[0..t-1], PC[j][t] = D_j[0..t-1] (t = 0..k)"""
+    if getattr(inst, "_pref", None) is None:
+        PH = []
+        for row in inst.QH:
+            acc = [Fraction(0)]
+            for v in row:
+                acc.append(acc[-1] + v)
+            PH.append(acc)
+        PC = []
+        for row in inst.QC:
+            acc = [Fraction(0)]
+            for v in row:
+                acc.append(acc[-1] + v)
+            PC.append(acc)
+        inst._pref = (PH, PC)
+    return inst._pref
+
+
 def rcap(inst, i, t):
     """upper bound on the residual of hot i leaving interval t (t = -1 .. k-1)"""
     if t < 0 or t >= inst.k - 1:
         return Fraction(0)
-    return min(inst.R[t + 1], sum(inst.QH[i][: t + 1]))
+    return min(inst.R[t + 1], _prefix(inst)[0][i][t + 1])
 
 
 def cap_window(inst, i, s, t):
     """max heat hot i can deliver to cold nodes in intervals s..t:  r_{i,s-1} + H_i[s..t]"""
-    return rcap(inst, i, s - 1) + sum(inst.QH[i][s: t + 1])
+    PH = _prefix(inst)[0]
+    return rcap(inst, i, s - 1) + (PH[i][t + 1] - PH[i][s])
 
 
 def U_dp(inst, i, j, s=0, t=None):
@@ -155,8 +175,9 @@ def window_rows(inst, cold=True, hot=True, only_pinch_starts=False):
                     if b <= 0:
                         continue
                     coef = {}
+                    PC = _prefix(inst)[1]
                     for j in range(m):
-                        c = min(Hw, sum(inst.QC[j][s: T + 1]))
+                        c = min(Hw, PC[j][T + 1] - PC[j][s])
                         if c > 0:
                             coef[(i, j)] = c
                     rows.append((f"W2_h{i}_{s}_{T}", coef, b))

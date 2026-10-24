@@ -1,0 +1,12 @@
+PASS 1: LP file regenerated identically (e3dcb597ae2995ea...)
+step 2: PASS: every row/bound of the LP file re-derived exactly from the instance data
+step 3: PASS: certificate problem = relaxation of the LP-file MILP (every constraint matched exactly)
+step 4 viprchk: 0 <= 58460026466934176377288095166613529030698782295557/35806790114604068425437459922903358049728765886464 ( 1.6326519713111847 )
+step 4 viprchk: 
+step 4 viprchk: Verification failed.
+FAIL 4
+SOME FAIL
+
+real	0m7.071s
+user	0m3.860s
+sys	0m1.262s

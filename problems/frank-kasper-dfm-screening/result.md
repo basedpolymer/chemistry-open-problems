@@ -1,7 +1,7 @@
 # Diblock foam model on the Frank–Kasper catalogue: method, validation, screen
 
-*Status: numerical screen (partial result). Draft written while the runs were in progress; the screen section is
-completed at the end of the work. See README.md for the summary table.*
+*Status: partial result (numerical screen with exact upper-bound certificates; not independently verified). Summary
+table: README.md; all data: `data/`.*
 
 ## 1. Question and framing
 
@@ -227,6 +227,34 @@ Ranked by DFM value (all within 0.03 % of σ): **E11** (I4₁/amd, 44 cells per 
 Z12:Z14:Z15 = 4:5:2, the composition of the J complex Phys22 of [2]; new), **H** (studied as metastable by SCFT at
 χN = 25 in [1]), **μ**, **zra-d / K₇Cs₆** (P6₃/mmc, 26 cells; nearly degenerate with μ, same composition and cell-volume
 spectrum), **N56** (I4₁/amd, 76 cells, new) and **P**. Next (≤ 0.035 %): N16/N27, M, N53, N03/N02. SCFT is out of scope here.
+
+## 5. What is and is not established (caveats)
+
+* **Certified** (exact integer/rational arithmetic, `scripts/check_certificates.py`): six explicit embedded partitions
+  with the stated topologies and boxes, giving inf 𝓕 ≤ 1.071107810 (BCC, cubic), ≤ 1.068897166 (P), ≤ 1.069011740 (M),
+  ≤ 1.069208084 (H), ≤ 1.069546495 (μ), all below the values published in [1] for the same topology and box, and
+  inf 𝓕(σ) ≤ 1.068575909 (σ, relaxed box). The embeddedness argument (positive cones + Σ Vᵢ = det L ⇒ partition) is a
+  standard degree argument written out in §2, not taken from a reference. The boxes of the certificates are the
+  dyadic roundings of the intended boxes (relative change ~10⁻¹⁴).
+* **Numerical, not certified**: every extrapolated value, every ranking statement, and in particular "σ is the DFM
+  minimiser over the catalogue". We have no lower bounds: a structure whose relaxation stopped in a non-global local
+  minimum *within its topology* could have a lower true infimum. Mitigations: restarts from different initial geometries
+  give identical values for the leading structures (§4.4); every level is a monotone-in-refinement exact upper bound with
+  clean O(h²) convergence; the gap σ → next structure (2.3×10⁻⁴) is large compared with all observed numerical
+  effects (extrapolation ≤ 10⁻⁶, start dependence ≤ 10⁻⁹).
+* **Error estimates** of the extrapolations are heuristic (stability of Richardson values between levels; checked for BCC
+  with a fifth level: R₄ and R₅ agree to 7×10⁻⁸).
+* **Topology constraint.** As in [1], the cell topology is fixed. The DFM optimum of a topology may sit at the boundary
+  of its class (vanishing foam edge): this happens for the strongly frustrated non-Voronoi entries (§4.5), for which the
+  reported numbers are the values reached, not converged infima. For all 108 Voronoi-realised structures the shortest
+  foam edge stays ≥ 0.3 R₀ (≥ 0.5 R₀ for all structures within 0.1 % of σ).
+* **Box.** [1] fixes the box; we report both (fixed boxes for the validation, relaxed boxes for the screen). Box
+  relaxation is restricted to homogeneous strains of the given periodic cell; no supercells were tried, so symmetry
+  breaking with a larger period is not excluded.
+* **Model scope.** The DFM is the strong-stretching, polyhedral-interface limit of [1]; its ranking need not coincide
+  with SCFT at finite segregation (SCFT is out of scope; §4.6 lists candidates).
+* **Inputs.** The catalogue files are used as published on Zenodo (the 2010/2012 articles themselves were not read;
+  NEEDS.md); the identification of `ListDATApaperStr` with part II rests on the archive's own LaTeX tables.
 
 ## References
 

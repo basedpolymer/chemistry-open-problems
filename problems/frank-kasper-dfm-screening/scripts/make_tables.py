@@ -58,6 +58,7 @@ def main():
         rows.append({"name": name, "label": label, "phys": phys, "group": group_of(name), "n": r["meta"].get("ncell"),
                      "comp": comp, "K": K, "F_K": F[K], "R": R, "err": err, "rho": rho,
                      "min_edge": last["min_foam_edge_over_R0"], "Vrms": last["Vrms_over_V0"],
+                     "cone": last["cone_min"],
                      "levels": [F[L] for L in sorted(F)], "L_unitvol": last["L_unitvol"]})
     # merge aliases: paper structures present in the catalogue, re-embedded restarts
     P2C = {"sigma": "Phys26", "A15": "Phys27", "C15": "Phys02", "Z": "Phys18", "C14": "Phys01", "psigma": "Phys13",
@@ -73,7 +74,8 @@ def main():
         groups.setdefault(ident(r["name"]), []).append(r)
     merged = []
     for idn, lst in groups.items():
-        lst.sort(key=lambda r: (-r["K"], r["key"]))
+        # prefer embedded (cone_min > 0) results, then the deepest level, then the lowest value
+        lst.sort(key=lambda r: (r["cone"] <= 0, -r["K"], r["key"]))
         b = dict(lst[0])
         b["id"] = idn
         b["aliases"] = " ".join(sorted(x["name"] for x in lst))
@@ -86,6 +88,9 @@ def main():
         b["label"] = idn
         merged.append(b)
     rows = merged
+    for r in rows:
+        if r["cone"] <= 0:      # relaxation left the class of embedded partitions: no valid value
+            r["key"] = float("inf")
     rows.sort(key=lambda r: r["key"])
     sig = [r for r in rows if r["id"] == "Phys26"][0]["key"]
     hdr = "rank,id,physical,group,ncell,Z12/Z14/Z15/Z16,maxlevel,F_maxlevel_upper_bound,F_extrap,err_est,rel_diff_vs_sigma,min_edge_over_R0,Vrms_over_V0,run_used,aliases,F_by_level"
@@ -93,6 +98,12 @@ def main():
     md = ["| # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (upper bound) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |",
           "|---|---|---|---|---|---|---|---|---|---|"]
     for i, r in enumerate(rows, 1):
+        if r["cone"] <= 0:
+            lines.append("%d,%s,%s,%s,%s,%s,%d,,,,,,,%s,%s,INVALID (relaxation not embedded: cone_min=%.1e)" % (
+                i, r["id"], r["phys"], r["group"], r["n"], r["comp"], r["K"], r["name"], r["aliases"], r["cone"]))
+            md.append("| %d | %s | %s | %s | %s | %d | — | relaxation degenerates (not embedded) | — | %.3f |" % (
+                i, r["label"], r["group"], r["n"], r["comp"], r["K"], r["min_edge"]))
+            continue
         d = (r["key"] - sig) / sig
         lines.append("%d,%s,%s,%s,%s,%s,%d,%.10f,%s,%s,%+.3e,%.4f,%.4f,%s,%s,%s" % (
             i, r["id"], r["phys"], r["group"], r["n"], r["comp"], r["K"], r["F_K"],

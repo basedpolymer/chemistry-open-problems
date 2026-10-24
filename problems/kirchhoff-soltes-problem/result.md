@@ -36,7 +36,7 @@ graph with n ≥ 3 vertices all of which are good. Hence every KS graph is 2-con
    other than C₅ has all threads with at most two internal vertices.
 2. **Bounded cyclomatic number** (Thm. 4) [proof + exact computation]. A KS graph ≠ C₅ with cyclomatic
    number c = m − n + 1 has n ≤ 8(c − 1); there is none with c ≤ 5 (c = 2: all bicyclic graphs, i.e. theta
-   graphs; c = 3, 4, 5: 1 038, 76 603 and N₅ candidate graphs, all rejected; see §11 for N₅).
+   graphs; c = 3, 4, 5: 1 038, 76 603 and 7 665 126 candidate graphs, all rejected).
 3. **Expander bound** (Thm. 6) [proof]. If G is KS then a(G)·(n − 1)·Σ_v 1/d_v ≤ 2 Kf(G); in particular
    a(G)² ≤ 2n / Σ_v d_v^{−1} ≤ 2·(average degree). For vertex-transitive G violating it, *no* vertex is good.
    Corollary 7: no KS graph has minimum degree δ > (n − 2 + √(2(n − 1)))/2; joins with both sides larger
@@ -59,13 +59,14 @@ graph with n ≥ 3 vertices all of which are good. Hence every KS graph is 2-con
    bound and the classification of DRGs of valency 3, 4]: Δ_v = [(k−1)(n−1)² − 2k(n−k−1)Kf/n]/[k((k−2)n+2)];
    C₅ is the only KS triangle-free DRG and the only KS DRG of valency ≤ 4; hypercubes and all Hamming
    graphs H(d,q) have no good vertex; every DRG with a(G) ≥ 2(1 + 94/101) is not KS (Cor. 13‴).
-9. **Exhaustive searches** [exact computation]: no KS graph on 6 ≤ n ≤ 11 vertices (all 2-connected graphs,
+9. **Exhaustive searches** [exact computation]: C₅ is the only KS graph on ≤ 11 vertices (all 2-connected graphs,
    nauty geng −C, 910 914 360 graphs for n ≤ 11; the published range was n ≤ 9); no vertex-transitive
    KS graph on 6 ≤ n ≤ 47 vertices (full Holt–Royle census; published range n ≤ 23). Counts in §11.
 
-Consequently a KS graph other than C₅, if it exists, has ≥ 12 vertices, is 2-connected, is not
-complete multipartite and not strongly regular, has cyclomatic number ≥ 6, threads of length ≤ 3, poor
-expansion (a(G)² ≤ 2·HM(degrees)), and if vertex-transitive has ≥ 48 vertices.
+Consequently a KS graph other than C₅, if it exists, has ≥ 12 vertices, is 2-connected, has cyclomatic
+number ≥ 6, threads of length ≤ 3 and poor expansion (a(G)² ≤ 2·HM(degrees)); it is not complete
+multipartite, not strongly regular, not a triangle-free distance-regular graph, not a distance-regular
+graph of valency ≤ 4, not a Hamming graph, and if vertex-transitive it has ≥ 48 vertices.
 
 ## 2. Tools
 
@@ -155,7 +156,8 @@ A loopless multigraph on ≥ 3 vertices has no cut vertex iff its underlying sim
 the list of kernels is complete. Every generated graph is tested by `kscheck` (exact criterion of §11).
 Results (`certificates/search/kernel_c*.log`): c = 2: 1 kernel, 7 graphs (the theta graphs θ(a,b,c) with
 lengths in {1,2,3}, at most one equal to 1; exact values in `certificates/small_cases.txt`); c = 3: 4
-kernels, 1 038 graphs; c = 4: 17 kernels, 76 603 graphs; c = 5: see §11. None is KS. ∎
+kernels, 1 038 graphs (n ≤ 16); c = 4: 17 kernels, 76 603 graphs (n ≤ 24); c = 5: 118 kernels,
+7 665 126 graphs (5 ≤ n ≤ 32). None is KS. ∎
 
 *Remarks.* (1) A 2-connected cactus is a cycle, so C₅ is the only KS cactus (in particular the only KS
 unicyclic graph, as in the source). (2) Good vertices of degree 2 do exist in non-cycle graphs (e.g. two

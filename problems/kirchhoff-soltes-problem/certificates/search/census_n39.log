@@ -1,0 +1,22 @@
+md5 OK d5a5ec7f713f3655e8def4f2c51d7d3d
+alltrans39_k=00.gz graphs_read 1 unparsable 0 n<3 0 disconnected 1 rejected 0 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=02.gz graphs_read 3 unparsable 0 n<3 0 disconnected 2 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=04.gz graphs_read 19 unparsable 0 n<3 0 disconnected 3 rejected 16 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=06.gz graphs_read 100 unparsable 0 n<3 0 disconnected 4 rejected 96 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=08.gz graphs_read 378 unparsable 0 n<3 0 disconnected 3 rejected 375 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=10.gz graphs_read 1101 unparsable 0 n<3 0 disconnected 1 rejected 1100 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=12.gz graphs_read 2532 unparsable 0 n<3 0 disconnected 1 rejected 2531 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=14.gz graphs_read 4659 unparsable 0 n<3 0 disconnected 0 rejected 4659 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=16.gz graphs_read 6954 unparsable 0 n<3 0 disconnected 0 rejected 6954 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=18.gz graphs_read 8484 unparsable 0 n<3 0 disconnected 0 rejected 8484 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=20.gz graphs_read 8484 unparsable 0 n<3 0 disconnected 0 rejected 8484 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=22.gz graphs_read 6954 unparsable 0 n<3 0 disconnected 0 rejected 6954 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=24.gz graphs_read 4659 unparsable 0 n<3 0 disconnected 0 rejected 4659 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=26.gz graphs_read 2532 unparsable 0 n<3 0 disconnected 0 rejected 2532 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=28.gz graphs_read 1101 unparsable 0 n<3 0 disconnected 0 rejected 1101 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=30.gz graphs_read 378 unparsable 0 n<3 0 disconnected 0 rejected 378 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=32.gz graphs_read 100 unparsable 0 n<3 0 disconnected 0 rejected 100 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=34.gz graphs_read 19 unparsable 0 n<3 0 disconnected 0 rejected 19 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=36.gz graphs_read 3 unparsable 0 n<3 0 disconnected 0 rejected 3 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+alltrans39_k=38.gz graphs_read 1 unparsable 0 n<3 0 disconnected 0 rejected 1 (rejected_by_cut_vertex 0) survivors 0 inconclusive 0
+elapsed_seconds 4

@@ -121,13 +121,15 @@ checks that every omitted variable is forced to 0 by the bounds above.
 ## 4. Certification of "no network with ≤ K matches" (VIPR)
 
 1. SCIP 10.0.2 built from source with exact rational solving (SoPlex 8.0.2 with GMP/MPFR/Boost), run with
-   `exact/enable = TRUE`, **cutting planes off** (`separating/maxrounds = 0`, `separating/maxroundsroot = 0`) and
-   **presolving off** (`presolving/maxrounds = 0`), single thread, on the LP file of Sec. 3 with objective 0 and the
-   row maxm (Σ y ≤ K). Output: a VIPR certificate (`RTP infeas`) of the branch-and-bound proof.
+   `exact/enable = TRUE`, **cutting planes off** (`separating/maxrounds = 0`, `separating/maxroundsroot = 0`),
+   **presolving off** (`presolving/maxrounds = 0`) and **conflict analysis off** (`conflict/enable = FALSE`)
+   (`certificates/vipr/scip_exact_safe.set`), single thread, on the LP file of Sec. 3 (objective Σ y, plus the row
+   maxm: Σ y ≤ K). Output: a VIPR certificate (`RTP infeas`) of a pure LP-based branch-and-bound proof.
    - With cutting planes on at all nodes, the Gomory mixed-integer cut derivations written by SCIP 10.0.2 could
      not be completed and verified (`Failed to derive constraint L6380_gom430_x9` on the 10sp1 test, with or without
-     presolving, before and after canonicalising all rationals). With Gomory cuts at the root node only
-     (`separating/maxrounds = 0`, root rounds left at default) the 10sp1 certificate verifies.
+     presolving, before and after canonicalising all rationals). With Gomory cuts at the root node only the 10sp1
+     certificate verified, but the unbalanced10 certificate did not (`Failed to derive constraint
+     L5381_gom21_s1484`, a root cut). We therefore use **no cutting planes at all**.
    - **Conflict analysis must be off** (`conflict/enable = FALSE`). Our first unbalanced10 run (conflict analysis on,
      21 203 nodes, 2.19 GB certificate) failed verification at a conflict-analysis row: `AggrRow_5376` claims
      Σ_{116 of the 122 y} y ≤ 18, derived "weakly" from the row Σ y ≤ 24 with the instruction `{ 0 }` (complete
