@@ -185,8 +185,8 @@ The prediction of steps 2–5 (isomorphic iff "parity-swapping symmetry exists")
 canonical forms for all five caps and all k ≤ 12 (claim F3; n up to 182), together with exact characteristic
 polynomials (F2b). Consequences: n = 44, 68, 92, 116, 140, 164, … (Z = I) and n = 50, 74, 98, 122, 146, …
 (Z = Z12). Of the 6-row-tube caps, sizes 7, 8, 9, 10, 12 (+ multiples of 6 by extra rows) are the only ones
-found in all fullerenes up to C64 (no cap of size ≡ 5 mod 6), so this mechanism cannot reach the residue
-class n ≡ 0 (mod 12); it also does not explain most pairs (e.g. not C42:6/22; `scripts/classify_pairs*.py`).
+found in all fullerenes up to C64 (no cap of size ≡ 5 mod 6); unless larger caps of this tube exist, the
+mechanism does not reach the residue class n ≡ 0 (mod 12); it also does not explain most pairs (e.g. not C42:6/22; `scripts/classify_pairs*.py`).
 
 ## 4. Method of the exhaustive scan
 

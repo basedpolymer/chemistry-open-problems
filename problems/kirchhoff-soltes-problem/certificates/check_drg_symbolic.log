@@ -1,6 +1,7 @@
 (a) Delta = (2*k**6 - 10*k**5 + 6*k**4*mu + 10*k**4 - 11*k**3*mu - 2*k**3 + 3*k**2*mu**2 + 5*k**2*mu - 4*k*mu**2 + mu**3)/(k*mu*(k**2 - 2*k + mu)*(k**2 - k + mu))
 PASS (a) numerator > 0 for k >= mu + 2, mu >= 1
 PASS (a) denominator k mu (k^2-2k+mu)(k^2-k+mu) > 0
+PASS (a') k = mu + 1 (crown graphs K_{k+1,k+1} - I): numerator = (k-1)(k+1)(2k^4-4k^3-2k^2+k+1), > 0 for k >= 3, < 0 at k = 2 (C6)
 PASS (a) closed form = exact formula at (k,mu)=(3,1)
 PASS (a) closed form = exact formula at (k,mu)=(4,2)
 PASS (a) closed form = exact formula at (k,mu)=(5,1)
@@ -15,3 +16,10 @@ PASS (b) closed form = exact formula at q=2
 PASS (b) closed form = exact formula at q=3
 PASS (b) closed form = exact formula at q=4
 PASS (b) closed form = exact formula at q=7
+(c) Delta = (2*q**13 - 4*q**11 - 16*q**10 - 34*q**9 - 64*q**8 - 81*q**7 - 85*q**6 - 76*q**5 - 54*q**4 - 30*q**3 - 14*q**2 - 5*q - 1)/(q**4*(q + 1)*(q**2 - q + 1)*(q**2 + q + 1))
+PASS (c) numerator(2) < 0
+PASS (c) numerator > 0 for q >= 3
+PASS (c) closed form = exact formula at q=2
+PASS (c) closed form = exact formula at q=3
+PASS (c) closed form = exact formula at q=5
+PASS symbolic DRG families

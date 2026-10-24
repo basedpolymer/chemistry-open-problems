@@ -1,0 +1,6 @@
+PASS symbolic: Delta = [(k-1)(n-1)^2 - 2k(n-k-1)Kf/n] / [k((k-2)n+2)]  (h = Gamma^2_vv cancels)
+PASS closed form = exact DRG formula on 509 triangle-free arrays
+PASS hypercubes: Delta(Q_d) > 0 and S_1 < 4n/(d+1) (d >= 5) for 2 <= d <= 120 (exact)
+PASS d >= 5: d^2 - 1 >= 4d (so (d^2-1)(n-1)^2 > 4d n(n-d-1) since n(n-d-1) < (n-1)^2)
+PASS cycles: Delta(C_n) = -n(n-1)(n-5)/12 (zero only for n = 5)
+PASS triangle-free DRG theorem

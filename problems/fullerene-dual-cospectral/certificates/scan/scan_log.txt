@@ -41,3 +41,5 @@ AssertionError
 # relaunch from n=122 after graph6 fix (n>62 header), same settings
 n=122 isomers=1942929 oeis_ok=True | A(T): groups=52 mixed=24 classes=28 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=256 | A+D(T): groups=1 mixed=1 classes=0 | 323s+85s
 # from n=124: mask=7 (types 0,1,2 only: A(T), A(T6), A(T5)); A+D dropped to save time; dualspec16 K=16
+n=124 isomers=2295721 oeis_ok=True | A(T): groups=86 mixed=48 classes=38 | A(T6): groups=1 mixed=1 classes=0 | T5 multi=273 | 306s+60s
+n=126 isomers=2650866 oeis_ok=True | A(T): groups=121 mixed=61 classes=60 | A(T6): groups=0 mixed=0 classes=0 | T5 multi=259 | 378s+104s

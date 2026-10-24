@@ -116,3 +116,6 @@ sub-agents of the orchestrator (effort not recorded); credits per problem in eac
   hexagons, minimum number of matches in heat-exchanger networks, skewness of Taylor dispersion in regular-polygon
   ducts (owner supplied Aminian–Camassa–McLaughlin 2018), Frank–Kasper tilings in the diblock foam model, Kirchhoff
   analogue of Šoltés's problem, spectral conjecture on fullerene duals. Current states in the root README.
+- Result 14 (chemical engineering, transport), solved (preliminary): Aminian–Camassa–McLaughlin's claim on the sign
+  of solute skewness in regular-polygon ducts proved for long and short times (computer-assisted); the claim "at all
+  times" holds on certified windows only. Verification pending.

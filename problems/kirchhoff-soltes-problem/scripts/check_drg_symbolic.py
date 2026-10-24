@@ -4,6 +4,7 @@
 symbolic version of Proposition 10, and a certificate that Delta != 0 for all admissible parameters:
   (a) incidence graphs of symmetric 2-(v,k,mu) designs, array {k, k-1, k-mu; 1, mu, k}, k - mu >= 2:
       Delta > 0 (numerator with k = mu+2+x, mu = 1+y has non-negative coefficients, positive constant);
+  (a') k - mu = 1 (crown graphs K_{k+1,k+1} minus a perfect matching): Delta > 0 for k >= 3, < 0 for C6;
   (b) incidence graphs of generalized quadrangles of order (q,q), {q+1,q,q,q; 1,1,1,q+1}: Delta < 0 at
       q = 2 and Delta > 0 for q >= 3 (numerator in q = 3 + x has non-negative coefficients);
   (c) the same for generalized hexagons of order (q,q), {q+1,q,q,q,q,q; 1,1,1,1,1,q+1};
@@ -75,6 +76,10 @@ num, den = sp.fraction(sp.cancel(d))
 print('(a) Delta =', d)
 check('(a) numerator > 0 for k >= mu + 2, mu >= 1', nonneg_poly(num.subs(k, mu + 2 + x).subs(mu, 1 + y), (x, y)))
 check('(a) denominator k mu (k^2-2k+mu)(k^2-k+mu) > 0', True)
+Ncrown = sp.factor(sp.expand(num.subs(mu, k - 1)))
+check("(a') k = mu + 1 (crown graphs K_{k+1,k+1} - I): numerator = (k-1)(k+1)(2k^4-4k^3-2k^2+k+1), > 0 for k >= 3, < 0 at k = 2 (C6)",
+      sp.expand(Ncrown - (k - 1) * (k + 1) * (2 * k ** 4 - 4 * k ** 3 - 2 * k ** 2 + k + 1)) == 0
+      and nonneg_poly((2 * k ** 4 - 4 * k ** 3 - 2 * k ** 2 + k + 1).subs(k, 3 + x), (x,)) and Ncrown.subs(k, 2) < 0)
 for kk, mm in [(3, 1), (4, 2), (5, 1), (6, 2), (7, 3), (11, 5), (12, 1)]:
     if (kk * (kk - 1)) % mm:
         continue

@@ -53,8 +53,8 @@ number the long-time sign is the sign of `∫ u g1²`.
   (Green identity plus a Rellich bound for the first-order error) and uniformly for n ≥ 140, through the exact
   expansion `⟨u³⟩ = t⁴/360 + O(t⁵)` (explicit two-sided bounds; the main part is exactly `t⁴/360 + 19t⁶/7560`); hence `S^G_n ~ (8√3/15) tan⁴(π/n) ≈ 90/n⁴`.
 * **Finite times (partial).** For symmetric cross-sectionally uniform releases, the sign of `Sk(τ)` does not depend on
-  Pe. Certified windows: n = 3: `Sk > 0` for `τ ≤ 3.3·10⁻³`, `Sk < 0` for `τ ≥ 371`; n = 4: `Sk > 0` for
-  `τ ≤ 5.3·10⁻⁴` and for `τ ≥ 32`; similar for n = 5, 6, 8 (time unit: apothem²/κ). The sign at intermediate times
+  Pe. Certified windows: n = 3: `Sk > 0` for `τ ≤ 3.27·10⁻³`, `Sk < 0` for `τ ≥ 371`; n = 4: `Sk > 0` for
+  `τ ≤ 5.29·10⁻⁴` and for `τ ≥ 32`; similar for n = 5, 6, 8 (time unit: apothem²/κ). The sign at intermediate times
   (the claim "at all times") remains open.
 * Rigorous enclosures of Table 1 of the paper (n = 4, 5, 6, 7, 8, 20, 100) agree with all printed values except
   the arXiv-only `S^G_100 = 8.6·10⁻⁷`; the certified value lies in `[8.348, 8.397]·10⁻⁷`.

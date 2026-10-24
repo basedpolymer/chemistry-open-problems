@@ -53,7 +53,8 @@ graph with n ≥ 3 vertices all of which are good. Hence every KS graph is 2-con
 8. **Distance-regular families** (Prop. 13) [exact computation, finite ranges]: hypercubes Q_d (d ≤ 120), odd
    graphs O_{k} (k ≤ 81), incidence graphs of generalized 3-, 4-, 6-gons of order (q,q) (q ≤ 150, existence
    not needed), Hamming H(d,q) (d, q ≤ 30), Johnson J(m,k) (m ≤ 40), the 13 cubic DRGs, cycles C_n (n ≤ 200):
-   Δ_v ≠ 0 except for C₅.
+   Δ_v ≠ 0 except for C₅. For all parameters (Prop. 13′) [proof]: incidence graphs of symmetric designs,
+   of generalized quadrangles and hexagons of order (q,q), and crown graphs are not KS.
 9. **Exhaustive searches** [exact computation]: no KS graph on 6 ≤ n ≤ 11 vertices (all 2-connected graphs,
    nauty geng −C, 910 914 360 graphs for n ≤ 11; the published range was n ≤ 9); no vertex-transitive
    KS graph on 6 ≤ n ≤ 47 vertices (full Holt–Royle census; published range n ≤ 23). Counts in §11.
@@ -335,6 +336,21 @@ graphs H(d,q), 2 ≤ d, q ≤ 30 (Δ > 0); Johnson graphs J(m,k), m ≤ 40 (Δ >
 anyway); the 13 cubic distance-regular graphs (5 with Δ > 0, 8 with Δ < 0); Moore arrays {k, k−1; 1, 1},
 k ≤ 300; triangle-free SRG arrays with k ≤ 120. Log: `certificates/drg_families.log`
 (`scripts/drg_families.py`).
+
+**Proposition 13′ [proof + computer algebra] (all parameters).** For the following triangle-free
+distance-regular graphs, Proposition 10 gives at every vertex:
+(a) incidence graph of a symmetric 2-(v, k, μ) design (array {k, k−1, k−μ; 1, μ, k}):
+Δ = [2k⁶ − 10k⁵ + 6k⁴μ + 10k⁴ − 11k³μ − 2k³ + 3k²μ² + 5k²μ − 4kμ² + μ³] / [kμ(k² − 2k + μ)(k² − k + μ)],
+which is > 0 whenever k − μ ≥ 2 (with k = μ + 2 + x, μ = 1 + y the numerator has non-negative coefficients),
+and for k − μ = 1 (crown graphs K_{k+1,k+1} minus a perfect matching) the numerator is
+(k − 1)(k + 1)(2k⁴ − 4k³ − 2k² + k + 1): > 0 for k ≥ 3, < 0 for k = 2 (C₆);
+(b) incidence graph of a generalized quadrangle of order (q,q):
+Δ = (2q⁷ − 4q⁵ − 16q⁴ − 19q³ − 13q² − 5q − 1)/(q²(q + 1)(q² + 1)), < 0 for q = 2, > 0 for q ≥ 3;
+(c) incidence graph of a generalized hexagon of order (q,q): Δ = N_6(q)/(q⁴(q + 1)(q² − q + 1)(q² + q + 1)),
+N_6(q) = 2q¹³ − 4q¹¹ − 16q¹⁰ − 34q⁹ − 64q⁸ − 81q⁷ − 85q⁶ − 76q⁵ − 54q⁴ − 30q³ − 14q² − 5q − 1, < 0 for q = 2 and
+> 0 for q ≥ 3. Hence none of these graphs is KS (no projective plane, symmetric design, GQ(q,q) or GH(q,q)
+incidence graph). Check: `scripts/check_drg_symbolic.py` (symbolic derivation, positivity certificates,
+agreement with the exact formula at sample parameters).
 
 ## 11. Exhaustive searches
 

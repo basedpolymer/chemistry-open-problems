@@ -197,7 +197,7 @@ i.e. `X^2 <= Y^2 + 2t XY` with `X = ||d_nE||_dP`, `Y = ||d_sE||_dP`, whence `X <
 R; K = J = 16 (n <= 5), 10 (n <= 8), 6 (n <= 14), 4 (n >= 15)); the coefficients come from floating-point least
 squares on the side and are then exact binary numbers (stored in `certificates/lt_certificates_4_40.json`).
 `-Lap ut_N = 2` and `-Lap g_N = u_N` hold *exactly* (`Lap(r^{2a} Re w^m) = 4a(a+m) r^{2a-2} Re w^m`; checked
-term by term). Every quantity of Lemmas 2–5 is computed in arb ball arithmetic (python-flint, 250–650 bits, chosen from the degree):
+term by term). Every quantity of Lemmas 2–5 is computed in arb ball arithmetic (python-flint, 248–500 bits here and 352–660 bits in Section 6, chosen from the degree):
 boundary sup/oscillation by Taylor enclosures on 240 subintervals of `[0, t]`, all integrals exactly through
 Lemma 6. Result: `I_N - Err > 0` for every `4 <= n <= 40`, with `Err/I_N` between `0.1%` (n = 4) and `7.9%`
 (n = 15). Example (apothem 1): n = 4: `I >= 5.0306e-5` (I_N = 5.0352e-5, Err <= 4.6e-8); n = 40:
@@ -283,15 +283,15 @@ integrals are `2 int int s (sigma-s)^{1/2} = 16 tau^{7/2}/105`, `2 int int (2/3)
 `b1 = ||u|| ||u||_inf ||g1||`. Hence `sign K(tau) = sign <u g2>` for `tau > T1 := (a1/mu_2 + 2 b1/mu_2^2)/|<u g2>|`.
 
 With certified enclosures of all norms (exact for n = 3) and `mu_2 = pi^2/4` (square, exact) or the
-Payne–Weinberger bound `pi^2/diam^2` (others), the script gives:
+Payne–Weinberger bound `pi^2/diam^2` (others), the script gives (t0 rounded down, T1 rounded up):
 
 | n | `Sk(tau) > 0` for `0 < tau <= t0` | sign of `Sk(tau)` for `tau >= T1` |
 |---|---|---|
 | 3 | `t0 = 3.279e-3` | **negative**, `T1 = 371` |
-| 4 | `t0 = 5.300e-4` | positive, `T1 = 32.0` |
+| 4 | `t0 = 5.299e-4` | positive, `T1 = 32.0` |
 | 5 | `t0 = 1.377e-4` | positive, `T1 = 41.5` |
-| 6 | `t0 = 4.384e-5` | positive, `T1 = 34.1` |
-| 8 | `t0 = 6.726e-6` | positive, `T1 = 24.2` |
+| 6 | `t0 = 4.383e-5` | positive, `T1 = 34.2` |
+| 8 | `t0 = 6.725e-6` | positive, `T1 = 24.3` |
 
 (`t0` shrinks with n because `<u^3>` does, `S^G_n ~ 90/n^4`; `T1` is driven by the crude constant of Lemma 12.)
 

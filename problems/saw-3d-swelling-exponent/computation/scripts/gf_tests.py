@@ -172,6 +172,8 @@ def main():
         best = max(G, key=lambda x: G[x])
         # rigorous: is G_z(best) - tail > G_z(y) for all other y?  (tail bounds each G_z(y) - truncation)
         rivals = [y for y in G if y != best and G[y] + tb >= G[best]]
+        if tb >= G[best]:  # sites with |x|_1 > N (absent from the data) have G_z(x) <= tail
+            rivals.append("all sites with |x|_1 > %d" % N)
         print("  z = %-5s: argmax of the truncated G_z is %s (lower bound %.6f); classes not excluded rigorously: %s"
               % (z, best, float(G[best]), rivals[:8] if rivals else "none (argmax certified)"))
 

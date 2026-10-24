@@ -126,6 +126,61 @@ def strong_condition(adj, cyc, Y, y, s):
     return all(W_at(x0, s) == W_at(x0, 0) for x0 in pts)
 
 
+def boundary_y(adj, cyc, Y):
+    L = len(cyc)
+    y = [None] * L
+    for j in range(L):
+        a, b = cyc[j], cyc[(j + 1) % L]
+        com = [w for w in adj[a] if w in Y and w in adj[b]]
+        if len(com) != 1:
+            return None
+        y[(j + 1) % L] = com[0]
+    for j in range(L):
+        if set(w for w in adj[cyc[j]] if w in Y) != {y[j], y[(j + 1) % L]}:
+            return None
+    return y
+
+
+def attach_map(kind, L, par):
+    """y-index pair attached to c_j: rotation by s: (j-s, j-s+1); reflection with constant c: (c-j, c-j+1)."""
+    if kind == 'rot':
+        return lambda j: ((j - par) % L, (j - par + 1) % L)
+    return lambda j: ((par - j) % L, (par - j + 1) % L)
+
+
+def reglue(adj, cyc, y, f):
+    L = len(cyc)
+    new = [set(a) for a in adj]
+    for j in range(L):
+        for w in (y[j], y[(j + 1) % L]):
+            new[cyc[j]].discard(w)
+            new[w].discard(cyc[j])
+    for j in range(L):
+        for t in f(j):
+            new[cyc[j]].add(y[t])
+            new[y[t]].add(cyc[j])
+    return [sorted(a) for a in new]
+
+
+def strong_map(adj, cyc, Y, y, f):
+    L = len(cyc)
+    Yl = sorted(Y)
+    loc = {v: i for i, v in enumerate(Yl)}
+    k = len(Yl)
+    f0 = attach_map('rot', L, 0)
+
+    def W_at(x0, g):
+        M = flint.fmpq_mat(k, k, [(-1 if Yl[j] in adj[Yl[i]] else 0) + (x0 if i == j else 0)
+                                   for i in range(k) for j in range(k)])
+        d = M.det()
+        B = flint.fmpq_mat(k, L, [0] * (k * L))
+        for j in range(L):
+            for t in g(j):
+                B[loc[y[t]], j] = 1
+        return (B.transpose() * M.inv() * B) * d
+    return all(W_at(1000 + 7 * t, f) == W_at(1000 + 7 * t, f0) for t in range(k + 3))
+
+
 def main():
     nmax = int(sys.argv[1])
     out = sys.argv[2] if len(sys.argv) > 2 else None
@@ -143,13 +198,17 @@ def main():
             if not sd:
                 continue
             for Y in sd:
-                for s in range(1, len(cyc)):
-                    g1r, y = rotate(g1, cyc, Y, s)
-                    if g1r is None:
-                        break
-                    if canon([g1r])[0] == target:
-                        hits.append({'L': len(cyc), 'side_size': len(Y), 'other_side_size': len(g1) - len(Y) - len(cyc),
-                                     'shift': s, 'strong': strong_condition(g1, cyc, Y, y, s)})
+                y = boundary_y(g1, cyc, Y)
+                if y is None:
+                    continue
+                L = len(cyc)
+                for kind, rng in (('rot', range(1, L)), ('refl', range(L))):
+                    for par in rng:
+                        f = attach_map(kind, L, par)
+                        g1r = reglue(g1, cyc, y, f)
+                        if canon([g1r])[0] == target:
+                            hits.append({'L': L, 'side_size': len(Y), 'other_side_size': len(g1) - len(Y) - L,
+                                         'kind': kind, 'param': par, 'strong': strong_map(g1, cyc, Y, y, f)})
         best = None
         if hits:
             strong = [h for h in hits if h['strong']]
