@@ -1,0 +1,29 @@
+PASS checker dia_k10.lcert: (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 11 ; PASS  => mu(diamond) <= 29229752/10000000 = 2.922975200
+PASS checker dia_k12.lcert: (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 13 ; PASS  => mu(diamond) <= 29163626/10000000 = 2.916362600
+PASS checker dia_k14.lcert: (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 14 ; PASS  => mu(diamond) <= 29107537/10000000 = 2.910753700
+PASS checker dia_k16.lcert: (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 16 ; PASS  => mu(diamond) <= 29068259/10000000 = 2.906825900
+PASS checker dia_k18.lcert: (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 17 ; PASS  => mu(diamond) <= 29036474/10000000 = 2.903647400
+PASS checker dia_k6.lcert: (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 7 ; PASS  => mu(diamond) <= 29477116/10000000 = 2.947711600
+PASS checker dia_k8.lcert: (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 9 ; PASS  => mu(diamond) <= 29363985/10000000 = 2.936398500
+PASS checker fcc_k3.lcert: (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 3 ; PASS  => mu(fcc) <= 105825757/10000000 = 10.582575700
+PASS checker fcc_k4.lcert: (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 4 ; PASS  => mu(fcc) <= 104138209/10000000 = 10.413820900
+PASS checker fcc_k5.lcert: (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 5 ; PASS  => mu(fcc) <= 103311092/10000000 = 10.331109200
+PASS checker fcc_k6.lcert: (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 6 ; PASS  => mu(fcc) <= 102785015/10000000 = 10.278501500
+PASS checker fcc_k7.lcert: (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 7 ; PASS  => mu(fcc) <= 102402871/10000000 = 10.240287100
+PASS checker fcc_k8.lcert: (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 8 ; PASS  => mu(fcc) <= 102128082/10000000 = 10.212808200
+PASS checker fcc_k9.lcert: (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 8 ; PASS  => mu(fcc) <= 101918123/10000000 = 10.191812300
+PASS brute-force Python checker dia_k6.lcert: PASS => mu(diamond) <= 29477116/10000000
+PASS brute-force Python checker dia_k8.lcert: PASS => mu(diamond) <= 29363985/10000000
+PASS brute-force Python checker dia_k10.lcert: PASS => mu(diamond) <= 29229752/10000000
+PASS brute-force Python checker dia_k12.lcert: PASS => mu(diamond) <= 29163626/10000000
+PASS brute-force Python checker dia_k14.lcert: PASS => mu(diamond) <= 29107537/10000000
+PASS brute-force Python checker dia_k16.lcert: PASS => mu(diamond) <= 29068259/10000000
+PASS brute-force Python checker fcc_k3.lcert: PASS => mu(fcc) <= 105825757/10000000
+PASS brute-force Python checker fcc_k4.lcert: PASS => mu(fcc) <= 104138209/10000000
+PASS brute-force Python checker fcc_k5.lcert: PASS => mu(fcc) <= 103311092/10000000
+PASS brute-force Python checker fcc_k6.lcert: PASS => mu(fcc) <= 102785015/10000000
+PASS brute-force Python checker fcc_k7.lcert: PASS => mu(fcc) <= 102402871/10000000
+PASS brute-force Python checker fcc_k8.lcert: PASS => mu(fcc) <= 102128082/10000000
+PASS tamper test on dia_k12.lcert (all corrupted copies rejected)
+PASS tamper test on fcc_k6.lcert (all corrupted copies rejected)
+ALL PASS

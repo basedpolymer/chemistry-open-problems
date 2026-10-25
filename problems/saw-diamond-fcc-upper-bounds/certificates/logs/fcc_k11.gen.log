@@ -1,0 +1,30 @@
+lattice=fcc K=11 mode=pi ndir=12 group=48 threads=5
+states=13546252  enum 3.6s  by length: 0:1 1:1 2:4 3:32 4:313 5:3196 6:31971 7:248269 8:1255865 9:4135539 10:7871061
+proxy fcc_k10.lcert: loaded (1604728 states)
+    pass 0: chunk 768/1654  717.3s
+    pass 0: chunk 1280/1654  1656.8s
+pass 0: candidates 1573451065 in 120992896 groups (13.00 per group), cache 6.78 GB, 2219.2s
+pass 1: evaluation 43 its 31.9s, lambda(policy) in [10.1719420276, 10.1719420276]
+pass 1: improvement changed 69858032  17.3s
+pass 2: evaluation 37 its 26.8s, lambda(policy) in [10.1639575140, 10.1639575140]
+pass 2: improvement changed 45666247  10.2s
+pass 3: evaluation 35 its 25.6s, lambda(policy) in [10.1631375158, 10.1631375158]
+pass 3: improvement changed 19049420  9.3s
+pass 4: evaluation 30 its 22.9s, lambda(policy) in [10.1630845106, 10.1630845106]
+pass 4: improvement changed 5759706  9.7s
+pass 5: evaluation 25 its 18.3s, lambda(policy) in [10.1630815745, 10.1630815746]
+pass 5: improvement changed 1449658  8.6s
+pass 6: evaluation 21 its 15.5s, lambda(policy) in [10.1630814318, 10.1630814318]
+pass 6: improvement changed 440102  9.4s
+pass 7: evaluation 16 its 11.8s, lambda(policy) in [10.1630814262, 10.1630814262]
+pass 7: improvement changed 113533  9.6s
+pass 8: evaluation 9 its 6.9s, lambda(policy) in [10.1630814260, 10.1630814260]
+pass 8: improvement changed 11896  9.8s
+pass 9: evaluation 5 its 4.1s, lambda(policy) in [10.1630814260, 10.1630814260]
+pass 9: improvement changed 6  9.9s
+pass 10: evaluation 1 its 0.8s, lambda(policy) in [10.1630814260, 10.1630814260]
+pass 10: improvement changed 0  9.7s
+final evaluation 1 its, lambda in [10.1630814260, 10.1630814260]  2494.8s
+integer argmin changed 34476 children
+integer CW: max ratio = 3533716493477759/347701287175229 = 10.163081425974  => certified lambda_bar = 101630815/10000000
+RESULT lattice=fcc K=11 mode=pi states=13546252 lambda_float=[10.1630814260,10.1630814260] certified<=101630815/10000000 total 2511.6s

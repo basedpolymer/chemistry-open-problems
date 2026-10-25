@@ -1,0 +1,23 @@
+# SHA-256 of the uncompressed certificates (format LATCERT1, see paper.tex Section 4 and src/latsaw_check.cpp).
+# Files marked (work) are too large for the repository; they are kept in ~/work/saw-diamond-fcc/cert/ (WSL) and are
+# regenerated deterministically by the script named on the right (bit-identical on the same CPU and compiler).
+e2eabe18b610be5d8fecbc00ba9f86667c6867b1f1e1574029fca0c78c45da9a  dia_k6.lcert
+82fc308f6677493f1de34e76613893f41ac2c1792eda55b346bf4cc65c88ab9d  dia_k8.lcert
+56e51faf5fc128eb5c2726355e046abf961cd165f522f9cff4f5aadaf0271975  dia_k10.lcert
+a407915af6be0def9b3115a4b62dd950c16f28925806cb3061e87511c578d083  dia_k12.lcert
+964316bd3d3e6a006cf471b658842270f63ecae39a230118767c80523b05111d  dia_k14.lcert
+536b1a52127001985e40f09736b549b80c39c9a42f849ac6ea67809410744fb1  dia_k16.lcert
+1783812ec493b4f9d2492f5b02317efd8c7fe5d9bbfcb4541b9618d312faa03f  dia_k18.lcert
+c509d4ccd1816a60d9f54e12fa3d7b3c4cd2427208830be60c0ae8f3f85bd27d  dia_k20.lcert   (work: 31 070 792 bytes; scripts/reproduce_small.sh)
+5855163bfdf1fd41f512a40a6ea9c6dad3705f91606f8f281fe8fb63be04488f  dia_k22.lcert   (work: 218 620 712 bytes; scripts/reproduce_large.sh, step d22)
+3d0ae4193f1db7a7e641a45549e49f162696824621dc6753638f575d583f168c  dia_k24.lcert   (work: 1 548 210 344 bytes; scripts/reproduce_large.sh, step d24)
+feecad2f6ea1fb497896e618ac68f1d14ffa638b5c2ce1dad9e760b7b2df097a  dia_k26.lcert   (work: 11 146 244 200 bytes; scripts/reproduce_large.sh, step d26)
+d49868c9ba37403fd9973cdde1446e5eaca372b2ea4d90798d0de47426de02ad  fcc_k3.lcert
+be13415154a8c0a99cb6333aa05ba78a5ee344bbbdb35ba037d3c396e540e658  fcc_k4.lcert
+9153e47c9315a7a553e4837eedb0d1d138f6d174b824e13f9c34151eed12273a  fcc_k5.lcert
+e5515c8625c1660f1d10bdb9c8b8cc423717be70d971e5bc48e03766fe34ded7  fcc_k6.lcert
+27094c0d029d66270de53d2bf46055d2fcc641198e627f3d43b52fad69d1f98c  fcc_k7.lcert
+46921f2a680dba27cc6b1b4ddd648601b0bde62f84773af0898fb0d56dfe2d50  fcc_k8.lcert
+fca118cc0e3c4083f7a23f7f0bcac3ce7fb803062a4f477bd252ca5c6e204d30  fcc_k9.lcert
+5874f1ec340bbc4655439ef982783ba43bbe05da94ada71df8250cfbe3c5e7b4  fcc_k10.lcert  (work: 102 702 632 bytes; scripts/reproduce_large.sh, step f10)
+65ac66255020f25869be970fe22f1086d6e5eb5321ad7f5c1c5d5ec327b417cb  fcc_k11.lcert  (work: 866 960 168 bytes; scripts/reproduce_large.sh, step f11)

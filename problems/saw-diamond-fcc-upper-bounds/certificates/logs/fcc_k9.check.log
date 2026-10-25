@@ -1,0 +1,13 @@
+certificate fcc_k9.lcert: lattice fcc, K = 9, N = 193631, claimed mu <= 101918123/10000000 = 10.191812300
+PASS group Gamma_e has 48 elements for every neighbour e (expected 48)
+PASS (C0a) codes strictly increasing
+PASS (C0b) all weights in [1, 2^60]
+PASS (C0c) the empty walk is listed (index 0)
+PASS (C0d) every code decodes (malformed: 0)
+PASS (C1a) every allowed (state, step) has a listed child (missing: 0; pairs 1746956)
+PASS (C1b) gamma(F(child)) in F(s) u {o} for some automorphism gamma with gamma(o) = e (failures: 0)
+PASS (C2) Q*sum_e V(child) <= P*V(s) for all states (failures: 0); exact max ratio = 3803363836578137/373178363730837 = 10.191812297353...
+info: listed walks that are not self-avoiding: 0; child entries on forbidden steps: 0
+time 0.7 s, 3 threads
+PASS (info) a_n >= c_n for n <= 24; a_n = c_n for n <= 8
+PASS  => mu(fcc) <= 101918123/10000000 = 10.191812300

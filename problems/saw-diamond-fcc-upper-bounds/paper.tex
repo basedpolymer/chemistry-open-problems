@@ -1,0 +1,339 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Rigorous upper bounds for the connective constants of self-avoiding walks on the diamond and face-centred cubic lattices}
+\newcommand*{\PaperTitlePlain}{Rigorous upper bounds for the connective constants of self-avoiding walks on the diamond and face-centred cubic lattices}
+\newcommand*{\PaperShortTitle}{Connective constants of the diamond and fcc lattices}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} record (preliminary)}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh); checks re-run by GPT-6-Astra (effort xhigh); verification pending.}
+\newcommand*{\PaperKeywords}{self-avoiding walk; connective constant; diamond lattice; face-centred cubic lattice; finite automata; Collatz--Wielandt bound; computer-assisted proof}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand*{\fcc}{\mathrm{fcc}}
+\newcommand*{\dia}{\mathrm{dia}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+The diamond lattice (coordination 4, the classical lattice model of chains of tetrahedral sp\textsuperscript{3}
+carbon) and the face-centred cubic lattice (coordination 12, a lattice model of dense polymer melts) are the two
+standard three-dimensional lattices of polymer physics besides the simple cubic one. The best published rigorous upper
+bounds for their self-avoiding-walk connective constants are those of Alm (1993): \(\mu_\dia<2.90940\) and
+\(\mu_\fcc<10.27777\); the exact enumerations of 2017 give the slightly better \(\mu_\fcc\le10.24059\) through the
+inequality of Ahlberg and Janson. We prove \(\mu_\dia\le 2.8958880\) and \(\mu_\fcc\le 10.1630815\). The proofs are finite forbidden-set automata
+whose paths dominate self-avoiding walks, as in our earlier work on the simple cubic lattice (result 9 of this collection): a state is a walk of
+loop size at most \(K\) up to the point group of the lattice, and the automaton may forget remembered sites along any
+self-avoiding path through contacts, the choice being optimised against the Perron vector. For the diamond lattice the
+two sublattices are handled by re-normalising the frame with the inversion through the midpoint of the last bond.
+Each bound is certified by an explicit automaton and an integer vector satisfying a Collatz--Wielandt inequality,
+checked in exact integer arithmetic by a checker written separately from the generator, and for small memories by a
+third, brute-force checker. Relative to the numerical estimates \(\mu_\dia\approx2.879\) and
+\(\mu_\fcc\approx10.0371\), the rigorous gaps shrink by 44\,\% and 38\,\%.
+\end{paperabstract}
+
+\section*{The question}
+
+Let \(c_n\) be the number of \(n\)-step self-avoiding walks (SAWs) starting at a fixed vertex of a vertex-transitive
+lattice. By submultiplicativity \(c_{n+m}\le c_nc_m\), the limit \(\mu=\lim_n c_n^{1/n}=\inf_n c_n^{1/n}\) exists
+\autocite{Hammersley1957}; it is the connective constant (growth constant), the effective coordination number of a
+long flexible chain with excluded volume on the lattice. Except for the hexagonal lattice it is not known exactly;
+Alm \autocite[116]{Alm1993} writes:
+\begin{openquote}
+``For most lattices the value of \(\mu\) is not known.''
+\end{openquote}
+Rigorous bounds are the only exact information. Alm's matrix method \autocite[§6.3.3--6.3.4 and Tables 2, 11,
+12]{Alm1993} gives the best published upper bounds for the face-centred cubic (fcc) and diamond (``tetrahedral'')
+lattices,
+\begin{align*}
+\mu_\fcc&<10.27777 &&(n=10,\ m=4,\ 313\times313\text{ matrix}),\\
+\mu_\dia&<2.90940 &&(n=22,\ m=9,\ 1003\times1003\text{ matrix}),
+\end{align*}
+improving the earlier \(10.361\) (Ahlberg and Janson) and \(2.9175\) (Wall and White). We found no later improvement
+(literature, citation databases and AI-campaign repositories; see \texttt{references.md}). The exact counts available
+today, \(c_n\) for \(n\le24\) on the fcc lattice \autocite{Schram2017,OEIS1336} and \(n\le32\) on the diamond lattice
+\autocite{OEIS1394,Guttmann1989}, give through the elementary bound \(\mu\le(c_N/c_1)^{1/(N-1)}\) and the inequality of
+Ahlberg and Janson \autocite[(1.6.1)]{MadrasSlade1993} the values in \zcref{tab:previous}: for the fcc lattice they
+beat Alm's bound, for the diamond lattice they do not. We are not aware that these derived values have been published.
+
+\begin{table}[h]
+\centering\footnotesize
+\caption{Rigorous upper bounds before this work, and numerical estimates. Ahlberg--Janson: the unique positive root
+of \(c_1x^{N-1}=[c_N-(c_1-2)c_{N-1}]x+(c_1-2)[(c_1-1)c_{N-1}-c_N]\), as stated in \autocite[(1.6.1)]{MadrasSlade1993}
+(Alm \autocite[§6.3.3]{Alm1993} applies it to the fcc lattice; for the diamond lattice the value is given for
+comparison only, it is above Alm's bound). Rows 2 and 3 are computed here from the published
+counts (\(N=32\) for diamond, \(N=24\) for fcc), rounded upwards. The diamond estimate comes from a linear ratio
+extrapolation of \(c_n\), \(n\le32\) (non-rigorous); the fcc estimate is that of \textcite{Clisby2022}.}\label{tab:previous}
+\begin{tabular}{@{}lll@{}}
+\toprule
+ & diamond & fcc \\
+\midrule
+Alm's matrix method \autocite{Alm1993} & 2.90940 & 10.27777 \\
+\((c_N/c_1)^{1/(N-1)}\) & 2.919627 & 10.244120 \\
+Ahlberg--Janson & 2.917190 & 10.240586 \\
+numerical estimate & \(\approx2.879\) & \(10.03705785(14)\) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{theorem}\label{thm:main}
+\(\mu_\dia\le 2.8958880\) and \(\mu_\fcc\le 10.1630815\). More precisely, the forbidden-set automata of
+\zcref{sec:construction} with loop memory \(K\) certify the bounds of \zcref{tab:dia,tab:fcc}; the stated ones come from
+\(K=26\) (\(348\,320\,130\) states) for the diamond lattice and \(K=11\) (\(13\,546\,252\) states) for the fcc lattice. Already
+\(K=16\) (diamond, \(\mu_\dia\le2.9068259\)) and \(K=7\) (fcc, \(\mu_\fcc\le10.2402871\)) improve on every previous bound.
+\end{theorem}
+
+The certificates are exact; what is not claimed is any estimate of \(\mu\) itself, or of the behaviour of the bounds
+as \(K\to\infty\).
+
+\section{The two lattices and their automorphisms}\label{sec:lattices}
+
+\paragraph{fcc.} Vertices \(\Lambda_\fcc=\{x\in\mathbb Z^3:x_1+x_2+x_3\text{ even}\}\), edges \(\{x,x+u\}\) for \(u\) in the
+set \(U\) of the twelve vectors \((\pm1,\pm1,0)\) and their coordinate permutations. Labels \(0,\dots,11\) of \(U\) are
+fixed in the order \((-1,-1,0)\), \((-1,1,0)\), \((1,-1,0)\), \((1,1,0)\), \((-1,0,-1)\), \((-1,0,1)\), \((1,0,-1)\),
+\((1,0,1)\), \((0,-1,-1)\), \((0,-1,1)\), \((0,1,-1)\), \((0,1,1)\).
+
+\paragraph{Diamond.} Let \(a_0=(1,1,1)\), \(a_1=(1,-1,-1)\), \(a_2=(-1,1,-1)\), \(a_3=(-1,-1,1)\) (the vectors
+\((\pm1,\pm1,\pm1)\) with product \(+1\)), \(A=\{a_0,\dots,a_3\}\), and
+\(\Lambda=\{x\in(2\mathbb Z)^3:x_1+x_2+x_3\equiv0\pmod4\}\). The vertices are \(\Lambda\) (type \(\mathsf A\)) and
+\(\Lambda+a_0\) (type \(\mathsf B\)); the edges are \(\{x,x+a_t\}\), \(x\in\Lambda\). A vertex of type \(\mathsf A\) has
+the neighbours \(x+a_t\), one of type \(\mathsf B\) the neighbours \(x-a_t\). (Since \(a_t-a_s\in\Lambda\), every
+\(x+a_t\) with \(x\in\Lambda\) is of type \(\mathsf B\).) This is the diamond lattice scaled by 4.
+
+Let \(\mathcal G\) be the group of the 48 signed permutation matrices, \(\mathcal G^+=\{g\in\mathcal G:gA=A\}\) (the 24
+matrices with an even number of sign changes; it acts on \(A\) as the full symmetric group) and
+\(\mathcal G^-=\{g\in\mathcal G:gA=-A\}=-\mathcal G^+\).
+
+\begin{lemma}\label{lem:aut}
+(a) For \(u\in U\) and \(g\in\mathcal G\), \(\gamma(x)=u+gx\) is an automorphism of the fcc lattice with
+\(\gamma(0)=u\). (b) For \(e\in A\) and \(g\in\mathcal G^-\), \(\gamma(x)=e+gx\) is an automorphism of the diamond
+lattice with \(\gamma(0)=e\); it exchanges the two types.
+\end{lemma}
+\begin{proof}
+(a) \(g\) permutes coordinates and changes signs, so it preserves \(\mathbb Z^3\), the parity of \(x_1+x_2+x_3\) and
+the set \(U\); translation by \(u\in\Lambda_\fcc\) preserves \(\Lambda_\fcc\) and differences. So \(\gamma\) and
+\(\gamma^{-1}(y)=g^{-1}(y-u)\) map vertices to vertices and edges to edges.
+(b) Every \(g\in\mathcal G\) maps \(\Lambda\) onto itself: it preserves \((2\mathbb Z)^3\), and changing the sign of an
+even coordinate \(x_a\) changes the sum by \(2x_a\equiv0\pmod 4\). Hence \(\gamma(\Lambda)=e+\Lambda=\Lambda+a_0\) (as
+\(e-a_0\in\Lambda\)) and \(\gamma(\Lambda+a_0)=\Lambda+e+ga_0=\Lambda\) (as \(ga_0=-a_s\) for some \(s\) and
+\(e-a_s\in\Lambda\)). An edge \(\{x,x+a_t\}\), \(x\in\Lambda\), goes to \(\{\gamma x,\gamma x+ga_t\}\) with \(\gamma x\) of type
+\(\mathsf B\) and \(ga_t\in-A\): an edge. Finally \(\gamma^{-1}(y)=g^{-1}(y-e)=e'+g^{-1}y\) with \(g^{-1}\in\mathcal G^-\)
+and \(e'=-g^{-1}e\in A\) is a map of the same form, so it also maps vertices to vertices and edges to edges.
+\end{proof}
+
+Both lattices are therefore vertex-transitive (indeed arc-transitive), and \(c_n\) does not depend on the starting
+vertex. We work in a \emph{normalised frame}: the current vertex is the origin \(o\), of type \(\mathsf A\) for the
+diamond lattice; its neighbours are \(U\) (fcc) or \(A\) (diamond).
+
+\section{Forbidden-set automata}\label{sec:automata}
+
+\begin{definition}\label{def:auto}
+Let \(X\) be one of the two lattices and \(N(o)\) the set of neighbours of \(o\). A \emph{forbidden-set automaton}
+consists of a finite set \(S\) of states, a finite set \(F(s)\) of vertices for each \(s\in S\), a start state
+\(s_0\) with \(F(s_0)=\emptyset\), and, for each \(s\in S\) and each \(e\in N(o)\setminus F(s)\), a successor
+\(\sigma(s,e)\in S\) and an automorphism \(\gamma=\gamma_{s,e}\) of \(X\) with \(\gamma(o)=e\) and
+\begin{equation}\label{eq:incl}
+\gamma\bigl(F(\sigma(s,e))\bigr)\subseteq F(s)\cup\{o\}.
+\end{equation}
+Its transfer matrix is \(A_{st}=\#\{e\in N(o)\setminus F(s):\sigma(s,e)=t\}\), and \(a_n=\sum_t(A^n)_{s_0t}\).
+\end{definition}
+
+\(F(s)\) is a set of vertices known to be visited, seen from the current vertex; \eqref{eq:incl} says that the
+successor only remembers vertices that were really visited, the old current vertex included, seen from the new one.
+
+\begin{lemma}[note=domination]\label{lem:dom}
+\(c_n\le a_n\) for every \(n\ge0\).
+\end{lemma}
+\begin{proof}
+Let \(\omega=(\omega_0=o,\omega_1,\dots,\omega_n)\) be a SAW. We define states \(s_i\) and automorphisms \(\Gamma_i\)
+with \(\Gamma_i(o)=\omega_i\) and \(\Gamma_i(F(s_i))\subseteq\{\omega_j:j<i\}\): \(s_0\) is the start state and
+\(\Gamma_0=\mathrm{id}\). Given \(s_i,\Gamma_i\), let \(e_i=\Gamma_i^{-1}(\omega_{i+1})\); it is a neighbour of \(o\),
+and \(e_i\notin F(s_i)\) because \(\omega_{i+1}\notin\{\omega_j:j<i\}\supseteq\Gamma_i(F(s_i))\). Put
+\(s_{i+1}=\sigma(s_i,e_i)\) and \(\Gamma_{i+1}=\Gamma_i\circ\gamma_{s_i,e_i}\). Then \(\Gamma_{i+1}(o)=\Gamma_i(e_i)=\omega_{i+1}\)
+and, by \eqref{eq:incl}, \(\Gamma_{i+1}(F(s_{i+1}))\subseteq\Gamma_i(F(s_i)\cup\{o\})\subseteq\{\omega_j:j\le i\}\). The
+label sequence \((e_0,\dots,e_{n-1})\) is accepted by the automaton, and it determines \(\omega\): \(\Gamma_i\) is a
+function of \(e_0,\dots,e_{i-1}\) and \(\omega_{i+1}=\Gamma_i(e_i)\). So \(\omega\mapsto(e_i)\) is injective.
+\end{proof}
+
+\begin{lemma}[note=one-sided Collatz--Wielandt bound]\label{lem:cw}
+If \(V:S\to(0,\infty)\) and \(\bar\lambda>0\) satisfy \((AV)_s\le\bar\lambda V_s\) for all \(s\in S\), then
+\(\mu\le\bar\lambda\).
+\end{lemma}
+\begin{proof}
+\(A\ge0\) gives \(A^nV\le\bar\lambda^nV\), so \(a_n=(A^n\mathbf1)_{s_0}\le\bar\lambda^nV_{s_0}/\min V\); with
+\zcref{lem:dom}, \(c_n^{1/n}\le(V_{s_0}/\min V)^{1/n}\bar\lambda\to\bar\lambda\).
+\end{proof}
+
+Nothing about how the automaton was found matters for soundness: only \(F(s_0)=\emptyset\), the inclusions
+\eqref{eq:incl} with automorphisms fixing \(o\mapsto e\), \(V>0\) and \(AV\le\bar\lambda V\). No Perron--Frobenius
+theory, irreducibility or aperiodicity is used.
+
+\section{The automata used}\label{sec:construction}
+
+\paragraph{States.} A state is a SAW \(w=(v_l,\dots,v_1,v_0=o)\) ending at the current vertex, with
+\(F(w)=\{v_1,\dots,v_l\}\), stored newest-first as labels \(t_0,\dots,t_{l-1}\): the step \(v_{i+1}\to v_i\) has
+displacement \(u_{t_i}\) (fcc) or \((-1)^{i+1}a_{t_i}\) (diamond; the sign alternates because the types alternate along
+the walk and \(v_0\) is of type \(\mathsf A\)). Positions: \(p_0=0\), \(p_{i+1}=p_i-\text{displacement}_i\). Two walks
+are identified when they differ by an element of the point group of the normalised frame, \(\mathcal G\) (fcc) or
+\(\mathcal G^+\) (diamond), which acts on the labels by a permutation; the stored representative is the
+lexicographically smallest image of \((t_0,t_1,\dots)\). A walk is \emph{admissible} when \(l+\delta(w)\le K\), where
+\(\delta(w)\) is the length of a shortest lattice path from \(v_0\) to \(v_l\) avoiding \(v_1,\dots,v_{l-1}\) (and
+\(\delta=l\) for \(l\le1\)): the walk can still be closed into a polygon of at most \(K\) steps (the notion of
+\textcite{PonitzTittmann2000}, here on other lattices). \(S_K\) is the set of admissible walks up to symmetry; for the
+diamond lattice \(l+\delta\) is even, so only even \(K\) are used.
+
+\paragraph{Children.} From \(w\) and \(e\in N(o)\setminus F(w)\), the visited set seen from the new vertex and
+re-normalised by \(\tau(x)=x-e\) (fcc) or \(\tau(x)=e-x\) (diamond) is \(Q=\{0\}\cup\{\tau(p_i):0\le i\le l\}\); \(\tau^{-1}\) is
+an automorphism of the kind in \zcref{lem:aut} (with \(g=\mathrm{id}\), respectively \(g=-\mathrm{id}\in\mathcal G^-\)).
+Every self-avoiding path \(0=P_0,P_1,\dots,P_m\) with all \(P_i\in Q\), read as a walk ending at \(P_0\), has its
+forbidden set inside \(\tau(F(w)\cup\{o\})\); if its canonical form is a state \(t\), then \(t=hP\) for some \(h\) in the
+point group and \(\gamma=\tau^{-1}\circ h^{-1}\) satisfies \eqref{eq:incl}. The generator enumerates the paths by a
+depth-first search through \(Q\) (pruned by \(m+d(0,P_m)\le K\), which is non-decreasing along a path), takes at
+each leaf the deepest prefix that is a state, and discards candidates whose vertex set is strictly contained in
+another candidate's. The path that follows \(w\) backwards in time gives the child of Pönitz and Tittmann (delete the
+oldest sites until the walk is admissible); the others jump along \emph{contacts} (non-consecutive vertices of \(w\)
+at distance one) and keep vertices close to the current one.
+
+\paragraph{Choice of the children.} Any choice gives a valid automaton. With
+\[T(v)_s=\sum_e\min_{t\in C(s,e)}v_t\]
+(\(C(s,e)\) the candidates for the step \(e\) from \(s\)) we run min-sum value iteration \(v\leftarrow T(v)/\max T(v)\) (all candidates
+in memory) or, for the largest \(K\), policy iteration with the candidate lists cached on disk; both converge to the
+same eigenvalue to \(10^{-10}\) where both were run. The vector is normalised to \(\max v=1\),
+\(V_s=\max(1,\lceil2^{50}v_s\rceil)\), each child is the candidate of smallest integer weight, and the certified bound is
+\(P/Q\) with \(Q=10^7\) and \(P=\lceil Q\max_s(AV)_s/V_s\rceil\), the maximum being computed exactly.
+
+\section{Certificates and checks}\label{sec:checks}
+
+\paragraph{Format \texttt{LATCERT1}} (little endian): the 8 bytes \texttt{LATCERT1}; \(u32\) lattice (0 diamond, 1 fcc),
+\(u32\) \(K\); \(u64\) \(N,P,Q\); \(N\) strictly increasing \(u64\) state codes; \(N\) weights \(V\) (\(u64\)); \(N\times|N(o)|\)
+\(u32\) child indices (\(2^{32}-1\) for forbidden steps). A code has bit 63 set, the walk length in bits 57--62 and the
+label \(t_i\) in bits \([b\,i,b\,i+b)\), \(b=2\) (diamond) or 4 (fcc), all other bits zero.
+
+\paragraph{Checker} (\texttt{src/latsaw\_check.cpp}, written separately from the generator and sharing no code with it:
+no canonical forms, no search for children). It builds, for each \(e\in N(o)\), the set \(\Gamma_e\) of maps
+\(x\mapsto e+gx\), \(g\in\mathcal G\), that send every vertex of the box \([-6,6]^3\) to a vertex and every edge at such a
+vertex to an edge, and checks \(|\Gamma_e|=48\) (fcc), \(24\) (diamond); by \zcref{lem:aut} these are automorphisms. Then:
+\begin{itemize}
+\item (C0) codes strictly increasing and decodable, \(1\le V\le2^{60}\), \(P,Q\ge1\), the empty walk listed;
+\item (C1) for every listed \(s\) and every \(e\in N(o)\setminus F(s)\): the listed child \(t\) exists and some
+\(\gamma\in\Gamma_e\) maps \(F(t)\) into \(F(s)\cup\{o\}\), tested point by point;
+\item (C2) \(Q\sum_eV_{\sigma(s,e)}\le P\,V_s\) for every \(s\), in exact unsigned 128-bit arithmetic (sums of at most
+12 weights \(\le2^{60}\) fit in 64 bits).
+\end{itemize}
+(C0)--(C2) are exactly the hypotheses of \zcref{lem:dom,lem:cw}, so a PASS proves \(\mu\le P/Q\). The checker also
+reports the exact maximal ratio as a reduced fraction and, optionally, the path counts \(a_n\) of the certified
+automaton, compared with the exact \(c_n\) (\(a_n\ge c_n\) must hold by \zcref{lem:dom}; equality for small \(n\) is a test
+of the geometry).
+
+\paragraph{Further checks.} (i) \texttt{scripts/verify\_small\_bruteforce.py}, a pure-Python checker that finds the
+automorphisms from the vertex test and the neighbour function only, tests the inclusions with sets and the ratio with
+fractions, reproduces the exact maximal ratios for diamond \(K\le16\) and fcc \(K\le8\) (both already below the
+previous bounds). (ii)
+\texttt{scripts/tamper\_test.py}: claimed \(P\) lowered by one unit (after setting \(P\) to the exact ceiling), one
+weight lowered by 10\,\%, a zero weight, a child pointer redirected or removed, the start state removed, two codes
+swapped, a label out of range: every corrupted copy is rejected. (iii) \(a_n\ge c_n\) for all \(n\le32\) (diamond) and
+\(n\le24\) (fcc), with equality up to the \(n_0\) of \zcref{tab:dia,tab:fcc}. (iv) The generator in Pönitz--Tittmann mode (one child: the
+longest admissible suffix) gives the values of the column ``P--T child'' of \zcref{tab:dia,tab:fcc}; the optimised
+children are never worse, and better for every \(K\ge8\) (diamond) and \(K\ge3\) (fcc).
+
+\section{Results}\label{sec:results}
+
+\begin{table}[h]
+\centering\small
+\caption{Diamond lattice. States: \(|S_K|\). P--T child: the automaton with the child of Pönitz and Tittmann only;
+optimised: candidate children, value iteration (policy iteration for \(K=26\)); both floating-point eigenvalue
+brackets, for comparison only. Certified: the bound \(P/Q\), \(Q=10^7\), accepted by the checker. \(n_0\): \(a_n=c_n\)
+for \(n\le n_0\) (and \(a_n\ge c_n\) for all \(n\le32\); not computed for \(K=26\), where the count would need about 22\,GB of memory). Time: generation, wall clock on a shared 12-thread machine
+(6 threads; 5 for \(K=26\)).}\label{tab:dia}
+\begin{tabular}{@{}rrllllr@{}}
+\toprule
+\(K\) & states & P--T child & optimised & certified & \(n_0\) & time \\
+\midrule
+6 & 6 & 2.9477116 & 2.9477116 & 2.9477116 & 7 & \(<1\)\,s \\
+8 & 13 & 2.9366222 & 2.9363985 & 2.9363985 & 9 & \(<1\)\,s \\
+10 & 95 & 2.9240951 & 2.9229751 & 2.9229752 & 11 & \(<1\)\,s \\
+12 & 483 & 2.9174734 & 2.9163625 & 2.9163626 & 13 & 2\,s \\
+14 & 3\,284 & 2.9119382 & 2.9107536 & 2.9107537 & 14 & 3\,s \\
+16 & 20\,777 & 2.9080175 & 2.9068259 & 2.9068259 & 16 & 3\,s \\
+18 & 142\,606 & 2.9048280 & 2.9036474 & 2.9036474 & 17 & 4\,s \\
+20 & 970\,961 & 2.9023067 & 2.9011404 & 2.9011404 & 19 & 13\,s \\
+22 & 6\,831\,896 & 2.9002137 & 2.8990683 & 2.8990683 & 19 & 2\,min \\
+24 & 48\,381\,572 & & 2.8973474 & 2.8973475 & 20 & 14\,min \\
+26 & 348\,320\,130 & & 2.8958879 & \textbf{2.8958880} & & 3\,h\,24\,min \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering\small
+\caption{Face-centred cubic lattice; columns as in \zcref{tab:dia} (\(a_n\ge c_n\) checked for \(n\le24\)). For \(K=11\) the
+candidate children are restricted (see the text) and the choice is made by policy iteration.}\label{tab:fcc}
+\begin{tabular}{@{}rrllllr@{}}
+\toprule
+\(K\) & states & P--T child & optimised & certified & \(n_0\) & time \\
+\midrule
+3 & 3 & 10.6568542 & 10.5825757 & 10.5825757 & 3 & \(<1\)\,s \\
+4 & 11 & 10.4891374 & 10.4138209 & 10.4138209 & 4 & \(<1\)\,s \\
+5 & 59 & 10.3923176 & 10.3311091 & 10.3311092 & 5 & 2\,s \\
+6 & 409 & 10.3301080 & 10.2785015 & 10.2785015 & 6 & 2\,s \\
+7 & 3\,046 & 10.2865691 & 10.2402871 & 10.2402871 & 7 & 3\,s \\
+8 & 23\,927 & 10.2542897 & 10.2128081 & 10.2128082 & 8 & 10\,s \\
+9 & 193\,631 & 10.2293849 & 10.1918123 & 10.1918123 & 8 & 1\,min \\
+10 & 1\,604\,728 & 10.2095815 & 10.1752875 & 10.1752876 & 9 & 15\,min \\
+11 & 13\,546\,252 & & 10.1630814 & \textbf{10.1630815} & 10 & 42\,min \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The exact maximal Collatz--Wielandt ratios of the certificates of \zcref{thm:main}, as reduced fractions printed by the
+checker, are
+\begin{gather*}
+\text{diamond, }K=26:\ 5502674668048/1900168345657,\\
+\text{fcc, }K=11:\ 3533716493477759/347701287175229.
+\end{gather*}
+Checking times: diamond \(K=24\): 47\,s (3 threads); diamond \(K=26\): 200\,s (4 threads, 10.9\,GB of memory); fcc \(K=11\): 22\,s (4 threads).
+
+\paragraph{Restricted candidates for fcc, \(K=11\).} On the fcc lattice the number of self-avoiding paths through the
+remembered set grows quickly (on average 85, 178 and 364 search nodes per (state, step) for \(K=7,8,9\)), and the full
+candidate search at \(K=11\) would take several hours and a 37\,GB candidate cache. For \(K=11\) the search only
+follows paths that move to an older remembered vertex or to the next younger one along the remembered walk. At
+\(K=9\) this restriction costs \(0.0015\) (\(10.19332\) instead of \(10.19181\)) and divides the search by four. At
+\(K=11\) it leaves 13.0 candidates per (state, step) (\(1.57\times10^9\) in all, a 6.8\,GB cache); the initial policy,
+taken from the \(K=10\) certificate, has growth rate \(10.17194\), and ten passes of policy iteration bring it to
+\(10.1630814\). Any set of candidates gives a valid automaton; the certificate is checked exactly like the others.
+
+\section{Remarks and limitations}\label{sec:remarks}
+
+\begin{itemize}
+\item \emph{Where the gain comes from.} For the diamond lattice the optimised children gain only about \(0.0011\) at
+equal \(K\) over the child of Pönitz and Tittmann (contacts are rare on a lattice of girth 6); the automaton with the
+Pönitz--Tittmann child alone already beats Alm's bound from \(K=16\) (2.9080175). The improvement over Alm is mostly
+memory: his largest matrix has order 1003, the number of 9-step walks up to symmetry, while the certificate for
+\(K=26\) has \(3.5\times10^8\) states. For the fcc lattice the optimised children matter much more (\(0.074\) at \(K=3\),
+\(0.034\) at \(K=10\)), because the lattice is full of triangles and the shortcuts keep the nearby vertices.
+\item \emph{Convergence.} Successive gains are \(0.0066\), \(0.0056\), \(0.0039\), \(0.0032\), \(0.0025\), \(0.0021\), \(0.0017\), \(0.0015\) (diamond,
+\(K=10\to12\to\dots\to26\)) and \(0.083\), \(0.053\), \(0.038\), \(0.027\), \(0.021\), \(0.017\) (fcc, \(K=4\to5\to\dots\to10\)). A geometric
+extrapolation would not reach the estimates \(2.879\) and \(10.0371\): the convergence is slower than geometric. The
+Pönitz--Tittmann automaton with memory \(K\) accepts only walks without loops of length \(\le K\), so its growth rate lies
+below the connective constant \(\mu_K\) of walks with memory \(K\), which tends to \(\mu\) \autocite[Lemma
+1.2.3]{MadrasSlade1993}; in every computed case our optimised automata do better than the Pönitz--Tittmann ones. No
+rate of convergence is known, and no extrapolated value is claimed.
+\item \emph{Resources.} The state space grows by a factor of about 7 per step of \(K\) (diamond: per \(K\to K+2\); fcc: per
+\(K\to K+1\)). Diamond \(K=28\) would need about \(2.4\times10^9\) states; fcc \(K=12\) about \(10^8\) states with
+\(\sim10^{12}\) search nodes. Both are beyond the shared machine used here (23\,GB of memory).
+\item \emph{The fcc counts.} The exact counts of 2017 alone already improve Alm's fcc bound (\zcref{tab:previous}); our
+\(K=7\) certificate (3\,046 states) is the first one below that value, \(K=8\) is checked by all three programs.
+\item \emph{Equality \(a_n=c_n\).} The certified automata count the walks exactly up to \(n_0\) steps; at larger \(n\) they also
+count some non-self-avoiding walks. With optimised children \(n_0\) can be smaller than \(K-1\) (diamond \(K=22\):
+19), because the automaton may forget more than necessary when this lowers the weight.
+\item \emph{Status.} The bounds are certified by exact certificates and a checker written separately from the
+generator; they have not yet been verified by a second agent. The certificates for diamond \(K\ge20\) and fcc
+\(K\ge10\) (up to 11.1\,GB for diamond \(K=26\)) are kept outside the repository with their SHA-256 sums and are regenerated
+deterministically by \texttt{scripts/reproduce\_large.sh}.
+\end{itemize}
+
+\paperreferences
+\end{document}

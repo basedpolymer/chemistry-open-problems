@@ -1,0 +1,41 @@
+lattice=diamond K=14 mode=pt ndir=4 group=24 threads=2
+states=3284  enum 0.0s  by length: 0:1 1:1 2:1 3:2 4:5 5:14 6:40 7:98 8:195 9:351 10:523 11:695 12:679 13:679
+DFS nodes 0, leaves 0
+groups=8577 candidates=8577 (1.00 per group)  children 0.0s
+value iteration: it=41  lambda in [2.9119381602, 2.9119381602]  0.0s
+vmin/vmax = 0.000e+00
+integer CW: max ratio = 456707900243247/156839834886516 = 2.911938160186  => certified lambda_bar = 29119382/10000000
+path counts a_n (explicit automaton):
+  n= 1 a_n=4
+  n= 2 a_n=12
+  n= 3 a_n=36
+  n= 4 a_n=108
+  n= 5 a_n=324
+  n= 6 a_n=948
+  n= 7 a_n=2796
+  n= 8 a_n=8196
+  n= 9 a_n=24060
+  n=10 a_n=70188
+  n=11 a_n=205284
+  n=12 a_n=597996
+  n=13 a_n=1744548
+  n=14 a_n=5073900
+  n=15 a_n=14774652
+  n=16 a_n=43022484
+  n=17 a_n=125284116
+  n=18 a_n=364827660
+  n=19 a_n=1062366804
+  n=20 a_n=3093552372
+  n=21 a_n=9008262108
+  n=22 a_n=26231491860
+  n=23 a_n=76384481700
+  n=24 a_n=222426717420
+  n=25 a_n=647692805004
+  n=26 a_n=1886040947268
+  n=27 a_n=5492034560484
+  n=28 a_n=15992464269396
+  n=29 a_n=46569067387236
+  n=30 a_n=135606244529436
+  n=31 a_n=394877002913028
+  n=32 a_n=1149857416024884
+RESULT lattice=diamond K=14 mode=pt states=3284 lambda_float=[2.9119381602,2.9119381602] certified<=29119382/10000000 total 0.0s

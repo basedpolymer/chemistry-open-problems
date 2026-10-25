@@ -238,3 +238,9 @@ progress journal. Global topology ordering remains unresolved.
   good vertices of infinitely many graphs; a barrier theorem shows that splice constructions with branches of at most
   nine vertices cannot exceed 2/3; C₅ is the only connected graph with at most 10 vertices in which two thirds of the
   vertices are good. Open for β ≥ 2/3. Solver Claude Opus 5.5 (xhigh). Not yet verified.
+- Diamond and face-centred cubic lattices (polymer physics), record (preliminary): new rigorous upper bounds for the
+  self-avoiding-walk connective constants, μ(diamond) ≤ 2.8958880 (previous best 2.90940, Alm 1993) and
+  μ(fcc) ≤ 10.1630815 (previous best 10.240586, derived here from the 2017 exact counts; Alm's published bound
+  10.27777). Forbidden-set automata with loop memory K = 26 (diamond, 348 320 130 states) and K = 11 (fcc), as in
+  result 9; every certificate passes a checker written separately from the generator, the small ones also a
+  brute-force checker. Solver Claude Opus 5.5 (xhigh); checks re-run by GPT-6-Astra (xhigh). Not yet verified.

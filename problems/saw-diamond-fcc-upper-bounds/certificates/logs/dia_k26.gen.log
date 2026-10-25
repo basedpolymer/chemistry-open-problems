@@ -1,0 +1,57 @@
+lattice=diamond K=26 mode=pi ndir=4 group=24 threads=5
+states=348320130  enum 139.7s  by length: 0:1 1:1 2:1 3:2 4:5 5:14 6:40 7:117 8:342 9:1003 10:2925 11:8554 12:24917 13:71690 14:200445 15:524282 16:1282003 17:2910527 18:6096470 19:11976143 20:21461977 21:35992028 22:54005509 23:71400630 24:71180252 25:71180252
+proxy dia_k24.lcert: loaded (48381572 states)
+    pass 0: chunk 1280/42520  121.4s
+    pass 0: chunk 1536/42520  156.4s
+    pass 0: chunk 2048/42520  235.2s
+    pass 0: chunk 2816/42520  357.2s
+    pass 0: chunk 3072/42520  410.4s
+    pass 0: chunk 8192/42520  1599.2s
+    pass 0: chunk 8960/42520  1742.8s
+    pass 0: chunk 13568/42520  2611.6s
+    pass 0: chunk 14080/42520  2708.8s
+    pass 0: chunk 15872/42520  3019.5s
+    pass 0: chunk 16128/42520  3063.7s
+    pass 0: chunk 17408/42520  3277.7s
+    pass 0: chunk 19712/42520  3803.3s
+    pass 0: chunk 21504/42520  4232.8s
+    pass 0: chunk 22016/42520  4332.0s
+    pass 0: chunk 22528/42520  4430.6s
+    pass 0: chunk 23296/42520  4599.5s
+    pass 0: chunk 24064/42520  4759.1s
+    pass 0: chunk 26112/42520  5378.8s
+    pass 0: chunk 27136/42520  5673.7s
+    pass 0: chunk 29184/42520  6143.7s
+    pass 0: chunk 29440/42520  6199.7s
+    pass 0: chunk 29952/42520  6339.0s
+    pass 0: chunk 30464/42520  6476.8s
+    pass 0: chunk 30976/42520  6626.3s
+    pass 0: chunk 31488/42520  6756.8s
+    pass 0: chunk 31744/42520  6811.4s
+    pass 0: chunk 32000/42520  6865.8s
+    pass 0: chunk 32256/42520  6924.7s
+    pass 0: chunk 33024/42520  7125.6s
+    pass 0: chunk 34048/42520  7357.5s
+    pass 0: chunk 36096/42520  7820.8s
+    pass 0: chunk 38912/42520  8664.4s
+    pass 0: chunk 39168/42520  8735.3s
+    pass 0: chunk 41984/42520  9412.7s
+pass 0: candidates 2852777472 in 905171930 groups (3.15 per group), cache 15.03 GB, 9556.3s
+pass 1: evaluation 81 its 476.9s, lambda(policy) in [2.8960143816, 2.8960143816]
+pass 1: improvement changed 99278822  105.0s
+pass 2: evaluation 68 its 406.1s, lambda(policy) in [2.8958934221, 2.8958934221]
+pass 2: improvement changed 17463415  71.3s
+pass 3: evaluation 59 its 332.3s, lambda(policy) in [2.8958880394, 2.8958880395]
+pass 3: improvement changed 1365234  46.1s
+pass 4: evaluation 47 its 258.6s, lambda(policy) in [2.8958879780, 2.8958879780]
+pass 4: improvement changed 35892  61.8s
+pass 5: evaluation 30 its 160.7s, lambda(policy) in [2.8958879778, 2.8958879778]
+pass 5: improvement changed 336  55.5s
+pass 6: evaluation 21 its 112.3s, lambda(policy) in [2.8958879778, 2.8958879778]
+pass 6: improvement changed 10  46.6s
+pass 7: evaluation 15 its 81.8s, lambda(policy) in [2.8958879778, 2.8958879778]
+pass 7: improvement changed 0  46.2s
+final evaluation 1 its, lambda in [2.8958879778, 2.8958879778]  12027.7s
+integer argmin changed 825559 children
+integer CW: max ratio = 5502674668048/1900168345657 = 2.895887977834  => certified lambda_bar = 28958880/10000000
+RESULT lattice=diamond K=26 mode=pi states=348320130 lambda_float=[2.8958879778,2.8958879778] certified<=28958880/10000000 total 12225.1s

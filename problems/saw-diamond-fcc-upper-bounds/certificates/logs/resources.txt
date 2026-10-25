@@ -1,0 +1,14 @@
+dia_k24.opt.time: 	Elapsed (wall clock) time (h:mm:ss or m:ss): 14:24.29
+dia_k24.opt.time: 	Maximum resident set size (kbytes): 8599352
+fcc_k10.opt.time: 	Elapsed (wall clock) time (h:mm:ss or m:ss): 15:16.60
+fcc_k10.opt.time: 	Maximum resident set size (kbytes): 4248440
+dia_k22.opt.time: 	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:02.12
+dia_k22.opt.time: 	Maximum resident set size (kbytes): 1288028
+fcc_k11.pi.time: 	Elapsed (wall clock) time (h:mm:ss or m:ss): 41:51.76
+fcc_k11.pi.time: 	Maximum resident set size (kbytes): 1114316
+dia_k24.check: 182.88 s 3028200 kB (wall clock, max RSS)
+fcc_k11.check: 86.33 s 1274416 kB (wall clock, max RSS)
+dia_k26.pi.time: 	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:23:49
+dia_k26.pi.time: 	Maximum resident set size (kbytes): 13803056
+dia_k26.check.time: 	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:22.04
+dia_k26.check.time: 	Maximum resident set size (kbytes): 10890752

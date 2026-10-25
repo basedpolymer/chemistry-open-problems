@@ -1,0 +1,13 @@
+certificate dia_k10.lcert: lattice diamond, K = 10, N = 95, claimed mu <= 29229752/10000000 = 2.922975200
+PASS group Gamma_e has 24 elements for every neighbour e (expected 24)
+PASS (C0a) codes strictly increasing
+PASS (C0b) all weights in [1, 2^60]
+PASS (C0c) the empty walk is listed (index 0)
+PASS (C0d) every code decodes (malformed: 0)
+PASS (C1a) every allowed (state, step) has a listed child (missing: 0; pairs 252)
+PASS (C1b) gamma(F(child)) in F(s) u {o} for some automorphism gamma with gamma(o) = e (failures: 0)
+PASS (C2) Q*sum_e V(child) <= P*V(s) for all states (failures: 0); exact max ratio = 411372175097605/140737488355328 = 2.922975107094...
+info: listed walks that are not self-avoiding: 0; child entries on forbidden steps: 0
+time 0.0 s, 3 threads
+PASS (info) a_n >= c_n for n <= 32; a_n = c_n for n <= 11
+PASS  => mu(diamond) <= 29229752/10000000 = 2.922975200
