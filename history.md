@@ -224,3 +224,6 @@ progress journal. Global topology ordering remains unresolved.
   constants for the ten networks. Solver Claude Opus 5.5 (xhigh). Not yet verified.
 - The word "independent" is no longer used for verification in the READMEs, manuscripts and protocol; "independent"
   in the sense of a different method became "separate".
+- Started (Claude Opus 5.5, xhigh): upper bounds for the connective constants of the diamond and face-centred cubic
+  lattices; Iosif's siphon–precluster duality conjecture (arXiv:2603.08767); Becker–Döring with atomization, Hopf
+  branches j ≥ 4.

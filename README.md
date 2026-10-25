@@ -47,6 +47,9 @@ manuscript, and scripts that re-check every computational claim.
 | [Kirchhoff analogue of Šoltés's problem](problems/kirchhoff-soltes-problem/) (Gottwald–Majstorović Ergotić–Došlić, Appl. Math. Comput. 2026, Problem 3) | Mathematical chemistry | C₅ still the only solution: exhaustive for n ≤ 11 and for vertex-transitive graphs with n ≤ 39; several classes excluded | [partial result (preliminary)](problems/kirchhoff-soltes-problem/paper.pdf), 24 Oct 2026; not yet verified |
 | [Spectral conjecture on fullerene duals](problems/fullerene-dual-cospectral/) (Bille–Buchstaber–Spodarev, J. Math. Chem. 2021) | Mathematical chemistry | arXiv-v1 Conjecture 1(a) false (already corrected by the authors); published 1(b) proved for two residue classes mod 24; 1(c), 1(d) verified for n ≤ 138 | [partial result (preliminary)](problems/fullerene-dual-cospectral/result.md), 24 Oct 2026; not yet verified |
 | Infinite families of β-Kirchhoff Šoltés graphs (Gottwald–Majstorović Ergotić–Došlić 2026, Problem 4) | Mathematical chemistry | The source gives families for every β < 2/3 (its Theorem 15); open for β ≥ 2/3. Started 25 Oct 2026 | open |
+| Duality between siphons and preclusters (Iosif, [arXiv:2603.08767](https://arxiv.org/abs/2603.08767), 2026, conjecture) | Reaction networks | Started 25 Oct 2026 | open |
+| Upper bounds for the connective constants of the diamond and face-centred cubic lattices (follow-up of result 9) | Polymer physics | Started 25 Oct 2026 | open |
+| Becker–Döring with atomization, Hopf branches j ≥ 4 (Pego–Velázquez, Nonlinearity 2020, §3.3; follow-up of result 8) | Nucleation kinetics | Started 25 Oct 2026 | open |
 
 ## Candidate problems
 
@@ -55,13 +58,10 @@ Shortlisted, not yet started; statements to be checked against the sources befor
 | Problem (source) | Field | What is open |
 |---|---|---|
 | [Uniqueness of the Brownian coagulation similarity profile](problems/brownian-coagulation-profile-uniqueness/) (Smoluchowski equation, full Brownian kernel) | Aggregation kinetics | Uniqueness at fixed mass of the self-similar profile for K(x,y) = 2 + (x/y)^(1/3) + (y/x)^(1/3) |
-| Duality between siphons and preclusters (Iosif, [arXiv:2603.08767](https://arxiv.org/abs/2603.08767), 2026, conjecture) | Reaction networks | Conjectured duality between preclusters and maximal invariant polyhedral supports, hence siphons |
 | Smallest networks with absolute concentration robustness and multistationarity (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), Question 1.1) | Reaction networks | Which small networks, not necessarily reversible, have both properties |
-| Connective constants of the diamond and face-centred cubic lattices | Polymer physics | Better rigorous upper bounds (estimates μ ≈ 2.879 and μ ≈ 10.04) |
 | Knotting probability of equilateral heptagons (Geisz–Peterson–Shonkwiler, [arXiv:2609.24860](https://arxiv.org/abs/2609.24860), §5) | Polymer physics (ring polymers) | No rigorous bound on p₇ known |
 | Energy penalty of the Kaibel column against the Petlyuk arrangement | Chemical engineering (distillation) | Whether the gap is strictly positive for every four-component feed, and a closed form (literature to be checked) |
 | Conjectures 1(c) and 1(d) on fullerene duals for every n (Bille–Buchstaber–Spodarev 2021) | Mathematical chemistry | Verified for n ≤ 138 only |
-| Becker–Döring with atomization, Hopf branches j ≥ 4 (Pego–Velázquez 2020, §3.3) | Nucleation kinetics | Criticality of the higher branches |
 
 ## Layout
 
