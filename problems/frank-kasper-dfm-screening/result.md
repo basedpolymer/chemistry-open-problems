@@ -1,8 +1,11 @@
 # Diblock foam model on the Frank–Kasper catalogue: method, validation, screen
 
 *Status: partial result; global minimization remains unresolved. The continuation adds exact topology certificates
-for 121 entries, a separate audit of six energy witnesses, the uniform bound F > 1.00000025, a restricted A15 bound,
-and global affine-family bounds for the six saved meshes. None bounds the full competing topology infima above σ.
+for 121 entries, a separate audit of six original energy witnesses and eight new auxiliary-apex witnesses,
+the uniform bound F > 1.00000025, a restricted A15 bound,
+global affine-family bounds for the six saved meshes, and 121 topology-wide divergence bounds.
+The latter improve the uniform bound for 34 entries, but a proved ceiling below 1.066 limits this method.
+None bounds the full competing topology infima above σ.
 Proofs: [paper.pdf](paper.pdf). Checks and limitations: [verification.md](verification.md). No fresh independent review.*
 
 ## 1. Question and framing
@@ -52,18 +55,27 @@ dof; 𝓕 is scale invariant) with the exact virial gradient (checked by finite 
 are about 3.88–3.95. This is not asserted for the degenerate runs. We report R_L = 𝓕_L − (𝓕_{L−1} − 𝓕_L)/3 with an uncertainty max(|R_K − R_{K−1}|, |R_K − Aitken|);
 for BCC, R₄ and R₅ (an extra level-5 run) agree to 7×10⁻⁸. This error estimate is heuristic, not rigorous.
 
-**Exact certificates.** Six relaxed meshes are stored on the dyadic grid 2⁻⁴⁴. The new, separate implementation
+**Exact certificates.** Six original meshes and eight additional auxiliary-apex meshes are stored on the dyadic grid 2⁻⁴⁴. The separate implementation
 `scripts/audit_certificates.py` checks spherical cell boundaries with circular vertex links, disk faces, the simple
 foam incidences and the identity of the periodic dual complex. Coning the cell boundaries therefore gives a closed
 oriented 3-manifold. Every cone determinant is strictly positive and their volumes sum exactly to det L. The degree-one
 argument in the manuscript proves embeddedness, including on the skeleton. Exact rational moments and integer
 floor/ceiling square roots enclose the energy of each individual mesh.
 
-The audit also rigorously transports each witness to its intended exact box. If T = B L̂⁻¹ and ‖T−I‖₂ ≤ ε < 1,
+The audit also rigorously transports the original fixed-box witnesses to their intended exact boxes. If T = B L̂⁻¹ and ‖T−I‖₂ ≤ ε < 1,
 then 𝓕(TX) ≤ [(1+ε)/(1−ε)]² 𝓕(X). Arb at 192 bits proves the stronger Frobenius estimate with ε = 10⁻¹²,
 including the hexagonal box involving √3. The nine-decimal bounds are unchanged. There are no **separating** lower
-bounds for the topology infima; the universal lower bound 𝓕 ≥ 1 follows from isoperimetry, the moment bound for a
-ball, and Hölder. Thus the infimum over the catalogue is enclosed in **[1, 1.068575909]**.
+bounds for the topology infima. Isoperimetry, the moment bound for a ball, and Hölder first give 𝓕 ≥ 1;
+the quantitative moment defect and packing argument improve this to 𝓕 > 1.00000025.
+Thus the infimum over the catalogue is enclosed in **[1.00000025, 1.068575909]**.
+
+**Topology-wide bounds.** Periodic fields with |z_i − z_j + W s| ≤ 1 on every contact edge give
+A ≥ 3 det(W)^(1/3) V^(2/3), and hence 𝓕 ≥ (6 det(W)/(πn))^(2/9) for every internal shape and box.
+All 121 integer field certificates pass, with 34 improvements over the uniform bound. For example,
+A15 ≥ 1.008666655 and H ≥ 1.008808885. These remain far below σ. Every mapped contact tetrahedron
+has unit-bounded edges, giving det(W) ≤ t/(6√2). Since max(t/n) = 124/21, this entire construction
+has a ceiling 1.0652530398… on its resulting lower number. This is a theorem limiting the method;
+it is not an upper bound on DFM energies. Full proofs and all hypotheses are in the manuscript.
 
 ## 3. Validation against [1] (Milestone 1) — `scripts/check_milestone1.py` (0 FAIL)
 
@@ -170,8 +182,9 @@ lowers 𝓕 by 4×10⁻⁶ (σ, relaxed a/c = 1.909), 2×10⁻⁴ (Z, c/a 0.9935
 
 `scripts/screen_pipeline.py`: levels 0–2 for all structures; level 3 for those whose level-2 extrapolation lies
 within 5×10⁻⁴ of σ's; level 4 for those within 3×10⁻⁴. Results: `data/dfm_screen_boxrelaxed.csv`
-(`scripts/make_tables.py`), with all available level values. Eight failed relaxations are represented only by their
-unrelaxed starts. These floating-point energies are not certified decimal upper bounds.
+(`scripts/make_tables.py`), with all available historical level values. Eight failed relaxations are represented
+there only by their unrelaxed starts; the new auxiliary-apex witnesses supplement those rows (§4.5).
+The historical floating-point energies are not certified decimal upper bounds.
 
 ### 4.4 Results (box relaxed)
 
@@ -209,8 +222,8 @@ between **E11** and **H**, 2.34×10⁻⁴ (0.022 %) above σ, followed by μ and
 search. The gap σ → E11 is about 2000 times the extrapolation
 uncertainty and 200 times the whole level-4 discretisation correction of σ (𝓕₄ − 𝓕_∞ ≈ 1.1×10⁻⁶); the exact level-4
 upper bound for σ, inf 𝓕 ≤ 1.068575909 (certified, `scripts/certify_upper_bound.py`), is below every extrapolated
-competitor value by more than 2.3×10⁻⁴. This compares reported values, not the true topology infima; the eight
-unrelaxed entries in particular remain unresolved.
+competitor value by more than 2.3×10⁻⁴. This compares reported values, not the true topology infima;
+the new witnesses for the eight previously unrelaxed entries do not establish their infima either.
 
 **Robustness.** For σ, H, μ, zra-d, N16, N53 and N02 a second relaxation started from a different initial geometry
 (spring re-embedding of the contact graph instead of the catalogue/crystal coordinates) reaches the same level-2 value
@@ -240,10 +253,23 @@ Relaxed from the spring re-embedding (levels 0–1, 10-min cap; N28 to level 2) 
 coordinates (level 2): mildly frustrated entries stay embedded and relax to 𝓕 ≈ 1.080–1.089 (N28 1.0851 at level 2;
 part-II N05, N17, N22, N03, Y01 1.080–1.089 at level 1), i.e. ≥ 1.0 % above σ. Strongly frustrated entries drive a
 foam edge to zero length: N57 (1.1030) and N58 (1.0992) stay embedded; for N55, N59, N60 and part-II Y02–Y06 the
-relaxation became degenerate (cone volumes ≤ 10⁻¹³, or negative with a collapsing box for Y04–Y06), so we report only
+old relaxation failed the sufficient centroid-cone criterion (cone volumes ≤ 10⁻¹³, or negative, with box collapse
+also observed for Y04–Y06), so the historical table reports only
 the valid unrelaxed starting partitions (𝓕 = 1.13–1.20 for N55, N59, N60, Y02, Y03; 1.57–1.62 for Y04–Y06;
 `data/frustrated_start_values.csv`). All of these lie far above σ; their reported values are upper bounds reached,
 not converged infima. Their behaviour in these runs does not establish instability of the entire topology class.
+
+**Auxiliary-apex continuation (25 October).** `scripts/run_barrier.py` moves separate interior apices while
+minimizing the actual centroid-based energy, with a positive-cone log barrier, free vertex motion and box strain.
+The six barrier weights are 10⁻¹ through 10⁻⁶, with 5000 iterations allowed per stage at level zero. Stopping
+reasons and gradients are retained; these are feasible trials, not demonstrated local minima.
+`scripts/check_barrier_witnesses.py` independently checks the rounded dyadic partitions against the standalone
+catalogue and integrates their exact energies. The detailed bounds are in the README supplement and
+`certificates/barrier_witness_report.json`.
+
+For Y04, the exact embedded witness has F ≤ 1.254466833 and **184 negative cones based at true volume centroids**.
+Its auxiliary cones are all positive. Thus a negative centroid-cone diagnostic does not imply invalid geometry.
+The diagnostic documentation is corrected; this does not retroactively certify any unsaved failed iterate.
 
 **Further check.** σ in the box of the paper's CVP row (a/c = 1.9297, fixed): 1.0685970; the E11 restart from the
 re-embedded geometry reproduces level 2 (1.0688260).
@@ -265,7 +291,8 @@ spectrum), **N56** (I4₁/amd, 76 cells, new) and **P**. Next (≤ 0.035 %): N16
   Rigorous affine transport covers the intended exact boxes, not only their stored dyadic roundings.
 * **Certified catalogue feasibility**: all 121 contact complexes have standalone integer certificates. This does
   not constitute a new proof of catalogue exhaustiveness.
-* **Analytic lower bound**: 𝓕 ≥ 1 for every admissible partition. The face graph of an isolated curved cell cannot
+* **Analytic lower bound**: 𝓕 > 1.00000025 for every admissible partition; 34 topology-dependent bounds further
+  improve this for their own classes. The face graph of an isolated curved cell cannot
   improve the ball constants: a sphere can be subdivided with that graph. Any useful stronger bound must control
   compatibility between neighbouring cells. For the specific one-parameter flat A15 formula in [1], a Bernstein
   positivity certificate proves 𝓕(c) > 1.0699 for all c ≥ 0; this does not cover arbitrary curved A15 partitions.

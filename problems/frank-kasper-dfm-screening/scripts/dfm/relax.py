@@ -262,11 +262,14 @@ def relax_cycles(M, cycles=3, sweeps=3, **kw):
 
 
 def cone_check(M):
-    """Embeddedness certificate (floating point): for every cell, the tetrahedra
-    (centroid_i, triangle) over its oriented boundary triangles must all have
-    positive volume.  Then the cones tile the torus exactly once (degree argument),
-    i.e. the triangulated cells form a genuine partition.  Returns the minimum
-    cone volume relative to the mean cell volume."""
+    """Sufficient floating-point star-shapedness diagnostic at volume centroids.
+
+    Positive boundary cones, with the manifold and degree-one hypotheses,
+    certify a partition. A negative value does NOT prove self-intersection:
+    another apex can lie in the cell's kernel when its centroid does not.
+    See the exact Y04 counterexample in check_barrier_witnesses.py.
+    Returns the minimum signed cone volume divided by mean cell volume.
+    """
     from .energy import geometry
     Atot, V, Mo, S = geometry(M)
     cen = M.ref + Mo / V[:, None]

@@ -2,7 +2,7 @@
 
 **Status: partial result — global minimization remains unresolved.** The numerical screen reports its lowest
 energy for σ, with a gap of about 0.022 % to its best reported competitors. Exact certificates now verify all
-121 catalogue input topologies and six explicit energy witnesses. They do **not** establish separating lower bounds for
+121 catalogue input topologies and fourteen explicit energy witnesses. They do **not** establish separating lower bounds for
 the competing topology infima. Five certified witnesses lie below numbers printed in Reddy et al.'s preprint and published SI.
 
 **Continuation, 24–25 October 2026.** [Manuscript](paper.pdf), [proof source](paper.tex),
@@ -21,8 +21,12 @@ the proofs; [verification.md](verification.md) records the assumptions and the u
 |---|---|---|
 | Catalogue geometry | 121 PASS, 0 FAIL | Exact embedded FK realizations; standalone integer data |
 | Energy witnesses | 6 PASS | Certified upper bounds, including transport to exact target boxes |
+| New witnesses for the eight previously unrelaxed entries | 8 PASS | Exact admissibility and energies; auxiliary interior apices; no optimality claim |
+| Necessity of the centroid-cone test | Disproved by an exact Y04 witness | 184 negative centroid cones in an embedded partition with positive auxiliary cones |
 | Uniform gap above the spherical relaxation | 𝓕 > 1.00000025 | All admissible periods and positive volumes; uses Kepler's theorem; elementary version > 1.000000004 |
 | Global affine minimization of stored meshes | 6 PASS | Entire affine families certified; five competitor families lie above the σ witness; not full topology classes |
+| Linear divergence calibrations | 121 PASS; 34 improve the uniform bound | All internal shapes, positive volumes and box shapes of each represented topology |
+| Ceiling on the preceding calibration method | < 1.066 for every catalogue entry | A limit on that proof method, not an upper bound on physical energies |
 | Restricted flat A15 family | 𝓕(c) > 1.0699 for every c ≥ 0 | One-parameter formula; does not cover arbitrary curved A15 cells |
 | Adversarial and invariance tests | 6 tests pass | Invalid geometry rejected; translation/scaling and box checks |
 | Affine tensor and convex-bound tests | 3 tests pass | Analytic cube, shear and translation, rejection of invalid dual bounds |
@@ -36,9 +40,33 @@ The global affine infimum for the stored σ mesh lies in [1.068575891, 1.0685759
 its cells remain outside that family. The uniform lower bound and the affine bounds do not separate the competing
 topology infima, so the central global comparison remains open. No complete solution is claimed.
 
+The new topology-wide bounds include A15 ≥ 1.008666655, H ≥ 1.008808885,
+σ ≥ 1.004288649 and E11 ≥ 1.004321474. Their proof uses periodic linear divergence fields,
+an area bound and the ball-moment inequality. A separate theorem shows that the best number this
+construction could produce is at most 1.065253040 across the catalogue, below the current σ witness.
+The integer field certificates and the proof of this limitation are included in the manuscript.
+
 The comparison concerns the translation periods represented by the catalogue inputs, with homogeneous box
-relaxation. It does not cover arbitrary larger supercells or all possible Frank–Kasper structures. Eight entries
-still have only unrelaxed starting values; degenerating limits have not been excluded globally.
+relaxation. It does not cover arbitrary larger supercells or all possible Frank–Kasper structures.
+Degenerating limits have not been excluded globally.
+
+The eight entries previously represented only by starting values now have additional certified witnesses:
+
+| Entry | Historical starting value (floating point) | New certified upper bound | Negative cones at true centroids |
+|---|---:|---:|---:|
+| N55 | 1.13125 | 1.102285105 | 0 |
+| N59 | 1.12760 | 1.101112653 | 0 |
+| N60 | 1.20268 | 1.129410812 | 0 |
+| II:Y02 | 1.13419 | 1.103468432 | 0 |
+| II:Y03 | 1.13425 | 1.103507483 | 0 |
+| II:Y04 | 1.62006 | 1.254466833 | 184 |
+| II:Y05 | 1.56570 | 1.254006234 | 370 |
+| II:Y06 | 1.61931 | 1.255816821 | 281 |
+
+All auxiliary cone determinants are strictly positive. Negative cones at the volume centroid therefore
+do not imply an invalid partition. The eight witnesses are improved feasible trials, with no claim of
+convergence to a local minimum. The 48 continuation stages and their stopping diagnostics are saved in
+`data/barrier_continuation.csv`; the historical screen below is retained as the record of the original runs.
 
 ## Problem
 
@@ -72,13 +100,14 @@ which penalises e.g. H by 3.9×10⁻⁴ and μ by ~7×10⁻⁴). Result: **σ ha
 **E11** (I4₁/amd) and **H**, both at +0.0219 % (2.34×10⁻⁴, about 2000 times our extrapolation uncertainty), then μ and
 zra-d (K₇Cs₆ type, new to the DFM) at +0.025 %, the new **N56** at +0.027 % and P at +0.028 %. Sixteen catalogue entries
 are not Voronoi-realised by their supplied coordinates. Their available values are about 1.0 % or more above σ,
-and eight entries have only unrelaxed starting values because the relaxation degenerates. These are not
-exclusions of their topology infima. The ranking is numerical: see `result.md` §5 and `verification.md`.
+and eight historical rows retain only starting values after failed relaxations; the certified supplement above
+now improves those rows. These values do not exclude their topology infima. The ranking is numerical:
+see `result.md` §5 and `verification.md`.
 
-## Main table (box-relaxed DFM, all structures)
+## Historical main table (box-relaxed DFM, all structures)
 
 `data/dfm_screen_boxrelaxed.csv` has every structure with all available level values. 𝓕_L is a floating-point
-evaluation of the level-L partition; only the six separate integer certificates give certified bounds. "Extrapolated" is the Richardson value
+evaluation of the level-L partition; certified bounds come from the six original and eight new separate integer certificates. "Extrapolated" is the Richardson value
 (heuristic error). Cubic A15, C15, BCC: see also the fixed-box level-4 values (identical boxes).
 
 | # | structure | group | n | Z12/14/15/16 | L | 𝓕_L (mesh value) | 𝓕 extrapolated | Δ vs σ | min edge/R₀ |
@@ -199,14 +228,14 @@ evaluation of the level-L partition; only the six separate integer certificates 
 | 114 | II:Y01 | P63/mcm | 42 | 20/16/0/6 | 1 | 1.08864670 | — | +1.878% | 0.285 |
 | 115 | N58 | P42/mnm | 18 | 6/8/4/0 | 2 | 1.09922814 | 1.0991726 ± 5e-05 | +2.863% | 0.017 |
 | 116 | N57 | P42/mnm | 32 | 12/12/8/0 | 2 | 1.10303259 | 1.1029829 ± 6e-05 | +3.220% | 0.024 |
-| 117 | N59 (frustrated) | Pccn | 36 | 12/16/8/0 | start | 1.12760 (unrelaxed; relaxation degenerates) | — | +5.5% | — |
-| 118 | N55 (frustrated) | P43212 | 60 | 28/16/8/8 | start | 1.13125 (unrelaxed; relaxation degenerates) | — | +5.9% | — |
-| 119 | II:Y02 (frustrated) | P41212 | 84 | 44/16/8/16 | start | 1.13419 (unrelaxed; relaxation degenerates) | — | +6.1% | — |
-| 120 | II:Y03 (frustrated) | P43212 | 84 | 44/16/8/16 | start | 1.13425 (unrelaxed; relaxation degenerates) | — | +6.1% | — |
-| 121 | N60 (frustrated) | P6422 | 54 | 18/24/12/0 | start | 1.20268 (unrelaxed; relaxation degenerates) | — | +12.6% | — |
-| 122 | II:Y05 (frustrated) | P43 | 84 | 20/40/24/0 | start | 1.56570 (unrelaxed; relaxation degenerates) | — | +46.5% | — |
-| 123 | II:Y06 (frustrated) | P41 | 84 | 20/40/24/0 | start | 1.61931 (unrelaxed; relaxation degenerates) | — | +51.5% | — |
-| 124 | II:Y04 (frustrated) | P42/m | 42 | 10/20/12/0 | start | 1.62006 (unrelaxed; relaxation degenerates) | — | +51.6% | — |
+| 117 | N59 (frustrated) | Pccn | 36 | 12/16/8/0 | start | 1.12760 (historical start; see supplement) | — | +5.5% | — |
+| 118 | N55 (frustrated) | P43212 | 60 | 28/16/8/8 | start | 1.13125 (historical start; see supplement) | — | +5.9% | — |
+| 119 | II:Y02 (frustrated) | P41212 | 84 | 44/16/8/16 | start | 1.13419 (historical start; see supplement) | — | +6.1% | — |
+| 120 | II:Y03 (frustrated) | P43212 | 84 | 44/16/8/16 | start | 1.13425 (historical start; see supplement) | — | +6.1% | — |
+| 121 | N60 (frustrated) | P6422 | 54 | 18/24/12/0 | start | 1.20268 (historical start; see supplement) | — | +12.6% | — |
+| 122 | II:Y05 (frustrated) | P43 | 84 | 20/40/24/0 | start | 1.56570 (historical start; see supplement) | — | +46.5% | — |
+| 123 | II:Y06 (frustrated) | P41 | 84 | 20/40/24/0 | start | 1.61931 (historical start; see supplement) | — | +51.5% | — |
+| 124 | II:Y04 (frustrated) | P42/m | 42 | 10/20/12/0 | start | 1.62006 (historical start; see supplement) | — | +51.6% | — |
 
 ## Milestone 1 — reproduction of [1] (`scripts/check_milestone1.py`: 0 FAIL)
 
@@ -247,11 +276,19 @@ python3 check_a15_family.py          # restricted flat A15 family: certified F >
 python3 check_uniform_gap.py         # exact constants: uniform F > 1.00000025, all topologies
 python3 check_affine_orbits.py       # 6 GLOBAL affine-family bounds; saved metrics, no optimizer rerun
 python3 test_affine_orbits.py        # 3 analytic and rejection tests for tensor/convex bounds
+python3 check_topology_calibrations.py # 121 topology-wide lower bounds and the method's ceiling
+python3 test_topology_calibrations.py  # 4 analytic and rejection tests; no optimizer
+python3 check_barrier_witnesses.py     # 8 auxiliary-apex witnesses; exact energy and centroid tests
+python3 test_barrier.py                # 3 derivative, boundary and true-centroid tests
 python3 check_source_comparison.py   # SI transcription / preprint data / certificate thresholds
 python3 test_audit_certificates.py   # rejection/invariance tests for the new checker
 python3 check_certificates.py        # 6 exact certificates, ~1 min: PASS x6
 python3 check_catalogue.py           # 121 catalogue files: valid embedded FK tilings, ~5 min: 121 PASS
 python3 check_milestone1.py          # Milestone 1 (uses data/dfm_fixedbox_paper_structures.csv), ~5 min: 0 FAIL
+# Regenerate the new proposals (verification above does not require this):
+python3 check_topology_calibrations.py --build --fresh  # requires cvxpy and CLARABEL
+python3 run_barrier.py --maxiter 5000 # all eight entries; writes final meshes and the 48-stage CSV
+python3 check_barrier_witnesses.py --build # round the new meshes, then verify exactly
 # regenerate the runs (hours on a loaded machine; resumable, results in ../work/runs)
 python3 run_dfm.py BCC A15 C15 Z C14 sigma psigma H mu M P delta --box fixed --maxlev 4
 python3 screen_pipeline.py ../data/screen_order.txt --win3 5e-4 --win4 3e-4   # resumes from ../work/runs checkpoints
@@ -269,6 +306,10 @@ python3 make_tables.py
 | `scripts/check_a15_family.py` | certified polynomial inequality for the restricted flat A15 formula |
 | `scripts/check_uniform_gap.py`, `certificates/uniform_gap_report.json` | uniform gap proof constants, checked with rational arithmetic |
 | `scripts/check_affine_orbits.py`, `certificates/affine_orbits_report.json` | convex affine minimization, exact moment tensors and global interval bounds |
+| `scripts/check_topology_calibrations.py`, `certificates/topology_calibrations.json` | 121 integer divergence fields, full-topology lower bounds and ceiling on the method |
+| `scripts/run_barrier.py`, `scripts/check_barrier_witnesses.py` | continuation with auxiliary interior apices; separate exact verification |
+| `certificates/meshes/barrier/`, `certificates/barrier_witness_report.json` | eight additional dyadic partitions and their certified energies |
+| `data/barrier_continuation.csv` | all 48 new stages, positive-cone diagnostics, gradients and stopping reasons |
 | `data/pnas_si_crosscheck.json`, `scripts/check_source_comparison.py` | published SI provenance, visual transcription and consistency check |
 | `scripts/certify_catalogue.py`, `certificates/catalogue_topology.npz` | standalone exact topology certificates for 121 entries |
 | `scripts/check_restarts.py`, `data/symmetry_breaking_restarts.csv` | additional numerical restarts without imposed crystal symmetry |

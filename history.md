@@ -174,3 +174,21 @@ all five competitor families lie above the σ witness. Three analytic tests
 pass. This resolves these affine subproblems, not the unrestricted topology
 comparison. Manuscript, source record, READMEs and progress journal updated;
 fresh independent review remains pending and global σ optimality is unproved.
+
+### Frank–Kasper: topology-wide bounds and auxiliary-apex witnesses, 25 October 2026
+
+Codex (GPT-6; effort not recorded), without sub-agents. Constructed and
+exactly checked linear divergence fields for all 121 topology classes,
+covering all internal shapes and box strains; 34 improve the uniform
+bound. Proved that this construction, with the separate ball-moment bound,
+has a ceiling below 1.066 across the catalogue. It therefore cannot separate
+competitors from the current σ witness. This ceiling limits the proof
+method, not physical energies.
+
+Completed 48 positive-cone barrier stages for the eight previously unrelaxed
+entries and certified eight improved dyadic witnesses. Y04, Y05 and Y06 are
+embedded despite negative cones at true volume centroids, giving exact
+counterexamples to necessity of that diagnostic. Corrected its documentation.
+Added four linear-calibration tests and three barrier/centroid tests; the
+existing six audit tests still pass. Updated manuscript, READMEs, audit and
+progress journal. Global topology ordering remains unresolved.

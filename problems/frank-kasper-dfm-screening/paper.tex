@@ -35,6 +35,12 @@ $\DF>1.00000025$, using the Kepler sphere-packing theorem and exact rational
 constants; a self-contained elementary version gives $\DF>1.000000004$.
 We also certify global bounds for all affine images of the six stored meshes
 by reducing their deformation problem to convex minimization.
+Linear divergence calibrations give topology-wide lower bounds, certified
+for all 121 entries. A separate theorem puts a ceiling below $1.066$ on
+this particular lower-bound construction, so it cannot separate competitors
+from the present $\sigma$ witness.
+Eight additional exact witnesses improve the previously unrelaxed entries;
+one also disproves the necessity of the centroid-cone admissibility test.
 Neither these certificates nor
 additional symmetry-breaking restarts establish the ordering of the topology
 infima. We give complete proofs of the certified statements and identify the
@@ -176,6 +182,8 @@ $\frac{10}{9}((1+t)^{-1/3}+(1-t)^{-1/3})\geq20/9$ for $0\leq t<1$,
 by convexity. Two integrations and continuity at $t=1$ give the result.
 \end{proof}
 
+% Keep the short closing frame of this lemma on the same page as its statement.
+\enlargethispage{\baselineskip}
 \begin{lemma}\label{lem:packing-gap}
 Let $\rho<1$ be an upper bound for the density of any periodic packing of
 equal balls in $\mathbb R^3$. Choose $0<\eta,\lambda,\tau<1$, and set
@@ -550,6 +558,131 @@ the cells after a box change enlarges those families and may lower their
 infima; indeed the inherited box-relaxed $H$ run is below the affine lower
 bound for the stored fixed-box $H$ mesh. There is no contradiction.
 
+\section{Topology-wide divergence bounds and their limitation}
+
+Unlike the affine families above, the next bound allows arbitrary internal
+cell deformations. Label a contact edge by $(i,j,s)$ if cell $i$ in the
+base period meets cell $j$ translated by $Ls$, with $s\in\mathbb Z^3$.
+Let $W$ be a real $3\times3$ matrix of positive determinant and let
+$z_1,\ldots,z_n\in\mathbb R^3$. Suppose that
+\begin{equation}\label{eq:fieldnorm}
+ |z_i-z_j+Ws|\leq1\qquad\text{for every contact edge }(i,j,s).
+\end{equation}
+These conditions use only the periodic topology.
+
+\begin{theorem}\label{thm:topocalibration}
+For every admissible partition with these incidences, arbitrary positive
+cell volumes and any box $L$ of positive determinant,
+\begin{equation}\label{eq:topocalibration}
+ A\geq3(\det W)^{1/3}V^{2/3},\qquad
+ \DF\geq\left(\frac{6\det W}{\pi n}\right)^{2/9}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Set $B=WL^{-1}$ and, on the lifted cell indexed by $(i,k)$, use the field
+$\xi_{i,k}(x)=B(x-Lk)+z_i$. Its divergence is $\operatorname{tr}B$.
+On a shared interface the difference of the two fields is
+$z_i-z_j+Ws$, independent of position. The divergence theorem and
+\eqref{eq:fieldnorm} therefore give $V\operatorname{tr}B\leq A$.
+This argument applies to curved as well as planar faces.
+
+Replacing $(W,z_i)$ by $(RW,Rz_i)$ for any proper rotation $R$ preserves
+\eqref{eq:fieldnorm}. The maximum of $\operatorname{tr}(RWL^{-1})$
+over these rotations is the sum of the three singular values of $WL^{-1}$:
+its determinant is positive, so the maximizing orthogonal factor can be
+chosen proper. Their arithmetic--geometric mean is at least
+$3(\det W/V)^{1/3}$, proving the area bound.
+
+Ball rearrangement and Jensen's inequality give, without requiring equal
+cell volumes,
+\[
+ J\geq\frac35\left(\frac3{4\pi}\right)^{2/3}
+       \sum_i v_i^{5/3}
+ \geq\frac35\left(\frac3{4\pi}\right)^{2/3}V^{5/3}n^{-2/3}.
+\]
+Substitute this and the area bound into \eqref{eq:energy}. Cubing the
+resulting inequality for $\DF^3$ yields
+$\DF^9\geq36(\det W)^2/(\pi^2 n^2)$, as claimed.
+\end{proof}
+
+Proposals maximize $\log\det W$ under \eqref{eq:fieldnorm}, with
+$W$ symmetric positive definite and $z_1=0$. This is a convex optimization
+problem; symmetry of $W$ loses no positive-determinant candidates, by a
+common left rotation (polar decomposition). Solver status is not a proof.
+For each saved proposal we round $W,z_i$ to integer arrays and divide them
+by one integer larger than the square root of the maximum squared edge
+norm. The verifier checks every edge inequality with integers, checks
+$\det W>0$, and uses 192-bit outward arithmetic for $\pi$ and the final
+decimal bound. It also rechecks the exact catalogue complex.
+Thus verification requires no optimizer, external source archive or
+assumption of numerical optimality.
+
+All 121 certificates pass; 34 improve the uniform bound $1.00000025$.
+Selected certified topology-wide lower bounds are
+\[
+ \begin{aligned}
+ m_{\mathrm{A15}}&\geq1.008666655,&\qquad m_H&\geq1.008808885,\\
+ m_\sigma&\geq1.004288649,& m_{\mathrm{E11}}&\geq1.004321474.
+ \end{aligned}
+\]
+
+There is a structural obstruction to obtaining the desired separating
+bound by improving this optimization alone.
+
+\begin{proposition}\label{prop:calibrationceiling}
+If the periodic contact triangulation has $t$ tetrahedra and $n$ vertices,
+every feasible pair $(W,z)$ in \eqref{eq:fieldnorm} satisfies
+\[
+ \det W\leq\frac{t}{6\sqrt2},\qquad
+ \left(\frac{6\det W}{\pi n}\right)^{2/9}
+ \leq\left(\frac{t^2}{2\pi^2 n^2}\right)^{1/9}.
+\]
+For all 121 catalogue entries the rightmost number is less than $1.066$.
+This is a ceiling on the bound in \eqref{eq:topocalibration},
+\emph{not an upper bound on any physical energy or topology infimum}.
+\end{proposition}
+\begin{proof}
+Map the contact vertex $(i,k)$ to $-z_i+Wk$, and extend affinely over
+each contact tetrahedron. Every mapped edge has length at most one by
+\eqref{eq:fieldnorm}. The map is equivariant from the original torus to
+the torus with period matrix $W$. Its induced lattice map is the identity
+in these coordinates; it is homotopic to the corresponding linear map,
+by straight interpolation of its periodic displacement. Hence it has
+degree one. Equivalently, cancellation of the oriented periodic faces
+gives the signed-volume identity
+\[
+ \sum_{\text{oriented contact tetrahedra}}
+      \operatorname{Vol}_{\mathrm{signed}}(\text{image})=\det W.
+\]
+The map may fold or collapse some tetrahedra; neither possibility affects
+this identity. For each saved certificate the verifier additionally
+checks the identity by exact integer determinants.
+
+For completeness, a tetrahedron with all six edges of length at most one
+has volume at most $1/(6\sqrt2)$. Indeed, for its vertices $q_0,\ldots,q_3$
+and their mean $\bar q$, put
+$S=\sum_a(q_a-\bar q)(q_a-\bar q)^{\mathsf T}$. Then
+\[
+ \operatorname{tr}S=\tfrac14\sum_{a<b}|q_a-q_b|^2\leq\tfrac32,
+ \qquad \operatorname{Vol}^2=\frac{\det S}{9}
+ \leq\frac{(\operatorname{tr}S/3)^3}{9}\leq\frac1{72}.
+\]
+Taking absolute values in the signed-volume sum proves the determinant
+bound. Direct counts in the independently rechecked catalogue give
+$t/n\leq124/21$, with equality for part-II Y04--Y06. Therefore the
+method's ceiling is at most
+\[
+ \left(\frac{(124/21)^2}{2\pi^2}\right)^{1/9}
+ =1.0652530398\ldots<1.066.
+\]
+The final strict inequality is checked with outward arithmetic.
+\end{proof}
+
+These calibrations supply valid topology-dependent information over the
+full admissible classes, but cannot reach the present witness level
+$1.068575909$. A stronger method must use information discarded by this
+separate area and ball-moment estimate, or a different lower certificate.
+
 \section{Numerical evidence and its limits}
 
 The inherited screen uses triangulated interfaces, midpoint refinements,
@@ -575,9 +708,11 @@ $P$ & 1.0688742 & $0.0281\%$\\
 The full historical table contains 124 entries. Of the 121 catalogue
 structures, 105 have their supplied contact triangulation realized as a
 Delaunay triangulation; 16 do not at those coordinates. Several of the
-latter relaxations collapse an edge or become invalid. Eight reported
-entries are only valid unrelaxed starting values. Those entries have not
-been energetically excluded. Finite mesh values calculated in floating
+latter relaxations collapse an edge or fail the sufficient centroid-cone
+test. Eight historical entries retain only valid unrelaxed starting values;
+the auxiliary-apex continuation below now supplies improved certified
+witnesses for all eight. Those topologies have not been energetically
+excluded. Finite mesh values calculated in floating
 point should not be described as exact numerical certificates merely
 because the underlying integration formulas are exact.
 
@@ -595,6 +730,56 @@ $H$ and $\mu$. All 24 completed stages pass the floating-point cone test.
 The largest difference between the two level-2 results of the same
 structure is $1.6\times10^{-9}$; the ordering remains unchanged. This
 evidence concerns only the tested starts and resolutions.
+
+\subsection{A valid cell need not be star-shaped about its centroid}
+
+A new continuation uses a moving auxiliary apex for each cell. For the
+oriented determinant $d$ of each boundary cone, a logarithmic barrier
+$-\log(d-d_0)$ enforces positivity, with $d_0$ chosen to correspond to
+$10^{-7}$ times the mean cell volume. The energy always uses the true
+volume centroid; the auxiliary apex serves only to certify geometry.
+Six barrier weights, $10^{-1},\ldots,10^{-6}$, are used at mesh level zero,
+with up to 5000 L-BFGS iterations per weight and a freely strained box.
+Some stages reach their iteration limit with non-negligible gradients.
+They provide trial partitions, not stationary or optimal solutions.
+This search uses cells star-shaped about some auxiliary point, which is
+still only a sufficient subclass of the admissible curved cells.
+
+The part-II Y04 example supplies a precise correction to the use of the
+older centroid-cone diagnostic. Its saved dyadic partition has 42 cells,
+the exact prescribed dual complex, positive auxiliary cone determinants
+and an exact degree-one volume sum. Its energy is at most $1.254466833$.
+Nevertheless, 184 boundary cones based at the \emph{true volume centroids}
+have strictly negative determinants, verified using rational first moments.
+Thus the partition is embedded although the centroid-cone test fails.
+Positivity at the centroid is a sufficient condition under the other
+manifold hypotheses, not a necessary condition for admissibility.
+Failure of that diagnostic alone cannot justify discarding a topology or
+calling its cells self-intersecting.
+
+All eight previously unrelaxed entries now have additional exact witnesses:
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Topology & Certified upper bound & Negative centroid cones\\
+\midrule
+N55 & 1.102285105 & 0\\
+N59 & 1.101112653 & 0\\
+N60 & 1.129410812 & 0\\
+II:Y02 & 1.103468432 & 0\\
+II:Y03 & 1.103507483 & 0\\
+II:Y04 & 1.254466833 & 184\\
+II:Y05 & 1.254006234 & 370\\
+II:Y06 & 1.255816821 & 281\\
+\bottomrule
+\end{tabular}
+\end{center}
+The verifier checks the exact periodic identity directly against the
+standalone catalogue, the manifold hypotheses, every positive auxiliary
+cone, the exact volume sum and rational energy bounds. The 48 numerical
+continuation stages are retained separately, including stopping reasons
+and gradient norms. These improved upper bounds do not exclude a lower
+infimum for any of the eight topology classes.
 
 \section{The missing global step}
 
@@ -717,6 +902,7 @@ centres and allowed boxes would prove $\DF\geq U$ through
 observed $\sigma$ value have been constructed here. Restrictions to a
 fixed set of centres would leave the original question unresolved.
 
+\clearpage
 \section{Reproduction and verification status}
 
 From the problem directory, with Python 3.12 or later:
@@ -728,6 +914,10 @@ python scripts/check_a15_family.py
 python scripts/check_uniform_gap.py
 python scripts/check_affine_orbits.py
 python scripts/test_affine_orbits.py
+python scripts/check_topology_calibrations.py
+python scripts/test_topology_calibrations.py
+python scripts/check_barrier_witnesses.py
+python scripts/test_barrier.py
 python scripts/check_milestone1.py
 python scripts/check_restarts.py
 \end{verbatim}
@@ -744,6 +934,13 @@ links, interface topology and affine transport. Its regression checks
 reject reversed triangles, missing tetrahedra, duplicated faces and a
 pinched surface, and check invariance under translation and scaling.
 These are implementation checks, not a formal proof-assistant verification.
+
+The topology-calibration verifier additionally checks all periodic edge
+norms and mapped signed-volume identities using integers. Four tests cover
+an analytic cubic torus, gauge translations, false norm and energy claims,
+and a missing tetrahedron. Three barrier tests check a directional derivative,
+translation invariance, boundary rejection and the independence of the true
+centroid calculation from the auxiliary apex.
 
 The affine-orbit tests additionally check the exact tensor of a cube,
 its transformation under a non-diagonal shear and translation, the known

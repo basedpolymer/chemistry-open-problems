@@ -261,3 +261,117 @@ sous-agent n'a été utilisé. **La résolution complète n'a pas été obtenue.
 La recherche a produit un écart uniforme au modèle sphérique et des minorants
 globaux pour six familles affines. Elle n'a produit ni minorant séparant σ de
 toutes les topologies concurrentes, ni contre-exemple à son optimalité.
+
+## 2026-10-25 — 10. Reprise sur les formes internes et les huit entrées difficiles
+
+À la nouvelle demande de résolution complète, deux pistes sont attaquées.
+La première utilise des champs de divergence linéaires par cellule : leurs
+différences aux interfaces dépendent seulement des incidences périodiques.
+Une optimisation convexe fournit ainsi des candidats minorants valables sur
+toutes les formes internes d'une topologie. Une normalisation par le
+déterminant permet de traiter aussi toutes les boîtes. Les premiers nombres
+restent très inférieurs à σ ; ils sont encore exploratoires à cette étape.
+
+La seconde reprend les huit entrées dont le tableau historique ne conservait
+que des configurations initiales. L'optimiseur utilise des cônes positifs,
+avec des points intérieurs auxiliaires mobiles, afin de préserver la
+réalisation géométrique. Le calcul sur Y04 descend numériquement de 1,6201
+à environ 1,2545. Les gradients de la barrière sont contrôlés par différences
+centrées ; les bornes décimales de ces nouveaux témoins restent à certifier.
+
+Un point de méthode apparaît : un test de cônes négatif au **centroïde** ne
+prouve pas l'invalidité d'une cellule. Les mêmes faces peuvent admettre un
+autre point intérieur donnant uniquement des cônes positifs. Les calculs
+de Y04 présentent précisément ce comportement. Une vérification entière
+avec ces points auxiliaires est nécessaire avant toute conclusion de validité.
+
+## 2026-10-25 — 11. Minorants sur toutes les formes, et plafond de cette méthode
+
+Les champs linéaires par cellule fournissent maintenant 121 certificats
+entiers, tous vérifiés avec leurs complexes périodiques. Les contraintes
+portent seulement sur les interfaces : |z_i − z_j + W s| ≤ 1. Le théorème
+donne, pour toutes les formes internes et toutes les boîtes,
+F ≥ (6 det(W)/(π n))^(2/9). Trente-quatre minorants améliorent la borne
+uniforme précédente. Exemples : A15 ≥ 1,008666655 ; H ≥ 1,008808885 ;
+σ ≥ 1,004288649 ; E11 ≥ 1,004321474. Les propositions numériques sont
+arrondies et rétractées avant vérification ; la réussite du solveur n'est
+pas une hypothèse du certificat. Une entrée a nécessité le repli sur une
+proposition géométrique plus faible après échec du solveur.
+
+Une limite de cette piste est désormais démontrée. Les champs réalisent le
+complexe de contact par des arêtes de longueur au plus un. L'identité des
+volumes orientés et le volume maximal du tétraèdre régulier imposent
+det(W) ≤ t/(6√2). Comme t/n ≤ 124/21 dans le catalogue, le nombre fourni
+par cette méthode reste inférieur à 1,065254, donc inférieur au témoin σ
+1,068575909. **Ce plafond concerne le minorant construit, pas l'énergie
+physique.** Raffiner cette seule optimisation ne pourra donc pas fournir
+la séparation recherchée avec le témoin actuel. Il faut exploiter plus
+finement le couplage entre aire, moments et incidences.
+
+Les quatre tests des certificats linéaires et les deux tests de gradient
+et de frontière de la barrière passent. Les six tests préexistants de
+l'auditeur passent après ajout de la comparaison directe au catalogue
+entier, sans dépendance à l'archive externe.
+
+## 2026-10-25 — 12. Contre-exemple exact au diagnostic nécessaire par centroïde
+
+Le pré-audit entier de Y04 réussit : 42 cellules, 290 faces, 248 sommets
+de mousse, identité exacte du complexe périodique et tous les cônes
+auxiliaires strictement positifs. L'énergie du témoin appartient à
+[1,254466832434 ; 1,254466832435]. Pourtant, les moments rationnels donnent
+**184 cônes négatifs au vrai centroïde**. Ce n'est donc pas seulement une
+impression numérique : une partition admissible peut échouer à ce test.
+La documentation de `cone_check` est corrigée pour décrire une condition
+suffisante de validité, jamais une condition nécessaire. Un troisième test
+contrôle que le centroïde calculé pour un cube reste le même lorsqu'on
+déplace son sommet auxiliaire intérieur.
+
+## 2026-10-25 — 13. Huit reprises achevées, huit témoins certifiés
+
+Les huit calculs de niveau zéro sont terminés : six poids de barrière par
+entrée, soit 48 étapes documentées dans `data/barrier_continuation.csv`.
+Les huit maillages arrondis sur la grille 2⁻⁴⁴ passent la comparaison exacte
+au complexe catalogue, les tests de variété, la positivité des cônes
+auxiliaires, la somme exacte des volumes et l'intégration rationnelle.
+
+| Entrée | Borne supérieure certifiée |
+|---|---:|
+| N55 | 1,102285105 |
+| N59 | 1,101112653 |
+| N60 | 1,129410812 |
+| II:Y02 | 1,103468432 |
+| II:Y03 | 1,103507483 |
+| II:Y04 | 1,254466833 |
+| II:Y05 | 1,254006234 |
+| II:Y06 | 1,255816821 |
+
+Y05 et Y06 fournissent aussi des exemples exacts de cellules admissibles
+échouant au test au centroïde : 370 et 281 cônes négatifs, respectivement.
+Les huit anciennes lignes du tableau historique restent identifiées comme
+telles ; le supplément donne les nouveaux résultats sans leur attribuer
+une extrapolation ou une optimalité non démontrée. Les gradients finaux
+de certains calculs sont encore élevés. Les nouveaux témoins restent tous
+au-dessus de σ et n'excluent pas des infima plus bas dans ces classes.
+
+La piste linéaire a été menée jusqu'à sa limitation démontrée. La comparaison
+globale reste ouverte : il manque une inégalité exploitant assez fortement
+le couplage entre interfaces, moments et incidences pour séparer les infima,
+ou un contre-exemple admissible accompagné d'une comparaison rigoureuse.
+**La résolution complète n'est toujours pas obtenue.**
+
+## 2026-10-25 — 14. Vérification du supplément et documentation
+
+La vérification sans solveur reproduit les 121 minorants et certifie le
+plafond strict 1,065253040. Les huit témoins passent à nouveau à partir
+des seuls fichiers entiers sauvegardés ; leurs énergies concordent avec
+les 48 étapes enregistrées. Les quatre tests des champs linéaires, trois
+tests de barrière/centroïde et six tests existants de l'auditeur passent.
+Les huit annotations de diagnostic du CSV historique sont corrigées sans
+modifier ses valeurs numériques ; le générateur utilise le même vocabulaire.
+
+Les deux README, le rapport d'audit et le manuscrit sont actualisés. Le
+PDF final contient seize pages : compilation sans débordement ni référence
+manquante, contrôle structurel pikepdf/qpdf sans anomalie et inspection des
+seize pages rendues. Les sources et les données nécessaires à la nouvelle
+vérification sont conservées dans le dépôt ; les propositions flottantes
+intermédiaires et les articles restent dans les dossiers ignorés.

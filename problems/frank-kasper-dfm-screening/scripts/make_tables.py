@@ -74,7 +74,7 @@ def main():
         groups.setdefault(ident(r["name"]), []).append(r)
     merged = []
     for idn, lst in groups.items():
-        # prefer embedded (cone_min > 0) results, then the deepest level, then the lowest value
+        # Prefer results passing the sufficient centroid-cone test, then depth and energy.
         lst.sort(key=lambda r: (r["cone"] <= 1e-10, -r["K"], r["key"]))
         b = dict(lst[0])
         b["id"] = idn
@@ -101,7 +101,7 @@ def main():
                 if key not in start or float(Fs) < start[key][0]:
                     start[key] = (float(Fs), how)
     for r in rows:
-        if r["cone"] <= 1e-10:  # relaxation degenerate / not embedded: use the valid starting partition
+        if r["cone"] <= 1e-10:  # insufficient evidence from this test; retain the valid start
             r["invalid"] = True
             r["start"] = start.get(r["id"])
             r["key"] = 10.0 + (r["start"][0] if r["start"] else 0.0)
@@ -115,10 +115,10 @@ def main():
         if r.get("invalid"):
             Fs = r["start"][0] if r["start"] else float("nan")
             d = (Fs - sig) / sig
-            lines.append("%d,%s,%s,%s,%s,%s,0,%.10f,,,%+.3e,,,%s,%s,relaxation degenerate (cone_min=%.1e): value of the valid unrelaxed %s start" % (
+            lines.append("%d,%s,%s,%s,%s,%s,0,%.10f,,,%+.3e,,,%s,%s,old run failed sufficient centroid-cone test (cone_min=%.1e): value of the valid unrelaxed %s start" % (
                 i, r["id"], r["phys"], r["group"], r["n"], r["comp"], Fs, d, r["name"], r["aliases"], r["cone"],
                 r["start"][1] if r["start"] else "?"))
-            md.append("| %d | %s (frustrated) | %s | %s | %s | start | %.5f (unrelaxed; relaxation degenerates) | — | %+.1f%% | — |" % (
+            md.append("| %d | %s (frustrated) | %s | %s | %s | start | %.5f (historical start; see supplement) | — | %+.1f%% | — |" % (
                 i, r["label"], r["group"], r["n"], r["comp"], Fs, 100 * d))
             continue
         d = (r["key"] - sig) / sig

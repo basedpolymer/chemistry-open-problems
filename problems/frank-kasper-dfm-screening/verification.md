@@ -24,6 +24,12 @@ requested no sub-agents, and none were used during the continuation.
 | Uniform elementary F > 1.000000004 | Same argument with a fully reproduced Blichfeldt bound | PASS for exact rational constants |
 | Global bounds over all affine deformations of six stored meshes | Exact full moment tensors, convex supporting planes, 192-bit positive-definiteness and endpoint checks | 6 PASS; repeated using saved metrics without optimization |
 | Affine integration and certificate guards | Analytic cube minimum, off-diagonal tensor under shear, translation, invalid metric and false dual bound | 3 tests, OK |
+| Linear divergence bounds for all internal shapes and boxes | Integer periodic edge norms, positive determinant, outward energy bound, all catalogue complexes rechecked | 121 PASS; 34 improve the uniform bound |
+| Ceiling on those linear calibrations plus the separate ball-moment estimate | Signed-volume identity, maximal unit-edge tetrahedron volume, exact catalogue counts and outward arithmetic | < 1.066 for all entries; limits the method, not physical energies |
+| Linear-field certificate guards | Cubic torus, gauge invariance, false norms/energy claims and missing tetrahedron | 4 tests, OK |
+| Eight new auxiliary-apex witnesses | Exact manifold and periodic identity, positive cones, volume sum and rational energy; consistency with 48 saved stages | 8 PASS |
+| Negative centroid cones need not imply invalidity | Y04 has positive auxiliary cones but 184 strictly negative cones at exact volume centroids | Counterexample certified |
+| Barrier derivative and centroid calculation | Two-sided derivative, translation invariance, boundary rejection and off-centre cube apex | 3 tests, OK |
 | New symmetry-breaking starts give the same observed ordering | Two seeds for σ, E11, H and μ through levels 0–2 | 24 stages completed; numerical evidence only |
 
 The mathematical justifications are in [paper.tex](paper.tex), compiled as
@@ -62,6 +68,26 @@ for box-relaxed H uses internal cell deformations and lies outside the affine
 family of its saved fixed-box mesh. A rational metric and a positive-definite
 dual slack are saved for each mesh. Reverification needs no optimizer.
 
+The linear divergence fields supply bounds on entire topology classes:
+A15 ≥ 1.008666655, H ≥ 1.008808885, σ ≥ 1.004288649 and E11 ≥ 1.004321474.
+There are 121 saved integer certificates; 34 improve the uniform bound.
+They do not separate competitors from σ. More strongly, the manuscript proves
+that this particular construction cannot produce a number above
+[(124/21)²/(2π²)]^(1/9) = 1.0652530398… for any catalogue entry.
+This obstruction follows from unit-length contact edges and the signed-volume
+identity, not from failure of a numerical optimizer. It is not a physical
+upper bound. The proposal solver failed for one entry, which uses a weaker
+catalogue-embedding proposal; all resulting integer inequalities pass.
+
+The eight formerly unrelaxed entries have new certified upper bounds:
+N55 1.102285105, N59 1.101112653, N60 1.129410812, II:Y02 1.103468432,
+II:Y03 1.103507483, II:Y04 1.254466833, II:Y05 1.254006234 and II:Y06 1.255816821.
+All use positive auxiliary cones and their true volume-centred moments.
+Y04, Y05 and Y06 nevertheless have respectively 184, 370 and 281 negative
+centroid cones. A failed centroid diagnostic is therefore not proof of
+self-intersection. These level-zero trials are not certified local minima;
+some final barrier gradients remain large. Their energies still exceed σ.
+
 The admissible class has curved faces, free positive cell volumes and
 homogeneous box strains of each represented period. It does not implicitly
 include all larger supercells or all FK structures. Fixed graph constraints
@@ -83,8 +109,10 @@ needed to settle the comparison.
 - Sixteen entries fail the Voronoi test at the supplied coordinates. This
   does not prove the nonexistence of another Voronoi realization.
 - The catalogue has 105 such Voronoi-realised inputs; 108 includes P, M, BCC.
-- Eight entries are represented only by unrelaxed starts after degenerate
-  runs. Their high values do not exclude their topology classes.
+- Eight historical rows retain unrelaxed starts after failed runs. The new
+  supplement supplies eight improved exact witnesses; neither set of values
+  excludes those topology classes. Negative centroid cones alone do not prove
+  invalid geometry; the Y04 witness is an exact counterexample.
 - The five printed-number comparisons were initially limited to arXiv v1.
   The published SI was subsequently retrieved and visually checked; its
   values agree. The manual transcription and PDF hash are in
@@ -108,6 +136,10 @@ python problems/frank-kasper-dfm-screening/scripts/check_a15_family.py
 python problems/frank-kasper-dfm-screening/scripts/check_uniform_gap.py
 python problems/frank-kasper-dfm-screening/scripts/check_affine_orbits.py
 python problems/frank-kasper-dfm-screening/scripts/test_affine_orbits.py
+python problems/frank-kasper-dfm-screening/scripts/check_topology_calibrations.py
+python problems/frank-kasper-dfm-screening/scripts/test_topology_calibrations.py
+python problems/frank-kasper-dfm-screening/scripts/check_barrier_witnesses.py
+python problems/frank-kasper-dfm-screening/scripts/test_barrier.py
 python problems/frank-kasper-dfm-screening/scripts/check_source_comparison.py
 python problems/frank-kasper-dfm-screening/scripts/check_milestone1.py
 python problems/frank-kasper-dfm-screening/scripts/check_restarts.py
@@ -119,7 +151,8 @@ repository's crystallographic registry; energies are independently computed.
 Logs are in `certificates/logs/`; machine-readable results are in
 `audit_report.json`, `catalogue_exact_report.json`, `a15_family_report.json`,
 `uniform_gap_report.json`, `affine_orbits_report.json`
-and `data/symmetry_breaking_restarts.csv`.
+`topology_calibration_report.json`, `barrier_witness_report.json`
+and the CSV files `data/symmetry_breaking_restarts.csv` and `data/barrier_continuation.csv`.
 
 Most historical optimization checkpoints and literature API snapshots were
 absent from this checkout. The historical screen is preserved and labelled

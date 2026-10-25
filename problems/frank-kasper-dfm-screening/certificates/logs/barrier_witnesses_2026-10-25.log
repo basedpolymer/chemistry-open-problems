@@ -1,0 +1,9 @@
+PASS cat:N55 F <= 1.102285105 ; negative centroid cones: 0
+PASS cat:N59 F <= 1.101112653 ; negative centroid cones: 0
+PASS cat:N60 F <= 1.129410812 ; negative centroid cones: 0
+PASS cat2:Y02 F <= 1.103468432 ; negative centroid cones: 0
+PASS cat2:Y03 F <= 1.103507483 ; negative centroid cones: 0
+PASS cat2:Y04 F <= 1.254466833 ; negative centroid cones: 184
+PASS cat2:Y05 F <= 1.254006234 ; negative centroid cones: 370
+PASS cat2:Y06 F <= 1.255816821 ; negative centroid cones: 281
+PASS all eight witnesses: exact topology, positive auxiliary cones, volume and energy

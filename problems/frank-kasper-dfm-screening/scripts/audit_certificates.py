@@ -98,7 +98,7 @@ def canon(vertices):
                for o in vertices)
 
 
-def topology_checks(c, name, compare_identity=True):
+def topology_checks(c, name, compare_identity=True, expected_tetrahedra=None):
     tri, shifts, tf = c['tri'], c['tsh'], c['tface']
     fi, fj, fsj = c['fi'], c['fj'], c['fsj']
     n = int(c['ncell'])
@@ -175,8 +175,11 @@ def topology_checks(c, name, compare_identity=True):
         require(max(at_corner.values(), default=0) <= 1, 'adjacent hexagons in an FK cell')
     identity = 'not requested'
     if compare_identity:
-        from dfm import registry
-        expected = {canon((int(i), *map(int, s)) for i, s in tet) for tet in registry.get(name)['tets']}
+        if expected_tetrahedra is None:
+            from dfm import registry
+            expected = {canon((int(i), *map(int, s)) for i, s in tet) for tet in registry.get(name)['tets']}
+        else:
+            expected = {canon(tuple(map(int, v)) for v in tet) for tet in expected_tetrahedra}
         require(dual_tets == expected, 'dual complex differs from registry topology')
         identity = 'exact equality of periodic labelled dual tetrahedra'
     return {'cells': n, 'faces': len(fi), 'foam_vertices': len(dual_tets),

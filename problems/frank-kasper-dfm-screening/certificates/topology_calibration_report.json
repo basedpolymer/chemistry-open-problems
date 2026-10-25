@@ -1,0 +1,1219 @@
+{
+  "catalogue_sha256": "fcc62b01fac3a61ef023ed2b84a4bdb466feac0f3932bb460f65d780049149a7",
+  "claims": [
+    {
+      "id": "II_E01",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.976690223",
+      "min_squared_norm_margin": "9553867196",
+      "det_W": "26287735406223573535836136042422127272/1329227995701499991352142572178886777",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_E02",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.966399413",
+      "min_squared_norm_margin": "965301065819",
+      "det_W": "12532056860313883242612853750020644237/664613997729252950817287657831952428",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_E03",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "1.005093371",
+      "min_squared_norm_margin": "1551690063611",
+      "det_W": "14953616407357496857663621887287859435/664613997823549164736251209367655636",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_E04",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "1.007875409",
+      "min_squared_norm_margin": "1838690055158",
+      "det_W": "20187705235254920515719728581470024305/443075998572002367062321322804989031",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_E05",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.995510739",
+      "min_squared_norm_margin": "874903606765",
+      "det_W": "57290704142060855041139800158653576651/1329227995654351884389702010620824000",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N01",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.989074777",
+      "min_squared_norm_margin": "2176685079546",
+      "det_W": "13910683470213522052773540684405839945/664613997123581115473498078581519104",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N02",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.977008980",
+      "min_squared_norm_margin": "1568373829027",
+      "det_W": "26326364739579531420799969359456097620/1329227995766781985609670086031835011",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N03",
+      "status": "PASS",
+      "cells": 63,
+      "tetrahedra": 360,
+      "F_lower": "0.966271428",
+      "min_squared_norm_margin": "1705142640543",
+      "det_W": "37573770100023619485529605740120891590/1329227995556428893009734031212556097",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N04",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "1.005018308",
+      "min_squared_norm_margin": "418346741640",
+      "det_W": "29897183168806077447222620967835045763/1329227995639844774555329215128864256",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N05",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.966271428",
+      "min_squared_norm_margin": "1998523282431",
+      "det_W": "25049180066101014037610296783499103887/1329227995585443112677371314475726361",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N06",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.978742498",
+      "min_squared_norm_margin": "1279080123751",
+      "det_W": "53074437208860581054302160956337531156/1329227995607203777428376353853289583",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N07",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.984473720",
+      "min_squared_norm_margin": "2167030553782",
+      "det_W": "10897476938911418002941716793332557756/265845599141750709253908015231478775",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N08",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.978511149",
+      "min_squared_norm_margin": "61864248373",
+      "det_W": "26509003092461655178851125585429040163/664613997848936606946726857897141504",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N09",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.991702012",
+      "min_squared_norm_margin": "2192374752715",
+      "det_W": "2085590308508869454538535859098572477/49230666506388361914178386631685875",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N10",
+      "status": "PASS",
+      "cells": 21,
+      "tetrahedra": 120,
+      "F_lower": "0.982072059",
+      "min_squared_norm_margin": "1462905431915",
+      "det_W": "1684117961099833873317715247403143940/166153499483088122124996134586811699",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N11",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.977106030",
+      "min_squared_norm_margin": "985335383488",
+      "det_W": "26338134731282777842030439567871755687/1329227999578525098463493204060068248",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N12",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.982072058",
+      "min_squared_norm_margin": "1462892782583",
+      "det_W": "26945887358475783736363690514050588994/1329227995447625569259854548742420987",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N13",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.968013858",
+      "min_squared_norm_margin": "1055222433787",
+      "det_W": "12626543626399361725328840997667593415/664613997932352488499984538347246796",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N14",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.970875058",
+      "min_squared_norm_margin": "341166050422",
+      "det_W": "12795358133740097548166936809680519137/664613997812668832360530986376583584",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N15",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.991172211",
+      "min_squared_norm_margin": "1685214843706",
+      "det_W": "14043922534766318709343229282161754471/664613997863443716781574642412288000",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N16",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.994227860",
+      "min_squared_norm_margin": "1440871823822",
+      "det_W": "28479612222239190520370183314483668093/1329227995610830554886900283493732352",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N17",
+      "status": "PASS",
+      "cells": 63,
+      "tetrahedra": 360,
+      "F_lower": "0.956891014",
+      "min_squared_norm_margin": "193902226915",
+      "det_W": "7913734444650618602339249397912085/292523766652477771616236874830336",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N18",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "1.003756610",
+      "min_squared_norm_margin": "1215472730160",
+      "det_W": "29728656005004627518990987883649605320/1329227995686992881517426729059070749",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N19",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.981012161",
+      "min_squared_norm_margin": "174991030135",
+      "det_W": "26815268700078882808464038993464242855/1329227995538295005717675133940478912",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N20",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.957073635",
+      "min_squared_norm_margin": "1598586822854",
+      "det_W": "11996967565936655196785200230345530525/664613997903338268828494566340427884",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N21",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 240,
+      "F_lower": "0.977106030",
+      "min_squared_norm_margin": "1941536707723",
+      "det_W": "3292266840595907589741822235796254274/166153499457700679913365998848175311",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N22",
+      "status": "PASS",
+      "cells": 126,
+      "tetrahedra": 720,
+      "F_lower": "0.956891014",
+      "min_squared_norm_margin": "12723795240",
+      "det_W": "71920018594283024792132825608084382571/1329227995251779586525033634525579189",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N23",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.979706865",
+      "min_squared_norm_margin": "1292009581140",
+      "det_W": "53310169943099608679157901997412136299/1329227988019985348639135240852922875",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N24",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.957073635",
+      "min_squared_norm_margin": "394345392106",
+      "det_W": "11996967564248735872213943233395781397/332306998911774582368125604683827818",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N25",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.983102466",
+      "min_squared_norm_margin": "1230131171976",
+      "det_W": "54146691364519838133224025754599217692/1329227995599950222511348285781703125",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_N26",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.977747812",
+      "min_squared_norm_margin": "1445832424216",
+      "det_W": "52832142995842748541222171667823299370/1329227995404104239761565217335432711",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_Y01",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 238,
+      "F_lower": "0.912498804",
+      "min_squared_norm_margin": "1495545467870",
+      "det_W": "19359438716145928457135740544185741628/1329227995795796205280368409666650139",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_Y02",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.929060375",
+      "min_squared_norm_margin": "252551381987",
+      "det_W": "5247894803074519310541958241214926919/166153499429593154610649144431104000",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_Y03",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 480,
+      "F_lower": "0.927598115",
+      "min_squared_norm_margin": "2021134026512",
+      "det_W": "41686626197494162011603160582946182760/1329227995396850684845276021077659309",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_Y04",
+      "status": "PASS",
+      "cells": 42,
+      "tetrahedra": 248,
+      "F_lower": "0.676707903",
+      "min_squared_norm_margin": "2177364479726",
+      "det_W": "29837766336145994934261207698203450/7865254412864115624421923577052893",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_Y05",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 496,
+      "F_lower": "0.677938465",
+      "min_squared_norm_margin": "2096600829769",
+      "det_W": "1270994415569542831098381711153829588/166153499470394401018857810298929125",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "II_Y06",
+      "status": "PASS",
+      "cells": 84,
+      "tetrahedra": 496,
+      "F_lower": "0.677938465",
+      "min_squared_norm_margin": "226487411746",
+      "det_W": "5083977661991903214417778961458970679/664613997859816939322842905074201756",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E01",
+      "status": "PASS",
+      "cells": 26,
+      "tetrahedra": 148,
+      "F_lower": "1.003084161",
+      "min_squared_norm_margin": "336362930268",
+      "det_W": "18348037875798244962868254986691991955/1329227995668858994224180359229046784",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E02",
+      "status": "PASS",
+      "cells": 52,
+      "tetrahedra": 296,
+      "F_lower": "0.999577768",
+      "min_squared_norm_margin": "2199023255118",
+      "det_W": "36122358028992191327819359585189805569/1329227995893719196672092367398922616",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E03",
+      "status": "PASS",
+      "cells": 28,
+      "tetrahedra": 160,
+      "F_lower": "0.999748560",
+      "min_squared_norm_margin": "915706226843",
+      "det_W": "19465460254931045235996831626040536584/1329227995621710887262511654833658891",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E04",
+      "status": "PASS",
+      "cells": 56,
+      "tetrahedra": 320,
+      "F_lower": "1.008088838",
+      "min_squared_norm_margin": "1915729189607",
+      "det_W": "40413899432654175502321518652994524070/1329227995723260656104414248951606479",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E05",
+      "status": "PASS",
+      "cells": 56,
+      "tetrahedra": 320,
+      "F_lower": "0.991455283",
+      "min_squared_norm_margin": "1306391137718",
+      "det_W": "2343663399262532500536184967937750041/83076749824506595464488128448279684",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E06",
+      "status": "PASS",
+      "cells": 28,
+      "tetrahedra": 160,
+      "F_lower": "1.002074739",
+      "min_squared_norm_margin": "587737063943",
+      "det_W": "19670103619175597255915657538878051648/1329227995505654008592384734246013099",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E07",
+      "status": "PASS",
+      "cells": 28,
+      "tetrahedra": 160,
+      "F_lower": "0.980299592",
+      "min_squared_norm_margin": "1981056298982",
+      "det_W": "659943974194567237313068632059048329/49230666510821089919315112202522776",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E08",
+      "status": "PASS",
+      "cells": 56,
+      "tetrahedra": 320,
+      "F_lower": "0.991749818",
+      "min_squared_norm_margin": "2085863101451",
+      "det_W": "37548769785613704814365194397559593842/1329227995563682447926603769609750875",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E09",
+      "status": "PASS",
+      "cells": 56,
+      "tetrahedra": 320,
+      "F_lower": "1.001897312",
+      "min_squared_norm_margin": "1659463538212",
+      "det_W": "39308871960420519950685184948699138389/1329227995222765366862251794610204061",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E10",
+      "status": "PASS",
+      "cells": 56,
+      "tetrahedra": 320,
+      "F_lower": "0.994972629",
+      "min_squared_norm_margin": "1275393590396",
+      "det_W": "38100987523963366271637913685348088811/1329227995545548560634478901640011000",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_E11",
+      "status": "PASS",
+      "cells": 44,
+      "tetrahedra": 252,
+      "F_lower": "1.004321474",
+      "min_squared_norm_margin": "1984097178383",
+      "det_W": "7805813242696165965769696613621603075/332306998842865810659617910468270382",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N01",
+      "status": "PASS",
+      "cells": 38,
+      "tetrahedra": 216,
+      "F_lower": "0.978683669",
+      "min_squared_norm_margin": "891549727747",
+      "det_W": "24003370934543255856859500327473659423/1329227995665232216765550876472341407",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N02",
+      "status": "PASS",
+      "cells": 19,
+      "tetrahedra": 108,
+      "F_lower": "1.002207533",
+      "min_squared_norm_margin": "2195199798608",
+      "det_W": "13355531789327195053148557280194843353/1329227995592696667594346605989182067",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N03",
+      "status": "PASS",
+      "cells": 38,
+      "tetrahedra": 216,
+      "F_lower": "1.002207533",
+      "min_squared_norm_margin": "1681910321248",
+      "det_W": "26711063580193417856939811371816967760/1329227995803049760198108961273020541",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N04",
+      "status": "PASS",
+      "cells": 38,
+      "tetrahedra": 216,
+      "F_lower": "1.002207533",
+      "min_squared_norm_margin": "2199014532278",
+      "det_W": "26711063575811737116459790851975968681/1329227995480266566384194970390557888",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N05",
+      "status": "PASS",
+      "cells": 38,
+      "tetrahedra": 216,
+      "F_lower": "1.000116397",
+      "min_squared_norm_margin": "466148906843",
+      "det_W": "13230588670972693257739290856130889323/664613997761893947942073381689304832",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N06",
+      "status": "PASS",
+      "cells": 38,
+      "tetrahedra": 216,
+      "F_lower": "0.986591403",
+      "min_squared_norm_margin": "682590087596",
+      "det_W": "24888554292516172720512691761977675871/1329227995752274875774479253888826663",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N07",
+      "status": "PASS",
+      "cells": 38,
+      "tetrahedra": 216,
+      "F_lower": "0.979964282",
+      "min_squared_norm_margin": "2155784447676",
+      "det_W": "12072516691063496024310767710349629357/664613997852563384405419012816628532",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N08",
+      "status": "PASS",
+      "cells": 38,
+      "tetrahedra": 216,
+      "F_lower": "0.996669171",
+      "min_squared_norm_margin": "1399694125424",
+      "det_W": "8684404776377445983857516890767099015/443075998579255921979797991620694649",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N09",
+      "status": "PASS",
+      "cells": 57,
+      "tetrahedra": 324,
+      "F_lower": "1.002207533",
+      "min_squared_norm_margin": "1688189549435",
+      "det_W": "20033297679253269238490402003425356791/664613997678478066403078566074087156",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N10",
+      "status": "PASS",
+      "cells": 57,
+      "tetrahedra": 324,
+      "F_lower": "0.979714310",
+      "min_squared_norm_margin": "90078035605",
+      "det_W": "36175995427138496827407352301209839535/1329227995683366104058764260953532992",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N11",
+      "status": "PASS",
+      "cells": 76,
+      "tetrahedra": 432,
+      "F_lower": "0.635564859",
+      "min_squared_norm_margin": "249156493904",
+      "det_W": "20769187434139310514121985316880384/4012248709058282861575041953555427",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N12",
+      "status": "PASS",
+      "cells": 76,
+      "tetrahedra": 432,
+      "F_lower": "1.001945106",
+      "min_squared_norm_margin": "1080001979245",
+      "det_W": "53359207672612807653800797204783542993/1329227995665232216765550876472341407",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N13",
+      "status": "PASS",
+      "cells": 32,
+      "tetrahedra": 182,
+      "F_lower": "1.001287602",
+      "min_squared_norm_margin": "1433468150934",
+      "det_W": "5600191329354723838030235065306650735/332306998902707638721725070873433088",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N14",
+      "status": "PASS",
+      "cells": 20,
+      "tetrahedra": 114,
+      "F_lower": "1.005783727",
+      "min_squared_norm_margin": "531287174255",
+      "det_W": "14285611020803206014593938175610798467/1329227995705126768810838025633257064",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N15",
+      "status": "PASS",
+      "cells": 20,
+      "tetrahedra": 114,
+      "F_lower": "0.981857106",
+      "min_squared_norm_margin": "91995319984",
+      "det_W": "534114231952288112475917063828888707/55384499822860337429820751605312129",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N16",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "1.008977266",
+      "min_squared_norm_margin": "1322518076895",
+      "det_W": "402524029194304419067440732865945751/18461499939744519990373999872019479",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N17",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "1.006184519",
+      "min_squared_norm_margin": "90432282001",
+      "det_W": "28622491367686773207028382349022930435/1329227995803049760198108961273020541",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N18",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.991723423",
+      "min_squared_norm_margin": "2100936561216",
+      "det_W": "26817337757140537835934857598509461751/1329227995803049760198108961273020541",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N19",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.974211530",
+      "min_squared_norm_margin": "241420840900",
+      "det_W": "24751287096196256266166762900948100272/1329227995686992881517426729059070749",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N20",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.992684333",
+      "min_squared_norm_margin": "207004830490",
+      "det_W": "26934464668039212443754172318184655829/1329227995770408763068484286742003648",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N21",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.989334883",
+      "min_squared_norm_margin": "2092492735702",
+      "det_W": "3315988810075903481766197038140710688/166153499475834567207123641585106971",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N22",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.984179400",
+      "min_squared_norm_margin": "1127480027408",
+      "det_W": "25911485512683265084899463094181026042/1329227995556428893009734031212556097",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N23",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "1.003321314",
+      "min_squared_norm_margin": "1383947542669",
+      "det_W": "28257794741492692073629119264211949402/1329227995578189557760422411241335959",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N24",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.981857105",
+      "min_squared_norm_margin": "1144320868120",
+      "det_W": "523213940499983343034472640146625473/27127101934957949268786921903213888",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N25",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.991384112",
+      "min_squared_norm_margin": "1516336815676",
+      "det_W": "836752293708312263445489753645979987/41538374866011885116507772617228038",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N26",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.996434278",
+      "min_squared_norm_margin": "1926985786886",
+      "det_W": "27395363120940064783891389062907482004/1329227995657978661848311702168230021",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N27",
+      "status": "PASS",
+      "cells": 60,
+      "tetrahedra": 342,
+      "F_lower": "1.008977266",
+      "min_squared_norm_margin": "1666148422852",
+      "det_W": "43472595182215739242303049496393256927/1329227996035163517579739624024376125",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N28",
+      "status": "PASS",
+      "cells": 60,
+      "tetrahedra": 342,
+      "F_lower": "0.952283065",
+      "min_squared_norm_margin": "1595053424314",
+      "det_W": "8377928263984406897796370472420405275/332306998899080861263211036837639856",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N29",
+      "status": "PASS",
+      "cells": 60,
+      "tetrahedra": 342,
+      "F_lower": "0.978709557",
+      "min_squared_norm_margin": "2004952252569",
+      "det_W": "37904570978406761907185748103832129997/1329227995614457332345430810203941489",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N30",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.953880675",
+      "min_squared_norm_margin": "433796968671",
+      "det_W": "5627575479912900345299357414335052825/166153499472207789748266559921455103",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N31",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.986410742",
+      "min_squared_norm_margin": "529304745015",
+      "det_W": "52353793925985306665560309456356843629/1329227995607203777428376353853289583",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N32",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "1.003502720",
+      "min_squared_norm_margin": "2199023255405",
+      "det_W": "56561586646696530038592044659560223493/1329227995567309225385048534412997696",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N33",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.984568325",
+      "min_squared_norm_margin": "442038632839",
+      "det_W": "10383038248748945407805200742104093578/265845599119990044502269657156340625",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N34",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.987724188",
+      "min_squared_norm_margin": "623678912244",
+      "det_W": "1755607533476657341627260121477381903/88615199711499051445521095937034575",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N35",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.992117781",
+      "min_squared_norm_margin": "395359145612",
+      "det_W": "26865358668009697464341700508131636760/1329227995766781985609670086031835011",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N36",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.986565867",
+      "min_squared_norm_margin": "1525412608975",
+      "det_W": "26195426890070301100639193505266872000/1329227995686992881517426729059070749",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N37",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.978992287",
+      "min_squared_norm_margin": "1227043936337",
+      "det_W": "25302580180468602066901879953885127773/664613997758267170483711080258136204",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N38",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.974670269",
+      "min_squared_norm_margin": "2015616347068",
+      "det_W": "49607555081320786555581863250376381606/1329227995788542650362654246339346433",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N39",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.953086146",
+      "min_squared_norm_margin": "401450192375",
+      "det_W": "44852101440349079108669071371713484102/1329227995469386234009355456213283769",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N40",
+      "status": "PASS",
+      "cells": 20,
+      "tetrahedra": 114,
+      "F_lower": "0.999609336",
+      "min_squared_norm_margin": "1176698476475",
+      "det_W": "13895189231432995881071286630512765343/1329227995665232216765550876472341407",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N41",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.983505080",
+      "min_squared_norm_margin": "1206927693952",
+      "det_W": "12915845234765849274122153096073425299/664613997896084713910754014734057476",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N42",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.985577536",
+      "min_squared_norm_margin": "1258049103570",
+      "det_W": "1185342879606633033226538270895867239/60419454098007148396513081214625792",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N43",
+      "status": "PASS",
+      "cells": 40,
+      "tetrahedra": 228,
+      "F_lower": "0.988683074",
+      "min_squared_norm_margin": "1077063093869",
+      "det_W": "26449352236098940733469409021560841817/1329227993177262881700265821887554193",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N44",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.985908065",
+      "min_squared_norm_margin": "478578640679",
+      "det_W": "52233842762769332363441179429670492947/1329227995745021320856923420235922125",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N45",
+      "status": "PASS",
+      "cells": 80,
+      "tetrahedra": 456,
+      "F_lower": "0.966872580",
+      "min_squared_norm_margin": "1833367896756",
+      "det_W": "47846446381578214091869573639041767385/1329227995752274875774479253888826663",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N46",
+      "status": "PASS",
+      "cells": 68,
+      "tetrahedra": 388,
+      "F_lower": "1.007875435",
+      "min_squared_norm_margin": "387168845390",
+      "det_W": "24513644885410319604689150374199930155/664613997751013615567026059814396196",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N47",
+      "status": "PASS",
+      "cells": 68,
+      "tetrahedra": 388,
+      "F_lower": "0.970908235",
+      "min_squared_norm_margin": "873300391925",
+      "det_W": "5919851413842515772839685096991282505/189889713635375081322836364106060141",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N48",
+      "status": "PASS",
+      "cells": 68,
+      "tetrahedra": 388,
+      "F_lower": "1.000621896",
+      "min_squared_norm_margin": "1830460516638",
+      "det_W": "47459376101328384956421296646759690579/1329227995589069890135855661697571048",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N49",
+      "status": "PASS",
+      "cells": 68,
+      "tetrahedra": 388,
+      "F_lower": "0.970908235",
+      "min_squared_norm_margin": "1838261145325",
+      "det_W": "845693059204120894840932001157279109/27127101951537503361654325974554432",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N50",
+      "status": "PASS",
+      "cells": 28,
+      "tetrahedra": 160,
+      "F_lower": "0.986119002",
+      "min_squared_norm_margin": "1770899549718",
+      "det_W": "4574863243179165154750312223249897787/332306998913587971097425502655206000",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N51",
+      "status": "PASS",
+      "cells": 28,
+      "tetrahedra": 160,
+      "F_lower": "0.991278616",
+      "min_squared_norm_margin": "609812165227",
+      "det_W": "18734277714643662208336503160863698119/1329227995777662317986132479371640824",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N52",
+      "status": "PASS",
+      "cells": 56,
+      "tetrahedra": 320,
+      "F_lower": "0.983616695",
+      "min_squared_norm_margin": "68865681288",
+      "det_W": "36182839160885714149922939133604222500/1329227995208258257031019204326894113",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N53",
+      "status": "PASS",
+      "cells": 36,
+      "tetrahedra": 206,
+      "F_lower": "1.006872565",
+      "min_squared_norm_margin": "1371842280615",
+      "det_W": "25839606015240297485670005466158441217/1329227995483893343842488002589181557",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N54",
+      "status": "PASS",
+      "cells": 36,
+      "tetrahedra": 206,
+      "F_lower": "1.005364038",
+      "min_squared_norm_margin": "1229890215131",
+      "det_W": "25665850619956782346677073271282901324/1329227995034172939064461263994661009",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N55",
+      "status": "PASS",
+      "cells": 60,
+      "tetrahedra": 344,
+      "F_lower": "0.932880834",
+      "min_squared_norm_margin": "1778712586363",
+      "det_W": "3394099819829145157902053171837687053/147691999498613346811198625761952376",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N56",
+      "status": "PASS",
+      "cells": 76,
+      "tetrahedra": 436,
+      "F_lower": "1.005007202",
+      "min_squared_norm_margin": "1869171301027",
+      "det_W": "54096974569860498262352982660837099851/1329227995596323445052844147350559424",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N57",
+      "status": "PASS",
+      "cells": 32,
+      "tetrahedra": 184,
+      "F_lower": "0.940767997",
+      "min_squared_norm_margin": "80593241012",
+      "det_W": "16920745314269193278473587071998973909/1329227995570936002843499896286010813",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N58",
+      "status": "PASS",
+      "cells": 18,
+      "tetrahedra": 104,
+      "F_lower": "0.943789835",
+      "min_squared_norm_margin": "1483699871129",
+      "det_W": "9656270846294909788800569074386418687/1329227995719633878645685810148403512",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N59",
+      "status": "PASS",
+      "cells": 36,
+      "tetrahedra": 208,
+      "F_lower": "0.943295721",
+      "min_squared_norm_margin": "655572450121",
+      "det_W": "19267084119772613023712391771886901392/1329227995672485771682816439055518625",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_N60",
+      "status": "PASS",
+      "cells": 54,
+      "tetrahedra": 312,
+      "F_lower": "0.846297800",
+      "min_squared_norm_margin": "948727637195",
+      "det_W": "17735617571442666202535052547416349667/1329227995726887433563149284824576000",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys01",
+      "status": "PASS",
+      "cells": 12,
+      "tetrahedra": 68,
+      "F_lower": "0.995552232",
+      "min_squared_norm_margin": "249517673887",
+      "det_W": "8185921505480956356659728778782757024/1329227995781289095444966471291109375",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys02",
+      "status": "PASS",
+      "cells": 24,
+      "tetrahedra": 136,
+      "F_lower": "0.995552232",
+      "min_squared_norm_margin": "576155484535",
+      "det_W": "16371843010774337103661436027152253973/1329227995712380323728248723751297216",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys03",
+      "status": "PASS",
+      "cells": 24,
+      "tetrahedra": 136,
+      "F_lower": "0.995552232",
+      "min_squared_norm_margin": "554037291342",
+      "det_W": "16371843010714215212606012423546268818/1329227995723260656104414248951606479",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys04",
+      "status": "PASS",
+      "cells": 36,
+      "tetrahedra": 204,
+      "F_lower": "0.995552232",
+      "min_squared_norm_margin": "1155571523505",
+      "det_W": "24557764501546419084542299831790197734/1329227995251779586525033634525579189",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys06",
+      "status": "PASS",
+      "cells": 54,
+      "tetrahedra": 306,
+      "F_lower": "0.995552232",
+      "min_squared_norm_margin": "2197980685758",
+      "det_W": "1151145211566308207834327241881939345/41538374862838454840215633859179136",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys12",
+      "status": "PASS",
+      "cells": 26,
+      "tetrahedra": 148,
+      "F_lower": "1.005684726",
+      "min_squared_norm_margin": "2071603280574",
+      "det_W": "4640767419362144630988408719005457837/332306998880946973971036690844652416",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys13",
+      "status": "PASS",
+      "cells": 26,
+      "tetrahedra": 148,
+      "F_lower": "1.005944000",
+      "min_squared_norm_margin": "695870685133",
+      "det_W": "743384606562837073044116312190995227/53169119823272653408755742572945920",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys14",
+      "status": "PASS",
+      "cells": 39,
+      "tetrahedra": 222,
+      "F_lower": "1.005684726",
+      "min_squared_norm_margin": "2197867522831",
+      "det_W": "4640767420931719939682373074144627941/221537999273307462425888202521477376",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys18",
+      "status": "PASS",
+      "cells": 7,
+      "tetrahedra": 40,
+      "F_lower": "1.014994056",
+      "min_squared_norm_margin": "1028544511643",
+      "det_W": "2604665109608465038502834432809106239/664613997827175942194851005310412000",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys20",
+      "status": "PASS",
+      "cells": 56,
+      "tetrahedra": 320,
+      "F_lower": "0.983654532",
+      "min_squared_norm_margin": "528007905425",
+      "det_W": "2010505720126394536895506665955878787/73845999754142376683442103068266124",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys25",
+      "status": "PASS",
+      "cells": 30,
+      "tetrahedra": 172,
+      "F_lower": "1.008808885",
+      "min_squared_norm_margin": "1095725115772",
+      "det_W": "21719978985110691498015116990815428842/1329227995164736927537954752174470125",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys26",
+      "status": "PASS",
+      "cells": 30,
+      "tetrahedra": 172,
+      "F_lower": "1.004288649",
+      "min_squared_norm_margin": "1678655369103",
+      "det_W": "21285450679257524769388205977526170379/1329227993365855309322415967105456029",
+      "signed_volume_identity": true
+    },
+    {
+      "id": "I_Phys27",
+      "status": "PASS",
+      "cells": 8,
+      "tetrahedra": 46,
+      "F_lower": "1.008666655",
+      "min_squared_norm_margin": "1073650501102",
+      "det_W": "5788320605035332816581026671136729603/1329227995349702577890039459704316416",
+      "signed_volume_identity": true
+    }
+  ],
+  "bounds_above_uniform_gap": 34,
+  "max_tetrahedra_per_cell": "124/21",
+  "method_ceiling_strictly_below": "1.065253040",
+  "ceiling_scope": "linear divergence calibration plus separate ball moment bound; NOT an upper bound on DFM energies"
+}
