@@ -80,6 +80,24 @@ def main():
         assert capv == val
         return val
     errs = []
+    # every Bounds entry must be a q or r variable, declared once (a y bound would silently fix a binary)
+    nbound_lines = 0
+    in_bounds = False
+    for line in open(sys.argv[2]):
+        s = line.strip()
+        if s in ("Minimize", "Subject To", "Binaries", "End"):
+            in_bounds = False
+        if in_bounds and s and not s.startswith("\\"):
+            nbound_lines += 1
+        if s == "Bounds":
+            in_bounds = True
+    if nbound_lines != len(bounds):
+        errs.append("duplicate or unparsed Bounds lines")
+    for v in bounds:
+        if not re.match(r"(q_\d+_\d+_\d+|r_\d+_\d+)$", v):
+            errs.append(f"unexpected bound on {v}")
+    if any(not re.match(r"y_\d+_\d+$", v) for v in binaries):
+        errs.append("unexpected binary variable")
     yv = {(int(a), int(b)) for a, b in (re.match(r"y_(\d+)_(\d+)$", v).groups() for v in binaries)}
     qv = set(); rv = set()
     for v in bounds:

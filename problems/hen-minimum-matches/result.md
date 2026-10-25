@@ -1,5 +1,8 @@
 # Minimum number of matches on the Letsios–Kouyialis–Misener benchmarks: exact bounds
 
+Credits: Solver (Secs. 1–3, first exact runs; 24 Oct 2026): Claude Opus 5.5 (effort xhigh). Solver (Sec. 4 items
+5–7, the VIPR closure of unbalanced10 and Sec. 7; 25 Oct 2026): Claude Opus 5.5 (effort xhigh). Verification: pending.
+
 Status of each claim: see the table in `README.md`. This file gives the definitions, the proofs of every valid
 inequality used, the certification pipeline, and every assumption or non-rigorous step.
 
@@ -148,8 +151,40 @@ checks that every omitted variable is forced to 0 by the bounds above.
    an invalid certificate pass. The patched checker accepts all VIPR example certificates that the original accepts
    and rejects the two deliberately incomplete examples.
 
+5. **Hardening patch** (25 Oct 2026, `certificates/viprchk_harden.patch`, applied after the canonicalisation patch).
+   Reading `viprchk.cpp` (commit 30f2951; master 99eec19 of 24 Oct 2026 has the same code) shows two inference
+   rules that are checked too weakly:
+   - `Constraint::round()` (rounding step `rnd`) requires integer coefficients on integer variables but silently
+     accepts nonzero coefficients on *continuous* variables; Chvátal–Gomory rounding is invalid then.
+   - `canUnsplit()` (step `uns`) checks that the branching constraints are a x ≤ β and a x ≥ β + 1 with a integral on
+     integer variables, but not that β is an integer; with fractional β the disjunction misses integer points.
+   The toy certificates `certificates/vipr/viprchk_tests/bad_rnd_continuous.vipr` (x ≥ 1/2, x ≤ 1/2, x continuous,
+   "rounded" to x ≥ 1) and `bad_uns_fractional.vipr` (x = 1 integer, branching x ≤ 1/2 | x ≥ 3/2) "prove" feasible
+   problems infeasible and are **accepted by the unpatched viprchk** (also with the canonicalisation patch only). The
+   patch adds both checks, plus bounds checks on the referenced constraint indices (done by the original only in
+   debug builds, otherwise out-of-range indices are undefined behaviour). It only adds rejections; the patched
+   checker rejects both toy certificates, still accepts the VIPR examples the original accepts, and rejects the
+   incomplete ones.
+6. **Second checker** `scripts/vipr_check_independent.py`, written from the VIPR 1.1 specification without using
+   viprchk's code (Python, exact rationals via gmpy2): asm / lin / rnd (support must be integer variables with
+   integer coefficients) / uns (integral β required) / no sol, weak or incomplete steps; dominance as in the
+   specification; anything after the reference index on a derivation line (SCIP writes a `global` flag) is ignored,
+   i.e. never used to drop assumptions; success iff an assumption-free falsehood is derived.
+7. **Negative tests** `scripts/vipr_mutation_tests.sh`: four corrupted copies of the unbalanced10 certificate
+   (maxm rhs 24 → 25; one wrong multiplier; swapped branching assumptions; an over-strong rounding) must be rejected
+   by both checkers.
+
 Trusted base for a VIPR-certified claim: the proofs of Secs. 1 and 3, `check_lp_model.py`, `check_vipr_model.py`,
-`viprchk` (+ patch), GMP, and the C++/Python toolchains. SCIP, SoPlex and viprcomp are not trusted.
+and either `viprchk` (+ both patches) with GMP or `vipr_check_independent.py` with gmpy2, and the C++/Python
+toolchains. SCIP, SoPlex, viprcomp and the LP generator are not trusted.
+
+**Result for unbalanced10 (25 Oct 2026).** Certificate of "no network with ≤ 24 matches": 540 587 890 bytes, sha256
+`17967e67e607271c2fc60fc77a185da2badcbb84459d7deaeaddd5a4601ec352`, 191 697 derivations (10 232 asm, 170 552 lin,
+5 797 rnd, 5 116 uns), no weak/incomplete step; SCIP: infeasible after 10 233 nodes (same count as on 24 Oct with a
+different build). `verify_vipr.sh`: steps 1–5 PASS (viprchk 68 s on the raw file, 64 s after viprcomp; independent
+checker 199 s; 7 min 40 s in total). Also accepted by the unpatched and canonicalise-only viprchk builds. Mutation
+tests: see `certificates/vipr/mutation_tests.log`. With the 25-match network (`certificates/solutions/unbalanced10.json`,
+checked by `check_solutions.py` and `check_network_lkm18.py`), **unbalanced10 = 25** (solved, preliminary).
 
 ## 5. Floating-point pitfalls observed (why exact checks matter)
 
@@ -171,20 +206,21 @@ Trusted base for a VIPR-certified claim: the proofs of Secs. 1 and 3, `check_lp_
 - Floating-point SCIP/HiGHS runs are used only to find solutions and to explore; every upper bound is an explicit
   network checked exactly, every lower bound is Lemma 1 (exact enumeration) or a VIPR certificate.
 
-## 7. State of the work when stopped (24 Oct 2026, owner's request)
+## 7. State of the work (25 Oct 2026)
 
 - **Certified (exact):** 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22 (Lemma 1 enumeration + exact networks);
-  LB 32 for balanced15 and balanced15_random0/1/2; LB 26 (balanced12 family), 23 (22sp1), 32 (unbalanced15) by
-  Lemma 1; all 22 upper bounds of `certificates/solutions/` checked exactly (`check_solutions.py`, ALL PASS).
-- **unbalanced10 ≤ 24 infeasible: solver result only.** Three exact-mode SCIP runs on the LP model
-  `certificates/vipr/unbalanced10_le24.lp` (objective Σ y, row Σ y ≤ 24; run 1 used the same model without
-  objective) all report "infeasible": run 1 (conflict analysis on, 21 203 nodes) and run 2 (root Gomory cuts,
-  10 129 nodes) produced certificates that FAIL `viprchk` at a conflict row and a Gomory row respectively (logs in
-  `certificates/vipr/run1_*`, `run2_*`); for both, steps 1–3 of `verify_vipr.sh` (LP regeneration, independent
-  row re-derivation, problem-section match) PASSED. The final run (cuts and conflict analysis off, 10 233 nodes,
-  287 s, certificate 0.54 GB in the solver's scratch directory, not stored) has **not been VIPR-checked**. Floating
-  point SCIP also reports infeasibility (7 505 nodes). So unbalanced10 = 25 is a preliminary result pending the
-  VIPR check.
-- **Not attempted / open:** unbalanced15 ≥ 36, 22sp1, balanced12 and balanced15 families beyond N − 1, unbalanced17/20
-  families, large-scale instances (idea not tested: root LP of the strengthened model vs. the CPLEX bounds).
-- **Resume:** see README "How to resume".
+  **unbalanced10 = 25** (VIPR certificate checked by two checkers + exact network); LB 32 for balanced15 and
+  balanced15_random0/1/2; LB 26 (balanced12 family), 23 (22sp1), 32 (unbalanced15) by Lemma 1; all 22 upper bounds of
+  `certificates/solutions/` checked exactly by two independent programs (`check_solutions.py`,
+  `check_network_lkm18.py`, the second against the original 2018 MILP with its three big-M files).
+- **History of unbalanced10 (24 Oct 2026).** Three exact-mode SCIP runs all reported "infeasible": run 1 (conflict
+  analysis on, 21 203 nodes) and run 2 (root Gomory cuts, 10 129 nodes) produced certificates that FAIL `viprchk` at a
+  conflict row and a Gomory row respectively (logs `certificates/vipr/run1_*`, `run2_*`; steps 1–3 PASSED for both).
+  The cut-free, conflict-free run (10 233 nodes) was VIPR-checked on 25 Oct after re-running it with a fresh build
+  (Sec. 4, item 7 and the result paragraph). Floating point SCIP also reports infeasibility (7 505 nodes).
+- **Tried on 25 Oct, not closed (exploration only, no claim):** floating-point SCIP 10.0.2 with default settings
+  (cuts on) on the strengthened model, 1800 s limit: unbalanced15 ≤ 35, 22sp1 ≤ 24, balanced12 family ≤ 27
+  (balanced12_random1 ≤ 28) undecided (see README). Cut-free root LP bounds of the strengthened model: unbalanced15
+  28.9 (36 needed), 22sp1 18.2 (25 needed), balanced12 22.2 (28 needed), against 21.1 (25 needed) for unbalanced10;
+  the certified cut-free pipeline was therefore not run on them.
+- **Not attempted:** unbalanced17/20 families beyond the upper bounds, large-scale instances.

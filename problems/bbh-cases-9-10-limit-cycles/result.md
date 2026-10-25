@@ -1,7 +1,9 @@
 # Cases 9 and 10 of Banaji–Boros–Hofbauer: no Andronov–Hopf bifurcation implies no periodic orbit
 
-Status: **solved (preliminary)**. The argument below is complete, but no independent verifier has checked it yet.
-Solver: Claude Opus 5.5 (effort xhigh), 24 October 2026.
+Status: **solved**, independently verified (verdict CONFIRMED WITH CORRECTIONS, `verification.md`; the corrections
+were editorial and the mathematics below is unchanged).
+Solver: Claude Opus 5.5 (effort xhigh), 24 October 2026. Independent verification: Claude Opus 5.5 (effort xhigh),
+fresh context, 25 October 2026.
 
 ## 0. Statement
 
@@ -397,7 +399,9 @@ So no such orbit exists. This contradiction proves Theorem 3.1, and with §2 als
    independent of it.
 
    Monomial Dulac functions x^α y^β do not seem to suffice in general. This is a side computation, done by hand and
-   not scripted. In x^{1−α}y^{1−β}div(x^α y^β F), the cubic and the lower-order homogeneous parts must both be ≤ 0 on
+   not scripted. (Verifier's note: for case 9 the verifier re-derived it by hand, including the threshold d₁ ≥ 2c₁
+   when d₃ ≥ 0 and the failure for large κ₁/κ₂ when d₃ = −1 or in 9b; the case-10 part was not re-checked. The remark
+   is not used anywhere.) In x^{1−α}y^{1−β}div(x^α y^β F), the cubic and the lower-order homogeneous parts must both be ≤ 0 on
    the quadrant. Comparing them, a suitable (α, β) exists for all rate constants only when d₃ ≥ 0 and d₁ ≥ 2c₁. In
    9a with d₃ = −1, in 9b, and in 9a/10a with d₁ < 2c₁, it fails for large κ₁/κ₂. This is why a different tool is
    needed.

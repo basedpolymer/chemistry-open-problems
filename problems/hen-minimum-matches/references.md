@@ -27,8 +27,14 @@
 ## Other sources used
 
 - K. C. Furman, N. V. Sahinidis, *Approximation algorithms for the minimum number of matches problem in heat
-  exchanger network synthesis*, Ind. Eng. Chem. Res. 43 (2004) 3554–3565, doi:10.1021/ie049978l. Not read
-  (paywalled); its CPLEX 7.0 values are quoted from Letsios et al. Table G.9.
+  exchanger network synthesis*, Ind. Eng. Chem. Res. 43 (2004) 3554–3565, doi:10.1021/ie049978l. **Read in full**
+  (PDF supplied by the owner, 25 Oct 2026; local copy in `certificates/sources/`, not committed). Table 3 gives
+  CPLEX 7.0 values 20sp1 = 19\*, 22sp1 = 25\*, 23sp1 = 23\*, 37sp-yfyy = 36\*, the asterisk meaning (footnote a,
+  p. 3562) that "an exact algorithm did not converge for these problems after 7 h of CPU time"; the text (p. 3561)
+  says that the lower bounding stalled after 19, 41, 13 and 12 CPU h for these four problems. No lower bounds are
+  reported. So none of 20sp1, 23sp1, 37sp-yfyv was proved optimal there, and 22 < 23 for 23sp1 is a new upper bound.
+  (Their Table 1 lists 37sp-yfyy with 22 hot and 17 cold streams; the data file of the 2018 repository has n = 21,
+  m = 17, utilities included; we use the 2018 data file throughout.)
 - S. A. Papoulias, I. E. Grossmann, *A structural optimization approach in process synthesis—II: Heat recovery
   networks*, Comput. Chem. Eng. 7 (1983) 707–721, doi:10.1016/0098-1354(83)85023-6 (transshipment model). Not read;
   the model is taken from Letsios et al. Sec. 2.
@@ -53,9 +59,13 @@
 ## Novelty check (24 Oct 2026)
 
 - Citing works of Letsios et al. 2018 (Semantic Scholar API, 11 citing works; OpenAlex reports 13 but its shared
-  daily budget was exhausted, so its list could not be retrieved): Zhang et al. CES 2024 (doi:10.1016/j.ces.2024.119763),
-  Cerdá–Cafaro–Cafaro IECR 2022 (doi:10.1021/acs.iecr.1c02372, abstract only via web search: detailed HEN structure
-  with minimum units, not the min-matches benchmark), Chang et al. AIChE J 2020 Parts I/II (globally optimal HENS,
+  daily budget was exhausted, so its list could not be retrieved): Zhang et al. CES 2024 (doi:10.1016/j.ces.2024.119763, not read),
+  Cerdá–Cafaro–Cafaro IECR 2022 (doi:10.1021/acs.iecr.1c02372, **read in full** on 25 Oct 2026, PDF supplied by the
+  owner: a different problem, the detailed structure of HENs with substreams and stream splitting at minimum
+  utility usage and minimum number of units, or minimum total cost; 45 literature examples with 4–21 process
+  streams, codes xSP.w; the main text reports total costs for 24 examples (Table 1) and no minimum-number-of-matches
+  value for any data file of the 2018 benchmark; per-example unit counts are only in its Supporting Information,
+  not read), Chang et al. AIChE J 2020 Parts I/II (globally optimal HENS,
   different problem), Kouyialis–Wang–Misener Processes 2019 (symmetry detection), Letsios et al. CACE 2020
   (arXiv:1909.12328, survey; read the min-matches section: it calls the problem "a major bottleneck" and reports no
   new values), Goderbauer et al. CACE 2019 (complexity), Leitold et al. 2019/2020 (HEN structural analysis), Nair–
@@ -71,3 +81,34 @@
 - Web searches (several phrasings: instance names "37sp-yfyv", "unbalanced15", "balanced12"; "minimum number of
   matches" + exact/valid inequalities/branch-and-price 2021–2026): nothing beyond the 2018 paper and its repository.
 - Conclusion: to our knowledge the instance values have not been improved or certified since 2018.
+
+## Novelty check, second pass (25 Oct 2026, VIPR closure session)
+
+- OpenAlex citing works of Letsios et al. 2018 (`filter=cites:W2754455405`): now retrieved, 13 works: the 11 above
+  plus G. Kouyialis, PhD thesis, Imperial College London (2019), doi:10.25560/67897 (read: Chapter 5 is the 2018
+  study with the same tables, e.g. unbalanced10 25 solved within tolerance, 37sp-yfyv 36, 20sp1 19\*, 23sp1 23\*),
+  and an unrelated 2025 paper on ammonia reactors (doi:10.1016/j.cep.2025.110498). Also D. Letsios et al.,
+  ESCAPE 2018 proceedings (doi:10.1016/B978-0-444-64235-6.50101-7) and the Leitold et al. book chapter (2020)
+  (titles only).
+- GitHub: `gh search repos` on "minimum number of matches", "min_matches_heuristics", "heat exchanger network
+  matches", "heat recovery network MILP", "transshipment heat exchanger", "unbalanced10", "37sp-yfyv": only
+  dimletsios/min_matches_heuristics and cog-imperial/min_matches_heuristics (no push since Feb 2019) and
+  lechugaa/HENS (2019–2020 student replication of the big-M study, no bound tables).
+- AI campaigns: `gh api users/ipitchford/repos --paginate` (193 repositories) and `users/mmislan/repos`: no
+  heat-exchanger-network or minimum-matches entry.
+- Web searches (several phrasings, 2021–2026): nothing beyond the 2018 paper, its repositories and the thesis.
+- Y. Chen, I. E. Grossmann, D. C. Miller (2015): the CMU KiltHub preprint (figshare article 6466850) could not be
+  fetched (signed download link); only its abstract was read ("find the exact global optimal solution with reduced
+  solution times"). Whether it reports a proven optimum for unbalanced10 is therefore not checked (listed in
+  NEEDS.md); Letsios et al. 2018 quote no such value.
+- Gemini (agy) was not used (quota exhausted).
+- Conclusion: to our knowledge none of the optima 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, unbalanced10 = 25 had
+  been proved before.
+
+## Software read for the certification (25 Oct 2026)
+
+- VIPR `code/viprchk.cpp` at commit 30f2951 and at master 99eec19 (24 Oct 2026): read the derivation checks
+  (`readMultipliers`, `readLinComb`, `Constraint::round`, `canUnsplit`, `dominates`, `_isFalsehood`); found the two
+  gaps described in result.md Sec. 4 (rounding over continuous variables; unsplit with fractional right-hand side).
+- VIPR specification `cert_spec_v1_1.md` (read in full) for the independent checker.
+- SCIP 10.0.2 / SoPlex 8.0.2 sources: not read beyond the build options.

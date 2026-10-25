@@ -1,0 +1,60 @@
+LP written: 122 y, 816 q, 147 r, 1247 extra y-rows, heat scaled by 10^-0
+PASS: regenerated LP identical to ../certificates/vipr/unbalanced10_le24.lp
+SCIP version 10.0.2 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 8.0.2] [GitHash: b8eaf98]
+Copyright (c) 2002-2026 Zuse Institute Berlin (ZIB)
+
+External libraries: 
+  SoPlex 8.0.2         Linear programming solver developed at Zuse Institute Berlin (soplex.zib.de) [GitHash: cfadddc
+  CppAD 20180000.0     Algorithmic Differentiation of C++ algorithms developed by B. Bell (github.com/coin-or/CppAD)
+  ZLIB 1.3.1           General purpose compression library by J. Gailly and M. Adler (zlib.net)
+  MPFR 4.2.2           GNU Multiple Precision Floating-Point Reliable Library (mpfr.org)
+  Boost 1.90.0         Boost C++ Libraries (boost.org)
+  TinyCThread 1.2      small portable implementation of the C11 threads API (tinycthread.github.io)
+  GMP 6.3.0            GNU Multiple Precision Arithmetic Library developed by T. Granlund (gmplib.org)
+  Nauty 2.8.8          Computing Graph Automorphism Groups by Brendan D. McKay (users.cecs.anu.edu.au/~bdm/nauty)
+  sassy 2.1            Symmetry preprocessor by Markus Anders (github.com/markusa4/sassy)
+
+user parameter file <scip.set> not found - using default parameters
+
+loaded parameter file <../certificates/vipr/scip_exact_safe.set>
+display/freq = 5000
+certificate/filename = unbalanced10_le24.vipr
+
+read problem <unbalanced10_le24.lp>
+============
+
+original problem has 1085 variables (122 bin, 0 int, 963 cont) and 2453 constraints
+
+presolving (in exact solving mode):
+   (0.1s) symmetry computation started: requiring (bin +, int +, cont +), (fixed: bin -, int -, cont -)
+   Symmetry detection interrupted: constraints of type exactlinear do not provide symmetry information.
+   If symmetries shall be detected, implement the CONSGETPERMSYMGRAPH callback.
+   (0.1s) could not compute symmetry
+presolving (0 rounds: 0 fast, 0 medium, 0 exhaustive):
+ 0 deleted vars, 0 deleted constraints, 0 added constraints, 0 tightened bounds, 0 added holes, 0 changed sides, 0 changed coefficients
+ 0 implications, 0 cliques, 0 implied integral variables (0 bin, 0 int, 0 cont)
+presolved problem has 1085 variables (122 bin, 0 int, 963 cont) and 2453 constraints
+   2453 constraints of type <exactlinear>
+transformed objective value is always integral (scale: 1)
+Presolving Time: 0.00
+storing certificate information in file <unbalanced10_le24.vipr>
+
+solving problem in exact solving mode
+
+ time | node  | left  |LP iter|LP it/n|mem/heur|mdpt |vars |cons |rows |cuts |sepa|confs|strbr|  dualbound   | primalbound  |  gap   | compl. 
+  1.9s|     1 |     0 | 11161 |     - |    35M |   0 |1085 |1988 |2453 |   0 |  0 |   0 |   0 | 2.114669e+01 |      --      |    Inf | unknown
+  3.8s|     1 |     2 | 12694 |     - |    35M |   0 |1085 |1988 |2453 |   0 |  0 |   0 |  25 | 2.114669e+01 |      --      |    Inf | unknown
+  238s|  5000 |  1901 |916537 | 180.8 |    45M |  32 |1085 |1988 |2453 |   0 |  0 |   0 | 667 | 2.300336e+01 |      --      |    Inf | unknown
+  539s| 10000 |   227 |  1782k| 177.0 |    46M |  32 |1085 |1988 |2453 |   0 |  0 |   0 | 999 | 2.368889e+01 |      --      |    Inf | unknown
+
+SCIP Status        : problem is solved [infeasible]
+Solving Time (sec) : 552.66
+Solving Nodes      : 10233
+Primal Bound       : +1.00000000000000e+20 (0 solutions)
+Dual Bound         : +1.00000000000000e+20
+Gap                : 0.00 %
+
+
+closing certificate file (wrote approx. 515.7 MB)
+LP          : 252558 bytes, sha256 e3dcb597ae2995eabd8c408eb573ea54f01fb7dd5d7d8c24bc28536fe4341511
+certificate : 540587890 bytes, sha256 17967e67e607271c2fc60fc77a185da2badcbb84459d7deaeaddd5a4601ec352

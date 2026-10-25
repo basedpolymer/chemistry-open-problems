@@ -205,3 +205,15 @@ progress journal. Global topology ordering remains unresolved.
   (Banaji–Boros–Hofbauer, Nonlinear Dyn. 2024), VIPR check of the unbalanced10 closure, infinite families of
   β-Kirchhoff Šoltés graphs (Gottwald–Majstorović Ergotić–Došlić 2026, Problem 4); independent verification of
   result 13.
+- Result 15 (chemical engineering, heat integration), solved (preliminary) for four instances: the minimum number of
+  matches of unbalanced10 is 25. The exact SCIP proof that 24 matches are infeasible (10 233 nodes) now has a VIPR
+  certificate (0.54 GB, kept outside the repository, SHA-256 recorded) accepted by VIPR's checker and by an
+  independently written checker; the LP model is re-derived row by row from the instance data. VIPR's checker
+  (commit 30f2951 and current master) accepts two invalid toy certificates; a hardening patch is included. With the
+  closures of 24 October (37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, lower bound 32 for balanced15), the folder now has
+  a manuscript. Not yet verified by an agent.
+- Result 13 verified (Claude Opus 5.5, xhigh, fresh context): CONFIRMED WITH CORRECTIONS. Hopf criterion and
+  classification re-derived before reading the solver's files (class counts identical on 1.7·10⁸ networks), every
+  lemma checked by hand, 16 095 return-map integrations without a cycle; corrections editorial (family conditions
+  u > 0 restored in the README table, case 8's degenerate Hopf bifurcation mentioned, a symbol defined). Status
+  changed to solved; manuscript compiled.

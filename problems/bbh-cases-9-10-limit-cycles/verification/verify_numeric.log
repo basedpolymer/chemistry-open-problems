@@ -1,0 +1,51 @@
+R1 non-Hopf members: max over rho, r of delta(r)/r (must be < 0) and outcome counts
+   9a                   c=(4, -1, 4) d=(10, -1, 1) k=2: max delta/r = -9.992e-01; {'to equilibrium': 486, 'time limit': 2, 'return': 67}
+   9a                   c=(2, -1, 5) d=(10, -1, -1) k=3.333: max delta/r = -9.999e-01; {'to equilibrium': 501, 'time limit': 1, 'return': 53}
+   9a                   c=(4, -1, 2) d=(7, -1, 1) k=1.5: max delta/r = -9.972e-01; {'to equilibrium': 445, 'time limit': 8, 'return': 102}
+   9a                   c=(2, -1, 5) d=(5, -1, 0) k=1.5: max delta/r = -9.902e-01; {'to equilibrium': 417, 'time limit': 3, 'return': 135}
+   9a                   c=(6, -1, 5) d=(12, -1, 4) k=5: max delta/r = -inf; {'to equilibrium': 550, 'time limit': 5}
+   9a                   c=(3, -1, 1) d=(9, -1, -1) k=1: max delta/r = -1.584e-01; {'return': 329, 'time limit': 3, 'to equilibrium': 223}
+   9a                   c=(5, -1, 3) d=(11, -1, 1) k=1.8: max delta/r = -9.987e-01; {'to equilibrium': 484, 'time limit': 3, 'return': 68}
+   9a                   c=(5, -1, 4) d=(9, -1, 1) k=1.067: max delta/r = -8.307e-01; {'to equilibrium': 330, 'time limit': 3, 'return': 222}
+   9b                   c=(6, -1, 3) d=(2, 0, -1) k=1: max delta/r = -1.068e-01; {'return': 397, 'time limit': 10, 'to equilibrium': 148}
+   9b                   c=(3, -1, 5) d=(5, 0, -1) k=8.333: max delta/r = -1.000e+00; {'to equilibrium': 529, 'time limit': 7, 'return': 19}
+   9b                   c=(4, -1, 3) d=(4, 0, -1) k=3: max delta/r = -9.987e-01; {'to equilibrium': 475, 'time limit': 7, 'return': 73}
+   9b                   c=(1, -1, 6) d=(4, 0, -1) k=24: max delta/r = -inf; {'to equilibrium': 548, 'time limit': 7}
+   9b                   c=(3, -1, 2) d=(5, 0, -1) k=3.333: max delta/r = -9.991e-01; {'to equilibrium': 479, 'time limit': 7, 'return': 69}
+   9b                   c=(2, -1, 3) d=(4, 0, -1) k=6: max delta/r = -1.000e+00; {'to equilibrium': 520, 'time limit': 7, 'return': 28}
+   10a                  c=(4, -1, 6) d=(12, -1, 3) k=4: max delta/r = -inf; {'to equilibrium': 527, 'time limit': 28}
+   10a                  c=(2, -1, 4) d=(6, -1, 0) k=2: max delta/r = -9.735e-01; {'to equilibrium': 389, 'time limit': 28, 'return': 138}
+   10a                  c=(5, -1, 4) d=(9, -1, 3) k=3.2: max delta/r = -inf; {'to equilibrium': 519, 'time limit': 36}
+   10a                  c=(2, -1, 2) d=(8, -1, 0) k=3: max delta/r = -9.902e-01; {'to equilibrium': 391, 'time limit': 28, 'return': 136}
+   10a                  c=(1, -1, 5) d=(5, -1, 0) k=4: max delta/r = -9.941e-01; {'to equilibrium': 423, 'time limit': 28, 'return': 104}
+   10a                  c=(5, -1, 6) d=(10, -1, 1) k=1.2: max delta/r = -8.776e-01; {'to equilibrium': 348, 'time limit': 28, 'return': 179}
+   10a                  c=(3, -1, 6) d=(10, -1, 3) k=4.667: max delta/r = -inf; {'to equilibrium': 527, 'time limit': 28}
+   10a                  c=(2, -1, 4) d=(8, -1, 1) k=4: max delta/r = -9.988e-01; {'to equilibrium': 454, 'time limit': 28, 'return': 73}
+   9a BBH example k=1   c=(1, -1, 1) d=(2, -1, 0) k=1: max delta/r = -1.883e-01; {'return': 319, 'time limit': 14, 'to equilibrium': 222}
+   9a k=1 (d3=-1)       c=(1, -1, 1) d=(3, -1, -1) k=1: max delta/r = -1.584e-01; {'return': 325, 'time limit': 7, 'to equilibrium': 223}
+   9a k=1.1             c=(10, -1, 1) d=(21, -1, 0) k=1.1: max delta/r = -8.703e-01; {'to equilibrium': 330, 'time limit': 3, 'return': 222}
+   9b k=1               c=(2, -1, 1) d=(2, 0, -1) k=1: max delta/r = -1.070e-01; {'return': 360, 'time limit': 10, 'to equilibrium': 185}
+   9b k=1 (c1=c3=1)     c=(1, -1, 1) d=(1, 0, -1) k=1: max delta/r = -1.070e-01; {'return': 356, 'time limit': 14, 'to equilibrium': 185}
+   10a k=1              c=(1, -1, 1) d=(2, -1, 0) k=1: max delta/r = -1.463e-01; {'return': 301, 'time limit': 55, 'to equilibrium': 199}
+   10a k=1.1            c=(10, -1, 1) d=(21, -1, 0) k=1.1: max delta/r = -7.557e-01; {'to equilibrium': 281, 'time limit': 29, 'return': 245}
+PASS R1 no sign change of the return-map displacement (worst delta/r = -1.068e-01)
+R2 positive controls (Hopf networks, rho 3% past the Hopf value, tr J > 0)
+   case 9 c=(2, -1, 1) d=(3, -1, 0) rho=0.3233 (rho_H=0.3333): sign change of delta: True
+   case 9 c=(3, -1, 2) d=(4, -1, 0) rho=0.485 (rho_H=0.5): sign change of delta: True
+   case 9 c=(1, -1, 0) d=(1, 0, -1) rho=0.97 (rho_H=1): sign change of delta: True
+   case 10 c=(2, -1, 1) d=(3, -1, 0) rho=0.3233 (rho_H=0.3333): sign change of delta: True
+   case 10 c=(3, -1, 2) d=(4, -1, 1) rho=0.194 (rho_H=0.2): sign change of delta: True
+PASS R2 the detector finds the stable cycle in every control
+R3 continuation across the Hopf boundary (Hopf member k<1 vs non-Hopf neighbour k>=1)
+   case 9 c=(10, -1, 1): Hopf d=(19, -1, 0) (k=0.9, rho_H=0.05263) -> non-Hopf d=(20, -1, 0) (k=1): max delta/r = -1.883e-01
+   case 9 c=(10, -1, 1): Hopf d=(19, -1, 0) (k=0.9, rho_H=0.05263) -> non-Hopf d=(21, -1, 0) (k=1.1): max delta/r = -8.638e-01
+   case 9 c=(3, -1, 1): Hopf d=(5, -1, 0) (k=0.667, rho_H=0.2) -> non-Hopf d=(6, -1, 0) (k=1): max delta/r = -1.883e-01
+   case 9 c=(1, -1, 2): Hopf d=(2, -1, -1) (k=0.667, rho_H=0.1667) -> non-Hopf d=(2, -1, 0) (k=1): max delta/r = -1.883e-01
+   case 10 c=(10, -1, 1): Hopf d=(19, -1, 0) (k=0.9, rho_H=0.05263) -> non-Hopf d=(20, -1, 0) (k=1): max delta/r = -1.463e-01
+   case 10 c=(3, -1, 2): Hopf d=(4, -1, 1) (k=0.667, rho_H=0.2) -> non-Hopf d=(5, -1, 1) (k=1.33): max delta/r = -9.736e-01
+PASS R3 no cycle in the non-Hopf neighbours near the Hopf value of their Hopf twin
+R4 (H2) by quadrature (mpmath, 30 digits)
+PASS R4 F(a) > F(b) at 348 G-paired points (3 rho values, 4 a values, all members)
+runtime 263 s
+ALL PASS
+wall 264.67 s

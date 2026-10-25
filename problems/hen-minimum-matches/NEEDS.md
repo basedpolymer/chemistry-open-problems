@@ -1,20 +1,20 @@
 # Needs (for the repository owner)
 
-Papers that could not be read here (paywalled); none is needed for the correctness of the results, they would
-only complete the novelty check / attribution:
+Supplied on 25 Oct 2026 and read (thank you): Cerdá–Cafaro–Cafaro, IECR 61 (2022) 464–486, and Furman–Sahinidis,
+IECR 43 (2004) 3554–3565 (findings in `references.md`). Neither reports a proven optimum for any instance closed here.
 
-- doi:10.1021/acs.iecr.1c02372 — Cerdá, Cafaro, Cafaro, *Novel mathematical approaches for the structural synthesis
-  of heat exchanger networks*, IECR 61 (2022). Cites Letsios et al. 2018; check whether it reports minimum-number-
-  of-matches values on the Furman / Chen et al. / Grossmann instances (abstract suggests a different, detailed
-  minimum-units problem).
-- doi:10.1021/ie049978l — Furman, Sahinidis, IECR 43 (2004): original CPLEX 7.0 values for the Furman test set
-  (quoted second-hand from Letsios et al. Table G.9).
-- doi:10.1016/j.ces.2024.119763 — Zhang et al., CES 2024 (cites Letsios et al.; title suggests multi-objective HEN
-  design, check for benchmark values).
+Still missing; none is needed for the correctness of the results, they would only complete the novelty check:
 
-Other:
-- The OpenAlex citing-works list (13 works) could not be fetched (shared daily API budget exhausted); Semantic
-  Scholar returned 11. A re-run of `https://api.openalex.org/works?filter=cites:W2754455405` from another network
-  would close this gap.
-- GitHub user listings of the AI campaigns (`mmislan`, `ipitchford`) are blocked in this sandbox; please check them
-  for "minimum number of matches" / heat-exchanger-network entries.
+- doi:10.1016/j.ces.2024.119763 — Zhang et al., Chem. Eng. Sci. (2024), cites Letsios et al. 2018; the title
+  suggests multi-objective HEN design; check for minimum-number-of-matches values on the benchmark instances.
+- doi:10.1016/j.compchemeng.2015.05.015 — Chen, Grossmann, Miller, Comput. Chem. Eng. 82 (2015) 68–83, origin of the
+  balanced/unbalanced instances; check whether it reports a *proven* optimum for unbalanced10 (or unbalanced15,
+  balanced12, balanced15). The CMU preprint (kilthub.cmu.edu, figshare article 6466850) could not be fetched here.
+- Optional: Supporting Information of Cerdá–Cafaro–Cafaro 2022 (per-example unit counts; a different, detailed
+  minimum-units problem, so probably not comparable).
+
+Suggestion (no action taken; external action needs your approval): the two soundness gaps found in VIPR's
+reference checker `viprchk` (rounding over continuous variables, unsplit with a fractional right-hand side; test
+certificates in `certificates/vipr/viprchk_tests/`, patch `certificates/viprchk_harden.patch`) could be reported
+upstream to github.com/scipopt/vipr. The SCIP 10.0.2 certificate defects (Gomory-cut derivations that cannot be
+verified; conflict rows marked as derivable with global bounds) could be reported to github.com/scipopt/scip.

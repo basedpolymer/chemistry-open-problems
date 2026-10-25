@@ -1,13 +1,15 @@
 # Banaji–Boros–Hofbauer, cases 9 and 10: can a network without Andronov–Hopf bifurcation have a limit cycle?
 
-**Status: solved (preliminary).** The proof is complete but has not yet been checked by an independent verifier. The
-answer is **no**.
+**Status: solved: complete proof, independently verified (verdict CONFIRMED WITH CORRECTIONS, see
+[`verification.md`](verification.md)).** The answer is **no**. The corrections were editorial; the mathematics was
+not changed.
 
 **Attribution.**
-- Solver (classification, Liénard argument, scripts, write-up): Claude Opus 5.5 (effort not recorded), 24 October 2026.
+- Solver (classification, Liénard argument, scripts, write-up): Claude Opus 5.5 (effort xhigh), 24 October 2026.
 - Builds on result 2 of this repository (`problems/bbh-three-reaction-no-limit-cycle/`), which settled the example
   and one subfamily.
-- Independent verification: pending.
+- Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 25 October 2026 (`verification.md`,
+  `verification/`).
 
 ## Problem
 
@@ -39,9 +41,11 @@ admits an Andronov–Hopf bifurcation.
 
    | family | other two reactions | condition |
    |---|---|---|
-   | 9a | X+Y → 0, Y → c₃X + (1+d₃)Y | d₁/c₁ + d₃/c₃ ≥ 2 |
-   | 9b | X+Y → Y, Y → c₃X | c₃d₁ ≥ c₁ |
-   | 10a | X+Y → 0, 0 → c₃X + d₃Y | d₁/c₁ + d₃/c₃ ≥ 2 |
+   | 9a | X+Y → 0, Y → c₃X + (1+d₃)Y | d₁ > c₁, −1 ≤ d₃ < c₃, d₁/c₁ + d₃/c₃ ≥ 2 |
+   | 9b | X+Y → Y, Y → c₃X | d₁ ≥ 1, c₃ ≥ 1, c₃d₁ ≥ c₁ |
+   | 10a | X+Y → 0, 0 → c₃X + d₃Y | d₁ > c₁, 0 ≤ d₃ < c₃, d₁/c₁ + d₃/c₃ ≥ 2 |
+
+   (The strict inequalities say u = c × d > 0, i.e. the positive equilibrium is not a saddle.)
 
    The BBH example is in 9a, with equality in the condition.
 2. These systems are linear in y. A shear along the x-nullcline and a time change turn them into a Liénard system
@@ -52,8 +56,9 @@ admits an Andronov–Hopf bifurcation.
    and G that does not involve ρ. That inequality is proved in closed form, H_k(k²/a) > H_k(a) for k ≥ 1, and is
    exactly where "no Hopf" (k ≥ 1) enters.
 
-For case 10, the same computation also shows that **every** network with a positive non-saddle equilibrium,
-including the Hopf ones, has no periodic orbit whenever tr J < 0 (Remark 2 of `result.md`).
+For case 10, the same computation also shows that **every** network with a positive non-saddle equilibrium
+(u > 0), including the Hopf ones, has no periodic orbit for the rate constants at which tr J < 0 (Remark 2 of
+`result.md`; for c₁ ≤ 0 there is no periodic orbit at all).
 
 Full proofs: [`result.md`](result.md).
 
@@ -66,14 +71,27 @@ python3 scripts/numerical_sanity.py     # floating-point sanity checks, not part
 ```
 
 Each script prints PASS/FAIL per claim and exits with status 1 on failure. The logs are in `certificates/`. The
-environment was Python 3.13, sympy 1.14, numpy 2.5, scipy 1.18, single thread.
+environment was Python 3.13, sympy 1.14, numpy 2.5, scipy 1.18, single thread. At verification (WSL Fedora,
+Python 3.12, sympy 1.14, numpy 2.5, scipy 1.18) the three scripts ran in 4 s, 43 s and 175 s, all PASS, with logs
+identical to `certificates/` except for floating-point last digits in `numerical_sanity.log`.
+
+The verifier's independent scripts:
+
+```bash
+python3 verification/classify_independent.py 8     # own classification, box c_i, d_i <= 8, ~10 s
+python3 verification/classify_independent.py T20   # same, solver's box (targets <= 20), ~4 min on 12 processes
+python3 verification/verify_symbolic.py            # exact sympy re-derivation of every identity, ~15 s
+python3 verification/verify_numeric.py             # return-map search for cycles (floating point, not a proof), ~4.5 min
+```
 
 ## Files
 
 | File | Content |
 |---|---|
 | `result.md` | Statement, complete proofs (classification §2, Liénard argument §3), remarks, verification map |
-| `paper.tex`, `references.bib` | Draft manuscript written by the solver; not compiled, since there is no LaTeX in the container. The editor agent will finalise it |
+| `paper.tex`, `references.bib`, `paper.pdf` | Manuscript (6 pages), corrected and compiled at verification |
+| `verification.md` | Independent verification report |
+| `verification/` | Verifier's scripts and logs (independent classification, symbolic re-derivation, numerical counterexample search) |
 | `scripts/certify_lienard.py` | Symbolic certificate: normalisation, Liénard identity, family data, key inequalities, Dulac classes |
 | `scripts/classify_networks.py` | Exhaustive check of the classification (Lemmas 2.1–2.3) for all targets with coefficients ≤ 20 |
 | `scripts/numerical_sanity.py` | Backward integration (no cycles), Hopf controls (cycles found), quadrature check of the comparison, sharpness observation |

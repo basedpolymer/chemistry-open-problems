@@ -1,0 +1,21 @@
+PASS C1 case 9: (x,y) is an equilibrium and tr J = mu (P/x + Q/y)
+PASS C1 case 9: det J = mu^2 u1 u2 u3 * 1 / (x y), orientation positive
+PASS C1 case 10: (x,y) is an equilibrium and tr J = mu (P/x + Q/y)
+PASS C1 case 10: det J = mu^2 u1 u2 u3 * 2 / (x y), orientation positive
+case 9, box c_i, d_i <= 8: 891000 networks; dynamically trivial: 850884, rank<2: 2173, saddle (u<0): 4071, trivial reaction: 27522, u>0, Hopf: 1086, u>0, no Hopf: 5264
+  non-Hopf u>0 by family: {'F1': 64, 'F2a': 455, 'F2b': 807, 'F3': 1296, 'F4': 2642}
+  first member of each family (c, d): {'F1': ((1, -1, 0), (0, 1, -1)), 'F2a': ((1, -1, 1), (1, 0, -1)), 'F2b': ((1, -1, 1), (2, -1, 0)), 'F3': ((-2, -1, 1), (1, -1, 0)), 'F4': ((-2, 0, 1), (0, -1, 1))}
+PASS C2 case 9: P*Q<0 criterion == BBH Theorem 9 literal conditions on the whole box
+PASS C3 case 9: no u>0 network with P = Q = 0
+PASS C4 case 9: non-Hopf u>0 networks = disjoint union of the verifier's families
+PASS C5 case 9: trace sign constant (F1: > 0; all others: < 0) for every kappa
+case 10, box c_i, d_i <= 8: 801900 networks; dynamically trivial: 768328, rank<2: 2096, saddle (u<0): 1296, trivial reaction: 25740, u>0, Hopf: 293, u>0, no Hopf: 4147
+  non-Hopf u>0 by family: {'G1': 715, 'G2': 920, 'G3': 2512}
+  first member of each family (c, d): {'G1': ((1, -1, 1), (2, -1, 0)), 'G2': ((-2, -1, 1), (1, -1, 0)), 'G3': ((-2, 0, 1), (0, -1, 1))}
+PASS C2 case 10: P*Q<0 criterion == BBH Theorem 9 literal conditions on the whole box
+PASS C3 case 10: no u>0 network with P = Q = 0
+PASS C4 case 10: non-Hopf u>0 networks = disjoint union of the verifier's families
+PASS C5 case 10: trace sign constant (F1: > 0; all others: < 0) for every kappa
+runtime 3 s
+ALL PASS
+wall 7.60 s

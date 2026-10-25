@@ -1,0 +1,55 @@
+--- viprchk_canonicalized.cpp
++++ viprchk.cpp
+@@ -1301,6 +1301,13 @@
+          goto TERMINATE;
+       }
+ 
++      if( index >= (int) constraint.size() ) // harden: also in release builds
++      {
++         cerr << "In " << label << ": Index out of range " << index << endl;
++         returnStatement = false;
++         goto TERMINATE;
++      }
++
+       if( a == 0 ) continue; // ignore 0 multiplier
+ 
+       mult[index] = a;
+@@ -1439,6 +1446,12 @@
+ 
+    bool returnStatement = false;
+ 
++   if( a1 < 0 || a2 < 0 || a1 >= (int) constraint.size() || a2 >= (int) constraint.size() ) // harden
++   {
++      cerr << "canUnsplit: assumption index out of range" << endl;
++      return false;
++   }
++
+    const Constraint &c1 = constraint[con1];
+    const Constraint &c2 = constraint[con2];
+ 
+@@ -1532,6 +1545,12 @@
+                  << " do not form a tautology" << endl;
+             goto TERMINATE;
+          };
++         if( !isInteger(branchAsm1.getRhs()) || !isInteger(branchAsm2.getRhs()) ) // harden: b must be integer
++         {
++            cerr << branchAsm1.label() << " and " << branchAsm2.label()
++                 << " have a fractional right-hand side" << endl;
++            goto TERMINATE;
++         }
+ 
+          shared_ptr<SVectorGMP> c1ptr = branchAsm1.coefSVec();
+          shared_ptr<SVectorGMP> c2ptr = branchAsm2.coefSVec();
+@@ -1653,6 +1672,12 @@
+             goto TERMINATE;
+          }
+       }
++      else if( a != 0 ) // harden: rounding is invalid with a continuous variable in the support
++      {
++         cerr << "Rounding a constraint with nonzero coefficient on continuous variable " << j << endl;
++         returnStatement = false;
++         goto TERMINATE;
++      }
+    }
+ 
+    if( getSense() < 0 ) // round down

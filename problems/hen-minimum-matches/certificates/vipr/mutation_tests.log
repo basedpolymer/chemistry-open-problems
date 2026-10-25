@@ -1,0 +1,9 @@
+PASS m1: rejected by viprchk and by the independent checker (FAIL: Fail('DualBound_5406: derived constraint does not dominate the stated one'))
+PASS m2: rejected by viprchk and by the independent checker (FAIL: Fail('ACT_L4624: derived constraint does not dominate the stated one'))
+PASS m3: rejected by viprchk and by the independent checker (FAIL: Fail('no assumption-free falsehood derived'))
+PASS m4: rejected by viprchk and by the independent checker (FAIL: Fail('ACT_R5354: derived constraint does not dominate the stated one'))
+ALL PASS: every corrupted certificate rejected by both checkers
+
+real	6m0.971s
+user	2m59.008s
+sys	0m10.822s

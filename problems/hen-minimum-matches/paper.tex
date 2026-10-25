@@ -1,0 +1,435 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Certified minimum numbers of matches for four heat-recovery benchmark instances}
+\newcommand*{\PaperTitlePlain}{Certified minimum numbers of matches for four heat-recovery benchmark instances}
+\newcommand*{\PaperShortTitle}{Certified minimum numbers of matches}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} solved (preliminary) for four instances, partial result for the others}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator, in two sessions (24 and 25 October 2026) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{heat exchanger network synthesis; minimum number of matches; transshipment model; exact mixed-integer programming; VIPR certificate; verified computation}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand*{\inst}[1]{\texttt{#1}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Letsios, Kouyialis and Misener (2018) published 48 benchmark instances of the minimum number of matches problem,
+the NP-hard mixed-integer linear program at the core of sequential heat exchanger network synthesis, and observed
+that state-of-the-art solvers cannot solve moderately sized instances to global optimality. We determine the exact
+optimum of four instances that were left without a proof of optimality: \inst{37sp-yfyv}${}=36$,
+\inst{20sp1}${}=19$, \inst{23sp1}${}=22$ (best value known before: 23) and \inst{unbalanced10}${}=25$. Every upper
+bound is an explicit network, checked in exact rational arithmetic by two independently written programs, the
+second one against the original model of Letsios et al.\ with their own big-M values. The lower bounds of the first
+three instances follow from a block lemma (every connected component of the match graph is heat balanced and
+cascade feasible) and an exhaustive exact enumeration of blocks; the same argument raises the lower bound of the four
+33-stream \inst{balanced15} instances from 31 to 32. The lower bound for \inst{unbalanced10} is a VIPR certificate
+(0.54\,GB) of a pure LP-based branch-and-bound proof, written by exact-arithmetic SCIP~10.0.2 for a strengthened
+transshipment model; every row of that model is proved valid here and re-derived independently from the data, and
+the certificate is accepted both by VIPR's checker and by a second checker written from the format specification.
+On the way we found that VIPR's reference checker accepts two kinds of invalid inference steps (rounding over
+continuous variables, branching disjunctions with a fractional right-hand side); we give a patch and test
+certificates.
+\end{paperabstract}
+
+\section*{The question}
+
+The source is \textcite{LKM2018} (arXiv v2, Sec.~9.2, p.~30), whose data, code and solver logs are public:
+\begin{openquote}
+``Observe that state-of-the-art approaches cannot, in general, solve moderately-sized problems with 30-40 streams
+to global optimality. For example, none of the test cases in the Grossmann (2017) or large scale test sets is
+solved to global optimality within the specified time limit.''
+\end{openquote}
+The same section states that each run used ``absolute gap 0.99, relative gap 4\%''. The solver logs of the
+repository show that \inst{unbalanced10} (value 25) and \inst{37sp-yfyv} (value 36) are among the instances
+reported as solved, but every one of their six runs (CPLEX 12.6.3 and Gurobi 6.5.2, three formulations) stopped at
+the 4\,\% tolerance with best bound 24, respectively 35. For \inst{20sp1} and \inst{23sp1} the time limit was
+reached (best bounds 16 and 17). Twenty-five instances of the benchmark had no matching upper and lower bound.
+
+\begin{theorem}\label{thm:main}
+On the data files of the benchmark of \textcite{LKM2018}, the minimum number of matches is
+\begin{center}
+\inst{37sp-yfyv}: 36, \qquad \inst{20sp1}: 19, \qquad \inst{23sp1}: 22, \qquad \inst{unbalanced10}: 25.
+\end{center}
+Moreover the minimum number of matches is at least 32 for \inst{balanced15} and \inst{balanced15\_random0/1/2}
+(previous bound 31), at least 32 for \inst{unbalanced15}, at least 23 for \inst{22sp1}, and at least 26 for
+\inst{balanced12} and \inst{balanced12\_random0/1/2}. The optimum of the transshipment MILP of
+\textcite{LKM2018}, with any of the three big-M files of their repository, has the same value as the minimum number
+of matches (\zcref{prop:milp}).
+\end{theorem}
+
+\begin{table}[h]
+\centering\footnotesize
+\caption{Status of the 25 instances without matching bounds in 2018. LKM18: best upper / lower bound over the six
+runs in the repository of \textcite{LKM2018} (floating-point solver output, lower bounds rounded up). Here: exact
+network (UB) and \zcref{lem:block} or a VIPR certificate (LB). Families: \inst{b12} stands for \inst{balanced12} and
+\inst{balanced12\_random0/1/2}, likewise \inst{b15}, \inst{u17} (\inst{unbalanced17}), \inst{u20}.}\label{tab:status}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+instance & $N$ & LKM18 UB / LB & here UB / LB & status \\
+\midrule
+\inst{37sp-yfyv} & 38 & 36 / 35 & 36 / 36 & optimal 36 (block lemma) \\
+\inst{20sp1} & 21 & 19 / 16 & 19 / 19 & optimal 19 (block lemma) \\
+\inst{23sp1} & 24 & 23 / 17 & 22 / 22 & optimal 22 (block lemma), new UB \\
+\inst{unbalanced10} & 23 & 25 / 24 & 25 / 25 & optimal 25 (VIPR certificate) \\
+\inst{unbalanced15} & 33 & 36 / 35 & 36 / 32 & open \\
+\inst{22sp1} & 24 & 25 / 23 & 25 / 23 & open \\
+\inst{b12} (4 instances) & 27 & 28--29 / 26--27 & 28--29 / 26 & open \\
+\inst{b15} (4 instances) & 33 & 35 / 31 & 35 / 32 & open, new LB \\
+\inst{u17} (4 instances) & 41 & 43 / 39--40 & 43 / -- & open \\
+\inst{u20} (4 instances) & 47 & 50--51 / 45 & 50--51 / -- & open \\
+\inst{large\_scale0/1/2} & 162 & 175--239 / 123--135 & -- & open, not attempted \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+For \inst{balanced12\_random1} the certified bound 26 is below the floating-point bound 27 of the 2018 runs; no
+certified lower bound in \zcref{tab:status} contradicts a floating-point one.
+
+\section{The problem}
+
+An instance (file \texttt{data/mip\_instances/<set>/<name>.dat} of the repository of \textcite{LKM2018}) has hot
+streams $i\in H$ ($|H|=n$, hot utilities included with the loads fixed by the minimum utility cost step), cold
+streams $j\in C$ ($|C|=m$, cold utilities included) and temperature intervals $t=0,\dots,k-1$, interval $0$ being
+the hottest. $Q^H_{it}\ge0$ is the heat that hot stream $i$ supplies in interval $t$ and $Q^C_{jt}\ge0$ the heat that
+cold stream $j$ needs in interval $t$. All numbers are read as exact decimal rationals. We write
+$H_i[a..b]=\sum_{a\le t\le b}Q^H_{it}$, $H_i({\le}t)=H_i[0..t]$, $H_i=H_i({\le}k{-}1)$, and $D_j[a..b]$,
+$D_j({\le}t)$, $D_j$ likewise; $N=n+m$; $R_t=\sum_{s<t}\bigl(\sum_iQ^H_{is}-\sum_jQ^C_{js}\bigr)$ is the heat cascade.
+For all 54 data files we checked exactly that $R_k=0$, $R_t\ge0$ for all $t$, that the residuals printed in the file
+equal $R_t$, and that every stream has positive total heat.
+
+\begin{definition}\label{def:network}
+A \emph{feasible network} is a family of numbers $q_{ijt}\ge0$ such that $\sum_iq_{ijt}=Q^C_{jt}$ for all $j,t$ and
+$r_{it}:=H_i({\le}t)-\sum_{s\le t}\sum_jq_{ijs}\ge0$ for all $i,t$, with $r_{i,k-1}=0$. Its \emph{match set} is
+$E(q)=\{(i,j):\sum_tq_{ijt}>0\}$, and the \emph{minimum number of matches} is $\min_q|E(q)|$.
+\end{definition}
+
+Heat of hot stream $i$ produced in interval $s$ can thus be used in interval $s$ or in any colder interval (the
+minimum approach temperature is built into the intervals); $r_{it}$ is the heat of $i$ carried from interval $t$ to
+interval $t+1$. The transshipment MILP of \textcite{PapouliasGrossmann1983}, as implemented by \textcite{LKM2018}
+(\texttt{lib/exact\_methods/transshipment\_mip\_solver.py}), reads: minimise $\sum_{ij}y_{ij}$ subject to
+$\sum_jq_{ijt}+\rho_{i,t+1}=Q^H_{it}+\rho_{it}$, $\sum_iq_{ijt}=Q^C_{jt}$, $\sum_tq_{ijt}\le U_{ij}y_{ij}$,
+$\sum_i\rho_{i0}=\sum_i\rho_{ik}=0$, $y\in\{0,1\}$, $q,\rho\ge0$, with big-M values $U_{ij}$ read from the
+files \texttt{<name>.bgm} of the directories \texttt{simple}, \texttt{gundersen} and \texttt{greedy} under
+\texttt{data/bigM\_parameters/<set>/}.
+
+\begin{proposition}\label{prop:milp}
+For each instance of \zcref{thm:main} and each of the three big-M files, the optimum of this MILP equals the minimum
+number of matches.
+\end{proposition}
+\begin{proof}
+If $(y,q,\rho)$ is feasible for the MILP, then $\rho_{i,t+1}=r_{it}$, so $q$ is a feasible network and
+$E(q)\subseteq\{(i,j):y_{ij}=1\}$; hence the MILP optimum is at least the minimum number of matches, whatever the
+$U_{ij}$. Conversely, for each network of \zcref{sec:ub}, setting $y_{ij}=1$ exactly on $E(q)$ and
+$\rho_{i,t+1}=r_{it}$ gives a feasible point: the script \texttt{check\_network\_lkm18.py} checks in exact
+arithmetic every constraint of the MILP, including $\sum_tq_{ijt}\le U_{ij}y_{ij}$ for the three big-M files, and that
+the objective equals the stated number of matches. With the lower bounds of \zcref{sec:block,sec:vipr} this gives
+equality.
+\end{proof}
+
+\section{Upper bounds: explicit networks}\label{sec:ub}
+
+The directory \texttt{certificates/solutions/} contains, for 22 instances, a network given by rational heats
+$q_{ijt}$ (JSON). They were found with floating-point solvers and with \zcref{lem:structure} below, then rounded to
+exact flows by an integer max-flow computation (all data scaled by the least common multiple of the decimal
+denominators). Two programs check them:
+\begin{itemize}
+\item \texttt{check\_solutions.py} (with \texttt{hen\_exact.py}) checks $q\ge0$, every cold balance, $r_{it}\ge0$,
+$r_{i,k-1}=0$, and that every declared match carries positive heat;
+\item \texttt{check\_network\_lkm18.py}, written separately with its own parsers, checks the network as a point of
+the MILP of \textcite{LKM2018} with $y$ set to the indicator of $E(q)$ (\zcref{prop:milp}).
+\end{itemize}
+Both print \texttt{ALL PASS} for the 22 networks, which have 36, 19, 22, 25 matches for \inst{37sp-yfyv},
+\inst{20sp1}, \inst{23sp1}, \inst{unbalanced10}, and reproduce the best 2018 values for the other 18 instances of
+\zcref{tab:status} (they improve none of them).
+
+\section{The block lemma}\label{sec:block}
+
+\begin{definition}
+A nonempty set $K\subseteq H\cup C$ of streams is a \emph{block} if
+$\sum_{i\in K\cap H}H_i=\sum_{j\in K\cap C}D_j$ and $\sum_{i\in K\cap H}H_i({\le}t)\ge\sum_{j\in K\cap C}D_j({\le}t)$
+for every $t$. Let $c_{\max}$ be the largest number of parts of a partition of $H\cup C$ into blocks.
+\end{definition}
+
+\begin{lemma}\label{lem:block}
+Every feasible network $q$ satisfies $|E(q)|\ge N-c_{\max}$.
+\end{lemma}
+\begin{proof}
+Let $G$ be the bipartite graph on $H\cup C$ with edge set $E(q)$. Every stream has positive total heat, so it has an
+incident edge; every connected component $K$ of $G$ therefore has at least $|K|-1\ge1$ edges. All heat of a hot
+stream of $K$ goes to its neighbours, which lie in $K$, and all demand of a cold stream of $K$ comes from its
+neighbours, so $\sum_{i\in K}H_i=\sum_{i,j\in K,t}q_{ijt}=\sum_{j\in K}D_j$, and for every $t$
+\[\textstyle\sum_{j\in K}D_j({\le}t)=\sum_{j\in K}\sum_{s\le t}\sum_{i\in K}q_{ijs}
+=\sum_{i\in K}\bigl(H_i({\le}t)-r_{it}\bigr)\le\sum_{i\in K}H_i({\le}t).\]
+Hence $K$ is a block, the $c(G)$ components form a partition into blocks, $c(G)\le c_{\max}$, and
+$|E(q)|\ge\sum_K(|K|-1)=N-c(G)\ge N-c_{\max}$.
+\end{proof}
+
+\begin{lemma}\label{lem:structure}
+If $c_{\max}=2$ and $|E(q)|=N-2$, then $G$ is a forest with two components $A,B$, $\{A,B\}$ is a partition into two
+blocks, and the restriction of $q$ to $A$ (to $B$) is a feasible network of the sub-instance $A$ ($B$) whose match
+graph is a spanning tree.
+\end{lemma}
+\begin{proof}
+In the proof of \zcref{lem:block}, $N-2=|E|\ge N-c(G)$ forces $c(G)=2$ and exactly $|K|-1$ edges per component.
+\end{proof}
+\zcref{lem:structure} only guides the search for networks; it is not used in any proof of a bound.
+
+\paragraph{Computation of $c_{\max}$} (\texttt{block\_bound.py}). With $L$ the least common multiple of the decimal
+denominators, stream $v$ gets the integer weight $w_v=LH_i$ (hot) or $-LD_j$ (cold) and an integer cumulative
+profile. All zero-weight subsets are enumerated exactly by meet in the middle (all subset sums of the two halves,
+exact hash join); a zero-weight subset is a block if and only if the sum of the two half-profiles is nonnegative in
+every interval (all partial sums are below $2^{62}$, asserted). A 2-block partition exists iff some block $A$
+containing stream $0$, $A\ne H\cup C$, has a block as complement. A partition into three blocks exists iff there are
+blocks $A\ni0$ and $B$ such that $X=(H\cup C)\setminus A$ is a block, $B\subsetneq X$ contains the lowest-index stream
+of $X$, and $X\setminus B$ is a block (unions and differences of nested blocks are blocks, since both defining
+conditions are additive); the search over all such pairs is exhaustive. A partition into four or more blocks yields
+one into three by merging, so ``no 3-block partition'' means $c_{\max}\le2$.
+
+\begin{table}[h]
+\centering\footnotesize
+\caption{Exhaustive exact enumeration (\texttt{run\_block\_bounds.sh}, 41\,s in total). ``2-part.'': number of
+partitions into two blocks; no instance has a partition into three blocks.}\label{tab:block}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrc@{}}
+\toprule
+instance & $N$ & zero-sum subsets & blocks & 2-part. & $N-c_{\max}$ \\
+\midrule
+\inst{37sp-yfyv} & 38 & 4\,833 & 2\,431 & 14 & 36 \\
+\inst{20sp1} & 21 & 15 & 12 & 4 & 19 \\
+\inst{23sp1} & 24 & 17 & 12 & 3 & 22 \\
+\inst{22sp1} & 24 & 1 & 1 & 0 & 23 \\
+\inst{balanced12}, \inst{\_random0/1/2} & 27 & $\approx6\cdot10^4$ & $\approx1.8\cdot10^4$ & 0 & 26 \\
+\inst{balanced15} & 33 & 1\,817\,217 & 518\,054 & 0 & 32 \\
+\inst{balanced15\_random0/1/2} & 33 & $1.75$--$3.42\cdot10^6$ & $0.63$--$1.00\cdot10^6$ & 0 & 32 \\
+\inst{unbalanced15} & 33 & 470\,203 & 94\,888 & 0 & 32 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+With the networks of \zcref{sec:ub} this proves the values 36, 19 and 22 of \zcref{thm:main}. For \inst{unbalanced10}
+($N=23$) the block lemma gives at most 22, so a different argument is needed.
+
+\section{unbalanced10: a strengthened model and a VIPR certificate}\label{sec:vipr}
+
+\subsection{The strengthened transshipment model}
+
+Let $\mathrm{rc}_i(t)=\min\bigl(R_{t+1},H_i({\le}t)\bigr)$ for $0\le t\le k-2$ and
+$\mathrm{rc}_i(-1)=\mathrm{rc}_i(k-1)=0$.
+
+\begin{lemma}\label{lem:rc}
+In every feasible network, $0\le r_{it}\le\mathrm{rc}_i(t)$.
+\end{lemma}
+\begin{proof}
+Summing the definition of $r_{it}$ over $i$ and using the cold balances gives
+$\sum_ir_{it}=\sum_iH_i({\le}t)-\sum_jD_j({\le}t)=R_{t+1}$; all $r_{i't}$ are nonnegative, so $r_{it}\le R_{t+1}$,
+and $r_{it}\le H_i({\le}t)$ by definition.
+\end{proof}
+
+Given a feasible network $q$, put $y_{ij}=1$ if $(i,j)\in E(q)$ and $y_{ij}=0$ otherwise.
+
+\begin{proposition}\label{prop:rows}
+$(q,r,y)$ satisfies each of the following constraints. Consequently, if the MILP formed by them together with
+$\sum y\le K$ has no solution, every feasible network has at least $K+1$ matches.
+\begin{enumerate}
+\item Balances: $\sum_jq_{ijt}+r_{it}-r_{i,t-1}=Q^H_{it}$ and $\sum_iq_{ijt}=Q^C_{jt}$ (with $r_{i,-1}=r_{i,k-1}=0$).
+\item Bounds: $0\le r_{it}\le\mathrm{rc}_i(t)$ and $0\le q_{ijt}\le u_{ijt}:=\min\bigl(Q^C_{jt},Q^H_{it}+\mathrm{rc}_i(t-1)\bigr)$.
+\item Disaggregated links: $q_{ijt}\le u_{ijt}y_{ij}$.
+\item Aggregated links: $\sum_tq_{ijt}\le U_{ij}y_{ij}$, where $U_{ij}$ is the minimum over all labellings
+$\lambda:\{0,\dots,k-1\}\to\{\mathrm{in},\mathrm{out}\}$ of
+$\mathrm{cap}(\lambda)=\sum_{\lambda(u)=\mathrm{in}}Q^C_{ju}+\sum_{\lambda(u)=\mathrm{out}}Q^H_{iu}
++\sum_{\lambda(u)=\mathrm{in},\lambda(u+1)=\mathrm{out}}\mathrm{rc}_i(u)$.
+\item Cold windows ($Q^C_{jT}>0$, $s\le T$):
+\[\textstyle\sum_i\min\bigl(D_j[s..T],\,\mathrm{rc}_i(s-1)+H_i[s..T]\bigr)y_{ij}\ge D_j[s..T].\]
+\item Hot windows ($Q^H_{is}>0$, $s\le T$, right-hand side positive):
+\[\textstyle\sum_j\min\bigl(H_i[s..T],D_j[s..T]\bigr)y_{ij}\ge H_i[s..T]-\mathrm{rc}_i(T).\]
+\item Partner counts: for each window row $\sum_ea_ey_e\ge b$, $\sum_ey_e\ge p$, where $p$ is the least number of
+coefficients, taken largest first, whose sum reaches $b$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(1) are the definitions. (2) $r$: \zcref{lem:rc}. $q$: the heat that $i$ delivers in interval $t$ is at most
+$r_{i,t-1}+Q^H_{it}$ and the heat that $j$ receives there is $Q^C_{jt}$. (3) is (2) when $y_{ij}=1$, and
+$q_{ijt}=0$ when $y_{ij}=0$. (4) Fix a labelling $\lambda$. Intervals labelled in contribute $q_{iju}\le Q^C_{ju}$. On
+a maximal run $[a..b]$ of out intervals, the heat $i$ delivers to anybody is
+$r_{i,a-1}+H_i[a..b]-r_{ib}\le\mathrm{rc}_i(a-1)+H_i[a..b]$, and $\mathrm{rc}_i(a-1)$ is paid by the in-to-out
+transition at $a-1$ (or vanishes if $a=0$). So $\sum_tq_{ijt}\le\mathrm{cap}(\lambda)$, and $=0$ if $y_{ij}=0$.
+(5) $D_j[s..T]=\sum_i\sum_{s\le t\le T}q_{ijt}$, and the $i$-th inner sum is at most $D_j[s..T]$, at most the heat
+$i$ delivers in the window, $r_{i,s-1}+H_i[s..T]-r_{iT}\le\mathrm{rc}_i(s-1)+H_i[s..T]$, and zero if $y_{ij}=0$.
+(6) Decompose the flow along the chain of hot stream $i$ into amounts $g(a\to t)\ge0$, $a\le t$, of heat produced in
+$a$ and delivered in $t$ ($\sum_tg(a\to t)=Q^H_{ia}$, $\sum_ag(a\to t)=\sum_jq_{ijt}$, e.g.\ first in, first out),
+and split each delivery among the cold streams in proportion to $q_{ijt}$. Let $O_j$ be the heat produced in
+$[s..T]$ and delivered to $j$ inside $[s..T]$: $O_j\le\min(H_i[s..T],D_j[s..T])\,y_{ij}$. Heat produced in $[s..T]$
+and delivered after $T$ is part of $r_{iT}$, so $\sum_jO_j\ge H_i[s..T]-r_{iT}\ge H_i[s..T]-\mathrm{rc}_i(T)$.
+(7) With binary $y$, a knapsack row $\sum a_ey_e\ge b$, $a_e\ge0$, needs at least $p$ variables equal to one.
+Finally, pairs with $U_{ij}=0$ and variables with $u_{ijt}=0$ or $\mathrm{rc}_i(t)=0$ are omitted from the model;
+they are zero in every feasible network by (2) and (4).
+\end{proof}
+
+The minimum in (4) is computed by a two-state dynamic programme (\texttt{hen\_cuts.py}). It is the capacity of a
+minimum cut in the two-stream network source${}\to{}$hot$_u$ ($Q^H_{iu}$), hot$_u\to{}$hot$_{u+1}$
+($\mathrm{rc}_i(u)$), hot$_u\to{}$cold$_u$ ($\infty$), cold$_u\to{}$sink ($Q^C_{ju}$), but validity only uses the
+direct argument above.
+
+\subsection{The certified computation}
+
+The model of \zcref{prop:rows} for \inst{unbalanced10}, with objective $\sum y$ and the extra row
+\texttt{maxm}: $\sum y\le24$, is the CPLEX-LP file \texttt{certificates/vipr/unbalanced10\_le24.lp} (122 binary,
+816 + 147 continuous variables, 2453 rows of which 1247 are window and partner-count rows; exact decimal
+coefficients; SHA-256 \texttt{e3dcb597\ldots}). Its certification has five steps, each printing PASS or FAIL
+(\texttt{verify\_vipr.sh}):
+\begin{enumerate}
+\item the LP file is regenerated from the data by \texttt{hen\_lpfile.py} and must be byte-identical;
+\item \texttt{check\_lp\_model.py} re-derives every row and bound of the LP file from the data with separately
+written code (exact cascade recomputed from the data, $U_{ij}$ checked as the capacity of an explicitly
+reconstructed labelling, window coefficients, partner counts, the row \texttt{maxm}), checks that every omitted
+variable is forced to zero, and that the file has no other bounds or binaries;
+\item \texttt{check\_vipr\_model.py} checks that every constraint of the certificate's problem section equals, up to a
+positive factor, a row or a variable bound of the LP file, that every integer variable of the certificate is a
+binary of the LP file, and that the relation to prove is \texttt{infeas}; the certificate therefore proves the
+infeasibility of a relaxation of the LP-file MILP;
+\item \texttt{viprchk} (VIPR, commit 30f2951, with the two patches of \zcref{sec:checkers}) verifies the certificate in
+exact GMP rational arithmetic, on the raw file and on the output of \texttt{viprcomp};
+\item \texttt{vipr\_check\_independent.py}, a second checker written from the format specification
+\autocite{CheungGleixnerSteffy2017,VIPRtools} without using \texttt{viprchk}'s code, verifies the same file.
+\end{enumerate}
+
+The certificate was produced by SCIP 10.0.2 with SoPlex 8.0.2 \autocite{SCIP1002,EiflerGleixner2023}, built from
+source with exact rational solving, run with \texttt{exact/enable = TRUE}, presolving, cutting planes and conflict
+analysis switched off (\texttt{certificates/vipr/scip\_exact\_safe.set}), single thread. SCIP reports
+infeasibility after 10\,233 nodes (5\,117 infeasible leaves, maximal depth 32; 287\,s on an idle machine, 553\,s
+with other jobs running). The certificate (VIPR 1.0 syntax) has 540\,587\,890 bytes and SHA-256
+\begin{center}\small\texttt{17967e67e607271c2fc60fc77a185da2badcbb84459d7deaeaddd5a4601ec352};\end{center} it has 1\,085 variables (122 integer), 4\,623 problem constraints
+(2\,453 rows and 2\,170 variable bounds) and 191\,697 derivation steps: 10\,232 assumptions, 170\,552 linear
+combinations (14.8 million multipliers in all), 5\,797 roundings and 5\,116 unsplitting (branching) steps; there is no
+``weak'' or ``incomplete'' step. It is not stored in the repository: \texttt{run\_vipr\_certificate.sh} regenerates it
+(the same 10\,233 nodes were obtained on 24 and 25 October with two different builds); its size and hash, the solver
+log and the verification log are in \texttt{certificates/vipr/}.
+
+\begin{center}\small
+\begin{tabular}{llr}
+\toprule
+step & check & result \\
+\midrule
+1 & LP file regenerated from the data, byte-identical & PASS \\
+2 & every row and bound re-derived from the data & PASS \\
+3 & certificate problem $\subseteq$ LP model, RTP \texttt{infeas} & PASS \\
+4a & patched \texttt{viprchk}, raw certificate & PASS (68\,s) \\
+4b & \texttt{viprcomp}, then patched \texttt{viprchk} & PASS (64\,s) \\
+5 & \texttt{vipr\_check\_independent.py} & PASS (199\,s) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The whole of \texttt{verify\_vipr.sh} took 7\,min\,40\,s. The certificate is also accepted by the unpatched
+\texttt{viprchk} and by the build with the canonicalisation patch only, so it uses neither of the patterns of
+\zcref{sec:checkers}. As negative tests, \texttt{vipr\_mutation\_tests.sh} changes the certificate in four places
+(right-hand side of $\sum y\le24$ replaced by 25, so that the problem becomes feasible; one multiplier changed; the
+two assumptions of an unsplitting step swapped; a rounding step claiming $y\ge2$); both checkers reject each of the
+four corrupted files. Together with the 25-match network of \zcref{sec:ub} this proves \inst{unbalanced10}${}=25$.
+
+\paragraph{Trusted base.} The proofs of \zcref{lem:rc,prop:rows}; \texttt{check\_lp\_model.py} and
+\texttt{check\_vipr\_model.py}; and either \texttt{viprchk} with its patches and GMP, or the second checker
+(Python with gmpy2); the C++ and Python tool chains. SCIP, SoPlex, \texttt{viprcomp} and
+the LP generator are not trusted.
+
+\section{Checking the checkers}\label{sec:checkers}
+
+\paragraph{Two gaps in VIPR's reference checker.} Reading \texttt{viprchk.cpp} (commit 30f2951; the current master,
+commit 99eec19 of 24 October 2026, has the same code) we found two inference rules that are checked too weakly:
+\begin{enumerate}
+\item a rounding step (\texttt{rnd}) requires integer coefficients on the integer variables but does not reject
+nonzero coefficients on continuous variables, although Chv\'atal--Gomory rounding is only valid when the whole
+support is integer;
+\item an unsplitting step (\texttt{uns}) checks that the two branching constraints are $ax\le\beta$ and
+$ax\ge\beta+1$ with $a$ integral on integer variables, but not that $\beta$ is an integer; for fractional $\beta$
+the disjunction misses integer points.
+\end{enumerate}
+The certificates \texttt{certificates/vipr/viprchk\_tests/bad\_rnd\_continuous.vipr} (``proves'' that
+$x\ge\frac12$, $x\le\frac12$, $x$ continuous, is infeasible) and \texttt{bad\_uns\_fractional.vipr} (``proves'' that
+$x\ge1$, $x\le1$, $x$ integer, is infeasible by branching on $x\le\frac12\mid x\ge\frac32$) are accepted by the
+unpatched \texttt{viprchk}. The patch \texttt{certificates/viprchk\_harden.patch} adds both checks, and also bounds
+checks on constraint indices (the original performs them only in debug builds); the patched checker and
+\texttt{vipr\_check\_independent.py} reject both test certificates, and still accept the example certificates of the VIPR distribution that the original accepts. The
+hardening patch only adds rejections.
+
+\paragraph{Canonicalisation patch.} GMP's C++ stream input does not canonicalise rationals (``5/5'' is stored as
+5/5, and GMP's equality test assumes canonical operands), while SCIP prints non-canonical fractions. The patch
+\texttt{certificates/viprchk\_canonicalize.patch} canonicalises every rational after it is read (four places);
+canonicalisation does not change any value.
+
+\paragraph{Earlier SCIP certificates that failed.} With cutting planes at all nodes, or at the root only, SCIP
+10.0.2 wrote Gomory mixed-integer cut derivations that \texttt{viprcomp} and \texttt{viprchk} could not complete
+and verify (``Failed to derive constraint \ldots{}\_gom\ldots''). With conflict analysis on, a certificate of 2.19\,GB
+contained 9\,828 ``weak'' conflict rows such as \texttt{AggrRow\_5376}, which claims that 116 of the 122 variables
+sum to at most 18, derived from $\sum y\le24$ with the instruction to complete it with \emph{global} bounds; the row is
+valid only under the local fixings of the six missing variables to one, so the derivation as written is wrong and the
+verification failed at that row. We therefore use no cutting planes and no conflict analysis; with these settings
+the certificate contains no weak derivation at all.
+
+\paragraph{Floating-point pitfalls.} The 36-match network returned by floating-point SCIP for \inst{37sp-yfyv} is
+infeasible in exact arithmetic (deficit exactly 0.1 heat units), and every one of the six match lists of the 2018
+repository for this instance needs 37 pairs exactly after exact pruning (\texttt{side\_findings.py}); an exact
+36-match network exists nonetheless (two spanning trees on a 2-block partition, \zcref{lem:structure}). The solution
+writer of the 2018 code prints $y=1$ for every $y>10^{-10}$, so its match lists may contain pairs that carry
+negligible heat; we always recompute flows exactly.
+
+\section{Novelty, other instances, limitations}
+
+\paragraph{Novelty check (25 October 2026).} The 13 works citing \textcite{LKM2018} in OpenAlex (and the 11 in
+Semantic Scholar) were screened by title and abstract; the doctoral thesis of \textcite{Kouyialis2019} contains the
+2018 study with the same values, and the survey \textcite{Letsios2020} reports no new values. The repositories of the
+2018 study have no commit after February 2019; a GitHub search on the instance names and key phrases found only
+those repositories and a student replication without bound tables; the AI-driven campaigns listed in the protocol of
+this repository (GitHub users \texttt{ipitchford} and \texttt{mmislan}) have no heat-exchanger-network entry. To our
+knowledge, none of the four optimal values had been proved before. \textcite{FurmanSahinidis2004} (read in full)
+report CPLEX~7.0 values 19, 25, 23 and 36 for \inst{20sp1}, \inst{22sp1}, \inst{23sp1} and \inst{37sp-yfyv}, all
+marked as not converged after 7\,h, and give no lower bounds; the value 22 for \inst{23sp1} is below the best value
+reported there and in 2018 (23). \textcite{CerdaCafaro2022} (read in full) treat a different problem (detailed network
+structures with stream splitting, 45 literature examples) and report no value for the data files used here.
+\textcite{ChenGrossmannMiller2015}, the origin of the balanced and unbalanced instances, was not read in full.
+
+\paragraph{Other instances.} We also tried the strengthened model on the open instances with the smallest gaps.
+Floating-point SCIP 10.0.2 with its default settings (cutting planes on), 1800\,s per run, did not decide
+$\sum y\le35$ for \inst{unbalanced15} (final dual bound 33.9), $\sum y\le24$ for \inst{22sp1} (21.5), or
+$\sum y\le27$ for \inst{balanced12}, \inst{\_random0} and \inst{\_random2} ($\le28$ for \inst{\_random1}; dual
+bounds 24.7--25.0). Without cutting planes, as required here for a
+verifiable certificate, the root LP bounds of the strengthened model are 28.9 for \inst{unbalanced15} (36 needed),
+18.2 for \inst{22sp1} (25 needed) and 22.2 for \inst{balanced12} (28 needed), against 21.1 (25 needed) for
+\inst{unbalanced10}, which already took 10\,233 nodes; we did not run the certified pipeline on them. These
+statements are exploration, not claims.
+
+\paragraph{Limitations.} The data files are taken as given (decimal numbers read as exact); the underlying stream
+temperatures and the minimum utility cost step were not re-derived. The lower bound for \inst{unbalanced10} rests on
+software (\texttt{viprchk} or our second checker) and on the model-match scripts; it has not been re-checked by an
+independent verifier yet.
+
+\section{Reproduction}
+
+All scripts are in \texttt{scripts/} and print PASS/FAIL; times are wall-clock on WSL2 (Fedora 44), one core of a
+desktop CPU.
+\begin{center}\footnotesize
+\begin{tabular}{@{}lll@{}}
+\toprule
+script & checks & time \\
+\midrule
+\texttt{check\_solutions.py} & 22 networks, exact & 2\,s \\
+\texttt{check\_network\_lkm18.py} & 22 networks as points of the 2018 MILP & 2\,s \\
+\texttt{run\_block\_bounds.sh} & \zcref{lem:block} bounds, exact enumeration & 41\,s \\
+\texttt{side\_findings.py} & floating-point findings for \inst{37sp-yfyv} & 17\,s \\
+\texttt{run\_vipr\_certificate.sh} & produces the certificate (exact SCIP) & 5--10\,min \\
+\texttt{verify\_vipr.sh} & steps 1--5 of \zcref{sec:vipr} & 7.7\,min \\
+\texttt{vipr\_mutation\_tests.sh} & four corrupted certificates rejected & 6\,min \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paperreferences
+\end{document}

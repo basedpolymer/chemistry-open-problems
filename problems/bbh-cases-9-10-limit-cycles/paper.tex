@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{No Andronov--Hopf bifurcation, no periodic orbit: cases~9 and~10 of Banaji--Boros--Hofbauer}
 \newcommand*{\PaperTitlePlain}{No Andronov-Hopf bifurcation, no periodic orbit: cases 9 and 10 of Banaji-Boros-Hofbauer}
 \newcommand*{\PaperShortTitle}{BBH cases 9 and 10}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 24 October 2026 \textperiodcentered{} preliminary (draft by the solver, not compiled)}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort not recorded) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 24 October 2026 \textperiodcentered{} independently verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), 24 Oct 2026 \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 25 October 2026 (confirmed with corrections)}
 \newcommand*{\PaperKeywords}{mass-action kinetics, limit cycles, Li\'enard systems, Andronov--Hopf bifurcation, quadratic systems}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -22,8 +22,9 @@
 
 \begin{paperabstract}
 Banaji, Boros and Hofbauer classified the two-species, three-reaction mass-action networks with at most bimolecular
-sources that admit an Andronov--Hopf bifurcation. The two configurations that do are cases~9 and~10, with source
-complexes \(2X, X+Y, Y\) and \(2X, X+Y, 0\) and arbitrary targets. They asked whether the networks of these cases that
+sources that admit an Andronov--Hopf bifurcation. Apart from the vertical (degenerate) bifurcation of their case~8,
+such networks occur only in cases~9 and~10, with source complexes \(2X, X+Y, Y\) and \(2X, X+Y, 0\) and arbitrary
+targets. They asked whether the networks of these cases that
 admit no Andronov--Hopf bifurcation can nevertheless have a limit cycle. We show that they cannot: for every such
 network and every choice of rate constants, the mass-action system has no periodic orbit in the closed positive
 quadrant. Hence, granting their supercriticality computation, a network of case~9 or~10 has a limit cycle for some
@@ -37,8 +38,11 @@ rate constants, which we prove in closed form.
 
 Banaji, Boros and Hofbauer~\autocite{BBH2024} (BBH) list the ten configurations of three non-collinear, at most
 bimolecular source complexes on two species. Their Theorem~9 (arXiv numbering; Theorem~3 of the published version,
-with identical text) decides, for each configuration, which networks admit an Andronov--Hopf bifurcation. Only
-cases~9 (\(2X, X+Y, Y\)) and~10 (\(2X, X+Y, 0\)) contain such networks. In their Conclusions (§6) they write:
+with identical text) decides, for each configuration, which networks admit an Andronov--Hopf bifurcation. Apart from case~8, where the
+bifurcation is vertical (a centre at the critical parameter), only cases~9 (\(2X, X+Y, Y\)) and~10 (\(2X, X+Y, 0\))
+contain such networks, and there the bifurcation is supercritical. Lemma and theorem numbers of~\autocite{BBH2024}
+refer to arXiv v1 throughout; in the published version arXiv Lemmas~2, 3, 4 are Lemmas~1, 2, 3 and Theorem~9 is
+Theorem~3. In their Conclusions (§6) they write:
 
 \begin{openquote}
 ``However, we leave it open whether the networks in cases 9 and 10 admitting no Andronov--Hopf bifurcations can have
@@ -52,7 +56,8 @@ The example was settled in~\autocite{Result2} with a Dulac function. Here we set
 Let \(\mathcal N\) be a three-reaction mass-action network on two species whose sources are \(2X, X+Y, Y\) (case~9)
 or \(2X, X+Y, 0\) (case~10), with arbitrary target complexes. If \(\mathcal N\) does not satisfy the Andronov--Hopf
 condition of~\autocite[Theorem~9]{BBH2024}, then for every \(\kappa\in\R^3_{>0}\) its mass-action system has no
-periodic orbit in \(\R^2_{\ge0}\). In particular it has no limit cycle.
+periodic orbit in \(\R^2_{\ge0}\). In particular it has no limit cycle. The same holds after exchanging \(X\) and
+\(Y\) (BBH list the cases up to this exchange).
 \end{theorem}
 
 \begin{corollary}\label{cor:B}
@@ -66,7 +71,8 @@ statements are equivalent.
 \section{Setting}
 
 Following~\autocite[(13)--(18)]{BBH2024}, reaction \(i\) is \(a_iX+b_iY\to(a_i+c_i)X+(b_i+d_i)Y\), with integer
-\((c_i,d_i)\neq0\) and nonnegative target. The rate laws are \(\kappa_i m_i\), where
+\((c_i,d_i)\neq0\) and nonnegative target; \(\Gamma\) is the \(2\times3\) stoichiometric matrix with rows
+\(c=(c_1,c_2,c_3)\) and \(d=(d_1,d_2,d_3)\). The rate laws are \(\kappa_i m_i\), where
 \(m=(x^2,xy,y)\) in case~9 and \(m=(x^2,xy,1)\) in case~10. The admissible ranges are \(c_1\ge-2\), \(d_1\ge0\),
 \(c_2,d_2\ge-1\), \(c_3\ge0\), and \(d_3\ge-1\) (case~9) or \(d_3\ge0\) (case~10). Let \(u=c\times d\) and
 \(A:=c_1u_1-c_3u_3\). This \(A\) is a number, not to be confused with the function \(A(x)\) of §3.
@@ -133,7 +139,7 @@ Case~9. Suppose \(c_2\ge0\). Then \(u_3>0\) gives \(d_2\ge1\), and \(u_1>0\) giv
 \(u>0\), so \(c_2=-1\). Then \(u_3>0\) reads \(d_2/c_2<d_1/c_1\). If \(c_3>0\), \(A>0\) reads
 \(\tfrac12(d_3/c_3+d_1/c_1)<d_2/c_2\). If \(c_3=0\), \(u_2>0\) gives \(d_3=-1\).
 
-Case~10. Some \(d_i<0\) is needed, so \(d_2=-1\). Then \(u_3>0\) forces \(c_2=-1\), and \(u_1>0\) gives
+Case~10. Since \(u>0\), \(\sum_id_iu_i=0\) and \(d\neq0\), some \(d_i<0\); as \(d_1,d_3\ge0\), \(d_2=-1\). Then \(u_3>0\) forces \(c_2=-1\), and \(u_1>0\) gives
 \(c_3>d_3\ge0\). Conclude as in case~9.
 \end{proof}
 
@@ -180,7 +186,8 @@ By (F3) the system reads
 with
 \begin{itemize}
 \item case~9: \(A=\alpha_1x^2\), \(B=\alpha_3-\alpha_2x\), \(C=\beta_1x^2\), \(D=\beta_3-\beta_2x\);
-\item case~10: \(A=\alpha_1x^2+\alpha_3\), \(B=-\alpha_2x\), \(C=\beta_1x^2+\beta_3\), \(D=-\alpha_2x\).
+\item case~10: \(A=\alpha_1x^2+\alpha_3\), \(B=-\alpha_2x\), \(C=\beta_1x^2+\beta_3\), \(D=-\alpha_2x\) (in 10a
+  \(d_2=-1\), so \(\beta_2=u_2=\alpha_2\)).
 \end{itemize}
 
 One checks:
@@ -225,7 +232,7 @@ Hence \(\Delta>0\) near \(Y_-\) and \(\Delta<0\) near \(Y_+\). At the first zero
 \(\Delta'(Y^*)=F(X_L)-F(X_R)>0\), a contradiction.
 \end{proof}
 
-Since \(F(a)-F(b)=[N(a)-N(b)]+\rho[\psi(b)-\psi(a)]\) and the second bracket is positive, the hypothesis of
+Since \(F(a)-F(b)=[N(a)-N(b)]+\rho[\psi(b)-\psi(a)]\) and the second bracket is positive for \(a<b\) (because \(D/B>0\) on \(I\)), the hypothesis of
 \zcref{lem:comparison} holds for \emph{all}~\(\rho\) once
 \begin{equation}\label{eq:star}
 N(a)\ge N(b)\quad\text{whenever } a<1<b \text{ in } I \text{ and } \Gt(a)=\Gt(b).
@@ -298,6 +305,15 @@ In the subfamily of~\autocite{Result2} (9a with \(d_3=0\)), \(k\ge1\) is \(d_1\g
   integrations of random family members, finds the cycles of Hopf networks past the bifurcation, and checks the
   hypothesis of \zcref{lem:comparison} by quadrature.
 \end{itemize}
+The independent verifier's scripts (\texttt{verification/}) were written from the source paper before the solver's
+scripts were read. \texttt{classify\_independent.py} re-derives the set of non-Hopf networks with \(u>0\) from the
+trace formula \(\Trop J=\mu(P/\bar x+Q/\bar y)\) and finds the same classes, with identical counts, in the box of
+targets at most~20. \texttt{verify\_symbolic.py} rechecks every identity of this paper on the raw parameters of each
+family, and proves the key inequality of \zcref{lem:case9} through the factorisation
+\(P'(a)=-(a+k)^2\bigl((a-1)^2+k^2-1\bigr)/a^3\). \texttt{verify\_numeric.py} (floating point, not a proof) scans the
+return map on the section \(\{x=1,\ y>1\}\) of the normalised system for 29~family members, including
+members with \(k=1\), and for \(\rho\in[10^{-4},10^3\,]\). It finds no zero of the displacement, while the same detector
+finds the stable cycle of five Hopf networks just past the bifurcation.
 
 \paperreferences
 \end{document}

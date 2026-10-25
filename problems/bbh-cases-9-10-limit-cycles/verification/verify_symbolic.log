@@ -1,0 +1,56 @@
+PASS V1 case 9: normalised system X' = sum c_i u_i m_i, Y' = rho sum d_i u_i m_i, rho = xbar/ybar
+PASS V1 case 10: normalised system X' = sum c_i u_i m_i, Y' = rho sum d_i u_i m_i, rho = xbar/ybar
+PASS V2 case 9: x^2 y^2 div(F/(xy)) = c1*kappa1*x**2*y - c3*kappa3*y**2 - d1*kappa1*x**3
+PASS V2 case 10: x^2 y^2 div(F/(xy)) = c1*kappa1*x**2*y - c3*kappa3*y - d1*kappa1*x**3 - d3*kappa3*x
+PASS V2 LVA type: div(F/(xy)) = c1 kappa1 / y
+PASS V3 9a: alpha2 = alpha1 + alpha3, beta2 = beta1 + beta3
+PASS V3 9a: xdot = A + B y, ydot/rho = C + D y
+PASS V3 9a: BC - AD = u1u2u3 * x^2(1-x)
+PASS V3 9a: N(1) = 1
+PASS V3 9a: N'(1) = (alpha1-alpha3)/alpha1
+PASS V3 9a: D(x0) = -u1 u3 with x0 = alpha3/alpha2
+PASS V4 9a: xdot/B = Y - F, Ydot/B = -g  (Y = y - N + F, f = N' - rho D/B, g = -rho(BC-AD)/B^2)
+PASS V4 9a: f(1) = -tr J(1,1)/B(1)
+PASS V3 9b: alpha2 = alpha1 + alpha3, beta2 = beta1 + beta3
+PASS V3 9b: xdot = A + B y, ydot/rho = C + D y
+PASS V3 9b: BC - AD = u1u2u3 * x^2(1-x)
+PASS V3 9b: N(1) = 1
+PASS V3 9b: N'(1) = (alpha1-alpha3)/alpha1
+PASS V3 9b: D(x0) = -u1 u3 with x0 = alpha3/alpha2
+PASS V4 9b: xdot/B = Y - F, Ydot/B = -g  (Y = y - N + F, f = N' - rho D/B, g = -rho(BC-AD)/B^2)
+PASS V4 9b: f(1) = -tr J(1,1)/B(1)
+PASS V3 9(c2=-1, d2 free): alpha2 = alpha1 + alpha3, beta2 = beta1 + beta3
+PASS V3 9(c2=-1, d2 free): xdot = A + B y, ydot/rho = C + D y
+PASS V3 9(c2=-1, d2 free): BC - AD = u1u2u3 * x^2(1-x)
+PASS V3 9(c2=-1, d2 free): N(1) = 1
+PASS V3 9(c2=-1, d2 free): N'(1) = (alpha1-alpha3)/alpha1
+PASS V3 9(c2=-1, d2 free): D(x0) = -u1 u3 with x0 = alpha3/alpha2
+PASS V4 9(c2=-1, d2 free): xdot/B = Y - F, Ydot/B = -g  (Y = y - N + F, f = N' - rho D/B, g = -rho(BC-AD)/B^2)
+PASS V4 9(c2=-1, d2 free): f(1) = -tr J(1,1)/B(1)
+PASS V3 10a: alpha2 = alpha1 + alpha3, beta2 = beta1 + beta3
+PASS V3 10a: xdot = A + B y, ydot/rho = C + D y
+PASS V3 10a: BC - AD = u1u2u3 * x(1-x^2)
+PASS V3 10a: N(1) = 1
+PASS V3 10a: N'(1) = (alpha1-alpha3)/alpha2
+PASS V3 10a: D/B = beta2/alpha2 (= 1 when d2 = -1)
+PASS V4 10a: xdot/B = Y - F, Ydot/B = -g  (Y = y - N + F, f = N' - rho D/B, g = -rho(BC-AD)/B^2)
+PASS V4 10a: f(1) = -tr J(1,1)/B(1)
+PASS V5 9a: x = (eta+k)/(1+k), k = alpha3/alpha1, maps eta = 0 to x0 and eta = 1 to x = 1
+PASS V5 9a: N = (eta+k)^2/((1+k)^2 eta)
+PASS V5 9a: (g/rho) dx = K (eta+k)^2 (eta-1)/eta^2 deta, K = u1u2u3/(alpha1^2 (1+k)^4) > 0
+PASS V5 9b: x = (eta+k)/(1+k), k = alpha3/alpha1, maps eta = 0 to x0 and eta = 1 to x = 1
+PASS V5 9b: N = (eta+k)^2/((1+k)^2 eta)
+PASS V5 9b: (g/rho) dx = K (eta+k)^2 (eta-1)/eta^2 deta, K = u1u2u3/(alpha1^2 (1+k)^4) > 0
+PASS V6 H_k' = (eta+k)^2(eta-1)/eta^2, H_k(1) = 0 (primitive as printed)
+PASS V6 P'(a) = -(a+k)^2((a-1)^2 + k^2 - 1)/a^3 < 0 for 0 < a < 1, k >= 1
+PASS V6 P(1) = H_k(k^2) (>= 0 as k^2 >= 1 and H_k increasing on [1, oo))
+PASS V6 N(a) - N(b) = (a-b)(1-k^2/(ab))/(1+k)^2
+PASS V7 10a: g/rho = (u1u3/u2) h'(x), h = x^2/2 - log x
+PASS V7 h(1/t) - h(t): zero at t = 1, derivative -(1-t^2)^2/t^3
+PASS V7 N(a) - N(b) = (a-b)(alpha1 - alpha3/(ab))/alpha2
+PASS V7 Remark 2: F(a) - F(b) = (b-a)[rho - (alpha1 - alpha3/(ab))/alpha2]
+PASS V7 Remark 2: tr J(1,1) = alpha2 (N'(1) - rho)
+PASS V8 P(a) > 0 at 400 random rational (k >= 1, 0 < a < 1), 50 digits (illustration)
+PASS V8 k = 1: P(1) = 0 (the inequality is tight only at a = 1)
+ALL PASS
+wall 14.32 s

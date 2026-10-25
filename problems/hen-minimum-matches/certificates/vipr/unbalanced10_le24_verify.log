@@ -1,0 +1,17 @@
+certificate: 540587890 bytes, sha256 17967e67e607271c2fc60fc77a185da2badcbb84459d7deaeaddd5a4601ec352
+PASS 1: LP file regenerated identically (sha256 e3dcb597ae2995eabd8c408eb573ea54f01fb7dd5d7d8c24bc28536fe4341511)
+step 2: PASS: every row/bound of the LP file re-derived exactly from the instance data
+step 3: PASS: certificate problem = relaxation of the LP-file MILP (every constraint matched exactly)
+step 4a viprchk (raw certificate): Successfully verified infeasibility.
+step 4a viprchk (raw certificate): Completed in 68.1598 seconds (CPU)
+PASS 4a: raw certificate verified (infeasible)
+step 4b viprchk (after viprcomp): Successfully verified infeasibility.
+step 4b viprchk (after viprcomp): Completed in 64.2539 seconds (CPU)
+PASS 4b: completed certificate verified (infeasible)
+step 5: certificate unbalanced10_le24.vipr: VER 1.0, 1085 variables (122 integer), 4623 problem constraints, 191697 of 191697 derivations checked ({'asm': 10232, 'lin': 170552, 'rnd': 5797, 'uns': 5116}), 14796916 multipliers, 199 s
+step 5: PASS: falsehood derived without assumptions: the certificate's problem is infeasible
+ALL PASS: no feasible network of unbalanced10 with <= 24 matches
+
+real	7m40.380s
+user	3m59.178s
+sys	0m6.565s

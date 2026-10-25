@@ -1,0 +1,6 @@
+22sp1_le24_float: SCIP Status : solving was interrupted [time limit reached];Solving Time (sec) : 1800.04;Solving Nodes : 74529;Dual Bound : +2.14748520170997e+01;
+balanced12_le27_float: SCIP Status : solving was interrupted [time limit reached];Solving Time (sec) : 1800.00;Solving Nodes : 1897;Dual Bound : +2.47967727329758e+01;
+balanced12_random0_le27_float: SCIP Status : solving was interrupted [time limit reached];Solving Time (sec) : 1800.00;Solving Nodes : 795;Dual Bound : +2.46908859985286e+01;
+balanced12_random1_le28_float: SCIP Status : solving was interrupted [time limit reached];Solving Time (sec) : 1800.01;Solving Nodes : 1864;Dual Bound : +2.50123712725119e+01;
+balanced12_random2_le27_float: SCIP Status : solving was interrupted [time limit reached];Solving Time (sec) : 1800.01;Solving Nodes : 1936;Dual Bound : +2.48007611310631e+01;
+unbalanced15_le35_float: SCIP Status : solving was interrupted [time limit reached];Solving Time (sec) : 1800.00;Solving Nodes : 138;Dual Bound : +3.39187228397365e+01;

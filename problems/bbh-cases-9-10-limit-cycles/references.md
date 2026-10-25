@@ -55,3 +55,30 @@ Lienard + "mass-action", the arXiv id and the DOI. Free-text queries returned on
 
 **Conclusion: no prior answer to the general question was found.** The example and one subfamily were answered in
 this repository on 18 Oct 2026 (result 2). The general answer here appears to be new.
+
+## Novelty re-check by the independent verifier (25 Oct 2026)
+
+- **Sources re-read.** arXiv:2304.02303v1 downloaded and read (pp. 1–22; Theorem 9 and its proof checked on rendered
+  page images, pp. 14–16). Published version: Europe PMC full-text XML of PMC10953466. The §6 sentence is identical,
+  and the numbering map (arXiv Lemmas 2, 3, 4 = published Lemmas 1, 2, 3; Theorem 9 = Theorem 3) was confirmed from
+  matching sentences.
+- **Citing works.** OpenAlex (W4386927497) lists 10 records and Semantic Scholar (DOI query) 12, the newest being
+  arXiv 2610.06130 (5 Oct 2026). The verifier grepped the full texts of 2406.13451, 2409.06877 and 2610.06130 for
+  "three-reaction", "case 9/10" and "leave it open". The only hit is 2406.13451 (BBH, Nonlinear Dyn. 2024), which
+  places 89 and 10 of its 104 Hopf networks in cases 9 and 10. None of the three addresses non-Hopf networks.
+- **Authors.** The newest relevant arXiv items are still Banaji 2609.07265 (7 Sep 2026); no new paper by Boros or
+  Hofbauer. `balazsboros/reaction_networks`: last commit 30 Sep 2026; `3reactions/` holds only the focal-value
+  notebook.
+- **AI campaigns.**
+  - `ipitchford` (Evidence Press): 193 repositories listed. READMEs of all 149 pushed since 1 Sep 2026 were grepped
+    for Banaji, Boros, Hofbauer, "three-reaction", the arXiv id, the DOI and "Andronov", with no hit.
+  - `mmislan` (Palomar): 27 repositories. All READMEs were grepped with the same terms, with no hit.
+    `palomar-lienard-limit-cycles` (22 Oct 2026) is about classical Liénard lower bounds and is unrelated.
+- **Zenodo** (required-term queries): no relevant record. Queries: "Hofbauer" AND "Banaji"; "three-reaction";
+  "Andronov-Hopf" AND "mass-action"; "limit cycle" AND "mass-action"; (Lienard OR Liénard) AND "mass-action";
+  "Boros" AND "limit cycle". "quadratic mass-action" returned two unrelated records (equilibrium counts;
+  Yeung–Erban line-type configurations, 24 Oct 2026).
+- **GitHub code search** for `sapm.12639` and `2304.02303`: only this repository, the authors' repository and
+  unrelated data files.
+- **Web search.** Two searches on the key phrases found only the BBH papers themselves.
+- **Conclusion: unchanged.** No prior answer to the general question was found.
