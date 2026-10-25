@@ -1,0 +1,11 @@
+COMMAND: ['python3', 'check_splice_lemma.py']
+PASS (L1) Kf of a splice, 60 random instances
+PASS (L2) Delta_G(v) = delta_B(v) - M rho_B(v) + T, 195 random deletions
+PASS (C1) k-copy formula Delta = delta + (k-1)a - M0 rho + T0, 72 deletions
+PASS (E1) Kf(C5) = 10, Rt_C5(x) = 4
+PASS (E1) neighbours of the root: delta = 0, rho = 2, a = -4
+PASS (E1) non-neighbours of the root: delta = 0, rho = 0, a = 4
+PASS (E2) L=3, k=1: n=8, good vertices = the 2k neighbours of x (proportion 1/4)
+PASS (E2) L=8, k=6: n=33, good vertices = the 2k neighbours of x (proportion 4/11)
+PASS (E2) L=11, k=12: n=60, good vertices = the 2k neighbours of x (proportion 2/5)
+summary: 9 PASS, 0 FAIL

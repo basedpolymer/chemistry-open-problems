@@ -1,0 +1,3 @@
+COMMAND: ['bash', '-o', 'pipefail', '-c', 'geng -c -q 7 | ./gadgetbound 2 3']
+graphs=853 roots=5971 classes_with_eff_above_2/3=0 classes_with_eff_equal=5
+max eff among classes with 3g > 2m: 0.072464 at F^~~w x=0 g=5 m=6

@@ -103,20 +103,31 @@ for bb in range(2, 401):
                 ok4 = False
                 print('   integer root', r, bb)
     if bb >= 3:
-        rts = [float(r) for r in sp.Poly(pa).real_roots() if float(r) > 1.5]
+        rts = [r for r in pa.real_roots() if r > sp.Rational(3, 2)]
         if len(rts) != 1:
             ok3 = False
             print('   b =', bb, 'real roots > 1.5:', rts)
             continue
         r0 = rts[0]
-        lo, hi = int(r0 // 1), int(r0 // 1) + 1
+        lo = int(sp.floor(r0))
+        hi = lo + 1
         dlo = Delta.subs({a: lo, b: bb})
         dhi = Delta.subs({a: hi, b: bb})
         if not (sp.sign(dlo) * sp.sign(dhi) < 0):
             ok3 = False
-        ratios[bb] = r0 / bb ** 3
+        ratios[bb] = float(r0) / bb ** 3
 C.check(ok3, '(S3) for 3 <= b <= 400: one real root a*(b) > 1.5 of P(., b), and Delta changes sign between floor and ceil')
 C.check(ok4, '(S4) no integer a >= 2 with P(a, b) = 0 for 2 <= b <= 400')
 print('   a*(b)/b^3:', ', '.join('b=%d: %.6f' % (bb, ratios[bb]) for bb in (3, 10, 50, 100, 200, 400)))
-C.check(abs(ratios[400] - 0.5) < 0.01, '(S5) a*(b)/b^3 -> 1/2 (value at b = 400: %.6f)' % ratios[400])
+# With u=1/b and z=a/b^3, the polynomial below is u^18 P(z/u^3,1/u).
+# Its simple zero at (z,u)=(1/2,0) yields a real analytic zero branch
+# z(u) -> 1/2 by the implicit function theorem. Finite samples do not prove a limit.
+z, u = sp.symbols('z u')
+weight = max(3*ia+ib for (ia, ib), coeff in P.terms())
+scaled = sp.Poly(sum(coeff*z**ia*u**(weight-3*ia-ib)
+                     for (ia, ib), coeff in P.terms()), z, u).as_expr()
+limit = sp.expand(scaled.subs(u, 0))
+simple = sp.diff(limit, z).subs(z, sp.Rational(1, 2))
+C.check(weight == 18 and sp.expand(limit-z**4*(2*z-1)) == 0 and simple == sp.Rational(1, 8),
+        '(S5) u^18 P(z/u^3,1/u) at u=0 equals z^4(2z-1), derivative 1/8 at z=1/2; a real zero branch has a/b^3 -> 1/2')
 C.finish()

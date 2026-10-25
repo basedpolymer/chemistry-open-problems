@@ -1,10 +1,9 @@
 # Banaji–Boros–Hofbauer: further bimolecular (2, 4, 2) networks with two stable equilibria?
 
-**Status: solved (preliminary). Complete proof, partly computer-assisted with exact arithmetic; not yet
-verified.**
+**Status: solved. Complete proof, partly computer-assisted with exact arithmetic; verified; see [verification.md](verification.md).**
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), 25 Oct 2026, covering the novelty check, proof, scripts
-and manuscript. Verification: pending.
+and manuscript. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md).
 
 ## Problem
 

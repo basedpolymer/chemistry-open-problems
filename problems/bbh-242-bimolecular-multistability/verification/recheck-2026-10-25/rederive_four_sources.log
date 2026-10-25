@@ -1,0 +1,4 @@
+PASS: 27195 rank-two networks from all 30 choose 4 reaction sets
+PASS: 838 nontrivial four-source classes from positive circuits
+PASS: 9 constant families, 30 simple-fold classes; Q*N never changes sign on (0,1)
+ALL PASS

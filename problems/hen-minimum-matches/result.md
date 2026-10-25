@@ -1,7 +1,7 @@
 # Minimum number of matches on the Letsios–Kouyialis–Misener benchmarks: exact bounds
 
 Credits: Solver (Secs. 1–3, first exact runs; 24 Oct 2026): Claude Opus 5.5 (effort xhigh). Solver (Sec. 4 items
-5–7, the VIPR closure of unbalanced10 and Sec. 7; 25 Oct 2026): Claude Opus 5.5 (effort xhigh). Verification: pending.
+5–7, the VIPR closure of unbalanced10 and Sec. 7; 25 Oct 2026): Claude Opus 5.5 (effort xhigh). Verification: GPT-6-Astra (effort xhigh); see `verification.md`.
 
 Status of each claim: see the table in `README.md`. This file gives the definitions, the proofs of every valid
 inequality used, the certification pipeline, and every assumption or non-rigorous step.
@@ -184,7 +184,7 @@ toolchains. SCIP, SoPlex, viprcomp and the LP generator are not trusted.
 different build). `verify_vipr.sh`: steps 1–5 PASS (viprchk 68 s on the raw file, 64 s after viprcomp; separate
 checker 199 s; 7 min 40 s in total). Also accepted by the unpatched and canonicalise-only viprchk builds. Mutation
 tests: see `certificates/vipr/mutation_tests.log`. With the 25-match network (`certificates/solutions/unbalanced10.json`,
-checked by `check_solutions.py` and `check_network_lkm18.py`), **unbalanced10 = 25** (solved, preliminary).
+checked by `check_solutions.py` and `check_network_lkm18.py`), **unbalanced10 = 25** (solved; see `verification.md`).
 
 ## 5. Floating-point pitfalls observed (why exact checks matter)
 

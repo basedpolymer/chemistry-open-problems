@@ -1,0 +1,47 @@
+[
+  {
+    "name": "networks",
+    "command": [
+      "python3",
+      "networks.py"
+    ],
+    "returncode": 0,
+    "seconds": 1.09
+  },
+  {
+    "name": "positive_equilibria",
+    "command": [
+      "python3",
+      "positive_equilibria.py"
+    ],
+    "returncode": 0,
+    "seconds": 13.61
+  },
+  {
+    "name": "classify_all",
+    "command": [
+      "python3",
+      "classify_all.py"
+    ],
+    "returncode": 0,
+    "seconds": 11.77
+  },
+  {
+    "name": "certify_ten",
+    "command": [
+      "python3",
+      "certify_ten.py"
+    ],
+    "returncode": 0,
+    "seconds": 4.93
+  },
+  {
+    "name": "index_sanity",
+    "command": [
+      "python3",
+      "index_sanity.py"
+    ],
+    "returncode": 0,
+    "seconds": 158.76
+  }
+]

@@ -373,7 +373,8 @@ where \(P\in\mathbb Z[a,b]\) is the irreducible polynomial of degree 5 in \(a\) 
 \(a^4b^3(2a-b^3)\). The denominator is positive for \(a,b\ge2\).
 \item For every \(3\le b\le400\), \(P(\cdot,b)\) has exactly one real root \(a^*(b)>1.5\), and the sign of
 \(\Kf(R)-\Kf(R-v)\) changes between \(\lfloor a^*\rfloor\) and \(\lceil a^*\rceil\). So the rook class is good along a
-real curve on which the proportion \(b/(b+1)\) tends to 1. Numerically \(a^*(b)/b^3\to1/2\) (\(0.4987\) at \(b=400\)).
+real curve. There is also a real zero branch for all sufficiently large \(b\), with
+\(a^*(b)/b^3\to1/2\); along it \(b/(b+1)\to1\).
 \item There is no integer \(a\ge2\) with \(P(a,b)=0\) for \(2\le b\le400\): no graph \(R(a,b)\) with \(b\le400\) has
 good rook vertices.
 \item With \(c\) independent hubs per row (graph \(R_c(a,b)\), proportion \(b/(b+c)\)), the same method gives
@@ -393,7 +394,11 @@ multiplicity \((a-2)(b-2)\); the blocks are written in \texttt{check\_rook\_hubs
 \(\Kf=n\operatorname{tr}L^+\), and the trace over a block is a ratio of characteristic-polynomial coefficients. The
 symbolic results agree with exact brute-force values for 12 pairs \((a,b)\). (3)--(4) are exact computations on the
 integer polynomial \(P\): real-root isolation, exact evaluation at \(\lfloor a^*\rfloor,\lceil a^*\rceil\), and
-factorisation over \(\mathbb Q\) of \(P(\cdot,b)\) to exclude integer roots. (5): the hubs of a row are false twins.
+factorisation over \(\mathbb Q\) of \(P(\cdot,b)\) to exclude integer roots. For the asymptotic assertion put
+\(u=1/b\), \(z=a/b^3\). The polynomial \(u^{18}P(z/u^3,1/u)\) restricts at \(u=0\) to
+\(z^4(2z-1)\), whose derivative at \(z=1/2\) is \(1/8\). The implicit function theorem gives a real zero branch
+\(z(u)\to1/2\). These identities are checked exactly by claim S5 of \texttt{check\_rook\_hubs.py}.
+(5): the hubs of a row are false twins.
 They contribute the eigenvalue \(b\) (multiplicity \(a(c-1)\)) in \(R_c\), and \(b-1\) (multiplicity \(c-1\)) and \(b\)
 (multiplicity \((a-1)(c-1)\)) in \(R_c-v\); the other blocks are those above with the hub cells weighted by \(c\). The
 formula agrees with brute force for 8 triples \((a,b,c)\) and reduces to (1)--(2) for \(c=1\)
@@ -414,7 +419,8 @@ has at least two thirds of its vertices good. By \zcref{prop:small}, no graph wi
 \(\ge2/3\).
 \item \zcref{cor:barrier} covers splices whose good vertices lie in branches with at most 9 vertices (mixtures of
 branch types), and single gadget types with at most 10 vertices. Larger branches are not excluded. However, any
-improvement over \(2/3\) by a splice needs a rooted graph with a class of efficiency \(>2/3\), and in all rooted graphs
+improvement over \(2/3\) by a splice in the setting of \zcref{thm:barrier} requires either a single-class efficiency
+\(>2/3\) or a balanced pair with value \(>2/3\). In all rooted graphs
 with at most 10 vertices the classes covering more than two thirds of the non-root vertices have \(\rho/\rho^*<0.63\)
 (\(\rho^*=R_B/m_B\)).
 \item The real branch of \zcref{prop:rook} shows that 2-connected product-like graphs can come arbitrarily close to

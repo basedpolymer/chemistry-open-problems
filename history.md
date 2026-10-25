@@ -253,3 +253,7 @@ progress journal. Global topology ordering remains unresolved.
   ℓ₁/M tends to result 8's closed-form limit, which is negative (supercritical for large M, threshold not
   explicit). Open: j ≥ 14 at moderate M. Solver Claude Opus 5.5 (xhigh), editing GPT-6-Astra (xhigh), branches
   9–13 run by Claude Opus 5.5 (xhigh). Not yet verified.
+- Results 15, 16 and 17 verified (fresh context): 15 and 16 CONFIRMED, 17 CONFIRMED WITH CORRECTIONS; statuses set
+  to solved. β-Kirchhoff Šoltés families: the 2/3 barrier is stated for splices with branches of at most 9 vertices.
+- Root README: the "Under investigation" section is merged into Results as results 18–25, each with its current
+  status.

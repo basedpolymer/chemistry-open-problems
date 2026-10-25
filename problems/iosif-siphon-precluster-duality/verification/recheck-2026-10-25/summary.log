@@ -1,0 +1,29 @@
+COMMAND: ['python3', 'summarize_enumeration.py', 'problems/iosif-siphon-precluster-duality/verification/recheck-2026-10-25/enumeration_n2_m2_r5.json', 'problems/iosif-siphon-precluster-duality/verification/recheck-2026-10-25/enumeration_n3_m2_r4.json', 'problems/iosif-siphon-precluster-duality/verification/recheck-2026-10-25/enumeration_n3_m3_r3.json', 'problems/iosif-siphon-precluster-duality/verification/recheck-2026-10-25/enumeration_n4_m1_r12.json', 'problems/iosif-siphon-precluster-duality/verification/recheck-2026-10-25/enumeration_n4_m2_r3.json']
+# families: enumeration_n2_m2_r5.json, enumeration_n3_m2_r4.json, enumeration_n3_m3_r3.json, enumeration_n4_m1_r12.json, enumeration_n4_m2_r3.json
+# networks satisfying H per class: {'all': 15513, 'strong': 11121, 'wr': 339, 'wr_def0': 304}
+formulation                                                           all         strong             wr        wr_def0
+P(N*) = MIPS(N)                                                 428/15513      338/11121          3/339          3/304
+P(N*) refines MIPS(N)                                         15380/15513    11118/11121        339/339        304/304
+MIPS(N) refines P(N*)                                           561/15513      341/11121          3/339          3/304
+#P(N*) = #MIPS(N)                                               428/15513      338/11121          3/339          3/304
+P(N) = MIPS(N*)                                                2532/15513     1278/11121         10/339          0/304
+P(N) refines MIPS(N*)                                         13833/15513    10757/11121        201/339        174/304
+MIPS(N*) refines P(N)                                          4211/15513     1642/11121        147/339        129/304
+#P(N) = #MIPS(N*)                                              2532/15513     1278/11121         10/339          0/304
+#P(N) = #MIPS(N)                                               2349/15513     1157/11121         67/339         67/304
+P(N*) = semiflow supports of N                                  424/15513      337/11121          0/339          0/304
+P(N*) = MIPS(N), set reading (q<=2)                             425/15513      338/11121          0/339          0/304
+P(N*) = minimal siphons of N                                    126/15513       97/11121          0/339          0/304
+each minimal siphon of N inside a block of P(N*)               4496/15513     3313/11121         34/339         34/304
+each block of P(N*) inside a minimal siphon of N               7809/15513     5517/11121        229/339        204/304
+each block of P(N*) is a siphon of N                            683/15513      437/11121          0/339          0/304
+each block of P(N*) is a union of minimal siphons               509/15513      307/11121          0/339          0/304
+#P(N*) = #minimal siphons of N                                  632/15513      584/11121         13/339         13/304
+P(N) = minimal siphons of N*                                    102/15513       82/11121          0/339          0/304
+each minimal siphon of N* inside a block of P(N)               6083/15513     4235/11121        106/339        104/304
+each block of P(N) inside a minimal siphon of N*               6932/15513     5022/11121        124/339        104/304
+each block of P(N) is a siphon of N*                           2448/15513     1239/11121         59/339         59/304
+#P(N) = #minimal siphons of N*                                  911/15513      615/11121         28/339         18/304
+each internal cycle of N inside a precluster (Rem. 23)         2346/15513     1157/11121         59/339         59/304
+each minimal siphon of N inside a MIPS of N                   15484/15513    11117/11121        333/339        298/304
+PASS: every formulation of Conjecture 22 / Question 24 / Remark 23 in the table fails for at least one enumerated network satisfying H

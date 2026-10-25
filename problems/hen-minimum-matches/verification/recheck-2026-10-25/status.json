@@ -1,0 +1,61 @@
+[
+  {
+    "name": "check_solutions",
+    "command": [
+      "python3",
+      "check_solutions.py"
+    ],
+    "returncode": 0,
+    "seconds": 3.55
+  },
+  {
+    "name": "check_network_lkm18",
+    "command": [
+      "python3",
+      "check_network_lkm18.py"
+    ],
+    "returncode": 0,
+    "seconds": 3.74
+  },
+  {
+    "name": "side_findings",
+    "command": [
+      "python3",
+      "side_findings.py"
+    ],
+    "returncode": 0,
+    "seconds": 12.25
+  },
+  {
+    "name": "block_bounds",
+    "command": [
+      "bash",
+      "scripts/run_block_bounds.sh"
+    ],
+    "returncode": 0,
+    "seconds": 33.03
+  },
+  {
+    "name": "vipr",
+    "command": [
+      "bash",
+      "scripts/verify_vipr.sh",
+      "unbalanced10",
+      "24",
+      "~/work/hen/run/unbalanced10_le24.vipr"
+    ],
+    "returncode": 0,
+    "seconds": 260.62
+  },
+  {
+    "name": "vipr_mutations",
+    "command": [
+      "bash",
+      "scripts/vipr_mutation_tests.sh",
+      "~/work/hen/run/unbalanced10_le24.vipr",
+      "/tmp/hen-recheck-mutations-20261025"
+    ],
+    "returncode": 0,
+    "seconds": 181.83
+  }
+]

@@ -1,0 +1,11 @@
+COMMAND: ['python3', 'check_rook_hubs_c.py', '200']
+PASS (C1) symbolic Kf(R_c) and Kf(R_c - v) = brute-force exact values for 8 triples
+PASS (C2) c = 1 reproduces Kf(R(a,b)) of check_rook_hubs.py
+   Delta denominator: b*(b - 1)*(b + c)*(a + b + c)*(a**2*b + a*b**2 + a*b*c - a*b - b - c)*(a*b + a*c + b**2 + 2*b*c - b + c**2 - c - 1)
+PASS (C3) no integer a >= 2 with Delta = 0 for 3 <= b <= 200, 1 <= c <= b (hits: [])
+   (C4) b=6 c=3: real roots a* > 1.5: ['2.042']  (proportion b/(b+c) = 0.6667)
+   (C4) b=10 c=3: real roots a* > 1.5: ['61.826']  (proportion b/(b+c) = 0.7692)
+   (C4) b=10 c=4: real roots a* > 1.5: ['31.862']  (proportion b/(b+c) = 0.7143)
+   (C4) b=20 c=9: real roots a* > 1.5: ['62.355']  (proportion b/(b+c) = 0.6897)
+   (C4) b=40 c=19: real roots a* > 1.5: ['124.840']  (proportion b/(b+c) = 0.6780)
+summary: 3 PASS, 0 FAIL

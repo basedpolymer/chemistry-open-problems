@@ -29,6 +29,7 @@ for n in range(3, NMAX + 1):
     gen = subprocess.Popen(['geng', '-c', '-q', str(n)], stdout=subprocess.PIPE)
     gb = subprocess.Popen([os.path.join(HERE, GB), '-d'], stdin=gen.stdout, stdout=subprocess.PIPE,
                           stderr=subprocess.DEVNULL, text=True)
+    gen.stdout.close()
     m = n - 1
     for line in gb.stdout:
         if not line.startswith('D '):
@@ -46,7 +47,11 @@ for n in range(3, NMAX + 1):
             byrho[rho][0].append((g, m, a))
         elif a < 0:
             byrho[rho][1].append((g, m, a))
-    gb.wait()
+    gb_status = gb.wait()
+    gen_status = gen.wait()
+    if gb_status != 0 or gen_status != 0:
+        sys.exit('FAIL: incomplete enumeration at n=%d (geng=%d, gadgetbound=%d)'
+                 % (n, gen_status, gb_status))
 C.check(best_single == two3, '(M1) max single efficiency over %d classes with rho > 0, order <= %d: %s' % (nclasses, NMAX, best_single))
 best_pair = Fraction(0)
 npairs = 0

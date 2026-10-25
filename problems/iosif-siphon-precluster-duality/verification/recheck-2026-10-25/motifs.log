@@ -1,0 +1,36 @@
+COMMAND: ['python3', 'motifs.py']
+== reversible Michaelis-Menten: E + S -> ES, ES -> E + S, ES -> E + P, E + P -> ES
+   n=4, r=4, rank=2, deficiency=0, weakly reversible=True
+   conservative=True, consistent=True, rows distinct=True
+   reaction side: P(N) = {{r1,r2,r3,r4}};  MIPS(N*) (coupled reactions) = {{r1,r2}, {r3,r4}}
+   species side:  P(N*) = {{E}, {S}, {ES}, {P}};  MIPS(N) = {{E}, {S,P}, {ES}}
+   minimal siphons of N = {{E,ES}, {S,ES,P}};  semiflow supports = {{E,ES}, {S,ES,P}}
+PASS: reversible Michaelis-Menten: (H, P(N)=M(N*), P(N*)=M(N), P(N*)<=M(N), M(N)<=P(N*), P(N)<=M(N*), M(N*)<=P(N)) = (True, False, False, True, False, False, True)
+== one-site futile cycle: S0 + E -> ES0, ES0 -> S0 + E, ES0 -> S1 + E, S1 + F -> FS1, FS1 -> S1 + F, FS1 -> S0 + F
+   n=6, r=6, rank=3, deficiency=1, weakly reversible=False
+   conservative=True, consistent=True, rows distinct=True
+   reaction side: P(N) = {{r1,r2,r3,r4,r5,r6}};  MIPS(N*) (coupled reactions) = {{r1}, {r2}, {r3,r6}, {r4}, {r5}}
+   species side:  P(N*) = {{S0,S1,E,F,ES0,FS1}};  MIPS(N) = {{S0,S1}, {E}, {F}, {ES0}, {FS1}}
+   minimal siphons of N = {{E,ES0}, {F,FS1}, {S0,S1,ES0,FS1}};  semiflow supports = {{E,ES0}, {F,FS1}, {S0,S1,ES0,FS1}}
+PASS: one-site futile cycle: (H, P(N)=M(N*), P(N*)=M(N), P(N*)<=M(N), M(N)<=P(N*), P(N)<=M(N*), M(N*)<=P(N)) = (True, False, False, False, True, False, True)
+== two-site distributive phosphorylation: S0 + E -> ES0, ES0 -> S0 + E, ES0 -> S1 + E, S1 + E -> ES1, ES1 -> S1 + E, ES1 -> S2 + E, S2 + F -> FS2, FS2 -> S2 + F, FS2 -> S1 + F, S1 + F -> FS1, FS1 -> S1 + F, FS1 -> S0 + F
+   n=9, r=12, rank=6, deficiency=2, weakly reversible=False
+   conservative=True, consistent=True, rows distinct=True
+   reaction side: P(N) = {{r1,r2,r3,r10,r11,r12}, {r4,r5,r6,r7,r8,r9}};  MIPS(N*) (coupled reactions) = {{r1}, {r2}, {r3,r12}, {r4}, {r5}, {r6,r9}, {r7}, {r8}, {r10}, {r11}}
+   species side:  P(N*) = {{S0}, {S1}, {S2}, {E}, {F}, {ES0}, {ES1}, {FS2}, {FS1}};  MIPS(N) = {{S0,S1,S2}, {E}, {F}, {ES0,ES1}, {FS2,FS1}}
+   minimal siphons of N = {{E,ES0,ES1}, {F,FS2,FS1}, {S0,S1,S2,ES0,ES1,FS2,FS1}};  semiflow supports = {{E,ES0,ES1}, {F,FS2,FS1}, {S0,S1,S2,ES0,ES1,FS2,FS1}}
+PASS: two-site distributive phosphorylation: (H, P(N)=M(N*), P(N*)=M(N), P(N*)<=M(N), M(N)<=P(N*), P(N)<=M(N*), M(N*)<=P(N)) = (True, False, False, True, False, False, True)
+== thesis network G (Example 1.17): 3X1 -> 2X1 + X2, 2X1 + X2 -> 3X1, X1 + X2 -> 2X2, X2 -> X1
+   n=2, r=4, rank=1, deficiency=2, weakly reversible=False
+   conservative=True, consistent=True, rows distinct=True
+   reaction side: P(N) = {{r1}, {r2}, {r3}, {r4}};  MIPS(N*) (coupled reactions) = {{r1}, {r2}, {r3}, {r4}}
+   species side:  P(N*) = {{X1}, {X2}};  MIPS(N) = {{X1,X2}}
+   minimal siphons of N = {{X1,X2}};  semiflow supports = {{X1,X2}}
+PASS: thesis network G (Example 1.17): (H, P(N)=M(N*), P(N*)=M(N), P(N*)<=M(N), M(N)<=P(N*), P(N)<=M(N*), M(N*)<=P(N)) = (True, True, False, True, False, True, True)
+== triangle with dimerisation: 2A -> 2B, 2B -> A + C, A + C -> 2A
+   n=3, r=3, rank=2, deficiency=0, weakly reversible=True
+   conservative=True, consistent=True, rows distinct=True
+   reaction side: P(N) = {{r1}, {r2}, {r3}};  MIPS(N*) (coupled reactions) = {{r1,r2,r3}}
+   species side:  P(N*) = {{A}, {B}, {C}};  MIPS(N) = {{A,B,C}}
+   minimal siphons of N = {{A,B}};  semiflow supports = {{A,B,C}}
+PASS: triangle with dimerisation: (H, P(N)=M(N*), P(N*)=M(N), P(N*)<=M(N), M(N)<=P(N*), P(N)<=M(N*), M(N*)<=P(N)) = (True, False, False, True, False, True, False)

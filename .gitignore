@@ -14,3 +14,5 @@ FINAL-REPORT.md
 # Compiled helper binaries
 problems/kirchhoff-soltes-problem/scripts/kscheck
 problems/kirchhoff-soltes-problem/scripts/kscheck_fast
+problems/kirchhoff-soltes-beta-families/scripts/goodcount
+problems/kirchhoff-soltes-beta-families/scripts/gadgetbound

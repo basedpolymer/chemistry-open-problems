@@ -1,0 +1,4 @@
+COMMAND: ['python3', 'test_c_programs.py']
+PASS (T1) goodcount pg = exact number of good vertices for all 12111 connected graphs with 3 <= n <= 8
+PASS (T2) gadgetbound classes and efficiencies = exact recomputation for 6778 rooted graphs, 3 <= n <= 7
+summary: 2 PASS, 0 FAIL

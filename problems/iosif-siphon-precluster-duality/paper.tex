@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{Preclusters, maximal invariant polyhedral supports and siphons are not dual: exact criteria and counterexamples for Iosif's duality conjecture}
 \newcommand*{\PaperTitlePlain}{Preclusters, maximal invariant polyhedral supports and siphons are not dual: exact criteria and counterexamples for Iosif's duality conjecture}
 \newcommand*{\PaperShortTitle}{Preclusters and invariant polyhedral supports}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} preliminary, not yet verified}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verifier: GPT-6-Astra (effort xhigh)}
 \newcommand*{\PaperKeywords}{mass-action networks, network duality, preclusters, invariant polyhedra, siphons, flux coupling, conservation laws}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -437,8 +437,9 @@ of \(T^*\). This refutes A1, A3, A4, B1, B3, B4, C, Q1, Q2, Q4, Q5 and Q6. The i
 lies in no precluster, which refutes R23.
 
 \emph{\(R\).} The same argument with two species: \(\Pre(R)=\{\{R_1\},\{R_2\}\}\), \(\Mips(R^*)=\{\{R_1,R_2\}\}\),
-and \(R^*\cong R\). No network with fewer species or reactions satisfies (H1) and (H2): with one species, (H1)
-forces \(\Gamma=0\), and with one reaction, (H2) forces its reaction vector to vanish.
+and \(R^*\cong R\). Among networks with nonzero reaction vectors, no network with fewer species or reactions
+satisfies (H1) and (H2): with one species, (H1) forces \(\Gamma=0\), and with one reaction, (H2) forces its reaction
+vector to vanish. Zero-vector loops, allowed in the general definitions above, are excluded from this minimality claim.
 
 \emph{\(W\) and \(W^*\).} The flux cone of \(W\) has extreme rays \((1,0,1,0)\) and \((0,1,0,1)\). So
 \(n_1=n_3=(1,0)\) and \(n_2=n_4=(0,1)\). The doubling pair \(\{R_1,R_2\}\) is not fully coupled, so
@@ -532,14 +533,14 @@ thesis network \(G\): \(3X_1\rightleftarrows 2X_1+X_2\), \(X_1+X_2\to2X_2\), \(X
 \end{tabular}
 \end{table}
 
-\zcref{tab:motifs} shows that the failures are generic. On standard motifs, the preclusters are strictly coarser
+\zcref{tab:motifs} shows failures on standard motifs. The preclusters are strictly coarser
 than the MIPS on one side of the duality and strictly finer on the other, or strictly coarser on both sides (the futile
 cycle). Equality occurred only for network \(G\), where both partitions consist of singletons.
 
 \section{Exhaustive check on small networks}
 
-\texttt{enumerate\_small.py} lists every network, up to permutation of species, with distinct reactions between
-nonzero complexes. A conservative network has no zero complex. Every species must occur. The families are: two
+\texttt{enumerate\_small.py} lists every network, up to permutation of species, with distinct non-loop reactions between
+nonzero complexes. Conservativity excludes a non-loop reaction incident to the zero complex. Every species must occur. The families are: two
 species, molecularity \(\le2\), \(r\le5\); three species, molecularity \(\le2\), \(r\le4\); three species, molecularity
 \(\le3\), \(r\le3\); four species, molecularity \(\le1\), all \(r\); four species, molecularity \(\le2\), \(r\le3\).
 For the 15\,513 networks that satisfy (H1)--(H3), the script computes both sides of the duality, the three precluster

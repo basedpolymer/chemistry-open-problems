@@ -1,0 +1,93 @@
+COMMAND: ['python3', 'enumerate_small.py', '3', '3', '3', '2', 'problems/iosif-siphon-precluster-duality/verification/recheck-2026-10-25/enumeration_n3_m3_r3.json']
+# enumerate_small.py n=3 species, molecularity <= 3, r <= 3 reactions; 19 nonzero complexes, 342 possible reactions
+# classes:
+#   all        11332  (H: conservative, consistent, rows of Gamma distinct)
+#   strong     10102  (H + rows and columns of Gamma pairwise linearly independent)
+#   dualH      10717  (H + columns of Gamma distinct (so N* also satisfies H))
+#   wr           123  (H + weakly reversible)
+#   wr_def0      122  (H + weakly reversible + deficiency zero)
+# conservative + consistent networks excluded only by equal rows of Gamma: 77
+# A_set_differs_from_ray: 3
+# A_set_reading_computed: 11332
+# A_variants_differ: 0
+# B_set_differs_from_ray: 1155
+# B_set_reading_computed: 11332
+# B_variants_differ: 0
+#
+# statement (side|precluster variant|MIPS reading|relation): holds/total per class
+# the three precluster variants give identical statistics: True
+statement                                            all          strong           dualH              wr         wr_def0
+A|MIPS_are_siphons                           11329/11332     10102/10102     10714/10717         120/123         119/122
+A|S<=MIPS                                    11329/11332     10102/10102     10714/10717         120/123         119/122
+A|thesis|#P=#S                                 590/11332       563/10102       574/10717          10/123          10/122
+A|thesis|C<=P                                  373/11332       304/10102       349/10717           0/123           0/122
+A|thesis|P<=S                                 5803/11332      5030/10102      5417/10717          69/123          68/122
+A|thesis|P=S                                   123/11332        96/10102       107/10717           0/123           0/122
+A|thesis|P_blocks_siphons                      496/11332       400/10102       456/10717           0/123           0/122
+A|thesis|P_blocks_unions_of_S                  338/11332       271/10102       306/10717           0/123           0/122
+A|thesis|S<=P                                 3626/11332      3142/10102      3381/10717          21/123          21/122
+A|thesis|ray|#P=#M                             310/11332       304/10102       308/10717           3/123           3/122
+A|thesis|ray|M<=P                              376/11332       304/10102       352/10717           3/123           3/122
+A|thesis|ray|P<=M                            11266/11332     10102/10102     10673/10717         123/123         122/122
+A|thesis|ray|P=M                               310/11332       304/10102       308/10717           3/123           3/122
+A|thesis|semiflow|#P=#M                        307/11332       304/10102       305/10717           0/123           0/122
+A|thesis|semiflow|M<=P                         373/11332       304/10102       349/10717           0/123           0/122
+A|thesis|semiflow|P<=M                       11266/11332     10102/10102     10673/10717         123/123         122/122
+A|thesis|semiflow|P=M                          307/11332       304/10102       305/10717           0/123           0/122
+A|thesis|set|#P=#M                             307/11332       304/10102       305/10717           0/123           0/122
+A|thesis|set|M<=P                              373/11332       304/10102       349/10717           0/123           0/122
+A|thesis|set|P<=M                            11266/11332     10102/10102     10673/10717         123/123         122/122
+A|thesis|set|P=M                               307/11332       304/10102       305/10717           0/123           0/122
+B|MIPS_are_siphons                           10203/11332     10102/10102     10185/10717         122/123         122/122
+B|S<=MIPS                                    10592/11332     10102/10102     10361/10717         122/123         122/122
+B|thesis|#P=#S                                 555/11332       526/10102       544/10717          10/123          10/122
+B|thesis|C<=P                                  853/11332       773/10102       827/10717           0/123           0/122
+B|thesis|P<=S                                 5443/11332      4667/10102      5048/10717          69/123          68/122
+B|thesis|P=S                                   101/11332        81/10102        90/10717           0/123           0/122
+B|thesis|P_blocks_siphons                      954/11332       854/10102       917/10717           0/123           0/122
+B|thesis|P_blocks_unions_of_S                  676/11332       619/10102       658/10717           0/123           0/122
+B|thesis|S<=P                                 4217/11332      3743/10102      3986/10717          39/123          39/122
+B|thesis|ray|#P=#M                            1850/11332       773/10102      1261/10717           1/123           0/122
+B|thesis|ray|M<=P                             1929/11332       773/10102      1314/10717           1/123           0/122
+B|thesis|ray|P<=M                            11253/11332     10102/10102     10664/10717         123/123         122/122
+B|thesis|ray|P=M                              1850/11332       773/10102      1261/10717           1/123           0/122
+B|thesis|semiflow|#P=#M                        774/11332       773/10102       774/10717           0/123           0/122
+B|thesis|semiflow|M<=P                         853/11332       773/10102       827/10717           0/123           0/122
+B|thesis|semiflow|P<=M                       11253/11332     10102/10102     10664/10717         123/123         122/122
+B|thesis|semiflow|P=M                          774/11332       773/10102       774/10717           0/123           0/122
+B|thesis|set|#P=#M                             774/11332       773/10102       774/10717           0/123           0/122
+B|thesis|set|M<=P                              853/11332       773/10102       827/10717           0/123           0/122
+B|thesis|set|P<=M                            11253/11332     10102/10102     10664/10717         123/123         122/122
+B|thesis|set|P=M                               774/11332       773/10102       774/10717           0/123           0/122
+same-network|#P(N)=#M(N)                       844/11332       773/10102       844/10717           5/123           5/122
+#
+# smallest failing network per statement (class 'all'; thesis variant and ray reading shown)
+A|MIPS_are_siphons                       X3 -> X1 + 2X2, X1 + 2X2 -> X3
+A|S<=MIPS                                X3 -> X1 + 2X2, X1 + 2X2 -> X3
+A|thesis|#P=#S                           X3 -> X2, X1 + X2 -> X1 + X3
+A|thesis|C<=P                            X3 -> X2, X1 + 2X2 -> X1 + 2X3
+A|thesis|P<=S                            X3 -> X2, X1 + X2 -> X1 + X3
+A|thesis|P=S                             X3 -> X2, X1 + X2 -> X1 + X3
+A|thesis|P_blocks_siphons                X3 -> X2, X1 + 2X2 -> X1 + 2X3
+A|thesis|P_blocks_unions_of_S            X3 -> X2, X1 + X2 + X3 -> X1 + 2X3
+A|thesis|S<=P                            X3 -> X2, X1 + 2X2 -> X1 + 2X3
+A|thesis|ray|#P=#M                       X3 -> X2, X1 + X2 -> X1 + X3
+A|thesis|ray|M<=P                        X3 -> X2, X1 + 2X2 -> X1 + 2X3
+A|thesis|ray|P<=M                        X3 -> X2, X1 + X2 -> X1 + X3
+A|thesis|ray|P=M                         X3 -> X2, X1 + X2 -> X1 + X3
+B|MIPS_are_siphons                       X3 -> X2, 2X3 -> X2 + X3, X1 + X2 -> X1 + X3
+B|S<=MIPS                                X3 -> X2, 2X3 -> X2 + X3, X1 + X2 -> X1 + X3
+B|thesis|#P=#S                           X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|C<=P                            X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|P<=S                            X3 -> X2, X1 + X2 + X3 -> X1 + 2X3
+B|thesis|P=S                             X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|P_blocks_siphons                X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|P_blocks_unions_of_S            X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|S<=P                            X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|ray|#P=#M                       X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|ray|M<=P                        X3 -> X2, X1 + X2 -> X1 + X3
+B|thesis|ray|P<=M                        X3 -> X2, X1 + X2 + X3 -> X1 + 2X3, X1 + X2 + X3 -> X1 + 2X2
+B|thesis|ray|P=M                         X3 -> X2, X1 + X2 -> X1 + X3
+same-network|#P(N)=#M(N)                 X3 -> X1 + 2X2, X1 + 2X2 -> X3
+PASS: criteria of Theorem 3 agree with the direct computation on all 11332 networks (both sides, three precluster variants)
+# runtime 116.8 s

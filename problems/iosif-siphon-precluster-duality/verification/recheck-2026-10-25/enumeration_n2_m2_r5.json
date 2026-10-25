@@ -1,0 +1,2339 @@
+{
+"n": 2,
+"m": 2,
+"rmax": 5,
+"counts": {
+"all": 100,
+"strong": 0,
+"dualH": 29,
+"wr": 16,
+"wr_def0": 4
+},
+"stats": {
+"A|onestep|ray|P=M||all": [
+1,
+99
+],
+"A|onestep|ray|P=M||dualH": [
+1,
+28
+],
+"A|onestep|ray|P=M||wr": [
+0,
+16
+],
+"A|onestep|ray|P=M||wr_def0": [
+0,
+4
+],
+"A|onestep|ray|P<=M||all": [
+100,
+0
+],
+"A|onestep|ray|P<=M||dualH": [
+29,
+0
+],
+"A|onestep|ray|P<=M||wr": [
+16,
+0
+],
+"A|onestep|ray|P<=M||wr_def0": [
+4,
+0
+],
+"A|onestep|ray|M<=P||all": [
+1,
+99
+],
+"A|onestep|ray|M<=P||dualH": [
+1,
+28
+],
+"A|onestep|ray|M<=P||wr": [
+0,
+16
+],
+"A|onestep|ray|M<=P||wr_def0": [
+0,
+4
+],
+"A|onestep|ray|#P=#M||all": [
+1,
+99
+],
+"A|onestep|ray|#P=#M||dualH": [
+1,
+28
+],
+"A|onestep|ray|#P=#M||wr": [
+0,
+16
+],
+"A|onestep|ray|#P=#M||wr_def0": [
+0,
+4
+],
+"A|onestep|semiflow|P=M||all": [
+1,
+99
+],
+"A|onestep|semiflow|P=M||dualH": [
+1,
+28
+],
+"A|onestep|semiflow|P=M||wr": [
+0,
+16
+],
+"A|onestep|semiflow|P=M||wr_def0": [
+0,
+4
+],
+"A|onestep|semiflow|P<=M||all": [
+100,
+0
+],
+"A|onestep|semiflow|P<=M||dualH": [
+29,
+0
+],
+"A|onestep|semiflow|P<=M||wr": [
+16,
+0
+],
+"A|onestep|semiflow|P<=M||wr_def0": [
+4,
+0
+],
+"A|onestep|semiflow|M<=P||all": [
+1,
+99
+],
+"A|onestep|semiflow|M<=P||dualH": [
+1,
+28
+],
+"A|onestep|semiflow|M<=P||wr": [
+0,
+16
+],
+"A|onestep|semiflow|M<=P||wr_def0": [
+0,
+4
+],
+"A|onestep|semiflow|#P=#M||all": [
+1,
+99
+],
+"A|onestep|semiflow|#P=#M||dualH": [
+1,
+28
+],
+"A|onestep|semiflow|#P=#M||wr": [
+0,
+16
+],
+"A|onestep|semiflow|#P=#M||wr_def0": [
+0,
+4
+],
+"A|onestep|set|P=M||all": [
+1,
+99
+],
+"A|onestep|set|P=M||dualH": [
+1,
+28
+],
+"A|onestep|set|P=M||wr": [
+0,
+16
+],
+"A|onestep|set|P=M||wr_def0": [
+0,
+4
+],
+"A|onestep|set|P<=M||all": [
+100,
+0
+],
+"A|onestep|set|P<=M||dualH": [
+29,
+0
+],
+"A|onestep|set|P<=M||wr": [
+16,
+0
+],
+"A|onestep|set|P<=M||wr_def0": [
+4,
+0
+],
+"A|onestep|set|M<=P||all": [
+1,
+99
+],
+"A|onestep|set|M<=P||dualH": [
+1,
+28
+],
+"A|onestep|set|M<=P||wr": [
+0,
+16
+],
+"A|onestep|set|M<=P||wr_def0": [
+0,
+4
+],
+"A|onestep|set|#P=#M||all": [
+1,
+99
+],
+"A|onestep|set|#P=#M||dualH": [
+1,
+28
+],
+"A|onestep|set|#P=#M||wr": [
+0,
+16
+],
+"A|onestep|set|#P=#M||wr_def0": [
+0,
+4
+],
+"A|onestep|C<=P||all": [
+1,
+99
+],
+"A|onestep|C<=P||dualH": [
+1,
+28
+],
+"A|onestep|C<=P||wr": [
+0,
+16
+],
+"A|onestep|C<=P||wr_def0": [
+0,
+4
+],
+"A|onestep|P=S||all": [
+0,
+100
+],
+"A|onestep|P=S||dualH": [
+0,
+29
+],
+"A|onestep|P=S||wr": [
+0,
+16
+],
+"A|onestep|P=S||wr_def0": [
+0,
+4
+],
+"A|onestep|S<=P||all": [
+15,
+85
+],
+"A|onestep|S<=P||dualH": [
+7,
+22
+],
+"A|onestep|S<=P||wr": [
+1,
+15
+],
+"A|onestep|S<=P||wr_def0": [
+1,
+3
+],
+"A|onestep|P<=S||all": [
+85,
+15
+],
+"A|onestep|P<=S||dualH": [
+22,
+7
+],
+"A|onestep|P<=S||wr": [
+15,
+1
+],
+"A|onestep|P<=S||wr_def0": [
+3,
+1
+],
+"A|onestep|P_blocks_siphons||all": [
+1,
+99
+],
+"A|onestep|P_blocks_siphons||dualH": [
+1,
+28
+],
+"A|onestep|P_blocks_siphons||wr": [
+0,
+16
+],
+"A|onestep|P_blocks_siphons||wr_def0": [
+0,
+4
+],
+"A|onestep|P_blocks_unions_of_S||all": [
+1,
+99
+],
+"A|onestep|P_blocks_unions_of_S||dualH": [
+1,
+28
+],
+"A|onestep|P_blocks_unions_of_S||wr": [
+0,
+16
+],
+"A|onestep|P_blocks_unions_of_S||wr_def0": [
+0,
+4
+],
+"A|onestep|#P=#S||all": [
+0,
+100
+],
+"A|onestep|#P=#S||dualH": [
+0,
+29
+],
+"A|onestep|#P=#S||wr": [
+0,
+16
+],
+"A|onestep|#P=#S||wr_def0": [
+0,
+4
+],
+"A|thesis|ray|P=M||all": [
+1,
+99
+],
+"A|thesis|ray|P=M||dualH": [
+1,
+28
+],
+"A|thesis|ray|P=M||wr": [
+0,
+16
+],
+"A|thesis|ray|P=M||wr_def0": [
+0,
+4
+],
+"A|thesis|ray|P<=M||all": [
+100,
+0
+],
+"A|thesis|ray|P<=M||dualH": [
+29,
+0
+],
+"A|thesis|ray|P<=M||wr": [
+16,
+0
+],
+"A|thesis|ray|P<=M||wr_def0": [
+4,
+0
+],
+"A|thesis|ray|M<=P||all": [
+1,
+99
+],
+"A|thesis|ray|M<=P||dualH": [
+1,
+28
+],
+"A|thesis|ray|M<=P||wr": [
+0,
+16
+],
+"A|thesis|ray|M<=P||wr_def0": [
+0,
+4
+],
+"A|thesis|ray|#P=#M||all": [
+1,
+99
+],
+"A|thesis|ray|#P=#M||dualH": [
+1,
+28
+],
+"A|thesis|ray|#P=#M||wr": [
+0,
+16
+],
+"A|thesis|ray|#P=#M||wr_def0": [
+0,
+4
+],
+"A|thesis|semiflow|P=M||all": [
+1,
+99
+],
+"A|thesis|semiflow|P=M||dualH": [
+1,
+28
+],
+"A|thesis|semiflow|P=M||wr": [
+0,
+16
+],
+"A|thesis|semiflow|P=M||wr_def0": [
+0,
+4
+],
+"A|thesis|semiflow|P<=M||all": [
+100,
+0
+],
+"A|thesis|semiflow|P<=M||dualH": [
+29,
+0
+],
+"A|thesis|semiflow|P<=M||wr": [
+16,
+0
+],
+"A|thesis|semiflow|P<=M||wr_def0": [
+4,
+0
+],
+"A|thesis|semiflow|M<=P||all": [
+1,
+99
+],
+"A|thesis|semiflow|M<=P||dualH": [
+1,
+28
+],
+"A|thesis|semiflow|M<=P||wr": [
+0,
+16
+],
+"A|thesis|semiflow|M<=P||wr_def0": [
+0,
+4
+],
+"A|thesis|semiflow|#P=#M||all": [
+1,
+99
+],
+"A|thesis|semiflow|#P=#M||dualH": [
+1,
+28
+],
+"A|thesis|semiflow|#P=#M||wr": [
+0,
+16
+],
+"A|thesis|semiflow|#P=#M||wr_def0": [
+0,
+4
+],
+"A|thesis|set|P=M||all": [
+1,
+99
+],
+"A|thesis|set|P=M||dualH": [
+1,
+28
+],
+"A|thesis|set|P=M||wr": [
+0,
+16
+],
+"A|thesis|set|P=M||wr_def0": [
+0,
+4
+],
+"A|thesis|set|P<=M||all": [
+100,
+0
+],
+"A|thesis|set|P<=M||dualH": [
+29,
+0
+],
+"A|thesis|set|P<=M||wr": [
+16,
+0
+],
+"A|thesis|set|P<=M||wr_def0": [
+4,
+0
+],
+"A|thesis|set|M<=P||all": [
+1,
+99
+],
+"A|thesis|set|M<=P||dualH": [
+1,
+28
+],
+"A|thesis|set|M<=P||wr": [
+0,
+16
+],
+"A|thesis|set|M<=P||wr_def0": [
+0,
+4
+],
+"A|thesis|set|#P=#M||all": [
+1,
+99
+],
+"A|thesis|set|#P=#M||dualH": [
+1,
+28
+],
+"A|thesis|set|#P=#M||wr": [
+0,
+16
+],
+"A|thesis|set|#P=#M||wr_def0": [
+0,
+4
+],
+"A|thesis|C<=P||all": [
+1,
+99
+],
+"A|thesis|C<=P||dualH": [
+1,
+28
+],
+"A|thesis|C<=P||wr": [
+0,
+16
+],
+"A|thesis|C<=P||wr_def0": [
+0,
+4
+],
+"A|thesis|P=S||all": [
+0,
+100
+],
+"A|thesis|P=S||dualH": [
+0,
+29
+],
+"A|thesis|P=S||wr": [
+0,
+16
+],
+"A|thesis|P=S||wr_def0": [
+0,
+4
+],
+"A|thesis|S<=P||all": [
+15,
+85
+],
+"A|thesis|S<=P||dualH": [
+7,
+22
+],
+"A|thesis|S<=P||wr": [
+1,
+15
+],
+"A|thesis|S<=P||wr_def0": [
+1,
+3
+],
+"A|thesis|P<=S||all": [
+85,
+15
+],
+"A|thesis|P<=S||dualH": [
+22,
+7
+],
+"A|thesis|P<=S||wr": [
+15,
+1
+],
+"A|thesis|P<=S||wr_def0": [
+3,
+1
+],
+"A|thesis|P_blocks_siphons||all": [
+1,
+99
+],
+"A|thesis|P_blocks_siphons||dualH": [
+1,
+28
+],
+"A|thesis|P_blocks_siphons||wr": [
+0,
+16
+],
+"A|thesis|P_blocks_siphons||wr_def0": [
+0,
+4
+],
+"A|thesis|P_blocks_unions_of_S||all": [
+1,
+99
+],
+"A|thesis|P_blocks_unions_of_S||dualH": [
+1,
+28
+],
+"A|thesis|P_blocks_unions_of_S||wr": [
+0,
+16
+],
+"A|thesis|P_blocks_unions_of_S||wr_def0": [
+0,
+4
+],
+"A|thesis|#P=#S||all": [
+0,
+100
+],
+"A|thesis|#P=#S||dualH": [
+0,
+29
+],
+"A|thesis|#P=#S||wr": [
+0,
+16
+],
+"A|thesis|#P=#S||wr_def0": [
+0,
+4
+],
+"A|closure|ray|P=M||all": [
+1,
+99
+],
+"A|closure|ray|P=M||dualH": [
+1,
+28
+],
+"A|closure|ray|P=M||wr": [
+0,
+16
+],
+"A|closure|ray|P=M||wr_def0": [
+0,
+4
+],
+"A|closure|ray|P<=M||all": [
+100,
+0
+],
+"A|closure|ray|P<=M||dualH": [
+29,
+0
+],
+"A|closure|ray|P<=M||wr": [
+16,
+0
+],
+"A|closure|ray|P<=M||wr_def0": [
+4,
+0
+],
+"A|closure|ray|M<=P||all": [
+1,
+99
+],
+"A|closure|ray|M<=P||dualH": [
+1,
+28
+],
+"A|closure|ray|M<=P||wr": [
+0,
+16
+],
+"A|closure|ray|M<=P||wr_def0": [
+0,
+4
+],
+"A|closure|ray|#P=#M||all": [
+1,
+99
+],
+"A|closure|ray|#P=#M||dualH": [
+1,
+28
+],
+"A|closure|ray|#P=#M||wr": [
+0,
+16
+],
+"A|closure|ray|#P=#M||wr_def0": [
+0,
+4
+],
+"A|closure|semiflow|P=M||all": [
+1,
+99
+],
+"A|closure|semiflow|P=M||dualH": [
+1,
+28
+],
+"A|closure|semiflow|P=M||wr": [
+0,
+16
+],
+"A|closure|semiflow|P=M||wr_def0": [
+0,
+4
+],
+"A|closure|semiflow|P<=M||all": [
+100,
+0
+],
+"A|closure|semiflow|P<=M||dualH": [
+29,
+0
+],
+"A|closure|semiflow|P<=M||wr": [
+16,
+0
+],
+"A|closure|semiflow|P<=M||wr_def0": [
+4,
+0
+],
+"A|closure|semiflow|M<=P||all": [
+1,
+99
+],
+"A|closure|semiflow|M<=P||dualH": [
+1,
+28
+],
+"A|closure|semiflow|M<=P||wr": [
+0,
+16
+],
+"A|closure|semiflow|M<=P||wr_def0": [
+0,
+4
+],
+"A|closure|semiflow|#P=#M||all": [
+1,
+99
+],
+"A|closure|semiflow|#P=#M||dualH": [
+1,
+28
+],
+"A|closure|semiflow|#P=#M||wr": [
+0,
+16
+],
+"A|closure|semiflow|#P=#M||wr_def0": [
+0,
+4
+],
+"A|closure|set|P=M||all": [
+1,
+99
+],
+"A|closure|set|P=M||dualH": [
+1,
+28
+],
+"A|closure|set|P=M||wr": [
+0,
+16
+],
+"A|closure|set|P=M||wr_def0": [
+0,
+4
+],
+"A|closure|set|P<=M||all": [
+100,
+0
+],
+"A|closure|set|P<=M||dualH": [
+29,
+0
+],
+"A|closure|set|P<=M||wr": [
+16,
+0
+],
+"A|closure|set|P<=M||wr_def0": [
+4,
+0
+],
+"A|closure|set|M<=P||all": [
+1,
+99
+],
+"A|closure|set|M<=P||dualH": [
+1,
+28
+],
+"A|closure|set|M<=P||wr": [
+0,
+16
+],
+"A|closure|set|M<=P||wr_def0": [
+0,
+4
+],
+"A|closure|set|#P=#M||all": [
+1,
+99
+],
+"A|closure|set|#P=#M||dualH": [
+1,
+28
+],
+"A|closure|set|#P=#M||wr": [
+0,
+16
+],
+"A|closure|set|#P=#M||wr_def0": [
+0,
+4
+],
+"A|closure|C<=P||all": [
+1,
+99
+],
+"A|closure|C<=P||dualH": [
+1,
+28
+],
+"A|closure|C<=P||wr": [
+0,
+16
+],
+"A|closure|C<=P||wr_def0": [
+0,
+4
+],
+"A|closure|P=S||all": [
+0,
+100
+],
+"A|closure|P=S||dualH": [
+0,
+29
+],
+"A|closure|P=S||wr": [
+0,
+16
+],
+"A|closure|P=S||wr_def0": [
+0,
+4
+],
+"A|closure|S<=P||all": [
+15,
+85
+],
+"A|closure|S<=P||dualH": [
+7,
+22
+],
+"A|closure|S<=P||wr": [
+1,
+15
+],
+"A|closure|S<=P||wr_def0": [
+1,
+3
+],
+"A|closure|P<=S||all": [
+85,
+15
+],
+"A|closure|P<=S||dualH": [
+22,
+7
+],
+"A|closure|P<=S||wr": [
+15,
+1
+],
+"A|closure|P<=S||wr_def0": [
+3,
+1
+],
+"A|closure|P_blocks_siphons||all": [
+1,
+99
+],
+"A|closure|P_blocks_siphons||dualH": [
+1,
+28
+],
+"A|closure|P_blocks_siphons||wr": [
+0,
+16
+],
+"A|closure|P_blocks_siphons||wr_def0": [
+0,
+4
+],
+"A|closure|P_blocks_unions_of_S||all": [
+1,
+99
+],
+"A|closure|P_blocks_unions_of_S||dualH": [
+1,
+28
+],
+"A|closure|P_blocks_unions_of_S||wr": [
+0,
+16
+],
+"A|closure|P_blocks_unions_of_S||wr_def0": [
+0,
+4
+],
+"A|closure|#P=#S||all": [
+0,
+100
+],
+"A|closure|#P=#S||dualH": [
+0,
+29
+],
+"A|closure|#P=#S||wr": [
+0,
+16
+],
+"A|closure|#P=#S||wr_def0": [
+0,
+4
+],
+"A|MIPS_are_siphons||all": [
+100,
+0
+],
+"A|MIPS_are_siphons||dualH": [
+29,
+0
+],
+"A|MIPS_are_siphons||wr": [
+16,
+0
+],
+"A|MIPS_are_siphons||wr_def0": [
+4,
+0
+],
+"A|S<=MIPS||all": [
+100,
+0
+],
+"A|S<=MIPS||dualH": [
+29,
+0
+],
+"A|S<=MIPS||wr": [
+16,
+0
+],
+"A|S<=MIPS||wr_def0": [
+4,
+0
+],
+"B|onestep|ray|P=M||all": [
+37,
+63
+],
+"B|onestep|ray|P=M||dualH": [
+10,
+19
+],
+"B|onestep|ray|P=M||wr": [
+4,
+12
+],
+"B|onestep|ray|P=M||wr_def0": [
+0,
+4
+],
+"B|onestep|ray|P<=M||all": [
+47,
+53
+],
+"B|onestep|ray|P<=M||dualH": [
+20,
+9
+],
+"B|onestep|ray|P<=M||wr": [
+8,
+8
+],
+"B|onestep|ray|P<=M||wr_def0": [
+4,
+0
+],
+"B|onestep|ray|M<=P||all": [
+90,
+10
+],
+"B|onestep|ray|M<=P||dualH": [
+19,
+10
+],
+"B|onestep|ray|M<=P||wr": [
+12,
+4
+],
+"B|onestep|ray|M<=P||wr_def0": [
+0,
+4
+],
+"B|onestep|ray|#P=#M||all": [
+37,
+63
+],
+"B|onestep|ray|#P=#M||dualH": [
+10,
+19
+],
+"B|onestep|ray|#P=#M||wr": [
+4,
+12
+],
+"B|onestep|ray|#P=#M||wr_def0": [
+0,
+4
+],
+"B|onestep|semiflow|P=M||all": [
+1,
+99
+],
+"B|onestep|semiflow|P=M||dualH": [
+1,
+28
+],
+"B|onestep|semiflow|P=M||wr": [
+0,
+16
+],
+"B|onestep|semiflow|P=M||wr_def0": [
+0,
+4
+],
+"B|onestep|semiflow|P<=M||all": [
+61,
+39
+],
+"B|onestep|semiflow|P<=M||dualH": [
+21,
+8
+],
+"B|onestep|semiflow|P<=M||wr": [
+10,
+6
+],
+"B|onestep|semiflow|P<=M||wr_def0": [
+4,
+0
+],
+"B|onestep|semiflow|M<=P||all": [
+8,
+92
+],
+"B|onestep|semiflow|M<=P||dualH": [
+6,
+23
+],
+"B|onestep|semiflow|M<=P||wr": [
+0,
+16
+],
+"B|onestep|semiflow|M<=P||wr_def0": [
+0,
+4
+],
+"B|onestep|semiflow|#P=#M||all": [
+22,
+78
+],
+"B|onestep|semiflow|#P=#M||dualH": [
+3,
+26
+],
+"B|onestep|semiflow|#P=#M||wr": [
+3,
+13
+],
+"B|onestep|semiflow|#P=#M||wr_def0": [
+0,
+4
+],
+"B|onestep|set|P=M||all": [
+1,
+34
+],
+"B|onestep|set|P=M||dualH": [
+1,
+22
+],
+"B|onestep|set|P=M||wr": [
+0,
+5
+],
+"B|onestep|set|P=M||wr_def0": [
+0,
+4
+],
+"B|onestep|set|P<=M||all": [
+28,
+7
+],
+"B|onestep|set|P<=M||dualH": [
+18,
+5
+],
+"B|onestep|set|P<=M||wr": [
+5,
+0
+],
+"B|onestep|set|P<=M||wr_def0": [
+4,
+0
+],
+"B|onestep|set|M<=P||all": [
+8,
+27
+],
+"B|onestep|set|M<=P||dualH": [
+6,
+17
+],
+"B|onestep|set|M<=P||wr": [
+0,
+5
+],
+"B|onestep|set|M<=P||wr_def0": [
+0,
+4
+],
+"B|onestep|set|#P=#M||all": [
+1,
+34
+],
+"B|onestep|set|#P=#M||dualH": [
+1,
+22
+],
+"B|onestep|set|#P=#M||wr": [
+0,
+5
+],
+"B|onestep|set|#P=#M||wr_def0": [
+0,
+4
+],
+"B|onestep|C<=P||all": [
+8,
+92
+],
+"B|onestep|C<=P||dualH": [
+6,
+23
+],
+"B|onestep|C<=P||wr": [
+0,
+16
+],
+"B|onestep|C<=P||wr_def0": [
+0,
+4
+],
+"B|onestep|P=S||all": [
+0,
+100
+],
+"B|onestep|P=S||dualH": [
+0,
+29
+],
+"B|onestep|P=S||wr": [
+0,
+16
+],
+"B|onestep|P=S||wr_def0": [
+0,
+4
+],
+"B|onestep|S<=P||all": [
+18,
+82
+],
+"B|onestep|S<=P||dualH": [
+10,
+19
+],
+"B|onestep|S<=P||wr": [
+1,
+15
+],
+"B|onestep|S<=P||wr_def0": [
+1,
+3
+],
+"B|onestep|P<=S||all": [
+41,
+59
+],
+"B|onestep|P<=S||dualH": [
+15,
+14
+],
+"B|onestep|P<=S||wr": [
+7,
+9
+],
+"B|onestep|P<=S||wr_def0": [
+3,
+1
+],
+"B|onestep|P_blocks_siphons||all": [
+8,
+92
+],
+"B|onestep|P_blocks_siphons||dualH": [
+6,
+23
+],
+"B|onestep|P_blocks_siphons||wr": [
+0,
+16
+],
+"B|onestep|P_blocks_siphons||wr_def0": [
+0,
+4
+],
+"B|onestep|P_blocks_unions_of_S||all": [
+4,
+96
+],
+"B|onestep|P_blocks_unions_of_S||dualH": [
+4,
+25
+],
+"B|onestep|P_blocks_unions_of_S||wr": [
+0,
+16
+],
+"B|onestep|P_blocks_unions_of_S||wr_def0": [
+0,
+4
+],
+"B|onestep|#P=#S||all": [
+36,
+64
+],
+"B|onestep|#P=#S||dualH": [
+4,
+25
+],
+"B|onestep|#P=#S||wr": [
+7,
+9
+],
+"B|onestep|#P=#S||wr_def0": [
+0,
+4
+],
+"B|thesis|ray|P=M||all": [
+37,
+63
+],
+"B|thesis|ray|P=M||dualH": [
+10,
+19
+],
+"B|thesis|ray|P=M||wr": [
+4,
+12
+],
+"B|thesis|ray|P=M||wr_def0": [
+0,
+4
+],
+"B|thesis|ray|P<=M||all": [
+47,
+53
+],
+"B|thesis|ray|P<=M||dualH": [
+20,
+9
+],
+"B|thesis|ray|P<=M||wr": [
+8,
+8
+],
+"B|thesis|ray|P<=M||wr_def0": [
+4,
+0
+],
+"B|thesis|ray|M<=P||all": [
+90,
+10
+],
+"B|thesis|ray|M<=P||dualH": [
+19,
+10
+],
+"B|thesis|ray|M<=P||wr": [
+12,
+4
+],
+"B|thesis|ray|M<=P||wr_def0": [
+0,
+4
+],
+"B|thesis|ray|#P=#M||all": [
+37,
+63
+],
+"B|thesis|ray|#P=#M||dualH": [
+10,
+19
+],
+"B|thesis|ray|#P=#M||wr": [
+4,
+12
+],
+"B|thesis|ray|#P=#M||wr_def0": [
+0,
+4
+],
+"B|thesis|semiflow|P=M||all": [
+1,
+99
+],
+"B|thesis|semiflow|P=M||dualH": [
+1,
+28
+],
+"B|thesis|semiflow|P=M||wr": [
+0,
+16
+],
+"B|thesis|semiflow|P=M||wr_def0": [
+0,
+4
+],
+"B|thesis|semiflow|P<=M||all": [
+61,
+39
+],
+"B|thesis|semiflow|P<=M||dualH": [
+21,
+8
+],
+"B|thesis|semiflow|P<=M||wr": [
+10,
+6
+],
+"B|thesis|semiflow|P<=M||wr_def0": [
+4,
+0
+],
+"B|thesis|semiflow|M<=P||all": [
+8,
+92
+],
+"B|thesis|semiflow|M<=P||dualH": [
+6,
+23
+],
+"B|thesis|semiflow|M<=P||wr": [
+0,
+16
+],
+"B|thesis|semiflow|M<=P||wr_def0": [
+0,
+4
+],
+"B|thesis|semiflow|#P=#M||all": [
+22,
+78
+],
+"B|thesis|semiflow|#P=#M||dualH": [
+3,
+26
+],
+"B|thesis|semiflow|#P=#M||wr": [
+3,
+13
+],
+"B|thesis|semiflow|#P=#M||wr_def0": [
+0,
+4
+],
+"B|thesis|set|P=M||all": [
+1,
+34
+],
+"B|thesis|set|P=M||dualH": [
+1,
+22
+],
+"B|thesis|set|P=M||wr": [
+0,
+5
+],
+"B|thesis|set|P=M||wr_def0": [
+0,
+4
+],
+"B|thesis|set|P<=M||all": [
+28,
+7
+],
+"B|thesis|set|P<=M||dualH": [
+18,
+5
+],
+"B|thesis|set|P<=M||wr": [
+5,
+0
+],
+"B|thesis|set|P<=M||wr_def0": [
+4,
+0
+],
+"B|thesis|set|M<=P||all": [
+8,
+27
+],
+"B|thesis|set|M<=P||dualH": [
+6,
+17
+],
+"B|thesis|set|M<=P||wr": [
+0,
+5
+],
+"B|thesis|set|M<=P||wr_def0": [
+0,
+4
+],
+"B|thesis|set|#P=#M||all": [
+1,
+34
+],
+"B|thesis|set|#P=#M||dualH": [
+1,
+22
+],
+"B|thesis|set|#P=#M||wr": [
+0,
+5
+],
+"B|thesis|set|#P=#M||wr_def0": [
+0,
+4
+],
+"B|thesis|C<=P||all": [
+8,
+92
+],
+"B|thesis|C<=P||dualH": [
+6,
+23
+],
+"B|thesis|C<=P||wr": [
+0,
+16
+],
+"B|thesis|C<=P||wr_def0": [
+0,
+4
+],
+"B|thesis|P=S||all": [
+0,
+100
+],
+"B|thesis|P=S||dualH": [
+0,
+29
+],
+"B|thesis|P=S||wr": [
+0,
+16
+],
+"B|thesis|P=S||wr_def0": [
+0,
+4
+],
+"B|thesis|S<=P||all": [
+18,
+82
+],
+"B|thesis|S<=P||dualH": [
+10,
+19
+],
+"B|thesis|S<=P||wr": [
+1,
+15
+],
+"B|thesis|S<=P||wr_def0": [
+1,
+3
+],
+"B|thesis|P<=S||all": [
+41,
+59
+],
+"B|thesis|P<=S||dualH": [
+15,
+14
+],
+"B|thesis|P<=S||wr": [
+7,
+9
+],
+"B|thesis|P<=S||wr_def0": [
+3,
+1
+],
+"B|thesis|P_blocks_siphons||all": [
+8,
+92
+],
+"B|thesis|P_blocks_siphons||dualH": [
+6,
+23
+],
+"B|thesis|P_blocks_siphons||wr": [
+0,
+16
+],
+"B|thesis|P_blocks_siphons||wr_def0": [
+0,
+4
+],
+"B|thesis|P_blocks_unions_of_S||all": [
+4,
+96
+],
+"B|thesis|P_blocks_unions_of_S||dualH": [
+4,
+25
+],
+"B|thesis|P_blocks_unions_of_S||wr": [
+0,
+16
+],
+"B|thesis|P_blocks_unions_of_S||wr_def0": [
+0,
+4
+],
+"B|thesis|#P=#S||all": [
+36,
+64
+],
+"B|thesis|#P=#S||dualH": [
+4,
+25
+],
+"B|thesis|#P=#S||wr": [
+7,
+9
+],
+"B|thesis|#P=#S||wr_def0": [
+0,
+4
+],
+"B|closure|ray|P=M||all": [
+37,
+63
+],
+"B|closure|ray|P=M||dualH": [
+10,
+19
+],
+"B|closure|ray|P=M||wr": [
+4,
+12
+],
+"B|closure|ray|P=M||wr_def0": [
+0,
+4
+],
+"B|closure|ray|P<=M||all": [
+47,
+53
+],
+"B|closure|ray|P<=M||dualH": [
+20,
+9
+],
+"B|closure|ray|P<=M||wr": [
+8,
+8
+],
+"B|closure|ray|P<=M||wr_def0": [
+4,
+0
+],
+"B|closure|ray|M<=P||all": [
+90,
+10
+],
+"B|closure|ray|M<=P||dualH": [
+19,
+10
+],
+"B|closure|ray|M<=P||wr": [
+12,
+4
+],
+"B|closure|ray|M<=P||wr_def0": [
+0,
+4
+],
+"B|closure|ray|#P=#M||all": [
+37,
+63
+],
+"B|closure|ray|#P=#M||dualH": [
+10,
+19
+],
+"B|closure|ray|#P=#M||wr": [
+4,
+12
+],
+"B|closure|ray|#P=#M||wr_def0": [
+0,
+4
+],
+"B|closure|semiflow|P=M||all": [
+1,
+99
+],
+"B|closure|semiflow|P=M||dualH": [
+1,
+28
+],
+"B|closure|semiflow|P=M||wr": [
+0,
+16
+],
+"B|closure|semiflow|P=M||wr_def0": [
+0,
+4
+],
+"B|closure|semiflow|P<=M||all": [
+61,
+39
+],
+"B|closure|semiflow|P<=M||dualH": [
+21,
+8
+],
+"B|closure|semiflow|P<=M||wr": [
+10,
+6
+],
+"B|closure|semiflow|P<=M||wr_def0": [
+4,
+0
+],
+"B|closure|semiflow|M<=P||all": [
+8,
+92
+],
+"B|closure|semiflow|M<=P||dualH": [
+6,
+23
+],
+"B|closure|semiflow|M<=P||wr": [
+0,
+16
+],
+"B|closure|semiflow|M<=P||wr_def0": [
+0,
+4
+],
+"B|closure|semiflow|#P=#M||all": [
+22,
+78
+],
+"B|closure|semiflow|#P=#M||dualH": [
+3,
+26
+],
+"B|closure|semiflow|#P=#M||wr": [
+3,
+13
+],
+"B|closure|semiflow|#P=#M||wr_def0": [
+0,
+4
+],
+"B|closure|set|P=M||all": [
+1,
+34
+],
+"B|closure|set|P=M||dualH": [
+1,
+22
+],
+"B|closure|set|P=M||wr": [
+0,
+5
+],
+"B|closure|set|P=M||wr_def0": [
+0,
+4
+],
+"B|closure|set|P<=M||all": [
+28,
+7
+],
+"B|closure|set|P<=M||dualH": [
+18,
+5
+],
+"B|closure|set|P<=M||wr": [
+5,
+0
+],
+"B|closure|set|P<=M||wr_def0": [
+4,
+0
+],
+"B|closure|set|M<=P||all": [
+8,
+27
+],
+"B|closure|set|M<=P||dualH": [
+6,
+17
+],
+"B|closure|set|M<=P||wr": [
+0,
+5
+],
+"B|closure|set|M<=P||wr_def0": [
+0,
+4
+],
+"B|closure|set|#P=#M||all": [
+1,
+34
+],
+"B|closure|set|#P=#M||dualH": [
+1,
+22
+],
+"B|closure|set|#P=#M||wr": [
+0,
+5
+],
+"B|closure|set|#P=#M||wr_def0": [
+0,
+4
+],
+"B|closure|C<=P||all": [
+8,
+92
+],
+"B|closure|C<=P||dualH": [
+6,
+23
+],
+"B|closure|C<=P||wr": [
+0,
+16
+],
+"B|closure|C<=P||wr_def0": [
+0,
+4
+],
+"B|closure|P=S||all": [
+0,
+100
+],
+"B|closure|P=S||dualH": [
+0,
+29
+],
+"B|closure|P=S||wr": [
+0,
+16
+],
+"B|closure|P=S||wr_def0": [
+0,
+4
+],
+"B|closure|S<=P||all": [
+18,
+82
+],
+"B|closure|S<=P||dualH": [
+10,
+19
+],
+"B|closure|S<=P||wr": [
+1,
+15
+],
+"B|closure|S<=P||wr_def0": [
+1,
+3
+],
+"B|closure|P<=S||all": [
+41,
+59
+],
+"B|closure|P<=S||dualH": [
+15,
+14
+],
+"B|closure|P<=S||wr": [
+7,
+9
+],
+"B|closure|P<=S||wr_def0": [
+3,
+1
+],
+"B|closure|P_blocks_siphons||all": [
+8,
+92
+],
+"B|closure|P_blocks_siphons||dualH": [
+6,
+23
+],
+"B|closure|P_blocks_siphons||wr": [
+0,
+16
+],
+"B|closure|P_blocks_siphons||wr_def0": [
+0,
+4
+],
+"B|closure|P_blocks_unions_of_S||all": [
+4,
+96
+],
+"B|closure|P_blocks_unions_of_S||dualH": [
+4,
+25
+],
+"B|closure|P_blocks_unions_of_S||wr": [
+0,
+16
+],
+"B|closure|P_blocks_unions_of_S||wr_def0": [
+0,
+4
+],
+"B|closure|#P=#S||all": [
+36,
+64
+],
+"B|closure|#P=#S||dualH": [
+4,
+25
+],
+"B|closure|#P=#S||wr": [
+7,
+9
+],
+"B|closure|#P=#S||wr_def0": [
+0,
+4
+],
+"B|MIPS_are_siphons||all": [
+11,
+89
+],
+"B|MIPS_are_siphons||dualH": [
+11,
+18
+],
+"B|MIPS_are_siphons||wr": [
+4,
+12
+],
+"B|MIPS_are_siphons||wr_def0": [
+4,
+0
+],
+"B|S<=MIPS||all": [
+22,
+78
+],
+"B|S<=MIPS||dualH": [
+14,
+15
+],
+"B|S<=MIPS||wr": [
+4,
+12
+],
+"B|S<=MIPS||wr_def0": [
+4,
+0
+],
+"same-network|#P(N)=#M(N)||all": [
+8,
+92
+],
+"same-network|#P(N)=#M(N)||dualH": [
+6,
+23
+],
+"same-network|#P(N)=#M(N)||wr": [
+0,
+16
+],
+"same-network|#P(N)=#M(N)||wr_def0": [
+0,
+4
+]
+},
+"smallest_failing": {
+"A|onestep|ray|P=M||all": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|ray|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|P=M||all": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|semiflow|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|set|P=M||all": "X2 -> X1, X1 -> X2",
+"A|onestep|set|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|set|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|set|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|set|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|onestep|set|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|set|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|set|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|set|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|onestep|set|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|set|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|set|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|C<=P||all": "X2 -> X1, X1 -> X2",
+"A|onestep|C<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|C<=P||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|C<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|P=S||all": "X2 -> X1, X1 -> X2",
+"A|onestep|P=S||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|P=S||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|P=S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|S<=P||all": "X2 -> X1, X1 -> X2",
+"A|onestep|S<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|S<=P||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|S<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_siphons||all": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_siphons||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_siphons||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_siphons||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_unions_of_S||all": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_unions_of_S||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_unions_of_S||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|P_blocks_unions_of_S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|#P=#S||all": "X2 -> X1, X1 -> X2",
+"A|onestep|#P=#S||dualH": "X2 -> X1, X1 -> X2",
+"A|onestep|#P=#S||wr": "X2 -> X1, X1 -> X2",
+"A|onestep|#P=#S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|P=M||all": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|ray|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|P=M||all": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|semiflow|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|set|P=M||all": "X2 -> X1, X1 -> X2",
+"A|thesis|set|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|set|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|set|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|set|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|thesis|set|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|set|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|set|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|set|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|thesis|set|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|set|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|set|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|C<=P||all": "X2 -> X1, X1 -> X2",
+"A|thesis|C<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|C<=P||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|C<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|P=S||all": "X2 -> X1, X1 -> X2",
+"A|thesis|P=S||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|P=S||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|P=S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|S<=P||all": "X2 -> X1, X1 -> X2",
+"A|thesis|S<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|S<=P||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|S<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_siphons||all": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_siphons||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_siphons||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_siphons||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_unions_of_S||all": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_unions_of_S||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_unions_of_S||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|P_blocks_unions_of_S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|thesis|#P=#S||all": "X2 -> X1, X1 -> X2",
+"A|thesis|#P=#S||dualH": "X2 -> X1, X1 -> X2",
+"A|thesis|#P=#S||wr": "X2 -> X1, X1 -> X2",
+"A|thesis|#P=#S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|ray|P=M||all": "X2 -> X1, X1 -> X2",
+"A|closure|ray|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|ray|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|closure|ray|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|ray|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|closure|ray|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|ray|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|closure|ray|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|ray|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|closure|ray|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|ray|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|closure|ray|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|P=M||all": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|closure|semiflow|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|set|P=M||all": "X2 -> X1, X1 -> X2",
+"A|closure|set|P=M||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|set|P=M||wr": "X2 -> X1, X1 -> X2",
+"A|closure|set|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|set|M<=P||all": "X2 -> X1, X1 -> X2",
+"A|closure|set|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|set|M<=P||wr": "X2 -> X1, X1 -> X2",
+"A|closure|set|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|set|#P=#M||all": "X2 -> X1, X1 -> X2",
+"A|closure|set|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|set|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"A|closure|set|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|C<=P||all": "X2 -> X1, X1 -> X2",
+"A|closure|C<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|C<=P||wr": "X2 -> X1, X1 -> X2",
+"A|closure|C<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|P=S||all": "X2 -> X1, X1 -> X2",
+"A|closure|P=S||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|P=S||wr": "X2 -> X1, X1 -> X2",
+"A|closure|P=S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|S<=P||all": "X2 -> X1, X1 -> X2",
+"A|closure|S<=P||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|S<=P||wr": "X2 -> X1, X1 -> X2",
+"A|closure|S<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_siphons||all": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_siphons||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_siphons||wr": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_siphons||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_unions_of_S||all": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_unions_of_S||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_unions_of_S||wr": "X2 -> X1, X1 -> X2",
+"A|closure|P_blocks_unions_of_S||wr_def0": "X2 -> X1, X1 -> X2",
+"A|closure|#P=#S||all": "X2 -> X1, X1 -> X2",
+"A|closure|#P=#S||dualH": "X2 -> X1, X1 -> X2",
+"A|closure|#P=#S||wr": "X2 -> X1, X1 -> X2",
+"A|closure|#P=#S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|P=M||all": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|ray|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|P=M||all": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|semiflow|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|set|P=M||all": "X2 -> X1, X1 -> X2",
+"B|onestep|set|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|set|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|set|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|set|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|onestep|set|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|set|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|set|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|set|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|onestep|set|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|set|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|set|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|C<=P||all": "X2 -> X1, X1 -> X2",
+"B|onestep|C<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|C<=P||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|C<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|P=S||all": "X2 -> X1, X1 -> X2",
+"B|onestep|P=S||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|P=S||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|P=S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|S<=P||all": "X2 -> X1, X1 -> X2",
+"B|onestep|S<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|S<=P||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|S<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_siphons||all": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_siphons||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_siphons||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_siphons||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_unions_of_S||all": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_unions_of_S||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_unions_of_S||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|P_blocks_unions_of_S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|onestep|#P=#S||all": "X2 -> X1, X1 -> X2",
+"B|onestep|#P=#S||dualH": "X2 -> X1, X1 -> X2",
+"B|onestep|#P=#S||wr": "X2 -> X1, X1 -> X2",
+"B|onestep|#P=#S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|P=M||all": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|ray|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|P=M||all": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|semiflow|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|set|P=M||all": "X2 -> X1, X1 -> X2",
+"B|thesis|set|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|set|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|set|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|set|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|thesis|set|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|set|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|set|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|set|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|thesis|set|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|set|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|set|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|C<=P||all": "X2 -> X1, X1 -> X2",
+"B|thesis|C<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|C<=P||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|C<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|P=S||all": "X2 -> X1, X1 -> X2",
+"B|thesis|P=S||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|P=S||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|P=S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|S<=P||all": "X2 -> X1, X1 -> X2",
+"B|thesis|S<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|S<=P||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|S<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_siphons||all": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_siphons||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_siphons||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_siphons||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_unions_of_S||all": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_unions_of_S||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_unions_of_S||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|P_blocks_unions_of_S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|thesis|#P=#S||all": "X2 -> X1, X1 -> X2",
+"B|thesis|#P=#S||dualH": "X2 -> X1, X1 -> X2",
+"B|thesis|#P=#S||wr": "X2 -> X1, X1 -> X2",
+"B|thesis|#P=#S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|ray|P=M||all": "X2 -> X1, X1 -> X2",
+"B|closure|ray|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|ray|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|closure|ray|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|ray|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|closure|ray|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|ray|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|closure|ray|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|ray|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|closure|ray|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|ray|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|closure|ray|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|P=M||all": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|closure|semiflow|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|set|P=M||all": "X2 -> X1, X1 -> X2",
+"B|closure|set|P=M||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|set|P=M||wr": "X2 -> X1, X1 -> X2",
+"B|closure|set|P=M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|set|M<=P||all": "X2 -> X1, X1 -> X2",
+"B|closure|set|M<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|set|M<=P||wr": "X2 -> X1, X1 -> X2",
+"B|closure|set|M<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|set|#P=#M||all": "X2 -> X1, X1 -> X2",
+"B|closure|set|#P=#M||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|set|#P=#M||wr": "X2 -> X1, X1 -> X2",
+"B|closure|set|#P=#M||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|C<=P||all": "X2 -> X1, X1 -> X2",
+"B|closure|C<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|C<=P||wr": "X2 -> X1, X1 -> X2",
+"B|closure|C<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|P=S||all": "X2 -> X1, X1 -> X2",
+"B|closure|P=S||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|P=S||wr": "X2 -> X1, X1 -> X2",
+"B|closure|P=S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|S<=P||all": "X2 -> X1, X1 -> X2",
+"B|closure|S<=P||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|S<=P||wr": "X2 -> X1, X1 -> X2",
+"B|closure|S<=P||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_siphons||all": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_siphons||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_siphons||wr": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_siphons||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_unions_of_S||all": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_unions_of_S||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_unions_of_S||wr": "X2 -> X1, X1 -> X2",
+"B|closure|P_blocks_unions_of_S||wr_def0": "X2 -> X1, X1 -> X2",
+"B|closure|#P=#S||all": "X2 -> X1, X1 -> X2",
+"B|closure|#P=#S||dualH": "X2 -> X1, X1 -> X2",
+"B|closure|#P=#S||wr": "X2 -> X1, X1 -> X2",
+"B|closure|#P=#S||wr_def0": "X2 -> X1, X1 -> X2",
+"same-network|#P(N)=#M(N)||all": "X2 -> X1, X1 -> X2",
+"same-network|#P(N)=#M(N)||dualH": "X2 -> X1, X1 -> X2",
+"same-network|#P(N)=#M(N)||wr": "X2 -> X1, X1 -> X2",
+"same-network|#P(N)=#M(N)||wr_def0": "X2 -> X1, X1 -> X2",
+"A|onestep|P<=S||all": "X2 -> X1, X1 + X2 -> 2X2",
+"A|onestep|P<=S||dualH": "X2 -> X1, X1 + X2 -> 2X2",
+"A|thesis|P<=S||all": "X2 -> X1, X1 + X2 -> 2X2",
+"A|thesis|P<=S||dualH": "X2 -> X1, X1 + X2 -> 2X2",
+"A|closure|P<=S||all": "X2 -> X1, X1 + X2 -> 2X2",
+"A|closure|P<=S||dualH": "X2 -> X1, X1 + X2 -> 2X2",
+"B|onestep|P<=S||all": "X2 -> X1, X1 + X2 -> 2X2",
+"B|onestep|P<=S||dualH": "X2 -> X1, X1 + X2 -> 2X2",
+"B|thesis|P<=S||all": "X2 -> X1, X1 + X2 -> 2X2",
+"B|thesis|P<=S||dualH": "X2 -> X1, X1 + X2 -> 2X2",
+"B|closure|P<=S||all": "X2 -> X1, X1 + X2 -> 2X2",
+"B|closure|P<=S||dualH": "X2 -> X1, X1 + X2 -> 2X2",
+"B|MIPS_are_siphons||all": "X2 -> X1, 2X2 -> X1 + X2, X1 -> X2",
+"B|S<=MIPS||all": "X2 -> X1, 2X2 -> X1 + X2, X1 -> X2",
+"B|MIPS_are_siphons||dualH": "X2 -> X1, 2X2 -> 2X1, X1 -> X2",
+"B|S<=MIPS||dualH": "X2 -> X1, 2X2 -> 2X1, X1 -> X2",
+"B|onestep|ray|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|onestep|semiflow|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|onestep|set|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|thesis|ray|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|thesis|semiflow|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|thesis|set|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|closure|ray|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|closure|semiflow|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|closure|set|P<=M||all": "X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1",
+"B|onestep|ray|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|onestep|semiflow|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|onestep|set|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|thesis|ray|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|thesis|semiflow|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|thesis|set|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|closure|ray|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|closure|semiflow|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|closure|set|P<=M||dualH": "X2 -> X1, 2X1 -> 2X2, 2X1 -> X1 + X2",
+"B|MIPS_are_siphons||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X1, 2X1 -> 2X2",
+"B|S<=MIPS||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X1, 2X1 -> 2X2",
+"A|onestep|P<=S||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"A|onestep|P<=S||wr_def0": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"A|thesis|P<=S||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"A|thesis|P<=S||wr_def0": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"A|closure|P<=S||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"A|closure|P<=S||wr_def0": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"B|onestep|P<=S||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"B|onestep|P<=S||wr_def0": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"B|thesis|P<=S||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"B|thesis|P<=S||wr_def0": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"B|closure|P<=S||wr": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"B|closure|P<=S||wr_def0": "2X2 -> X1 + X2, X1 + X2 -> 2X2",
+"B|onestep|ray|P<=M||wr": "2X2 -> X1 + X2, 2X2 -> 2X1, X1 + X2 -> 2X2, 2X1 -> 2X2",
+"B|onestep|semiflow|P<=M||wr": "2X2 -> X1 + X2, 2X2 -> 2X1, X1 + X2 -> 2X2, 2X1 -> 2X2",
+"B|thesis|ray|P<=M||wr": "2X2 -> X1 + X2, 2X2 -> 2X1, X1 + X2 -> 2X2, 2X1 -> 2X2",
+"B|thesis|semiflow|P<=M||wr": "2X2 -> X1 + X2, 2X2 -> 2X1, X1 + X2 -> 2X2, 2X1 -> 2X2",
+"B|closure|ray|P<=M||wr": "2X2 -> X1 + X2, 2X2 -> 2X1, X1 + X2 -> 2X2, 2X1 -> 2X2",
+"B|closure|semiflow|P<=M||wr": "2X2 -> X1 + X2, 2X2 -> 2X1, X1 + X2 -> 2X2, 2X1 -> 2X2"
+},
+"variants_differ_examples": []
+}

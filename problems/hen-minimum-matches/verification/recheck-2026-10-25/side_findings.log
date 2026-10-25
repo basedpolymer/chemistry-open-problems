@@ -1,0 +1,9 @@
+COMMAND: ['python3', 'side_findings.py']
+PASS (a) float-SCIP 36-match set infeasible, exact deficit 1/10
+PASS (b) reduced_transportation/37sp-yfyv_cplex.sol 37 listed pairs -> 37 after exact greedy pruning
+PASS (b) reduced_transportation/37sp-yfyv_gurobi.sol 37 listed pairs -> 37 after exact greedy pruning
+PASS (b) transportation/37sp-yfyv_cplex.sol 37 listed pairs -> 37 after exact greedy pruning
+PASS (b) transportation/37sp-yfyv_gurobi.sol 38 listed pairs -> 37 after exact greedy pruning
+PASS (b) transshipment/37sp-yfyv_cplex.sol 37 listed pairs -> 37 after exact greedy pruning
+PASS (b) transshipment/37sp-yfyv_gurobi.sol 37 listed pairs -> 37 after exact greedy pruning
+ALL PASS

@@ -1,0 +1,203 @@
+[
+  {
+    "name": "build_goodcount",
+    "command": [
+      "gcc",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-o",
+      "goodcount",
+      "goodcount.c"
+    ],
+    "returncode": 0,
+    "seconds": 1.3
+  },
+  {
+    "name": "build_gadgetbound",
+    "command": [
+      "gcc",
+      "-O3",
+      "-Wall",
+      "-Wextra",
+      "-o",
+      "gadgetbound",
+      "gadgetbound.c"
+    ],
+    "returncode": 0,
+    "seconds": 1.92
+  },
+  {
+    "name": "check_splice_lemma",
+    "command": [
+      "python3",
+      "check_splice_lemma.py"
+    ],
+    "returncode": 0,
+    "seconds": 1.69
+  },
+  {
+    "name": "check_exact_proportions",
+    "command": [
+      "python3",
+      "check_exact_proportions.py"
+    ],
+    "returncode": 0,
+    "seconds": 16.49
+  },
+  {
+    "name": "check_rook_hubs",
+    "command": [
+      "python3",
+      "check_rook_hubs.py"
+    ],
+    "returncode": 0,
+    "seconds": 57.44
+  },
+  {
+    "name": "test_c_programs",
+    "command": [
+      "python3",
+      "test_c_programs.py"
+    ],
+    "returncode": 0,
+    "seconds": 32.53
+  },
+  {
+    "name": "goodcount",
+    "command": [
+      "bash",
+      "scripts/run_goodcount.sh",
+      "3",
+      "10"
+    ],
+    "returncode": 0,
+    "seconds": 286.52
+  },
+  {
+    "name": "verify_small_graphs",
+    "command": [
+      "python3",
+      "scripts/verify_small_graphs.py",
+      "10"
+    ],
+    "returncode": 0,
+    "seconds": 1.42
+  },
+  {
+    "name": "mixing_n9",
+    "command": [
+      "python3",
+      "check_mixing_bound.py",
+      "9"
+    ],
+    "returncode": 0,
+    "seconds": 287.18
+  },
+  {
+    "name": "rook_hubs_c",
+    "command": [
+      "python3",
+      "check_rook_hubs_c.py",
+      "200"
+    ],
+    "returncode": 0,
+    "seconds": 378.67
+  },
+  {
+    "name": "gadgetbound_n3",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 3 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 0.11
+  },
+  {
+    "name": "gadgetbound_n4",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 4 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 0.06
+  },
+  {
+    "name": "gadgetbound_n5",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 5 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 0.05
+  },
+  {
+    "name": "gadgetbound_n6",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 6 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 0.04
+  },
+  {
+    "name": "gadgetbound_n7",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 7 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 0.07
+  },
+  {
+    "name": "gadgetbound_n8",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 8 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 0.48
+  },
+  {
+    "name": "gadgetbound_n9",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 9 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 16.74
+  },
+  {
+    "name": "gadgetbound_n10",
+    "command": [
+      "bash",
+      "-o",
+      "pipefail",
+      "-c",
+      "geng -c -q 10 | ./gadgetbound 2 3"
+    ],
+    "returncode": 0,
+    "seconds": 1083.73
+  }
+]

@@ -1,12 +1,11 @@
 # Iosif: are preclusters dual to maximal invariant polyhedral supports, and to siphons?
 
-**Status: solved (preliminary), with a negative answer.** Every precise formulation of the conjectured "duality
+**Status: solved, with a negative answer.** Every precise formulation of the conjectured "duality
 relation" that we could extract is false, and we prove exact criteria for when each relation holds. The conjecture
-itself does not define "duality relation", so a relation of a different kind is not excluded (see "Open" below). Not
-yet verified.
+itself does not define "duality relation", so a relation of a different kind is not excluded (see "Open" below). Verified; see [verification.md](verification.md).
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), 25 Oct 2026, covering the novelty check, proofs, scripts and
-manuscript. Verification: pending.
+manuscript. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md).
 
 ## Problem
 

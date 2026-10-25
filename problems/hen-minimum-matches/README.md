@@ -6,10 +6,10 @@
 - Solver (VIPR closure of unbalanced10, hardening patch of VIPR's checker, separate VIPR checker, check of the
   networks against the original 2018 model, manuscript; 25 Oct 2026): Claude Opus 5.5 (effort xhigh), sub-agent of
   the orchestrator.
-- No helper agents. Verification: pending.
+- No helper agents. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md).
 
-**Status: solved (preliminary) for four instances — 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, unbalanced10 = 25 —
-and partial result (record lower bound) for the balanced15 family; not yet verified.**
+**Status: solved for four instances — 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, unbalanced10 = 25 —
+and partial result (record lower bound) for the balanced15 family; verified on 25 October 2026.**
 Of the 25 benchmark instances left without matching bounds in 2018, four are now closed by exact certificates: an
 explicit network checked in exact rational arithmetic (upper bound) and either a combinatorial lower bound proved by
 exhaustive exact enumeration (37sp-yfyv, 20sp1, 23sp1; the last with a new upper bound, previously 23) or a VIPR
@@ -43,10 +43,10 @@ converge"). These lower bounds are floating-point solver output, not certificate
 
 | instance | previous UB / LB | new UB / LB | status | UB certificate | LB certificate |
 |---|---|---|---|---|---|
-| 37sp-yfyv | 36 / 35 (LKM18; FS04 36) | **36 / 36** | **optimal = 36**, solved (preliminary) | exact network (36) | Lemma 1, c_max = 2 (exact enumeration) |
-| 20sp1 | 19 / 16 (LKM18; FS04 19) | **19 / 19** | **optimal = 19**, solved (preliminary) | exact network (19) | Lemma 1, c_max = 2 |
-| 23sp1 | 23 / 17 (LKM18; FS04 23) | **22 / 22** | **optimal = 22**, solved (preliminary), new UB | exact network (22) | Lemma 1, c_max = 2 |
-| unbalanced10 | 25 / 24 (LKM18) | **25 / 25** | **optimal = 25**, solved (preliminary) | exact network (25) | VIPR certificate (0.54 GB), viprchk + separate checker: PASS |
+| 37sp-yfyv | 36 / 35 (LKM18; FS04 36) | **36 / 36** | **optimal = 36**, solved | exact network (36) | Lemma 1, c_max = 2 (exact enumeration) |
+| 20sp1 | 19 / 16 (LKM18; FS04 19) | **19 / 19** | **optimal = 19**, solved | exact network (19) | Lemma 1, c_max = 2 |
+| 23sp1 | 23 / 17 (LKM18; FS04 23) | **22 / 22** | **optimal = 22**, solved, new UB | exact network (22) | Lemma 1, c_max = 2 |
+| unbalanced10 | 25 / 24 (LKM18) | **25 / 25** | **optimal = 25**, solved | exact network (25) | VIPR certificate (0.54 GB), viprchk + separate checker: PASS |
 | unbalanced15 | 36 / 35 (LKM18) | 36 / 32 certified | open | exact network (36) | Lemma 1 |
 | 22sp1 | 25 / 23 (LKM18; FS04 25) | 25 / 23 certified | open | exact network | Lemma 1, c_max = 1 |
 | balanced12 | 28 / 26 | 28 / 26 certified | open | exact network | Lemma 1, c_max = 1 |

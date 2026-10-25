@@ -47,7 +47,7 @@ Novelty check (25 Oct 2026, details in `references.md`):
    exact integrality argument. A class with a > 0 needs a linear number of extra vertices, and a class with ρ ≤ 0 dies
    for large k. Example: copies of C₅ plus a pendant path, with proportions 1/4, 4/11, 2/5, … → 1/2.
 3. **Every rational β ∈ (0, 2/3) is an exact proportion** (Thm. 5, Cor. 6) [proof].
-   - G(k, α, γ) = k·(K₄−e) ⊕ α·F₅ ⊕ γ·F₆, where F₅ and F₆ are explicit "neutral" fillers of 5 and 6 vertices that make
+   - G(k, α, γ) = k·(K₄−e) ⊕ α·F₅ ⊕ γ·F₆, where F₅ and F₆ are explicit "neutral" fillers contributing 5 and 6 non-hub vertices that make
      the hub's transmission exactly (3/4)(n − 1).
    - G(k, α, γ) has **exactly** 2k good vertices among n = 1 + 3k + 5α + 6γ. With k = pj and 5α + 6γ = (2q − 3p)j − 1
      (Frobenius number 19), the proportion is exactly p/q.
@@ -63,7 +63,7 @@ Novelty check (25 Oct 2026, details in `references.md`):
      classes, or balanced pairs of classes with equal ρ.
    - Exact computation in int128 arithmetic: λ(𝓑₉) = 2/3 for all branches with ≤ 9 vertices (8 915 804 classes).
      Every class of every rooted graph with ≤ 10 vertices has efficiency ≤ 2/3.
-   - Hence no splice construction of this kind can give β > 2/3. Classes covering more than 2/3 of a gadget always have
+   - Hence no infinite family of these splices can maintain a proportion β > 2/3. Within the enumerated gadgets, classes covering more than 2/3 of the non-hub vertices have
      ρ/ρ* < 0.63.
 6. **A 2-connected near miss** (Prop. 13) [proof + exact computation].
    - The rook graph K_a □ K_b with one hub per row has its ab rook vertices in one orbit (proportion b/(b + 1)).

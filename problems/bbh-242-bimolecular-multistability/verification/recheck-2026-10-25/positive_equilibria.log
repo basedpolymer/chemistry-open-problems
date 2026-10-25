@@ -1,0 +1,19 @@
+COMMAND: ['python3', 'positive_equilibria.py']
+4-source dynamically nontrivial classes: 838
+PASS count equals 838 (BBH 2024, Lemma 24)
+classes with affinely dependent sources (no isolated positive equilibrium): 0
+classes with Phi constant (N = Q = 0; positive equilibria never isolated): 9
+     0->X, Y->2Y, X+Y->X, 2X->0
+     0->X, Y->2Y, X->0, X+Y->X
+     0->X, Y->X, X+Y->2Y, 2X->0
+     0->X, Y->X, X->0, X+Y->2Y
+     Y->2Y, 2Y->0, X->Y, X+Y->2X
+     Y->2Y, X->2X, X+Y->X, 2X->0
+     Y->X+Y, 2Y->2X, X->0, 2X->X+Y
+     Y->X+Y, 2Y->2X, X->0, X+Y->2Y
+     Y->X+Y, X->0, X+Y->2X, 2X->X+Y
+PASS there are 9 such classes (BBH 2024, Remark 26(f): 838 - 829 = 9)
+PASS C2 and C3 hold for every other class (829)
+classes where Q vanishes on I (zero eigenvalue at a positive equilibrium for some kappa): 30
+PASS these are exactly the 30 networks of Table 1 of BBH 2024
+SUMMARY: ALL PASS
