@@ -234,7 +234,7 @@ Then U = Σ_D w(D)(outR + outL) and L = Σ_D w(D)(certR + certL) satisfy L ≤ p
 | lower bound L | 3.067561320913·10⁻⁵ (exact: `lower_num`/2⁶⁰⁰) |
 | U/L | 27.69 |
 | previous bounds | 0 ≤ p₆ ≤ (14−3π)/192 = 0.02383 (Hake; proof incomplete, §7) — U is 28.05 times smaller |
-| leaves / evaluations / rounds | 245 448 / 292 472 / 24 (stopped at the owner's request; resumable) |
+| leaves / evaluations / rounds | 245 448 / 292 472 / 24 (paused; resumable) |
 | certificate | `certificates/hexknot.leaves.gz` (SHA-256 of the text 799b8710…a7), 2.1 MB |
 | anomalies | 0 components certified unknotted; all components with certified cells certified knotted |
 

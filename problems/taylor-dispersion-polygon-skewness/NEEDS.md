@@ -1,4 +1,4 @@
-# Paywalled / inaccessible sources (owner may supply PDFs into `certificates/sources/`)
+# Paywalled / inaccessible sources (PDFs go in `certificates/sources/`)
 
 Already supplied: Stud. Appl. Math. 141 (2018) 399–417, doi:10.1111/sapm.12230 (thank you).
 

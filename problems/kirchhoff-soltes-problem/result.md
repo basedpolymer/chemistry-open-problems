@@ -62,7 +62,7 @@ graph with n ≥ 3 vertices all of which are good. Hence every KS graph is 2-con
 9. **Exhaustive searches** [exact computation]: C₅ is the only KS graph on ≤ 11 vertices (all 2-connected graphs,
    nauty geng −C, 910 914 360 graphs for n ≤ 11; the published range was n ≤ 9); no vertex-transitive
    KS graph on n vertices for 6 ≤ n ≤ 39 and n ∈ {41, 43, 45, 47} (Holt–Royle census, 4 685 508 graphs;
-   published range n ≤ 23). **Not run (work stopped by the owner): census files n = 40, 42, 44, 46.**
+   published range n ≤ 23). **Not run (work paused): census files n = 40, 42, 44, 46.**
    Counts in §11.
 
 Consequently a KS graph other than C₅, if it exists, has ≥ 12 vertices, is 2-connected, has cyclomatic
@@ -459,7 +459,7 @@ for n ∈ {41, 43, 45, 47}. Every graph of the corresponding files of the Holt�
 with `kscheck_fast -t` (`scripts/run_census.sh`); counts per n agree with OEIS A006799; every tar file
 matched the md5 published by Zenodo (`census_md5_n10_31.txt`, `md5 OK` lines in `census_n*.log`); n ≤ 9 is
 covered by Theorem 14. **The files n = 40, 42, 44, 46 (13 104 170 + 9 462 226 + 39 134 640 + 34 333 800
-graphs) were not processed: the work was stopped by the repository owner.** Resume with
+graphs) were not processed: the work was paused.** Resume with
 `scripts/run_census.sh 40 42 44 46` (downloads 11 GB; about 1–2 h of one core).
 
 **Census counts** (`certificates/search/census_n*.log`, table produced by `scripts/summarize_logs.py`):
@@ -537,7 +537,7 @@ graphs) were not processed: the work was stopped by the repository owner.** Resu
 | Thm 15 (vertex-transitive) | exact computation completed for n ≤ 39 and n = 41, 43, 45, 47 only |
 | paper.tex | drafted by the solver, not compiled (no LaTeX in this container) |
 
-Searches **not run** (work stopped by the owner on 24 Oct 2026): census n = 40, 42, 44, 46; regular graphs
+Searches **not run** (work paused on 24 Oct 2026): census n = 40, 42, 44, 46; regular graphs
 (cubic n = 20, 22; quartic n = 15, 16; 5-regular and 6-regular n = 14, with complements); bicirculants
 2m ≤ 26 (`bicirculant_enum.py`); large floating-point scans (`fourier_families.py` tori4/tri6/gp up to
 n = 1000). To resume (from this folder, one core): `scripts/run_census.sh 40 42 44 46`;

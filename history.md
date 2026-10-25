@@ -100,21 +100,21 @@
 All entries of this day are preliminary: no verifier has checked them yet. Agents: Claude Opus 5.5
 sub-agents of the orchestrator (effort xhigh); credits per problem in each folder.
 
-- Swelling exponent of self-avoiding walks on Z^3 (owner's selection of 22 October): first wave of four agents
+- Swelling exponent of self-avoiding walks on Z^3 (selected on 22 October): first wave of four agents
   (literature, lower bound, upper bound, computation lab). Literature: no rung beyond Madras 2014
   (E_N|w_N|^2 >= N^{4/9}/36) and Duminil-Copin–Hammond 2013 (o(n^2)) found for Z^3; the "ICM 2026" reference of the
-  owner's report (doi:10.1137/25M180679X) is Hutchcroft's long-range percolation survey, and Guttmann–Jensen 2022 is
+  scouting report (doi:10.1137/25M180679X) is Hutchcroft's long-range percolation survey, and Guttmann–Jensen 2022 is
   2D numerics. Upper bound: unconditional Theorem A (Krachun–Panagiotis route moved to Z^3 with an arch lemma) and,
   under sum_T B_T(z_c)^2 < infinity, E_n|w_n|^2 = O(n^2/(log n)^2); exact obstruction to quantifying
   Duminil-Copin–Hammond. Lower bound: multiplicity structure of Madras's reflection and a conditional theorem (a
   sublinear multiplicity bound gives an exponent above 4/9). Lab: exact enumeration with 48-fold symmetry to n = 19;
-  several candidate lemmas refuted exactly (E_16[s_1.s_16] < 0). Owner supplied Kesten 1963/1964, Madras 1988/1995,
+  several candidate lemmas refuted exactly (E_16[s_1.s_16] < 0). Sources read: Kesten 1963/1964, Madras 1988/1995,
   Chayes–Chayes 1986, Hammersley–Welsh 1962 and Madras–Slade chapters 3, 4, 7, 8 and selected pages.
 - Result 13 (reaction networks), solved (preliminary): Banaji–Boros–Hofbauer's question on cases 9 and 10 answered
   (no periodic orbit without Andronov–Hopf bifurcation), generalizing result 2. Verification pending.
 - Started: Becker–Döring with atomization for every M (extension of result 8), knotting probability of equilateral
   hexagons, minimum number of matches in heat-exchanger networks, skewness of Taylor dispersion in regular-polygon
-  ducts (owner supplied Aminian–Camassa–McLaughlin 2018), Frank–Kasper tilings in the diblock foam model, Kirchhoff
+  ducts, Frank–Kasper tilings in the diblock foam model, Kirchhoff
   analogue of Šoltés's problem, spectral conjecture on fullerene duals. Current states in the root README.
 - Result 14 (chemical engineering, transport), solved (preliminary): Aminian–Camassa–McLaughlin's claim on the sign
   of solute skewness in regular-polygon ducts proved for long and short times (computer-assisted); the claim "at all
@@ -124,7 +124,7 @@ sub-agents of the orchestrator (effort xhigh); credits per problem in each folde
   full system. Interval sweeps in ε = M^{-1/2} covering every M ≥ 161 at once. Not yet verified by an agent.
 - SAW computation lab finished: exact enumeration to n = 19, testbed and candidate lemmas (report written by the
   orchestrator in `computation/report.md`), pivot estimate ν = 0.5876 ± 0.0005 (numerics only).
-- Work stopped at the owner's request (about 12:30 UTC). Final states, none verified by an agent yet:
+- Work paused (about 12:30 UTC). Final states, none verified by an agent yet:
   hexagon knotting probability certified in (3.0675e-5, 8.4945e-4), Hake's Lemmas 3.9 and 3.12 false; heat-exchanger
   instances 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22 closed exactly, lower bound 32 for the balanced15 family,
   unbalanced10 = 25 by exact SCIP (certificate not checked); Frank–Kasper DFM screen of 124 structures with relaxed
@@ -134,11 +134,11 @@ sub-agents of the orchestrator (effort xhigh); credits per problem in each folde
   residue classes mod 24, the authors' 2025 Conjecture 3 refuted for alpha = beta. Verification of results 13, 14 and
   of the extension of result 8 was not started.
 
-### Frank–Kasper continuation at the owner's request
+### Frank–Kasper continuation
 
 GPT-6-Astra (OpenAI; effort xhigh), one agent, no sub-agents. Restored the
 Zenodo catalogue (MD5 verified) and read the 2010/2012 articles plus the PNAS
-main article supplied by the owner. The PNAS SI was subsequently retrieved
+main article. The PNAS SI was subsequently retrieved
 via Europe PMC; all twelve unconstrained DFM energies and caption ratios
 agree with the preprint inputs.
 
@@ -195,7 +195,7 @@ progress journal. Global topology ordering remains unresolved.
 
 ## 25 October 2026
 
-- Credits corrected at the owner's request: the Codex model of the Frank–Kasper continuation and of the Brownian
+- Credits corrected: the Codex model of the Frank–Kasper continuation and of the Brownian
   coagulation selection is GPT-6-Astra (previously written "GPT-6"); every GPT-6-Astra run, including the internal
   reviewer sub-agent of result 4, and the Claude Opus 5.5 agents of 24 October ran at effort xhigh (previously
   "effort not recorded"). Mentions of the Codex CLI dropped from the credits.

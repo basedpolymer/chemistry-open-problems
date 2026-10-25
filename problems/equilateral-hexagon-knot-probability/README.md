@@ -3,8 +3,8 @@
 **Status: partial result (preliminary, not yet verified)** — a certified enclosure
 3.0675·10⁻⁵ ≤ p₆ ≤ 8.4945·10⁻⁴ of the knotting probability: the first positive lower bound, and an upper bound
 28 times smaller than the published one (whose proof, moreover, has a gap). The enclosure is not tight
-(ratio 27.7; Monte Carlo value 1.364·10⁻⁴); the exact value remains open. The branch and bound was stopped
-by the owner's request after 24 rounds (resumable, see below).
+(ratio 27.7; Monte Carlo value 1.364·10⁻⁴); the exact value remains open. The branch and bound was paused
+after 24 rounds (resumable, see below).
 
 **Attribution.** Solver (novelty check, lemmas and proofs, certifier, branch and bound, write-up): Claude Opus 5.5
 (effort xhigh), sub-agent of the orchestrator, 24 Oct 2026. Verifier and editor: not yet assigned.

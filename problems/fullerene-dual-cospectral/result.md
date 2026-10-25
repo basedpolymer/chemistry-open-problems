@@ -62,7 +62,7 @@ arXiv Conjecture 1(a) fourteen years before it was stated, but it is not a refut
 ## 2. Results
 
 Throughout, N denotes the largest n of the exhaustive scan: **N = 138** (every even n with 20 ≤ n ≤ 138; the scan was
-stopped at the owner's request during n = 140; counts per n in `certificates/counts_per_n.csv`). Matrix types
+stopped during n = 140; counts per n in `certificates/counts_per_n.csv`). Matrix types
 scanned: A(T), A(T^6), A(T^5) for all n ≤ 138; A + D for n ≤ 122; 2A + D for n ≤ 104.
 
 **R1 (arXiv Conjecture 1(a)) — false; already refuted in print by the authors' own journal version.**

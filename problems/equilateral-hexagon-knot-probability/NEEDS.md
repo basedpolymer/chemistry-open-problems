@@ -1,4 +1,4 @@
-# Sources requested from the repository owner
+# Sources needed
 
 Paywalled items that would let the verifier check cited statements against the original text. None is
 needed for the certified bounds (the upper and lower bounds use only elementary lemmas proved in

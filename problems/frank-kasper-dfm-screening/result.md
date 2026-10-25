@@ -340,7 +340,7 @@ Surface Evolver cross-check. To resume (checkpoints in `work/runs/<name>__<box>/
 `python3 scripts/make_tables.py` rebuilds the tables. If `work/` is lost, the runs are deterministic and can be
 regenerated (hours).
 
-The owner subsequently requested continuation without sub-agents. That continuation is recorded progressively in
+The work was then continued without sub-agents. That continuation is recorded progressively in
 `JOURNAL.md`, with complete proofs of the new partial results in `paper.tex` and a same-agent audit in
 `verification.md`. The remaining central task is a global comparison of topology infima, including their
 degenerating limits; further local relaxation alone will not establish it.

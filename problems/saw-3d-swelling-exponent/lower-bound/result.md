@@ -39,7 +39,7 @@ Lambda_r = {x : ||x||_inf <= r}.
 
 **CITED (L0).** Madras, *A lower bound for the end-to-end distance of the self-avoiding walk*, Canad. Math. Bull. 57
 (2014) 113-118, doi:10.4153/CMB-2012-022-6, Proposition 1.1 (p. 114). Read in full: the Cambridge open-access PDF and
-the publisher PDF supplied by the owner. "Let N be a positive integer and let p be a real number in [1, inf). Then
+the publisher PDF. "Let N be a positive integer and let p be a real number in [1, inf). Then
 (E_N ||omega(N)||_p^p)^{1/p} >= (E_N ||omega(N)||_inf^p)^{1/p} >= (1/6) N^{p/((p+1)d)}."
 With p = 2: E_N||omega(N)||_2^2 >= N^{4/(3d)}/36 for every N >= 1, which is N^{4/9}/36 in d = 3.
 
@@ -57,7 +57,7 @@ Open statements, verbatim:
   Question 4: "Show that lim_{n->inf} n^{-2/d} <||gamma_n||^2> = inf."
 - Madras-Slade, *The Self-Avoiding Walk* (2013 reprint), p. 14: "no general proof is known of the mean-field bound
   nu >= 1/2"; p. 18: "it has not yet been proved rigorously that G_{z_c}(0,x) is even finite for d = 2, 3 or 4, for any
-  value of x != 0." These are owner-supplied excerpts. The statements describe the state of knowledge in 1993/2013.
+  value of x != 0." The statements describe the state of knowledge in 1993/2013.
   The literature agent's sweep (literature/quick-facts.md) found nothing newer that changes the lower side.
 
 ### Madras's map (definitions from Madras 2014, Section 2)

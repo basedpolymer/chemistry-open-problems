@@ -7,7 +7,7 @@ Retrieved 24 October 2026. Third-party PDFs and texts are stored locally in `cer
 1. M. Aminian, R. Camassa, R. M. McLaughlin, *Mass distribution and skewness for passive scalar transport in pipes
    with polygonal and smooth cross sections*, **Stud. Appl. Math. 141(3) (2018) 399–417**,
    doi:[10.1111/sapm.12230](https://doi.org/10.1111/sapm.12230) (received 23 Feb 2018, revised 5 Aug 2018,
-   accepted 9 Aug 2018, online 24 Sep 2018). **Read in full** (publisher PDF supplied by the repository owner,
+   accepted 9 Aug 2018, online 24 Sep 2018). **Read in full** (publisher PDF,
    `certificates/sources/supplied-aminian2018/`). Quoted: abstract (p. 399), introduction (p. 401), eqs. (4),
    (12)–(18) (pp. 402–406), Section 4 and Table 1 (pp. 406–407), Conclusion (p. 416).
 2. Same authors, arXiv:[1708.05097](https://arxiv.org/abs/1708.05097), v1 (16 Aug 2017), v2 (18 Aug 2017),

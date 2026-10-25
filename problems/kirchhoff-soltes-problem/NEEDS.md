@@ -1,4 +1,4 @@
-# Papers requested from the repository owner (PDFs into certificates/sources/)
+# Papers needed (PDFs into certificates/sources/)
 
 | DOI | Why |
 |---|---|
@@ -10,6 +10,6 @@
 Not needed: Fiedler 1973 (open access, and the inequality used is re-proved), Biggs 1993 (derivation in
 result.md is self-contained).
 
-**25 October 2026:** the owner supplied all four papers (local copies in `certificates/sources/`, git-ignored).
+**25 October 2026:** all four papers were obtained (local copies in `certificates/sources/`, git-ignored).
 They have not yet been read for this folder; the β-family folder (`../kirchhoff-soltes-beta-families/`) uses them
 for its own novelty check.

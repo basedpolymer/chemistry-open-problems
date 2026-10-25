@@ -31,7 +31,7 @@ What remains open: the sign of `Sk(tau)` for intermediate times `t0 < tau < T1` 
 M. Aminian, R. Camassa, R. M. McLaughlin, *Mass distribution and skewness for passive scalar transport in pipes
 with polygonal and smooth cross sections*, Stud. Appl. Math. 141(3) (2018) 399–417, doi:10.1111/sapm.12230;
 arXiv:1708.05097 (v1 16 Aug 2017, v2 18 Aug 2017, v3 5 Feb 2018). Full texts of v1–v3 and of the published
-version were read (the published PDF was supplied by the repository owner).
+version were read.
 
 * Published abstract (p. 399): "For the case of the triangle and localized, cross-wise uniform initial
   distributions, short-time skewness is calculated exactly to be positive, while long-time asymptotics shows it to

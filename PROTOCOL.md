@@ -61,4 +61,4 @@ applied by the verifier, never by the original solver.
 - **record**: best known value, not proven optimal.
 - Never present numerical evidence as a proof. State every assumption and every non-rigorous step explicitly.
 - Always quote the exact sentence that makes the problem open.
-- No external action (email to authors, arXiv, public GitHub, OEIS, databases) without the repository owner's explicit approval.
+- No external action (email to authors, arXiv, public GitHub, OEIS, databases) without explicit approval.

@@ -5,7 +5,7 @@
 **Status: partial result** (not yet verified). No new Kirchhoff Šoltés graph; C₅ is still the
 only known one. Non-existence is proved for several classes, and the exhaustive searches are extended
 from 9 to 11 vertices (all graphs) and from 23 to 39 vertices plus odd n ≤ 47 (vertex-transitive graphs).
-Work was stopped by the owner before the census files n = 40, 42, 44, 46 and the regular-graph,
+Work was paused before the census files n = 40, 42, 44, 46 and the regular-graph,
 bicirculant and large floating-point scans were run (see result.md §13 for how to resume).
 
 ## Problem

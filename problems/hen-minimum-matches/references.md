@@ -28,7 +28,7 @@
 
 - K. C. Furman, N. V. Sahinidis, *Approximation algorithms for the minimum number of matches problem in heat
   exchanger network synthesis*, Ind. Eng. Chem. Res. 43 (2004) 3554–3565, doi:10.1021/ie049978l. **Read in full**
-  (PDF supplied by the owner, 25 Oct 2026; local copy in `certificates/sources/`, not committed). Table 3 gives
+  (publisher PDF, 25 Oct 2026; local copy in `certificates/sources/`, not committed). Table 3 gives
   CPLEX 7.0 values 20sp1 = 19\*, 22sp1 = 25\*, 23sp1 = 23\*, 37sp-yfyy = 36\*, the asterisk meaning (footnote a,
   p. 3562) that "an exact algorithm did not converge for these problems after 7 h of CPU time"; the text (p. 3561)
   says that the lower bounding stalled after 19, 41, 13 and 12 CPU h for these four problems. No lower bounds are
@@ -60,8 +60,7 @@
 
 - Citing works of Letsios et al. 2018 (Semantic Scholar API, 11 citing works; OpenAlex reports 13 but its shared
   daily budget was exhausted, so its list could not be retrieved): Zhang et al. CES 2024 (doi:10.1016/j.ces.2024.119763, not read),
-  Cerdá–Cafaro–Cafaro IECR 2022 (doi:10.1021/acs.iecr.1c02372, **read in full** on 25 Oct 2026, PDF supplied by the
-  owner: a different problem, the detailed structure of HENs with substreams and stream splitting at minimum
+  Cerdá–Cafaro–Cafaro IECR 2022 (doi:10.1021/acs.iecr.1c02372, **read in full** on 25 Oct 2026: a different problem, the detailed structure of HENs with substreams and stream splitting at minimum
   utility usage and minimum number of units, or minimum total cost; 45 literature examples with 4–21 process
   streams, codes xSP.w; the main text reports total costs for 24 examples (Table 1) and no minimum-number-of-matches
   value for any data file of the 2018 benchmark; per-example unit counts are only in its Supporting Information,

@@ -325,7 +325,7 @@ sub-ballisticity. This remark is a computation, not a verified claim.
   proof of Theorem 3) split a walk at its first visit to its extreme column into two pieces that are (after local
   modification) bridges and bound the result by delta sum_T B_{T}(x, y)^2; Madras–Slade Lemma 4.1.12 and
   Hammersley–Welsh use related reflections. What I have not seen is its use as a substitute for KP's Lemma 2.2 and
-  the resulting single-hypothesis statement on Z^3. Madras–Slade Ch. 3-4 (owner-supplied excerpts) contain no
+  the resulting single-hypothesis statement on Z^3. Madras–Slade Ch. 3-4 contain no
   statement on B_{z_c}(L) as L -> infinity. Not read in full: Beaton et al. 2014, Glazman–Manolescu.
 * This is **not** U1 or U2: no explicit rate for E_n|omega_n|^2 on Z^3 is proved unconditionally. DCH's
   Question 1 and the literature's "it is not proved that R_n <= C n^{0.99999}" (Slade 2019, Sec. 2.1.3, via

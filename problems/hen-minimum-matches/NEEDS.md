@@ -1,4 +1,4 @@
-# Needs (for the repository owner)
+# Needs
 
 Supplied on 25 Oct 2026 and read (thank you): Cerdá–Cafaro–Cafaro, IECR 61 (2022) 464–486, and Furman–Sahinidis,
 IECR 43 (2004) 3554–3565 (findings in `references.md`). Neither reports a proven optimum for any instance closed here.

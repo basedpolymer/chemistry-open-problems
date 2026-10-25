@@ -30,7 +30,7 @@
 ## Background (cited for standard facts)
 
 - C. Conradi, D. Flockerzi, *Multistationarity in mass action networks with applications to ERK activation*, J. Math.
-  Biol. 65 (2012) 107–156, DOI 10.1007/s00285-011-0453-1. The publisher PDF was supplied by the repository owner.
+  Biol. 65 (2012) 107–156, DOI 10.1007/s00285-011-0453-1. Publisher PDF read.
   Read: §2 (network N1, the two-site phosphorylation network), §3.1–3.2 (Assumption 1, the set Λ(E), Assumption 2,
   Fact 2, Algorithm 1, Remark 5, Example 1, Lemma 1, Remark 6) and Definition 3 (Isolation and Bridging Property).
   Comparison with the thesis definitions used here:

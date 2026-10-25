@@ -3,7 +3,7 @@
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent
 of the orchestrator. No helper agents. Not yet verified.
 
-**Status (work stopped at the owner's request, 24 Oct 2026, 12:31).**
+**Status (work paused on 24 Oct 2026, 12:31).**
 - arXiv Conjecture 1(a) (the dual's spectrum determines the isomer, n ≠ 44): **false — already corrected in print
   by the authors themselves** (journal version, Nov 2020, Table 1); smallest counterexample, separately
   certified here: **C42:6 / C42:22** (n = 42; none for n < 42).
@@ -17,7 +17,7 @@ of the orchestrator. No helper agents. Not yet verified.
   **false for α = β** (C44:72 / C44:80, signless-Laplacian-cospectral duals) — solved (preliminary), pending a
   check of the JCIM wording (NEEDS.md).
 
-**N = 138**: the exhaustive scan covers every even n with 20 ≤ n ≤ 138 (it was stopped at the owner's request during
+**N = 138**: the exhaustive scan covers every even n with 20 ≤ n ≤ 138 (it was stopped during
 n = 140; the authors claim a check up to 150). Resume with
 `DUALSPEC_BIN=dualspec16 nice -n 10 python3 scripts/scan_driver.py 140 150 7 16 >> certificates/scan/scan_log.txt`,
 then `make_certificates.py` and `verify_pairs.py`.
