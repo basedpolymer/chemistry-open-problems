@@ -497,11 +497,21 @@ diagram at the end of §3 of~\autocite{Iosif2026} also links ``internal cycles''
 the ray-reading MIPS of \(F\).
 \end{remark}
 
-\begin{remark}[clusters]
-The thesis also defines \emph{clusters}~\autocite{Iosif2019} (Definition~4.6), which depend on the rate constants.
-Every precluster lies in a cluster. The 2024 talk~\autocite{Iosif2024talk} conjectures that siphons and clusters are
-dual. The cluster version of B1 fails as well. For \(N_3\) with \(k_2>k_3\), the thesis finds the single cluster
-\(\{R_1,R_2,R_3\}\) (Example~4.7), while no two reactions of \(N_3\) are fully coupled.
+\begin{remark}[clusters]\label{rem:clusters}
+Conradi and Flockerzi~\autocite{ConradiFlockerzi2012} (§3.2, Assumption~2, Fact~2, Algorithm~1) call
+\(e_l-e_k\in\ker\Ye\) a doubling vector; these are our doubling pairs. Their Fact~2(a) is the span rule of
+Definition~19: on the pairs \((\lambda,\mu)\in\Lambda(E)^2\) with
+\(n_l\lambda/n_l\mu=n_k\lambda/n_k\mu\), every \(j\) with \(n_j\in\spn\{n_l,n_k\}\) has the same ratio. Their
+clusters group the rows with equal ratio on the pairs that satisfy these doubling relations, where
+\(\Lambda(E)=\{\lambda\ge0:E\lambda>0\}\). This definition does not involve rate constants. The thesis
+(Definition~4.6~\autocite{Iosif2019}) fixes \(k\) instead (its Remark~4.9). In both versions every precluster lies in a
+cluster. For the two-site phosphorylation network of \zcref{tab:motifs} (their network \(N_1\), with the same
+reaction order), their clusters \(\{1,2,3,10,11,12\}\) and \(\{4,\dots,9\}\) (their Example~1) coincide with our
+preclusters. The 2024 talk~\autocite{Iosif2024talk} conjectures that siphons and clusters are dual. The cluster
+version of B1 fails as well. For \(N_3\), the doubling relation \((\lambda_1+\lambda_2)/(\mu_1+\mu_2)=\lambda_2/\mu_2\)
+with \(\lambda,\mu>0\) forces \(\mu\in\R_{>0}\lambda\), so all three ratios coincide and the Conradi--Flockerzi
+cluster is \(\{R_1,R_2,R_3\}\). The thesis finds the same single cluster for \(k_2>k_3\) (Example~4.7). Yet no two
+reactions of \(N_3\) are fully coupled.
 \end{remark}
 
 \begin{table}[ht]
@@ -580,15 +590,16 @@ siphon relations of Question~24 fail as well, and so does the claim of Remark~23
 
 \paragraph{Open.} (i) Conjecture~22 does not define ``duality relation''. A relation of a different kind (for
 instance a Galois correspondence that is not a refinement) is not excluded by our counterexamples. Any relation that
-forces a bijection between blocks, or a refinement, is excluded. (ii) We did not study the rate-dependent clusters of
-the thesis beyond the remark on \(N_3\). (iii) The paper motivates the conjecture by a possible new case of the Global
+forces a bijection between blocks, or a refinement, is excluded. (ii) We examined clusters (in the thesis and in
+Conradi--Flockerzi) only on \(N_3\) and on the two-site phosphorylation network (\zcref{rem:clusters}). (iii) The paper motivates the conjecture by a possible new case of the Global
 Attractor Conjecture in small codimension (§3 of~\autocite{Iosif2026}). We have no result on that.
 
 \paragraph{Limitations.} Our reading of Definition~17 (\zcref{prop:mips}) quantifies over all \(c\in Q\), including
 values on the boundary of chambers. This is the reading under which Remark~18 holds. The counterexamples were checked
 under the other two readings as well. The paper defines preclusters only through Definition~19. We used the thesis
-for the iterated version and for the examples \(N_3\) and \(N_{4.12}\). The paper of Conradi and
-Flockerzi~\autocite{ConradiFlockerzi2012}, where clusters originate, was not consulted. No verification has been carried
+for the iterated version and for the examples \(N_3\) and \(N_{4.12}\). The original definitions of Conradi and
+Flockerzi~\autocite{ConradiFlockerzi2012} (doubling vectors, the span rule, clusters) agree with those of the thesis
+on the points used here (\zcref{rem:clusters}). No verification has been carried
 out yet.
 
 \section{Computer verification}

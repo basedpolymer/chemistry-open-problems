@@ -82,8 +82,10 @@ the hypotheses confirms the criteria and gives the statistics of Table 15; it is
 Nothing is numerical (no floating point anywhere).
 
 **Open.** "Duality relation" is not defined in the source. Any relation that forces a refinement or a bijection
-between blocks is excluded, but a relation of another kind is not. The rate-dependent clusters of the thesis were only
-checked on N₃ (where the cluster version also fails). The motivation of the source, a case of the Global Attractor
+between blocks is excluded, but a relation of another kind is not. Clusters were checked only on N₃ (where the cluster
+version also fails) and on the two-site phosphorylation network. This covers both the thesis's rate-dependent
+definition and the rate-independent original of Conradi–Flockerzi (2012), whose doubling vectors and span rule
+agree with the definitions used here. The motivation of the source, a case of the Global Attractor
 Conjecture in small codimension, is not addressed.
 
 ## Reproduce
@@ -116,7 +118,7 @@ Each script prints PASS/FAIL per claim and exits with a nonzero status on failur
 | `scripts/summarize_enumeration.py` | Combined statistics (Table 15) |
 | `certificates/*.log`, `certificates/*.json` | Outputs (all PASS), enumeration statistics and smallest failing networks |
 | `references.md` | Sources read and novelty check |
-| `NEEDS.md` | One optional paywalled source (Conradi–Flockerzi 2012) |
+| `NEEDS.md` | No source needed |
 
 `certificates/sources/` holds the arXiv, HAL, thesis and slide PDFs. It is git-ignored because the files are
 copyrighted.

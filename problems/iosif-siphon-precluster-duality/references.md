@@ -30,8 +30,23 @@
 ## Background (cited for standard facts)
 
 - C. Conradi, D. Flockerzi, *Multistationarity in mass action networks with applications to ERK activation*, J. Math.
-  Biol. 65 (2012) 107–156, DOI 10.1007/s00285-011-0453-1. **Not read** (paywalled). We used the thesis definitions,
-  which the thesis says are adapted from this paper.
+  Biol. 65 (2012) 107–156, DOI 10.1007/s00285-011-0453-1. The publisher PDF was supplied by the repository owner.
+  Read: §2 (network N1, the two-site phosphorylation network), §3.1–3.2 (Assumption 1, the set Λ(E), Assumption 2,
+  Fact 2, Algorithm 1, Remark 5, Example 1, Lemma 1, Remark 6) and Definition 3 (Isolation and Bridging Property).
+  Comparison with the thesis definitions used here:
+  - Doubling vectors e_l − e_k ∈ ker Ye (Assumption 2) are the thesis's doubling sets.
+  - Fact 2(a) is exactly the span rule of the paper's Definition 19, applied once from a doubling pair.
+  - Assumption 1(ii) (no zero row of E) corresponds to our use of consistency.
+  - Clusters (Fact 2(b), Algorithm 1, Remark 6(5)) group the rows of E with equal ratio n_jλ/n_jμ on the pairs
+    (λ, μ) ∈ Λ(E)² that satisfy the doubling relations (3.8c). They do not involve the rate constants, whereas the
+    thesis fixes k (its Remark 4.9).
+  - The original has no notion of precluster and no analogue of Algorithm 4.4; the thesis calls its algorithm "very
+    similar" to Algorithm 1, which groups rows by equal ratios rather than building the span graph.
+  - In Example 1, the clusters of N1 are {1,2,3,10,11,12} and {4,…,9}. These coincide with the preclusters computed
+    by `motifs.py` for the same network, which uses the same reaction order.
+  - For N3, the original definition also gives the single cluster {R1,R2,R3} (manuscript, Remark 13).
+
+  Nothing in our definitions or results changes.
 - S. Schuster, C. Hilgetag, J. Biol. Syst. 2 (1994) 165–182, DOI 10.1142/S0218339094000131 (elementary flux modes =
   internal cycles). Not re-read.
 - A. Shiu, B. Sturmfels, *Siphons in chemical reaction networks*, Bull. Math. Biol. 72 (2010) 1448–1463, DOI
