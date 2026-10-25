@@ -1,5 +1,5 @@
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. Builds on result 8
-(`../README.md`; solver, editor and verifier credited there). Independent verification of this extension: pending.
+(`../README.md`; solver, editor and verifier credited there). Verification of this extension: pending.
 
 # Becker–Döring with atomization: Hopf criticality for every M (extension of result 8)
 
@@ -20,7 +20,7 @@ hypothesis H2 only for $M\le160$, and nothing for $M>10^5$. This folder closes b
 ## Status
 
 **Branch 1 (the first Hopf bifurcation): solved (preliminary)** — a complete answer for every $M$, not yet
-independently verified. **Branches 2–3: solved (preliminary)** as well, in the sense made precise below
+verified. **Branches 2–3: solved (preliminary)** as well, in the sense made precise below
 (supercritical on the centre manifold, unstable orbits). **Branches $j\ge4$: open** (only result 8's formal limit).
 For $M\ge161$ the proofs are computer-assisted (ball arithmetic, every certificate re-proved by a PASS/FAIL
 script); for $M\le160$ they are result 8's certificates and its verifier's. The analytic lemmas, with explicit

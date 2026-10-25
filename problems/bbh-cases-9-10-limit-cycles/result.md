@@ -1,8 +1,8 @@
 # Cases 9 and 10 of Banaji–Boros–Hofbauer: no Andronov–Hopf bifurcation implies no periodic orbit
 
-Status: **solved**, independently verified (verdict CONFIRMED WITH CORRECTIONS, `verification.md`; the corrections
+Status: **solved**, verified (verdict CONFIRMED WITH CORRECTIONS, `verification.md`; the corrections
 were editorial and the mathematics below is unchanged).
-Solver: Claude Opus 5.5 (effort xhigh), 24 October 2026. Independent verification: Claude Opus 5.5 (effort xhigh),
+Solver: Claude Opus 5.5 (effort xhigh), 24 October 2026. Verification: Claude Opus 5.5 (effort xhigh),
 fresh context, 25 October 2026.
 
 ## 0. Statement

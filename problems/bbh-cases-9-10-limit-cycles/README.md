@@ -1,6 +1,6 @@
 # Banaji–Boros–Hofbauer, cases 9 and 10: can a network without Andronov–Hopf bifurcation have a limit cycle?
 
-**Status: solved: complete proof, independently verified (verdict CONFIRMED WITH CORRECTIONS, see
+**Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see
 [`verification.md`](verification.md)).** The answer is **no**. The corrections were editorial; the mathematics was
 not changed.
 
@@ -8,7 +8,7 @@ not changed.
 - Solver (classification, Liénard argument, scripts, write-up): Claude Opus 5.5 (effort xhigh), 24 October 2026.
 - Builds on result 2 of this repository (`problems/bbh-three-reaction-no-limit-cycle/`), which settled the example
   and one subfamily.
-- Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 25 October 2026 (`verification.md`,
+- Verification: Claude Opus 5.5 (effort xhigh), fresh context, 25 October 2026 (`verification.md`,
   `verification/`).
 
 ## Problem
@@ -75,7 +75,7 @@ environment was Python 3.13, sympy 1.14, numpy 2.5, scipy 1.18, single thread. A
 Python 3.12, sympy 1.14, numpy 2.5, scipy 1.18) the three scripts ran in 4 s, 43 s and 175 s, all PASS, with logs
 identical to `certificates/` except for floating-point last digits in `numerical_sanity.log`.
 
-The verifier's independent scripts:
+The verifier's own scripts:
 
 ```bash
 python3 verification/classify_independent.py 8     # own classification, box c_i, d_i <= 8, ~10 s
@@ -90,8 +90,8 @@ python3 verification/verify_numeric.py             # return-map search for cycle
 |---|---|
 | `result.md` | Statement, complete proofs (classification §2, Liénard argument §3), remarks, verification map |
 | `paper.tex`, `references.bib`, `paper.pdf` | Manuscript (6 pages), corrected and compiled at verification |
-| `verification.md` | Independent verification report |
-| `verification/` | Verifier's scripts and logs (independent classification, symbolic re-derivation, numerical counterexample search) |
+| `verification.md` | Verification report |
+| `verification/` | Verifier's scripts and logs (own classification, symbolic re-derivation, numerical counterexample search) |
 | `scripts/certify_lienard.py` | Symbolic certificate: normalisation, Liénard identity, family data, key inequalities, Dulac classes |
 | `scripts/classify_networks.py` | Exhaustive check of the classification (Lemmas 2.1–2.3) for all targets with coefficients ≤ 20 |
 | `scripts/numerical_sanity.py` | Backward integration (no cycles), Hopf controls (cycles found), quadrature check of the comparison, sharpness observation |

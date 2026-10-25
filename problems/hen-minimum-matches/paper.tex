@@ -7,7 +7,7 @@
 \newcommand*{\PaperTitlePlain}{Certified minimum numbers of matches for four heat-recovery benchmark instances}
 \newcommand*{\PaperShortTitle}{Certified minimum numbers of matches}
 \newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} solved (preliminary) for four instances, partial result for the others}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator, in two sessions (24 and 25 October 2026) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator, in two sessions (24 and 25 October 2026) \textperiodcentered{} Verification: pending}
 \newcommand*{\PaperKeywords}{heat exchanger network synthesis; minimum number of matches; transshipment model; exact mixed-integer programming; VIPR certificate; verified computation}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -23,13 +23,13 @@ the NP-hard mixed-integer linear program at the core of sequential heat exchange
 that state-of-the-art solvers cannot solve moderately sized instances to global optimality. We determine the exact
 optimum of four instances that were left without a proof of optimality: \inst{37sp-yfyv}${}=36$,
 \inst{20sp1}${}=19$, \inst{23sp1}${}=22$ (best value known before: 23) and \inst{unbalanced10}${}=25$. Every upper
-bound is an explicit network, checked in exact rational arithmetic by two independently written programs, the
+bound is an explicit network, checked in exact rational arithmetic by two separately written programs, the
 second one against the original model of Letsios et al.\ with their own big-M values. The lower bounds of the first
 three instances follow from a block lemma (every connected component of the match graph is heat balanced and
 cascade feasible) and an exhaustive exact enumeration of blocks; the same argument raises the lower bound of the four
 33-stream \inst{balanced15} instances from 31 to 32. The lower bound for \inst{unbalanced10} is a VIPR certificate
 (0.54\,GB) of a pure LP-based branch-and-bound proof, written by exact-arithmetic SCIP~10.0.2 for a strengthened
-transshipment model; every row of that model is proved valid here and re-derived independently from the data, and
+transshipment model; every row of that model is proved valid here and re-derived separately from the data, and
 the certificate is accepted both by VIPR's checker and by a second checker written from the format specification.
 On the way we found that VIPR's reference checker accepts two kinds of invalid inference steps (rounding over
 continuous variables, branching disjunctions with a fractional right-hand side); we give a patch and test
@@ -408,8 +408,8 @@ statements are exploration, not claims.
 
 \paragraph{Limitations.} The data files are taken as given (decimal numbers read as exact); the underlying stream
 temperatures and the minimum utility cost step were not re-derived. The lower bound for \inst{unbalanced10} rests on
-software (\texttt{viprchk} or our second checker) and on the model-match scripts; it has not been re-checked by an
-independent verifier yet.
+software (\texttt{viprchk} or our second checker) and on the model-match scripts; it has not been re-checked by a
+verifier yet.
 
 \section{Reproduction}
 

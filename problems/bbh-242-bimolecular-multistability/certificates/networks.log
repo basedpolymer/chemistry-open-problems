@@ -1,0 +1,3 @@
+rank-2 networks: 27195
+classes (dynamical equivalence + swap): 5716
+classes by number of distinct sources: {1: 7, 2: 620, 3: 3314, 4: 1775}

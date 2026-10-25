@@ -1,10 +1,10 @@
 # Banaji–Boros–Hofbauer: does the three-reaction example have a limit cycle?
 
-**Status: solved: complete proof, independently verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
+**Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
 This settles the example asked about in the source and the subfamily below. The broader question (all case-9 and
 case-10 networks without Andronov–Hopf bifurcation) remains open beyond this subfamily.
 
-**Attribution.** Dulac argument (scout) and subfamily (verifier): Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Certificate script and manuscript: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (`verification.md`).
+**Attribution.** Dulac argument (scout) and subfamily (verifier): Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Certificate script and manuscript: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (`verification.md`).
 
 ## Problem
 
@@ -31,7 +31,7 @@ threshold Δ = 0 is exactly the Hopf curve κ₂ = κ₁(2c₁ − d₁), so the
 
 ```bash
 python scripts/certify_dulac.py              # solver's symbolic identities (sympy), < 10 s
-python verification/verify_symbolic.py      # verifier's independent symbolic checks, < 10 s
+python verification/verify_symbolic.py      # verifier's own symbolic checks, < 10 s
 python verification/verify_numeric.py       # verifier's numerical sanity check (not a proof), a few minutes
 ```
 
@@ -43,12 +43,12 @@ python verification/verify_numeric.py       # verifier's numerical sanity check 
 | `scripts/certify_dulac.py` | Symbolic verification of every identity |
 | `certificates/certify_dulac.log` | Output, all PASS |
 | `references.md` | Sources and novelty check |
-| `verification.md` | Independent verification report |
+| `verification.md` | Verification report |
 | `verification/` | Verifier's scripts and their logs |
 
 ## History
 
 Found during the exploration phase (17 Oct 2026, scout and verifier); subfamily classification and write-up on
-18 Oct 2026. Independent verification on 18 Oct 2026. It corrected the third reaction of the subfamily (c₃X + Y, not
+18 Oct 2026. Verification on 18 Oct 2026. It corrected the third reaction of the subfamily (c₃X + Y, not
 (1+c₃)X + Y) and the theorem numbering of the published version, tightened the boundary argument, and added the
 sharpness remark.

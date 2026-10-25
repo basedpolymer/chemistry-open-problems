@@ -1,0 +1,12 @@
+# Integer rate constants (in the order of the reactions as listed) for which the origin and (1,1)
+# are both asymptotically stable (checked exactly by scripts/certify_ten.py)
+Y->2X, X+Y->2Y, X->0, 2Y->0  |  kappa = 81, 115, 47, 17
+Y->2X, X+Y->2Y, X->0, 2Y->X  |  kappa = 8, 14, 5, 3
+Y->2X, X+Y->2Y, 2X->0, 2Y->0  |  kappa = 64, 86, 21, 11
+Y->2X, X+Y->2Y, 2X->0, 2Y->X  |  kappa = 65, 191, 1, 63
+Y->2X, X+Y->2Y, 2X->0, 2Y->2X  |  kappa = 2, 128, 1, 63
+Y->2X, 2X->2Y, X->0, 2Y->0  |  kappa = 64, 41, 46, 9
+Y->2X, 2X->2Y, X->0, 2Y->X  |  kappa = 64, 49, 47, 17
+Y->2X, 2X->2Y, X->0, X+Y->0  |  kappa = 83, 51, 45, 19
+Y->2X, 2X->2Y, X->0, X+Y->X  |  kappa = 65, 64, 2, 63
+Y->2X, 2X->2Y, X->0, X+Y->Y  |  kappa = 64, 32, 1, 63

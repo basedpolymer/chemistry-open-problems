@@ -3,7 +3,7 @@
 **Attribution.**
 - Stage-level lower bound and the class 𝒜: foundations, red team and integration, Claude Opus 5.5 (effort xhigh);
   section and junction lemmas, two-component attainment, Claude Opus 5.5 (effort xhigh); network argument, device
-  decomposition, existence for prescribed flows, Claude Opus 5.5 (effort xhigh); physical simulation (independent
+  decomposition, existence for prescribed flows, Claude Opus 5.5 (effort xhigh); physical simulation (separate
   MESH solver), Claude Opus 5.5 (effort xhigh); literature, Claude Opus 5.5 (effort xhigh).
 - Finite-stage attainment: forced design and limit configuration, Claude Opus 5.5 (effort xhigh); limit system and
   its nondegeneracy, Claude Opus 5.5 (effort xhigh); analysis and integrated proof (`attainment/theorem.md`), Claude
@@ -12,16 +12,16 @@
   (effort xhigh).
 - Underwood infinite-stage model: theory, Claude Opus 5.5 (effort xhigh); computation and certificates, Claude Opus
   5.5 (effort xhigh); general N, Claude Opus 5.5 (effort xhigh).
-- Verification (independent, fresh context): Underwood-model results, Claude Opus 5.5 (effort xhigh); lower bound,
+- Verification (fresh context): Underwood-model results, Claude Opus 5.5 (effort xhigh); lower bound,
   early check, Claude Opus 5.5 (effort xhigh); design and limit system, Claude Opus 5.5 (effort xhigh)
   (`attainment/verification-DL/verification.md`); analysis, integrated proof, two-component case and interface with
   the lower bound, Claude Opus 5.5 (effort xhigh) (`attainment/verification-A/verification.md`).
 
-**Status: solved** — conjecture proved for every number of components N in the class 𝒜; independently verified, with
+**Status: solved** — conjecture proved for every number of components N in the class 𝒜; verified, with
 minor corrections (two verifiers for the attainment proof and its interface with the lower bound: every claim
 CONFIRMED or CONFIRMED WITH CORRECTIONS, no gap of substance).
 - **Lower bound.** Every steady state of every arrangement of the class 𝒜 with purities ≥ 1 − ε has
-  R ≥ H_j − c_j ε for every j; hence R*(𝒮) ≥ max_j H_j for every family 𝒮 ⊆ 𝒜 (independent checks:
+  R ≥ H_j − c_j ε for every j; hence R*(𝒮) ≥ max_j H_j for every family 𝒮 ⊆ 𝒜 (separate checks:
   `total/verification-early/verification-lower-bound.md`, and the re-derivation in
   `attainment/verification-A/verification.md`).
 - **Attainment.** For every δ, ε > 0 there is n_0 such that, for all section lengths ≥ n_0, the generalized Petlyuk
@@ -32,7 +32,7 @@ CONFIRMED or CONFIRMED WITH CORRECTIONS, no gap of substance).
   the generalized Petlyuk arrangement, whose minimum is exactly HS's value max_j H_j (`attainment/theorem.md`,
   Corollary 2).
 - Manuscript: `paper.tex` / `paper.pdf` (complete proofs of the lower bound and of attainment, numerical
-  illustration, literature review; independently verified results only).
+  illustration, literature review; verified results only).
 
 ## Problem
 
@@ -86,7 +86,7 @@ c_j = max(α_j/(α_j − θ_j), α_{j+1}/(θ_j − α_{j+1})). Hence every arran
 G_x(θ) = Σ_i α_i x_i/(α_i − θ): all streams leaving a stage have the same sign of flux (single-phase units trivially).
 (3) Summing (1) over the heavy-side units gives the identity. No section physics, no Underwood roots of sections, no
 assumption on topology, net-flow signs, distributions or numbers of stages. Complete proofs in `class.md` §5,
-`total/sections/sections.md`, `total/network/network.md`; checked by four independent solvers and in exact rational
+`total/sections/sections.md`, `total/network/network.md`; checked by four separate solvers and in exact rational
 arithmetic.
 
 **Consequences.** The excess over the bound is three nonnegative "pinch losses" (heating on the light side, cooling on
@@ -119,7 +119,7 @@ everywhere, and the M-matrix structure of the component balances (`total/network
 every mole fraction positive. Limits: n → ∞, then η → 0, then δ → 0. The design and its limit configuration:
 `attainment/design/design.md` (Theorem D).
 
-Numerical evidence (not used in the proofs): 61 of 62 cases pass for N = 3..8 with an independent solver at up to
+Numerical evidence (not used in the proofs): 61 of 62 cases pass for N = 3..8 with a separate solver at up to
 about 1500 digits (`attainment/computation/REPORT.md`); the failing case lies outside the design's parameter region on
 purpose and shows that this region is needed. N = 3, n = 256: impurities of products 1 and 3 of 5.6e-49 and 4.3e-54.
 
@@ -130,7 +130,7 @@ interval streams (containing Agrawal's regular-column space, 8/152/6128 configur
 flows: in the strict model R ≥ max_j H_j for every N; in the permissive model, true for N ≤ 4, for extreme peaks, for
 merge-free mixed networks and for the FTC itself, **false for N = 5** (configuration 161, j = 3, R/V_FTC ≈ 0.99946,
 interval-certified); the FTC attains max_j H_j (`Archive/paper-underwood-model.tex`, Theorem `achieve`). The permissive point is not
-physical (lower bound above). Independently verified, with corrections: `verification.md`.
+physical (lower bound above). Verified, with corrections: `verification.md`.
 
 ## Reproduction
 
@@ -159,17 +159,17 @@ py -3 templates/build_tex.py problems/halvorsen-skogestad-petlyuk-minimum-vapor/
 | Path | Content |
 |---|---|
 | `paper.tex`, `paper.pdf`, `references.bib` | The manuscript: proof of the conjecture (lower bound, attainment, numerical illustration) |
-| `Archive/` | Earlier manuscript of the Underwood-model results (`paper-underwood-model.tex`, `.pdf`, `references-underwood-model.bib`) (strict and permissive models, Theorem `achieve`), as independently verified. The working notes under `theory/`, `total/` and `attainment/` cite it as "`paper.tex`" (Theorem `achieve`, Proposition `cut`) |
+| `Archive/` | Earlier manuscript of the Underwood-model results (`paper-underwood-model.tex`, `.pdf`, `references-underwood-model.bib`) (strict and permissive models, Theorem `achieve`), as verified. The working notes under `theory/`, `total/` and `attainment/` cite it as "`paper.tex`" (Theorem `achieve`, Proposition `cut`) |
 | `novelty.md` | Full literature and novelty review (citing works of HS 2003, closest prior art, statements of the result as already proved) |
 | `references.md` | Sources and earlier novelty checks |
-| `attainment/` | Finite-stage attainment: `theorem.md` (integrated proof), `FINAL-REPORT.md`; `design/`, `limit/`, `analysis/`, `computation/` (one agent each); independent verifications `verification-DL/` (design, limit system) and `verification-A/` (analysis, integrated proof) |
+| `attainment/` | Finite-stage attainment: `theorem.md` (integrated proof), `FINAL-REPORT.md`; `design/`, `limit/`, `analysis/`, `computation/` (one agent each); verifications `verification-DL/` (design, limit system) and `verification-A/` (analysis, integrated proof) |
 | `total/foundations/` | Class 𝒜 (`class.md`), integration of the lower bound (`total-result.md`), checks (`scripts/unitnet.py`, `scripts/petlyuk_attain.py`) |
 | `total/sections/` | `sections.md` (proofs, section and junction lemmas, two-component attainment), scripts |
 | `total/network/` | `network.md` (unit graph, device decomposition, cut identity, ties, sign potential, permissive sign path, existence for prescribed flows), exact scripts |
-| `total/simulation/` | Independent MESH solver, bound tests, attainment study (`runs/`) |
+| `total/simulation/` | Separate MESH solver, bound tests, attainment study (`runs/`) |
 | `total/literature/` | Targeted novelty search of the stage-level argument (`novelty.md`) |
 | `total/attainment-astra/` | GPT-6-Astra: isolated-prefractionator attainment theorem (`attainment.md`, `FINAL-REPORT.md`), checks |
-| `total/verification-early/` | Early independent check of the lower bound |
+| `total/verification-early/` | Early check of the lower bound |
 | `theory/`, `computation/`, `general/` | Underwood-model work (theory, certificates, general N) |
-| `verification.md`, `verification/` | Independent verification of the Underwood-model results |
+| `verification.md`, `verification/` | Verification of the Underwood-model results |
 | `certificates/sources/` | Third-party PDFs (not distributed) |

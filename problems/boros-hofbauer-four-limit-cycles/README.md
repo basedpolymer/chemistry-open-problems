@@ -1,9 +1,9 @@
 # Boros–Hofbauer: four limit cycles in a planar three-reaction mass-action system
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) was used, only for the
-literature/novelty check (read-only web search). LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5 (effort xhigh), fresh context — **CONFIRMED WITH CORRECTIONS** (minor, editorial; see `verification.md`).
+literature/novelty check (read-only web search). LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context — **CONFIRMED WITH CORRECTIONS** (minor, editorial; see `verification.md`).
 
-**Status: solved: complete computer-assisted proof, independently verified (`verification.md`).**
+**Status: solved: complete computer-assisted proof, verified (`verification.md`).**
 
 ## Problem
 
@@ -44,7 +44,7 @@ paper's normalisation. Computer-assisted proof:
 * **Bonus (Theorem B, rigorous):** (a*, b*, d*) is the *only* point of the whole parameter domain where
   tr J = L1 = L2 = L3 = 0 (exact resultants + Arb root enclosures). Hence (1,1) is never a centre and never a
   weak focus of order ≥ 5 in this family.
-* **Second, independent proof at explicit parameters (Theorem C, rigorous):** for the exact decimal parameters
+* **Second, separate proof at explicit parameters (Theorem C, rigorous):** for the exact decimal parameters
   in `certificates/explicit_params.json` (a ≈ 1.0128228, b ≈ 0.6546268, d ≈ 3.2886055, K = a/(1+bd) − 6·10⁻²³),
   validated Taylor integration in Arb of the first-return map on Σ = {(1+ρ, 1)} gives
   δ(0.002) < 0 < δ(0.004), δ(0.006) < 0 < δ(0.012), δ(0.024) < 0 (|δ| ≥ 4.6·10⁻²⁵, error radii ≤ 5·10⁻³²).
@@ -77,7 +77,7 @@ outils/wsl "cd chemistry-open-problems/problems/boros-hofbauer-four-limit-cycles
 | `scripts/validated_cycles.py` | Theorem C: validated (Arb) Taylor integration of the return map at explicit parameters |
 | `scripts/crosscheck.py` | Exact L1 = paper's closed form; exact vs generic float code; paper's checkpoints |
 | `scripts/focal_mp.py` | Generic floating-point focal values for monomial-type planar systems (validation) |
-| `scripts/polar_check.py` | Independent float method (polar Poincaré-map series): u₉(2π) = π V4 at p* |
+| `scripts/polar_check.py` | Separate float method (polar Poincaré-map series): u₉(2π) = π V4 at p* |
 | `scripts/illustrate_cycles.py` | Numerical illustration: explicit parameters with four cycles (non-rigorous) |
 | `scripts/run_all.sh` | Runs everything |
 | `certificates/G_k.json` | Exact polynomials G_1…G_4 (JSON: exponents + rational coefficients) |
@@ -87,5 +87,5 @@ outils/wsl "cd chemistry-open-problems/problems/boros-hofbauer-four-limit-cycles
 | `certificates/run_all.log`, `certificates/illustrate_cycles.log` | Outputs of the scripts |
 | `references.md` | Sources (what was read) and novelty check |
 | `PROGRESS.md` | Work log |
-| `verification.md` | Independent verification report (verdict, what was recomputed, corrections) |
-| `verification/` | Verifier's own scripts and logs: `v1_focal_real_exact.py` (exact focal values, different algorithm), `v2_focal_numeric.py` (normalisation vs the paper's printed values), `v3_polar_validated.py` (independent validated integrator), `v4_krawczyk_mpmath_iv.py` (Krawczyk with mpmath.iv), `v5_msolve_uniqueness.py` (Theorem B with msolve), `v6_misc_checks.py` |
+| `verification.md` | Verification report (verdict, what was recomputed, corrections) |
+| `verification/` | Verifier's own scripts and logs: `v1_focal_real_exact.py` (exact focal values, different algorithm), `v2_focal_numeric.py` (normalisation vs the paper's printed values), `v3_polar_validated.py` (separate validated integrator), `v4_krawczyk_mpmath_iv.py` (Krawczyk with mpmath.iv), `v5_msolve_uniqueness.py` (Theorem B with msolve), `v6_misc_checks.py` |

@@ -1,11 +1,11 @@
 # Cospectral fullerene duals: Conjecture 1 of Bille–Buchstaber–Spodarev
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent
-of the orchestrator. No helper agents. Not yet independently verified.
+of the orchestrator. No helper agents. Not yet verified.
 
 **Status (work stopped at the owner's request, 24 Oct 2026, 12:31).**
 - arXiv Conjecture 1(a) (the dual's spectrum determines the isomer, n ≠ 44): **false — already corrected in print
-  by the authors themselves** (journal version, Nov 2020, Table 1); smallest counterexample, independently
+  by the authors themselves** (journal version, Nov 2020, Table 1); smallest counterexample, separately
   certified here: **C42:6 / C42:22** (n = 42; none for n < 42).
 - Published Conjecture 1(b) (T_n-cospectral isomers exist for every n ≥ 60): **partial result** — exact
   exhaustive verification for 60 ≤ n ≤ N and a **proof for the infinite classes n ≡ 2, 20 (mod 24)**
@@ -94,7 +94,7 @@ python3 scripts/scan_exact_small.py certificates/sources/tools/bg/buckygen-1.1/b
 | `scripts/scan_driver.py` | per-n pipeline: buckygen → hash → exact settlement → `certificates/scan/nNNN.json` |
 | `scripts/scan_exact_small.py` | purely exact (no hashing) scan for small n; reproduces Table 1 |
 | `scripts/make_certificates.py` | collects classes, spirals, Atlas numbers, counts table |
-| `scripts/verify_pairs.py` | independent PASS/FAIL re-check of every claimed pair from its graph6 code |
+| `scripts/verify_pairs.py` | separate PASS/FAIL re-check of every claimed pair from its graph6 code |
 | `scripts/tube_family.py` | Theorem 2: construction, exact cap identity, symmetry prediction vs nauty |
 | `scripts/find_caps.py` | caps of the 6-row zigzag tube in all fullerenes up to C52/C64 |
 | `scripts/classify_pairs.py`, `scripts/classify_pairs_general.py`, `scripts/search_rotation_caps.py` | which pairs are cap rotations; search for other rotation caps |

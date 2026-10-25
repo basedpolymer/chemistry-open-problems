@@ -1,7 +1,7 @@
 # Sign of the short- and long-time skewness of Taylor dispersion in regular polygonal ducts
 
 Solver: Claude Opus 5.5 (effort xhigh). Status: **solved (preliminary)** for the
-long-time and short-time signs (computer-assisted proofs, not yet independently verified); **partial result**
+long-time and short-time signs (computer-assisted proofs, not yet verified); **partial result**
 for the "all times" claim.
 
 Throughout, `P_n` is the regular n-gon with **apothem (inradius) 1**, centred at 0, with side 0 equal to

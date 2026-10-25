@@ -1,4 +1,4 @@
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; one nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification and corrections: Claude Opus 5.5 (effort xhigh), fresh context, no access to the solver's reasoning. Verdict: CONFIRMED WITH CORRECTIONS (`verification.md`).
+**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; one nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search. LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification and corrections: Claude Opus 5.5 (effort xhigh), fresh context, no access to the solver's reasoning. Verdict: CONFIRMED WITH CORRECTIONS (`verification.md`).
 
 # Becker–Döring equations with atomization: is the Hopf bifurcation supercritical?
 
@@ -14,10 +14,10 @@ and \(M>M_{0,k}\). Right after it, §3.3 says (verbatim):
 > case) or not. Many of our numerical computations, as in Fig. 1, are consistent with the presence of stable
 > periodic solutions, however."
 
-**Novelty check (2026-10-18; redone independently by the verifier the same day, see `verification.md`).** 20 citing works (OpenAlex and Semantic Scholar) were checked, along with the
+**Novelty check (2026-10-18; redone by the verifier the same day, see `verification.md`).** 20 citing works (OpenAlex and Semantic Scholar) were checked, along with the
 authors' later papers and web and arXiv searches. None settles the question; see `references.md`.
 
-## Status: partial result, independently verified (confirmed with corrections)
+## Status: partial result, verified (confirmed with corrections)
 
 **Answer.** The bifurcation is **supercritical**: the first Lyapunov coefficient is \(\ell_1<0\). There is one
 exception: at \(M=15\), the first value of \(M\) where the first branch exists, it is **subcritical** (\(\ell_1>0\)).
@@ -32,7 +32,7 @@ The scope of each claim is as follows.
 
    One spectral hypothesis of the Hopf theorem (H2) says no other eigenvalue lies on \(i\mathbb R\). It is
    certified with Arb's rigorous eigensolver for \(M\le120\) by the solver, and for \(M\le160\) and
-   \(M=250,300\) by the verifier's independent code. Beyond that it is checked only in floating point: for
+   \(M=250,300\) by the verifier's own code. Beyond that it is checked only in floating point: for
    \(M\le300\) and every 50th \(M\le2000\), and not at all for \(M>2000\). The paper proves it for
    \(M>M_{0,k}\), but \(M_{0,k}\) is not explicit. Consequently:
    - the Hopf bifurcation at \(\kappa_1(M)\) is supercritical, with orbitally stable periodic solutions (within the
@@ -71,7 +71,7 @@ The full list of gaps and the points for a verifier are in `paper.pdf` (section 
 - **Planar test.** The generic Kuznetsov routine reproduces the Guckenheimer–Holmes coefficient to \(10^{-12}\).
 - **Direct simulation of the full system (\(M=30\)).** A small perturbation converges to a small stable cycle. Its
   amplitude matches the normal-form prediction (ratio 1.0047, 1.0024, 1.0012 for \(\delta=2,1,0.5\%\)).
-- **BifurcationKit** (independent Julia code, automatic differentiation) classifies \(M=15\) as SubCritical and
+- **BifurcationKit** (separate Julia code, automatic differentiation) classifies \(M=15\) as SubCritical and
   \(M=16\), \(17\) and \(30\) as SuperCritical. Its periodic-orbit continuation confirms the direction: the branch
   leaves towards \(K<K_c\) at \(M=15\) and towards \(K>K_c\) at \(M=16\).
 - **The paper's Table 1** is reproduced from certified enclosures for \(M=10^2,\dots,10^6\).
@@ -91,14 +91,14 @@ Run the other scripts the same way. Every script prints PASS/FAIL per claim and 
 | `05_limit_coefficient.py` | limit equation: exact identities, sign for all \(j\), \(L_j\), simulation | 1 min |
 | `06_large_M_samples.py` | certified \(\ell_1\) at \(M=10^4,\dots,10^8\) and convergence to \(L_j\) | 2 min |
 | `07_spectrum_H2.py MMAX FILES` | rigorous full spectra (hypothesis H2 and branch label) for \(M\le\)MMAX | 15 min (MMAX = 120) |
-| `bk_check.jl M Kc ...` | BifurcationKit normal form (independent code) | 2 min |
+| `bk_check.jl M Kc ...` | BifurcationKit normal form (separate code) | 2 min |
 | `bk_po_branch.jl` | periodic-orbit branch by collocation at \(M=15\) (towards \(K<K_c\)) and \(M=16\) (towards \(K>K_c\)) | 3 min |
 
 `bdlib.py` is the shared library: model, closed-form ball evaluation of \(\ell_1\), Krawczyk operator.
 
 **Verifier's scripts** (`verification/`, run the same way from that folder; details and logs in `verification.md`):
-`v01_audit_csv.py` (audit of all certificate lines), `v02_dense_certify.py` (independent dense ball-arithmetic
-certificate in reduced coordinates, \(M\le300\), with H2), `v03_sparse_float.py` / `v04_sparse_arb.py` (independent
+`v01_audit_csv.py` (audit of all certificate lines), `v02_dense_certify.py` (separate dense ball-arithmetic
+certificate in reduced coordinates, \(M\le300\), with H2), `v03_sparse_float.py` / `v04_sparse_arb.py` (separate
 \(O(M)\) cross-checks up to \(M=10^5\), double precision / 320 bits), `v05_recheck_sample.py` (re-proof of 1360 lines
 with the solver's library plus extra checks), `v06_limit_algebra.py` (limit problem), `v07_first_crossing.py` (exact
 location of all imaginary-axis crossings, PARI/GP, \(M\le57\)), `v08_simulate.py` (direct simulation, \(M=16,50\)),
@@ -110,7 +110,7 @@ location of all imaginary-axis crossings, PARI/GP, \(M\le57\)), `v08_simulate.py
   limit problem and its Landau coefficient, limitations).
 - `references.md`: sources and what was read.
 - `PROGRESS.md`: log of the work.
-- `verification.md`: independent verification report (verdict, what was recomputed, corrections, reservations).
+- `verification.md`: verification report (verdict, what was recomputed, corrections, reservations).
 - `verification/`: the verifier's scripts and logs (`v01`–`v09`, see `verification.md`).
 - `scripts/`: see the table above.
 - `certificates/`:

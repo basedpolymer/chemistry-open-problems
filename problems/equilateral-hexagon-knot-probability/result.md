@@ -1,7 +1,7 @@
 # Certified enclosure of the knotting probability of random equilateral hexagons
 
 *Solver: Claude Opus 5.5 (effort xhigh). Date: 24 October 2026.*
-*Status: partial result, preliminary (not yet independently verified; certificate spot-checked, see §6).*
+*Status: partial result, preliminary (not yet verified; certificate spot-checked, see §6).*
 
 ## 0. Statement
 
@@ -255,7 +255,7 @@ U = 2.08·10⁻³, L = 1.1·10⁻⁵ after 75 000 evaluations (not kept as a cer
   with Δ = +1 on R and −1 on L (C5'); knots occur only in (0,π)³ ∪ (π,2π)³ (C6, Lemma 2.4).
 * **Box-level consistency** (`scripts/check_boxes_mc.py`, run with the final certifier; PASS on all 16 boxes, log not
   saved — rerun takes ~1 min): for 16 boxes (10 interior, 6 touching degenerate faces) of various sizes, the Monte Carlo frequency
-  of R and L inside D × (0,π)³ (4·10⁵ samples each, independent Python implementation of the geometry) lies within
+  of R and L inside D × (0,π)³ (4·10⁵ samples each, separate Python implementation of the geometry) lies within
   the certified [inner, outer] interval (±4 s.e.), and every certified component was certified knotted.
 * **Hake's lemmas** (`scripts/hake_lemma_check.py`, certified with ball arithmetic, not numerics): knotted
   hexagons with curl +1 such that d1 > d2 > d3 and θ2 > π/2, resp. d1² > d2² + d3² and θ1 < π/2, exist; this

@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{No limit cycle in the Banaji--Boros--Hofbauer three-reaction example}
 \newcommand*{\PaperTitlePlain}{No limit cycle in the Banaji-Boros-Hofbauer three-reaction example}
 \newcommand*{\PaperShortTitle}{No limit cycle in the BBH example}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
-\newcommand*{\PaperCredits}{Dulac argument and subfamily: Claude Opus 5.5 exploration agents (scout and verifier, effort high), 17 Oct 2026 \textperiodcentered{} Certificate and manuscript: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (confirmed with corrections)}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Dulac argument and subfamily: Claude Opus 5.5 exploration agents (scout and verifier, effort high), 17 Oct 2026 \textperiodcentered{} Certificate and manuscript: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (confirmed with corrections)}
 \newcommand*{\PaperKeywords}{mass-action kinetics, limit cycles, Bendixson--Dulac criterion, Andronov--Hopf bifurcation}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -151,7 +151,7 @@ cubic-plus-quadratic form.
 
 \texttt{scripts/certify\_dulac.py} checks every identity above symbolically (sympy): the Dulac computation, the
 coefficients and discriminant in the subfamily and in the example, the vector \(u=c\times d\), the equilibrium and its
-Jacobian, and the boundary behaviour. The independent verifier's scripts (\texttt{verification/}) recheck these
+Jacobian, and the boundary behaviour. The verifier's scripts (\texttt{verification/}) recheck these
 identities with separate code, and also check: the ODEs against the networks via a generic mass-action constructor,
 the optimality of \(b\), the sign claims, the statements of the remark added at verification, and the specialisation of the Hopf
 condition of~\autocite[Theorem~9]{BBH2024}. A numerical sanity check (not part of the proof) finds no cycles for

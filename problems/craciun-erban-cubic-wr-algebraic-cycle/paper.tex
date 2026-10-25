@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{A cubic weakly reversible mass-action system with an algebraic limit cycle}
 \newcommand*{\PaperTitlePlain}{A cubic weakly reversible mass-action system with an algebraic limit cycle}
 \newcommand*{\PaperShortTitle}{A cubic weakly reversible algebraic limit cycle}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
-\newcommand*{\PaperCredits}{17-reaction network: Claude Opus 5.5 exploration agent (effort high), 17 Oct 2026 \textperiodcentered{} Rigorous certificate, 10-reaction network and manuscript: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), 18 Oct 2026}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{17-reaction network: Claude Opus 5.5 exploration agent (effort high), 17 Oct 2026 \textperiodcentered{} Rigorous certificate, 10-reaction network and manuscript: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: Claude Opus 5.5 (effort xhigh), 18 Oct 2026}
 \newcommand*{\PaperKeywords}{chemical reaction networks, weak reversibility, algebraic limit cycles, Hilbert's 16th problem, ball arithmetic}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -21,7 +21,7 @@ cycle, i.e.\ whether \(W^a(3)\ge1\). We answer positively with a weakly reversib
 complexes of molecularity at most three, and integer rate constants. The circle \((x-2)^2+(y-2)^2=1\) is invariant,
 carries no equilibrium, and has characteristic exponent
 \(\oint\operatorname{div}F\,dt\in[-3.68475192932676\pm3.3\times10^{-15}]\), certified by rigorous ball-arithmetic
-integration (and confirmed independently by interval arithmetic and by a residue computation); it is therefore a
+integration (and confirmed separately by interval arithmetic and by a residue computation); it is therefore a
 hyperbolic, stable, algebraic limit cycle.
 \end{paperabstract}
 
@@ -88,7 +88,7 @@ and \(\mathcal C\) is connected, \(P>0\) on \(\mathcal C\). Equivalently and mor
 -2(97x^2-97xy-262x-38y+175)\pmod h\), and with \(t=\tan(\theta/2)\),
 \(P=4(130t^4+135t^3+522t^2+329t+198)/(1+t^2)^2\), whose numerator has no real root (Sturm), while \(P(1,2)=520\) at
 \(t=\infty\); the same method applied to \(P-18759/50\) gives the exact bound \(P>375.18\) on \(\mathcal C\).
-Independently, a ball-arithmetic evaluation on 4096 subintervals of \([0,2\pi]\) gives \(P\ge348\) on \(\mathcal C\).
+Separately, a ball-arithmetic evaluation on 4096 subintervals of \([0,2\pi]\) gives \(P\ge348\) on \(\mathcal C\).
 Consequently
 \(\mathcal C\) is a periodic orbit, traversed counter-clockwise, of period
 \(T=\int_0^{2\pi}d\theta/P(\theta)\in[0.0103320434082921\pm4.3\times10^{-17}]\).
@@ -104,7 +104,7 @@ computed by rigorous ball-arithmetic integration (Arb's \texttt{acb\_calc\_integ
 python-flint), which returns a guaranteed enclosure. The integrand is a rational function of \(\cos\theta,\sin\theta\),
 analytic on a neighbourhood of \([0,2\pi]\) because \(P\) has no zero there (step~(3)); its complex poles need no
 special treatment, since on any complex ball where \(P\) may vanish the ball division returns an indeterminate value
-and the integrator subdivides. Two further independent evaluations agree with this enclosure: a composite midpoint
+and the integrator subdivides. Two further separate evaluations agree with this enclosure: a composite midpoint
 rule in mpmath interval arithmetic, with the remainder \(\tfrac{h^3}{24}\,\phi''\) enclosed on each cell, gives
 \([-3.6847574,-3.6847469]\); and, with \(t=\tan(\theta/2)\), the integral becomes that of a rational function over
 \(\mathbb R\) with three simple poles in the upper half-plane (\(t=i\) and two roots of \(130t^4+\dots+198\)), and
@@ -123,7 +123,7 @@ With \(h\) fixed, the conditions ``\(fh_x+gh_y=sh\)'' and ``the realisation uses
 positive circulation on the support of the rate vector. A linear program found a 17-reaction network during
 exploration; a mixed-integer program minimising the number of reactions (SCIP) then returned the 10-reaction support
 of \zcref{thm:main}, on which the solution of the linear identity is unique up to a time rescaling. This yields the
-integer rate constants. (Independent floating-point check by the verifier, \texttt{verification/milp\_min\_support.py}
+integer rate constants. (Separate floating-point check by the verifier, \texttt{verification/milp\_min\_support.py}
 with HiGHS: no network in \(W_3\) with at most nine reactions, all rate constants in \([1,10^5]\), \(\mathcal C\)
 invariant and \(|P|\ge1\) with constant sign at 96 equally spaced points of \(\mathcal C\) exists; ten reactions are
 attained for both orientations, and the optimal support is not unique. This bounded, sampled minimality is not used in
@@ -149,7 +149,7 @@ covered by the deficiency-zero or deficiency-one theorems~\autocite{Feinberg2019
 \(P\); and in rigorous ball arithmetic (python-flint/Arb): the positivity of \(P\) on 4096 subintervals and enclosures
 of the period, of \(\oint s\,dt\) and of \(\oint\operatorname{div}F\,dt\). Runtime about 5~s.
 
-\texttt{verification/verify\_independent.py}, written by the independent verifier without access to the solver's code,
+\texttt{verification/verify\_independent.py}, written by the verifier without access to the solver's code,
 re-derives the same facts by different methods: reaction-by-reaction weak reversibility and all assumptions of
 (2.1)--(2.10) of \autocite{CraciunErban2025}; invariance by division and by substitution of the rational
 parametrisation of \(\mathcal C\); positivity of \(P\) by a Sturm count on the tangent half-angle polynomial; rigorous

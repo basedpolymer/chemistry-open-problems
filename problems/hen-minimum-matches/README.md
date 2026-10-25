@@ -3,17 +3,17 @@
 **Attribution.**
 - Solver (exact networks, block lemma and its enumeration, strengthened MILP and its validity proofs, first exact
   SCIP runs; 24 Oct 2026): Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator.
-- Solver (VIPR closure of unbalanced10, hardening patch of VIPR's checker, independent VIPR checker, check of the
+- Solver (VIPR closure of unbalanced10, hardening patch of VIPR's checker, separate VIPR checker, check of the
   networks against the original 2018 model, manuscript; 25 Oct 2026): Claude Opus 5.5 (effort xhigh), sub-agent of
   the orchestrator.
 - No helper agents. Verification: pending.
 
 **Status: solved (preliminary) for four instances — 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, unbalanced10 = 25 —
-and partial result (record lower bound) for the balanced15 family; not yet independently verified.**
+and partial result (record lower bound) for the balanced15 family; not yet verified.**
 Of the 25 benchmark instances left without matching bounds in 2018, four are now closed by exact certificates: an
 explicit network checked in exact rational arithmetic (upper bound) and either a combinatorial lower bound proved by
 exhaustive exact enumeration (37sp-yfyv, 20sp1, 23sp1; the last with a new upper bound, previously 23) or a VIPR
-certificate of an exact branch-and-bound proof, accepted by VIPR's checker and by an independently written checker
+certificate of an exact branch-and-bound proof, accepted by VIPR's checker and by a separately written checker
 (unbalanced10). The lower bound of the four balanced15 instances improves from 31 to 32. Manuscript: `paper.pdf`.
 
 ## Problem
@@ -46,7 +46,7 @@ converge"). These lower bounds are floating-point solver output, not certificate
 | 37sp-yfyv | 36 / 35 (LKM18; FS04 36) | **36 / 36** | **optimal = 36**, solved (preliminary) | exact network (36) | Lemma 1, c_max = 2 (exact enumeration) |
 | 20sp1 | 19 / 16 (LKM18; FS04 19) | **19 / 19** | **optimal = 19**, solved (preliminary) | exact network (19) | Lemma 1, c_max = 2 |
 | 23sp1 | 23 / 17 (LKM18; FS04 23) | **22 / 22** | **optimal = 22**, solved (preliminary), new UB | exact network (22) | Lemma 1, c_max = 2 |
-| unbalanced10 | 25 / 24 (LKM18) | **25 / 25** | **optimal = 25**, solved (preliminary) | exact network (25) | VIPR certificate (0.54 GB), viprchk + independent checker: PASS |
+| unbalanced10 | 25 / 24 (LKM18) | **25 / 25** | **optimal = 25**, solved (preliminary) | exact network (25) | VIPR certificate (0.54 GB), viprchk + separate checker: PASS |
 | unbalanced15 | 36 / 35 (LKM18) | 36 / 32 certified | open | exact network (36) | Lemma 1 |
 | 22sp1 | 25 / 23 (LKM18; FS04 25) | 25 / 23 certified | open | exact network | Lemma 1, c_max = 1 |
 | balanced12 | 28 / 26 | 28 / 26 certified | open | exact network | Lemma 1, c_max = 1 |
@@ -123,8 +123,8 @@ library fallback).
 - `result.md` — definitions, Lemmas 1–3, validity proofs of every MILP row, certification pipeline, assumptions.
 - `scripts/hen_instance.py` (exact parser, consistency checks), `hen_exact.py` (exact max-flow, exact solution
   checker), `block_bound.py` (Lemma 1 enumeration, PASS/FAIL), `check_solutions.py` (PASS/FAIL per network),
-  `check_network_lkm18.py` (second, independent network check against the 2018 MILP), `hen_cuts.py`,
-  `hen_models.py`, `hen_lpfile.py` (strengthened MILP; exact LP files), `check_lp_model.py` (independent re-derivation
+  `check_network_lkm18.py` (second, separate network check against the 2018 MILP), `hen_cuts.py`,
+  `hen_models.py`, `hen_lpfile.py` (strengthened MILP; exact LP files), `check_lp_model.py` (separate re-derivation
   of every LP row), `check_vipr_model.py` (certificate problem = LP model), `run_vipr_certificate.sh` (exact SCIP run),
   `verify_vipr.sh` (steps 1–5), `vipr_check_independent.py` (second VIPR checker), `vipr_mutation_tests.sh`
   (negative tests), `build_solution.py`, `side_findings.py`, `run_block_bounds.sh`.

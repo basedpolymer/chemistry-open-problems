@@ -1,0 +1,515 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Multistability in bimolecular \((2,4,2)\) mass-action networks: there are no networks beyond the ten of Banaji, Boros and Hofbauer}
+\newcommand*{\PaperTitlePlain}{Multistability in bimolecular (2,4,2) mass-action networks: there are no networks beyond the ten of Banaji, Boros and Hofbauer}
+\newcommand*{\PaperShortTitle}{Bistable bimolecular \((2,4,2)\) networks}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} preliminary, not yet verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: pending}
+\newcommand*{\PaperKeywords}{mass-action kinetics, multistability, bistability, boundary equilibria, Poincar\'e index, reaction networks}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\providecommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathcal{Q}}
+\newcommand{\Net}{\mathcal{N}}
+\newcommand{\relint}{\operatorname{relint}}
+\newcommand{\cone}{\operatorname{cone}}
+\newcommand{\indx}{\operatorname{ind}}
+\newcommand{\Trop}{\operatorname{tr}}
+\newcommand{\rx}[2]{\(#1\to#2\)}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Banaji, Boros and Hofbauer found ten bimolecular mass-action networks with two species, four reactions and rank two
+that admit two asymptotically stable equilibria in the closed nonnegative quadrant, the origin and a positive
+equilibrium. They asked whether any other such network, not dynamically equivalent to one of the ten, has this
+property, and noted that the answer requires studying boundary equilibria. We show that there is none. We
+enumerate all 27\,195 networks of the class (5\,716 classes up to dynamical equivalence and exchange of the two
+species) and prove that for every network and every choice of rate constants, two distinct asymptotically stable
+equilibria must be the origin and a positive equilibrium. The key step is an index argument: if the origin is
+asymptotically stable relative to the quadrant, the Poincar\'e indices of the positive equilibria sum to at most
+zero. Hence a second, saddle-type positive equilibrium is needed, which happens only for the thirty fold networks of
+the authors' Table~1, and exactly ten of these have a stable origin. The proof is computer-assisted only through exact
+rational computations (sign patterns of explicit polynomials for 838 four-source classes, and certificates with
+integer rate constants for the ten networks).
+\end{paperabstract}
+
+\section*{The question}
+
+Banaji, Boros and Hofbauer~\autocite{BBH2024} (BBH below) study planar, quadratic mass-action networks with few
+reactions. In §3.2 they list (Table~1) the thirty bimolecular \((2,4,2)\) networks that admit a fold bifurcation,
+and they mark ten of them with an orange bullet: for these, the origin and a positive equilibrium can be
+asymptotically stable at the same time (their Lemma~27). The last paragraph of their Conclusions (§7; p.~22 of
+arXiv:2406.13451v1, p.~21446 of the published version) reads:
+
+\begin{openquote}
+``We have identified 10 bimolecular (2, 4, 2) networks (those marked with an orange bullet in Table 1) that admit
+multiple nonnegative asymptotically stable equilibria. It is an open problem whether there are any further
+bimolecular (2, 4, 2) mass-action networks with the same property, and which are not dynamically equivalent to any of
+the 10 we have found. Answering this question requires studying boundary equilibria.''
+\end{openquote}
+
+We answer the question negatively.
+
+\begin{theorem}\label{thm:main}
+Let \(\Net\) be a bimolecular mass-action network with two species, four reactions and rank two. The following are
+equivalent.
+\begin{enumerate}
+\item For some rate constants \(\kappa\in\R^4_{>0}\), the mass-action system of \(\Net\) has two distinct equilibria
+in \(\R^2_{\ge0}\) that are asymptotically stable relative to \(\R^2_{\ge0}\).
+\item \(\Net\) is dynamically equivalent, possibly after exchanging the two species, to one of the ten networks
+marked with an orange bullet in Table~1 of~\autocite{BBH2024} (listed in \zcref{tab:ten}).
+\end{enumerate}
+Moreover, for every such network and every \(\kappa\), at most two equilibria in \(\R^2_{\ge0}\) are asymptotically
+stable, and if two are, they are the origin and a positive equilibrium.
+\end{theorem}
+
+The ten classes contain 50 networks in total (\zcref{rem:fifty}). The proof combines elementary facts on boundary
+equilibria (§2), a bound on positive equilibria (§3), and an index estimate that captures the boundary (§4). §5
+assembles the proof and treats the thirty networks of Table~1. §6 lists the computer checks.
+
+\section{Setting}
+
+\paragraph{Networks.} The species are \(X,Y\) with concentrations \(z=(x,y)\). A complex \(aX+bY\) is identified
+with \((a,b)\in\mathbb Z^2_{\ge0}\). It is bimolecular if \(a+b\le2\), so there are six of them:
+\(0,X,Y,2X,X+Y,2Y\). A reaction \(s\to p\) is an ordered pair of distinct complexes, with reaction vector \(v=p-s\).
+There are \(30\) bimolecular reactions. Following BBH (§2.1), a bimolecular \((2,4,2)\) network is a set of four
+bimolecular reactions whose reaction vectors span \(\R^2\). There are \(27\,195\) of them.
+
+\paragraph{Mass action.} With rate constants \(\kappa\in\R^4_{>0}\), the system is
+\begin{equation}\label{eq:ma}
+\dot z=F(z):=\sum_{j=1}^4\kappa_j\,z^{s_j}v_j=\sum_{s}z^s\,w_s,\qquad w_s:=\sum_{j:\,s_j=s}\kappa_jv_j,
+\end{equation}
+where \(z^{(a,b)}=x^ay^b\) and the second sum runs over the distinct sources of~\(\Net\). Note two sign rules:
+\(v_1\ge-s_1\) and \(v_2\ge-s_2\) (a reaction cannot consume more than its source contains), and
+\(v_1+v_2\le 2-s_1-s_2\). Hence \(F_1(0,y)\ge0\) and \(F_2(x,0)\ge0\), so the closed quadrant
+\(\Q:=\R^2_{\ge0}\) and the open quadrant are forward invariant.
+
+\paragraph{Dynamical equivalence.} BBH (§2.2, following~\autocite{CraciunPantea2008}) call two networks
+dynamically equivalent if they give rise to the same set of mass-action differential equations, perhaps after
+permuting species and reactions. As \(\kappa\) ranges over \(\R^4_{>0}\), the coefficient \(w_s\) in~\eqref{eq:ma}
+ranges over the strictly positive combinations of the reaction vectors with source \(s\), which form the relative
+interior of the closed convex cone \(C_s\) they generate~\autocite[Cor.~6.6.2]{Rockafellar1970}, independently for
+each source. Since distinct monomials are linearly independent functions, two networks on \(\{X,Y\}\) give the same
+set of vector fields if and only if they have the same sources and the same cones \(C_s\). We use this as the
+definition of the classes, and also identify networks that differ by the exchange \(X\leftrightarrow Y\). There are
+\(5\,716\) classes. A network is \emph{dynamically nontrivial} if \(\Gamma\kappa=0\) for some \(\kappa>0\), where
+\(\Gamma\) is the \(2\times4\) matrix of reaction vectors. Exactly \(2\,103\) classes are nontrivial, and \(838\) of
+them have four distinct sources, as in BBH's Lemma~24.
+
+\paragraph{Stability.} An equilibrium \(e\in\Q\) is \emph{asymptotically stable relative to \(\Q\)} (AS) if for every
+\(\varepsilon>0\) there is \(\delta>0\) such that every solution starting in \(\Q\cap B_\delta(e)\) stays in
+\(B_\varepsilon(e)\) and converges to \(e\). This is the notion used by BBH in the proof of their Lemma~27, where the
+origin of three of the ten networks is AS although the vector field has a saddle-node there. For positive equilibria
+it is ordinary asymptotic stability. An AS equilibrium is isolated among the equilibria in \(\Q\). We say that
+\(\Net\) has property~(MS) if (1) of \zcref{thm:main} holds. (MS) depends only on the class of~\(\Net\).
+
+\paragraph{Index.} For an isolated zero \(e\) of a continuous planar vector field, \(\indx(e)\) is the winding number
+of the field along a small circle around~\(e\). If \(\det DF(e)\neq0\), then \(\indx(e)=\operatorname{sign}\det
+DF(e)\). For a positively oriented Jordan curve on which \(F\neq0\), the winding number of \(F\) along the curve is
+the sum of the indices of the (finitely many) zeros inside.
+
+\section{Boundary equilibria}
+
+Write \(F_2(x,0)=r(x)\) and \(F_1(x,0)=p(x)=p_0+p_1x+p_2x^2\). Here \(p_0,p_1,p_2\) are the first components of
+\(w_0,w_X,w_{2X}\) (zero if the source is absent), so \(p_0\ge0\ge p_2\) by the sign rules.
+
+\begin{lemma}\label{lem:axis}
+Fix \(\Net\) and \(\kappa\).
+\begin{enumerate}
+\item The origin is an equilibrium if and only if \(\Net\) has no reaction with source~\(0\).
+\item If \((x^*,0)\) with \(x^*>0\) is an equilibrium, then no reaction with source \(0\), \(X\) or \(2X\) has \(Y\) in
+its product. Hence \(r\equiv0\), and \(F_2=y\,G(x,y)\) with \(G=a+bx+ey\), where \(a,b,e\) are the second
+components of \(w_Y,w_{X+Y},w_{2Y}\). Moreover \(e<0\) if \(2Y\) is a source, and \(e=0\) otherwise.
+\item If moreover \((x^*,0)\) is AS, then \(p\) changes sign from \(+\) to \(-\) at \(x^*\), and \(G(x^*,0)\le0\).
+\item If the origin is AS, then it is the only equilibrium on the boundary of \(\Q\).
+\end{enumerate}
+The statements with \(X\) and \(Y\) exchanged also hold.
+\end{lemma}
+
+\begin{proof}
+(1) \(F(0)=\sum\kappa_jv_j\) over the reactions with source \(0\), and each such \(v_j=p_j\) is nonzero and
+nonnegative. (2) \(r(x^*)\) is a sum of nonnegative terms \(\kappa_j(x^*)^{s_{j,1}}p_{j,2}\) over the reactions with
+source \(0,X,2X\), so each \(p_{j,2}\) vanishes. The other reactions have sources \(Y,X+Y,2Y\) and contribute
+\(y,xy,y^2\) monomials. A reaction with source \(2Y\) has \(v_2\in\{-1,-2\}\). (3) The \(x\)-axis is invariant and
+contained in \(\Q\), so \(x^*\) is AS for \(\dot x=p(x)\). If \(p\equiv0\), the axis consists of equilibria.
+Otherwise \(p\) has degree at most two, and asymptotic stability forces a sign change from \(+\) to \(-\). If
+\(G(x^*,0)>0\), then \(G>0\) on a neighbourhood \(U\) of \((x^*,0)\). A solution from \((x^*,y_0)\), \(y_0>0\) small,
+has increasing \(y\) while it stays in \(U\), so it cannot both stay in \(U\) and converge to \((x^*,0)\).
+(4) Let \((x^*,0)\), \(x^*>0\), be an equilibrium. By (1) and (2), \(p_0=0\), the \(x\)-axis is invariant and
+\(p=x(p_1+p_2x)\). If \(p\equiv0\), the origin is not isolated. Otherwise \(x^*=-p_1/p_2\) with \(p_2\le0\) forces
+\(p_1>0>p_2\), so \(\dot x=p(x)>0\) on \((0,x^*)\): points \((x,0)\) with small \(x>0\) move away from the origin,
+which is then not AS. The \(y\)-axis is symmetric.
+\end{proof}
+
+\begin{proposition}\label{prop:bdry}
+For every network and every \(\kappa\), at most one equilibrium on the boundary of \(\Q\) is AS.
+\end{proposition}
+
+\begin{proof}
+Up to the exchange of species, two boundary equilibria are of one of three kinds.
+
+\emph{Two points of the open \(x\)-axis.} By \zcref{lem:axis}(3), \(p\not\equiv0\) changes sign from \(+\) to \(-\)
+at both, hence also from \(-\) to \(+\) in between. Then \(p\) has three zeros, which is impossible for
+\(p\not\equiv0\) of degree at most two.
+
+\emph{The origin and \((x^*,0)\).} Excluded by \zcref{lem:axis}(4).
+
+\emph{\((x^*,0)\) and \((0,y^*)\).} Both axes are invariant. A reaction with source \(0\) would have \(X\) or \(Y\) in
+its product, contradicting \zcref{lem:axis}(2) or its mirror image. So \(p_0=0\), \(p=x(p_1+p_2x)\), and the sign
+change at \(x^*\) forces \(p_1>0>p_2\).
+Thus \(\Net\) contains \rx{X}{2X} (the only reaction with source \(X\) along the \(x\)-axis that increases \(x\)) and a
+reaction with source \(2X\). By symmetry it contains \rx{Y}{2Y} and a reaction with source \(2Y\). These are the
+four reactions, so \(F=(x(p_1+p_2x),\,y(q_1+q_2y))\) with \(q_1>0\). Then \(G(x^*,0)=q_1>0\), contradicting
+\zcref{lem:axis}(3).
+\end{proof}
+
+\begin{proposition}\label{prop:axispos}
+For no network and no \(\kappa\) are an equilibrium \((x^*,0)\) with \(x^*>0\) and a positive equilibrium both AS.
+The same holds for \((0,y^*)\).
+\end{proposition}
+
+\begin{proof}
+Suppose both are AS. By \zcref{lem:axis}, the reactions with sources \(0,X,2X\) lie along the \(x\)-axis, and
+\(p\) changes sign at \(x^*\). Then at least two of \(p_0,p_1,p_2\) are nonzero: a single monomial has no positive
+zero. So \(\Net\) has reactions with at least two distinct sources among \(0,X,2X\). These reactions do not change
+\(y\). Since the rank is two, at least one reaction changes \(y\), and its source is \(Y\), \(X+Y\) or \(2Y\). Hence
+there are one or two reactions with sources in \(\{Y,X+Y,2Y\}\), and the positive equilibria lie on \(\{G=0\}\).
+
+Because \(p_0\ge0\ge p_2\), \(p\) has exactly one positive zero, so \(p>0\) on \((0,x^*)\) and \(p<0\) on
+\((x^*,\infty)\).
+
+\emph{All reactions with sources in \(\{Y,X+Y,2Y\}\) share one source.} Then \(G\) is a single monomial times a
+coefficient. If the coefficient is nonzero, \(G\) has no zero in \(\R^2_{>0}\). If it is zero, \(\dot y\equiv0\):
+every horizontal line is invariant, so no positive equilibrium attracts the points above or below it.
+
+\emph{Sources \(Y\) and \(X+Y\), one reaction each.} Then \(G=a+bx\), and a positive zero needs \(ab<0\), at
+\(\bar x=-a/b\). Write \(F_1=p(x)+y(\alpha+\beta x)\), where \(\alpha,\beta\) are the first components of
+\(w_Y,w_{X+Y}\). If \(\alpha+\beta\bar x=0\), the equilibria on \(x=\bar x\) form a vertical segment or do not exist.
+Otherwise the positive equilibrium is \((\bar x,\bar y)\) with \(\bar y=-p(\bar x)/(\alpha+\beta\bar x)>0\), and
+\[
+DF(\bar x,\bar y)=\begin{pmatrix}p'(\bar x)+\beta\bar y & \alpha+\beta\bar x\\ b\bar y & 0\end{pmatrix},\qquad
+\det DF=-b\bar y(\alpha+\beta\bar x)=b\,p(\bar x).
+\]
+Asymptotic stability requires \(\det DF\ge0\). Equality would mean \(p(\bar x)=0\), hence \(\bar y=0\). So
+\(b\,p(\bar x)>0\). On the other hand, \zcref{lem:axis}(3) gives \(G(x^*,0)=b(x^*-\bar x)\le0\). If \(b>0\), then
+\(x^*\le\bar x\) and \(p(\bar x)\le0\). If \(b<0\), then \(x^*\ge\bar x\) and \(p(\bar x)\ge0\). Both contradict
+\(b\,p(\bar x)>0\).
+
+\emph{Sources \(Y\) and \(2Y\).} Here \(G=a+ey\) with \(e<0\). A positive zero needs \(a>0\), and then
+\(G(x^*,0)=a>0\).
+
+\emph{Sources \(X+Y\) and \(2Y\).} Here \(G=bx+ey\) with \(e<0\). A positive zero needs \(b>0\), and then
+\(G(x^*,0)=bx^*>0\).
+
+In the last two cases \zcref{lem:axis}(3) is violated.
+\end{proof}
+
+\section{Positive equilibria}
+
+\begin{lemma}\label{lem:few}
+Fix \(\Net\) and \(\kappa\).
+\begin{enumerate}
+\item If \(\Net\) is dynamically trivial, there is no positive equilibrium.
+\item If \(\Net\) has at most two distinct sources, no positive equilibrium is isolated.
+\item If \(\Net\) has three distinct sources, the set of positive equilibria is empty, a single point, or has no
+isolated point.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) \(F(z)=\Gamma(\kappa\circ z^{A})\) with \(\kappa\circ z^A>0\). (2) With one source, \(F=z^sw_s\) vanishes nowhere
+or everywhere. With two sources, \(F=z^{s'}(z^{s-s'}w_s+w_{s'})\) vanishes exactly where \(z^{s-s'}w_s=-w_{s'}\).
+This set is empty, the whole quadrant, or a level curve of the monomial \(z^{s-s'}\).
+
+(3) Let \(a_1,a_2,a_3\) be the sources and \(W=[w_1\,w_2\,w_3]\). If \(\operatorname{rank}W=2\), then \(F(z)=0\) iff
+\((z^{a_i})_i\) is a multiple of the kernel vector \(k\) of \(W\). This requires \(k>0\) (up to sign). Then
+\(z^{a_i-a_1}=k_i/k_1\) for \(i=2,3\). If \(a_2-a_1\) and \(a_3-a_1\) are independent, this log-linear system has
+exactly one solution. Otherwise its solution set is empty or a level curve. If \(\operatorname{rank}W\le1\), then
+\(F=\phi(z)\,u\) with \(\phi=\sum c_iz^{a_i}\) and a fixed \(u\). In logarithmic coordinates \(\zeta=\ln z\), write
+\(\phi=e^{\langle a_1,\zeta\rangle}\psi(\zeta)\) with \(\psi=c_1+c_2e^{\langle a_2-a_1,\zeta\rangle}+c_3e^{\langle
+a_3-a_1,\zeta\rangle}\). If \(a_2-a_1,a_3-a_1\) are independent, \(\nabla\psi\neq0\) wherever \(\psi=0\), unless
+\(c_2=c_3=0\). So the zero set of \(\psi\) is a curve, empty, or everything. If they are parallel, \(\psi\) depends on
+one linear form, and its zero set is a union of lines.
+\end{proof}
+
+For four distinct sources, BBH's parametrisation (their §2.4--2.6 and Lemma~11) describes the positive
+equilibria exactly. We recall it in the form we need. Let \(\Net\) be nontrivial with four distinct sources
+\(a_1,\dots,a_4\) (one reaction each), \(A\) the \(4\times2\) matrix with rows \(a_i\), and \(\Gamma=[v_1\cdots
+v_4]\). The cone \(\ker\Gamma\cap\R^4_{\ge0}\) is two-dimensional and pointed, with extreme rays
+\(u,v\in\mathbb Z^4_{\ge0}\). Put \(h(t)=(1-t)u+tv\) for \(t\in I:=(0,1)\). The four sources are never collinear (no
+line contains four of the six complexes), so \([A\,|\,\mathbf 1]\) has rank three, with left kernel spanned by an
+integer vector \(c\). Define
+\[
+\Phi(t)=\sum_ic_i\ln h_i(t),\qquad N(t)=\Phi'(t)\prod_ih_i(t),\qquad Q(t)=\det\bigl(\Gamma\operatorname{diag}(h(t))A\bigr).
+\]
+\(N\) and \(Q\) are polynomials with integer coefficients that do not depend on \(\kappa\).
+
+\begin{proposition}\label{prop:four}
+Let \(\Net\) be as above.
+\begin{enumerate}
+\item For each \(\kappa\), the positive equilibria correspond bijectively to the roots \(t\in I\) of
+\(\Phi(t)=c\cdot\ln\kappa\). At the equilibrium attached to \(t\), \(\det DF=\lambda^2Q(t)/(xy)\) for some
+\(\lambda>0\).
+\item (Exact computation, \texttt{positive\_equilibria.py}.) For 9 of the 838 classes, \(N\equiv Q\equiv0\). For the
+other 829, \(QN\) has no sign change on \(I\). Moreover, either \(Q\) has no zero in \(I\), or it has exactly one zero
+in \(I\), which is simple. The second case occurs exactly for the 30 networks of BBH's Table~1.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) \(z>0\) is an equilibrium iff \(\kappa\circ z^A\in\ker\Gamma\cap\R^4_{>0}=\{\lambda h(t):\lambda>0,t\in I\}\),
+i.e. iff \(\ln\kappa+A\ln z=\ln\lambda\,\mathbf 1+\ln h(t)\) for some \(\lambda,t\). Pairing with \(c\) gives
+\(c\cdot\ln\kappa=\Phi(t)\). Conversely, if \(\Phi(t)=c\cdot\ln\kappa\), then \(\ln h(t)-\ln\kappa\) is orthogonal to
+\(c\), hence lies in the image of \([A\,|\,\mathbf1]\). Since this matrix is injective, \((\ln z,\ln\lambda)\) is
+unique. Distinct \(t\) give distinct \(z\), because \(h(t)\) and \(h(t')\) are not proportional. Finally
+\(DF(z)=\Gamma\operatorname{diag}(\kappa\circ z^A)A\operatorname{diag}(1/z)=\lambda\Gamma\operatorname{diag}(h(t))A
+\operatorname{diag}(1/z)\).
+\end{proof}
+
+\begin{corollary}\label{cor:pos}
+For every network and every \(\kappa\):
+\begin{enumerate}
+\item at most one positive equilibrium is AS;
+\item if there are at least two positive equilibria and one of them is isolated, then \(\Net\) has four distinct
+sources and belongs to one of the 30 classes of Table~1 of~\autocite{BBH2024}. The set of positive equilibria is then
+finite.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+An AS positive equilibrium is isolated. By \zcref{lem:few}, two isolated positive equilibria require four distinct
+sources and nontriviality. In the 9 classes with \(N\equiv0\), \(\Phi\) is constant, so there is no isolated positive
+equilibrium. Assume \(N\not\equiv0\). Then \(\Phi(t)=c\cdot\ln\kappa\) is equivalent to a nonzero polynomial
+equation, so the positive equilibria are finitely many. Since \(QN\) has no sign change on \(I\), \(\Phi'\) changes
+sign exactly where \(Q\) does. If \(Q\) has no zero in \(I\), then \(\Phi\) is strictly monotone and there is at most
+one positive equilibrium. Otherwise \(Q\) has a single, simple zero \(\beta\in I\), and \(\Phi\) is strictly monotone
+on \((0,\beta]\) and on \([\beta,1)\), in opposite directions. So there are at most two positive equilibria. If there
+are two, at \(t_1<\beta<t_2\), then \(Q(t_1)\) and \(Q(t_2)\) are nonzero with opposite signs. The one with
+\(\det DF<0\) is a saddle, which is not AS.
+\end{proof}
+
+This recovers, in exact arithmetic, BBH's Theorem~25 and Remark~26(d), which they obtained with a Mathematica
+notebook~\autocite{BorosRepo}: outside Table~1, a bimolecular \((2,4,2)\) network has at most one positive
+equilibrium for each \(\kappa\).
+
+\section{The index of a stable origin}
+
+\begin{lemma}\label{lem:kras}
+Let \(F\) be a \(C^1\) vector field on an open set of \(\R^2\).
+\begin{enumerate}
+\item If \(e\) is an asymptotically stable equilibrium, then \(\indx(e)=1\).
+\item Suppose \(0\) is an equilibrium, \(\Q\) is forward invariant near \(0\), and \(0\) is AS relative to \(\Q\).
+For small \(\varepsilon>0\), let \(\gamma\) be the arc \(\{z\in\Q:|z|=\varepsilon\}\), run clockwise from
+\(A=(0,\varepsilon)\) to \(B=(\varepsilon,0)\). Then \(F\neq0\) on \(\gamma\). Let \(\theta_A\in[-\pi/2,\pi/2]\) and
+\(\theta_B\in[0,\pi]\) be the angles of \(F(A)\) and \(F(B)\); these ranges are possible because \(F_1(A)\ge0\) and
+\(F_2(B)\ge0\). Then the change of a continuous angle of \(F\) along \(\gamma\) equals \(\theta_B-\theta_A-2\pi\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) is classical~\autocite{KrasnoselskiiZabreiko1984}. It follows from the argument below with \(\gamma\) replaced
+by a full circle around \(e\): there \(H(\cdot,T)\) points strictly inwards, hence is homotopic, without zeros on
+the circle, to \(z\mapsto e-z\), of index \(1\). We prove (2). Let \(\varphi_t\)
+be the flow. Choose \(\varepsilon\) so small that every solution from \(\Q\cap\bar B_\varepsilon\) converges to \(0\).
+Then \(\varphi_\tau(z)\neq z\) for \(z\in\gamma\) and \(\tau>0\), since such a \(z\) would be an equilibrium or a
+periodic point different from \(0\). By compactness of \(\gamma\) there is \(T>0\) with \(|\varphi_T(z)|<\varepsilon/2\) for
+\(z\in\gamma\). Put \(H(z,\tau)=(\varphi_\tau(z)-z)/\tau\) for \(0<\tau\le T\) and \(H(z,0)=F(z)\). This is continuous
+and nonzero on \(\gamma\times[0,T]\). Because \(\Q\) is forward invariant, \(H_1(A,\tau)\ge0\) and
+\(H_2(B,\tau)\ge0\). So the quantity \(\omega(\tau)=\Delta_\gamma(\tau)-(\theta_B(\tau)-\theta_A(\tau))\) is defined,
+with the end angles taken in the closed half-planes as in the statement. It is continuous, and it lies in
+\(2\pi\mathbb Z\), so it is constant. At \(\tau=T\) we have \(H(z,T)\cdot z<(\varepsilon^2/2-\varepsilon^2)/T<0\) on
+\(\gamma\). If \(z\) has polar angle \(\psi\in[0,\pi/2]\), the angle of \(H(z,T)\) can thus be chosen continuously in
+\((\psi+\pi/2,\psi+3\pi/2)\). At \(A\) (\(\psi=\pi/2\)) this interval meets \(\theta_A+2\pi\mathbb Z\) only in
+\(\theta_A+2\pi\). At \(B\) (\(\psi=0\)) it meets \(\theta_B+2\pi\mathbb Z\) only in \(\theta_B\). Hence
+\(\omega(T)=-2\pi\).
+\end{proof}
+
+\begin{lemma}\label{lem:sweep}
+Let \(c:[\sigma_0,\sigma_1]\to\R^2\setminus\{0\}\) have polynomial components of degree at most two, and let
+\(\theta\) be a continuous angle of \(c\). Then \(\max\theta-\min\theta\le2\pi\).
+\end{lemma}
+
+\begin{proof}
+If \(\max\theta-\min\theta>2\pi\), pick \(\vartheta\) with \(\vartheta,\vartheta+\pi,\vartheta+2\pi\) in
+\((\min\theta,\max\theta)\). By the intermediate value theorem, \(c\) meets the line \(\R(\cos\vartheta,\sin\vartheta)\)
+at three distinct parameters. So the polynomial \(\det(c(\sigma),(\cos\vartheta,\sin\vartheta))\), of degree at most
+two, has three zeros and vanishes identically. Then \(c\) stays on that line and, avoiding \(0\), on one half of it.
+So \(\theta\) is constant, a contradiction.
+\end{proof}
+
+\begin{theorem}\label{thm:index}
+Let \(F\) be a polynomial vector field of degree at most two with \(F_1(0,y)\ge0\) and \(F_2(x,0)\ge0\) for
+\(x,y\ge0\). Suppose the origin is an equilibrium that is AS relative to \(\Q\), that \(F\) has no other zero on the
+boundary of \(\Q\), and that \(F\) has finitely many zeros in \(\R^2_{>0}\). Then the sum of their indices is at most
+\(0\).
+\end{theorem}
+
+\begin{proof}
+Take \(\varepsilon\) as in \zcref{lem:kras}(2), and \(M>0\) larger than \(x+y\) at every positive zero. Let \(D\) be
+the region \(\{z\in\Q:x+y\le M,|z|\ge\varepsilon\}\), whose boundary, run counterclockwise, consists of four pieces:
+the segment from \(B=(\varepsilon,0)\) to \((M,0)\), the segment \(S\) from \((M,0)\) to \((0,M)\), the segment from
+\((0,M)\) to \(A=(0,\varepsilon)\), and the arc \(\gamma\) from \(A\) to \(B\). Then \(F\neq0\) on \(\partial D\), and
+the sum \(W\) of the indices of the positive zeros satisfies \(2\pi W=\) total change of the angle of \(F\) along
+\(\partial D\).
+
+On the \(x\)-axis, \(F\) lies in the closed upper half-plane, where the angle can be taken in \([0,\pi]\). So the
+change along the first segment is \(\theta(M,0)-\theta_B\), with \(\theta(M,0)\in[0,\pi]\). Similarly the change
+along the \(y\)-axis segment is \(\theta_A-\theta(0,M)\), with \(\theta(0,M)\in[-\pi/2,\pi/2]\). Along \(\gamma\) the
+change is \(\theta_B-\theta_A-2\pi\) by \zcref{lem:kras}(2). Along \(S\), parametrised by \(\sigma\mapsto
+F(M-\sigma,\sigma)\), the components are polynomials of degree at most two. By \zcref{lem:sweep}, the change
+\(\Delta_S\) satisfies \(|\Delta_S|\le2\pi\), and \(\Delta_S=\delta+2\pi n\) with \(n\in\mathbb Z\) and
+\(\delta:=\theta(0,M)-\theta(M,0)\in[-3\pi/2,\pi/2]\). Summing,
+\[
+2\pi W=\Delta_S-\delta-2\pi=2\pi(n-1),\qquad 2\pi n=\Delta_S-\delta\le2\pi+\tfrac{3\pi}{2},
+\]
+so \(n\le1\) and \(W\le0\).
+\end{proof}
+
+\section{Proof of the main theorem}
+
+\begin{proof}[of \zcref{thm:main}]
+\emph{(1)\(\Rightarrow\)(2).} Let \(E_1\neq E_2\) be AS equilibria in \(\Q\) for some \(\kappa\). By
+\zcref{prop:bdry}, one of them, say \(E_2\), is positive. By \zcref{cor:pos}(1), \(E_1\) is not positive. By
+\zcref{prop:axispos}, \(E_1\) is not on an open half-axis. So \(E_1\) is the origin. By \zcref{lem:axis}(1),
+\(\Net\) has no reaction with source \(0\), and by \zcref{lem:axis}(4) there is no other boundary equilibrium. The set of
+positive equilibria is finite: it contains the isolated point \(E_2\), so by \zcref{lem:few} \(\Net\) has three or
+four sources, and \zcref{lem:few}(3) or the proof of \zcref{cor:pos} applies. \zcref{thm:index} then gives
+\(\sum\indx\le0\) over the positive equilibria. Since \(\indx(E_2)=1\) by \zcref{lem:kras}(1), there is a second
+positive equilibrium. By \zcref{cor:pos}(2), \(\Net\) is one of the 30 networks of Table~1 of~\autocite{BBH2024}, and
+it has no inflow reaction. \zcref{tab:thirty} sorts these 30 networks. Fifteen contain an inflow reaction \(0\to C\).
+Five have no inflow, but their origin is never AS:
+\begin{itemize}
+\item \(X\to2X\), \(X+Y\to0\), \(Y\to2Y\), with \(2Y\to X\) or \(2Y\to2X\). Here the \(x\)-axis is invariant and
+\(\dot x=\kappa_1x\) on it, so points of the axis leave every neighbourhood of~\(0\).
+\item \(Y\to2X\), \(X+Y\to2Y\), \(2X\to0\), with \(X\to Y\), \(X\to X+Y\) or \(X\to2Y\). Here \(DF(0)\) has positive
+off-diagonal entries and \(\det DF(0)=-\kappa\kappa'\), \(-2\kappa\kappa'\) or \(-3\kappa\kappa'\) (rate constants of
+\(Y\to2X\) and of the reaction with source \(X\)). So \(0\) is a hyperbolic saddle, and its unstable eigenvector is
+the Perron vector of a nonnegative irreducible matrix, hence positive. The unstable manifold therefore enters
+\(\R^2_{>0}\)~\autocite[§2.7]{Perko2001}, and its points leave every small neighbourhood of~\(0\).
+\end{itemize}
+The remaining ten are the networks of (2).
+
+\emph{(2)\(\Rightarrow\)(1).} \zcref{tab:ten} gives, for each of the ten networks, integer rate constants for which
+\((1,1)\) is an equilibrium with \(\det DF(1,1)>0>\Trop DF(1,1)\), and the origin is AS. For seven of them
+\(\det DF(0)>0>\Trop DF(0)\). For the three with \(2X\to0\), \(DF(0)\) is singular, and we use \(V=x+3y\). Along
+solutions, \(\dot V=\ell y+Dx^2+Exy+Fy^2\) with \(\ell<0\) and \(D<0\), with no constant and no \(x\) term (exact
+values in \texttt{certify\_ten.log}). On \(\Q\), \(\dot V\le y(\ell+|E|x+\max(F,0)y)+Dx^2<0\) whenever \(z\neq0\) and
+\(|E|x+\max(F,0)y<-\ell\). The compact triangles \(\{z\in\Q:V(z)\le\rho\}\), \(\rho\) small, are therefore forward
+invariant, shrink to \(0\), and every solution in them converges to \(0\) (LaSalle). Since \(\Q\) is forward
+invariant and \(V\) decreases, the origin is AS relative to~\(\Q\).
+
+\emph{Last statement.} By \zcref{prop:bdry} and \zcref{cor:pos}(1), at most one boundary equilibrium and at most
+one positive equilibrium are AS. The pair is (origin, positive) by the argument above.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\caption{The ten networks of BBH's Table~1 with an orange bullet, with the integer rate constants (in the order
+listed) certified by \texttt{scripts/certify\_ten.py}. For these constants the origin and \((1,1)\) are both AS, and
+there is exactly one other positive equilibrium, a saddle. Type H: \(DF(0)\) is a sink. Type L: \(DF(0)\) is singular,
+and stability follows from the Lyapunov function \(x+3y\).}\label{tab:ten}
+\small
+\begin{tabular}{lll}
+\hline
+Network & \(\kappa\) & origin \\
+\hline
+\(Y\to2X\), \(X+Y\to2Y\), \(X\to0\), \(2Y\to0\) & 81, 115, 47, 17 & H \\
+\(Y\to2X\), \(X+Y\to2Y\), \(X\to0\), \(2Y\to X\) & 8, 14, 5, 3 & H \\
+\(Y\to2X\), \(X+Y\to2Y\), \(2X\to0\), \(2Y\to0\) & 64, 86, 21, 11 & L \\
+\(Y\to2X\), \(X+Y\to2Y\), \(2X\to0\), \(2Y\to X\) & 65, 191, 1, 63 & L \\
+\(Y\to2X\), \(X+Y\to2Y\), \(2X\to0\), \(2Y\to2X\) & 2, 128, 1, 63 & L \\
+\(Y\to2X\), \(2X\to2Y\), \(X\to0\), \(2Y\to0\) & 64, 41, 46, 9 & H \\
+\(Y\to2X\), \(2X\to2Y\), \(X\to0\), \(2Y\to X\) & 64, 49, 47, 17 & H \\
+\(Y\to2X\), \(2X\to2Y\), \(X\to0\), \(X+Y\to0\) & 83, 51, 45, 19 & H \\
+\(Y\to2X\), \(2X\to2Y\), \(X\to0\), \(X+Y\to X\) & 65, 64, 2, 63 & H \\
+\(Y\to2X\), \(2X\to2Y\), \(X\to0\), \(X+Y\to Y\) & 64, 32, 1, 63 & H \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{The 30 networks of BBH's Table~1 (fold bifurcation) and the status of their origin. Each row lists the
+two common reactions of a group, then the possible third reaction and the possible fourth reactions.}\label{tab:thirty}
+\small
+\begin{tabular}{p{3.2cm}p{5.6cm}p{3.0cm}}
+\hline
+Common reactions & Third reaction; fourth reaction & Origin \\
+\hline
+\(X\to2X\), \(X+Y\to0\) & \(0\to Y\); any of the 8 in BBH's group~1 & not an equilibrium (8) \\
+\(X\to2X\), \(X+Y\to0\) & \(Y\to2Y\); \(2Y\to X\) or \(2Y\to2X\) & unstable, invariant axis (2) \\
+\(Y\to2X\), \(X+Y\to2Y\) & \(X\to0\); \(0\to Y\) or \(0\to X+Y\) & not an equilibrium (2) \\
+\(Y\to2X\), \(X+Y\to2Y\) & \(X\to0\); \(2Y\to0\) or \(2Y\to X\) & AS, hyperbolic (2) \\
+\(Y\to2X\), \(X+Y\to2Y\) & \(2X\to0\); \(0\to Y\) or \(0\to X+Y\) & not an equilibrium (2) \\
+\(Y\to2X\), \(X+Y\to2Y\) & \(2X\to0\); \(X\to Y\), \(X\to X+Y\) or \(X\to2Y\) & saddle (3) \\
+\(Y\to2X\), \(X+Y\to2Y\) & \(2X\to0\); \(2Y\to0\), \(2Y\to X\) or \(2Y\to2X\) & AS, singular \(DF(0)\) (3) \\
+\(Y\to2X\), \(2X\to2Y\) & \(X\to0\); \(0\to X\), \(0\to Y\) or \(0\to X+Y\) & not an equilibrium (3) \\
+\(Y\to2X\), \(2X\to2Y\) & \(X\to0\); \(2Y\to0\), \(2Y\to X\), \(X+Y\to0\), \(X+Y\to X\) or \(X+Y\to Y\) & AS, hyperbolic (5) \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{remark}\label{rem:fifty}
+Counting networks rather than classes, exactly 50 of the 27\,195 bimolecular \((2,4,2)\) networks have property
+(MS). For example, Wilhelm's network \(Y\to2X\), \(2X\to X+Y\), \(X+Y\to Y\), \(X\to0\)~\autocite{Wilhelm2009} lies in
+the class of \(Y\to2X\), \(2X\to2Y\), \(X\to0\), \(X+Y\to Y\). The members of each class are listed in
+\texttt{certificates/classes.csv}.
+\end{remark}
+
+\begin{remark}
+If asymptotic stability of a boundary equilibrium were required in a full neighbourhood in \(\R^2\), for the
+polynomial vector field extended to the plane, only seven classes would remain. For the three networks with \(2X\to0\),
+the origin is then a saddle-node and is not stable in the plane. Our negative result holds a fortiori for that
+stronger notion.
+\end{remark}
+
+\begin{remark}
+The theorem shows that, in this class, bistability always comes with two positive equilibria, i.e. with a fold
+bifurcation. The index estimate (\zcref{thm:index}) is the study of boundary equilibria that BBH anticipated. It
+uses only that \(F\) is quadratic with \(\Q\) forward invariant, so it holds for every planar mass-action system with
+reactant complexes of molecularity at most two (any number of reactions, any product molecularity). In such a
+system, if the origin is AS relative to \(\Q\) and the only boundary equilibrium, there cannot be exactly one positive
+equilibrium that is asymptotically stable.
+\end{remark}
+
+\section{Computer verification}
+
+All scripts are in \texttt{scripts/} and use exact rational arithmetic (sympy~1.14), except the sanity check.
+Each prints PASS/FAIL per claim and exits with a nonzero status on failure. Logs are in \texttt{certificates/}.
+
+\begin{itemize}
+\item \texttt{networks.py}: enumeration and canonical forms (cones per source, exact integer geometry); 27\,195
+networks and 5\,716 classes. Under 1~s.
+\item \texttt{positive\_equilibria.py}: \zcref{prop:four}(2) for the 838 four-source nontrivial classes, i.e.
+\(u,v,c,Q,N\), the 9 classes with \(N\equiv Q\equiv0\), the absence of sign change of \(QN\) on \(I\), the
+zero structure of \(Q\), and the identification of the 30 classes with BBH's Table~1. About 10~s.
+\item \texttt{classify\_all.py}: assigns every class one reason (trivial; at most two sources; three sources;
+four sources with \(\Phi\) monotone or constant; Table~1 with inflow; Table~1 with an origin that is never AS,
+checked symbolically in \(\kappa\); one of the ten). It also checks the totals and writes
+\texttt{certificates/classes.csv}. About 10~s.
+\item \texttt{certify\_ten.py}: the certificates of \zcref{tab:ten}, namely the equilibrium \((1,1)\), the signs of
+\(\det\) and \(\Trop\), the origin, and the exact count of positive equilibria via \zcref{prop:four}(1) (roots of an
+explicit polynomial isolated in rational intervals). About 10~s.
+\item \texttt{explore\_numeric.py} (floating point, not part of the proof): for every nontrivial class with at least
+three sources, it draws \(2\cdot10^4\) random rate constants with a prescribed positive equilibrium and tests for a
+second AS equilibrium on the boundary. It finds hits in exactly the ten classes. About 16~minutes on 12 cores.
+\item \texttt{index\_sanity.py} (floating point, not part of the proof): a check of \zcref{thm:index} on about
+\(5\cdot10^4\) random quadratic fields \(F=Lz+q(z)\) with \(F_1(0,y)\ge0\), \(F_2(x,0)\ge0\) and a hyperbolic sink at the
+origin. The sum of \(\operatorname{sign}\det DF\) over the positive equilibria is never positive. A control run with
+a saddle at the origin produces positive sums, so the test is not vacuous. About 1~minute.
+\end{itemize}
+
+\paragraph{Limitations.} The proof relies on the exact computations of \zcref{prop:four}(2), which replicate BBH's
+Theorem~25 and Remark~26(d), and on the classical facts quoted from~\autocite{KrasnoselskiiZabreiko1984}
+and~\autocite{Perko2001}. The reading of the orange bullets of BBH's Table~1 was done on the rendered PDF.
+It is consistent with the text of their Lemma~27 and with \texttt{classify\_all.py}: the ten classes with property
+(MS) are exactly those marked. No verification has been carried out yet.
+
+\paperreferences
+\end{document}

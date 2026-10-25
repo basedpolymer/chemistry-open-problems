@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{Four limit cycles in a planar three-reaction mass-action system: a proof of the Boros--Hofbauer conjecture}
 \newcommand*{\PaperTitlePlain}{Four limit cycles in a planar three-reaction mass-action system: a proof of the Boros-Hofbauer conjecture}
 \newcommand*{\PaperShortTitle}{Four limit cycles with three reactions}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; literature check by a nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, verdict CONFIRMED WITH CORRECTIONS (minor; see verification.md)}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; literature check by a nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: Claude Opus 5.5 (effort xhigh), fresh context, verdict CONFIRMED WITH CORRECTIONS (minor; see verification.md)}
 \newcommand*{\PaperKeywords}{mass-action systems, limit cycles, focal values, Bautin bifurcation, interval arithmetic}
 \input{chemop-preamble}
 
@@ -19,7 +19,7 @@ Boros and Hofbauer conjectured that the planar mass-action system of three react
 \(\dot x=1/y-x^ay^b\), \(\dot y=K(-(d-1)-1/y+dx^ay^b)\) has, for suitable parameters, an asymptotically stable
 equilibrium surrounded by four limit cycles, after locating numerically a point where the first three focal values
 vanish and the fourth is negative; they could not handle \(L_2,L_3,L_4\) analytically. We prove the conjecture by two
-independent computer-assisted arguments. First, we compute the focal values exactly as polynomials over
+separate computer-assisted arguments. First, we compute the focal values exactly as polynomials over
 \(\mathbb Q\) in a square-root-free parametrisation, certify with a Krawczyk operator in ball arithmetic a simple
 common zero of \(L_1,L_2,L_3\) with \(L_4=-2.580126499494\ldots\cdot10^{-6}<0\) (rigorous enclosure of radius
 \(10^{-34}\)), and conclude by successive
@@ -115,7 +115,7 @@ Hence the conjecture of §5.1 holds, in the precise form stated there.
 \(p\in\mathcal T_0\) the equilibrium \((1,1)\) is a weak focus of order at most 4 (order exactly 4 only at
 \(p^*\)); in particular it is never a centre in this family.
 
-\textbf{Theorem C (explicit parameters; second, independent proof).} Let \(p^\sharp=(K,a,b,d)\) be the exact
+\textbf{Theorem C (explicit parameters; second, separate proof).} Let \(p^\sharp=(K,a,b,d)\) be the exact
 decimal fractions
 
 \[\begin{aligned}
@@ -157,7 +157,7 @@ status
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-exact polynomials \(G_k\) (\(k\le4\)) defining \(L_k\) & exact rational arithmetic (FLINT) & proved, modulo correctness of a \textasciitilde250-line program (validated in §4.4, §8; recomputed exactly by the independent verifier with a different algorithm) \\
+exact polynomials \(G_k\) (\(k\le4\)) defining \(L_k\) & exact rational arithmetic (FLINT) & proved, modulo correctness of a \textasciitilde250-line program (validated in §4.4, §8; recomputed exactly by the verifier with a different algorithm) \\
 \(L_1=L_2=L_3=0\) at a unique point of a box, Jacobian nonsingular & Krawczyk operator in Arb ball arithmetic & proved (computer-assisted) \\
 \(L_4<0\) there & Arb enclosure & proved (computer-assisted) \\
 sign lemma, return map, successive perturbations & pen-and-paper (§4.2, §6) & proved \\
@@ -262,7 +262,7 @@ and \(g_2,g_3\) are listed in Appendix A; all four are stored in \texttt{certifi
 \textbf{4.4 Validation against the paper.} (i) Exact identity (\texttt{crosscheck.py}): \(L_1=\pi G_1/(a^2c^4\sqrt s)
 =\pi[2a^2(1+s)\rho+ac\rho-c^2]/(8c^2\sqrt s)\) equals the paper's
 \(\pi a(2a^2d+a(1+bd)-(1+bd)^2)/(8a\sqrt{(d-1)(1+bd)^3})\) after \(d=(1+s)/\rho\), \(1+bd=c/\rho\).
-(ii) The generic floating-point implementation \texttt{focal\_mp.py} (independent code path: numerical Taylor
+(ii) The generic floating-point implementation \texttt{focal\_mp.py} (separate code path: numerical Taylor
 expansion of arbitrary generalized-monomial systems, numerical normalisation with \(\omega=\sqrt{\det J}\), no
 reparametrisation) reproduces \textbf{exactly} (ratio \(1.000\ldots\) to 15+ digits) every focal value printed in
 the paper: \(L_1\) of §3.2, §4.1 and §5.1 (two generic points each), \(L_2\) of §4.1 along \(\{L_1=0\}\) (two
@@ -506,7 +506,7 @@ Hence \(\{G_1=G_2=G_3=0\}\cap\mathcal D=\{\mu^*\}\), which is Theorem B (the ord
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Independent method} (\texttt{polar\_check.py}): the coefficients \(u_k(2\pi)\) of the displacement map, obtained
+  \textbf{Separate method} (\texttt{polar\_check.py}): the coefficients \(u_k(2\pi)\) of the displacement map, obtained
   by integrating the triangular ODE system of the polar expansion \(dr/d\theta=\sum C_k(\theta)r^k\) with DOP853
   (tolerance \(10^{-13}\)), agree with \(\pi V_k\): \(u_3=\pi V_1\) at a generic point (rel. error
   \(6\cdot10^{-15}\)); on \(\{L_1=0\}\): \(u_3\approx0\), \(u_5=\pi V_2\) (\(10^{-11}\)); on \(\{L_1=L_2=0\}\):
@@ -532,7 +532,7 @@ Hence \(\{G_1=G_2=G_3=0\}\cap\mathcal D=\{\mu^*\}\), which is Theorem B (the ord
 \begin{itemize}
 \tightlist
 \item
-  \textbf{Two independent proofs.} Theorem A rests on the focal-value code + Krawczyk + the bifurcation argument;
+  \textbf{Two separate proofs.} Theorem A rests on the focal-value code + Krawczyk + the bifurcation argument;
   Theorem C rests only on the validated integrator (\textasciitilde150 lines, \texttt{validated\_cycles.py}) + Arb + planar
   topology. Either one alone settles the conjecture. A verifier should check in Theorem C: the a priori
   enclosure test and the remainder term (§6.4), the crossing bookkeeping (no missed crossing of
@@ -541,15 +541,15 @@ Hence \(\{G_1=G_2=G_3=0\}\cap\mathcal D=\{\mu^*\}\), which is Theorem B (the ord
   \textbf{Correctness of the focal-value code.} The certificate checks the polynomials \(G_k\) that
   \texttt{focal\_exact.py} produces; it does not prove that these are the Lyapunov quantities. Evidence: the
   derivation in §3--4 (short, checkable by hand), the exact match with the paper's closed-form \(L_1\), the
-  match of an independent generic implementation with every focal value printed in the paper (\(L_1\), \(L_2\),
-  \(L_3\) of three different systems), and an independent method (polar expansion) at the degenerate points,
+  match of a separate generic implementation with every focal value printed in the paper (\(L_1\), \(L_2\),
+  \(L_3\) of three different systems), and a separate method (polar expansion) at the degenerate points,
   including \(u_9(2\pi)=\pi V_4\) at \(p^*\). A verifier should re-derive \(\tilde R=N_f+iw(cN_I-N_f)\) and, ideally,
-  recompute \(L_1,\dots,L_4\) at \(p^*\) with an independent CAS/algorithm (e.g.~Singular/Maple normal form).
-  \emph{Done in the independent verification} (\texttt{verification.md}, scripts in \texttt{verification/}): the
+  recompute \(L_1,\dots,L_4\) at \(p^*\) with a separate CAS/algorithm (e.g.~Singular/Maple normal form).
+  \emph{Done in the verification} (\texttt{verification.md}, scripts in \texttt{verification/}): the
   focal values were recomputed exactly with a different algorithm (real-coordinate Lyapunov function, homogeneous
-  linear algebra with the circle-average normalisation, independently derived vector field), giving
+  linear algebra with the circle-average normalisation, separately derived vector field), giving
   \(w\,G_k(a,c,w^2)\) \emph{exactly} for \(k=1,\dots,4\); the Krawczyk certificate was re-done with another interval
-  library (mpmath.iv), Theorem B with msolve, and the displacements of Theorem C with an independent validated
+  library (mpmath.iv), Theorem B with msolve, and the displacements of Theorem C with a separate validated
   integrator (polar coordinates, angle as time), which reproduces the enclosures of §6.4.
 \item
   \textbf{Sign lemma (§4.2) and successive perturbations (§6)}: classical; the proof given is self-contained.

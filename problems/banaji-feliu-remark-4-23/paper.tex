@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{Sharp equilibrium bounds for \((n,n,n-1)\) mass-action networks: an answer to a question of Banaji and Feliu}
 \newcommand*{\PaperTitlePlain}{Sharp equilibrium bounds for (n,n,n-1) mass-action networks: an answer to a question of Banaji and Feliu}
 \newcommand*{\PaperShortTitle}{Sharp equilibrium bounds for \((n,n,n-1)\) networks}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} \(n=3\) case and computer searches: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026 \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (confirmed with corrections)}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), orchestrating agent \textperiodcentered{} \(n=3\) case and computer searches: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026 \textperiodcentered{} Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (confirmed with corrections)}
 \newcommand*{\PaperKeywords}{chemical reaction networks, multistationarity, mass-action kinetics, Descartes' rule of signs}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -297,13 +297,13 @@ equilibria and a saddle.
 
 \section{Computer verification}
 
-The proof above needs no computer. As an independent consistency check, the script \texttt{scripts/\allowbreak certify\_family.py} builds
+The proof above needs no computer. As a separate consistency check, the script \texttt{scripts/\allowbreak certify\_family.py} builds
 \(\Net_n\) for \(n=3,\dots,12\) and verifies in exact rational arithmetic (python-flint): the rank and kernels of
 \(\Gamma\); the exponent formula; the strict sign alternation of the generalized-Vandermonde kernel vector for
 \(\lambda_r=r\); the positivity of \(C\), \(T\) and \(\kappa\); that the \(n\) points \(x(r)\) satisfy \(\Gamma v(x)=0\) and
 \(\varepsilon\cdot x=T\) exactly; that the restricted Jacobian has nonzero determinant at each of them; and that \(F\)
 has exactly \(n\) sign changes (300 checks, all pass). \texttt{scripts/example\_n3.py} checks the instance of the
-previous section with sympy. The independent verification (\texttt{verification/}) recounts the equilibria without
+previous section with sympy. The verification (\texttt{verification/}) recounts the equilibria without
 the monomial curve: for \(n=2,\dots,6\) and several choices of \(\lambda_r\) it saturates the full equilibrium system
 plus the conservation law by \(x_1\cdots x_n\) in Singular, computes a lex Gröbner basis in shape-lemma form and counts
 the positive roots of the eliminant with Sturm sequences, finding exactly \(n\) positive equilibria, all

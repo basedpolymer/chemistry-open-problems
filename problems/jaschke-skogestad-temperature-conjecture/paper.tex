@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{The Jäschke--Skogestad temperature conjecture for heat-exchanger networks is false: disproof and corrected theorem}
 \newcommand*{\PaperTitlePlain}{The Jaschke-Skogestad temperature conjecture for heat-exchanger networks is false: disproof and corrected theorem}
 \newcommand*{\PaperShortTitle}{Jäschke temperatures: disproof and correction}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} independently verified}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; citing-works search by a nested read-only Claude Opus 5.5 sub-agent (effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification and corrections: Claude Opus 5.5 (effort xhigh), fresh context}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; citing-works search by a nested read-only Claude Opus 5.5 sub-agent (effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification and corrections: Claude Opus 5.5 (effort xhigh), fresh context}
 \newcommand*{\PaperKeywords}{heat exchanger networks, stream split, self-optimizing control, Jäschke temperature, counterexample}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -142,7 +142,7 @@ The computer-algebra checks for \(M = 3,\dots,8\) and the random tests for \(M \
 \item The case the paper reports as \textbf{proved}, \(M_j = 3\) with constant hot temperatures, is also wrong as
 printed. The first line of the paper's (A.12), the raw Maple coefficient of \(p_{3,1}\), equals our \(a_3\) exactly. The
 ``simplification'' in the next line of (A.12) silently drops \(-a_{1,1}\) (checked symbolically, claim S4, and
-independently by the verifier, claims P3--P6). The paper's elimination was right; the hand simplification, the resulting
+by the verifier, claims P3--P6). The paper's elimination was right; the hand simplification, the resulting
 (A.13), and the extrapolated pattern (A.15) are wrong.
 \end{enumerate}
 
@@ -269,7 +269,7 @@ So the point where the paper's controller settles is not optimal. Numerically (i
 
 \subsection{The paper's own validation case (Appendix B)}\label{sec:appB}
 
-\texttt{scripts/reproduce\_appendixB.py} (and, independently, \texttt{verification/v4\_appendixB.py}) uses Table B.6:
+\texttt{scripts/reproduce\_appendixB.py} (and, separately, \texttt{verification/v4\_appendixB.py}) uses Table B.6:
 \(M_1 = 4\), \(M_2 = 1\), prices 1, 1.2, 1.3, 1.5 / 1.5. All functions are exact rational functions of
 \(u = w_1/w_0\), and real roots are isolated exactly.
 \begin{itemize}
@@ -322,7 +322,7 @@ Non-vanishing is certified by exact evaluation at a rational point where no deno
 
 \subsection{\texorpdfstring{Numerical evidence (\texttt{scripts/random\_fd\_tests.py})}{Numerical evidence (scripts/random\_fd\_tests.py)}}
 
-This is independent evidence, not the proof.
+This is separate evidence, not the proof.
 \begin{itemize}
 \item 60-digit central finite differences on random data, \(M = 1..8\), with random prices: the corrected formula agrees
 to relative error \(< 10^{-30}\).
@@ -330,7 +330,7 @@ to relative error \(< 10^{-30}\).
 \item The LMTD form of Proposition C agrees to \(< 10^{-25}\).
 \end{itemize}
 
-\subsection{Independent verification}
+\subsection{Verification}
 
 A verifier with a fresh context (no access to the solver's reasoning) re-derived Lemma 1, Lemma 2 and the recursion by
 hand, read the source paper (text and 400-dpi renderings of pp.~38--39 and 45--48), and wrote its own scripts in

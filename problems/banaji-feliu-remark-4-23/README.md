@@ -1,8 +1,8 @@
 # Banaji–Feliu, Remark 4.23: are the equilibrium bounds for (n, n, n−1) networks sharp?
 
-**Status: solved: complete proof, independently verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
+**Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
 
-**Attribution.** General family, proof and manuscript: Claude Opus 5.5 (effort xhigh), orchestrating agent. n = 3 case and computer searches for n ≤ 9: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (`verification.md`).
+**Attribution.** General family, proof and manuscript: Claude Opus 5.5 (effort xhigh), orchestrating agent. n = 3 case and computer searches for n ≤ 9: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (`verification.md`).
 
 ## Problem
 
@@ -34,8 +34,8 @@ has exactly the equilibria (25, 36, 1), (50, 18, 8), (75, 12, 27) on x₁ + x₂
 ```bash
 python scripts/certify_family.py 3 12   # exact rational checks of the whole construction, < 1 s
 python scripts/example_n3.py            # the n = 3 instance with sympy
-python verification/indep_groebner.py   # independent recount by Groebner bases (needs Singular), ~4 s
-python verification/indep_extra.py      # independent structural checks, n = 2, other lambdas, ~3 min
+python verification/indep_groebner.py   # separate recount by Groebner bases (needs Singular), ~4 s
+python verification/indep_extra.py      # separate structural checks, n = 2, other lambdas, ~3 min
 ```
 
 ## Files
@@ -46,7 +46,7 @@ python verification/indep_extra.py      # independent structural checks, n = 2, 
 | `scripts/certify_family.py` | Exact (python-flint) verification for n = 3…12 |
 | `scripts/example_n3.py` | Exact (sympy) verification of the n = 3 instance |
 | `certificates/certify_family_n3-12.log` | Output: 300 checks, all PASS |
-| `verification.md` | Independent verification report |
+| `verification.md` | Verification report |
 | `verification/indep_groebner.py`, `.log` | Verifier's Gröbner/Sturm recount of the equilibria (Singular), n = 3…6 |
 | `verification/indep_extra.py`, `.log` | Verifier's structural checks n ≤ 80, n = 2 case, other λ for n ≤ 12 |
 | `references.md` | Sources and novelty check |

@@ -1,0 +1,53 @@
+PASS 27195 rank-2 bimolecular networks with 4 reactions (got 27195)
+PASS 5716 classes up to dynamical equivalence and X<->Y (got 5716)
+PASS four-source class with a fold is in Table 1: 0->X+Y, Y->2X, X+Y->2Y, 2X->0
+PASS four-source class with a fold is in Table 1: 0->X+Y, Y->2X, X->0, 2X->2Y
+PASS four-source class with a fold is in Table 1: 0->X+Y, Y->2X, X->0, X+Y->2Y
+PASS four-source class with a fold is in Table 1: 0->Y, Y->2X, X+Y->2Y, 2X->0
+PASS four-source class with a fold is in Table 1: 0->Y, Y->2X, X->0, 2X->2Y
+PASS four-source class with a fold is in Table 1: 0->Y, Y->2X, X->0, X+Y->2Y
+PASS four-source class with a fold is in Table 1: 0->X, Y->2X, X->0, 2X->2Y
+PASS four-source class with a fold is in Table 1: 0->Y, X->2X, X+Y->0, 2X->0
+PASS four-source class with a fold is in Table 1: 0->Y, X->2X, X+Y->0, 2X->2Y
+PASS four-source class with a fold is in Table 1: 0->Y, X->2X, X+Y->0, 2X->Y
+PASS four-source class with a fold is in Table 1: 0->Y, 2Y->2X, X->2X, X+Y->0
+PASS four-source class with a fold is in Table 1: 0->Y, 2Y->X, X->2X, X+Y->0
+PASS four-source class with a fold is in Table 1: 0->Y, Y->2X, X->2X, X+Y->0
+PASS four-source class with a fold is in Table 1: 0->Y, Y->X+Y, X->2X, X+Y->0
+PASS four-source class with a fold is in Table 1: 0->Y, Y->X, X->2X, X+Y->0
+PASS four-source class with a fold is in Table 1: Y->2X, 2Y->0, X+Y->2Y, 2X->0
+PASS four-source class with a fold is in Table 1: Y->2X, 2Y->2X, X+Y->2Y, 2X->0
+PASS four-source class with a fold is in Table 1: Y->2X, 2Y->X, X+Y->2Y, 2X->0
+PASS four-source class with a fold is in Table 1: Y->2X, 2Y->0, X->0, 2X->2Y
+PASS four-source class with a fold is in Table 1: Y->2X, 2Y->0, X->0, X+Y->2Y
+PASS four-source class with a fold is in Table 1: Y->2X, 2Y->X, X->0, 2X->2Y
+PASS four-source class with a fold is in Table 1: Y->2X, 2Y->X, X->0, X+Y->2Y
+PASS four-source class with a fold is in Table 1: Y->2X, X->0, X+Y->0, 2X->2Y
+PASS four-source class with a fold is in Table 1: Y->2X, X->0, X+Y->X, 2X->2Y
+PASS four-source class with a fold is in Table 1: Y->2X, X->0, X+Y->Y, 2X->2Y
+PASS four-source class with a fold is in Table 1: Y->2X, X->2Y, X+Y->2Y, 2X->0
+PASS origin never AS for Y->2X, X->2Y, X+Y->2Y, 2X->0: J(0) irreducible, det J(0) = -3*k1*k2 < 0
+PASS four-source class with a fold is in Table 1: Y->2X, X->X+Y, X+Y->2Y, 2X->0
+PASS origin never AS for Y->2X, X->X+Y, X+Y->2Y, 2X->0: J(0) irreducible, det J(0) = -2*k1*k2 < 0
+PASS four-source class with a fold is in Table 1: Y->2X, X->Y, X+Y->2Y, 2X->0
+PASS origin never AS for Y->2X, X->Y, X+Y->2Y, 2X->0: J(0) irreducible, det J(0) = -k1*k2 < 0
+PASS four-source class with a fold is in Table 1: Y->2Y, 2Y->2X, X->2X, X+Y->0
+PASS origin never AS for Y->2Y, 2Y->2X, X->2X, X+Y->0: x-axis invariant, xdot = (k3) x + O(x^2) on it
+PASS four-source class with a fold is in Table 1: Y->2Y, 2Y->X, X->2X, X+Y->0
+PASS origin never AS for Y->2Y, 2Y->X, X->2X, X+Y->0: x-axis invariant, xdot = (k3) x + O(x^2) on it
+reasons: {'T': 3613, 'S3': 1128, 'M4': 808, 'F-in': 15, 'S2': 137, 'YES': 10, 'F-un': 5}
+   F-un: Y->2X, X->2Y, X+Y->2Y, 2X->0 | J(0) irreducible, det J(0) = -3*k1*k2 < 0
+   F-un: Y->2X, X->X+Y, X+Y->2Y, 2X->0 | J(0) irreducible, det J(0) = -2*k1*k2 < 0
+   F-un: Y->2X, X->Y, X+Y->2Y, 2X->0 | J(0) irreducible, det J(0) = -k1*k2 < 0
+   F-un: Y->2Y, 2Y->2X, X->2X, X+Y->0 | x-axis invariant, xdot = (k3) x + O(x^2) on it
+   F-un: Y->2Y, 2Y->X, X->2X, X+Y->0 | x-axis invariant, xdot = (k3) x + O(x^2) on it
+PASS exactly 10 classes admit two AS equilibria
+PASS Table 1: 15 with inflow, 5 with unstable origin
+PASS every class classified once
+PASS the YES classes are the 10 orange networks of BBH Table 1
+written certificates/classes.csv (5716 rows)
+SUMMARY: ALL PASS
+
+real	0m16.841s
+user	0m9.098s
+sys	0m0.179s

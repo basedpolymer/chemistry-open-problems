@@ -1,0 +1,8 @@
+stable origin: fields tested 49958 | (number of positive equilibria, index sum) histogram [((0, 0), 8596), ((1, -1), 40462), ((2, -2), 114), ((2, 0), 591), ((3, -1), 195)]
+PASS index sum <= 0 whenever the origin is a hyperbolic sink (0 violations)
+saddle origin (control): fields tested 300104 | histogram [((0, 0), 233381), ((1, -1), 513), ((1, 1), 54720), ((2, 0), 11395), ((3, -1), 88), ((3, 1), 7)]
+PASS control: positive index sums occur when the origin is a saddle (54727 cases)
+
+real	1m19.997s
+user	1m20.315s
+sys	0m0.096s

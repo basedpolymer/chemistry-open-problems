@@ -24,7 +24,7 @@ family. A Wronskian identity handles arbitrarily small transformed amplitudes; a
 validated cover of 110 intervals handles the compact remainder; the known
 limiting-problem theorem of Du and Lou excludes the tail. A separate 160-bit Arb
 contraction certifies the cusp. Every integration includes rigorous origin and
-remainder bounds. An independent verifier re-derived the reduction, re-ran all
+remainder bounds. A verifier re-derived the reduction, re-ran all
 certificates and reproduced the cover, the critical value and the cusp with a
 separate validated integrator; see \texttt{verification.md}.
 \end{paperabstract}
@@ -133,7 +133,7 @@ except for its single double zero at $\alpha_c$;
 \item for every $\varepsilon\in(\varepsilon_c,\max E]$ one has $\lambda_\alpha>0$.
 \end{enumerate}
 The proof is computer-assisted. The verifier reproduced the enclosures of
-$\varepsilon_c$, $\alpha_c$ and $\lambda_c$ independently in the reduced variables
+$\varepsilon_c$, $\alpha_c$ and $\lambda_c$ separately in the reduced variables
 of the next sections (\texttt{verification/cusp\_reduced.jl}).
 \end{theorem}
 
@@ -287,7 +287,7 @@ Compute Taylor coefficients recursively by
  C_0=Y_0,\qquad
  C_{k+1}=\frac1{k+1}[z^k]H\left(x+z,\sum_{i=0}^kC_i z^i\right).
 \]
-All operations are interval power-series operations. For an independent
+All operations are interval power-series operations. For a separate
 coefficient recursion start instead with $x\in[x,x+q]$ and
 $C_0=\mathcal B$, obtaining an enclosure $\mathcal R_{17}$ of the
 seventeenth Taylor coefficient at every intermediate point.
@@ -303,7 +303,7 @@ endpoint or left edge of its window. There are 909 forward steps per run,
 followed, where requested, by the endpoint-window enclosure.
 
 Arb's power-series functions perform truncated formal-series arithmetic;
-they do not supply a remainder by themselves. The independent recursion on
+they do not supply a remainder by themselves. The separate recursion on
 $\mathcal B$ in \eqref{eq:taylor} supplies that missing bound explicitly.
 We use python-flint 0.9.0 with 160-bit working precision
 \autocite{Johansson2017}.
@@ -556,7 +556,7 @@ Cauchy's estimate gives initial errors
 \end{equation}
 The initial centres are $(a,1,0,0,0,0,0,0)$.
 
-On strictly positive $q$ tubes, the Picard inclusion and two independent
+On strictly positive $q$ tubes, the Picard inclusion and two separate
 coefficient recursions of \eqref{eq:tube}--\eqref{eq:taylor} are used with
 orders 14 and 15. Base steps are $1/2$ before $x=-4$ and $1/64$ afterwards.
 They are halved until the tube is valid and every remainder contribution
@@ -775,7 +775,7 @@ $0.242$ & $5.69200476$ & $6.21109405$
 \end{tabular}
 \end{center}
 These samples and the figure are numerical evidence only. The verifier's
-independent floating-point shooting on the original equation, without the
+separate floating-point shooting on the original equation, without the
 reduction (\texttt{verification/direct\_original.py}), reproduces the last row
 to eight digits, finds exactly two folds for $\varepsilon=0.05,0.15,0.23,0.242$
 and none for $\varepsilon=0.2422,0.245$. For small $\varepsilon$ the transformed
@@ -817,7 +817,7 @@ The manuscript is compiled with the repository's shared preamble and build scrip
 The argument covers all $\varepsilon>0$ and all positive amplitudes; no
 parameter gap remains in the stated proof.
 
-An independent verifier (Claude Opus 5.5, fresh context, no access to the
+A verifier (Claude Opus 5.5, fresh context, no access to the
 solver's reasoning) checked the hypotheses of KLO Theorems 3.1 and 4.1 and of
 the corresponding original statements of Du and Lou, re-derived the reduction,
 the equivalence \eqref{eq:foldlevel}, the signs in \eqref{eq:Ederiv}, the

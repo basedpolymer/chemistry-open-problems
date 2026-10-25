@@ -1,7 +1,7 @@
 # Protocol for solving and verifying an open problem
 
-Every problem in this repository goes through the same pipeline. A result is only called **solved** once an
-independent verifier, who did not see the solver's reasoning, has re-derived or re-checked it from the original
+Every problem in this repository goes through the same pipeline. A result is only called **solved** once a
+verifier, who did not see the solver's reasoning, has re-derived or re-checked it from the original
 statement.
 
 ## 1. Novelty check (at most half a day)
@@ -46,7 +46,7 @@ xhigh)"). The credits appear in `\PaperCredits` of `paper.tex` (printed under th
 the problem's `README.md`, and in the results table of the root `README.md`. Unknown efforts are written "effort not
 recorded", never guessed.
 
-## 4. Independent verification
+## 4. Verification
 
 A separate agent with a fresh context receives only: the original statement and source, the claimed result, and
 the deliverables. It re-derives the key steps itself, re-runs every certificate, looks for gaps, and writes
@@ -55,8 +55,8 @@ applied by the verifier, never by the original solver.
 
 ## 5. Vocabulary and honesty rules
 
-- **solved**: complete proof or certificate, confirmed by an independent verifier.
-- **solved (preliminary)**: complete argument, not yet independently verified.
+- **solved**: complete proof or certificate, confirmed by a verifier.
+- **solved (preliminary)**: complete argument, not yet verified.
 - **partial result**: e.g. a certified answer on a parameter range, or a special case.
 - **record**: best known value, not proven optimal.
 - Never present numerical evidence as a proof. State every assumption and every non-rigorous step explicitly.

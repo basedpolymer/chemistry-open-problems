@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{No Andronov--Hopf bifurcation, no periodic orbit: cases~9 and~10 of Banaji--Boros--Hofbauer}
 \newcommand*{\PaperTitlePlain}{No Andronov-Hopf bifurcation, no periodic orbit: cases 9 and 10 of Banaji-Boros-Hofbauer}
 \newcommand*{\PaperShortTitle}{BBH cases 9 and 10}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 24 October 2026 \textperiodcentered{} independently verified}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), 24 Oct 2026 \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 25 October 2026 (confirmed with corrections)}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 24 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), 24 Oct 2026 \textperiodcentered{} Verification: Claude Opus 5.5 (effort xhigh), fresh context, 25 October 2026 (confirmed with corrections)}
 \newcommand*{\PaperKeywords}{mass-action kinetics, limit cycles, Li\'enard systems, Andronov--Hopf bifurcation, quadratic systems}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -305,7 +305,7 @@ In the subfamily of~\autocite{Result2} (9a with \(d_3=0\)), \(k\ge1\) is \(d_1\g
   integrations of random family members, finds the cycles of Hopf networks past the bifurcation, and checks the
   hypothesis of \zcref{lem:comparison} by quadrature.
 \end{itemize}
-The independent verifier's scripts (\texttt{verification/}) were written from the source paper before the solver's
+The verifier's scripts (\texttt{verification/}) were written from the source paper before the solver's
 scripts were read. \texttt{classify\_independent.py} re-derives the set of non-Hopf networks with \(u>0\) from the
 trace formula \(\Trop J=\mu(P/\bar x+Q/\bar y)\) and finds the same classes, with identical counts, in the box of
 targets at most~20. \texttt{verify\_symbolic.py} rechecks every identity of this paper on the raw parameters of each

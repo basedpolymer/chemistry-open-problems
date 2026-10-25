@@ -1,9 +1,9 @@
 # Jäschke–Skogestad "Jäschke temperature" conjecture (heat exchanger networks with stream splits)
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One read-only nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search; its findings are marked [sub] in references.md. LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification
+**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One read-only nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search; its findings are marked [sub] in references.md. LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification
 and corrections: Claude Opus 5.5 (effort xhigh), fresh context, verdict CONFIRMED WITH CORRECTIONS (`verification.md`).
 
-**Status: solved (independently verified): the published recursion is wrong for every \(M_j \ge 3\), so the conjecture
+**Status: solved (verified): the published recursion is wrong for every \(M_j \ge 3\), so the conjecture
 is FALSE, and so is the \(M_j = 3\) constant-hot-temperature case that the paper reports as proved. A corrected formula
 is proved for every \(M_j\).**
 
@@ -88,7 +88,7 @@ Note: `counterexample_exact.py` builds the counterexample from its hard-coded pa
 the JSON file given as argument (deterministically, so the content does not change). The JSON is checked from its raw
 parameters alone by the verifier's script below.
 
-Independent verifier's scripts (no code shared with `scripts/`; about 6 minutes in total, mostly `v1_symbolic.py`):
+Verifier's scripts (no code shared with `scripts/`; about 6 minutes in total, mostly `v1_symbolic.py`):
 
 ```
 outils/wsl "cd chemistry-open-problems/problems/jaschke-skogestad-temperature-conjecture/verification && \
@@ -106,7 +106,7 @@ outils/wsl "cd chemistry-open-problems/problems/jaschke-skogestad-temperature-co
 | `scripts/reproduce_appendixB.py` | The paper's M1 = 4 validation case with exact root isolation (sympy) |
 | `scripts/random_fd_tests.py` | 60-digit finite-difference tests, M = 1..8, prices, plus the LMTD Proposition C (numerical evidence only) |
 | `certificates/` | `counterexample.json` (exact data) and the logs of all runs |
-| `verification.md` | Independent verification report (verdict, what was recomputed, corrections made) |
+| `verification.md` | Verification report (verdict, what was recomputed, corrections made) |
 | `verification/` | Verifier's own scripts `v1`–`v4` with their logs, and logs of the re-run of `scripts/` |
 | `references.md`, `references.bib` | Sources and literature/novelty check; bibliography of the manuscript |
 | `PROGRESS.md` | Work log |

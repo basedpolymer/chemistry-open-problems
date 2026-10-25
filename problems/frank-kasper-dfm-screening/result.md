@@ -6,7 +6,7 @@ the uniform bound F > 1.00000025, a restricted A15 bound,
 global affine-family bounds for the six saved meshes, and 121 topology-wide divergence bounds.
 The latter improve the uniform bound for 34 entries, but a proved ceiling below 1.066 limits this method.
 None bounds the full competing topology infima above σ.
-Proofs: [paper.pdf](paper.pdf). Checks and limitations: [verification.md](verification.md). No fresh independent review.*
+Proofs: [paper.pdf](paper.pdf). Checks and limitations: [verification.md](verification.md). No fresh review.*
 
 ## 1. Question and framing
 
@@ -263,7 +263,7 @@ not converged infima. Their behaviour in these runs does not establish instabili
 minimizing the actual centroid-based energy, with a positive-cone log barrier, free vertex motion and box strain.
 The six barrier weights are 10⁻¹ through 10⁻⁶, with 5000 iterations allowed per stage at level zero. Stopping
 reasons and gradients are retained; these are feasible trials, not demonstrated local minima.
-`scripts/check_barrier_witnesses.py` independently checks the rounded dyadic partitions against the standalone
+`scripts/check_barrier_witnesses.py` separately checks the rounded dyadic partitions against the standalone
 catalogue and integrates their exact energies. The detailed bounds are in the README supplement and
 `certificates/barrier_witness_report.json`.
 
@@ -333,7 +333,7 @@ The original run was stopped on request (24 Oct 2026, ~12:45). It reported Miles
 0–4); attempted box-relaxed screen of all 124 structures, level 3 for the 20 within 5×10⁻⁴ of σ, level 4 for the 7 within
 3×10⁻⁴ (σ, E11, H, μ, zra-d, N56, P) and for BCC; frustrated entries at levels 0–2; six exact certificates.
 Not done: level 3+ for structures more than 0.047 % above σ (their level-2 extrapolations carry ±6×10⁻⁶); converged
-values for the degenerate frustrated entries; CVP checks of the paper's δ, pσ, M, μ, H rows; an independent
+values for the degenerate frustrated entries; CVP checks of the paper's δ, pσ, M, μ, H rows; a separate
 Surface Evolver cross-check. To resume (checkpoints in `work/runs/<name>__<box>/state.pkl`, git-ignored):
 `python3 scripts/run_dfm.py <names> --box relax --maxlev K` continues from the last level;
 `python3 scripts/screen_pipeline.py data/screen_order.txt --win3 X --win4 Y` reruns the adaptive selection;

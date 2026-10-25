@@ -1,13 +1,13 @@
 # Banaji–Feliu, Remark 5.8: can quadratic (n, n+2, n) networks reach n + 1 equilibria?
 
-**Status: already solved. The proof here is correct and independently verified (see `verification.md`), but the
+**Status: already solved. The proof here is correct and verified (see `verification.md`), but the
 question had already been answered.** An unrefereed manuscript posted on Zenodo and GitHub on 4 October 2026 answered
 it for every n ≥ 2 (doi:10.5281/zenodo.23146115). Its underlying polynomial system is the extremal fewnomial chain of
-Phillipson–Rojas (2013, Theorem 1.6). The present folder is an apparently independent rediscovery with a different short
+Phillipson–Rojas (2013, Theorem 1.6). The present folder is an apparent rediscovery with a different short
 proof.
 
 **Attribution.** Construction, proof and manuscript: Claude Opus 5.5 (effort xhigh), orchestrating agent.
-Independent verification, prior-art identification and corrections: Claude Opus 5.5 (effort xhigh).
+Verification, prior-art identification and corrections: Claude Opus 5.5 (effort xhigh).
 
 ## Problem
 
@@ -61,7 +61,7 @@ below point out the same discrepancy.
 ```bash
 python scripts/certify_family.py     # exact checks for the n = 3 example, n = 1, and the R = 64 family n = 1..8 (~10 s)
 python scripts/other_example_n3.py   # an unrelated (3,5,3) example found by computer search
-# independent verification (WSL: msolve, Singular, PARI/GP, python-flint)
+# verification (WSL: msolve, Singular, PARI/GP, python-flint)
 cd verification && python direct_check.py && python prior_art_check.py && python uniform_signs_arb.py
 ```
 
@@ -73,7 +73,7 @@ cd verification && python direct_check.py && python prior_art_check.py && python
 | `scripts/certify_family.py` | Exact (sympy) + 80-digit checks of the family (Gale-dual polynomial) |
 | `scripts/other_example_n3.py` | Exact check of the computer-found example (Gale-dual polynomial) |
 | `certificates/*.log` | Outputs of the solver's scripts (all PASS) |
-| `verification.md` | Independent verification report |
+| `verification.md` | Verification report |
 | `verification/direct_check.py` | Direct exact solution of the mass-action equations (msolve, Singular, PARI), n = 1..10 and both (3,5,3) examples |
 | `verification/prior_art_check.py` | Same pipeline on the earlier networks and on the realizations of Phillipson–Rojas G_{1/4}, G_{1/8} |
 | `verification/uniform_signs_arb.py` | Ball-arithmetic check of the sign pattern of the main proposition, n ≤ 300 |

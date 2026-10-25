@@ -12,53 +12,53 @@
   validated Taylor integration of the return map), solver sub-agent Claude Opus 5.5 (xhigh).
 - Result 6 (chemical engineering): Jäschke–Skogestad temperature conjecture disproved for M_j ≥ 3 and corrected
   recursion proved, solver sub-agent Claude Opus 5.5 (xhigh).
-- Independent verification started (Claude Opus 5.5, xhigh) for results 5 and 6.
-- Result 6 independently verified: CONFIRMED WITH CORRECTIONS (wording of the Appendix B claim softened, M ≥ 4
+- Verification started (Claude Opus 5.5, xhigh) for results 5 and 6.
+- Result 6 verified: CONFIRMED WITH CORRECTIONS (wording of the Appendix B claim softened, M ≥ 4
   argument completed, three further exact counterexamples including M = 3 with constant hot temperatures).
 - Under investigation: Becker–Döring equations with atomization (Hopf criticality); upper bound for the
   connective constant of self-avoiding walks on the cubic lattice.
-- Result 5 independently verified: CONFIRMED WITH CORRECTIONS (focal values recomputed by another algorithm,
-  Krawczyk redone with another interval library, uniqueness re-checked with msolve, independent validated integrator;
+- Result 5 verified: CONFIRMED WITH CORRECTIONS (focal values recomputed by another algorithm,
+  Krawczyk redone with another interval library, uniqueness re-checked with msolve, separate validated integrator;
   corrections to the abstract and to a remark).
 - Result 7 (reaction networks): Banaji–Feliu Remark 5.8 answered for every n by an explicit family (orchestrator,
   Claude Opus 5.5 xhigh); Remark 5.6 of the same paper found to misquote its source for n = 1.
 - Result 8 (nucleation kinetics, partial): Becker–Döring with atomization, sign of the first Lyapunov coefficient
   certified for 15 ≤ M ≤ 10^5 (supercritical except M = 15), solver sub-agent Claude Opus 5.5 (xhigh).
-- Result 3 independently verified: CONFIRMED WITH CORRECTIONS (weak reversibility edge by edge, invariance,
+- Result 3 verified: CONFIRMED WITH CORRECTIONS (weak reversibility edge by edge, invariance,
   absence of equilibria by Sturm and an exact lower bound, divergence integral by two other rigorous methods;
   hypotheses of the network definition (2.1) stated and proof details added).
-- Result 1 independently verified: CONFIRMED WITH CORRECTIONS (equilibria recounted by Gröbner bases for
+- Result 1 verified: CONFIRMED WITH CORRECTIONS (equilibria recounted by Gröbner bases for
   n = 3..6; the displayed instance of N_4 in the manuscript had wrong signs and was replaced, N_5 added; check count
   corrected to 300; minimality statement made precise for n = 2).
-- Result 7 independently verified: proof CONFIRMED WITH CORRECTIONS, but the verifier found prior work: an
+- Result 7 verified: proof CONFIRMED WITH CORRECTIONS, but the verifier found prior work: an
   anonymous unrefereed manuscript (Zenodo, GitHub ipitchford, 4 Oct 2026) answering Remark 5.8 for every n >= 2,
   built on the Phillipson–Rojas (2013) extremal fewnomial system, which is also the equilibrium system of our family.
   Status changed to "already solved". The novelty check in PROTOCOL.md now includes Evidence Press and Zenodo; a scan of
   its 166 repositories found no overlap with the other results.
 - Repository made public; history scrubbed of local paths; licenses added (MIT for code, CC BY 4.0 for texts and data).
-- Result 2 independently verified: CONFIRMED WITH CORRECTIONS (typo in the third reaction of the subfamily fixed:
+- Result 2 verified: CONFIRMED WITH CORRECTIONS (typo in the third reaction of the subfamily fixed:
   Y -> c3 X + Y; the Dulac threshold shown to coincide with the Hopf curve, hence optimal; theorem numbering of the
   published version noted).
-- Result 4 independently verified: CONFIRMED WITH CORRECTIONS (proof re-derived line by line; own transfer-matrix
+- Result 4 verified: CONFIRMED WITH CORRECTIONS (proof re-derived line by line; own transfer-matrix
   and dynamic-programming checks; the free energy has a first-order kink at beta_*; analytic proof that
   beta_* > 2 pi / 9 by Poisson summation; DGH 1992 only predicted the value by a one-line free-energy argument).
 - Result 9 (polymer physics, record): rigorous upper bound mu(Z^3) <= 4.722048 for the connective constant of
   self-avoiding walks, improving 4.7387 (Pönitz–Tittmann 2000), plus new bounds for d = 4, 5, 6; optimised
   forbidden-set automata with exact Collatz–Wielandt certificates (largest: 2.06e8 states), solver sub-agent
-  Claude Opus 5.5 (xhigh). Independent verification pending.
-- Result 8 independently verified: CONFIRMED WITH CORRECTIONS. Signs of l1 re-certified in other coordinates
+  Claude Opus 5.5 (xhigh). Verification pending.
+- Result 8 verified: CONFIRMED WITH CORRECTIONS. Signs of l1 re-certified in other coordinates
   for all M <= 200 and samples up to 1e5, subcritical M = 15 and supercritical M = 16 confirmed by periodic-orbit
   shooting; the stability claim was overstated and is now rigorous only for 16 <= M <= 160 (spectral hypothesis
   certified there, plus M = 250, 300) and conditional beyond; "first crossing" proved for 15 <= M <= 57.
-- Result 9 independently verified: CONFIRMED WITH CORRECTIONS. The verifier wrote its own certificate checker from
+- Result 9 verified: CONFIRMED WITH CORRECTIONS. The verifier wrote its own certificate checker from
   the mathematical specification before reading the solver's; all five certificates pass (K = 18 in 151 s), with the
-  same exact ratios; tampered certificates rejected; Pönitz–Tittmann table reproduced by an independent
+  same exact ratios; tampered certificates rejected; Pönitz–Tittmann table reproduced by a separate
   implementation; corrections editorial (certificate-format documentation, a file size in SHA256SUMS).
 - Result 10 (combustion theory): the Korman–Li–Ouyang conjecture on the perturbed Gelfand equation in the unit
   disk is proved: a unique eps_0 = 0.2421061655952..., exactly S-shaped curve below, monotone above. Du–Lou change of
   variables (eps becomes a stopping level), analytic Wronskian argument for small amplitudes, Arb cover of a compact
   interval, Du–Lou/KLO qualitative theorems for the tail. Solver GPT-6-Astra (xhigh), two runs.
-  Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS, with an independent Julia cover;
+  Verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS, with a separate Julia cover;
   the published estimate eps_0 ~ 0.2385 of KLO is wrong for the disk (close to the 3D value 0.2388).
 
 ## 20 October 2026
@@ -69,7 +69,7 @@
   to the discrete setting; global classical solutions by characteristics for every mass 0 < m ≤ 1 without a second
   moment, comparison with positive truncations, part (i) through the triangular fixed-mass system. Solver Claude
   Opus 5.5 (xhigh); novelty audit, singularity analysis and first draft GPT-6-Astra (xhigh).
-  Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS (scope of the Conjecture 1
+  Verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS (scope of the Conjecture 1
   consequence stated precisely, a citation fixed, the long-time numerical check repaired: 59 PASS).
 - Result 12 (chemical engineering): the Halvorsen–Skogestad conjecture (2003) proved for every number of
   components in a stated class and model: networks of two-section columns with interval streams (containing
@@ -78,7 +78,7 @@
   sign-graph reachability argument; the Petlyuk value (highest V_min peak, previously proved only for the extreme
   peaks) is attained by the fully thermally coupled arrangement. In the permissive (TG-literal) model: proved for
   N <= 4, for extreme peaks and for merge-free mixed networks. Solvers: three Claude Opus 5.5 (xhigh) agents
-  (theory, computation, general N). Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS
+  (theory, computation, general N). Verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS
   (degenerate operating points and further exclusions stated, TG equation numbering, computer-verification section
   aligned with the actual runs); the verifier also found an interval-certified point of the permissive model below
   the Petlyuk value for N = 5 (q = 0), an artifact of that formulation rather than a physical counterexample.
@@ -88,7 +88,7 @@
   feed contributes zero at a feed root, and all streams leaving an equilibrium stage have the same sign of phi;
   summing the balances over the units of one sign gives R >= H_j for every arrangement (splitters, recycles,
   multi-feed columns, reverse flows, Murphree stages, finite stages and impure products up to O(eps)). Found
-  independently by three agents; an early independent verifier (Claude Opus 5.5, xhigh) confirmed the bound and its
+  separately by three agents; an early verifier (Claude Opus 5.5, xhigh) confirmed the bound and its
   scope, with editorial corrections. Conjecture fully proved for N = 2 (finite-stage attainment by a single column);
   for N >= 3, attainment by the Petlyuk is proved in Underwood's infinite-stage model and observed numerically at
   finite stages (geometric decay of impurities), and the isolated prefractionator is proved for any N (GPT-6-Astra);
@@ -97,7 +97,7 @@
 
 ## 24 October 2026
 
-All entries of this day are preliminary: no independent verifier has checked them yet. Agents: Claude Opus 5.5
+All entries of this day are preliminary: no verifier has checked them yet. Agents: Claude Opus 5.5
 sub-agents of the orchestrator (effort xhigh); credits per problem in each folder.
 
 - Swelling exponent of self-avoiding walks on Z^3 (owner's selection of 22 October): first wave of four agents
@@ -173,7 +173,7 @@ integration and Arb verification enclose the six stored affine-family infima;
 all five competitor families lie above the σ witness. Three analytic tests
 pass. This resolves these affine subproblems, not the unrestricted topology
 comparison. Manuscript, source record, READMEs and progress journal updated;
-fresh independent review remains pending and global σ optimality is unproved.
+fresh review remains pending and global σ optimality is unproved.
 
 ### Frank–Kasper: topology-wide bounds and auxiliary-apex witnesses, 25 October 2026
 
@@ -203,12 +203,12 @@ progress journal. Global topology ordering remains unresolved.
   yet) and gives the date of the result; new sections for the work in progress and for candidate problems.
 - Started (Claude Opus 5.5, xhigh): bimolecular (2, 4, 2) networks with several stable equilibria
   (Banaji–Boros–Hofbauer, Nonlinear Dyn. 2024), VIPR check of the unbalanced10 closure, infinite families of
-  β-Kirchhoff Šoltés graphs (Gottwald–Majstorović Ergotić–Došlić 2026, Problem 4); independent verification of
+  β-Kirchhoff Šoltés graphs (Gottwald–Majstorović Ergotić–Došlić 2026, Problem 4); verification of
   result 13.
 - Result 15 (chemical engineering, heat integration), solved (preliminary) for four instances: the minimum number of
   matches of unbalanced10 is 25. The exact SCIP proof that 24 matches are infeasible (10 233 nodes) now has a VIPR
-  certificate (0.54 GB, kept outside the repository, SHA-256 recorded) accepted by VIPR's checker and by an
-  independently written checker; the LP model is re-derived row by row from the instance data. VIPR's checker
+  certificate (0.54 GB, kept outside the repository, SHA-256 recorded) accepted by VIPR's checker and by a
+  separately written checker; the LP model is re-derived row by row from the instance data. VIPR's checker
   (commit 30f2951 and current master) accepts two invalid toy certificates; a hardening patch is included. With the
   closures of 24 October (37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, lower bound 32 for balanced15), the folder now has
   a manuscript. Not yet verified by an agent.
@@ -217,3 +217,10 @@ progress journal. Global topology ordering remains unresolved.
   lemma checked by hand, 16 095 return-map integrations without a cycle; corrections editorial (family conditions
   u > 0 restored in the README table, case 8's degenerate Hopf bifurcation mentioned, a symbol defined). Status
   changed to solved; manuscript compiled.
+- Result 16 (reaction networks), solved (preliminary): Banaji–Boros–Hofbauer's question on bimolecular (2, 4, 2)
+  networks answered: no network beyond their ten admits two asymptotically stable equilibria in the closed quadrant,
+  boundary equilibria included. Exhaustive enumeration (27 195 networks, 5 716 classes), boundary lemmas, at most one
+  stable positive equilibrium (exact polynomial certificates), a new index theorem for a stable origin, exact rate
+  constants for the ten networks. Solver Claude Opus 5.5 (xhigh). Not yet verified.
+- The word "independent" is no longer used for verification in the READMEs, manuscripts and protocol; "independent"
+  in the sense of a different method became "separate".

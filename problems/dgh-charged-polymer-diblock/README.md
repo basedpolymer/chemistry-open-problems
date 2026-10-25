@@ -1,8 +1,8 @@
 # DGH charged diblock: exact critical inverse temperature
 
-**Status: solved: complete proof, independently verified (verdict CONFIRMED WITH CORRECTIONS, minor and editorial; see [verification.md](verification.md)).** The candidate value itself was already identified by Derrida, Griffiths and Higgs in 1992; the collapse side was argued there and proved by Poisat (Prop. 3.7). The new contribution is the matching uniform high-temperature bound. The verifier's novelty search found no earlier complete answer.
+**Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, minor and editorial; see [verification.md](verification.md)).** The candidate value itself was already identified by Derrida, Griffiths and Higgs in 1992; the collapse side was argued there and proved by Poisat (Prop. 3.7). The new contribution is the matching uniform high-temperature bound. The verifier's novelty search found no earlier complete answer.
 
-**Attribution.** Solver: GPT-6-Astra (effort xhigh). Internal review: a GPT-6-Astra sub-agent launched by the solver (effort xhigh). LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 ([verification.md](verification.md)).
+**Attribution.** Solver: GPT-6-Astra (effort xhigh). Internal review: a GPT-6-Astra sub-agent launched by the solver (effort xhigh). LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 ([verification.md](verification.md)).
 
 ## Original question
 
@@ -58,13 +58,13 @@ Dependencies: Python 3.10+, `python-flint`, `mpmath`. One thread, under 250 MB R
 
 - [paper.tex](paper.tex), [paper.pdf](paper.pdf): manuscript with the complete proof and all numerical error bounds (LaTeX edition of the solver's write-up).
 - [references.md](references.md): sources, exact reading scope, novelty search and limitations.
-- [verification.md](verification.md): independent verification report (PROTOCOL.md §4). The verifier's own script and logs are in `verification/`: `independent_check.py`, `independent_check.log`, `solver_scripts_rerun.log` and `verifier-changes.diff`.
-- [verification-codex-internal.md](verification-codex-internal.md): review by a fresh-context sub-agent launched by the solver itself (same model); not the independent verification required by PROTOCOL.md.
-- `scripts/verify_exact.py`, `scripts/verify_intervals.py`, `scripts/run_all.py`: deterministic verifiers. The solver's internal-review sub-agent added `scripts/verify_independent.py`. Despite its name, it is not the PROTOCOL.md independent verification.
+- [verification.md](verification.md): verification report (PROTOCOL.md §4). The verifier's own script and logs are in `verification/`: `independent_check.py`, `independent_check.log`, `solver_scripts_rerun.log` and `verifier-changes.diff`.
+- [verification-codex-internal.md](verification-codex-internal.md): review by a fresh-context sub-agent launched by the solver itself (same model); not the verification required by PROTOCOL.md.
+- `scripts/verify_exact.py`, `scripts/verify_intervals.py`, `scripts/run_all.py`: deterministic verifiers. The solver's internal-review sub-agent added `scripts/verify_independent.py`. Despite its name, it is not the PROTOCOL.md verification.
 - `certificates/parameters.json`: exact rational endpoints and computation settings.
 - `certificates/exact_polynomials.json`: integer coefficient data.
 - `certificates/finite_volumes.json`: forty certified finite-volume rows.
-- `certificates/verification.log`: complete local check output (not independent verification). `certificates/independent-verification.log` is the internal-review sub-agent's rerun of the same scripts. It is not the PROTOCOL.md independent verification either.
+- `certificates/verification.log`: complete local check output (not the verification of PROTOCOL.md §4). `certificates/independent-verification.log` is the internal-review sub-agent's rerun of the same scripts. It is not the PROTOCOL.md verification either.
 - `certificates/source_manifest.json`: SHA-256 hashes of the source PDFs and snapshots used (the files themselves are kept locally, not redistributed).
 
 Solver: GPT-6-Astra (reasoning effort xhigh), 18 October 2026.

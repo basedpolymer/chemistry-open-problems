@@ -1,6 +1,6 @@
 # Knotting probability of random equilateral hexagons: a certified two-sided enclosure
 
-**Status: partial result (preliminary, not yet independently verified)** — a certified enclosure
+**Status: partial result (preliminary, not yet verified)** — a certified enclosure
 3.0675·10⁻⁵ ≤ p₆ ≤ 8.4945·10⁻⁴ of the knotting probability: the first positive lower bound, and an upper bound
 28 times smaller than the published one (whose proof, moreover, has a gap). The enclosure is not tight
 (ratio 27.7; Monte Carlo value 1.364·10⁻⁴); the exact value remains open. The branch and bound was stopped

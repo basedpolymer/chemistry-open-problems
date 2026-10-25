@@ -1,0 +1,19 @@
+classes sampled: 1966
+  hit: 2Y->0, X->2Y, X+Y->2X, 2X->0 {'origin_AS_cm': 11635} (orange)
+  hit: 2Y->0, X->2Y, X+Y->2X, 2X->X+Y {'origin_AS_cm': 6895} (orange)
+  hit: 2Y->0, X->2Y, X+Y->2X, 2X->Y {'origin_AS_cm': 10651} (orange)
+  hit: Y->2X, 2Y->0, X->0, 2X->X+Y {'origin_AS': 14877} (orange)
+  hit: Y->2X, 2Y->0, X->0, X+Y->2Y {'origin_AS': 13367} (orange)
+  hit: Y->2X, 2Y->X, X->0, 2X->X+Y {'origin_AS': 13538} (orange)
+  hit: Y->2X, 2Y->X, X->0, X+Y->2Y {'origin_AS': 11743} (orange)
+  hit: Y->2X, X->0, X+Y->0, 2X->X+Y {'origin_AS': 13088} (orange)
+  hit: Y->2X, X->0, X+Y->X, 2X->X+Y {'origin_AS': 11224} (orange)
+  hit: Y->2X, X->0, X+Y->Y, 2X->X+Y {'origin_AS': 10110} (orange)
+PASS every class with a numerical hit is one of the 10
+PASS every one of the 10 classes has a numerical hit
+
+real	16m15.667s
+user	0m0.731s
+sys	0m1.950s
+
+[exited with code 0]

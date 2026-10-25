@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{The generalized Petlyuk arrangement minimizes total vaporization: a proof of the Halvorsen--Skogestad conjecture}
 \newcommand*{\PaperTitlePlain}{The generalized Petlyuk arrangement minimizes total vaporization: a proof of the Halvorsen-Skogestad conjecture}
 \newcommand*{\PaperShortTitle}{Proof of the Halvorsen--Skogestad conjecture}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} solved: lower bound and attainment independently verified by AI agents}
-\newcommand*{\PaperCredits}{Mathematics, code and manuscript produced by AI agents, Claude Opus 5.5 (Anthropic) and GPT-6-Astra (OpenAI), and independently verified by Claude Opus 5.5 agents. Detailed credits in the repository.}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} solved: lower bound and attainment verified by AI agents}
+\newcommand*{\PaperCredits}{Mathematics, code and manuscript produced by AI agents, Claude Opus 5.5 (Anthropic) and GPT-6-Astra (OpenAI), and verified by Claude Opus 5.5 agents. Detailed credits in the repository.}
 \newcommand*{\PaperKeywords}{multicomponent distillation, Petlyuk arrangement, fully thermally coupled columns, dividing-wall columns, minimum vapor, minimum energy, Underwood equations, Vmin diagram, equilibrium-stage networks, M-matrices, perturbation theory}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -65,7 +65,7 @@ each side product; in the infinite-stage limit every section is then pinched at 
 an invertible Jacobian (block triangular, with one triangular M-matrix per trace component), and the finite-stage
 equations are an exponentially small perturbation of them. Hence the Petlyuk value of Halvorsen and Skogestad is the
 exact minimum of the total vaporization over the whole class. All mathematics, code and text were produced by AI
-agents, and every part was checked by independent AI verifiers.
+agents, and every part was checked by AI verifiers.
 \end{paperabstract}
 
 \section{Introduction}\label{sec:intro}
@@ -1133,11 +1133,11 @@ design closes the network around such columns.
 \section{Numerical illustration}\label{sec:numerics}
 
 \emph{Everything in this section is numerical evidence (high-precision floating point), not part of any proof.} The
-finite-stage steady states below were computed by a solver written independently of the proof, in the unknowns of
+finite-stage steady states below were computed by a solver written separately from the proof, in the unknowns of
 Section~\ref{sec:arrangement} with the exact product-form section relations, Newton's method in \texttt{mpmath} at 90 to
 about 1500 significant digits, and two precision audits; every reported steady state was then re-checked stage by stage
 (every stage, junction, side-draw, condenser and reboiler balance with the actual stream compositions; all mole fractions
-positive; \(S>0\) everywhere). The limit configuration was computed independently from Definition~\ref{def:L} and agrees with
+positive; \(S>0\) everywhere). The limit configuration was computed separately from Definition~\ref{def:L} and agrees with
 a second implementation to \(10^{-54}\).
 
 \begin{table}[t]
@@ -1246,7 +1246,7 @@ Separately, the limit Jacobian was checked for 16 random instances with \(N=3\) 
 as predicted by Lemma~\ref{lem:tracerow}), and the combinatorial case analysis of Theorem~\ref{thm:L} (rows, coordinates,
 closed-to-open moves) was checked exhaustively for all \(N\le12\) and all \(2^{N-1}\) forcing patterns.
 
-\emph{Independent re-implementations.} The two verifications of the attainment proof wrote their own codes from the
+\emph{Separate re-implementations.} The two verifications of the attainment proof wrote their own codes from the
 statements. The first built the design by solving its defining conditions, and the limit system from a general
 eigen-solver instead of Underwood's formulas; on 23 cases (\(N=3\) to \(6\), all kinds of forcing patterns, forcing from
 \(5\%\) to \(99.9\%\) of the bound \(\hat\eta_p\), nearly equal volatilities) it confirmed every property of
@@ -1258,11 +1258,11 @@ not be physical (a three-component case with \(q=-0.5\) at \(n=16\)), while it i
 predicts. A deliberately broken version of the combinatorial check of Theorem~\ref{thm:L} (for example, unforced binary
 columns) was detected in every mutation.
 
-\emph{Earlier evidence.} The lower bound was checked on finite-stage steady states computed by four independent solvers
+\emph{Earlier evidence.} The lower bound was checked on finite-stage steady states computed by four separate solvers
 (random networks of up to twelve units with recycles, bypasses, split feeds, duties anywhere, products of either phase and
 reverse net flows; columns and Petlyuk arrangements with up to 120 stages per section; Murphree trays), and its identities
 in exact rational arithmetic; no violation was found. At fixed flows with a margin spread over all sections, three
-independent solvers found the impurities of the three-component Petlyuk arrangement decreasing geometrically with \(n\),
+separate solvers found the impurities of the three-component Petlyuk arrangement decreasing geometrically with \(n\),
 which motivated the proof; with sharp binary columns their Jacobians showed the neutral mode.
 
 \section{Discussion}\label{sec:discussion}
@@ -1273,7 +1273,7 @@ splitters and mixers, total condensers and vaporizers needs a total vaporization
 infinitely many stages and pure products (in fact \(R\ge H_j-c_j\varepsilon\) at every finite number of stages and purity
 \(1-\varepsilon\)), and the generalized Petlyuk arrangement attains this value. This is the Halvorsen--Skogestad conjecture, read
 as in Definition~\ref{def:conj}, together with their formula for the Petlyuk minimum, for every number of components. Both
-halves were checked by independent verifiers who re-derived the proofs and re-implemented the constructions. The
+halves were checked by verifiers who re-derived the proofs and re-implemented the constructions. The
 lower bound is the stronger statement: it is uniform in the numbers of stages, holds at every steady state of every
 arrangement (including non-adiabatic sections with external utilities and Murphree trays), and yields necessary conditions
 for ties. The attainment is the more delicate one: it requires the order of limits \(n\to\infty\), then forcing \(\to0\), then
@@ -1323,10 +1323,10 @@ No result of this paper depends on a computation.
 
 All mathematics, code and text of this work, including this manuscript and the literature review behind it, were produced
 by AI agents (Claude Opus~5.5 and GPT-6-Astra), working under human direction in a structured workflow with separate
-roles (solvers, red team, computation, independent verifiers). Every result was meant to be checked by an agent that had
-not seen the solver's reasoning: the Underwood-model results were independently verified, the lower bound received an early
-independent check (confirmed, with editorial corrections that are incorporated here), and the attainment proof was verified
-independently by two further agents, one for the design and the limit system, one for the analysis and the integrated
+roles (solvers, red team, computation, verifiers). Every result was meant to be checked by an agent that had
+not seen the solver's reasoning: the Underwood-model results were verified, the lower bound received an early
+separate check (confirmed, with editorial corrections that are incorporated here), and the attainment proof was verified
+separately by two further agents, one for the design and the limit system, one for the analysis and the integrated
 proof (both confirmed it; the corrections were minor and editorial, and are incorporated here). Each verifier re-derived
 the proofs by hand and re-implemented the construction in its own code. No human has checked the proofs line by line. Responsibility for any
 submission of this work rests with the humans who submit it. The contributions are listed by role under the title.
@@ -1902,7 +1902,7 @@ Proposition~\ref{prop:exact}(b) are defined; \(S>0\) at the node compositions be
 \section{Computations and reproducibility}\label{app:repro}
 
 No proof in this paper depends on a computation. The scripts below check identities, re-derive the constructions
-independently, and test the statements numerically; paths are relative to the problem folder
+separately, and test the statements numerically; paths are relative to the problem folder
 \path{problems/halvorsen-skogestad-petlyuk-minimum-vapor/} of the repository. Environment: Linux (Fedora under WSL), Python~3.12
 with \texttt{numpy}, \texttt{scipy}, \texttt{sympy}, \texttt{mpmath}, \texttt{python-flint}; one thread; runtimes from seconds to a few
 minutes unless stated. Each certificate script prints PASS or FAIL for each claim.
@@ -1916,7 +1916,7 @@ arbitrary subsets and rational \(\theta\).
 side per section, on 400 random stage-to-stage profiles with net flows of both signs.
 \item \path{total/foundations/scripts/unitnet.py}, \path{total/sections/scripts/check_stage_cut.py},
 \path{total/network/scripts/cut_bound_check.py}, \path{total/simulation/scripts/test_stage_bound.py} and
-\path{test_section_sign.py}, \path{total/verification-early/scripts/vexact.py} and \path{vtests.py}: four independent
+\path{test_section_sign.py}, \path{total/verification-early/scripts/vexact.py} and \path{vtests.py}: four separate
 steady-state solvers; Theorem~\ref{thm:stage} and its identity on thousands of random networks and on columns and Petlyuk
 arrangements; no violation.
 \item \path{total/network/scripts/permissive_sign_path.py}: the light-to-heavy sign path of the point of
@@ -1940,7 +1940,7 @@ re-checked with the actual streams, \(N=3,4,5\).
 \path{eta_dependence.py}, \path{unequal_lengths.py} (the 62-case campaign of Section~\ref{sec:numerics}).
 \end{itemize}
 
-\emph{Independent verification of the attainment proof.} \path{attainment/verification-DL/scripts/v1_independent.py} (own
+\emph{Verification of the attainment proof.} \path{attainment/verification-DL/scripts/v1_independent.py} (own
 construction of the design and of the limit system with a general eigen-solver, finite-difference Jacobians, finite-stage
 steady states with every balance re-checked; 23 cases) and \path{mutate_combinatorics.py} (ten deliberately broken models,
 all detected); \path{attainment/verification-A/scripts/v2_perturbation.py} (explicit Underwood and trace eigen-data,

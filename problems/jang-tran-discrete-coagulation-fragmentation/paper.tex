@@ -6,10 +6,10 @@
 \newcommand*{\PaperTitle}{The discrete critical coagulation--fragmentation conjecture}
 \newcommand*{\PaperTitlePlain}{The discrete critical coagulation-fragmentation conjecture}
 \newcommand*{\PaperShortTitle}{Discrete critical coagulation--fragmentation}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} independently verified, not refereed}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 20 October 2026 \textperiodcentered{} verified, not refereed}
 \newcommand*{\PaperCredits}{Part (ii), the case m = 1, part (i) as a corollary, final manuscript: Claude Opus 5.5 (effort xhigh)\\
 Novelty audit, stationary singularity analysis, first draft: GPT-6-Astra (effort xhigh)\\
-Independent verification: Claude Opus 5.5 (effort xhigh)}
+Verification: Claude Opus 5.5 (effort xhigh)}
 \newcommand*{\PaperKeywords}{coagulation, fragmentation, gelation, mass conservation, Hamilton-Jacobi equations}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -35,8 +35,7 @@ all \(m\le1\), hence a global classical solution of the Hamilton--Jacobi equatio
 slope \(m\) at the boundary. Comparison with positive finite truncations then excludes mass loss; no
 viscosity-solution theory is used. Once mass is conserved the system is lower triangular, which gives
 uniqueness, convergence to the stationary state, and its positivity and mass identity. The stationary
-coefficients decay like \(c\,R^{-n}n^{-5/2}\) with \(R>1\). The proofs have been checked by an independent
-verifier; they have not been refereed.
+coefficients decay like \(c\,R^{-n}n^{-5/2}\) with \(R>1\). The proofs have been checked by a verifier; they have not been refereed.
 \end{paperabstract}
 
 \section*{The question}
@@ -122,7 +121,7 @@ Tran's Theorem~1.1 for \(m>1\), settles their Conjecture~1 in the discrete setti
 from \zcref{prop:closed}, whose derivation of \(n_0(t)\) holds on any interval \([0,T]\) and makes \(n_0\)
 vanish at \(T=2\log\bigl(1+n_0(0)/(m(m-1))\bigr)\), so no solution conserves mass on such an interval.
 Whether global weak solutions that lose mass exist for \(m>1\) is not addressed here.
-The status is \emph{solved}: the proofs were checked by an independent verifier (file
+The status is \emph{solved}: the proofs were checked by a verifier (file
 \texttt{verification.md}); they have not been refereed.
 
 \paragraph{Strategy.}
@@ -550,7 +549,7 @@ GPT-6-Astra also sketched a purely stationary proof of positivity of \eqref{eq:r
 standard of this paper, and it is not used; the draft is kept outside the deliverables.
 \end{remark}
 
-\section{Computer checks and independent verification}
+\section{Computer checks and verification}
 
 The proofs do not depend on numerical computation. Scripts in \texttt{scripts/} (each prints PASS/FAIL):
 \texttt{check\_evolution\_identities.py} verifies exactly (sympy) every identity of
@@ -565,13 +564,13 @@ first 256 coefficients of \eqref{eq:recursion} at six masses in Arb ball arithme
 for monomer and infinite-second-moment data, the comparison \(F^L\ge F\), agreement of the triangular and
 truncated systems, and the long-time limit. Its complete run is reported in \texttt{README.md}.
 
-\paragraph{Independent verification.} The points singled out for checking (the no-crossing and
+\paragraph{Verification.} The points singled out for checking (the no-crossing and
 global-coverage argument, \zcref{lem:barrier} and \zcref{prop:global}; the uniformity in \zcref{lem:slope}(a)
 over characteristics arriving near \(x=0\); the identity \eqref{eq:super} and the sign of \(E_L\); the
 tightness step in the coagulation loss; the use of \zcref{lem:slope}(b) to prevent mass escape as
-\(t\to\infty\); the singularity analysis) were re-derived by an independent verifier, who found no
-mathematical gap. The verifier re-ran all scripts and added independent checks (different integrators,
-infinite-second-moment data at \(m=0.9\) and \(m=1\), Arb enclosures of \eqref{eq:recursion}, an independent
+\(t\to\infty\); the singularity analysis) were re-derived by a verifier, who found no
+mathematical gap. The verifier re-ran all scripts and added separate checks (different integrators,
+infinite-second-moment data at \(m=0.9\) and \(m=1\), Arb enclosures of \eqref{eq:recursion}, a separate
 computation of \(R(m)\) and of the constant of \zcref{thm:asymptotics}) in \texttt{verification/}; the
 report, with the list of corrections, is \texttt{verification.md}.
 

@@ -1,0 +1,81 @@
+== Y->2X, X+Y->2Y, X->0, 2Y->0
+PASS rational rate constants found (t = 17/64)
+   xdot = -115*x*y - 47*x + 162*y    ydot = 115*x*y - 34*y**2 - 81*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 103 > 0, tr J(1,1) = -196 < 0
+PASS E3a origin is an equilibrium
+PASS E3b origin hyperbolic sink: det J(0) = 3807, tr J(0) = -128
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [-1, 1]
+== Y->2X, X+Y->2Y, X->0, 2Y->X
+PASS rational rate constants found (t = 3/8)
+   xdot = -14*x*y - 5*x + 3*y**2 + 16*y    ydot = 14*x*y - 6*y**2 - 8*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 2 > 0, tr J(1,1) = -25 < 0
+PASS E3a origin is an equilibrium
+PASS E3b origin hyperbolic sink: det J(0) = 40, tr J(0) = -13
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [-1, 1]
+== Y->2X, X+Y->2Y, 2X->0, 2Y->0
+PASS rational rate constants found (t = 11/32)
+   xdot = -42*x**2 - 86*x*y + 128*y    ydot = 86*x*y - 22*y**2 - 64*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 128 > 0, tr J(1,1) = -192 < 0
+PASS E3a origin is an equilibrium
+PASS E3c V = x+3y: V' = -64*y + -42*x^2 + 172*x*y + -66*y^2 with l2 < 0, D < 0, no x term
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [-1, 1]
+== Y->2X, X+Y->2Y, 2X->0, 2Y->X
+PASS rational rate constants found (t = 1/64)
+   xdot = -2*x**2 - 191*x*y + 63*y**2 + 130*y    ydot = 191*x*y - 126*y**2 - 65*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 12155 > 0, tr J(1,1) = -321 < 0
+PASS E3a origin is an equilibrium
+PASS E3c V = x+3y: V' = -65*y + -2*x^2 + 382*x*y + -315*y^2 with l2 < 0, D < 0, no x term
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [1, -1]
+== Y->2X, X+Y->2Y, 2X->0, 2Y->2X
+PASS rational rate constants found (t = 1/64)
+   xdot = -2*x**2 - 128*x*y + 126*y**2 + 4*y    ydot = 128*x*y - 126*y**2 - 2*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 248 > 0, tr J(1,1) = -258 < 0
+PASS E3a origin is an equilibrium
+PASS E3c V = x+3y: V' = -2*y + -2*x^2 + 256*x*y + -252*y^2 with l2 < 0, D < 0, no x term
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [1, -1]
+== Y->2X, 2X->2Y, X->0, 2Y->0
+PASS rational rate constants found (t = 9/32)
+   xdot = -82*x**2 - 46*x + 128*y    ydot = 82*x**2 - 18*y**2 - 64*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 8 > 0, tr J(1,1) = -310 < 0
+PASS E3a origin is an equilibrium
+PASS E3b origin hyperbolic sink: det J(0) = 2944, tr J(0) = -110
+PASS E4 exactly two positive equilibria (roots of a degree-3 polynomial in t on (0,1)), det J signs [-1, 1]
+== Y->2X, 2X->2Y, X->0, 2Y->X
+PASS rational rate constants found (t = 17/64)
+   xdot = -98*x**2 - 47*x + 17*y**2 + 128*y    ydot = 98*x**2 - 34*y**2 - 64*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 324 > 0, tr J(1,1) = -375 < 0
+PASS E3a origin is an equilibrium
+PASS E3b origin hyperbolic sink: det J(0) = 3008, tr J(0) = -111
+PASS E4 exactly two positive equilibria (roots of a degree-3 polynomial in t on (0,1)), det J signs [-1, 1]
+== Y->2X, 2X->2Y, X->0, X+Y->0
+PASS rational rate constants found (t = 19/64)
+   xdot = -102*x**2 - 19*x*y - 45*x + 166*y    ydot = 102*x**2 - 19*x*y - 83*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 141 > 0, tr J(1,1) = -370 < 0
+PASS E3a origin is an equilibrium
+PASS E3b origin hyperbolic sink: det J(0) = 3735, tr J(0) = -128
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [-1, 1]
+== Y->2X, 2X->2Y, X->0, X+Y->X
+PASS rational rate constants found (t = 1/64)
+   xdot = -128*x**2 - 2*x + 130*y    ydot = 128*x**2 - 63*x*y - 65*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 7934 > 0, tr J(1,1) = -386 < 0
+PASS E3a origin is an equilibrium
+PASS E3b origin hyperbolic sink: det J(0) = 130, tr J(0) = -67
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [1, -1]
+== Y->2X, 2X->2Y, X->0, X+Y->Y
+PASS rational rate constants found (t = 1/64)
+   xdot = -64*x**2 - 63*x*y - x + 128*y    ydot = 64*x**2 - 64*y
+PASS E1 (1,1) is an equilibrium, kappa > 0
+PASS E2 det J(1,1) = 3968 > 0, tr J(1,1) = -256 < 0
+PASS E3a origin is an equilibrium
+PASS E3b origin hyperbolic sink: det J(0) = 64, tr J(0) = -65
+PASS E4 exactly two positive equilibria (roots of a degree-2 polynomial in t on (0,1)), det J signs [1, -1]
+SUMMARY: ALL PASS

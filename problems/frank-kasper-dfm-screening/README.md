@@ -12,7 +12,7 @@ or box shapes degenerate, but remains far below σ. A complete proof of σ's opt
 
 **Attribution.** Method, code, runs, certificates and write-up: Claude Opus 5.5 (effort xhigh), solver
 sub-agent of the orchestrator, 24 Oct 2026. Continuation, new certificate checks, analysis and manuscript:
-GPT-6-Astra (OpenAI; effort xhigh), without sub-agents. Fresh independent review of the new work: pending.
+GPT-6-Astra (OpenAI; effort xhigh), without sub-agents. Fresh review of the new work: pending.
 
 The continuation's checks and their scope are summarized below. The [manuscript](paper.pdf) contains
 the proofs; [verification.md](verification.md) records the assumptions and the unresolved global comparison.
@@ -36,8 +36,8 @@ the proofs; [verification.md](verification.md) records the assumptions and the u
 The continuation adds a reproducible geometric and energy audit, a certificate for the restricted A15 formula,
 a uniform gap above 1, and a convex reduction certifying all affine deformations of six fixed meshes.
 The six original energy witnesses were inherited from the screen; their validation has been strengthened.
-The global affine infimum for the stored σ mesh lies in [1.068575891, 1.068575910]. Independent deformations of
-its cells remain outside that family. The uniform lower bound and the affine bounds do not separate the competing
+The global affine infimum for the stored σ mesh lies in [1.068575891, 1.068575910]. Deformations of its individual
+cells remain outside that family. The uniform lower bound and the affine bounds do not separate the competing
 topology infima, so the central global comparison remains open. No complete solution is claimed.
 
 The new topology-wide bounds include A15 ≥ 1.008666655, H ≥ 1.008808885,

@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{New rigorous upper bounds for the connective constant of self-avoiding walks on \(\mathbb Z^3\) to \(\mathbb Z^6\)}
 \newcommand*{\PaperTitlePlain}{New rigorous upper bounds for the connective constant of self-avoiding walks on Z^3 to Z^6}
 \newcommand*{\PaperShortTitle}{Upper bounds for the SAW connective constant}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} record (independently verified)}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh), fresh context}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} record (verified)}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: Claude Opus 5.5 (effort xhigh), fresh context}
 \newcommand*{\PaperKeywords}{self-avoiding walk; connective constant; simple cubic lattice; finite automata; Collatz--Wielandt bound; computer-assisted proof}
 \input{chemop-preamble}
 
@@ -22,7 +22,7 @@ the previous bounds in each of these dimensions. The proof uses finite forbidden
 self-avoiding walks. The states are those of Pönitz and Tittmann, reduced by the lattice symmetries, but when sites
 must be forgotten the automaton may keep any sub-walk through contacts, and this choice is optimised against the
 Perron vector. Each bound is certified by an integer vector satisfying a Collatz--Wielandt inequality, checked in
-exact arithmetic by a separate program and re-checked by an independently written one; the largest certificate has
+exact arithmetic by a separate program and re-checked by a separately written one; the largest certificate has
 \(2.06\times10^8\) states. For \(d=3\) the gap
 between the rigorous bound and the numerical estimate \(\mu_3\approx4.68404\) shrinks by 30\,\%.
 \end{paperabstract}
@@ -207,7 +207,7 @@ Further checks (\texttt{scripts/check\_small.sh}, \texttt{scripts/check\_counts.
   \(d=2\): 2.724799, 2.711252, 2.701374, 2.693849 for \(K=10..16\) (published 2.7248, 2.7113, 2.7014, 2.6939);
   \(d=4\): 6.891671, 6.851216, 6.830290, 6.817856, 6.809695 (\(K=4..12\); published 6.8917, 6.8513, 6.8303,
   6.8179, 6.8097); \(d=5\): 8.910420, 8.881554, 8.867888, 8.860159 (\(K=4..10\); published 8.9105, 8.8816,
-  8.8679, 8.8602); \(d=6\), \(K=10\): 10.888569 (Noonan's 10.8886). The independent verifier's own implementation
+  8.8679, 8.8602); \(d=6\), \(K=10\): 10.888569 (Noonan's 10.8886). The verifier's own implementation
   of the P--T automaton (\texttt{verification/pt\_auto.cpp}) reproduces every entry of P--T's Table 2, including the
   ones not recomputed above: \(d=4\), \(k=14\): 6.8039597 (published 6.8040, with exactly the 4 235 309 states of our
   \(d=4\), \(K=14\) certificate) and \(d=2\), \(k=4,6,8,18,20,22\): 2.8311772, 2.7755911, 2.7444582, 2.6879244,
@@ -244,7 +244,7 @@ certified \(\bar\lambda\)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 generation
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-independent check
+separate check
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
@@ -324,14 +324,13 @@ previous record
 \item
   For \(d\ge5\) the ``previous record'' column relies on CLS 2007 §7.2 and our searches; the computer-assisted
   lace-expansion papers (Hara--Slade 1992) were not read; Slade's 1995 survey (Table 1) lists only Alm's upper bounds
-  (4.756, 6.832, 8.881, 10.903 for d = 3..6), the lace expansion being used there for lower bounds. The independent
-  verifier read Slade 1995 and CLS 2007 §7.2 directly (Slade is a co-author of both and lists no lace-expansion upper
+  (4.756, 6.832, 8.881, 10.903 for d = 3..6), the lace expansion being used there for lower bounds. The verifier read Slade 1995 and CLS 2007 §7.2 directly (Slade is a co-author of both and lists no lace-expansion upper
   bound) and repeated the novelty search (\texttt{verification.md} §6); the \(d=6\) value 10.8886 is attributed to
   Noonan 1998 because CLS cite [Noonan, P--T] jointly and P--T have no \(d=6\) column (Noonan's paper itself was not
   read).
 \end{itemize}
 
-\section{What an independent verifier should examine}
+\section{What a verifier should examine}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -345,7 +344,7 @@ previous record
   \(d\ge4\)); overflow.
 \item
   Generators and checker were written by the same agent (separately). The Python brute-force checker is logically
-  independent but only practical for \(K\le10\). Re-implementing (C0)--(C2) (\textasciitilde150 lines) and running it on the stored
+  separate but only practical for \(K\le10\). Re-implementing (C0)--(C2) (\textasciitilde150 lines) and running it on the stored
   certificates is the strongest test; \texttt{SAWCERT2} makes this a purely local check.
 \item
   Large certificates are not in the repository (\(d=3\): K = 16, 186 MB; K = 18, 3.3/8.2 GB; \(d=4\) K = 14,
@@ -354,9 +353,9 @@ previous record
   Novelty for \(d=4,5,6\) (see §7).
 \end{enumerate}
 
-Done: see \texttt{verification.md} (independent checker \texttt{verification/sawcheck.cpp}, written from §3 and §5
+Done: see \texttt{verification.md} (separate checker \texttt{verification/sawcheck.cpp}, written from §3 and §5
 only; all certificates PASS with the same exact maximal ratios; tamper tests on both checkers; \(a_n\ge c_n\)
-cross-check; independent reproduction of P--T's Table 2; novelty search). Verdict: CONFIRMED WITH CORRECTIONS
+cross-check; separate reproduction of P--T's Table 2; novelty search). Verdict: CONFIRMED WITH CORRECTIONS
 (editorial corrections only; no bound changed).
 
 \end{document}

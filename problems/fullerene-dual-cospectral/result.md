@@ -79,7 +79,7 @@ spectra; automorphism groups of orders 4 and 2; nauty canonical forms). No two i
 cospectral duals (exhaustive, exact). Further counterexamples: n = 50 (C50:4/C50:5), 54 (3 pairs), 60 (2 pairs),
 and every n from 60 to N (R2). The authors' own journal version (Table 1, p. 274) lists exactly our counts for
 n ≤ 60 (1, 1, 1, 3, 2 pairs at n = 42, 44, 50, 54, 60) and replaced the conjecture; so the arXiv 1(a) was
-corrected in print by its authors (Nov 2020). Our exact computation is an independent confirmation.
+corrected in print by its authors (Nov 2020). Our exact computation is a separate confirmation.
 
 **R2 (published Conjecture 1(b)) — verified for 60 ≤ n ≤ N, and PROVED for the two infinite residue classes
 n ≡ 20 (mod 24), n ≥ 44, and n ≡ 2 (mod 24), n ≥ 50.**
@@ -219,7 +219,7 @@ mechanism does not reach the residue class n ≡ 0 (mod 12); it also does not ex
    ("mixed" groups in scan_log.txt) are thus eliminated. Non-isomorphism inside a class is guaranteed by
    buckygen (one graph per isomorphism class) and certified again by nauty canonical forms; for T^6 classes the
    T^6 graphs themselves are compared with nauty.
-4. **Independent re-check** (`verify_pairs.py`, from the graph6 strings alone): validity of every dual, equality
+4. **Separate re-check** (`verify_pairs.py`, from the graph6 strings alone): validity of every dual, equality
    of exact polynomials, non-isomorphism through canonical face spirals (an isomorphism invariant) and networkx
    VF2, recomputation of the recorded spirals, consistency of the counts table with the class files and OEIS, the
    C34:2 example, and (with `--exhaustive-small`) the minimality n = 42 by an exact exhaustive recount.
@@ -232,7 +232,7 @@ Cost: the scan to n = 138 took about 4 hours of one heavily shared core (timings
 - Exact (integer) arithmetic everywhere for the claims; floating point is used nowhere in the certificates.
 - **Assumptions:** (i) buckygen generates every isomer exactly once (published, widely used; counts agree with
   A007894); the "no pair for n < 42" and all counts per n depend on it. (ii) Correctness of FLINT's
-  characteristic polynomial and of nauty's canonical labelling (the latter is re-checked by independent
+  characteristic polynomial and of nauty's canonical labelling (the latter is re-checked by separate
   invariants for every certified pair). (iii) The Atlas numbering assumes the canonical-spiral convention
   (lexicographically smallest pentagon vector over all starting faces and both orientations); our code asserts
   that every isomer for n ≤ 70 has a spiral.

@@ -1,6 +1,6 @@
 # The Kirchhoff Šoltés problem: non-existence theorems and exhaustive searches
 
-Status: **partial result** (not independently verified). No new Kirchhoff Šoltés graph was found; C₅
+Status: **partial result** (not yet verified). No new Kirchhoff Šoltés graph was found; C₅
 remains the only known one. We prove non-existence for several natural classes and extend the exhaustive
 searches. Labels used below: **[proof]** = complete mathematical proof given here; **[proof + exact
 computation]** = proof whose finite part is an exact (integer / rational / modular) computation by the

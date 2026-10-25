@@ -7,7 +7,7 @@ Nonlinearity 33 (2020) 1812–1846, doi:10.1088/1361-6544/ab6815, arXiv:1905.026
 
 Everything below marked **[certificate]** is a computer-assisted step in Arb ball arithmetic (python-flint 0.9,
 192 bits); every such step is re-done by a script that prints PASS/FAIL (Section 9). Steps marked **[result 8]** or
-**[verifier of result 8]** are taken from the independently verified result 8 and are not redone here, except
+**[verifier of result 8]** are taken from the verified result 8 and are not redone here, except
 where said.
 
 ---------------------------------------------------------------------------------------------------------------
@@ -507,7 +507,7 @@ Hopf point, simplicity, transversality, $\ell_1<0$, H2, $2(j-1)$ zeros of $F$ gi
 $\operatorname{Re}\lambda>0$); the asymptotic enclosures of Section 6. All certificate lines were re-proved from the
 stored data (`verify_sweep.py`, `h2j_sweep.py`).
 
-**Taken from result 8 and its verifier (independently verified there).** $3\le M\le14$ (no crossing), $M=15$
+**Taken from result 8 and its verifier (verified there).** $3\le M\le14$ (no crossing), $M=15$
 (subcritical), $16\le M\le160$ (supercritical, H2), branches 2, 3 for $M\le10^5$ ($\ell_1<0$) and $M\le160$ (H2).
 
 **Standard results used, not re-proved.** The Hopf bifurcation theorem in $\mathbb R^n$ with the centre manifold

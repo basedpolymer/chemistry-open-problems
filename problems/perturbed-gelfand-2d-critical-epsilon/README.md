@@ -4,7 +4,7 @@
 **Verifier: Claude Opus 5.5 (effort xhigh), verdict CONFIRMED WITH CORRECTIONS (see [verification.md](verification.md))**  
 **Status: solved.**
 
-A complete computer-assisted argument for the global conjecture is provided here. It combines the certified cusp from phase 1 with a new global reduction and a validated cover of 110 intervals. An independent verifier re-derived the reduction and the qualitative steps, checked the cited theorems against Korman–Li–Ouyang and the original Du–Lou paper, re-ran every certificate, and reproduced the global sign pattern, the critical value and the cusp with a separate validated integrator (Julia/IntervalArithmetic.jl, [verification/](verification/)).
+A complete computer-assisted argument for the global conjecture is provided here. It combines the certified cusp from phase 1 with a new global reduction and a validated cover of 110 intervals. A verifier re-derived the reduction and the qualitative steps, checked the cited theorems against Korman–Li–Ouyang and the original Du–Lou paper, re-ran every certificate, and reproduced the global sign pattern, the critical value and the cusp with a separate validated integrator (Julia/IntervalArithmetic.jl, [verification/](verification/)).
 
 ## Original question
 
@@ -63,12 +63,12 @@ python scripts/validated_cusp.py
 python scripts/validated_reduced.py --full --workers 6
 ```
 
-Observed runtimes are approximately 1, 40 and 145 seconds. Each certification assertion or completed cover block prints `PASS` or `FAIL`; failure exits nonzero. Both ODE validators recompute the enclosures from scratch and remove stale output before starting. The local input is only the rational centres/radii in `certificates/cusp-input.json`; the global partition and precision are explicit in its script. The global script uses SciPy solely to propose rational event windows, which must then pass Arb checks. The certificate's interval records are sorted deterministically. Arb/FLINT, their arithmetic dependencies, and the validator implementation belong to the trusted computing base. Successful logs are not independent verification.
+Observed runtimes are approximately 1, 40 and 145 seconds. Each certification assertion or completed cover block prints `PASS` or `FAIL`; failure exits nonzero. Both ODE validators recompute the enclosures from scratch and remove stale output before starting. The local input is only the rational centres/radii in `certificates/cusp-input.json`; the global partition and precision are explicit in its script. The global script uses SciPy solely to propose rational event windows, which must then pass Arb checks. The certificate's interval records are sorted deterministically. Arb/FLINT, their arithmetic dependencies, and the validator implementation belong to the trusted computing base. Successful logs are not a verification.
 
-Independent verification (verifier's own code, run from `verification/`; Julia 1.13 with IntervalArithmetic.jl 1.0.12, Python 3 with SciPy):
+Verification (verifier's own code, run from `verification/`; Julia 1.13 with IntervalArithmetic.jl 1.0.12, Python 3 with SciPy):
 
 ```bash
-julia -t 6 cover.jl          # independent global cover on [1/2, 8/5] + point values, about 4 minutes
+julia -t 6 cover.jl          # separate global cover on [1/2, 8/5] + point values, about 4 minutes
 julia cusp_reduced.jl        # eps0, alpha_c, lambda_c in the reduced variables, 160-bit; one thread, see log for runtime
 julia crosscheck.jl          # direct-shooting folds satisfy E(a) = eps, about 10 seconds
 python direct_original.py    # non-rigorous fold counts on the original equation, about 15 minutes
@@ -107,8 +107,8 @@ py -3 templates/build_tex.py problems/perturbed-gelfand-2d-critical-epsilon/pape
 - [paper.pdf](paper.pdf), [paper.tex](paper.tex), [references.bib](references.bib): manuscript, full proof and bibliography.
 - [references.md](references.md): novelty audit, queries, source-reading levels and limitations.
 - [FINAL-REPORT.md](FINAL-REPORT.md): the solver's French final report.
-- [verification.md](verification.md): independent verification report (verdict, what was recomputed, corrections, reservations).
-- `verification/jets.jl`, `verification/cover.jl`, `verification/cusp_reduced.jl`: the verifier's independent validated integrator, global cover and reduced-variable cusp enclosure, with logs `cover.log`, `cover-leaves.txt`, `cusp_reduced.log`.
+- [verification.md](verification.md): verification report (verdict, what was recomputed, corrections, reservations).
+- `verification/jets.jl`, `verification/cover.jl`, `verification/cusp_reduced.jl`: the verifier's own validated integrator, global cover and reduced-variable cusp enclosure, with logs `cover.log`, `cover-leaves.txt`, `cusp_reduced.log`.
 - `verification/direct_original.py`, `direct_original.log`: non-rigorous fold counts computed directly on the original equation; `verification/crosscheck.jl`, `crosscheck.log`: those folds satisfy E(a) = ε in the validated reduced computation; `verification/dimension_check.py`, `dimension_check.log`: non-rigorous dimension-2/3 comparison.
 - `scripts/validated_cusp.py`, `scripts/check_analytic.py`: mathematical validators.
 - `scripts/validated_reduced.py`: complete global cover, event enclosures and explicit overlap checks.
@@ -123,6 +123,6 @@ py -3 templates/build_tex.py problems/perturbed-gelfand-2d-critical-epsilon/pape
 - `certificates/novelty-api.json`, `novelty-supplement.json`: retrieved literature metadata.
 - `certificates/build.log`, `figures/exploration.png`: build report and numerical illustration.
 
-The independent verification is reported in [verification.md](verification.md). The solver used the versions of the Du–Lou results stated in KLO. The verifier later compared them with the original Du–Lou paper: Theorem 3 there is stated precisely for `exp(-1/(ε+w))`, ε ≥ 0, n = 2, and Theorem 2 with Lemma 2 gives the single nondegenerate turn of the limiting curve. No discrepancy affects the argument. Source-review limitations are recorded in `references.md`.
+The verification is reported in [verification.md](verification.md). The solver used the versions of the Du–Lou results stated in KLO. The verifier later compared them with the original Du–Lou paper: Theorem 3 there is stated precisely for `exp(-1/(ε+w))`, ε ≥ 0, n = 2, and Theorem 2 with Lemma 2 gives the single nondegenerate turn of the limiting curve. No discrepancy affects the argument. Source-review limitations are recorded in `references.md`.
 
 Note on a published estimate: the author-hosted manuscript of the published KLO paper adds "(ε₀ ≈ 0.2385)" after the conjecture. That value is incompatible with the certified ε₀ ≈ 0.242106: curves with 0.2385 ≤ ε < 0.2421 are still exactly S-shaped, which direct shooting confirms at ε = 0.242. The same reduction in dimension three gives ≈ 0.238797, the three-dimensional value of Minamoto–Nakao.

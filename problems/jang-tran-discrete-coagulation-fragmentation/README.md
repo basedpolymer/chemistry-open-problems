@@ -1,6 +1,6 @@
 # Jang–Tran Conjecture 2: discrete critical coagulation–fragmentation (multiplicative coagulation, constant fragmentation)
 
-**Status: solved: complete proof of both parts, confirmed by an independent verifier (verdict CONFIRMED WITH
+**Status: solved: complete proof of both parts, confirmed by a verifier (verdict CONFIRMED WITH
 CORRECTIONS, see `verification.md`; the corrections concern the wording of the claims, not the proofs). Not
 refereed.**
 
@@ -9,7 +9,7 @@ part (i) as a corollary of the evolution, integration and final manuscript: Clau
 (`part-ii-opus/`). Novelty audit, singularity analysis of the stationary state (decay theorem), stationary-identity and
 Arb scripts, first manuscript draft, and three refinements adopted in the evolution proof (x-variable form of the
 boundary estimate, upper curvature bound, discrete Scheffé argument): GPT-6-Astra (effort xhigh).
-Independent verification: Claude Opus 5.5 (effort xhigh) (`verification.md`, `verification/`).
+Verification: Claude Opus 5.5 (effort xhigh) (`verification.md`, `verification/`).
 
 ## Problem
 
@@ -66,11 +66,11 @@ the characteristic solution, which excludes any mass loss in the limit. No visco
 constant mass the system is lower triangular: uniqueness, convergence to the recursion (1.9) as t → ∞ (hence
 positivity), and, with the uniform boundary slope, the mass identity, i.e. part (i).
 
-**Independent verification** (`verification.md`). The verifier re-derived every step from the source (transform
+**Verification** (`verification.md`). The verifier re-derived every step from the source (transform
 equation and 1/τ, the half-slope identity and its propagation, the invariant region, the curvature barrier and
 J > 0, coverage by characteristics, comparison, both parts of the boundary-slope lemma, the truncation identity,
 compactness/tightness/limit equation, the closed triangular system, relaxation and the stationary mass identity, and
-the singularity analysis), re-ran every script, and added independent numerical checks in `verification/`. No
+the singularity analysis), re-ran every script, and added separate numerical checks in `verification/`. No
 mathematical gap was found. Corrections concern the statement of the Conjecture 1 consequence (meaning of
 "gelation" for m > 1), a citation, and documentation.
 
@@ -84,7 +84,7 @@ python scripts/check_identities.py             # exact stationary identities (wr
 python scripts/check_coefficients_arb.py       # Arb enclosures, 256 coefficients at 6 masses (finite check), ~5 s
 python scripts/numerics_evolution.py           # floating-point evidence only (not part of the proof), ~4-6 min
 python scripts/novelty_audit.py                # re-runs the read-only novelty queries (network access)
-python verification/verifier_stationary.py     # verifier: exact/Arb recursion, independent R(m), Theorem 3 constant, ~20 s
+python verification/verifier_stationary.py     # verifier: exact/Arb recursion, separate R(m), Theorem 3 constant, ~20 s
 python verification/verifier_dynamics.py       # verifier: RK4/Radau checks, infinite-second-moment data, m = 0.9 and 1, ~7 min
 ```
 
@@ -118,7 +118,7 @@ Build the manuscript from `chemistry-open-problems/`:
 | `certificates/numerics_evolution_partial.log` | output of the solvers' stopped run of the earlier version (52 PASS, 0 FAIL) |
 | `certificates/sources/` | third-party PDFs and API responses (git-ignored) |
 | `references.md` | sources, what was read, novelty audit (and the verifier's re-check) |
-| `verification.md` | independent verification report: verdict, re-derivations, re-runs, corrections, caveats |
-| `verification/` | the verifier's independent scripts and logs |
+| `verification.md` | verification report: verdict, re-derivations, re-runs, corrections, caveats |
+| `verification/` | the verifier's own scripts and logs |
 | `FINAL-REPORT.md` | final report (French) |
 | `BRIEF-codex.md`, `part-ii-opus/BRIEF.md` | the agents' briefs |

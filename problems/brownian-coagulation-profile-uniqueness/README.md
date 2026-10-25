@@ -73,4 +73,4 @@ A complete positive solution must compare arbitrary admissible profiles at \(\va
 - [JOURNAL.md](JOURNAL.md): selection decisions, including a discarded already-solved candidate.
 - `certificates/sources/`: local-only reference PDFs, the AIM snapshot, a rendered source page and citation-search data; ignored by Git under the repository's source policy.
 
-No solver has been run for this new target. No independent verification is claimed. All three principal preprints are freely available; no article purchase is needed to begin.
+No solver has been run for this new target. No verification is claimed. All three principal preprints are freely available; no article purchase is needed to begin.
