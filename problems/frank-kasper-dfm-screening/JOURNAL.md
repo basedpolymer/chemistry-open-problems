@@ -4,7 +4,7 @@
 
 Reprise demandée par le propriétaire : viser une résolution complète, sans
 sous-agents, et documenter progressivement l'avancement. Travail effectué par
-GPT-6-Astra (OpenAI ; effort non enregistré). Aucune vérification par un autre agent
+GPT-6-Astra (OpenAI ; effort xhigh). Aucune vérification par un autre agent
 n'est effectuée durant cette reprise.
 
 Le dépôt était propre au début. Le dossier contient un moteur de minimisation,

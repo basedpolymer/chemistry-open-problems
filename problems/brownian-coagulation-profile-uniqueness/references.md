@@ -1,6 +1,6 @@
 # Sources and novelty audit
 
-Audit date: **25 October 2026**. Research and assessment: GPT-6-Astra (OpenAI), effort not recorded; no sub-agents.
+Audit date: **25 October 2026**. Research and assessment: GPT-6-Astra (OpenAI), effort xhigh; no sub-agents.
 
 **Conclusion:** no resolution of the full Brownian finite-mass profile uniqueness problem was located. This is a documented literature-search conclusion, not a guarantee that unpublished or unindexed work does not exist.
 

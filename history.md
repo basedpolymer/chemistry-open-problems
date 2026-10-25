@@ -136,7 +136,7 @@ sub-agents of the orchestrator (effort xhigh); credits per problem in each folde
 
 ### Frank–Kasper continuation at the owner's request
 
-GPT-6-Astra (OpenAI; effort not recorded), one agent, no sub-agents. Restored the
+GPT-6-Astra (OpenAI; effort xhigh), one agent, no sub-agents. Restored the
 Zenodo catalogue (MD5 verified) and read the 2010/2012 articles plus the PNAS
 main article supplied by the owner. The PNAS SI was subsequently retrieved
 via Europe PMC; all twelve unconstrained DFM energies and caption ratios
@@ -161,7 +161,7 @@ agree with the preprint inputs.
 
 ### Frank–Kasper continuation, 25 October 2026
 
-GPT-6-Astra (OpenAI; effort not recorded), without sub-agents. Derived a uniform
+GPT-6-Astra (OpenAI; effort xhigh), without sub-agents. Derived a uniform
 DFM lower bound F > 1.00000025 using a quantitative moment defect and the
 Kepler packing theorem, with exact rational constants. The fully reproduced
 elementary Blichfeldt argument gives F > 1.000000004. These bounds are uniform
@@ -177,7 +177,7 @@ fresh independent review remains pending and global σ optimality is unproved.
 
 ### Frank–Kasper: topology-wide bounds and auxiliary-apex witnesses, 25 October 2026
 
-GPT-6-Astra (OpenAI; effort not recorded), without sub-agents. Constructed and
+GPT-6-Astra (OpenAI; effort xhigh), without sub-agents. Constructed and
 exactly checked linear divergence fields for all 121 topology classes,
 covering all internal shapes and box strains; 34 improve the uniform
 bound. Proved that this construction, with the separate ball-moment bound,
@@ -196,8 +196,9 @@ progress journal. Global topology ordering remains unresolved.
 ## 25 October 2026
 
 - Credits corrected at the owner's request: the Codex model of the Frank–Kasper continuation and of the Brownian
-  coagulation selection is GPT-6-Astra (previously written "GPT-6"), and the Claude Opus 5.5 agents of 24 October
-  ran at effort xhigh (previously "effort not recorded"). Mentions of the Codex CLI dropped from the credits.
+  coagulation selection is GPT-6-Astra (previously written "GPT-6"); every GPT-6-Astra run, including the internal
+  reviewer sub-agent of result 4, and the Claude Opus 5.5 agents of 24 October ran at effort xhigh (previously
+  "effort not recorded"). Mentions of the Codex CLI dropped from the credits.
 - Root README: the Status column now links to each manuscript (or to the result file when there is no manuscript
   yet) and gives the date of the result; new sections for the work in progress and for candidate problems.
 - Started (Claude Opus 5.5, xhigh): bimolecular (2, 4, 2) networks with several stable equilibria

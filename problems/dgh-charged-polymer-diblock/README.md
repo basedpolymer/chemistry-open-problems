@@ -2,7 +2,7 @@
 
 **Status: solved: complete proof, independently verified (verdict CONFIRMED WITH CORRECTIONS, minor and editorial; see [verification.md](verification.md)).** The candidate value itself was already identified by Derrida, Griffiths and Higgs in 1992; the collapse side was argued there and proved by Poisat (Prop. 3.7). The new contribution is the matching uniform high-temperature bound. The verifier's novelty search found no earlier complete answer.
 
-**Attribution.** Solver: GPT-6-Astra (effort xhigh). Internal review: a GPT-6-Astra sub-agent launched by the solver (effort not recorded). LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 ([verification.md](verification.md)).
+**Attribution.** Solver: GPT-6-Astra (effort xhigh). Internal review: a GPT-6-Astra sub-agent launched by the solver (effort xhigh). LaTeX edition: Claude Opus 5.5 (effort xhigh). Independent verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 ([verification.md](verification.md)).
 
 ## Original question
 
