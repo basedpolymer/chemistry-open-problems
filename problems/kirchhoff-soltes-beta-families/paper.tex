@@ -1,0 +1,449 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{\(\beta\)-Kirchhoff Šoltés graphs: every rational proportion below \(2/3\), and a \(2/3\) barrier for splice constructions}
+\newcommand*{\PaperTitlePlain}{beta-Kirchhoff Soltes graphs: every rational proportion below 2/3, and a 2/3 barrier for splice constructions}
+\newcommand*{\PaperShortTitle}{\(\beta\)-Kirchhoff Šoltés graphs}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} partial result, preliminary (verification pending)}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), with a Claude Opus 5.5 sub-agent for the literature search \textperiodcentered{} Verification: pending}
+\newcommand*{\PaperKeywords}{Kirchhoff index, resistance distance, Šoltés problem, good vertex, splice, graph enumeration}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand*{\Kf}{\operatorname{Kf}}
+\newcommand*{\Rt}{\operatorname{Rt}}
+\newcommand*{\cB}{\mathcal{B}}
+\newcommand*{\cC}{\mathcal{C}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+A vertex \(v\) of a connected graph \(G\) is good if \(G-v\) is connected and \(\Kf(G-v)=\Kf(G)\), where \(\Kf\) is the
+Kirchhoff index. Gottwald, Majstorović Ergotić and Došlić (Appl.\ Math.\ Comput.\ 2026) asked, for a fixed rational
+\(\beta\in(0,1]\), for an infinite series of graphs in which at least a proportion \(\beta\) of the vertices are good
+(their Problem~4). Their splices of \(K_4-e\) have proportions \(2k/(3k+1)\to2/3\), which already answers Problem~4 for
+every \(\beta<2/3\). The range \(\beta\ge2/3\) is open, and we do not close it. We prove:
+(i) every rational \(\beta\in(0,2/3)\) is the exact proportion of good vertices of infinitely many graphs, and every real
+\(\gamma\in(0,2/3]\) is the limit of a strictly increasing sequence of such proportions; this answers their Problems~5
+and~17 on \((0,2/3]\);
+(ii) a splice lemma with an arbitrary rest, which says exactly when copies of a rooted gadget stay good;
+(iii) a theorem bounding the number of good vertices of any graph with a cut vertex whose good vertices lie in branches
+from a finite family \(\cB\) by \(\lambda(\cB)|V(G)|+C(\cB)\), with an explicit linear-fractional constant
+\(\lambda(\cB)\);
+(iv) an exact computation giving \(\lambda=2/3\) for all branches with at most 9 vertices, and single-gadget efficiency
+\(\le2/3\) for all rooted graphs with at most 10 vertices. So splice constructions of this kind cannot answer Problem~4
+for any \(\beta>2/3\);
+(v) \(C_5\) is the only connected graph with at most 10 vertices in which at least two thirds of the vertices are good
+(rigorous modular upper bound plus exact checks).
+Finally, we give a 2-connected family, rook graphs \(K_a\square K_b\) with one extra vertex per row, whose goodness
+equation has a real solution branch \(a\sim b^3/2\) on which the proportion \(b/(b+1)\) tends to 1. Exact arithmetic
+shows that this branch has no integer point with \(b\le400\).
+\end{paperabstract}
+
+\section*{The question}
+
+K. K. Gottwald, S. Majstorović Ergotić, T. Došlić, \emph{Šoltés problem for the Kirchhoff index of a graph}, Applied
+Mathematics and Computation 510 (2026) 129694~\autocite{GMD2026} (arXiv:2609.13751). We read the arXiv version in full
+and checked the definitions, Problems 4, 5, 17 and Sections 3--4 in the journal version; the statements below are
+identical in both (journal p.~3, arXiv p.~6):
+\begin{openquote}
+``let \(0<\beta\le1\), \(\beta\in\mathbb Q\). We say that a graph \(G\) is a \(\beta\)-Kirchhoff Šoltés graph if
+\(|K(G)|\ge\beta|V(G)|\). i.e. the proportion of good vertices in \(G\) is at least \(\beta\). We pose the following
+problems. Problem 4. For a fixed rational number \(\beta\in(0,1]\) construct an infinite series of \(\beta\)-Kirchhoff
+Šoltés graphs.''
+\end{openquote}
+Here \(K(G)=\{v:\Kf(G)=\Kf(G-v)\}\), and, as in~\autocite{GMD2026} (``\(x\) is also not a good vertex since it is a
+cut vertex''), a cut vertex is never good. Problem~5 asks, for a given real \(\gamma\in(0,1]\), for an infinite series
+whose proportion of good vertices \emph{increases} and tends to \(\gamma\). Problem~17 (concluding remarks) asks:
+``Which (rational or irrational) numbers \(\gamma\in(0,1]\) appear either as exact or as limiting values of proportions
+of good vertices''. The case \(\beta=1\) of Problem~4 is the Kirchhoff Šoltés problem itself (Problem~3; only \(C_5\) is
+known), which we do not address~\autocite{SiblingKS}.
+
+\paragraph{What the source already gives.} Theorem~15 of~\autocite{GMD2026} shows that the splice \(k\cdot G_{1}\) of
+\(k\) copies of \(G_1=K_4-e\) at a vertex of degree 2 has exactly \(2k\) good vertices among \(3k+1\). Since
+\(2k/(3k+1)\) increases to \(2/3\), for every rational \(\beta<2/3\) the graphs \(k\cdot G_1\) with
+\(2k/(3k+1)\ge\beta\) form an infinite series of \(\beta\)-Kirchhoff Šoltés graphs. Problem~4 is therefore settled for
+\(\beta<2/3\) by the source itself, and open for \(\beta\in[2/3,1)\). The source states that 2/3 is ``the highest known
+limiting value of the proportion of good vertices''. Its other infinite families have proportion exactly \(1/2\)
+(\(K_s+K_{s+1,1}\), Theorem~11), proportions \(k(s+1)/(k(2s+1)+1)\to(s+1)/(2s+1)\) (Theorem~15) and proportions in
+\([1/7,1/5)\) tending to \(3-2\sqrt2\) (Theorem~10). The follow-up~\autocite{MG2025} (read in
+full) constructs unicyclic and cactus graphs with one or two good vertices only. For the Wiener index, the original
+Šoltés problem~\autocite{Soltes1991} and its relaxations~\autocite{KMS2018,BJM2021,BKS2023}, the best infinite families
+have proportions tending to \(1/2\)~\autocite{Akh2023,DV2023}; see also~\autocite{Cambie2024}.
+
+\paragraph{Results.} \zcref{thm:exact} and \zcref{cor:problems} (exact proportions, Problems 5 and 17 on
+\((0,2/3]\)), \zcref{lem:splice}, \zcref{prop:regimes} (splices with an arbitrary rest), \zcref{thm:barrier} and
+\zcref{prop:lambda} (the \(2/3\) barrier for splice constructions), \zcref{prop:small} (small graphs),
+\zcref{prop:rook} (a 2-connected near miss). Problem~4 for \(\beta\in[2/3,1)\) remains open (\zcref{sec:open}).
+
+\section{Notation and the splice lemma}\label{sec:splice}
+
+All graphs are finite, simple and connected. \(r_G(u,w)\) is the effective resistance between \(u\) and \(w\) when every
+edge is a unit resistor, \(\Rt_G(u)=\sum_wr_G(u,w)\) and \(\Kf(G)=\sum_{\{u,w\}}r_G(u,w)=\tfrac12\sum_u\Rt_G(u)\)
+\autocite{KleinRandic1993,GutmanMohar1996}. We write \(\Delta_G(v)=\Kf(G)-\Kf(G-v)\) when \(G-v\) is connected; \(v\) is
+good iff \(\Delta_G(v)=0\).
+
+A \emph{rooted graph} \((B,x)\) is a graph with a distinguished vertex \(x\). We put \(m_B=|V(B)|-1\) and
+\(R_B=\Rt_B(x)\). A vertex \(v\neq x\) is \emph{admissible} if \(B-v\) is connected; for such \(v\) let
+\[\delta_B(v)=\Kf(B)-\Kf(B-v),\qquad\rho_B(v)=\Rt_{B-v}(x)-\Rt_B(x),\qquad a_B(v)=R_B-m_B\,\rho_B(v).\]
+A \emph{class} of \((B,x)\) is a maximal set of admissible vertices with the same pair \((\rho_B,\delta_B)\). The
+\emph{splice} \(B\oplus W\) of two rooted graphs identifies their roots; \(k\cdot B\) is the splice of \(k\) copies of
+\(B\). For a real \(\rho\) and a rooted graph \(H\) put \(\Phi_\rho(H)=R_H-m_H\rho\). Then \(m\) and \(R\) are additive
+under splicing, so \(\Phi_\rho\) is too. If \(G\) has a cut vertex \(x\), a \emph{branch} of \(G\) at \(x\) is the
+subgraph induced by \(x\) and one component of \(G-x\), rooted at \(x\); \(G\) is the splice of its branches.
+
+\begin{lemma}[note=splice lemma]\label{lem:splice}
+Let \(G=B\oplus W\), \(M=m_W\), \(T=R_W\). Then
+\(\Kf(G)=\Kf(B)+\Kf(W)+M\,R_B+m_B\,T\), and for every admissible \(v\in V(B)\)
+\[\Delta_G(v)=\delta_B(v)-M\,\rho_B(v)+T .\]
+A vertex \(v\neq x\) of \(B\) that is not admissible is a cut vertex of \(G\), hence not good.
+\end{lemma}
+\begin{proof}
+Because \(x\) is a cut vertex, resistances inside \(B\) (resp.\ \(W\)) are those of \(B\) (resp.\ \(W\)), and
+\(r_G(u,w)=r_B(u,x)+r_W(x,w)\) for \(u\in V(B)\), \(w\in V(W)\) (series connection through \(x\)). Summing over the
+pairs \(u\in V(B)\setminus x\), \(w\in V(W)\setminus x\) gives \(M R_B+m_BT\): this is formula (9)
+of~\autocite{GMD2026}. Since \(G-v=(B-v)\oplus W\) with \(m_{B-v}=m_B-1\) and \(\Rt_{B-v}(x)=R_B+\rho_B(v)\),
+subtracting the two instances of the formula gives \(\Delta_G(v)=\delta_B(v)+M(R_B-\Rt_{B-v}(x))+T\).
+\end{proof}
+
+Proposition~13 of~\autocite{GMD2026} is the special case \(\delta_B(v)=0\), and Theorem~16 of~\autocite{MG2025} is the
+case \(B=C_5\). The rest \(W\) acts only through the two numbers \((m_W,R_W)\).
+
+\begin{corollary}[note=copies]\label{cor:copies}
+Let \(G=k\cdot B\oplus W\) and let \(v\) be an admissible vertex of one copy of \(B\), with \(\delta,\rho,a\) as above.
+Then
+\[\Delta_G(v)=\delta+(k-1)\,a+\Phi_\rho(W).\]
+In particular, if \(\delta=a=0\) the copies of \(v\) are good in \(k\cdot B\) for every \(k\)
+(Proposition~14 of~\autocite{GMD2026}).
+\end{corollary}
+\begin{proof}
+The rest of the copy containing \(v\) is \((k-1)\cdot B\oplus W\), with \(M=(k-1)m_B+m_W\) and
+\(T=(k-1)R_B+R_W\); insert this in \zcref{lem:splice}.
+\end{proof}
+
+\begin{proposition}[note=three regimes]\label{prop:regimes}
+Fix \((B,x)\) and an admissible \(v\) with \(\delta,\rho,a\).
+\begin{enumerate}
+\item If \(\rho\le0\), then \(a\ge R_B>0\), and for \(k>1-\delta/a\) no copy of \(v\) is good in \(k\cdot B\oplus W\),
+whatever \(W\).
+\item If \(\rho>0\) and a copy of \(v\) is good in \(k\cdot B\oplus W\), then \(m_W\ge(\delta+(k-1)a)/\rho\).
+\item Suppose \(a<0\). Let \(P_L\) be a path with \(L\) edges rooted at an end, so
+\(\Phi_\rho(P_L)=L(L+1)/2-L\rho\). Suppose there are a rooted graph \(A\) and an integer \(L_0\ge0\) with
+\(\delta+\Phi_\rho(A)+\Phi_\rho(P_{L_0})\in|a|\mathbb Z\). Let \(N\ge1\) be an integer with \(N\rho\in\mathbb Z\) and
+\(s:=N|a|\in\mathbb Z\), and put \(L_t=L_0+2st\), \(k_t=1+(\delta+\Phi_\rho(A)+\Phi_\rho(P_{L_t}))/|a|\). Then
+\(k_t\in\mathbb Z\) and \(k_t\ge1\) for \(t\) large. In \(G_t=k_t\cdot B\oplus P_{L_t}\oplus A\) every vertex of every
+copy of \(B\) with the pair \((\rho,\delta)\) is good. If \(g\) vertices of \(B\) have this pair, then
+\(|K(G_t)|/|V(G_t)|\ge k_tg/(1+k_tm_B+L_t+m_A)\to g/m_B\).
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(1) \(a=R_B-m_B\rho\ge R_B>0\), and \(\Phi_\rho(W)=R_W-m_W\rho\ge0\), so
+\(\Delta\ge\delta+(k-1)a>0\) by \zcref{cor:copies}. (2) \(\Delta=0\) and \(R_W\ge0\) give
+\(m_W\rho=\delta+(k-1)a+R_W\ge\delta+(k-1)a\). (3) \(N\bigl(\Phi_\rho(P_{L+2s})-\Phi_\rho(P_L)\bigr)
+=Ns(2L+2s+1)-2s\,N\rho\in s\mathbb Z\), so \(\Phi_\rho(P_{L_t})-\Phi_\rho(P_{L_0})\in|a|\mathbb Z\) and
+\(k_t\in\mathbb Z\); \(k_t\to\infty\) because \(\Phi_\rho(P_L)\sim L^2/2\). By \zcref{cor:copies} with
+\(W=P_{L_t}\oplus A\), \(\Delta=\delta-(k_t-1)|a|+\Phi_\rho(A)+\Phi_\rho(P_{L_t})=0\), and the equation depends on
+\(v\) only through \((\rho,\delta)\). Finally \(L_t=O(\sqrt{k_t})\).
+\end{proof}
+
+So a gadget class with \(a=0\) (the case of~\autocite{GMD2026}) or \(a<0\) yields families whose proportion of good
+vertices tends to \(g/m_B\); a class with \(a>0\) needs \(m_W\) at least linear in \(k\).
+
+\begin{example}[note={\(C_5\), the regime \(a<0\)}]\label{ex:c5}
+Root \(C_5\) at a vertex. Its two neighbours have \((\delta,\rho,a)=(0,2,-4)\); the two other vertices have
+\((0,0,4)\). With \(A=\varnothing\), \(L_0=3\) (\(\Phi_2(P_3)=6-6=0\)), \(N=1\), \(s=4\): \(k=1+L(L-3)/8\) for
+\(L\equiv3\pmod8\); also \(L\equiv0\pmod8\) works. The graphs \(k\cdot C_5\oplus P_L\) with \((L,k)=(3,1),(8,6),(11,12)\)
+have exactly \(2k\) good vertices: proportions \(1/4\), \(4/11\), \(2/5\), tending to \(1/2\). The first one is the graph
+\(C_5v_5P_4\) of~\autocite{MG2025}. (Checked exactly by \texttt{check\_splice\_lemma.py}.)
+\end{example}
+
+\section{Every rational proportion below \texorpdfstring{\(2/3\)}{2/3}}\label{sec:exact}
+
+Let \(D\) be \(K_4-e\) rooted at a vertex \(x\) of degree 2 (vertices \(x,y\) of degree 2, \(a,b\) of degree 3). Let
+\(D'\) be \(K_4-e\) rooted at a vertex of degree 3, \(E\) an edge rooted at an end, and \(K_4\) rooted at any vertex. Put
+\[F_5=D'\oplus E\oplus E,\qquad F_6=K_4\oplus E\oplus E\oplus E,\qquad
+G(k,\alpha,\gamma)=k\cdot D\oplus\alpha\cdot F_5\oplus\gamma\cdot F_6 ,\]
+so that \(|V(G(k,\alpha,\gamma))|=n=1+3k+5\alpha+6\gamma\).
+
+\begin{theorem}\label{thm:exact}
+For every \(k\ge1\) and \(\alpha,\gamma\ge0\), the good vertices of \(G(k,\alpha,\gamma)\) are exactly the \(2k\)
+vertices of degree 3 of the copies of \(D\). Consequently, for every rational \(\beta=p/q\in(0,2/3)\) in lowest terms
+and every integer \(j\) with \((2q-3p)j\ge21\), there are \(\alpha,\gamma\ge0\) with
+\(5\alpha+6\gamma=(2q-3p)j-1\), and \(G(pj,\alpha,\gamma)\) has \(n=2qj\) vertices of which exactly \(\beta n\) are good.
+In particular every rational \(\beta\in(0,2/3)\) is the exact proportion of good vertices of infinitely many graphs.
+\end{theorem}
+\begin{proof}
+\emph{Constants.} Series--parallel reduction gives, in \(D\): \(r(x,a)=r(x,b)=5/8\), \(r(x,y)=1\), so \(R_D=9/4\);
+\(D-a\) is the path \(x\,b\,y\) (\(\Rt(x)=3\)); \(D-y\) is a triangle (\(\Rt(x)=4/3\)). In \(D'\) rooted at \(r\), the
+other degree-3 vertex \(b'\) has \(r(r,b')=1/2\), the degree-2 vertices \(u,w\) have \(r(r,u)=r(r,w)=5/8\), so
+\(R_{D'}=7/4\); \(D'-b'\) is the path \(u\,r\,w\) (\(\Rt(r)=2\)) and \(D'-u\) a triangle. With \(\Kf(K_4-e)=4\),
+\(\Kf(P_3)=4\), \(\Kf(K_3)=2\), \(\Kf(K_4)=3\), \(\Kf(K_2)=1\) we get:
+\begin{center}
+\begin{tabular}{lcccc}
+branch, vertex & \(R\) & \(\delta\) & \(\rho\) & \(a\)\\ \hline
+\(D\): \(a,b\) & \(9/4\) & \(0\) & \(3/4\) & \(0\)\\
+\(D\): \(y\) & \(9/4\) & \(2\) & \(-11/12\) & \(5\)\\
+\(D'\): \(b'\) & \(7/4\) & \(0\) & \(1/4\) & \(1\)\\
+\(D'\): \(u,w\) & \(7/4\) & \(2\) & \(-5/12\) & \(3\)\\
+\(K_4\): any & \(3/2\) & \(1\) & \(-1/6\) & \(2\)\\
+\(E\): leaf & \(1\) & \(1\) & \(-1\) & \(2\)
+\end{tabular}
+\end{center}
+\emph{Balance at the hub.} \(R_D=\tfrac34\cdot3\), \(R_{F_5}=\tfrac74+2=\tfrac34\cdot5\) and
+\(R_{F_6}=\tfrac32+3=\tfrac34\cdot6\), hence \(\Rt_G(x)=\tfrac34(n-1)\). Let \(v\neq x\) lie in a branch \(H\) of \(G\)
+at \(x\) (a copy of \(D\), \(D'\), \(K_4\) or \(E\)). The rest of \(H\) has \(M=n-1-m_H\) and
+\(T=\tfrac34(n-1)-R_H\), so \zcref{lem:splice} gives
+\[\Delta_G(v)=\delta_H(v)+(n-1)\bigl(\tfrac34-\rho_H(v)\bigr)-a_H(v).\]
+From the table, \(\Delta_G=0\) for \(a,b\) in the copies of \(D\), and
+\(\Delta_G=\tfrac53(n-1)-3\), \(\tfrac12(n-1)-1\), \(\tfrac76(n-1)-1\), \(\tfrac{11}{12}(n-1)-1\), \(\tfrac74(n-1)-1\)
+for the vertices \(y\), \(b'\), \(u,w\), the vertices of \(K_4\), and the leaves. These are positive as soon as
+\(n\ge4\) (\(n\ge9\) when \(D'\) occurs). The root \(x\) is a cut vertex as soon as \(G\) has two branches; for
+\(G(1,0,0)=K_4-e\) one has \(\Delta(x)=\Delta(y)=\Kf(K_4-e)-\Kf(K_3)=2\).
+
+\emph{Counting.} With \(k=pj\), the equation \(n=2qj\) reads \(5\alpha+6\gamma=(2q-3p)j-1\), and \(2q-3p\ge1\). By
+Sylvester's theorem on the Frobenius number, every integer \(\ge(5-1)(6-1)=20\) is of the form
+\(5\alpha+6\gamma\) with \(\alpha,\gamma\ge0\). Then \(|K(G)|=2pj=\beta n\). Different \(j\) give different orders.
+\end{proof}
+
+\begin{corollary}\label{cor:problems}
+\begin{enumerate}
+\item For every rational \(\beta\in(0,2/3)\) there are infinitely many graphs in which exactly \(\beta|V(G)|\) vertices
+are good.
+\item (Problem 5 for \(\gamma\le2/3\).) For every real \(\gamma\in(0,2/3]\) there are graphs \(G_1,G_2,\dots\) of
+strictly increasing orders whose proportions of good vertices increase strictly and tend to \(\gamma\).
+\item (Problem 17 on \((0,2/3]\).) Every rational number in \((0,2/3)\) is an exact proportion of good vertices, each
+for infinitely many graphs; every real number in \((0,2/3]\) is a limiting proportion; and 1 is an exact proportion
+(\(C_5\)).
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+(1) is \zcref{thm:exact}. For (2) choose rationals \(\beta_1<\beta_2<\dots\) in \((0,2/3)\) tending to \(\gamma\), and
+inductively a graph \(G_i\) with proportion exactly \(\beta_i\) and \(|V(G_i)|>|V(G_{i-1})|\). (3) follows.
+\end{proof}
+
+For \(\beta\ge2/3\) the corollary says nothing. Whether any rational in \([2/3,1)\) is an exact proportion is open;
+\zcref{prop:small} shows that no graph with \(6\le n\le10\) vertices has proportion \(\ge2/3\).
+
+\section{Small graphs}\label{sec:small}
+
+\begin{proposition}[note=computer-assisted]\label{prop:small}
+For \(n=3,4,\dots,10\), the largest number of good vertices of a connected graph on \(n\) vertices is
+\(0,2,5,3,4,4,4,6\). For \(n=4,\dots,10\) the maximum is attained by exactly one graph, except for \(n=8\) (two
+graphs): \(K_4-e\); \(C_5\); \(K_2+K_{3,1}\); \(2\cdot(K_4-e)\); \(K_3+K_{4,1}\) and the graph with graph6 code
+\texttt{G?qa`o}; the graph \texttt{H??F?zW}; \(3\cdot(K_4-e)\). Here \(k\cdot(K_4-e)\) is the splice of \(k\) copies at
+a vertex of degree 2. In particular \(C_5\) is the only connected graph with at most 10 vertices in which at least two
+thirds of the vertices are good; for \(6\le n\le10\) the proportion is at most \(3/5\).
+\end{proposition}
+\begin{proof}[Method]
+For a connected graph \(H\) with grounded Laplacian \(A\), \(\tau(H)=\det A\) and \(\Kf(H)=N\operatorname{tr}A^{-1}
+-\mathbf1^{\mathsf T}A^{-1}\mathbf1=\alpha(H)/\tau(H)\) with \(\alpha(H)\in\mathbb Z\). Modulo a prime \(p\nmid\tau(H)\)
+we compute \(k_p(H)=\alpha(H)\tau(H)^{-1}\bmod p\). If \(k_p(G)\neq k_p(G-v)\), then
+\(\alpha(G)\tau(G-v)-\alpha(G-v)\tau(G)\) is not divisible by \(p\), so \(v\) is not good. The program
+\texttt{goodcount.c} counts the vertices that survive this test for two primes \(p<2^{30}\) (a test is skipped when
+\(p\mid\tau\)); the count \(\mathrm{pg}(G)\) is a rigorous upper bound for \(|K(G)|\). It was run on all
+\(11\,989\,762\) connected graphs with \(3\le n\le10\) (nauty \texttt{geng -c}~\autocite{McKayPiperno2014}; the
+counts agree with OEIS A001349~\autocite{OEISA001349}). Every graph with \(\mathrm{pg}\ge2n/5\) was then checked with
+exact rationals (\texttt{verify\_small\_graphs.py}): \(\mathrm{pg}\) equals the exact count for all of them, and
+\(\mathrm{pg}\ge2n/3\) occurs only for \(C_5\). Validation: \(\mathrm{pg}=|K(G)|\) for all \(12\,111\) connected graphs
+with \(n\le8\) (\texttt{test\_c\_programs.py}).
+\end{proof}
+
+\section{A \texorpdfstring{\(2/3\)}{2/3} barrier for splice constructions}\label{sec:barrier}
+
+All infinite families of~\autocite{GMD2026,MG2025} with good vertices in a positive proportion are splices at one
+vertex. The next theorem bounds what any such construction can give, in terms of the branches that contain good
+vertices.
+
+For a finite set \(\cB\) of rooted graphs and \(\hat\rho>0\), let \(\cC_{\cB}(\hat\rho)\) be the set of triples
+\((g,m,a)\) such that some \((B,x)\in\cB\) has a class \(O\) with \(\rho_B=\hat\rho\) on \(O\), \(g=|O|\), \(m=m_B\) and
+\(a=R_B-m_B\hat\rho\). Put
+\[\sigma(g,m,a)=\begin{cases}g/m,&a\le0,\\ g\hat\rho/(a+m\hat\rho),&a>0,\end{cases}\qquad
+\pi\bigl((g_1,m_1,a_1),(g_2,m_2,a_2)\bigr)=\frac{|a_2|g_1+a_1g_2}{|a_2|m_1+a_1m_2}\quad(a_1>0>a_2),\]
+and let \(\lambda(\cB)\) be the maximum, over \(\hat\rho>0\), of all values \(\sigma\) on \(\cC_{\cB}(\hat\rho)\) and
+\(\pi\) on pairs from \(\cC_{\cB}(\hat\rho)\) with \(a_1>0>a_2\) (and \(\lambda=0\) if no class has \(\rho>0\)). For a
+single rooted graph, \(\sigma=(g/m)\min(1,\hat\rho m/R_B)\) is the \emph{efficiency} of the class.
+
+\begin{theorem}\label{thm:barrier}
+Let \(\cB\) be a finite set of rooted graphs. There is a constant \(C(\cB)\) such that every connected graph \(G\) with a
+cut vertex \(x\) satisfies \(|K(G)|\le\lambda(\cB)\,|V(G)|+C(\cB)\) if every good vertex of \(G\) lies in a branch of
+\(G\) at \(x\) that is isomorphic, as a rooted graph, to a member of \(\cB\).
+\end{theorem}
+\begin{proof}
+Let \(n=|V(G)|\), let \(H_1,\dots,H_r\) be the branches at \(x\), \(m_i=m_{H_i}\), \(R_i=R_{H_i}\), and
+\(T=\Rt_G(x)=\sum_iR_i\). By \zcref{lem:splice} with \(W\) the union of the other branches, a vertex \(v\) of \(H_i\)
+is good iff it is admissible in \(H_i\) and
+\begin{equation}\label{eq:hub}
+T=(n-1-m_i)\,\rho_i(v)+R_i-\delta_i(v).
+\end{equation}
+\emph{Step 1 (one value of \(\rho\)).} Only finitely many values of \((m,R,\rho,\delta)\) occur in \(\cB\). If \(v\in H_i\)
+and \(w\in H_j\) are good with \(\rho_i(v)\neq\rho_j(w)\), subtracting the two instances of \eqref{eq:hub} gives
+\(n-1\le\Lambda(\cB)\), a constant. So if \(n-1>\Lambda(\cB)\), all good vertices have the same \(\rho=\hat\rho\), and by
+\eqref{eq:hub} the same \(c^*=R_i-\delta_i(v)-m_i\hat\rho\), with \(T=(n-1)\hat\rho+c^*\). In particular, in each branch
+the good vertices form one class.
+
+\emph{Step 2 (\(\hat\rho\le0\)).} Then \(a_i=R_i-m_i\hat\rho\ge R_i\) for every branch, and
+\(\sum_ia_i=T-(n-1)\hat\rho=c^*\) is bounded. Each branch containing a good vertex has \(R_i\ge\min_{\cB}R>0\), so there
+are boundedly many such branches and \(|K(G)|\) is bounded.
+
+\emph{Step 3 (\(\hat\rho>0\)).} Let \(I\) be the set of branches containing good vertices; branch \(i\in I\) carries a
+triple \((g_i,m_i,a_i)\in\cC_{\cB}(\hat\rho)\) with \(a_i=R_i-m_i\hat\rho\), and \(|K(G)|=\sum_{i\in I}g_i\). Every
+branch satisfies \(a_j=R_j-m_j\hat\rho>-m_j\hat\rho\), and \(\sum_ja_j=c^*\) over all branches. Hence
+\(\sum_{j\notin I}m_j>\bigl(\sum_{i\in I}a_i-c^*\bigr)/\hat\rho\), and
+\[n-1\ \ge\ D-|c^*|/\hat\rho,\qquad D:=\sum_{i\in I}m_i+\max\Bigl(0,\tfrac1{\hat\rho}\sum_{i\in I}a_i\Bigr).\]
+Now \(\sum_ig_i\le\lambda D\). Indeed, grouping equal triples with weights \(x_t\ge0\), the ratio
+\(\sum x_tg_t/D(x)\) is linear-fractional on each of the two cones \(\sum x_ta_t\le0\) and \(\sum x_ta_t\ge0\). On the
+first, normalise \(\sum x_tm_t=1\): the maximum of the linear function \(\sum x_tg_t\) is attained at a vertex, i.e.\ a
+single triple with \(a\le0\) (value \(g/m\)) or a pair with \(a_1>0>a_2\) on the hyperplane \(\sum x_ta_t=0\) (value
+\(\pi\)). On the second, \(D=\sum x_tR_t/\hat\rho\); normalise it to 1 and conclude in the same way (single triples with
+\(a\ge0\), value \(g\hat\rho/R\), or the same pairs). Therefore
+\(|K(G)|\le\lambda(n-1+|c^*|/\hat\rho)\). There are finitely many possible \((\hat\rho,c^*)\); take \(C(\cB)\) larger
+than \(\Lambda(\cB)+1\), than \(\lambda|c^*|/\hat\rho\), and than the bound of Step~2.
+\end{proof}
+
+\begin{proposition}[note=exact computation]\label{prop:lambda}
+Let \(\cB_N\) be the set of all rooted connected graphs with at most \(N\) vertices. Then:
+\begin{enumerate}
+\item every class of every rooted graph with at most 10 vertices has efficiency \(\sigma\le2/3\). Equality
+occurs only on 4, 7 and 10 vertices (2, 5 and 11 rooted classes, all with \(g/m=2/3\) and \(a\le0\)); examples are the
+two degree-3 vertices of \(K_4-e\) rooted at a degree-2 vertex and the degree-3 vertices of \(2\cdot(K_4-e)\) and
+\(3\cdot(K_4-e)\). Among classes with \(g/m>2/3\) the largest efficiency is \(0.469\) (on 9 vertices; \(0.164\) on 10
+vertices), so their ratio \(\rho/\rho^*\) is below \(0.63\);
+\item \(\lambda(\cB_9)=2/3\) (8\,915\,804 classes with \(\rho>0\)): no balanced pair improves on single classes. More precisely, no class with \(g/m>2/3\) and
+\(a>0\) shares its value of \(\rho\) with a class with \(a<0\), and a pair value is a weighted mediant of \(g_1/m_1\)
+and \(g_2/m_2=\sigma_2\le2/3\).
+\end{enumerate}
+\end{proposition}
+\begin{proof}[Method]
+\texttt{gadgetbound.c} computes, for every connected graph \(B\) (nauty) and every root, all quantities in exact integer
+arithmetic: \(\tau\) and \(\operatorname{adj}A\) by fraction-free Gauss--Jordan elimination~\autocite{Bareiss1968} in
+128-bit integers, then \(\tau\,r(u,w)\), \(\tau\Rt\), \(\tau\Kf\), the classes by cross-multiplication, and the test
+\(\sigma\le2/3\) by cross-multiplication. Every pivot is a leading principal minor of a positive definite matrix, and
+every division is checked to be exact. \texttt{check\_mixing\_bound.py} rebuilds the classes as exact fractions from
+the program's output and evaluates all pairs. Validation against a separate exact implementation (python-flint) on
+all rooted graphs with \(n\le7\): \texttt{test\_c\_programs.py}.
+\end{proof}
+
+\begin{corollary}\label{cor:barrier}
+There is a constant \(C\) such that every graph \(G\) with a cut vertex \(x\), whose good vertices all lie in branches at
+\(x\) with at most 9 vertices, has \(|K(G)|\le\frac23|V(G)|+C\). For a single rooted graph \(B\) with at most 10
+vertices,
+\(\limsup_{k\to\infty}\sup_W\ |K(k\cdot B\oplus W)\cap(\text{copies of }B)|\,/\,|V(k\cdot B\oplus W)|\le2/3\).
+So constructions of this type (in particular all those of~\autocite{GMD2026,MG2025}) cannot give an infinite series of
+\(\beta\)-Kirchhoff Šoltés graphs with \(\beta>2/3\).
+\end{corollary}
+\begin{proof}
+The first claim is \zcref{thm:barrier} with \zcref{prop:lambda}(2). For the second, apply Step~1 of the proof of
+\zcref{thm:barrier} to the branches that are copies of \(B\): for large \(k\) the good vertices in the copies form one
+class. Its contribution is bounded by its efficiency, by \zcref{prop:regimes}(1)--(2) and \(|V|\ge1+km_B+m_W\).
+\zcref{prop:lambda}(1) gives \(\sigma\le2/3\).
+\end{proof}
+
+\begin{remark}[note={other structures explored, floating point only}]
+We also explored, in floating point and without finding any proportion above \(1/2\) for an exact solution:
+\begin{itemize}
+\item cographs with at most four twin classes of sizes \(\le14\) (maximum \(1/2\));
+\item blow-ups of all connected patterns with at most four vertices into cliques or independent sets of sizes \(\le20\)
+(no proportion \(\ge0.55\));
+\item theta graphs with threads of lengths 1--4;
+\item rook-type graphs with row or column hubs, hub cliques and super-hubs on a \(9\times9\) grid of sizes;
+\item joins \(K_r+H\) and \(\overline{K_r}+H\) with \(H\) vertex-transitive. Here the \(H\)-class is good only at a
+non-integral \(r^*<1\) for sparse \(H\) (cycles \(C_m\), \(m\ge6\), the dodecahedron): a hub coupled to every vertex of
+\(H\) is too strong.
+\end{itemize}
+Scripts and logs are in \texttt{scripts/exploration/} and \texttt{certificates/exploration/}.
+\end{remark}
+
+\section{A 2-connected near miss}\label{sec:rook}
+
+The barrier above concerns cut vertices. Let \(R(a,b)\) be the rook graph \(K_a\square K_b\) (vertices \((i,j)\), rows
+and columns are cliques) with one extra vertex \(h_i\) per row adjacent to the \(b\) vertices of row \(i\). It has
+\(n=a(b+1)\) vertices, it is 2-connected, and its \(ab\) rook vertices form one orbit of \(S_a\times S_b\). If they are
+good, the proportion is \(b/(b+1)\).
+
+\begin{proposition}\label{prop:rook}
+\begin{enumerate}
+\item The Kirchhoff index is
+\[\Kf(R(a,b))=ab+\frac{(a-1)(a+b+1)(b+1)}{b}+\frac{a(a-1)(b-1)(b+1)}{a+b+1}.\]
+\item For a rook vertex \(v\), \(\Kf(R)-\Kf(R-v)=-P(a,b)/\bigl[b(b-1)(b+1)(a+b+1)(a^2b+ab^2-b-1)(ab+a+b^2+b-1)\bigr]\),
+where \(P\in\mathbb Z[a,b]\) is the irreducible polynomial of degree 5 in \(a\) and 8 in \(b\) printed in
+\texttt{certificates/check\_rook\_hubs.log}; its terms of largest weight for \(a\asymp b^3\) are
+\(a^4b^3(2a-b^3)\). The denominator is positive for \(a,b\ge2\).
+\item For every \(3\le b\le400\), \(P(\cdot,b)\) has exactly one real root \(a^*(b)>1.5\), and the sign of
+\(\Kf(R)-\Kf(R-v)\) changes between \(\lfloor a^*\rfloor\) and \(\lceil a^*\rceil\). So the rook class is good along a
+real curve on which the proportion \(b/(b+1)\) tends to 1. Numerically \(a^*(b)/b^3\to1/2\) (\(0.4987\) at \(b=400\)).
+\item There is no integer \(a\ge2\) with \(P(a,b)=0\) for \(2\le b\le400\): no graph \(R(a,b)\) with \(b\le400\) has
+good rook vertices.
+\item With \(c\) independent hubs per row (graph \(R_c(a,b)\), proportion \(b/(b+c)\)), the same method gives
+\(\Kf(R_c)-\Kf(R_c-v)\) as an explicit rational function, of degree 5 in \(a\) in the numerator. For \(c<b/2\) it has
+real zeros: for instance \(a^*\approx61.83\) for \((b,c)=(10,3)\) (proportion \(10/13\)), and \(a^*\approx2.04\) for
+\((b,c)=(6,3)\). But there is no integer solution \(a\ge2\) with \(3\le b\le200\) and \(1\le c\le b\).
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(1)--(2): \(\mathbb R^{V}\) decomposes under \(S_a\times S_b\) into isotypic components, on which the Laplacian acts by
+small matrices. For \(R\): \(\{0,b+1\}\) on the trivial part, \(\bigl(\begin{smallmatrix}a+1&-1\\-b&b\end{smallmatrix}\bigr)\)
+with multiplicity \(a-1\), \(b+1\) with multiplicity \(b-1\), \(a+b+1\) with multiplicity \((a-1)(b-1)\). For \(R-v\),
+\(v=(1,1)\), under \(S_{a-1}\times S_{b-1}\), the cells are: row-mates, column-mates, other rook vertices, the hub of
+row 1, and the other hubs. This gives a \(5\times5\) quotient \(Q\) with a simple zero eigenvalue, a \(3\times3\) block
+with multiplicity \(a-2\), a \(2\times2\) block with multiplicity \(b-2\), and the eigenvalue \(a+b+1\) with
+multiplicity \((a-2)(b-2)\); the blocks are written in \texttt{check\_rook\_hubs.py}. Then
+\(\Kf=n\operatorname{tr}L^+\), and the trace over a block is a ratio of characteristic-polynomial coefficients. The
+symbolic results agree with exact brute-force values for 12 pairs \((a,b)\). (3)--(4) are exact computations on the
+integer polynomial \(P\): real-root isolation, exact evaluation at \(\lfloor a^*\rfloor,\lceil a^*\rceil\), and
+factorisation over \(\mathbb Q\) of \(P(\cdot,b)\) to exclude integer roots. (5): the hubs of a row are false twins.
+They contribute the eigenvalue \(b\) (multiplicity \(a(c-1)\)) in \(R_c\), and \(b-1\) (multiplicity \(c-1\)) and \(b\)
+(multiplicity \((a-1)(c-1)\)) in \(R_c-v\); the other blocks are those above with the hub cells weighted by \(c\). The
+formula agrees with brute force for 8 triples \((a,b,c)\) and reduces to (1)--(2) for \(c=1\)
+(\texttt{check\_rook\_hubs\_c.py}).
+\end{proof}
+
+Along the branch \(a\approx b^3/2\) the Puiseux expansion of \(a^*(b)\) does not terminate (\(P\) is irreducible), so
+one expects only finitely many integer points. An infinite family would need one more integer parameter entering the
+goodness equation in a solvable way (linearly, or through a Pell equation as in Theorem~10 of~\autocite{GMD2026}). In
+our tests, the natural candidates (several hubs per row, hubs on rows and columns, rows joined through column hubs,
+universal vertices) gave real solution curves with proportions above \(2/3\), but no integer solution.
+
+\section{Open problems and limitations}\label{sec:open}
+
+\begin{itemize}
+\item Problem~4 is open for every rational \(\beta\in[2/3,1)\). Even \(\beta=2/3\) is open: no known infinite series
+has at least two thirds of its vertices good. By \zcref{prop:small}, no graph with \(6\le n\le10\) has proportion
+\(\ge2/3\).
+\item \zcref{cor:barrier} covers splices whose good vertices lie in branches with at most 9 vertices (mixtures of
+branch types), and single gadget types with at most 10 vertices. Larger branches are not excluded. However, any
+improvement over \(2/3\) by a splice needs a rooted graph with a class of efficiency \(>2/3\), and in all rooted graphs
+with at most 10 vertices the classes covering more than two thirds of the non-root vertices have \(\rho/\rho^*<0.63\)
+(\(\rho^*=R_B/m_B\)).
+\item The real branch of \zcref{prop:rook} shows that 2-connected product-like graphs can come arbitrarily close to
+proportion 1 in the real relaxation. Turning this into integer solutions is the most promising route we found.
+\item Floating-point computations (the explorations of \zcref{sec:barrier} and the ratio \(a^*(b)/b^3\)) are evidence,
+not proofs. Every claim stated in a theorem, proposition or corollary rests on exact rational or modular
+arithmetic.
+\end{itemize}
+
+\section{Computer verification}\label{sec:verif}
+
+Environment: Fedora 44 under WSL, Python 3.12, python-flint 0.6, sympy 1.14, networkx 3, nauty 2.8.9, gcc. From the
+folder of this problem:
+\begin{center}
+\footnotesize
+\begin{tabular}{p{4.6cm}p{7.6cm}l}
+script & claims (PASS/FAIL, exit code) & time\\ \hline
+\texttt{check\_splice\_lemma.py} & \zcref{lem:splice}, \zcref{cor:copies} on random instances, \zcref{ex:c5} & 3 s\\
+\texttt{check\_exact\_proportions.py} & constants and neutrality of \zcref{thm:exact}; good sets of all 224 graphs
+\(G(k,\alpha,\gamma)\) with \(n\le46\); arithmetic for 11 values of \(\beta\); six graphs with prescribed \(\beta\) & 15 s\\
+\texttt{check\_rook\_hubs.py} & \zcref{prop:rook}(1)--(4) & 45 s\\
+\texttt{check\_rook\_hubs\_c.py} & \zcref{prop:rook}(5) (argument 200; 60 takes 75 s) & 15 min\\
+\texttt{goodcount.c}, \texttt{run\_goodcount.sh}, \texttt{verify\_small\_graphs.py} & \zcref{prop:small} & 5 min\\
+\texttt{gadgetbound.c}, \texttt{check\_mixing\_bound.py} & \zcref{prop:lambda} (\texttt{gadgetbound} for \(N\le10\): 50 min; \texttt{check\_mixing\_bound.py 9}: 25 min) & 75 min\\
+\texttt{test\_c\_programs.py} & both C programs against exact Python on all graphs with \(n\le8\) (\(n\le7\) rooted) & 30 s
+\end{tabular}
+\end{center}
+Logs are in \texttt{certificates/} and \texttt{certificates/search/}. The runs of \texttt{gadgetbound} for
+\(N=3,\dots,10\) report no class with \(\sigma>2/3\) (files \texttt{gadgetbound\_n*.log}).
+
+\paperreferences
+\end{document}

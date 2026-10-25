@@ -233,3 +233,8 @@ progress journal. Global topology ordering remains unresolved.
   of the supports): exact counterexamples satisfying all hypotheses, the smallest being X₁ ⇄ X₂ and the 3-cycle.
   Exact criteria for each relation are proved; the one-step and iterated definitions of preclusters coincide.
   Solver Claude Opus 5.5 (xhigh). Not yet verified.
+- β-Kirchhoff Šoltés graphs (Gottwald–Majstorović Ergotić–Došlić 2026, Problem 4), partial result (preliminary):
+  the source's Theorem 15 already settles every β < 2/3; every rational β < 2/3 is moreover the exact proportion of
+  good vertices of infinitely many graphs; a barrier theorem shows that splice constructions with branches of at most
+  nine vertices cannot exceed 2/3; C₅ is the only connected graph with at most 10 vertices in which two thirds of the
+  vertices are good. Open for β ≥ 2/3. Solver Claude Opus 5.5 (xhigh). Not yet verified.

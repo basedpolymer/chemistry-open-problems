@@ -1,0 +1,23 @@
+   n=4 C^           pg=2 exact good=2  G_1 = K_1 + K_{2,1}
+   n=5 DUW          pg=5 exact good=5  C5
+   n=6 EF~w         pg=3 exact good=3  G_2 = K_2 + K_{3,1}
+   n=7 F?~v_        pg=3 exact good=3  
+   n=7 FQhV_        pg=4 exact good=4  2 copies of K4-e spliced at a degree-2 vertex
+   n=8 G?qa`o       pg=4 exact good=4  
+   n=8 G?~~~{       pg=4 exact good=4  G_3 = K_3 + K_{4,1}
+   n=9 H??F?zW      pg=4 exact good=4  
+   n=10 I?B~~~~~w    pg=5 exact good=5  G_4 = K_4 + K_{5,1}
+   n=10 I?`CQJK~G    pg=4 exact good=4  
+   n=10 ICOcaOc~?    pg=6 exact good=6  3 copies of K4-e spliced at a degree-2 vertex
+PASS (G0) numbers of connected graphs agree with OEIS A001349 for 3 <= n <= 10
+PASS (G1) every listed graph has exactly pg good vertices (exact rationals)
+   n=3: maximum number of good vertices = 0
+   n=4: maximum number of good vertices = 2
+   n=5: maximum number of good vertices = 5
+   n=6: maximum number of good vertices = 3
+   n=7: maximum number of good vertices = 4
+   n=8: maximum number of good vertices = 4
+   n=9: maximum number of good vertices = 4
+   n=10: maximum number of good vertices = 6
+PASS (G2) pg >= 2n/3 occurs only for n = 5 (one graph, C5): [(5, 5, 1)]
+summary: 3 PASS, 0 FAIL
