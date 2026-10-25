@@ -1,0 +1,615 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Preclusters, maximal invariant polyhedral supports and siphons are not dual: exact criteria and counterexamples for Iosif's duality conjecture}
+\newcommand*{\PaperTitlePlain}{Preclusters, maximal invariant polyhedral supports and siphons are not dual: exact criteria and counterexamples for Iosif's duality conjecture}
+\newcommand*{\PaperShortTitle}{Preclusters and invariant polyhedral supports}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} preliminary, not yet verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: pending}
+\newcommand*{\PaperKeywords}{mass-action networks, network duality, preclusters, invariant polyhedra, siphons, flux coupling, conservation laws}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\Z}{\mathbb{Z}}
+\newcommand{\Net}{\mathcal{N}}
+\newcommand{\Ye}{Y_{\mathrm e}}
+\newcommand{\Yp}{Y_{\mathrm p}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\Pre}{\mathsf{P}}
+\newcommand{\Mips}{\mathsf{M}}
+\newcommand{\Sip}{\mathsf{S}}
+\newcommand{\refi}{\preceq}
+\newcommand{\nrefi}{\not\preceq}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+For conservative mass-action networks with a positive steady state and no two species with the same rate, Iosif
+(arXiv:2603.08767, Conjecture~22 and Question~24) conjectured a ``duality relation'' between preclusters, which are
+sets of reactions, and maximal invariant polyhedral supports (MIPS), which are sets of species. Since species and
+rate constants exchange roles in his dual network, he also conjectured that preclusters and siphons are dual objects.
+The relation is not defined in the paper, so we make each ingredient precise. Definition~17 and Remark~18 of the
+paper agree: MIPS are the classes of species whose columns in a matrix of conservation laws are positively
+proportional. The precluster construction of the paper and the iterated one of the author's thesis give the same
+partition. Both hypotheses, conservativity and consistency, are exchanged by the duality. We then prove exact
+criteria. The preclusters of a consistent network refine the MIPS of its dual if and only if any two reactions with a
+common source are fully coupled. The two partitions coincide if and only if, in addition, every nontrivial class of
+fully coupled reactions contains such a pair. The dual statements hold for species. Consequently every formulation
+we could extract fails: equality, refinement in either direction and equal cardinality, on either side of the
+duality and under three readings of MIPS. The counterexamples are tiny: \(X_1\rightleftarrows X_2\), the 3-cycle
+\(X_1\to X_2\to X_3\to X_1\) (weakly reversible, deficiency zero, self-dual), the one-site futile cycle, and two
+examples from the author's thesis. The siphon formulations of Question~24 and the claim of Remark~23 (internal cycles
+refine preclusters) fail on the same networks. Exact computations on 15\,513 small networks confirm the criteria.
+\end{paperabstract}
+
+\section*{The question}
+
+Iosif~\autocite{Iosif2026} develops a duality for mass-action networks. The dual of a network exchanges the roles of
+species and rate constants: the dual has one species per reaction and one reaction per species. He proves that
+conserved quantities are dual to internal cycles (his Theorem~21) and then states, in §3 (p.~7 of arXiv
+v2, 15 July 2026; identical in v1 and in HAL v3):
+
+\begin{openquote}
+``Conjecture 22. For conservative mass-action networks that do not have two species with exactly the same rates and
+have at least one positive steady state, there is a duality relation between the sets of preclusters and of maximal
+invariant polyhedral supports.
+
+Remark 23. The condition \(\dot x_i\neq\dot x_j\) for \(i\neq j\) is necessary in order to make sure no further
+clustering on the left kernel is done. We require that there is at least one positive steady state so that the
+internal cycles are a refinement of preclusters.
+
+We conclude with the following question:
+
+Question 24. Is there a duality relation between preclusters and siphons?''
+\end{openquote}
+
+The abstract and the introduction (p.~2) read: ``we conjecture that there is a duality relation between preclusters
+and maximal invariant polyhedral supports. Given the close relation between maximal invariant polyhedral supports and
+siphons, we also conjecture that siphons and preclusters are dual objects.'' The status of the statement has changed
+over time. The 2020 HAL version~\autocite{Iosif2020} states it as a theorem, without the positive-steady-state
+hypothesis and without proof. A 2024 talk~\autocite{Iosif2024talk} lists ``MIPS \(\dots\) are dual to preclusters'' as
+a theorem of Ananiadi and Iosif. A 2025 poster abstract~\autocite{IosifAnaniadi2025} says ``we prove that preclusters
+are dual to maximal invariant polyhedral supports''. The 2026 preprint calls it a conjecture. None of these texts
+defines ``duality relation''. Preclusters come from the author's thesis~\autocite{Iosif2019}, Chapter~4, after the
+clusters of Conradi and Flockerzi~\autocite{ConradiFlockerzi2012}.
+
+\paragraph{What we prove.} In §1 we fix the definitions and show that the ambiguities in them are harmless
+(\zcref{prop:mips,lem:variants}). In §2 we prove exact criteria for each comparison between preclusters and MIPS
+(\zcref{thm:criteria,cor:species}). In §3 we use them to refute every formulation listed in \zcref{tab:formulations}
+(\zcref{thm:main}). §4 reports an exhaustive exact check on small networks and §5 lists what remains open. Throughout,
+\(A\refi B\) means that the partition (or family) \(A\) refines \(B\): every block of \(A\) is contained in a block of
+\(B\).
+
+\begin{theorem}[main result]\label{thm:main}
+Read ``duality relation'' as any of the relations of \zcref{tab:formulations}: equality, refinement in either
+direction, or equal number of blocks, between the preclusters of \(\Net^*\) and the MIPS of \(\Net\) (species side) or
+between the preclusters of \(\Net\) and the MIPS of \(\Net^*\) (reaction side). Read MIPS in any of the three ways of
+\zcref{rem:readings}. Then Conjecture~22 is false under every such reading. Question~24 has a negative answer for each
+of the siphon relations of \zcref{tab:formulations}, and the claim of Remark~23 is false. Every counterexample
+satisfies all hypotheses of Conjecture~22, has positive steady states, and has at most six species.
+\end{theorem}
+
+\section{Definitions, and why their ambiguities do not matter}
+
+\paragraph{Networks.} A network \(\Net\) has species \(X_1,\dots,X_n\) and reactions \(R_j\colon y_j\to y'_j\)
+(\(j=1,\dots,r\)) with \(y_j,y'_j\in\Z^n_{\ge0}\). The educt and product matrices are \(\Ye=(y_1|\cdots|y_r)\) and
+\(\Yp=(y'_1|\cdots|y'_r)\), and \(\Gamma=\Yp-\Ye\) is the stoichiometric matrix. The mass-action system is
+\(\dot x=\Gamma\operatorname{diag}(k)\,x^{\Ye}\) with \(k\in\R^r_{>0}\). The \emph{flux cone} is
+\(C(\Net)=\ker\Gamma\cap\R^r_{\ge0}\). The \emph{conservation cone} is
+\(K(\Net)=\{z\in\R^n_{\ge0}:z^{\mathsf T}\Gamma=0\}\). Both cones are pointed. The supports of the extreme rays of
+\(C(\Net)\) are the internal cycles of \(\Net\) (Definition~20 of~\autocite{Iosif2026};
+\autocite{SchusterHilgetag1994}). Let \(E\) be the \(r\times m\) matrix whose columns are the extreme rays of
+\(C(\Net)\), and let \(n_1,\dots,n_r\in\R^m\) be its rows. Let \(W\) be the \(p\times n\) matrix whose rows are the
+extreme rays of \(K(\Net)\), and let \(w_1,\dots,w_n\in\R^p\) be its columns. Positive rescaling of the rays does not
+affect anything below.
+
+\paragraph{Hypotheses of Conjecture~22.}
+\begin{itemize}
+\item[(H1)] \emph{Conservative}: some \(z\in K(\Net)\) has all coordinates positive.
+\item[(H2)] \emph{At least one positive steady state.} The paper treats the rate constants as parameters
+(Definition~4 and Remark~5), so (H2) means that some \(k\) admits a positive steady state. This is equivalent to
+consistency: \(C(\Net)\) contains a vector with all coordinates positive. Indeed, if \(x>0\) is a steady state for
+\(k\), then \(v=\operatorname{diag}(k)x^{\Ye}>0\) lies in \(\ker\Gamma\). Conversely, if \(v>0\) lies in
+\(\ker\Gamma\), then \(x=(1,\dots,1)\) is a steady state for \(k=v\).
+\item[(H3)] \emph{No two species with exactly the same rates}: \(\dot x_i\neq\dot x_j\) for \(i\neq j\), as in
+Remark~23. As polynomials in \((k,x)\), \(\dot x_i=\sum_j\Gamma_{ij}k_jx^{y_j}\), so (H3) says that the rows of
+\(\Gamma\) are pairwise distinct.
+\end{itemize}
+Every formulation of \zcref{tab:formulations} is refuted by one of the networks \(T\), \(W\), \(U\), \(D\) below. These
+satisfy the strongest reading of (H3): no row of \(\Gamma\) is a multiple of another, so \(\dot x_i\) and \(\dot x_j\)
+are not even proportional. Every counterexample has a positive steady state for explicit rate constants, and
+\(T\), \(W\), \(R\) and \(N_{4.12}\) have one for all rate constants.
+
+\paragraph{The dual network.} Following §3 of~\autocite{Iosif2026} (see also~\autocite{BlanchiniGiordano2022}), the
+dual \(\Net^*\) has species \(K_1,\dots,K_r\), one for each reaction of \(\Net\), and one reaction
+\(\rho_i\colon K^{(\Ye)_{i\cdot}}\to K^{(\Yp)_{i\cdot}}\) for each species \(X_i\) of \(\Net\). Here
+\((\Ye)_{i\cdot}\) denotes the \(i\)th row. The dual may contain the zero complex, and it contains a loop
+\(\rho_i\colon y\to y\) if \(X_i\) is a pure catalyst. All definitions and proofs below apply verbatim to such
+networks.
+
+\begin{lemma}\label{lem:dual}
+\(\Ye(\Net^*)=\Ye^{\mathsf T}\), \(\Yp(\Net^*)=\Yp^{\mathsf T}\), \(\Gamma(\Net^*)=\Gamma^{\mathsf T}\) and
+\(\Net^{**}=\Net\). Hence \(C(\Net^*)=K(\Net)\) and \(K(\Net^*)=C(\Net)\). In particular \(\Net\) satisfies (H1) if
+and only if \(\Net^*\) satisfies (H2), and vice versa. \(\Net^*\) satisfies (H3) if and only if the columns of
+\(\Gamma\) are pairwise distinct. The internal cycles of \(\Net^*\) are the supports of the extreme conservation laws
+of \(\Net\), which is the content of Theorem~21 of~\autocite{Iosif2026}.
+\end{lemma}
+\begin{proof}
+All statements follow from the definition by transposition.
+\end{proof}
+
+\paragraph{Maximal invariant polyhedral supports.} Assume (H1). Let \(Z\in\R^{q\times n}\) be a matrix whose rows
+form a basis of the conservation space \(L=\{z:z^{\mathsf T}\Gamma=0\}\). For \(c\) in the cone \(Q=Z(\R^n_{\ge0})\),
+the invariant polyhedron is \(P_c=\{x\in\R^n_{\ge0}:Zx=c\}\). By (H1) it is a nonempty polytope. Each vertex \(v\) of
+\(P_c\) is decorated by its support \(\supp v\) (the monomial \(\prod_{i\in\supp v}x_i\) in~\autocite{Iosif2026}).
+Distinct vertices have distinct supports: \(\{Ze_t:t\in\supp v\}\) is linearly independent, so \(v\) is the only
+point of \(P_c\) with support \(\supp v\). The
+\emph{decorated type} of \(P_c\) is its face lattice with these labels. The paper's Definition~17 reads:
+
+\begin{openquote}
+``A set of species \(\Sigma=\{x_i\mid i\in I\subseteq[n]\}\) is called an invariant polyhedral support if all
+combinatorial types of decorated abstract invariant polyhedra are invariant under the map \(x_i\mapsto x_j\) for all
+\(x_i,x_j\in\Sigma\). An invariant polyhedral support is maximal if it is maximal with respect to inclusion.''
+\end{openquote}
+
+Remark~18 adds that ``one needs to compute the chamber decomposition in the space of linear conserved quantities, and
+decorate each ray with the corresponding variables. The set of all variables decorating an individual ray is a
+maximal invariant polyhedral support.'' There are finitely many decorated types (the source cites~\autocite{DeLoeraKimOnnSantos2009}
+for this; it is not used below). We read ``invariant'' as: for every \(c\in Q\), relabelling the vertices of
+\(P_c\) by the transposition \(\tau=(i\,j)\) gives the same decorated type. The next proposition shows that this
+reading agrees with Remark~18.
+
+\begin{proposition}\label{prop:mips}
+Assume (H1) and let \(i\neq j\). The following are equivalent.
+\begin{enumerate}
+\item For every \(c\in Q\), the decorated type of \(P_c\) is invariant under the transposition of \(x_i\) and \(x_j\).
+\item \(Ze_i=\mu Ze_j\) for some \(\mu>0\): \(x_i\) and \(x_j\) decorate the same ray of the chamber decomposition
+(Remark~18).
+\item \(e_i-\mu e_j\in\operatorname{im}\Gamma\) for some \(\mu>0\).
+\item \(w_i=\mu w_j\) for some \(\mu>0\).
+\item \(z_i=\mu z_j\) for some \(\mu>0\) and every conservation law \(z\in L\).
+\end{enumerate}
+Write \(i\sim j\) when these hold. Then \(\sim\) is an equivalence relation. A set of species is an invariant polyhedral
+support if and only if it lies in one class, and the MIPS of \(\Net\) are exactly the classes. In particular the MIPS
+partition the species. We denote this partition by \(\Mips(\Net)\).
+\end{proposition}
+\begin{proof}
+(2)\(\Rightarrow\)(1): Let \(\varphi\colon\R^n\to\R^n\) swap the coordinates \(i\) and \(j\) with weights:
+\(\varphi(x)_i=x_j/\mu\), \(\varphi(x)_j=\mu x_i\), and \(\varphi(x)_t=x_t\) otherwise. Then
+\(Z\varphi(x)=Zx\), because \(\mu x_iZe_j+(x_j/\mu)Ze_i=x_iZe_i+x_jZe_j\). Moreover \(\varphi\) preserves
+\(\R^n_{\ge0}\), and \(\supp\varphi(x)=\tau(\supp x)\). So \(\varphi\) restricts to an affine automorphism of every
+\(P_c\) that relabels supports by \(\tau\), and the decorated type is invariant.
+(1)\(\Rightarrow\)(2): Take \(c=Ze_i\in Q\). The point \(e_i\) is a vertex of \(P_c\) with label \(\{i\}\). Invariance
+gives a vertex with label \(\{j\}\), that is, a point \(ae_j\in P_c\) with \(a>0\). Hence \(Ze_i=aZe_j\). Note also
+\(Ze_i\neq0\), since \(z_i>0\) for the positive conservation law.
+(2)\(\Leftrightarrow\)(3): \(\ker Z=L^{\perp}=\operatorname{im}\Gamma\).
+(2)\(\Leftrightarrow\)(5): the rows of \(Z\) span \(L\).
+(4)\(\Leftrightarrow\)(5): by (H1), \(K(\Net)\) contains an interior point of \(L\), so it spans \(L\). Being pointed,
+it is generated by its extreme rays, so the rows of \(W\) span \(L\).
+The relation in (2) is clearly an equivalence. Definition~17 asks for invariance under every transposition of two
+elements of \(\Sigma\), so the invariant polyhedral supports are the subsets of classes, and the maximal ones are the
+classes.
+\end{proof}
+
+\begin{remark}[three readings of MIPS]\label{rem:readings}
+\zcref{prop:mips} is the reading that matches Remark~18 (``ray reading''). Two other readings are conceivable.
+The \emph{set reading} only asks that the set of all decorated types be invariant under \(\tau\). Its classes are
+unions of ray classes and can be strictly larger: for \(Y\colon X_1+2X_2\rightleftarrows X_3\) the ray reading gives
+\(\{X_1\},\{X_2\},\{X_3\}\) and the set reading gives \(\{X_1,X_2\},\{X_3\}\). The set reading contradicts Remark~18.
+The \emph{semiflow reading} takes the supports of the extreme conservation laws, that is, the internal cycles of
+\(\Net^*\). It is suggested by the diagram at the end of §3 of~\autocite{Iosif2026}, which links internal cycles and
+MIPS by an arrow labelled ``dual''. For \(Y\) it gives \(\{X_1,X_3\},\{X_2,X_3\}\), which is not a partition. All
+three readings agree in Example~25 of~\autocite{Iosif2026}, so that example cannot distinguish them. Our
+counterexamples work for all three readings (\zcref{tab:formulations}). Our scripts compute the set reading whenever
+\(q\le2\).
+\end{remark}
+
+\paragraph{Siphons.} A \emph{siphon} is a nonempty set \(S\) of species such that every reaction with a product
+species in \(S\) has a reactant species in \(S\) (Definition~13 of~\autocite{Iosif2026};
+\autocite{ShiuSturmfels2010,AngeliDeLeenheerSontag2007}). A siphon is minimal if no proper subset is a siphon
+(Definition~14). We write \(\Sip(\Net)\) for the family of minimal siphons. The support of a semi-positive
+conservation law is a siphon~\autocite{AngeliDeLeenheerSontag2007}. This is presumably the ``close relation'' between
+MIPS and siphons mentioned in the source, at least in the semiflow reading of \zcref{rem:readings}.
+
+\paragraph{Preclusters.} Two distinct reactions with the same source form a \emph{doubling pair} (thesis
+terminology~\autocite{Iosif2019}). Let \(G\) be the graph on \([r]\) whose edges are the doubling pairs. The paper's
+Definition~19 reads:
+
+\begin{openquote}
+``Consider the graph \(\mathfrak G\) over \([r]\) which has an edge \(\{i,j\}\) whenever the \(i\)th and the \(j\)th
+arrows have the same source and let \(n_1,\dots,n_r\) denote the rows of a matrix with columns the rays of the
+stoichiometric cone. If to the graph \(\mathfrak G\) we adjoin the edges \(\{i,s\}\) and \(\{j,s\}\) whenever \(n_s\)
+is in the span of \(\{n_i,n_j\}\) for each edge \(\{i,j\}\) of \(\mathfrak G\), we obtain the preclustering graph. A
+precluster is a connected component of the preclustering graph.''
+\end{openquote}
+
+Call this graph \(G^+\). The thesis (Definition~4.3 and Algorithm~4.4 of~\autocite{Iosif2019}) iterates instead.
+Starting from \(P=G\), while some edge \(\{i,j\}\) of \(P\) and some \(s\) outside the component of \(i\) satisfy
+\(n_s\in\spn\{n_i,n_j\}\), it adjoins \(\{i,s\}\) and \(\{j,s\}\). Let \(\overline G\) be the smallest graph that
+contains \(G\) and is closed under this adjunction rule without the component restriction.
+
+\begin{lemma}\label{lem:variants}
+\(G^+\), \(\overline G\) and every output of Algorithm~4.4 (in any order of choices) have the same connected
+components. We write \(\Pre(\Net)\) for this partition of the reactions.
+\end{lemma}
+\begin{proof}
+For a doubling pair \(e=\{i,j\}\) put \(V_e=\spn\{n_i,n_j\}\). We claim that every edge \(\{a,b\}\) of
+\(\overline G\) has \(\spn\{n_a,n_b\}\subseteq V_e\) for some doubling pair \(e\) with \(a,b\) in the
+\(G^+\)-component of \(e\). This holds for the edges of \(G\). Suppose it holds for an edge \(\{a,b\}\) with pair
+\(e=\{i,j\}\), and let \(n_s\in\spn\{n_a,n_b\}\subseteq V_e\). If \(s\notin e\), then \(G^+\) contains \(\{i,s\}\),
+so in all cases \(s\) lies in the \(G^+\)-component of \(e\). Also \(\spn\{n_a,n_s\}\) and \(\spn\{n_b,n_s\}\) lie in \(V_e\). This proves the claim.
+So every edge of \(\overline G\) lies inside a \(G^+\)-component. Since \(E(G^+)\subseteq E(\overline G)\), the two
+graphs have the same components.
+
+Let \(A\) be an output of Algorithm~4.4. Then \(E(A)\subseteq E(\overline G)\), so the components of \(A\) refine those
+of \(\overline G\). Conversely, every edge of \(G^+\) lies inside a component of \(A\). For edges of \(G\) this holds
+because \(G\subseteq A\). For an adjoined edge \(\{i,s\}\) with \(n_s\in V_{\{i,j\}}\), the algorithm cannot stop
+while \(s\) lies outside the component of \(i\). Hence the components of \(G^+\) refine those of \(A\), and all three
+partitions coincide.
+\end{proof}
+
+The enumeration of §4 confirms that the three constructions never differ. Under (H2) every reaction lies in an
+internal cycle, so \(n_s\neq0\) for all \(s\). This is why the paper needs (H2): a reaction with \(n_s=0\) lies in every
+span and would be glued to every doubling pair.
+
+\paragraph{Full coupling.} Assume (H2). Reactions \(s,t\) are \emph{fully coupled} if \(n_s=\mu n_t\) for some
+\(\mu>0\). Equivalently, \(v_s=\mu v_t\) for every \(v\in\ker\Gamma\), since the extreme rays span \(\ker\Gamma\) by
+(H2). This is the full coupling of flux coupling analysis~\autocite{Burgard2004}, and the classes are the ``enzyme
+subsets'' of~\autocite{Pfeiffer1999}.
+
+\begin{proposition}\label{prop:dualmips}
+If \(\Net\) satisfies (H2), then \(\Net^*\) satisfies (H1), and \(\Mips(\Net^*)\) is the partition of the reactions of
+\(\Net\) into classes of fully coupled reactions.
+\end{proposition}
+\begin{proof}
+Apply \zcref{prop:mips}(4) to \(\Net^*\). By \zcref{lem:dual}, the extreme conservation laws of \(\Net^*\) are the
+extreme rays of \(C(\Net)\), so the columns \(w^*_s\) are the rows \(n_s\).
+\end{proof}
+
+In the same way, by \zcref{prop:mips}(4), \(\Mips(\Net)\) groups species \(i,j\) with \(w_i=\mu w_j\). Call such
+species \emph{conservation-coupled}.
+
+\section{Exact criteria}
+
+\begin{theorem}\label{thm:criteria}
+Let \(\Net\) be consistent (H2). Let \(\Pre=\Pre(\Net)\), and let \(\Mips\) be the partition into fully coupled classes,
+which equals \(\Mips(\Net^*)\) by \zcref{prop:dualmips}.
+\begin{enumerate}
+\item \(\Pre\refi\Mips\) if and only if every doubling pair is fully coupled.
+\item \(\Mips\refi\Pre\) if and only if, for every fully coupled class \(\kappa\) with \(|\kappa|\ge2\), the common
+line \(\R n_s\) (\(s\in\kappa\)) lies in \(\spn\{n_i,n_j\}\) for some doubling pair \(\{i,j\}\). In particular
+\(\Mips\refi\Pre\) holds if every such class contains a reaction that shares its source with another reaction.
+\item \(\Pre=\Mips\) if and only if every doubling pair is fully coupled and every fully coupled class with at least
+two elements contains a doubling pair.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+By (H2), \(n_s\neq0\) for all \(s\). Two nonzero nonnegative vectors that are linearly dependent are positive multiples
+of each other, so \(n_s\in\R n_i\) means that \(s\) and \(i\) are fully coupled. We use \(G^+\) (\zcref{lem:variants}).
+
+(1) If \(\Pre\refi\Mips\), the two reactions of a doubling pair lie in one precluster, hence in one coupled class.
+Conversely, assume that all doubling pairs are fully coupled. For a doubling pair \(\{i,j\}\) we then have
+\(\spn\{n_i,n_j\}=\R n_i\). So every \(s\) adjoined through \(\{i,j\}\) is fully coupled to \(i\). Thus every edge of
+\(G^+\) joins fully coupled reactions, and \(\Pre\refi\Mips\).
+
+(2) Suppose the condition holds for a class \(\kappa\) with the pair \(\{i,j\}\). Every \(t\in\kappa\) lies in
+\(\{i,j\}\) or is joined to \(i\) by an edge of \(G^+\), so \(\kappa\) lies in one precluster. Conversely, suppose
+\(\kappa\) lies in one precluster and \(|\kappa|\ge2\). Then any \(t\in\kappa\) is not isolated in \(G^+\). By the
+definition of \(G^+\), either \(t\) belongs to a doubling pair \(\{t,j\}\), and then \(n_t\in\spn\{n_t,n_j\}\); or
+\(t\) was adjoined through a doubling pair \(\{i,j\}\) with \(n_t\in\spn\{n_i,n_j\}\). In both cases the condition
+holds.
+
+(3) Assume both conditions. Then \(\Pre\refi\Mips\) by (1). If a class \(\kappa\) with \(|\kappa|\ge2\) contains the
+doubling pair \(\{i,j\}\), then \(n_\kappa\in\spn\{n_i,n_j\}\), so (2) gives \(\Mips\refi\Pre\). Conversely, if
+\(\Pre=\Mips\), then (1) gives the first condition. Take a class \(\kappa\) with \(|\kappa|\ge2\) and \(t\in\kappa\).
+As in (2), \(t\) is in a doubling pair or adjoined through one, \(\{i,j\}\), with \(n_t\in\spn\{n_i,n_j\}=\R n_i\). So
+\(t\) is fully coupled to \(i\) and to \(j\), and \(\{i,j\}\subseteq\kappa\).
+\end{proof}
+
+Two species are \emph{twins} if they have identical rows of \(\Ye\), that is, equal coefficients in every source
+complex. The twin pairs of \(\Net\) are exactly the doubling pairs of \(\Net^*\).
+
+\begin{corollary}[species side]\label{cor:species}
+Let \(\Net\) be conservative (H1). Then:
+\begin{enumerate}
+\item \(\Pre(\Net^*)\refi\Mips(\Net)\) if and only if all twin pairs are conservation-coupled;
+\item \(\Mips(\Net)\refi\Pre(\Net^*)\) if and only if, for every MIPS \(\Sigma\) with \(|\Sigma|\ge2\), the line
+\(\R w_\Sigma\) lies in \(\spn\{w_i,w_j\}\) for some twin pair \(\{i,j\}\);
+\item \(\Pre(\Net^*)=\Mips(\Net)\) if and only if all twin pairs are conservation-coupled and every MIPS with at least
+two elements contains a twin pair.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+Apply \zcref{thm:criteria} to \(\Net^*\), which is consistent by \zcref{lem:dual}. Its doubling pairs are the twin
+pairs. Its vectors \(n^*_i\) are the columns \(w_i\). Its fully coupled classes are \(\Mips(\Net)\), by
+\zcref{prop:dualmips} applied to \(\Net^*\) together with \(\Net^{**}=\Net\).
+\end{proof}
+
+\begin{corollary}[product complexes are sources]\label{cor:wr}
+Assume (H1) and (H3), and assume that every product complex of \(\Net\) is also a source complex. This holds, for
+example, when \(\Net\) is weakly reversible. Then \(\Net\) has no twins, so \(\Pre(\Net^*)\) is the partition into
+singletons. Hence \(\Pre(\Net^*)\refi\Mips(\Net)\) always holds. Moreover, \(\Pre(\Net^*)=\Mips(\Net)\) holds if and
+only if \(\operatorname{im}\Gamma\) contains no nonzero vector supported on exactly two coordinates.
+\end{corollary}
+\begin{proof}
+Suppose \(X_i,X_j\) are twins. Every product complex is a source complex, so its \(i\)th and \(j\)th coordinates are
+equal. Hence rows \(i\) and \(j\) of \(\Yp\) are also equal, and so are rows \(i\) and \(j\) of \(\Gamma\). This
+contradicts (H3). The last claim follows from \zcref{prop:mips}(3). Under (H1), a nonzero vector of
+\(\operatorname{im}\Gamma\) cannot be supported on a single coordinate, since \(z^{\mathsf T}e_i=z_i>0\) for the
+positive conservation law \(z\). A vector supported on \(\{i,j\}\) has the form \(a(e_i-\mu e_j)\) with \(\mu>0\).
+\end{proof}
+
+\begin{corollary}[weakly reversible networks, reaction side]\label{cor:wrB}
+Let \(\Net\) be weakly reversible, with \(y_j\neq y'_j\) for all \(j\).
+\begin{enumerate}
+\item If some complex is the source of two reactions, then \(\Pre(\Net)\nrefi\Mips(\Net^*)\).
+\item If moreover \(\Net\) has deficiency zero, then \(\Pre(\Net)\neq\Mips(\Net^*)\) in all cases.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+For a directed cycle \(\gamma\) in the reaction graph, the indicator vector \(1_\gamma\) lies in \(C(\Net)\), because
+the reaction vectors \(y'-y\) along \(\gamma\) sum to zero. A weakly reversible network is consistent, since the sum
+of such indicators over a cycle cover is positive. (1) Let \(R_a\colon y\to y_1\) and \(R_b\colon y\to y_2\). By weak
+reversibility there is a shortest directed path from \(y_1\) to \(y\). It does not pass through \(y\) before its end,
+so it does not use \(R_b\). Together with \(R_a\) it forms a cycle \(\gamma\) with \((1_\gamma)_a=1\) and
+\((1_\gamma)_b=0\). So \(R_a,R_b\) are not fully coupled, and \zcref{thm:criteria}(1) applies. (2) If some complex
+has two outgoing reactions, use (1). Otherwise every complex has exactly one outgoing reaction, since every complex of
+a weakly reversible network is a source. Each linkage class is strongly connected, so it is a directed cycle of length
+\(\ge2\). With deficiency zero, \(\ker\Gamma\) is the kernel of the incidence map~\autocite{Feinberg2019}. So every
+\(v\in\ker\Gamma\) has equal inflow and outflow at each complex, and all reactions of one cycle are fully coupled.
+This gives a class with at least two elements and no doubling pair, so \zcref{thm:criteria}(3) fails.
+\end{proof}
+
+\section{Counterexamples}
+
+\begin{table}[ht]
+\centering
+\caption{Precise formulations of Conjecture~22, Question~24 and Remark~23, and counterexamples satisfying (H1)--(H3).
+\(\Pre\) denotes preclusters (any of the three constructions, \zcref{lem:variants}). \(\Mips\) denotes MIPS in any
+of the three readings of \zcref{rem:readings}, except where a reading is indicated. \(\Sip\) denotes the minimal
+siphons. The networks are defined in the text. \(T\), \(W\), \(U\) and \(D\) have pairwise linearly independent rows
+of \(\Gamma\), and so do the duals of \(T\), \(U\) and \(D\).}\label{tab:formulations}
+\small
+\begin{tabular}{p{0.6cm}>{\raggedright\arraybackslash}p{7.6cm}>{\raggedright\arraybackslash}p{4.6cm}}
+\hline
+& Formulation & Fails for \\
+\hline
+\multicolumn{3}{l}{\emph{Conjecture 22, species side} (ground set: species of \(\Net\))}\\
+A1 & \(\Pre(\Net^*)=\Mips(\Net)\) & \(R\), \(T\), \(U\); \(F\) (ray, semiflow) \\
+A2 & \(\Pre(\Net^*)\refi\Mips(\Net)\) & \(W^*\), \(U\); \(F\) (ray, semiflow) \\
+A3 & \(\Mips(\Net)\refi\Pre(\Net^*)\) & \(R\), \(T\) \\
+A4 & \(|\Pre(\Net^*)|=|\Mips(\Net)|\) & \(R\), \(T\) \\
+\multicolumn{3}{l}{\emph{Conjecture 22, reaction side} (ground set: reactions of \(\Net\))}\\
+B1 & \(\Pre(\Net)=\Mips(\Net^*)\) & \(R\), \(T\), \(W\), \(N_3\); \(F\) (ray, semiflow); every WR deficiency-0 network (ray) \\
+B2 & \(\Pre(\Net)\refi\Mips(\Net^*)\) & \(W\), \(N_3\); \(F\) (ray, semiflow) \\
+B3 & \(\Mips(\Net^*)\refi\Pre(\Net)\) & \(R\), \(T\), \(N_{4.12}\) \\
+B4 & \(|\Pre(\Net)|=|\Mips(\Net^*)|\) & \(R\), \(T\) \\
+C & \(|\Pre(\Net)|=|\Mips(\Net)|\) (no dualization) & \(R\), \(T\) \\
+\multicolumn{3}{l}{\emph{Question 24}, both sides: \(\Pre(\Net^*)\) vs \(\Sip(\Net)\), and \(\Pre(\Net)\) vs \(\Sip(\Net^*)\)}\\
+Q1 & \(\Pre=\Sip\) & \(T\) \\
+Q2 & every minimal siphon lies in a precluster (\(\Sip\refi\Pre\)) & \(T\) \\
+Q3 & every precluster lies in a minimal siphon (\(\Pre\refi\Sip\)) & \(D\), \(F\) \\
+Q4 & every precluster is a siphon & \(T\) \\
+Q5 & every precluster is a union of minimal siphons & \(T\) \\
+Q6 & \(|\Pre|=|\Sip|\) & \(T\) \\
+\multicolumn{3}{l}{\emph{Remark 23}}\\
+R23 & every internal cycle of \(\Net\) lies in a precluster of \(\Net\) & \(T\), \(N_{4.12}\), \(R\) \\
+\hline
+\end{tabular}
+\end{table}
+
+The networks of \zcref{tab:formulations} are the following. Species are \(X_1,X_2,\dots\), and reactions are numbered
+in the order listed.
+\begin{itemize}
+\item \(R\colon X_1\to X_2,\ X_2\to X_1\).
+\item \(T\colon X_1\to X_2,\ X_2\to X_3,\ X_3\to X_1\), the 3-cycle.
+\item \(W\colon X_1\to X_2,\ X_1\to X_3,\ X_2\to X_1,\ X_3\to X_1\), and its dual
+\(W^*\colon K_1+K_2\to K_3+K_4,\ K_3\to K_1,\ K_4\to K_2\).
+\item \(U\colon X_4\to X_2+X_3,\ X_3+X_4\to X_1,\ X_1+X_2\to2X_4\).
+\item \(D\colon X_1\to X_2,\ X_1\to X_3,\ X_2+X_3\to2X_1\).
+\item \(F\), the one-site futile cycle:
+\(S_0+E\rightleftarrows ES_0\to S_1+E,\ S_1+F\rightleftarrows FS_1\to S_0+F\).
+\item \(N_3\colon 2X_1\rightleftarrows X_1+X_2\to 2X_2\), the running example of the thesis~\autocite{Iosif2019}
+(Examples~1.22, 4.1, 4.5, 4.7).
+\item \(N_{4.12}\colon 2X_1\rightleftarrows X_1+X_2\) (thesis Example~4.12).
+\end{itemize}
+
+\begin{proof}[Proof of \zcref{thm:main}]
+Each entry of \zcref{tab:formulations} is checked by hand below and by exact computation
+(\texttt{certify\_examples.py}, 132 claims). For every network, \(k=\sum_{\text{extreme flux rays}}v\) and
+\(x=(1,\dots,1)\) give a positive steady state, so (H2) holds. Conservativity and (H3) are checked directly.
+
+\emph{\(T\).} \(\Gamma\) has rows \((-1,0,1),(1,-1,0),(0,1,-1)\). They are pairwise linearly independent, and so are
+the columns. \(\ker\Gamma\) and the conservation space are both spanned by \((1,1,1)\). \(T\) is weakly reversible
+with deficiency \(3-1-2=0\), so it is complex balanced and has positive steady states for every
+\(k\)~\autocite{HornJackson1972,Feinberg2019}. The three sources are distinct, so \(G\) has no edge and \(\Pre(T)\)
+consists of singletons. The flux cone is the ray \((1,1,1)\), so all \(n_s\) are equal and \(\Mips(T^*)\) is one
+block. The dual is \(T^*\colon K_1\to K_3\to K_2\to K_1\), again a 3-cycle. So the species side is the same:
+\(\Pre(T^*)\) consists of singletons, while \(\Mips(T)=\{X_1,X_2,X_3\}\). The latter holds in all three readings,
+because \(q=1\) and the only extreme conservation law is \((1,1,1)\). A nonempty siphon containing \(X_i\) must
+contain the source of the reaction producing \(X_i\), so \(\{X_1,X_2,X_3\}\) is the only siphon of \(T\), and likewise
+of \(T^*\). This refutes A1, A3, A4, B1, B3, B4, C, Q1, Q2, Q4, Q5 and Q6. The internal cycle \(\{R_1,R_2,R_3\}\)
+lies in no precluster, which refutes R23.
+
+\emph{\(R\).} The same argument with two species: \(\Pre(R)=\{\{R_1\},\{R_2\}\}\), \(\Mips(R^*)=\{\{R_1,R_2\}\}\),
+and \(R^*\cong R\). No network with fewer species or reactions satisfies (H1) and (H2): with one species, (H1)
+forces \(\Gamma=0\), and with one reaction, (H2) forces its reaction vector to vanish.
+
+\emph{\(W\) and \(W^*\).} The flux cone of \(W\) has extreme rays \((1,0,1,0)\) and \((0,1,0,1)\). So
+\(n_1=n_3=(1,0)\) and \(n_2=n_4=(0,1)\). The doubling pair \(\{R_1,R_2\}\) is not fully coupled, so
+\(\Pre(W)\nrefi\Mips(W^*)\) by \zcref{thm:criteria}(1). Explicitly, \(\Pre(W)\) is one block, while
+\(\Mips(W^*)=\{\{R_1,R_3\},\{R_2,R_4\}\}\) in all three readings. \(W\) is weakly reversible with deficiency zero, and
+its rows of \(\Gamma\) are pairwise linearly independent and its columns distinct. By \zcref{lem:dual}, \(W^*\) satisfies
+(H1)--(H3). Its species side is the reaction side of \(W\), which refutes A2.
+
+\emph{\(U\).} The flux cone is the ray \((1,1,1)\). The extreme conservation laws are \((1,1,0,1)\) and
+\((2,0,1,1)\), so \(w_1=(1,2)\), \(w_2=(1,0)\), \(w_3=(0,1)\) and \(w_4=(1,1)\). These are pairwise non-proportional,
+so \(\Mips(U)\) consists of singletons (the set reading agrees). \(X_1\) and \(X_2\) are twins (both occur only in the
+source \(X_1+X_2\)) and are not conservation-coupled. So \(\Pre(U^*)\nrefi\Mips(U)\) by \zcref{cor:species}(1).
+Indeed \(\spn\{w_1,w_2\}=\R^2\), so \(\Pre(U^*)\) is one block. In the semiflow reading the supports are
+\(\{X_1,X_2,X_4\}\) and \(\{X_1,X_3,X_4\}\), and neither contains all four species. The rows and the columns of
+\(\Gamma(U)\) are pairwise linearly independent, so \(U\) and \(U^*\) satisfy the strongest form of (H3). By
+\zcref{cor:wr}, a counterexample to A2 cannot be weakly reversible.
+
+\emph{\(D\).} The flux cone is the ray \((1,1,1)\) and the only conservation law is \(X_1+X_2+X_3\). So the doubling
+pair \(\{R_1,R_2\}\) and the twins \(X_2,X_3\) are coupled, and \(\Pre(D)=\Mips(D^*)\) and \(\Pre(D^*)=\Mips(D)\) are
+the one-block partitions (\zcref{thm:criteria}(3)). The two equalities of Conjecture~22 hold for \(D\). The dual
+\(D^*\colon K_1+K_2\to2K_3,\ K_3\to K_1,\ K_3\to K_2\) is isomorphic to \(D\). The minimal siphons of \(D\) are
+\(\{X_1,X_2\}\) and \(\{X_1,X_3\}\): \(\{X_1\}\) is not a siphon because \(X_1\) is produced from \(X_2+X_3\), and
+\(\{X_2\}\), \(\{X_3\}\) are not siphons because they are produced from \(X_1\). The single precluster lies in neither,
+which refutes Q3 on both sides. The rows and the columns of \(\Gamma(D)\) are pairwise linearly independent.
+
+\emph{\(F\).} Order the species \(S_0,S_1,E,F,ES_0,FS_1\) and the reactions as written. The extreme flux rays are
+\(R_1+R_2\), \(R_4+R_5\) and \(R_1+R_3+R_4+R_6\). The extreme conservation laws are \(E+ES_0\), \(F+FS_1\) and
+\(S_0+S_1+ES_0+FS_1\). The doubling pairs are \(\{R_2,R_3\}\) and \(\{R_5,R_6\}\), and neither is fully coupled. The
+only fully coupled pair is \(\{R_3,R_6\}\). So \(\Pre(F)\) is one block, while
+\(\Mips(F^*)=\{\{R_3,R_6\},\{R_1\},\{R_2\},\{R_4\},\{R_5\}\}\). The twins are \((S_0,E)\) and \((S_1,F)\), and they are
+not conservation-coupled. So \(\Pre(F^*)\) is one block, while \(\Mips(F)=\{\{S_0,S_1\},\{E\},\{F\},\{ES_0\},\{FS_1\}\}\).
+In the semiflow reading the supports are those of the three conservation laws, and none contains all species.
+Likewise, on the reaction side no internal cycle of \(F\) contains all reactions. The minimal siphons of \(F\) are \(\{E,ES_0\}\), \(\{F,FS_1\}\) and \(\{S_0,S_1,ES_0,FS_1\}\). Those of \(F^*\) are
+\(\{R_1,R_2\}\), \(\{R_4,R_5\}\) and \(\{R_1,R_3,R_4,R_6\}\). In both cases the single precluster lies in no minimal
+siphon, which refutes Q3.
+
+\emph{\(N_3\) and \(N_{4.12}\).} For \(N_3\) the internal cycles are \(\{R_1,R_2\}\) and \(\{R_2,R_3\}\) (thesis
+Example~1.22). So \(n_1=(1,0)\), \(n_2=(1,1)\), \(n_3=(0,1)\), and the doubling pair \(\{R_2,R_3\}\) is not fully
+coupled. Hence \(\Pre(N_3)=\{\{R_1,R_2,R_3\}\}\) (thesis Example~4.5), while \(\Mips(N_3^*)\) consists of singletons
+(also in the set reading; in the semiflow reading it consists of the two internal cycles, neither of which contains
+all three reactions).
+For \(N_{4.12}\) the thesis finds the preclusters \(\{R_1\},\{R_2\}\). The flux cone is the ray \((1,1)\), so
+\(\Mips(N_{4.12}^*)=\{\{R_1,R_2\}\}\), and the internal cycle \(\{R_1,R_2\}\) lies in no precluster, although
+\(N_{4.12}\) has positive steady states for all \(k\). Both networks satisfy (H1)--(H3).
+
+The entry ``every WR deficiency-0 network'' for B1 is \zcref{cor:wrB}(2). The entries \(U\) for A1 and \(W\),
+\(N_3\) for B1 follow from the failures of A2 and B2, since equality implies refinement.
+\end{proof}
+
+\begin{remark}
+In Example~25 of~\autocite{Iosif2026}, \(\Net^*\) has the single precluster \(\{x_1,x_2,x_3,x_4\}\), while the
+MIPS of \(\Net\) are \(\{x_1,x_3\}\) and \(\{x_2,x_4\}\). This already contradicts A1 and A2, but that network has no positive
+steady state (\(\dot x_2=k_1x_3x_4\)), so it lies outside Conjecture~22. The counterexamples above lie inside. The
+diagram at the end of §3 of~\autocite{Iosif2026} also links ``internal cycles'' and ``MIPS'' by an arrow labelled
+``dual''. For \(F\), the internal cycles of \(F^*\) are the supports of the conservation laws above, which differ from
+the ray-reading MIPS of \(F\).
+\end{remark}
+
+\begin{remark}[clusters]
+The thesis also defines \emph{clusters}~\autocite{Iosif2019} (Definition~4.6), which depend on the rate constants.
+Every precluster lies in a cluster. The 2024 talk~\autocite{Iosif2024talk} conjectures that siphons and clusters are
+dual. The cluster version of B1 fails as well. For \(N_3\) with \(k_2>k_3\), the thesis finds the single cluster
+\(\{R_1,R_2,R_3\}\) (Example~4.7), while no two reactions of \(N_3\) are fully coupled.
+\end{remark}
+
+\begin{table}[ht]
+\centering
+\caption{Standard motifs (all satisfy (H1)--(H3); \texttt{motifs.py}). ``\(\Pre\prec\Mips\)'' means strict
+refinement.}\label{tab:motifs}
+\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{4.9cm}>{\raggedright\arraybackslash}p{4.9cm}}
+\hline
+Network & reaction side: \(\Pre(\Net)\) vs \(\Mips(\Net^*)\) & species side: \(\Pre(\Net^*)\) vs \(\Mips(\Net)\) \\
+\hline
+\(E+S\rightleftarrows ES\rightleftarrows E+P\) & \(\Mips\prec\Pre=\{\text{all}\}\) & \(\Pre=\text{singletons}\prec\Mips\ni\{S,P\}\) \\
+one-site futile cycle \(F\) & \(\Mips\prec\Pre=\{\text{all}\}\) & \(\Mips\prec\Pre=\{\text{all}\}\) \\
+two-site distributive phosphorylation (9 species, 12 reactions) & \(\Mips\prec\Pre\): 2 preclusters (the \(E\)- and \(F\)-steps \(S_0\leftrightarrow S_1\) together, and \(S_1\leftrightarrow S_2\) together); coupled pairs \(\{R_3,R_{12}\},\{R_6,R_9\}\) & \(\Pre=\text{singletons}\prec\Mips\); MIPS \(\{S_0,S_1,S_2\}\), \(\{ES_0,ES_1\}\), \(\{FS_2,FS_1\}\), \(\{E\}\), \(\{F\}\) \\
+thesis network \(G\): \(3X_1\rightleftarrows 2X_1+X_2\), \(X_1+X_2\to2X_2\), \(X_2\to X_1\) & \(\Pre=\Mips=\text{singletons}\) & \(\Pre=\text{singletons}\prec\Mips=\{\{X_1,X_2\}\}\) \\
+\(2A\to2B\to A+C\to2A\) & \(\Pre=\text{singletons}\prec\Mips\) & \(\Pre=\text{singletons}\prec\Mips\) \\
+\hline
+\end{tabular}
+\end{table}
+
+\zcref{tab:motifs} shows that the failures are generic. On standard motifs, the preclusters are strictly coarser
+than the MIPS on one side of the duality and strictly finer on the other, or strictly coarser on both sides (the futile
+cycle). Equality occurred only for network \(G\), where both partitions consist of singletons.
+
+\section{Exhaustive check on small networks}
+
+\texttt{enumerate\_small.py} lists every network, up to permutation of species, with distinct reactions between
+nonzero complexes. A conservative network has no zero complex. Every species must occur. The families are: two
+species, molecularity \(\le2\), \(r\le5\); three species, molecularity \(\le2\), \(r\le4\); three species, molecularity
+\(\le3\), \(r\le3\); four species, molecularity \(\le1\), all \(r\); four species, molecularity \(\le2\), \(r\le3\).
+For the 15\,513 networks that satisfy (H1)--(H3), the script computes both sides of the duality, the three precluster
+constructions, the three MIPS readings (the set reading when \(q\le2\)), the minimal siphons and the internal cycles,
+all in exact rational arithmetic.
+
+The results are as follows. The three precluster constructions never differ (\zcref{lem:variants}). The criteria of
+\zcref{thm:criteria} and \zcref{cor:species} agree with the direct computation on every network, on both sides and for
+every construction. Every formulation of \zcref{tab:formulations} fails for some network. \zcref{tab:enum} gives the
+counts.
+
+\begin{table}[ht]
+\centering
+\caption{Number of networks (out of those satisfying (H1)--(H3)) for which a formulation holds, ray reading, summed
+over the five families (\texttt{certificates/enumeration\_summary.log}). ``Strong'': rows and columns of \(\Gamma\)
+pairwise linearly independent. ``WR'': weakly reversible. ``WR0'': weakly reversible with deficiency zero.}\label{tab:enum}
+\small
+\begin{tabular}{p{6.6cm}rrrr}
+\hline
+Formulation & all & strong & WR & WR0 \\
+\hline
+networks satisfying (H1)--(H3) & 15\,513 & 11\,121 & 339 & 304 \\
+A1 \(\Pre(\Net^*)=\Mips(\Net)\) & 428 & 338 & 3 & 3 \\
+A2 \(\Pre(\Net^*)\refi\Mips(\Net)\) & 15\,380 & 11\,118 & 339 & 304 \\
+A3 \(\Mips(\Net)\refi\Pre(\Net^*)\) & 561 & 341 & 3 & 3 \\
+B1 \(\Pre(\Net)=\Mips(\Net^*)\) & 2\,532 & 1\,278 & 10 & 0 \\
+B2 \(\Pre(\Net)\refi\Mips(\Net^*)\) & 13\,833 & 10\,757 & 201 & 174 \\
+B3 \(\Mips(\Net^*)\refi\Pre(\Net)\) & 4\,211 & 1\,642 & 147 & 129 \\
+Q1 \(\Pre(\Net^*)=\Sip(\Net)\) & 126 & 97 & 0 & 0 \\
+Q3 \(\Pre(\Net^*)\refi\Sip(\Net)\) & 7\,809 & 5\,517 & 229 & 204 \\
+R23 internal cycles \(\refi\Pre(\Net)\) & 2\,346 & 1\,157 & 59 & 59 \\
+\hline
+\end{tabular}
+\end{table}
+
+The pattern matches the corollaries. A2 never fails for weakly reversible networks (\zcref{cor:wr}). B1 never holds
+for weakly reversible deficiency-zero networks (\zcref{cor:wrB}). A1 holds for a weakly reversible network exactly
+when \(\Mips(\Net)\) consists of singletons.
+
+\section{What is settled and what remains open}
+
+\paragraph{Settled.} The conjecture is false under every reading of ``duality relation'' as an equality, a refinement
+in either direction, or an equality of cardinalities between the precluster partition and the MIPS partition, on
+either side of the network duality and for every reading of MIPS. This includes the reading by analogy with
+Theorem~21, \(\Pre(\Net^*)=\Mips(\Net)\) or \(\Pre(\Net)=\Mips(\Net^*)\), which we consider the most plausible.
+\zcref{thm:criteria} and \zcref{cor:species} determine exactly the networks for which these relations hold. The six
+siphon relations of Question~24 fail as well, and so does the claim of Remark~23.
+
+\paragraph{Open.} (i) Conjecture~22 does not define ``duality relation''. A relation of a different kind (for
+instance a Galois correspondence that is not a refinement) is not excluded by our counterexamples. Any relation that
+forces a bijection between blocks, or a refinement, is excluded. (ii) We did not study the rate-dependent clusters of
+the thesis beyond the remark on \(N_3\). (iii) The paper motivates the conjecture by a possible new case of the Global
+Attractor Conjecture in small codimension (§3 of~\autocite{Iosif2026}). We have no result on that.
+
+\paragraph{Limitations.} Our reading of Definition~17 (\zcref{prop:mips}) quantifies over all \(c\in Q\), including
+values on the boundary of chambers. This is the reading under which Remark~18 holds. The counterexamples were checked
+under the other two readings as well. The paper defines preclusters only through Definition~19. We used the thesis
+for the iterated version and for the examples \(N_3\) and \(N_{4.12}\). The paper of Conradi and
+Flockerzi~\autocite{ConradiFlockerzi2012}, where clusters originate, was not consulted. No verification has been carried
+out yet.
+
+\section{Computer verification}
+
+All scripts are in \texttt{scripts/}. They use only the Python standard library and exact rational arithmetic
+(\texttt{fractions.Fraction}), print PASS/FAIL per claim, and exit with a nonzero status on failure. Logs are in
+\texttt{certificates/}. They were run under Python~3.12 on Fedora~44 (WSL).
+\begin{itemize}
+\item \texttt{crn.py}: the library. It computes extreme rays of the flux and conservation cones by minimal supports
+(a support \(S\) is extreme if and only if the kernel restricted to \(S\) is one-dimensional and spanned by a vector of
+constant sign with support \(S\)), the dual network, siphons by exhaustive search, the three precluster constructions,
+the three MIPS readings (the set reading via exact vertex supports of \(P_c\) for representatives of every cell of the
+chamber decomposition when \(q\le2\)), and the hypotheses.
+\item \texttt{certify\_examples.py}: 132 claims. These include consistency with Examples~15 and~25 of the paper and
+Examples~1.22, 4.1, 4.5 and 4.12 of the thesis, every entry of \zcref{tab:formulations}, and an explicit positive
+steady state for each counterexample. Under 1~s.
+\item \texttt{motifs.py}: \zcref{tab:motifs}. Under 10~s.
+\item \texttt{enumerate\_small.py}: the enumeration of §4, with the check of \zcref{thm:criteria} and
+\zcref{cor:species} (PASS on all 15\,513 networks). It takes 5~s to 75~s per family on 12 cores.
+\item \texttt{summarize\_enumeration.py}: \zcref{tab:enum}, and the check that every formulation fails at least once.
+\end{itemize}
+
+\paperreferences
+\end{document}

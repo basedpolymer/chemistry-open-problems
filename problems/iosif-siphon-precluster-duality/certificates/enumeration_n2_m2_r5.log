@@ -1,0 +1,89 @@
+# enumerate_small.py n=2 species, molecularity <= 2, r <= 5 reactions; 5 nonzero complexes, 20 possible reactions
+# classes:
+#   all          100  (H: conservative, consistent, rows of Gamma distinct)
+#   strong         0  (H + rows and columns of Gamma pairwise linearly independent)
+#   dualH         29  (H + columns of Gamma distinct (so N* also satisfies H))
+#   wr            16  (H + weakly reversible)
+#   wr_def0        4  (H + weakly reversible + deficiency zero)
+# conservative + consistent networks excluded only by equal rows of Gamma: 0
+# A_set_differs_from_ray: 0
+# A_set_reading_computed: 100
+# A_variants_differ: 0
+# B_set_differs_from_ray: 24
+# B_set_reading_computed: 35
+# B_variants_differ: 0
+#
+# statement (side|precluster variant|MIPS reading|relation): holds/total per class
+# the three precluster variants give identical statistics: True
+statement                                            all          strong           dualH              wr         wr_def0
+A|MIPS_are_siphons                               100/100             0/0           29/29           16/16             4/4
+A|S<=MIPS                                        100/100             0/0           29/29           16/16             4/4
+A|thesis|#P=#S                                     0/100             0/0            0/29            0/16             0/4
+A|thesis|C<=P                                      1/100             0/0            1/29            0/16             0/4
+A|thesis|P<=S                                     85/100             0/0           22/29           15/16             3/4
+A|thesis|P=S                                       0/100             0/0            0/29            0/16             0/4
+A|thesis|P_blocks_siphons                          1/100             0/0            1/29            0/16             0/4
+A|thesis|P_blocks_unions_of_S                      1/100             0/0            1/29            0/16             0/4
+A|thesis|S<=P                                     15/100             0/0            7/29            1/16             1/4
+A|thesis|ray|#P=#M                                 1/100             0/0            1/29            0/16             0/4
+A|thesis|ray|M<=P                                  1/100             0/0            1/29            0/16             0/4
+A|thesis|ray|P<=M                                100/100             0/0           29/29           16/16             4/4
+A|thesis|ray|P=M                                   1/100             0/0            1/29            0/16             0/4
+A|thesis|semiflow|#P=#M                            1/100             0/0            1/29            0/16             0/4
+A|thesis|semiflow|M<=P                             1/100             0/0            1/29            0/16             0/4
+A|thesis|semiflow|P<=M                           100/100             0/0           29/29           16/16             4/4
+A|thesis|semiflow|P=M                              1/100             0/0            1/29            0/16             0/4
+A|thesis|set|#P=#M                                 1/100             0/0            1/29            0/16             0/4
+A|thesis|set|M<=P                                  1/100             0/0            1/29            0/16             0/4
+A|thesis|set|P<=M                                100/100             0/0           29/29           16/16             4/4
+A|thesis|set|P=M                                   1/100             0/0            1/29            0/16             0/4
+B|MIPS_are_siphons                                11/100             0/0           11/29            4/16             4/4
+B|S<=MIPS                                         22/100             0/0           14/29            4/16             4/4
+B|thesis|#P=#S                                    36/100             0/0            4/29            7/16             0/4
+B|thesis|C<=P                                      8/100             0/0            6/29            0/16             0/4
+B|thesis|P<=S                                     41/100             0/0           15/29            7/16             3/4
+B|thesis|P=S                                       0/100             0/0            0/29            0/16             0/4
+B|thesis|P_blocks_siphons                          8/100             0/0            6/29            0/16             0/4
+B|thesis|P_blocks_unions_of_S                      4/100             0/0            4/29            0/16             0/4
+B|thesis|S<=P                                     18/100             0/0           10/29            1/16             1/4
+B|thesis|ray|#P=#M                                37/100             0/0           10/29            4/16             0/4
+B|thesis|ray|M<=P                                 90/100             0/0           19/29           12/16             0/4
+B|thesis|ray|P<=M                                 47/100             0/0           20/29            8/16             4/4
+B|thesis|ray|P=M                                  37/100             0/0           10/29            4/16             0/4
+B|thesis|semiflow|#P=#M                           22/100             0/0            3/29            3/16             0/4
+B|thesis|semiflow|M<=P                             8/100             0/0            6/29            0/16             0/4
+B|thesis|semiflow|P<=M                            61/100             0/0           21/29           10/16             4/4
+B|thesis|semiflow|P=M                              1/100             0/0            1/29            0/16             0/4
+B|thesis|set|#P=#M                                  1/35             0/0            1/23             0/5             0/4
+B|thesis|set|M<=P                                   8/35             0/0            6/23             0/5             0/4
+B|thesis|set|P<=M                                  28/35             0/0           18/23             5/5             4/4
+B|thesis|set|P=M                                    1/35             0/0            1/23             0/5             0/4
+same-network|#P(N)=#M(N)                           8/100             0/0            6/29            0/16             0/4
+#
+# smallest failing network per statement (class 'all'; thesis variant and ray reading shown)
+A|thesis|#P=#S                           X2 -> X1, X1 -> X2
+A|thesis|C<=P                            X2 -> X1, X1 -> X2
+A|thesis|P<=S                            X2 -> X1, X1 + X2 -> 2X2
+A|thesis|P=S                             X2 -> X1, X1 -> X2
+A|thesis|P_blocks_siphons                X2 -> X1, X1 -> X2
+A|thesis|P_blocks_unions_of_S            X2 -> X1, X1 -> X2
+A|thesis|S<=P                            X2 -> X1, X1 -> X2
+A|thesis|ray|#P=#M                       X2 -> X1, X1 -> X2
+A|thesis|ray|M<=P                        X2 -> X1, X1 -> X2
+A|thesis|ray|P=M                         X2 -> X1, X1 -> X2
+B|MIPS_are_siphons                       X2 -> X1, 2X2 -> X1 + X2, X1 -> X2
+B|S<=MIPS                                X2 -> X1, 2X2 -> X1 + X2, X1 -> X2
+B|thesis|#P=#S                           X2 -> X1, X1 -> X2
+B|thesis|C<=P                            X2 -> X1, X1 -> X2
+B|thesis|P<=S                            X2 -> X1, X1 + X2 -> 2X2
+B|thesis|P=S                             X2 -> X1, X1 -> X2
+B|thesis|P_blocks_siphons                X2 -> X1, X1 -> X2
+B|thesis|P_blocks_unions_of_S            X2 -> X1, X1 -> X2
+B|thesis|S<=P                            X2 -> X1, X1 -> X2
+B|thesis|ray|#P=#M                       X2 -> X1, X1 -> X2
+B|thesis|ray|M<=P                        X2 -> X1, X1 -> X2
+B|thesis|ray|P<=M                        X2 -> X1, X1 + X2 -> 2X2, X1 + X2 -> 2X1
+B|thesis|ray|P=M                         X2 -> X1, X1 -> X2
+same-network|#P(N)=#M(N)                 X2 -> X1, X1 -> X2
+PASS: criteria of Theorem 3 agree with the direct computation on all 100 networks (both sides, three precluster variants)
+# runtime 6.6 s

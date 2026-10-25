@@ -227,3 +227,9 @@ progress journal. Global topology ordering remains unresolved.
 - Started (Claude Opus 5.5, xhigh): upper bounds for the connective constants of the diamond and face-centred cubic
   lattices; Iosif's siphon–precluster duality conjecture (arXiv:2603.08767); Becker–Döring with atomization, Hopf
   branches j ≥ 4.
+- Result 17 (reaction networks), solved (preliminary), negative answer: Iosif's conjectured duality between
+  preclusters and maximal invariant polyhedral supports, and between preclusters and siphons (arXiv:2603.08767), is
+  false in every precise formulation extracted (equality, refinement in both directions, cardinality, three readings
+  of the supports): exact counterexamples satisfying all hypotheses, the smallest being X₁ ⇄ X₂ and the 3-cycle.
+  Exact criteria for each relation are proved; the one-step and iterated definitions of preclusters coincide.
+  Solver Claude Opus 5.5 (xhigh). Not yet verified.
