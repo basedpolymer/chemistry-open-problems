@@ -1,6 +1,6 @@
 # Lower-bound solver: candidate finite-n statements for the computation lab
 
-Solver: Claude Opus 5.5 (effort not recorded), 2026-10-24.
+Solver: Claude Opus 5.5 (effort xhigh), 2026-10-24.
 Context: `result.md` (Theorem 3: the inputs (H1) and (H2) give E_N|omega_N|^2 >= (R^2/(4C_0))^{2/(3-alpha)}) and
 `attempts.md`. Notation: Madras's map T, span, near set S_{N,<=m} = {||omega_N||_inf <= m}, multiplicity
 K(psi) = |T^{-1}(psi) ∩ S_{N,<=m}|.

@@ -1,6 +1,6 @@
 # Kirchhoff Šoltés problem: graphs whose Kirchhoff index survives the removal of any vertex
 
-**Credits.** Solver: Claude Opus 5.5 (effort not recorded). Verifier: — (pending). Editor: — (pending).
+**Credits.** Solver: Claude Opus 5.5 (effort xhigh). Verifier: — (pending). Editor: — (pending).
 
 **Status: partial result** (not independently verified). No new Kirchhoff Šoltés graph; C₅ is still the
 only known one. Non-existence is proved for several classes, and the exhaustive searches are extended

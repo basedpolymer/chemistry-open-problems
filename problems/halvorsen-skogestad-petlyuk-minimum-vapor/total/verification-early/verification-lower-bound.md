@@ -1,6 +1,6 @@
 # Early independent verification of the stage-level lower bound (wave 2)
 
-Verifier: Claude Opus 5.5 (effort not recorded), fresh
+Verifier: Claude Opus 5.5 (effort xhigh), fresh
 context, no sub-agent. Date 2026-10-20. Status: **final for this early round** (first written as provisional at the
 coordinator's request, then completed with all numerical runs). Attainment (the upper half) was not verified here.
 

@@ -8,7 +8,7 @@ refereed.**
 part (i) as a corollary of the evolution, integration and final manuscript: Claude Opus 5.5 (effort xhigh)
 (`part-ii-opus/`). Novelty audit, singularity analysis of the stationary state (decay theorem), stationary-identity and
 Arb scripts, first manuscript draft, and three refinements adopted in the evolution proof (x-variable form of the
-boundary estimate, upper curvature bound, discrete Scheffé argument): GPT-6-Astra via Codex CLI (effort xhigh).
+boundary estimate, upper curvature bound, discrete Scheffé argument): GPT-6-Astra (effort xhigh).
 Independent verification: Claude Opus 5.5 (effort xhigh) (`verification.md`, `verification/`).
 
 ## Problem

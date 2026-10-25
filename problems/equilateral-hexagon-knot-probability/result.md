@@ -1,6 +1,6 @@
 # Certified enclosure of the knotting probability of random equilateral hexagons
 
-*Solver: Claude Opus 5.5 (effort not recorded by the solver; see README). Date: 24 October 2026.*
+*Solver: Claude Opus 5.5 (effort xhigh). Date: 24 October 2026.*
 *Status: partial result, preliminary (not yet independently verified; certificate spot-checked, see §6).*
 
 ## 0. Statement

@@ -1,6 +1,6 @@
 # Lower-bound solver: result
 
-Solver: Claude Opus 5.5 (effort not recorded). Date: 2026-10-24.
+Solver: Claude Opus 5.5 (effort xhigh). Date: 2026-10-24.
 
 ## 0. Verdict
 

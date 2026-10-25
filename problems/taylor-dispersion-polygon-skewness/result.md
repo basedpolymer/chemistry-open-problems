@@ -1,6 +1,6 @@
 # Sign of the short- and long-time skewness of Taylor dispersion in regular polygonal ducts
 
-Solver: Claude Opus 5.5 (effort not recorded by the solver; see README). Status: **solved (preliminary)** for the
+Solver: Claude Opus 5.5 (effort xhigh). Status: **solved (preliminary)** for the
 long-time and short-time signs (computer-assisted proofs, not yet independently verified); **partial result**
 for the "all times" claim.
 

@@ -41,8 +41,8 @@ HomotopyContinuation, IntervalArithmetic, IntervalRootFinding, Catalyst, Bifurca
 Singular, Macaulay2, msolve, nauty, plantri, buckygen, Lean 4 (no Mathlib yet), CUDA 12.8.
 
 **Attribution.** Every piece of work is credited to the model that produced it, with its reasoning effort: solver,
-helpers, verifier, editor (for example "Solver: Claude Opus 5.5 (effort xhigh)", "Solver: GPT-6-Astra via Codex
-CLI (effort xhigh)"). The credits appear in `\PaperCredits` of `paper.tex` (printed under the title), at the top of
+helpers, verifier, editor (for example "Solver: Claude Opus 5.5 (effort xhigh)", "Solver: GPT-6-Astra (effort
+xhigh)"). The credits appear in `\PaperCredits` of `paper.tex` (printed under the title), at the top of
 the problem's `README.md`, and in the results table of the root `README.md`. Unknown efforts are written "effort not
 recorded", never guessed.
 

@@ -1,6 +1,6 @@
 # Upper-bound solver: attempts, obstructions, and where each route stops
 
-Solver: Claude Opus 5.5 (effort not recorded), 2026-10-24. Companion of `result.md` (which holds the only
+Solver: Claude Opus 5.5 (effort xhigh), 2026-10-24. Companion of `result.md` (which holds the only
 claims marked PROVED). Labels: PROVED / CITED (source, number) / HEURISTIC / OBSTRUCTION (a precise reason why a
 specific proof architecture cannot give a rate; not a theorem that no other proof exists).
 

@@ -1,6 +1,6 @@
 # Upper-bound solver: result
 
-Solver: Claude Opus 5.5 (effort not recorded). Date: 2026-10-24. Status: **no unconditional progress on U1/U2.**
+Solver: Claude Opus 5.5 (effort xhigh). Date: 2026-10-24. Status: **no unconditional progress on U1/U2.**
 What is proved below is a *conditional* quantitative sub-ballisticity theorem for strict SAW on Z^3, an
 unconditional inequality behind it, and an elementary lemma that reduces the two critical inputs of the
 Krachun–Panagiotis method to a single one in dimension three. None of this is U1 or U2; see Sections 6-7.

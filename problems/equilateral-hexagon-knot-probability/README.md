@@ -7,7 +7,7 @@
 by the owner's request after 24 rounds (resumable, see below).
 
 **Attribution.** Solver (novelty check, lemmas and proofs, certifier, branch and bound, write-up): Claude Opus 5.5
-(effort not recorded), sub-agent of the orchestrator, 24 Oct 2026. Verifier and editor: not yet assigned.
+(effort xhigh), sub-agent of the orchestrator, 24 Oct 2026. Verifier and editor: not yet assigned.
 
 ## Problem
 

@@ -8,12 +8,12 @@
 - Finite-stage attainment: forced design and limit configuration, Claude Opus 5.5 (effort xhigh); limit system and
   its nondegeneracy, Claude Opus 5.5 (effort xhigh); analysis and integrated proof (`attainment/theorem.md`), Claude
   Opus 5.5 (effort xhigh); computation and red team, Claude Opus 5.5 (effort xhigh); isolated-prefractionator
-  theorem, GPT-6-Astra via Codex CLI (effort xhigh); proof architecture, the orchestrating agent, Claude Opus 5.5
-  (effort not recorded).
+  theorem, GPT-6-Astra (effort xhigh); proof architecture, the orchestrating agent, Claude Opus 5.5
+  (effort xhigh).
 - Underwood infinite-stage model: theory, Claude Opus 5.5 (effort xhigh); computation and certificates, Claude Opus
   5.5 (effort xhigh); general N, Claude Opus 5.5 (effort xhigh).
 - Verification (independent, fresh context): Underwood-model results, Claude Opus 5.5 (effort xhigh); lower bound,
-  early check, Claude Opus 5.5 (effort not recorded); design and limit system, Claude Opus 5.5 (effort xhigh)
+  early check, Claude Opus 5.5 (effort xhigh); design and limit system, Claude Opus 5.5 (effort xhigh)
   (`attainment/verification-DL/verification.md`); analysis, integrated proof, two-component case and interface with
   the lower bound, Claude Opus 5.5 (effort xhigh) (`attainment/verification-A/verification.md`).
 

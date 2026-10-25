@@ -1,4 +1,4 @@
-**Attribution.** Solver: Claude Opus 5.5 (effort not recorded), sub-agent of the orchestrator. Builds on result 8
+**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. Builds on result 8
 (`../README.md`; solver, editor and verifier credited there). Independent verification of this extension: pending.
 
 # Becker–Döring with atomization: Hopf criticality for every M (extension of result 8)

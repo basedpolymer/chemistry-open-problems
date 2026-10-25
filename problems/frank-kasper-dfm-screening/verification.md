@@ -3,7 +3,7 @@
 **Global verdict: INCONCLUSIVE.** The requested global ordering of topology
 infima has not been proved or refuted. The numerical screen favours σ.
 
-This is a **same-agent audit**, by Codex (GPT-6; effort not recorded), with
+This is a **same-agent audit**, by GPT-6-Astra (OpenAI; effort not recorded), with
 separate integration and geometric verification code. It is not the fresh,
 independent review defined in the repository protocol. The owner explicitly
 requested no sub-agents, and none were used during the continuation.

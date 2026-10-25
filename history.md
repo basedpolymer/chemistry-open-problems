@@ -7,7 +7,7 @@
   subfamily classification for the Banaji–Boros–Hofbauer example; rigorous Arb certificate and a 10-reaction
   integer-rate network for Craciun–Erban. The n = 3 case of result 1, the Dulac function of result 2 and the
   17-reaction network of result 3 come from the exploration phase of 17 October 2026.
-- Result 4 (polymer physics): DGH charged di-block polymer, solved by GPT-6-Astra (Codex CLI).
+- Result 4 (polymer physics): DGH charged di-block polymer, solved by GPT-6-Astra.
 - Result 5 (reaction networks): Boros–Hofbauer four-limit-cycle conjecture proved (focal values + Krawczyk, and
   validated Taylor integration of the return map), solver sub-agent Claude Opus 5.5 (xhigh).
 - Result 6 (chemical engineering): Jäschke–Skogestad temperature conjecture disproved for M_j ≥ 3 and corrected
@@ -57,7 +57,7 @@
 - Result 10 (combustion theory): the Korman–Li–Ouyang conjecture on the perturbed Gelfand equation in the unit
   disk is proved: a unique eps_0 = 0.2421061655952..., exactly S-shaped curve below, monotone above. Du–Lou change of
   variables (eps becomes a stopping level), analytic Wronskian argument for small amplitudes, Arb cover of a compact
-  interval, Du–Lou/KLO qualitative theorems for the tail. Solver GPT-6-Astra via Codex CLI (xhigh), two runs.
+  interval, Du–Lou/KLO qualitative theorems for the tail. Solver GPT-6-Astra (xhigh), two runs.
   Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS, with an independent Julia cover;
   the published estimate eps_0 ~ 0.2385 of KLO is wrong for the disk (close to the 3D value 0.2388).
 
@@ -68,7 +68,7 @@
   Bernstein transform has zeroth-order coefficient 1/τ(x), τ = 2 tanh(x/2), so Van's half-slope invariant transfers
   to the discrete setting; global classical solutions by characteristics for every mass 0 < m ≤ 1 without a second
   moment, comparison with positive truncations, part (i) through the triangular fixed-mass system. Solver Claude
-  Opus 5.5 (xhigh); novelty audit, singularity analysis and first draft GPT-6-Astra via Codex CLI (xhigh).
+  Opus 5.5 (xhigh); novelty audit, singularity analysis and first draft GPT-6-Astra (xhigh).
   Independently verified (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS (scope of the Conjecture 1
   consequence stated precisely, a citation fixed, the long-time numerical check repaired: 59 PASS).
 - Result 12 (chemical engineering): the Halvorsen–Skogestad conjecture (2003) proved for every number of
@@ -98,7 +98,7 @@
 ## 24 October 2026
 
 All entries of this day are preliminary: no independent verifier has checked them yet. Agents: Claude Opus 5.5
-sub-agents of the orchestrator (effort not recorded); credits per problem in each folder.
+sub-agents of the orchestrator (effort xhigh); credits per problem in each folder.
 
 - Swelling exponent of self-avoiding walks on Z^3 (owner's selection of 22 October): first wave of four agents
   (literature, lower bound, upper bound, computation lab). Literature: no rung beyond Madras 2014
@@ -136,7 +136,7 @@ sub-agents of the orchestrator (effort not recorded); credits per problem in eac
 
 ### Frank–Kasper continuation at the owner's request
 
-Codex (GPT-6; effort not recorded), one agent, no sub-agents. Restored the
+GPT-6-Astra (OpenAI; effort not recorded), one agent, no sub-agents. Restored the
 Zenodo catalogue (MD5 verified) and read the 2010/2012 articles plus the PNAS
 main article supplied by the owner. The PNAS SI was subsequently retrieved
 via Europe PMC; all twelve unconstrained DFM energies and caption ratios
@@ -161,7 +161,7 @@ agree with the preprint inputs.
 
 ### Frank–Kasper continuation, 25 October 2026
 
-Codex (GPT-6; effort not recorded), without sub-agents. Derived a uniform
+GPT-6-Astra (OpenAI; effort not recorded), without sub-agents. Derived a uniform
 DFM lower bound F > 1.00000025 using a quantitative moment defect and the
 Kepler packing theorem, with exact rational constants. The fully reproduced
 elementary Blichfeldt argument gives F > 1.000000004. These bounds are uniform
@@ -177,7 +177,7 @@ fresh independent review remains pending and global σ optimality is unproved.
 
 ### Frank–Kasper: topology-wide bounds and auxiliary-apex witnesses, 25 October 2026
 
-Codex (GPT-6; effort not recorded), without sub-agents. Constructed and
+GPT-6-Astra (OpenAI; effort not recorded), without sub-agents. Constructed and
 exactly checked linear divergence fields for all 121 topology classes,
 covering all internal shapes and box strains; 34 improve the uniform
 bound. Proved that this construction, with the separate ball-moment bound,
@@ -192,3 +192,15 @@ counterexamples to necessity of that diagnostic. Corrected its documentation.
 Added four linear-calibration tests and three barrier/centroid tests; the
 existing six audit tests still pass. Updated manuscript, READMEs, audit and
 progress journal. Global topology ordering remains unresolved.
+
+## 25 October 2026
+
+- Credits corrected at the owner's request: the Codex model of the Frank–Kasper continuation and of the Brownian
+  coagulation selection is GPT-6-Astra (previously written "GPT-6"), and the Claude Opus 5.5 agents of 24 October
+  ran at effort xhigh (previously "effort not recorded"). Mentions of the Codex CLI dropped from the credits.
+- Root README: the Status column now links to each manuscript (or to the result file when there is no manuscript
+  yet) and gives the date of the result; new sections for the work in progress and for candidate problems.
+- Started (Claude Opus 5.5, xhigh): bimolecular (2, 4, 2) networks with several stable equilibria
+  (Banaji–Boros–Hofbauer, Nonlinear Dyn. 2024), VIPR check of the unbalanced10 closure, infinite families of
+  β-Kirchhoff Šoltés graphs (Gottwald–Majstorović Ergotić–Došlić 2026, Problem 4); independent verification of
+  result 13.

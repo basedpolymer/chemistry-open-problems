@@ -10,9 +10,9 @@ the competing topology infima. Five certified witnesses lie below numbers printe
 catalogue infimum is **1.00000025 ≤ inf 𝓕 ≤ 1.068575909**. The lower bound is uniform even when cell volumes
 or box shapes degenerate, but remains far below σ. A complete proof of σ's optimality has not been obtained.
 
-**Attribution.** Method, code, runs, certificates and write-up: Claude Opus 5.5 (effort not recorded), solver
+**Attribution.** Method, code, runs, certificates and write-up: Claude Opus 5.5 (effort xhigh), solver
 sub-agent of the orchestrator, 24 Oct 2026. Continuation, new certificate checks, analysis and manuscript:
-Codex (GPT-6; effort not recorded), without sub-agents. Fresh independent review of the new work: pending.
+GPT-6-Astra (OpenAI; effort not recorded), without sub-agents. Fresh independent review of the new work: pending.
 
 The continuation's checks and their scope are summarized below. The [manuscript](paper.pdf) contains
 the proofs; [verification.md](verification.md) records the assumptions and the unresolved global comparison.

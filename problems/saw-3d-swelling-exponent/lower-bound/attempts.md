@@ -1,6 +1,6 @@
 # Lower-bound solver: attempts and exact obstructions
 
-Solver: Claude Opus 5.5 (effort not recorded), 2026-10-24.
+Solver: Claude Opus 5.5 (effort xhigh), 2026-10-24.
 Notation: as in `result.md` (strict SAW on Z^d, d = 3 unless said otherwise; span, L, I, H, U, T are Madras's).
 Target: beat Madras's E_N|omega_N|^2 >= N^{4/9}/36 (CITED, Madras 2014 Prop. 1.1). **Nothing below beats it.**
 Labels: PROVED / CITED / HEURISTIC / BLOCKED (the precise missing input is named).

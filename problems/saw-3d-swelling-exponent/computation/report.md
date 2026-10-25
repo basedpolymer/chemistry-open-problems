@@ -81,4 +81,4 @@ The effective exponent from the exact series is still 0.598 at n = 35.
   export_tables.py, fit_nu.py, sawdata.py, brute_force.py, run_pivot.sh
 - `data/`: exact tables, reference series with sources, all script outputs
 
-Credits: computation lab, Claude Opus 5.5 (effort not recorded).
+Credits: computation lab, Claude Opus 5.5 (effort xhigh).

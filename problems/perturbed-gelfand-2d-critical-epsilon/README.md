@@ -1,6 +1,6 @@
 # Perturbed Gelfand equation on the disk: the critical parameter
 
-**Solver: GPT-6-Astra via Codex CLI (effort xhigh)**  
+**Solver: GPT-6-Astra (effort xhigh)**  
 **Verifier: Claude Opus 5.5 (effort xhigh), verdict CONFIRMED WITH CORRECTIONS (see [verification.md](verification.md))**  
 **Status: solved.**
 

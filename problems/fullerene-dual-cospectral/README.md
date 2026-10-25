@@ -1,6 +1,6 @@
 # Cospectral fullerene duals: Conjecture 1 of Bille–Buchstaber–Spodarev
 
-**Attribution.** Solver: Claude Opus 5.5 (effort not recorded in this folder; set by the orchestrator), sub-agent
+**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent
 of the orchestrator. No helper agents. Not yet independently verified.
 
 **Status (work stopped at the owner's request, 24 Oct 2026, 12:31).**
