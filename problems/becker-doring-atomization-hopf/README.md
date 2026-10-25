@@ -63,7 +63,7 @@ The scope of each claim is as follows.
 - The derivation of the limit equation (formal).
 - The spectral hypothesis H2 for \(160<M\le10^5\), except \(M=250,300\) (floating point up to \(M=2000\), unchecked beyond), hence the orbital stability for \(M>160\).
 - The branch label for \(M>300\) (continuation in \(M\)); "first" crossing for \(M>57\).
-- \(j\ge4\) (floating point only, \(M\le300\); the limit coefficient is negative for all \(j\)).
+- \(j\ge4\) (floating point only, \(M\le300\); the limit coefficient is negative for all \(j\)). Treated in `higher-branches/` (partial result, 25 October 2026).
 
 The full list of gaps and the points for a verifier are in `paper.pdf` (section "What is proved, what is not, and points for the verifier").
 

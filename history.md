@@ -244,3 +244,12 @@ progress journal. Global topology ordering remains unresolved.
   10.27777). Forbidden-set automata with loop memory K = 26 (diamond, 348 320 130 states) and K = 11 (fcc), as in
   result 9; every certificate passes a checker written separately from the generator, the small ones also a
   brute-force checker. Solver Claude Opus 5.5 (xhigh); checks re-run by GPT-6-Astra (xhigh). Not yet verified.
+- Becker–Döring with atomization, Hopf branches j ≥ 4 (follow-up of result 8), partial result (preliminary):
+  for every branch j = 4, …, 13 and every integer M, computer-assisted proof (ball arithmetic) that the branch has
+  exactly one Hopf point from its onset M_j = 142, 210, 289, 379, 480, 591, 713, 844, 985, 1135 on (onsets counted
+  in the limit K → ∞ for M ≤ 1150), that the Hopf hypotheses hold, that the equilibrium has 2j − 2 unstable
+  eigenvalues there, and that the first Lyapunov coefficient is negative except at the onsets M = 142 (j = 4) and
+  M = 1135 (j = 13), where the bifurcation is subcritical; the bifurcating orbits are unstable. For every j,
+  ℓ₁/M tends to result 8's closed-form limit, which is negative (supercritical for large M, threshold not
+  explicit). Open: j ≥ 14 at moderate M. Solver Claude Opus 5.5 (xhigh), editing GPT-6-Astra (xhigh), branches
+  9–13 run by Claude Opus 5.5 (xhigh). Not yet verified.

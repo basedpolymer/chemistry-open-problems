@@ -1,0 +1,6 @@
+M=142 j=4 stored SUBCRITICAL, re-proved SUBCRITICAL  (4s)
+M=150 j=4 stored PASS, re-proved PASS  (33s)
+M=175 j=4 stored PASS, re-proved PASS  (131s)
+M=200 j=4 stored PASS, re-proved PASS  (220s)
+M=225 j=4 stored PASS, re-proved PASS  (297s)
+SUMMARY pw_j4.csv: 87 lines re-proved (M = 142..228 contiguous: True), 1 SUBCRITICAL, 0 FAIL/mismatch -> PASS (305s)

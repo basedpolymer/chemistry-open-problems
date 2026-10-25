@@ -1,0 +1,4 @@
+PASS  l1_sweep_j5: SUMMARY j=5 eps in [0, 0.05456]: 1032 boxes, 0 failures, covered: True -> PASS (329s)
+PASS  verify_l1_j5: SUMMARY l1_j5.csv: 1032 lines re-proved (stride 1), 0 failures, coverage of [0, 0.05456]: True -> PASS (190s)
+PASS  h2cover_j5: SUMMARY j=5: 268 groups covering eps in [0, 0.054559999999999997] (contiguous: True), 0 failures -> PASS (942s)
+FAIL  onset_j5 (see ../certificates/logs/onset_j5.log)

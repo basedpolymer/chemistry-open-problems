@@ -1,0 +1,5 @@
+O1   PASS F/A^3 = s-form (symbolic in s, phi, M, phi^M, s^M)
+O2   PASS lambda/A = (1 - s/phi)(phi - 1)
+O3   PASS s = 0 (and s^M = 0): s-form = -phi^3 G
+O4   PASS onset_sweep.system = bdlib.hopf_system (rescaled) at 15 random points, M = 50, 142, 300
+SUMMARY: PASS

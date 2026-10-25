@@ -1,0 +1,7 @@
+M=210: s = [0.00090887550 +/- 4.73e-12], linked: True (M-chart line 16)
+M=225: s = [0.036068796 +/- 3.25e-10], linked: True (M-chart line 480)
+M=250: s = [0.088560341 +/- 2.39e-10], linked: True (M-chart line 1189)
+M=275: s = [0.13467561 +/- 1.37e-9], linked: True (M-chart line 1833)
+M=300: s = [0.17555189 +/- 4.70e-9], linked: True (M-chart line 2423)
+M=325: s = [0.21206784 +/- 3.80e-9], linked: True (M-chart line 2969)
+SUMMARY pw_j5.csv: 126 integer points (M = 210..335, contiguous: True) linked to the curve of onset_j5.csv, 0 failures -> PASS (0s)

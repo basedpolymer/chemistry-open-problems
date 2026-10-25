@@ -1,0 +1,8 @@
+M=300 j=6 stored PASS, re-proved PASS  (41s)
+M=325 j=6 stored PASS, re-proved PASS  (125s)
+M=350 j=6 stored PASS, re-proved PASS  (207s)
+M=375 j=6 stored PASS, re-proved PASS  (287s)
+M=400 j=6 stored PASS, re-proved PASS  (367s)
+M=425 j=6 stored PASS, re-proved PASS  (445s)
+M=450 j=6 stored PASS, re-proved PASS  (521s)
+SUMMARY pw_j6.csv: 173 lines re-proved (M = 289..461 contiguous: True), 0 SUBCRITICAL, 0 FAIL/mismatch -> PASS (554s)

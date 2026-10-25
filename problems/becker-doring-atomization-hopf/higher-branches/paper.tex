@@ -1,0 +1,321 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{The Hopf branches \(j\ge4\) of the Becker--Döring equations with atomization}
+\newcommand*{\PaperTitlePlain}{The Hopf branches j >= 4 of the Becker-Doring equations with atomization}
+\newcommand*{\PaperShortTitle}{Higher Hopf branches in Becker--Döring with atomization}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} partial result, not yet verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh); editing: GPT-6-Astra (effort xhigh); verification pending.}
+\newcommand*{\PaperKeywords}{Becker--Döring equations, nucleation, Hopf bifurcation, first Lyapunov coefficient, interval arithmetic}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Pego and Velázquez proved that the Becker--Döring equations with atomization undergo Hopf bifurcations on branches
+\(\kappa=\kappa_j(M)\), \(j=1,2,\dots\), for large maximal cluster size \(M\). They left open whether the bifurcating
+solutions are stable. Earlier work in this repository addressed this for \(j\le3\). Here we treat \(j\ge4\).
+(i) In the limit of infinite atomization rate the linearization becomes an explicit matrix whose unstable eigenvalue
+pairs we count rigorously for every \(M\le1150\). The \(j\)-th pair appears at a real value \(M^*_j\in(M_j-1,M_j)\), with
+\(M_j=142,210,289,379,480,591,713,844,985,1135\) for \(j=4,\dots,13\). In a chart that is regular at \(K=\infty\) we
+follow the \(j\)-th Hopf curve from that point to the regime of Pego and Velázquez. For \(j=4,\dots,13\) the whole
+curve is certified, so branch \(j\) has exactly one Hopf point for every integer \(M\ge M_j\) and none below.
+(ii) For \(j=4,\dots,13\) and every \(M\ge M_j\) we certify, in ball arithmetic: simplicity and transversality, the
+absence of other eigenvalues on the imaginary axis, the presence of \(j-1\) unstable pairs (counted as zeros of the
+characteristic function), and the sign of the first Lyapunov coefficient \(\ell_1\). The coefficient is negative,
+except at the two onsets \((j,M)=(4,142)\) and \((13,1135)\), where \(\ell_1>0\). The bifurcation is therefore
+supercritical on the centre manifold, apart from these two onset points, and the bifurcating orbits are unstable in
+the full system.
+(iii) For every \(j\) we prove that \(\lim_{M\to\infty}\ell_1/M\) equals the negative closed-form value predicted
+formally in the earlier work. Hence every branch is supercritical for all sufficiently large \(M\), with a threshold
+that is not explicit.
+\end{paperabstract}
+
+\section*{The question}
+
+R. L. Pego and J. J. L. Velázquez~\autocite{PV2020} study the Becker--Döring equations with atomization, sizes
+\(1\le\ell\le M\), atomization rate \(K\). Their Theorem~3.3 gives a Hopf bifurcation at \(\kappa=\kappa_j(M)\),
+\(\kappa=K\sqrt M\), for \(j\le k\) and \(M>M_{0,k}\) (not explicit). Right after it (§3.3) they write:
+\begin{openquote}
+``We have not managed to determine analytically whether the bifurcating solutions are stable (the supercritical case)
+or not.''
+\end{openquote}
+Result~8 of this repository~\autocite{Result8} and its extension to every \(M\)~\autocite{AllM} settled branches
+\(j=1,2,3\). Branch 1 is supercritical with orbitally stable orbits for every \(M\ge16\) and subcritical at \(M=15\).
+Branches 2 and 3 are supercritical on the centre manifold, with unstable orbits. This paper treats \(j\ge4\).
+
+\section{Setting and statements}
+
+We use the notation of~\autocite{Result8,AllM}. The unknowns are \(n_\ell\), the constant equilibrium is \(n\equiv
+A=1+K\), and \(B=B(K,M)\) is the Jacobian (PV (27)). The dynamics is exactly \(\dot v=Bv+v_1Sv\), restricted to the
+mass hyperplane \(H\). \(\ell_1\) is the first Lyapunov coefficient of the restricted system (Kuznetsov's projection
+formula~\autocite{Kuznetsov2004}). Further notation:
+\begin{itemize}
+\item \(\varepsilon=M^{-1/2}\), \(z=M(\varphi-1)\), \(\lambda=(A-\varphi^{-1})(\varphi-1)\);
+\item \(F(\varphi)\) is the characteristic function of PV (71)--(76); by PV Prop.~5.3 its zeros correspond to the
+eigenvalues of \(B\);
+\item \(t_j\) is the \(j\)-th positive root of \(\tan t=t\) with \(\cos t<0\), and \(\kappa_j^0=(\sqrt{1+t_j^2}-1)^{1/2}\)
+(PV (89)--(91)).
+\end{itemize}
+For real \(M\) put \(\varphi^M=\exp(M\log\varphi)\). The Hopf set is \(\mathcal H=\{(M,K,\varphi):M>3,\ K>0,\
+\operatorname{Im}\varphi>0,\ F=0,\ \operatorname{Re}\lambda=0\}\). For integer \(M\) its points are exactly the pairs
+\(\pm i\omega\) of eigenvalues of \(B\).
+
+\begin{definition}
+Branch \(j\), \(\Gamma_j\), is the connected component of \(\mathcal H\) that contains Pego and Velázquez's
+\(j\)-th Hopf curve near \(M=\infty\). That curve is obtained from the limit root \((\kappa_j^0,it_j)\) by the implicit
+function theorem (PV Lemma~7.3, Prop.~9.5). Its point at an integer \(M\) is written \(\kappa_j(M)\).
+\end{definition}
+
+\begin{theorem}[note={branches \(4\le j\le13\)}]\label{thm:A}
+Let \(4\le j\le13\) and \(M_j\) as in \zcref{tab:results}.
+\begin{enumerate}
+\item \(\Gamma_j\) is a \(C^1\) arc. It is the graph of a function \(M\mapsto(K,\varphi)\) on \((M^*_j,\infty)\), with
+\(M_j-1<M^*_j<M_j\) and \(K\to\infty\) as \(M\downarrow M^*_j\). So branch \(j\) has exactly one Hopf point at every
+integer \(M\ge M_j\) and none at \(M<M_j\).
+\item At every \(\kappa_j(M)\), \(M\ge M_j\):
+  \begin{itemize}
+  \item \(\pm i\omega\) are simple eigenvalues of \(B\) and \(\operatorname{Re}d\lambda/d\kappa>0\);
+  \item \(0,\pm i\omega\) are the only eigenvalues on \(i\mathbb R\);
+  \item exactly \(2j-2\) zeros of \(F\) with \(|\varphi|\ge1\), counted with multiplicity, give eigenvalues with
+  \(\operatorname{Re}\lambda>0\).
+  \end{itemize}
+\item \(\ell_1<0\) at every \(\kappa_j(M)\), \(M\ge M_j\), except at \((j,M)=(4,142)\) and \((13,1135)\), where
+\(\ell_1=+5.896\ldots\times10^{-15}\) and \(\ell_1=+2.316\ldots\times10^{-20}\) (normalization \(q^{\mathsf H}q=1\)).
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+For \(4\le j\le13\) and every integer \(M\ge M_j\), the Hopf bifurcation at \(\kappa_j(M)\) of the system on \(H\) is
+supercritical on its two-dimensional centre manifold, except at \((j,M)=(4,142)\) and \((13,1135)\), where it is
+subcritical. In the full
+hyperplane \(H\) the bifurcating periodic orbits are unstable.
+\end{corollary}
+
+\begin{theorem}[note={\(K\to\infty\)}]\label{thm:B}
+Let \(C(M)=\lim_{K\to\infty}B/A\) and let \(u(M)\) be half the number of its eigenvalues in \(\operatorname{Re}\nu>0\),
+counted with multiplicity. For every integer \(3\le M\le1150\):
+\begin{itemize}
+\item \(C(M)\) has no eigenvalue on \(i\mathbb R\setminus\{0\}\), and \(0\) is simple;
+\item \(u(M)=\#\{j:M_j\le M\}\), with the onset sequence
+\[
+(M_j)_{j\le13}=(15,44,87,142,210,289,379,480,591,713,844,985,1135);
+\]
+\item for all large \(K\), \(B(K,M)|_H\) has exactly \(u(M)\) pairs of non-real eigenvalues with
+\(\operatorname{Re}\lambda>0\).
+\end{itemize}
+The \(j\)-th pair of \(C\) crosses \(i\mathbb R\) from left to right at \(M=M^*_j\in(M_j-1,M_j)\), \(j\le13\).
+\end{theorem}
+
+\begin{theorem}[note={every branch, large \(M\)}]\label{thm:C}
+For every \(j\ge1\), along \(\Gamma_j\),
+\[\lim_{M\to\infty}\frac{\ell_1(q_1=1)}M=L(t_j)<0,\]
+where, with \(R=\sqrt{1+t^2}\),
+\[L(t)=-\frac{R(R-1)(7R^2-34R+23)}{t(R+1)(5R-3)\big((R-1)^3+R+1\big)}.\]
+Hence there is \(\widetilde M_j\) with \(\ell_1<0\) at \(\kappa_j(M)\) for every integer \(M\ge\widetilde M_j\). With PV
+Theorem~3.2, the bifurcation on every branch is supercritical on the centre manifold for all large \(M\). The orbits
+are stable for \(j=1\) and unstable for \(j\ge2\).
+\end{theorem}
+
+The closed form \(L\) was obtained in result~8 by a formal multiple-scales reduction to a renewal equation. All-M
+confirmed it to 53 digits for \(j\le3\). \zcref{thm:C} turns it into a theorem for every \(j\), given all-M's
+\(\varepsilon\)-regular formula for \(\ell_1\).
+
+\section{The limit \texorpdfstring{\(K\to\infty\)}{K to infinity}}
+
+\begin{lemma}\label{lem:split}
+\(B=AC+E\) with \(C,E\) independent of \(K\), where
+\begin{align*}
+(Cv)_1&=-(M+2)v_1-\sum_{\ell=2}^{N}v_\ell+Mv_M,\\
+(Cv)_\ell&=v_{\ell-1}-v_\ell\quad(2\le\ell\le N),\\
+(Cv)_M&=v_1+v_N-v_M.
+\end{align*}
+\end{lemma}
+\begin{proof}
+Insert \(K=A-1\) in PV (27): \(1-K=-A+2\), \(-K=-A+1\), \(MK+1=AM+1-M\). The remainder \(E\) does not depend on \(K\).
+\end{proof}
+
+\begin{lemma}\label{lem:det}
+Let \(G(\varphi)=-\varphi^{M-2}(\varphi^3+M\varphi^2-2M\varphi+M)+(M+1)\varphi-M\). Then
+\(\det(\nu I-C)=-G(1+\nu)/\nu\). Moreover \(G(1)=G'(1)=0\), and \(R=G/(\varphi-1)^2\) has integer coefficients and
+degree \(M-1\).
+\end{lemma}
+\begin{proof}
+Let \(\varphi=1+\nu\ne0\). Put \(w_\ell=\varphi^{1-\ell}\) for \(\ell\le N\) and \(w_M=(1+\varphi^{2-M})/\varphi\). Then
+rows \(2,\dots,M\) of \((C-\nu)w\) vanish, and row 1 equals some scalar \(g(\nu)\). Replace the first column of the
+identity by \(w\); this matrix has determinant \(1\). The first column of \((C-\nu)W\) is \(g\,e_1\). The minor of
+\(C-\nu\) without row and column 1 is lower triangular with diagonal \(-\varphi\). Hence
+\(\det(C-\nu)=(-\varphi)^{M-1}g\), and a geometric sum gives \(\varphi^{M-1}(\varphi-1)g=G(\varphi)\).
+\end{proof}
+
+\begin{lemma}\label{lem:roots}
+\(G\) has no root with \(\operatorname{Re}\varphi\ge1\) and \(|\varphi|\ge3\), and \(G<0\) on \((1,\infty)\).
+\end{lemma}
+\begin{proof}
+Let \(r=|\varphi|\ge3\) and \(\operatorname{Re}\varphi\ge1\). Then \(|\varphi+M|\ge M+1\), so
+\(|\varphi^3+M\varphi^2-2M\varphi+M|\ge(M+1)r^2-2Mr-M\ge r^2(2M/9+1)\). Hence
+\(|G|\ge r^M(2M/9+1)-(2M+1)r>0\).
+
+On \((1,\infty)\) we have \(-G=h\) with \(h(1)=h'(1)=0\) and \(h''>0\), so \(h>0\) there.
+\end{proof}
+
+By \zcref{lem:det,lem:roots} the eigenvalues of \(C\) are \(0\) and \(\varphi-1\), for the roots \(\varphi\) of \(R\).
+Those with \(\operatorname{Re}\nu\ge0\) lie in the half-disc \(\{\operatorname{Re}\varphi\ge1,|\varphi-1|<4\}\). The
+unstable ones are non-real. Since \(B/A=C+E/A\) depends continuously on \(1/A\), and the zero eigenvalue of \(B\) is
+simple for every \(K\) (PV Lemma~3.1), the count of \(C\) is also the count of \(B\) for large \(K\).
+
+\paragraph{Certificate (\texttt{kinf.py}).}
+\begin{itemize}
+\item \emph{K2.} For every \(3\le M\le1150\), the winding number of \(G\) is computed on the boundary of the half-disc,
+indented around the double zero \(\varphi=1\). Each edge is subdivided until a mean-value enclosure of \(G\) excludes
+\(0\) (all-M Lemma~4.1).
+\item \emph{K3.} The resulting \(u(M)\) is nondecreasing, with unit jumps exactly at the \(M_j\) of \zcref{thm:B}.
+\item \emph{K4.} A Krawczyk test~\autocite{Krawczyk1969,Moore1977} encloses the zero \((M^*_j,\eta_j)\) of
+\(G(1+i\eta;M)\) for real \(M\), and certifies \(d\operatorname{Re}\varphi/dM>0\) there.
+\end{itemize}
+This proves \zcref{thm:B}.
+
+\section{A chart regular at \texorpdfstring{\(K=\infty\)}{K = infinity}}
+
+Put \(s=1/A\). Dividing PV (71)--(75) by \(A^3\) gives exactly (\texttt{check\_onset\_formula.py}, symbolic):
+\[F/A^3=f_1\big(H_1-s^{M-1}\varphi^{-M}H_2\big)-\big(G_1-\varphi^MG_2\big)f_2,\]
+where
+\begin{gather*}
+f_1=\varphi^M+s(\varphi-1),\qquad f_2=s-\varphi+s^{M-1}\varphi^{1-M},\\
+G_1=\varphi(s-\varphi)\big((1-s)\varphi+(M(1-s)+s)(\varphi-1)\big),\\
+G_2=(s-\varphi)\big(M(\varphi-1)+(1-s)\varphi+\varphi(\varphi-1)\big),\\
+H_1=(\varphi-1)\big(s(1-s)+(M(1-s)+s)(s-\varphi)\big),\\
+H_2=(\varphi-1)\big((s+M\varphi)(s-\varphi)+s(1-s)\varphi\big).
+\end{gather*}
+Also \(\lambda/A=(1-s/\varphi)(\varphi-1)\). The system \(\operatorname{Re}F/A^3=\operatorname{Im}F/A^3=
+\operatorname{Re}\lambda/A=0\) in \((s,M,\varphi)\) is \(C^1\) up to \(s=0\). At \(s=0\) it is \(-\varphi^3G(\varphi)=0\),
+\(\operatorname{Re}\varphi=1\), so its zero there is \((M^*_j,1+i\eta_j)\).
+
+\texttt{onset\_sweep.py} certifies the \(j\)-th Hopf curve from \(s=0\) upwards in two pieces. On
+\(s\in[0,2\cdot10^{-4}]\) it is a graph over \(s\) (parametric Krawczyk boxes, with \(dM/ds>0\)). Beyond that it is a
+graph over real \(M\), up to past the start of the \(\varepsilon\)-chart. Each box carries a uniqueness statement.
+Two junction checks place a sub-box inside the neighbouring certified box: between the two pieces, and between the
+second piece and the last box of the \(\varepsilon\)-chart.
+
+\section{Proof for branches 4--13}
+
+\paragraph{The arc.} \(\Gamma_j\) is covered by three pieces:
+\begin{itemize}
+\item the \(\varepsilon\)-chart, \(\varepsilon\in[0,\varepsilon_c]\) (all-M's parametric Krawczyk boxes, which start at
+PV's limit root);
+\item the \(M\)-graph of the onset chart;
+\item the \(s\)-graph of the onset chart.
+\end{itemize}
+Each piece is a graph with uniqueness in its boxes, and the junctions give common sub-arcs. The union is therefore one
+\(C^1\) arc on which \(M\) is strictly monotone, with \(M\in(M^*_j,\infty)\). The arc is open in \(\mathcal H\), by
+uniqueness in the boxes. It is closed in \(\mathcal H\): its closure adds only the two ends \(M=\infty\) and
+\(K=\infty\). Hence it is a component of \(\mathcal H\), namely \(\Gamma_j\). This proves part 1.
+
+\paragraph{Integers \(M\ge M_c\)} (with \(M_c^{-1/2}\le\varepsilon_c\)). On every \(\varepsilon\)-box,
+\texttt{l1\_sweep.py} certifies the Hopf box, simplicity, transversality, \(\operatorname{Im}z>0\), \(f(\varphi)\ne0\),
+and \(\ell_1(q_1=1)/M<0\) (all-M §5, mean value form). \texttt{verify\_sweep.py} re-proves every line.
+
+\texttt{h2cover.py} applies all-M Theorem~4.5 on merged parameter boxes. Localization, monotonicity, the region lemma,
+the level chains and the winding counts \(N(P)=2j+2\), \(N(P_-)=4\) are certified for every \((\varepsilon,\kappa)\) in
+the union of the \(\varepsilon\)-ranges times the hull of the \(\kappa\)-ranges. The contour parameters are
+\(R_0=2\pi j+7\) and \(Y=R_0+0.6\), with level values \(-0.1\) and \(0.25\). Near \(\varepsilon=0\), for \(j\ge5\), the
+narrower values \(\mp\frac12\log(t_{j\pm1}/t_j)\pm0.02\) are needed, because the neighbouring zeros approach the axis
+like \(\log(t_{j\pm1}/t_j)\).
+
+\paragraph{Integers \(M_j\le M<M_c\).} \texttt{pointwise.py} certifies, at each \(M\):
+\begin{itemize}
+\item result~8's Krawczyk box for the Hopf point at integer \(M\), with simplicity, transversality and \(\omega>0\);
+\item result~8's closed form of \(\ell_1\), and its sign;
+\item all-M's Krawczyk box at the ball \(\varepsilon=M^{-1/2}\), which contains the first box, with
+\(\operatorname{Im}z>0\) and \(f(\varphi)\ne0\);
+\item all-M Theorem~4.5 at that point.
+\end{itemize}
+\texttt{pointwise.py --verify} re-proves every line. \texttt{link\_check.py} shows that each box lies on the certified
+curve. This proves parts 2 and 3.
+
+\paragraph{Cross-checks.} On \(M_c\le M\le3M_c\), result~8's \(\ell_1\) lies inside the \(\varepsilon\)-chart enclosures
+(\texttt{check\_overlap.py}). Result~8's verifier's sparse \(O(M)\) code shares no code with ours. At \(M=142,143\)
+(\(j=4\)) and \(M=1135,1136\) (\(j=13\)) it reproduces \(\ell_1\) to \(10^{-16}\), including the positive signs
+(\texttt{xcheck\_sparse.py}). The parameters of every run are listed in
+\texttt{certificates/logs/run\_branch\_params.txt}.
+
+\paragraph{Instability.} At \(\kappa_j(M)\) the matrix \(B|_H\) has an eigenvalue \(\lambda_u\) with
+\(\operatorname{Re}\lambda_u>0\). As \(\kappa\to\kappa_j(M)\), the monodromy matrix of the bifurcating orbit tends to
+\(\exp(2\pi B|_H/\omega)\). So for \(\kappa\) close to \(\kappa_j(M)\) the orbit has a Floquet multiplier of modulus
+\(>1\).
+
+\section{The large-\texorpdfstring{\(M\)}{M} limit on every branch}
+
+\texttt{limit\_symbolic.py} runs the algorithm of all-M's regular formula at \(\varepsilon=0\), symbolically.
+\begin{itemize}
+\item \emph{S1.} The result agrees with the ball-arithmetic code at \(\varepsilon=0\) for \(j\le8\).
+\item \emph{S2.} With the Hopf relations \(e^{it}=-(1+it)/R\), \(R=1+\kappa^2=\sqrt{1+t^2}\), in the rational
+parametrization \(R=(4\tau^4+1)/(4\tau^2)\), \(t=(4\tau^4-1)/(4\tau^2)\), \(\kappa=(2\tau^2-1)/(2\tau)\), the result is
+identically equal to \(L\).
+\item \emph{S3.} Every quantity the algorithm divides by is a rational function of \(\tau\) whose numerator has no root
+\(\tau\ge2\). All Hopf points have \(\tau>2.12\).
+\item \emph{S4.} \(L<0\) for \(\tau\ge2\).
+\end{itemize}
+By PV Lemmas~7.1--7.3 the limit roots are simple and cross transversally, so \(\Gamma_j\) is a \(C^1\) curve in
+\(\varepsilon\in[0,\varepsilon_j)\). The regular formula is continuous there and equals \(\ell_1(q_1=1)/M\) for
+\(\varepsilon=M^{-1/2}\). Its value at \(\varepsilon=0\) is \(L(t_j)\). PV Theorem~3.2 gives hypothesis H2 and \(j-1\)
+unstable pairs at \(\kappa_j(M)\) for \(M>M_{0,j}\).
+
+\section{Results}
+
+\begin{table}[h]
+\centering\small
+\caption{Certified results per branch. \(M^*_j\): approximate onset at \(K=\infty\); exact enclosures are in \texttt{kinf.log}, K4. Last column: sign of
+\(\ell_1\) at the first integer \(M_j\).}\label{tab:results}
+\begin{tabular}{@{}rlrrlrl@{}}
+\toprule
+\(j\) & \(M^*_j\) & \(M_j\) & \(M_j-M^*_j\) & \(\varepsilon_c\) & integer \(M\) & \(\ell_1(M_j)\)\\
+\midrule
+4 & 141.98176056 & 142 & 0.01824 & 0.06610 & 142--228 & \(+\)\\
+5 & 209.62894611 & 210 & 0.37105 & 0.05456 & 210--335 & \(-\)\\
+6 & 288.73857833 & 289 & 0.26142 & 0.04653 & 289--461 & \(-\)\\
+7 & 378.86583449 & 379 & 0.13417 & 0.04059 & 379--606 & \(-\)\\
+8 & 479.65992358 & 480 & 0.34008 & 0.03609 & 480--767 & \(-\)\\
+9 & 590.83427770 & 591 & 0.16572 & 0.03252 & 591--945 & \(-\)\\
+10 & 712.14838889 & 713 & 0.85161 & 0.02962 & 713--1139 & \(-\)\\
+11 & 843.39613168 & 844 & 0.60387 & 0.02721 & 844--1350 & \(-\)\\
+12 & 984.39788852 & 985 & 0.60211 & 0.02519 & 985--1575 & \(-\)\\
+13 & 1134.99502237 & 1135 & 0.00498 & 0.02346 & 1135--1816 & \(+\)\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Near the onsets} (observation). Along \(\Gamma_j\), as \(\kappa\to\infty\), the computed values follow
+\(\widehat L\kappa^3\approx c_j+a_j\kappa\), with \(c_j\approx-5\) and a small \(a_j>0\). Also
+\(M-M^*_j\approx C_j/\kappa\). So \(\ell_1\) changes sign once, in a window of width \(w_j\approx C_ja_j/|c_j|\) above
+\(M^*_j\); we find \(w_j\approx0.03\)--\(0.05\) for \(j=4\)--\(7\). An integer onset is subcritical exactly when
+\(M_j-M^*_j<w_j\). Up to \(j=13\) this happens exactly at \(j=1\) (\(0.107\)), \(j=4\) (\(0.018\)) and \(j=13\) (\(0.005\)),
+in agreement with the certified signs. The next predicted case among \(j\le40\) is \(j=40\)
+(\(M_{40}-M^*_{40}\approx0.0004\)), which we did not compute. Empirically \(w_j\approx0.18/j\), so \(\sum_jw_j\) diverges:
+if the fractional parts of \(M^*_j\) are spread out, infinitely many subcritical onsets are to be expected. This is a
+heuristic, not a claim.
+
+\section{What is not proved}
+
+\begin{itemize}
+\item Branches \(j\ge14\) for all \(M\). For them only \zcref{thm:C} holds, with a threshold that is not explicit. No
+argument uniform in \(j\) with explicit constants is given.
+\item That \(M_j\) is the first \(M\) with \(j\) imaginary-axis crossings for \emph{some} \(K\): \zcref{thm:A} concerns
+\(\Gamma_j\). Other components of \(\mathcal H\) are not excluded, and \zcref{thm:B} holds only for \(K\ge K_0(M)\),
+with \(K_0(M)\) not explicit.
+\item That the \(2j-2\) unstable zeros are simple.
+\item All-M's \(\varepsilon\)-regular formula and Theorem~4.5 are used as stated there; that work is not yet verified.
+\end{itemize}
+
+\section{Computer verification}
+
+All certificates use Arb~\autocite{Johansson2017} through python-flint 0.9, at 192--256 bits. Each script prints
+PASS/FAIL per claim and exits non-zero on failure. The scripts, run times and logs are listed in \texttt{README.md}
+and \texttt{certificates/logs/}.
+
+\paperreferences
+\end{document}

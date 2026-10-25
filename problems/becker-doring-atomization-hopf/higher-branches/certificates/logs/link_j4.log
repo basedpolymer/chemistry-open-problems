@@ -1,0 +1,6 @@
+M=142: s = [6.6827663e-5 +/- 1.94e-14], linked: True (s-chart line 10)
+M=150: s = [0.028375303 +/- 3.10e-10], linked: True (M-chart line 289)
+M=175: s = [0.10564949 +/- 4.42e-9], linked: True (M-chart line 1088)
+M=200: s = [0.16953976 +/- 3.99e-9], linked: True (M-chart line 1781)
+M=225: s = [0.22336941 +/- 2.16e-9], linked: True (M-chart line 2393)
+SUMMARY pw_j4.csv: 87 integer points (M = 142..228, contiguous: True) linked to the curve of onset_j4.csv, 0 failures -> PASS (0s)

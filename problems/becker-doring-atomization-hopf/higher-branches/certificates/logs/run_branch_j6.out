@@ -1,0 +1,8 @@
+PASS  l1_sweep_j6: SUMMARY j=6 eps in [0, 0.04653]: 1084 boxes, 0 failures, covered: True -> PASS (211s)
+PASS  verify_l1_j6: SUMMARY l1_j6.csv: 1084 lines re-proved (stride 1), 0 failures, coverage of [0, 0.04653]: True -> PASS (130s)
+PASS  h2cover_j6: SUMMARY j=6: 272 groups covering eps in [0, 0.046530000000000002] (contiguous: True), 0 failures -> PASS (982s)
+PASS  onset_j6: SUMMARY j=6: onset sweep PASS, junction with the eps-chart PASS -> PASS (83s)
+PASS  pointwise_j6: SUMMARY j=6 M in [289, 461]: 173 lines, 0 SUBCRITICAL, 0 FAIL -> PASS (569s)
+PASS  verify_pw_j6: SUMMARY pw_j6.csv: 173 lines re-proved (M = 289..461 contiguous: True), 0 SUBCRITICAL, 0 FAIL/mismatch -> PASS (554s)
+PASS  link_j6: SUMMARY pw_j6.csv: 173 integer points (M = 289..461, contiguous: True) linked to the curve of onset_j6.csv, 0 failures -> PASS (0s)
+run_branch J=6: all steps PASS

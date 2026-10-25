@@ -1,0 +1,3 @@
+PASS  l1_sweep_j4: SUMMARY j=4 eps in [0, 0.0661]: 1028 boxes, 0 failures, covered: True -> PASS (318s)
+run_branch.sh: line 21: 0.0661: command not found
+PASS  verify_l1_j4: SUMMARY l1_j4.csv: 1028 lines re-proved (stride 1), 0 failures, coverage of [0, 0.0661]: True -> PASS (218s)

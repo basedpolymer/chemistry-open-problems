@@ -1,0 +1,5 @@
+M=1135 j=13 kappa=15275344.75156378498948666 (solver 15275344.751563784989486657, rel 2.2e-40) Re lam=2.4e-81  l1_unit=2.31598666684395321e-20 (solver 2.3159866668439532e-20, rel 1.7e-18)  l1_q1 rel 4.7e-17  0s
+M=1135 j=13: certified sign +, sparse code sign +, agreement [2.2e-40, 1.7e-18, 4.7e-17] -> PASS
+M=1136 j=13 kappa=75696.88146884040164256178 (solver 75696.881468840401642561776, rel 1.1e-41) Re lam=1.6e-81  l1_unit=-8.03315077016100801e-14 (solver -8.0331507701610084e-14, rel 5.0e-17)  l1_q1 rel 1.6e-17  0s
+M=1136 j=13: certified sign -, sparse code sign -, agreement [1.1e-41, 5e-17, 1.6e-17] -> PASS
+SUMMARY: 2 points -> PASS

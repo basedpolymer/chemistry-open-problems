@@ -1,0 +1,9 @@
+PASS  l1_sweep_j13: SUMMARY j=13 eps in [0, 0.02346]: 1557 boxes, 0 failures, covered: True -> PASS (241s)
+PASS  verify_l1_j13: SUMMARY l1_j13.csv: 1557 lines re-proved (stride 1), 0 failures, coverage of [0, 0.02346]: True -> PASS (133s)
+PASS  h2cover_j13: SUMMARY j=13: 449 groups covering eps in [0, 0.023460000000000002] (contiguous: True), 0 failures -> PASS (2492s)
+PASS  onset_j13: SUMMARY j=13: onset sweep PASS, junction with the eps-chart PASS -> PASS (186s)
+PASS  pointwise_j13: SUMMARY j=13 M in [1135, 1816]: 682 lines, 1 SUBCRITICAL, 0 FAIL -> PASS (2542s)
+PASS  verify_pw_j13: SUMMARY pw_j13.csv: 682 lines re-proved (M = 1135..1816 contiguous: True), 1 SUBCRITICAL, 0 FAIL/mismatch -> PASS (2286s)
+PASS  link_j13: SUMMARY pw_j13.csv: 682 integer points (M = 1135..1816, contiguous: True) linked to the curve of onset_j13.csv, 0 failures -> PASS (1s)
+PASS  overlap_j13: SUMMARY l1_j13.csv M in [1817, 5451]: 3635 points, 0 failures -> PASS (37s)
+run_branch J=13: all steps PASS

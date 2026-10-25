@@ -1,0 +1,19 @@
+bracket power at eps = 0: 1 (must be <= 1; the value at power 1 is used)
+     j=1: symbolic -0.009311398380762162645991750599, l1reg at eps=0 [-0.009311398380762162645991751 +/- 4.02e-28] ok
+     j=2: symbolic -0.007941017251333519392688761651, l1reg at eps=0 [-0.007941017251333519392688762 +/- 3.50e-28] ok
+     j=3: symbolic -0.003777696787779922956223599763, l1reg at eps=0 [-0.003777696787779922956223600 +/- 2.38e-28] ok
+     j=4: symbolic -0.002166074697441053332656571802, l1reg at eps=0 [-0.002166074697441053332656572 +/- 1.98e-28] ok
+     j=5: symbolic -0.001397653480991054314390868574, l1reg at eps=0 [-0.001397653480991054314390869 +/- 4.27e-28] ok
+     j=6: symbolic -0.0009747583994228634758581661154, l1reg at eps=0 [-0.0009747583994228634758581661 +/- 1.54e-29] ok
+     j=7: symbolic -0.0007179778387708659250673389766, l1reg at eps=0 [-0.0007179778387708659250673390 +/- 2.35e-29] ok
+     j=8: symbolic -0.0005506123127931154562866569481, l1reg at eps=0 [-0.0005506123127931154562866569 +/- 4.81e-29] ok
+S1   PASS the symbolic eps = 0 port agrees with l1reg.blocks(eps = 0) for j = 1..8
+S2   PASS Lhat(eps = 0) = result 8's L(R, t) identically on the Hopf curve (rational in tau)
+     Np: numerator nonvanishing for tau >= 2: True
+     det0: numerator nonvanishing for tau >= 2: True
+     det2: numerator nonvanishing for tau >= 2: True
+     mL0: numerator nonvanishing for tau >= 2: True
+     mL2: numerator nonvanishing for tau >= 2: True
+S3   PASS the divisions of the algorithm are by nonzero quantities at eps = 0 for every Hopf point
+S4   PASS L < 0 for all tau >= 2 (roots of 7R^2 - 34R + 23: [0.8123273572878914, 4.044815499854966]; R(tau = 2) = 65/16)
+SUMMARY: PASS

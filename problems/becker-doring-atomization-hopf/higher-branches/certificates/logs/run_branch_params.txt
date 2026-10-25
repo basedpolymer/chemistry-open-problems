@@ -1,0 +1,19 @@
+# Parameters of the certificate runs, one line per branch:
+#   sh run_branch.sh J EPS_C MJ MC M_HI R0 Y cL cR [cL2 cR2]
+# EPS_C: end of the eps-chart (M_C = first integer with M^-1/2 <= EPS_C); MJ: first integer point (onset M_j);
+# M_HI: end of the M-graph of the onset chart (> EPS_C^-2); R0, Y: contour radius and height (R0 = 2 pi J + 7,
+# rounded; Y = R0 + 0.6); cL, cR: level values; cL2, cR2: narrow level values near eps = 0,
+# -1/2 log(t_{J+1}/t_J) + 0.02 and 1/2 log(t_J/t_{J-1}) - 0.02 (not needed for J = 4).
+# The same values are stored in the columns R0, Y, cL, cR of h2_jJ.csv and pw_jJ.csv.
+# Branches 4 and 5 were run partly step by step with these values (j = 4: onset chart up to M_HI = 245); branches
+# 6-13 with run_branch.sh exactly as below (for j = 6 the overlap step was run separately, log overlap_j6.log).
+4  0.06610 142  229  245 32.0 32.6 -0.1 0.25
+5  0.05456 210  336  341 38.4 39.0 -0.1 0.25 -0.0757 0.0985
+6  0.04653 289  462  467 44.7 45.3 -0.1 0.25 -0.0603 0.0757
+7  0.04059 379  607  612 51.0 51.6 -0.1 0.25 -0.0491 0.0603
+8  0.03609 480  768  773 57.3 57.9 -0.1 0.25 -0.0407 0.0491
+9  0.03252 591  946  951 63.5 64.1 -0.1 0.25 -0.0341 0.0407
+10 0.02962 713 1140 1145 69.8 70.4 -0.1 0.25 -0.0288 0.0341
+11 0.02721 844 1351 1356 76.1 76.7 -0.1 0.25 -0.0244 0.0288
+12 0.02519 985 1576 1581 82.4 83.0 -0.1 0.25 -0.0208 0.0244
+13 0.02346 1135 1817 1822 88.7 89.3 -0.1 0.25 -0.0177 0.0208

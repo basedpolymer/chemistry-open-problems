@@ -1,0 +1,9 @@
+PASS  l1_sweep_j9: SUMMARY j=9 eps in [0, 0.03252]: 1277 boxes, 0 failures, covered: True -> PASS (183s)
+PASS  verify_l1_j9: SUMMARY l1_j9.csv: 1277 lines re-proved (stride 1), 0 failures, coverage of [0, 0.03252]: True -> PASS (136s)
+PASS  h2cover_j9: SUMMARY j=9: 341 groups covering eps in [0, 0.03252] (contiguous: True), 0 failures -> PASS (1276s)
+PASS  onset_j9: SUMMARY j=9: onset sweep PASS, junction with the eps-chart PASS -> PASS (105s)
+PASS  pointwise_j9: SUMMARY j=9 M in [591, 945]: 355 lines, 0 SUBCRITICAL, 0 FAIL -> PASS (1001s)
+PASS  verify_pw_j9: SUMMARY pw_j9.csv: 355 lines re-proved (M = 591..945 contiguous: True), 0 SUBCRITICAL, 0 FAIL/mismatch -> PASS (1003s)
+PASS  link_j9: SUMMARY pw_j9.csv: 355 integer points (M = 591..945, contiguous: True) linked to the curve of onset_j9.csv, 0 failures -> PASS (0s)
+PASS  overlap_j9: SUMMARY l1_j9.csv M in [946, 2838]: 1893 points, 0 failures -> PASS (24s)
+run_branch J=9: all steps PASS

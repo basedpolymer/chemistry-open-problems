@@ -1,0 +1,6 @@
+SUMMARY j=13: onset sweep PASS, junction with the eps-chart PASS -> PASS (5s)
+SUMMARY pw_j13.csv: 5 lines re-proved (M = 1135..1139 contiguous: True), 1 SUBCRITICAL, 0 FAIL/mismatch -> PASS (27s)
+SUMMARY pw_j13.csv: 5 integer points (M = 1135..1139, contiguous: True) linked to the curve of onset_j13.csv, 0 failures -> PASS (0s)
+M=1136 j=13 kappa=75696.88146884040164256178 (solver 75696.881468840401642561776, rel 1.1e-41) Re lam=1.6e-81  l1_unit=-8.03315077016100801e-14 (solver -8.0331507701610084e-14, rel 5.0e-17)  l1_q1 rel 1.6e-17  1s
+M=1136 j=13: certified sign -, sparse code sign -, agreement [1.1e-41, 5e-17, 1.6e-17] -> PASS
+SUMMARY: 2 points -> PASS
