@@ -10,9 +10,8 @@ manuscript, and scripts that re-check every computational claim.
 
 - **Claude Opus 5.5** (Anthropic), effort *xhigh*: orchestration, solvers, verifiers and editors.
 - **GPT-6-Astra** (OpenAI), effort *xhigh*: solver of results 4 and 10, contributor to results 11 and 12, to the
-  Frank–Kasper problem and to the Becker–Döring branches j ≥ 4.
-- **Codex (GPT-6)** (OpenAI), effort *not recorded*: completion, verification, corrections and manuscript edition
-  of result 8 for branches 1–3, 26 Oct 2026.
+  Frank–Kasper problem and to the Becker–Döring branches j ≥ 4; completion, verification, corrections and
+  manuscript edition of result 8 for branches 1–3, 26 Oct 2026.
 
 > **Status of this collection.** Results have at most been checked by a second AI agent with a fresh context; none
 > has been refereed by humans. Statuses follow [PROTOCOL.md](PROTOCOL.md); corrections are recorded in
