@@ -1,5 +1,26 @@
 # References (all-M extension of result 8)
 
+## Completion audit, 25–26 October 2026
+
+- Pego--Velázquez, [arXiv v2 PDF](https://arxiv.org/pdf/1905.02605): the original equations,
+  statement after Theorem 3.3 (PDF p. 8), characteristic reduction and the simplicity argument
+  were checked against the primary text. The published typeset PDF was not inspected in this audit.
+- Yuri A. Kuznetsov, [Andronov--Hopf bifurcation](https://www.scholarpedia.org/article/Andronov-Hopf),
+  Scholarpedia 1(10):1858 (2006), doi:10.4249/scholarpedia.1858: read the multidimensional
+  reduction and the full first-Lyapunov-coefficient formula. They agree with the sign convention
+  and projection formula used here. The book itself was not newly read; attempted retrieval timed out.
+- Bounded novelty refresh: searches for the primary paper title with "supercritical", and for
+  "Becker-Döring atomization Lyapunov" / "Pego Velázquez Hopf stability atomization", plus the
+  [CMU publication listing](https://scholars.cmu.edu/4241-robert-pego/publications) and
+  [Bonn listing](https://www.iam.uni-bonn.de/abteilung-funktionalanalysis/selected-publications),
+  found no prior resolution of this exact atomization model. This refresh is not an exhaustive
+  citation census; the bounded check of 24 October and original check of 18 October remain recorded below.
+- Repository sources reused and audited: the original finite-range deliverables and verifier's
+  reduced-matrix implementation; the all-M formulas; the onset chart and symbolic limit code
+  in `../higher-branches/scripts/`. Reusing these algorithms does not assume that folder's
+  claimed higher-branch results. The copied symbolic limit checker now also checks denominators
+  and uses an exact comparison for the sign threshold.
+
 ## Primary source
 
 - R. L. Pego, J. J. L. Velázquez, *Temporal oscillations in Becker–Döring equations with atomization*,

@@ -20,11 +20,15 @@ def main():
     ctx.prec = 192
     los = [float(r["eps_lo"]) for r in ours]
     n = nf = nL = 0
+    seen = set()
     for fn in sys.argv[3:]:
         for r in csv.DictReader(gzip.open(fn, "rt") if fn.endswith(".gz") else open(fn)):
             if r["status"] not in ("PASS", "FAIL") or int(r["M"]) < 161 or int(r["j"]) != j:
                 continue
             M = int(r["M"]); n += 1
+            if M in seen or r["status"] != "PASS":
+                nf += 1
+            seen.add(M)
             e = 1 / M ** 0.5
             k = bisect.bisect_right(los, e) - 1
             cand = [i for i in (k - 1, k, k + 1) if 0 <= i < len(ours)]
@@ -47,6 +51,7 @@ def main():
             nf += (not ok)
             if not ok:
                 print("M=%d: not matched" % M, flush=True)
+    nf += seen != set(range(161, 100001))
     print("SUMMARY j=%d: %d result-8 Hopf points with M >= 161, %d matched inside our Krawczyk boxes, "
           "%d with result 8's l1(q1=1)/M inside our Lhat enclosure -> %s" % (j, n, n - nf, nL, "PASS" if nf == 0 else "FAIL"))
     sys.exit(0 if nf == 0 else 1)

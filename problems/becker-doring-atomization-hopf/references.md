@@ -59,3 +59,9 @@ determines the criticality.
 - O. Diekmann, Ph. Getto, M. Gyllenberg, *Stability and bifurcation analysis of Volterra functional equations in
   the light of suns and stars*, SIAM J. Math. Anal. 39 (2008) 1023–1069. Cited for the rigorous Hopf theory of
   renewal equations (§7.2 of notes.md). **Not read** for this work.
+
+## Completion audit (25–26 October 2026)
+
+The complete branches 1--3 proof and refreshed primary-source/method checks are documented in
+[all-M/references.md](all-M/references.md) and [all-M/verification.md](all-M/verification.md).
+The earlier source and novelty record is retained above.

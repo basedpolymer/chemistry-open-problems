@@ -1,0 +1,200 @@
+{
+  "python": "3.12.15 (main, Oct 14 2026, 01:05:27) [Clang 23.1.3 ]",
+  "python_flint": "0.9.0",
+  "passed": true,
+  "complete_suite": true,
+  "execution_mode": "aggregate of successful constituent runs after corrections",
+  "dates": "2026-10-25 through 2026-10-26",
+  "required_jobs": [
+    "verify_j1",
+    "dense_j1",
+    "match_j1",
+    "verify_j2",
+    "spectrum_j2",
+    "dense_j2",
+    "match_j2",
+    "verify_j3",
+    "spectrum_j3",
+    "dense_j3",
+    "match_j3",
+    "formulas",
+    "asymptotics",
+    "branch_links",
+    "winding_regression",
+    "small_stability",
+    "limit_symbolic",
+    "onset_formulas",
+    "onset_j1",
+    "onset_j2",
+    "onset_j3"
+  ],
+  "jobs": [
+    {
+      "name": "verify_j1",
+      "exit_code": 0,
+      "seconds": 249.99,
+      "source_run": "coverage",
+      "log": "verify_j1.log"
+    },
+    {
+      "name": "dense_j1",
+      "exit_code": 0,
+      "seconds": 541.14,
+      "source_run": "initial",
+      "log": "dense_j1.log"
+    },
+    {
+      "name": "match_j1",
+      "exit_code": 0,
+      "seconds": 7.81,
+      "source_run": "revised",
+      "log": "match_j1.log"
+    },
+    {
+      "name": "verify_j2",
+      "exit_code": 0,
+      "seconds": 64.5,
+      "source_run": "coverage",
+      "log": "verify_j2.log"
+    },
+    {
+      "name": "spectrum_j2",
+      "exit_code": 0,
+      "seconds": 705.24,
+      "source_run": "revised",
+      "log": "spectrum_j2.log"
+    },
+    {
+      "name": "dense_j2",
+      "exit_code": 0,
+      "seconds": 586.76,
+      "source_run": "initial",
+      "log": "dense_j2.log"
+    },
+    {
+      "name": "match_j2",
+      "exit_code": 0,
+      "seconds": 7.43,
+      "source_run": "revised",
+      "log": "match_j2.log"
+    },
+    {
+      "name": "verify_j3",
+      "exit_code": 0,
+      "seconds": 109.34,
+      "source_run": "coverage",
+      "log": "verify_j3.log"
+    },
+    {
+      "name": "spectrum_j3",
+      "exit_code": 0,
+      "seconds": 1038.08,
+      "source_run": "revised",
+      "log": "spectrum_j3.log"
+    },
+    {
+      "name": "dense_j3",
+      "exit_code": 0,
+      "seconds": 555.29,
+      "source_run": "initial",
+      "log": "dense_j3.log"
+    },
+    {
+      "name": "match_j3",
+      "exit_code": 0,
+      "seconds": 6.97,
+      "source_run": "revised",
+      "log": "match_j3.log"
+    },
+    {
+      "name": "formulas",
+      "exit_code": 0,
+      "seconds": 21.49,
+      "source_run": "initial",
+      "log": "formulas.log"
+    },
+    {
+      "name": "asymptotics",
+      "exit_code": 0,
+      "seconds": 0.4,
+      "source_run": "initial",
+      "log": "asymptotics.log"
+    },
+    {
+      "name": "branch_links",
+      "exit_code": 0,
+      "seconds": 17.24,
+      "source_run": "revised",
+      "log": "branch_links.log"
+    },
+    {
+      "name": "winding_regression",
+      "exit_code": 0,
+      "seconds": 0.22,
+      "source_run": "regressions",
+      "log": "winding_regression.log"
+    },
+    {
+      "name": "small_stability",
+      "exit_code": 0,
+      "seconds": 7.15,
+      "source_run": "revised",
+      "log": "small_stability.log"
+    },
+    {
+      "name": "limit_symbolic",
+      "exit_code": 0,
+      "seconds": 38.18,
+      "source_run": "revised",
+      "log": "limit_symbolic.log"
+    },
+    {
+      "name": "onset_formulas",
+      "exit_code": 0,
+      "seconds": 1.62,
+      "source_run": "regressions",
+      "log": "onset_formulas.log"
+    },
+    {
+      "name": "onset_j1",
+      "exit_code": 0,
+      "seconds": 76.4,
+      "source_run": "revised",
+      "log": "onset_j1.log"
+    },
+    {
+      "name": "onset_j2",
+      "exit_code": 0,
+      "seconds": 76.23,
+      "source_run": "revised",
+      "log": "onset_j2.log"
+    },
+    {
+      "name": "onset_j3",
+      "exit_code": 0,
+      "seconds": 58.43,
+      "source_run": "revised",
+      "log": "onset_j3.log"
+    }
+  ],
+  "source_runs": {
+    "initial": {
+      "directory": "recheck-2026-10-25",
+      "archived_summary": "earlier-attempts/initial-summary.json"
+    },
+    "revised": {
+      "directory": "recheck-2026-10-25-final",
+      "archived_summary": "earlier-attempts/revised-summary.json"
+    },
+    "coverage": {
+      "directory": "recheck-2026-10-25-coverage",
+      "archived_summary": "earlier-attempts/coverage-summary.json"
+    },
+    "regressions": {
+      "directory": "recheck-2026-10-26-regressions",
+      "archived_summary": "earlier-attempts/regressions-summary.json"
+    }
+  },
+  "coverage_target": "0.078811099999999995",
+  "note": "All 21 required jobs passed. Historical failed attempts and their corrections are retained in earlier-attempts/."
+}

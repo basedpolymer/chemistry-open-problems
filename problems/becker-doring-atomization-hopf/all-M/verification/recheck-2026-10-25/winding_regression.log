@@ -1,0 +1,8 @@
+COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_winding.py
+PASS multiplicity four 4
+PASS reverse orientation -4
+PASS one inside, one outside 1
+PASS no zeros 0
+PASS zero on contour None
+PASS unclosed contour None
+SUMMARY PASS

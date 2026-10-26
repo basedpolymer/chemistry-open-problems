@@ -1,0 +1,465 @@
+% Complete all-M proof, integrated in ../paper.tex. Labels AM refer to this section.
+\section{Completion for every cluster size on branches 1--3}\label{sec:allm}
+
+The certificates below remove both restrictions of the original finite-range result:
+the missing spectral hypothesis for intermediate $M$ and the unbounded range $M>10^5$.
+All stability statements concern the invariant mass hyperplane through the constant equilibrium.
+The term ``branch 1'' identifies the continuation from the first limiting Hopf root; it does not
+assert stability for every parameter below that point.
+
+\textbf{Theorem D (complete local criticality on branches 1--3).}
+For each $j=1,2,3$, the Hopf curve continuing the $j$th root of the Pego--Velázquez
+limit characteristic function is a graph over $M\in(M_j^*,\infty)$, with
+\[
+ 14<M_1^*<15,\qquad43<M_2^*<44,\qquad86<M_3^*<87.
+\]
+It has exactly one point at every integer $M\ge M_j$, where $(M_1,M_2,M_3)=(15,44,87)$,
+and none below this onset. At every such point the imaginary pair is simple, crosses
+transversally towards the right as $\kappa$ increases, and is the only spectrum on the
+imaginary axis after restriction to $H$. The first Lyapunov coefficient is negative
+except at $(j,M)=(1,15)$, where it is positive. Consequently:
+\begin{itemize}
+\item Branch 1 has orbitally asymptotically stable small periodic orbits for
+      $\kappa>\kappa_1(M)$ close to the bifurcation, for every $M\ge16$.
+      At $M=15$ its small periodic orbits are subcritical and unstable.
+\item Branches 2 and 3 are supercritical on the two-dimensional centre manifold,
+      for every $M\ge44$ and $M\ge87$, respectively. Their small periodic orbits
+      are unstable in $H$ because a transverse unstable eigenvalue is present.
+\item For $3\le M\le14$ the equilibrium is linearly asymptotically stable on $H$
+      for every $K>0$; there is no Hopf bifurcation.
+\end{itemize}
+The uniqueness here is for the specified connected Hopf curves, not a classification
+of all possible disconnected components of the Hopf set.
+
+\subsection{AM1. A characteristic function regular at infinity}
+Put $\varepsilon=M^{-1/2}$, $K=\kappa\varepsilon$, $A=1+K$, $\varphi=1+\varepsilon^2z$.
+Pego--Velázquez's characteristic determinant has the exact form
+\[
+ F=-P_1+\varphi^MP_2+A^{-M}R_1+(A\varphi)^{-M}R_2,
+\]
+where, writing $S_0=(\varphi-1)(A\varphi-1)(A\varphi^2-1)$,
+\begin{align*}
+ P_1&=K[(A\varphi-1)^2\varphi^2-(\varphi-1)^2]+(KM+1)S_0,\\
+ P_2&=\varphi(A\varphi-1)^3-A^2(\varphi-1)^2+MA^2(A\varphi-1)(\varphi-1)^2,\\
+ R_1&=-A^2[(A\varphi-1)^2\varphi^2-(\varphi-1)^2],\\
+ R_2&=A(\varphi-1)^3+A^2\varphi(A\varphi-1)^2[M(\varphi-1)+\varphi].
+\end{align*}
+Except at the real exceptional points $1,1/A,\pm A^{-1/2}$, zeros correspond to eigenvalues
+$\lambda=(A-\varphi^{-1})(\varphi-1)$. A simple zero gives a simple eigenvalue when
+$\varphi f(\varphi)=A\varphi^M+\varphi-1\ne0$, as checked below; this supplies the
+extra condition in the corrected application of PV Lemma 5.4. The eigenvalue zero of $B$
+is simple and is removed on $H$ (PV Lemma 3.1).
+
+Define the analytic functions
+\[
+ \mathsf L(u)=\frac{\log(1+u)}u,\quad
+ \mathrm{Ex}(b)=\frac{e^b-1}b,\quad \mathrm{Ex}_1=\mathrm{Ex}',\quad
+ \mathsf N_1(u)=\frac{1-\mathsf L(u)}u
+\]
+by continuity at zero, and set
+\begin{gather*}
+ g=\kappa+A\varepsilon z,\quad h=g\varphi+\varepsilon z,\quad
+ E=\exp(z\mathsf L(\varepsilon^2z)),\quad
+ T=\exp[-(\kappa/\varepsilon)\mathsf L(\kappa\varepsilon)],\\
+ \widehat\Lambda=gz/\varphi,\qquad
+ \lambda=\varepsilon^3\widehat\Lambda,\qquad
+ \Lambda=M\lambda/K=z+\frac{\varepsilon z^2}{\kappa\varphi}.
+\end{gather*}
+Then $Q^\varepsilon=K^{-3}F=E\widetilde P_2-\widetilde P_1+(T/\varepsilon)W/\kappa^3$, where
+\begin{align*}
+ \widetilde P_2&=(\varphi g^3-\varepsilon A^2z^2+A^2z^2g)/\kappa^3,\\
+ \widetilde P_1&=[\kappa(g^2\varphi^2-\varepsilon^2z^2)+(\kappa+\varepsilon)zgh]/\kappa^3,\\
+ W&=-A^2(g^2\varphi^2-\varepsilon^2z^2)
+       +[A\varepsilon^4z^3+A^2\varphi g^2(z+\varphi)]/E.
+\end{align*}
+Thus $Q^0=e^z(1+z^2/\kappa^2)-(1+z)$. These identities are checked symbolically
+for indeterminate $M$, rather than by fitting finitely many matrices (checks F1--F4).
+
+\textbf{Exponential remainder bound.}
+On $\varepsilon\in[e_-,e_+]$, $\kappa\in[k_-,k_+]$, the quantity $T/\varepsilon^r$
+is bounded by
+\[
+ \frac{\exp(-k_-/e_++k_+^2/2)}{e_+^r}\quad(e_+<k_-/r),
+ \qquad \frac{T(e_+,k_-)}{e_-^r}\quad(e_->0).
+\]
+Use the smaller valid bound, with the first condition interpreted without division by zero
+when $r=0$. The first follows from $\log(1+x)\ge x-x^2/2$ and monotonicity of
+$\exp(-c/e)/e^r$. For the second, $T$ increases with $e$ and decreases with $k$, since
+$x/(1+x)-2\log(1+x)<0$. Moreover
+$\partial_\kappa(T/\varepsilon)=-T/(\varepsilon^2A)$ and
+$|\partial_\varepsilon(T/\varepsilon)|\le(3\kappa+\varepsilon)T/\varepsilon^3$.
+All remainder bounds extend by zero at $\varepsilon=0$. The functions above and their derivatives
+are enclosed by convergent power series with explicit geometric or factorial tails.
+
+\subsection{AM2. Uniform Hopf boxes and their identification}
+For $X=(\kappa,x,y)$ define
+$G(X;\varepsilon)=(\operatorname{Re}Q^\varepsilon,\operatorname{Im}Q^\varepsilon,
+\operatorname{Re}\Lambda)$, $z=x+iy$. Let $m$ and $e_m$ be the midpoints of $X$ and a
+parameter interval $E_0$, and let $Y$ be an approximate inverse of the midpoint Jacobian.
+The parametric Krawczyk enclosure is
+\[
+ \mathcal K=m-YG(m;e_m)-(Y\partial_\varepsilon G(m;E_0))(E_0-e_m)
+                   +(I-YD_XG(X;E_0))(X-m).
+\]
+If $\mathcal K\subset\operatorname{int}X$, every parameter in $E_0$ has a unique zero in $X$.
+Indeed, apply the fundamental theorem of calculus to $YG(m;e)$:
+\[
+ YG(m;e)-YG(m;e_m)=\int_{e_m}^{e}Y\partial_\varepsilon G(m;t)\,dt.
+\]
+This justifies forming $Y\partial_\varepsilon G$ before interval multiplication by $e-e_m$.
+The ordinary Krawczyk theorem then applies for each fixed $e$. Strict inclusion also bounds
+the weighted row sums of $I-YD_XG$ below one, ensuring uniqueness and nonsingularity.
+
+On every stored box we also certify
+\[
+ 0\notin Q_z,\quad |AE+\varepsilon^2z|>0,\quad y>0,\quad
+ \operatorname{Im}\Lambda>0,\quad
+ \operatorname{Re}(\Lambda_\kappa-\Lambda_zQ_\kappa/Q_z)>0.
+\]
+These give simplicity, positive frequency, and transversality. All derivatives are obtained by
+forward differentiation of the explicit formulas, including the exponential remainders.
+
+The first interval begins at zero. There, the root lies in
+$(2j-1)\pi<y<(2j-\tfrac12)\pi$ and has $\kappa>0$, identifying the $j$th root
+$\tan y=y$, $\cos y<0$. At every shared parameter endpoint a separate narrow Krawczyk
+enclosure is contained in both neighbouring boxes. Therefore their zeros coincide, and
+the entire chain is the continuation of this limiting root. This last step is checked by
+\texttt{check\_branch\_links.py}; overlap of two large boxes alone would not suffice.
+
+\subsection{AM3. Explicit localization of the spectrum}
+For $w=\varphi-1$, $a=|w|$, $u=\operatorname{Re}w$, one has
+\[
+ \operatorname{Re}\lambda=Au-\frac{u+a^2}{1+2u+a^2}.
+\]
+Choose the root $\varphi$ of modulus at least $A^{-1/2}$. If $\operatorname{Re}\lambda\ge0$,
+then $|\varphi|\ge1$ and $\operatorname{Re}\varphi\ge1$: writing $\varphi=re^{i\theta}$,
+$\operatorname{Re}\lambda=\cos\theta(Ar+r^{-1})-(A+1)$; the range
+$A^{-1/2}\le r<1$ makes this negative, and for $r\ge1$ it implies
+$r\cos\theta\ge(A+1)r^2/(Ar^2+1)\ge1$.
+Consequently $u\ge u_{\min}(a)$, the positive root of
+$2Au^2+(K+Aa^2)u-a^2=0$, increasing in $a$ and decreasing in $K$.
+
+Here are sufficient inequalities, with explicit constants, to exclude every root with
+$a\ge R_0/M$. For $a\le a_1=0.1$, put $\mathcal T=MA^2a^2|K+Aw|$.
+The triangle inequality in $F$, divided by $\mathcal T$, excludes a zero if
+$\rho_a+\cdots+\rho_f<1$, where
+\begin{align*}
+ \rho_a&=(1+a_1)(\kappa/(AR_0)+\varepsilon)^2,& \rho_b&=\varepsilon/\kappa,\\
+ \rho_c&=(1+a_1)^2[\kappa^2/(A^2R_0^2)+\kappa\varepsilon/(AR_0)],&
+ \rho_d&=\varepsilon^2/A^2,\\
+ \rho_e&=\frac{\kappa^2+\kappa\varepsilon}{A^2R_0}
+              +\frac{(\kappa\varepsilon+\varepsilon^2)(2+a_1)}A,&
+ \rho_f&=\frac{N_0T\varepsilon^{-3}+N_1T\varepsilon^{-5}}{A^2R_0^2\kappa},
+\end{align*}
+with
+\begin{align*}
+ N_0&=A^2[(K+Aa_1)^2(1+a_1)^2+a_1^2]+Aa_1^3
+                 +A^2(1+a_1)^2(K+Aa_1)^2,\\
+ N_1&=A^2(1+a_1)(K+Aa_1)^2a_1.
+\end{align*}
+For example, $|\varphi||K+Aw|^3/\mathcal T\le\rho_a$ follows from
+$a\ge R_0/M$; the $(KM+1)S_0$ term gives $\rho_e$. The remaining terms follow by
+$|K+Aw|\ge\max(K,Aa)$, $|\varphi|\le1+a$, and $|(A\varphi)^{-M}|\le T$.
+
+For larger $a$, subdivide into $[a_-,a_+]$ and verify
+\[
+ (1+2u_{\min}(a_-)+a_-^2)^{M_{\rm lo}/2}\underline{|P_2|/M}
+    >\overline{|P_1|/M}+\overline{T(|R_1|+|R_2|)/M},\qquad M_{\rm lo}=e_+^{-2}.
+\]
+The explicit bounds used are
+\begin{align*}
+ |P_2|&\ge MA^2a^2|K+Aw|-|\varphi||K+Aw|^3-A^2a^2,\\
+ |P_1|&\le K(|K+Aw|^2|\varphi|^2+a^2)+(KM+1)a|K+Aw|(K+2Aa+Aa^2),\\
+ T(|R_1|+|R_2|)&\le T\{A^2(|K+Aw|^2|\varphi|^2+a^2)+Aa^3
+                       +A^2|\varphi||K+Aw|^2(Ma+|\varphi|)\}.
+\end{align*}
+When $e_->0$, these bounds can also cover $[R_0e_-^2,a_1]$ instead of the six-ratio test.
+
+For branch 1, $K<1$ on all boxes. The first Gershgorin disc lies strictly in the left
+half-plane because its centre-to-radius margin is $M(1-K)+6K>0$. The other discs give
+$|\lambda|\le2A+2$. Since $|\lambda|\ge Aa^2/(1+a)$, it suffices to check
+$a\le a_{\max}=2+2\sqrt2$.
+For branches 2 and 3 no restriction on $K$ is needed. With $r=|\varphi|$ one may replace
+the lower bound for $|P_2|/M$ by the maximum of that bound and
+\[
+ A^3r^3-\frac{3A^2r^3+(3A+A^2)r^2}{M}-A^2(1+2A)r^2-A^2(2+A)r
+       -\frac{(1+2A^2)r}{M}-A^2(1+M^{-1}).
+\]
+This follows by expanding $P_2$ and using $|\varphi+M|\ge M+1$.
+The finite subdivision ends at $a_{\rm big}=12$. For $r\ge r_b=a_{\rm big}-1$, set
+$\alpha=K/2+3A/2$, $\beta=K/4+15A/4$, and $d=M^{-1}$. Bounds for the tail are
+\begin{align*}
+ C_1&=K(\alpha^2+9/16)d+\tfrac32(K+d)\alpha\beta,\\
+ C_2&=T\{[A^2(\alpha^2+9/16)+27A/16+A^2\alpha^2]d
+                        +\tfrac32A^2\alpha^2\},\\
+ c&=A^3-3A^2d-(3A+A^2)d/r_b-A^2(1+2A)/r_b\\
+  &\hspace{1em}-A^2(2+A)/r_b^2-(1+2A^2)d/r_b^2-A^2(1+d)/r_b^3.
+\end{align*}
+Take lower endpoints for positive terms in $c$ and upper endpoints for subtracted terms.
+Then $|P_1|/M\le C_1r^4$, $T(|R_1|+|R_2|)/M\le C_2r^4$, and $|P_2|/M\ge cr^3$.
+The certified inequality $r_b^{M_{\rm lo}-1}c>C_1+C_2$ excludes the entire tail.
+Thus all possible unstable or imaginary eigenvalues are localized to $|z|<R_0$.
+
+\subsection{AM4. Counting zeros without floating-point angles}
+The following argument-principle calculation uses balls throughout. On a contour edge let
+$B_e$ enclose $Q^\varepsilon$ for the whole edge and parameter box. At the midpoint
+parameters let $v_0,v_1$ enclose the endpoint values. Subdivide until
+$\operatorname{Re}(B_e/v_0)>0$. The actual edge image, rotated by its initial value,
+lies in the right half-plane; its argument increment is therefore
+$\arg(v_1/v_0)$, computed in Arb. The sum divided by $2\pi$ must contain a unique
+integer. Nonvanishing on all edges and homotopy invariance make this count valid
+throughout the parameter box. The former floating-point sum of angles is not used.
+
+For branch 1 take $R_0=8$, $\sigma=0.3$, and a convex polygon enclosing
+$D=\{|z|\le R_0,\ \operatorname{Re}z\ge-\sigma\}$.
+The polygon's supporting half-planes are checked in ball arithmetic, including the
+slight outward displacement of its left chord. If $x\le-\sigma$ and $|z|\le R_0$,
+\[
+ \operatorname{Re}\Lambda\le
+ \max(-\sigma+\varepsilon\sigma^2/\kappa,-R_0+\varepsilon R_0^2/\kappa)
+ +\frac{\varepsilon^3R_0^3}{\kappa(1-\varepsilon^2R_0)}<0.
+\]
+The bound follows by expanding $1/\varphi$ about one and maximizing the resulting convex
+quadratic in $x$. Each box has winding count four. Two zeros are $z=0$, counted at least
+twice because $F(1)=F'(1)=0$; the other two are the certified Hopf pair. Localization
+and the displayed inequality leave no other eigenvalue with nonnegative real part on $H$.
+
+For branches 2 and 3 use polygons following level curves of $\operatorname{Re}\Lambda$.
+The constants are respectively
+\[
+ (R_0,Y,c_L,c_R)=(20,20.4,-0.3,0.25),\qquad(26,26.6,-0.15,0.25).
+\]
+Piecewise linear left and right graphs $\ell(y),r(y)$ have strictly negative and positive
+$\operatorname{Re}\Lambda$, respectively, certified edge by edge. They lie in
+$\mathcal R=[x_{\min},R_0]\times[-Y,Y]$. On this rectangle, with
+$\rho=\max_{\mathcal R}|z|$, the check
+\[
+ \frac{\varepsilon}{\kappa}\frac{\rho(2+\varepsilon^2\rho)}{(1-\varepsilon^2\rho)^2}<1
+\]
+implies $\partial_x\operatorname{Re}\Lambda>0$. To exclude the part of $|z|\le R_0$
+left of $x_{\min}=-\sigma$, put $q=\varepsilon^2R_0\le2/5$ and
+$g_0(x)=x+\varepsilon x^2/\kappa+\varepsilon^3|x|^3/[\kappa(1-q)]$.
+The sharper bound is $\operatorname{Re}\Lambda\le\max(g_0(-\sigma),g_0(-R_0))<0$.
+Indeed the upper bound at fixed $x$, as a function of $t=y^2$, is
+$x+(\varepsilon/\kappa)(x^2-t)+\varepsilon^3(x^2+t)^{3/2}/[\kappa(1-q)]$;
+its derivative is nonpositive when $q\le2/5$, and $g_0$ is convex for $x<0$.
+
+The polygons $P=\{\ell(y)<x<R_0,|y|<Y\}$ and
+$P_-=\{\ell(y)<x<r(y),|y|<Y\}$ have counts $2j+2$ and four. Localization and
+monotonicity imply that all nonnegative spectrum is in $P$, and all imaginary spectrum
+is in $P_-$. Its four zeros are exactly $0,0,z_H,\bar z_H$.
+The remaining $2j-2$ zeros in $P\setminus P_-$ give eigenvalues with positive real part;
+the real exceptional points of $F$ lie outside this region. This proves H2 and instability.
+No claim about simplicity of these additional zeros is needed.
+
+\subsection{AM5. A regular formula for the nonlinear coefficient}
+Let $q_1=1$, $pB=i\omega p$, $pq=1$, $r(\mu)=(\mu-B)^{-1}Sq$, where $r(0)\in H$,
+and $\sigma(v)=pSv$. The quadratic projection formula of Section 3 gives exactly
+\begin{align*}
+ \ell_1=\omega^{-1}\operatorname{Re}\big[&\sigma(r(0))+\sigma(\overline{r(0)})
+ +2\operatorname{Re}(r(0)_1)\sigma(q)\\
+ &+\sigma(r(2i\omega))+r(2i\omega)_1\sigma(\bar q)\big].
+\end{align*}
+For example $w_{11}=-(r(0)+\overline{r(0)})$, $w_{20}=2r(2i\omega)$, which proves
+this identity by substitution. In computing a resolvent, the bulk rows, last row and
+$\sum_l l r_l=0$ replace the first row: multiplying by the conserved mass row proves
+the latter automatically for $\mu\ne0$, and selects the restricted inverse for $\mu=0$.
+
+Here are all the blocks needed to evaluate the formula without singular cancellation.
+Write $T_q=T/\varepsilon$ and
+\begin{align*}
+ C_1&=\frac{g-A^2\varphi T_q/E}{gE/\varphi+\varepsilon^2zAT_q/E},&
+ \widehat C_2&=\frac{AE+\varepsilon^2z}{gE+\varepsilon^2zA\varphi T_q/E},\\
+ q_l&=C_1E\varphi^{-l}+\varepsilon^{-1}\widehat C_2(A\varphi)^{l-M}.&&
+\end{align*}
+For the unnormalized adjoint put $\psi=(A\varphi)^{-1}$,
+$\theta=\widehat\Lambda/(\kappa+\varepsilon^2\widehat\Lambda)$,
+$c_A=(\kappa+\varepsilon)\theta+\kappa$, and
+\begin{align*}
+ a_1&=c_A\psi+\varepsilon^2T_q(Az-\varepsilon\widehat\Lambda)/E,\\
+ a_2&=-c_A\varphi+E(g/\varphi+\varepsilon^2\widehat\Lambda),\\
+ p_l&=a_1\varphi^l+a_2\psi^l-(1-\varepsilon^2\theta)(a_1\varphi+a_2\psi).
+\end{align*}
+Divide by $N_p=\sum_l p_lq_l$ when forming $\sigma$. For $l<M$,
+\[
+ (pS)_l=a_1\varepsilon^2z\varphi^l-a_2\frac{\varepsilon g}{A\varphi}\psi^l
+             -\varepsilon^2\theta(a_1\varphi+a_2\psi),\qquad(pS)_M=0.
+\]
+These formulas follow by substitution in the second-order bulk recurrence and its
+boundary rows; the nonsingular normalization is checked by the ball evaluation.
+
+For $\mu=\varepsilon^3m$, where $m=0$ or $2\widehat\Lambda$, put
+\[
+ c_m=\kappa+\varepsilon^2m,\quad
+ \zeta=\frac{-2m}{c_m+\sqrt{c_m^2+4\varepsilon m}},\quad
+ s_1=1+\varepsilon^2\zeta,\quad s_2=A/s_1,
+\]
+and $\Xi=(\kappa-\varepsilon\zeta)/(1+\varepsilon^2\zeta)+A\varepsilon z-\varepsilon^2m$.
+Then
+\begin{align*}
+ r_l={}&\frac{zC_1E}{\varepsilon(m-\widehat\Lambda)}\varphi^{-l}
+ +\frac{\widehat C_2g}{\varepsilon\Xi}
+       \frac{(A\varphi)^{l-M}-s_2^{l-M}}{A\varphi-s_2}\\
+ &+\frac{\widehat h_1}{\varepsilon}s_1^l
+       +\frac{\widehat H_2}{\varepsilon^2}s_2^{l-M}.
+\end{align*}
+The two coefficients are obtained from the last row and the mass condition, scaled
+by $\varepsilon$ and $\varepsilon^5$ respectively. These are explicit two-by-two linear
+equations. The divided difference follows from
+$(w-s_2)(w+s_2-A-1-\mu)=-(\mu-\lambda)w$, $w=A\varphi$;
+it removes the subtraction of two individually larger boundary layers.
+
+For completeness the finite sums used in these blocks are evaluated as follows.
+For $\beta=1+\varepsilon^2b_0$, $b=M\log\beta=b_0\mathsf L(\varepsilon^2b_0)$,
+and $\gamma=A(1+\varepsilon^2g_0)$, geometric summation gives
+\begin{align*}
+ \sum_{l=1}^{M-1}(\beta_1\beta_2)^l
+    &=\varepsilon^{-2}[\mathrm{Ex}(b_1+b_2)\mathsf L(\beta_1\beta_2-1)-\varepsilon^2],\\
+ \sum_{l=1}^{M-1}\beta^l\gamma^{l-M}
+    &=\frac{e^b-\beta\gamma^{1-M}}{\beta\gamma-1},\\
+ \sum_{l=1}^{M}l\beta^l
+    &=\varepsilon^{-4}\beta[\mathsf L(u)^2\mathrm{Ex}_1(b)
+                              +\varepsilon^2e^b\mathsf N_1(u)],\quad u=\beta-1,\\
+ \sum_{l=1}^{M}l\gamma^{l-M}
+    &=\varepsilon^{-3}(\gamma/d_\gamma-\varepsilon\gamma/d_\gamma^2)
+                              +\gamma^{1-M}/(\gamma-1)^2,
+ \quad d_\gamma=(\gamma-1)/\varepsilon.
+\end{align*}
+Divided differences of these identities give the corresponding sums with
+$(\gamma_1^{l-M}-\gamma_2^{l-M})/(\gamma_1-\gamma_2)$; their regular parts are
+$-\beta e^b/(\varepsilon^2d_1d_2)$ for the pair sum, where
+$d_i=(\beta\gamma_i-1)/\varepsilon$, and
+\[
+ \varepsilon^{-4}\left[-\frac{1-\varepsilon^2}{d_1d_2}
+       +\frac{\varepsilon(d_1+d_2)}{d_1^2d_2^2}\right]
+\]
+for the mass sum, now with $d_i=(\gamma_i-1)/\varepsilon$.
+The remainders are bounded by the supremum of the derivative of the exponentially small
+part along the segment $[\gamma_1,\gamma_2]$. Products with the layer
+$\psi'^l$, $\psi'=(1+\varepsilon^2p_0)/A$, use
+$\sum_{l=1}^{M-1}(\psi'\beta)^l=\psi'\beta[1-(\psi'\beta)^{M-1}]/(1-\psi'\beta)$;
+products with a layer at $M$ are exponentially small. The bound in AM1 controls all
+remainders, including coincident bases. Direct summation and dense linear solves check
+these identities entrywise (F5--F6), without using the earlier closed-form implementation.
+
+Track a coefficient as $v\varepsilon^p$, with integer $p$ and regular $v$.
+The five terms in the bracket above have order $\varepsilon$; all negative powers cancel
+before interval evaluation. Thus
+\[
+ \widehat L=\varepsilon^2\ell_1(q_1=1)
+      =\frac{\operatorname{Re}(\varepsilon^{-1}\text{bracket})}
+                   {\operatorname{Im}\widehat\Lambda}
+\]
+is continuous at $\varepsilon=0$. To control interval overestimation, regard each
+exponential remainder as an independent variable $\nu_i$ in a disk valid on the whole box.
+For the resulting regular expression $\Phi$, at any point $\xi$ of the box with midpoint $c$,
+\[
+ \Phi(\xi;\nu(\xi))\in\Phi(c;\mathcal D)
+              +D_\xi\Phi(\text{box};\mathcal D)(\xi-c).
+\]
+This is the mean-value formula at fixed $\nu(\xi)$, not differentiation of a numerical
+remainder bound. The same disks are recorded and replayed in the box and midpoint evaluations.
+
+\subsection{AM6. Finite certificates covering the infinite range}
+All computations use python-flint 0.9 at 192 bits, except the higher precision limiting
+evaluation. The exact rational endpoint stored in the certificates is
+\[
+ e_*=0.078811099999999995>161^{-1/2}.
+\]
+\begin{center}
+\begin{tabular}{c r c c c}
+\toprule
+Branch & Boxes & $\widehat L$ & Spectral counts & Integer range\\
+\midrule
+1 & 562 & $<0$ & $4$ & $M\ge161$\\
+2 & 589 & $<0$ & $N(P)=6,\ N(P_-)=4$ & $M\ge161$\\
+3 & 834 & $<0$ & $N(P)=8,\ N(P_-)=4$ & $M\ge161$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each line is re-proved from its midpoint and radius, including the Krawczyk inclusion,
+all nondegeneracy conditions, and the coefficient sign. No integer sampling is used for
+this infinite range. Exact rational endpoint checks prove coverage, and AM2 identifies
+the whole branch. The first box $[0,10^{-5}]$ covers every $M\ge10^{10}$.
+For $M\le160$, the direct reduced-matrix certificate from Section 11 is rerun at every
+integer: 146, 117 and 74 points, respectively, including its rigorous eigensolver.
+This proves Theorem D's coefficient and spectral assertions for every relevant integer.
+
+At $\varepsilon=0$, symbolic evaluation of the same blocks gives
+\[
+ \lim_{M\to\infty}\frac{\ell_1(q_1=1)}M
+ =-\frac{R(R-1)(7R^2-34R+23)}{t(R+1)(5R-3)((R-1)^3+R+1)},\quad
+ R=\sqrt{1+t^2},\quad t=t_j.
+\]
+To check the identity exactly, substitute
+$R=(4\tau^4+1)/(4\tau^2)$, $t=(4\tau^4-1)/(4\tau^2)$,
+$\kappa=(2\tau^2-1)/(2\tau)$, $e^{it}=-(1+it)/R$ in the blocks.
+Clearing denominators reduces the difference to the zero polynomial
+(\texttt{limit\_symbolic.py}). Real-root isolation checks that the normalization and
+resolvent divisors, including their own denominators, never vanish for $\tau\ge2$.
+All the Hopf roots have $\tau>2.12$. Since $R\ge65/16>(17+8\sqrt2)/7$,
+the displayed coefficient is negative. In particular the first three limits are
+$-0.00931139838\ldots$, $-0.00794101725\ldots$, $-0.00377769679\ldots$.
+This is a limit of the discrete-system coefficient, not a deduction from the formal renewal model.
+
+\subsection{AM7. Exact onset and the finite-to-infinite junction}
+The second chart makes the limit $K\to\infty$ regular. Put $s=1/A$, allow real $M>3$,
+and use $\varphi^M=\exp(M\log\varphi)$ in the right half-plane. Define
+\begin{align*}
+ f_1&=\varphi^M+s(\varphi-1),&f_2&=s-\varphi+s^{M-1}\varphi^{1-M},\\
+ G_1&=\varphi(s-\varphi)[(1-s)\varphi+(M(1-s)+s)(\varphi-1)],\\
+ G_2&=(s-\varphi)[M(\varphi-1)+(1-s)\varphi+\varphi(\varphi-1)],\\
+ H_1&=(\varphi-1)[s(1-s)+(M(1-s)+s)(s-\varphi)],\\
+ H_2&=(\varphi-1)[(s+M\varphi)(s-\varphi)+s(1-s)\varphi].
+\end{align*}
+Then $F/A^3=f_1(H_1-s^{M-1}\varphi^{-M}H_2)-(G_1-\varphi^MG_2)f_2$ and
+$\lambda/A=(1-s/\varphi)(\varphi-1)$. These follow by substitution in the
+boundary determinant defining $F$. At $s=0$ the Hopf equations reduce to $u=0$ and
+\[
+ G_\infty(1+iv;M)=0,\qquad
+ G_\infty(\varphi;M)=-\varphi^{M-2}[\varphi^3+M(\varphi-1)^2]+(M+1)\varphi-M.
+\]
+The factors $s^{M-1}$ are $C^1$ at zero. For $0\le s\le b<1$ and $p=M-1>2$,
+their values and derivatives are bounded by $b^{p_-}$, $p_+b^{p_--1}$ and
+$b^{p_-}|\log b|$, the last provided $b\le e^{-1/p_-}$.
+
+The script \texttt{check\_onsets.py} reuses the explicit onset chart from the companion
+folder, without assuming any result about higher branches. It first encloses
+$(M,u,v)$ as functions of $s\in[0,0.0002]$, with $dM/ds>0$ and $v>0$.
+It then encloses $(s,u,v)$ as functions of $M$ up to $162$, with $0<s<1$ and $v>0$.
+Every stored line and every consecutive endpoint is re-proved. A separately enclosed
+point at the chart transition belongs to both unique-zero boxes; a final sub-box maps
+inside the last $\varepsilon$-chart box under
+\[
+ \varepsilon=M^{-1/2},\quad\kappa=(s^{-1}-1)\sqrt M,\quad z=M(\varphi-1).
+\]
+Every integer Hopf point used for $M\le161$ is also enclosed afresh and contained in
+this same curve. The first $s$-boxes lie in the intervals for $M_j^*$ in Theorem D.
+Their positive slope, the graph over $M$, and the nonsingular local Hopf systems show
+that this arc is the entire connected component: there is no finite interior point
+where an additional arc can attach. Its two ends leave the domain at $K=\infty$ and
+$M=\infty$. This proves the exact onsets, including the previously uncertified $87$.
+
+Finally, for $3\le M\le14$, \texttt{check\_small\_stability.py} derives the reduced
+Jacobian directly from the vector field, computes its characteristic polynomial in
+$\mathbb Z[K][\lambda]$, and verifies positivity on $K>0$ of every leading Hurwitz
+determinant. Positive polynomial coefficients or exact real-root isolation establish
+these inequalities. The Hurwitz criterion proves stability throughout this parameter range.
+
+\subsection{AM8. Consequences, verification, and scope}
+The Hopf theorem now applies at every integer point of the three curves. The sign
+and crossing direction give the asserted side and stability on the centre manifold.
+For branch 1 all transverse eigenvalues are stable. For $j=2,3$, the monodromy matrix
+of the small orbit tends to $\exp(2\pi B|_H/\omega)$; a transverse positive-real-part
+eigenvalue therefore gives a Floquet multiplier outside the unit circle. Positivity of
+the equilibrium ensures that sufficiently small cycles have positive concentrations.
+
+The complete recheck is \texttt{all-M/scripts/recheck\_all.py}; its logs, generated onset
+certificates and direct matrix certificates are in
+\texttt{all-M/verification/recheck-2026-10-25/}. The detailed audit is
+\texttt{all-M/verification.md}. Corrections made during the audit include the fully
+interval winding count, certified contour containment, and explicit branch junctions.
+The proof uses correctness of Arb, exact polynomial arithmetic and the standard
+finite-dimensional Hopf and Krawczyk theorems. It makes no assertion about cycles far
+from bifurcation, a global stability threshold in $\kappa$, or the unresolved higher
+branches. Those issues are not needed for the complete local answer on branches 1--3.

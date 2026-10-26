@@ -257,3 +257,16 @@ progress journal. Global topology ordering remains unresolved.
   to solved. β-Kirchhoff Šoltés families: the 2/3 barrier is stated for splices with branches of at most 9 vertices.
 - Root README: the "Under investigation" section is merged into Results as results 18–25, each with its current
   status.
+
+## 26 October 2026
+
+- Result 8 completed for branches 1–3 (Codex, GPT-6, effort not recorded): the all-M argument is
+  audited and integrated into the manuscript. Stable supercritical cycles on branch 1 for every M ≥ 16,
+  the subcritical exception M = 15, and unstable supercritical cycles on branches 2–3 are certified
+  for every integer on their curves. Exact onsets 15, 44, 87, all branch junctions, and the closed-form
+  limit of the discrete Lyapunov coefficient are proved. The winding counter now uses Arb arguments
+  and a unique enclosed integer; contour geometry and coverage use rigorous checks. The stored upper
+  endpoint is exactly 0.078811099999999995 (the former 0.0788111 was a rounded label), still above
+  1/sqrt(161). All 1,985 infinite-range coefficient boxes, the full spectral covers and all 337 small-M
+  points are rechecked. The original finite-range verification is retained; the completion audit is
+  all-M/verification.md. Result 25 and global-in-parameter questions retain their separate scope.

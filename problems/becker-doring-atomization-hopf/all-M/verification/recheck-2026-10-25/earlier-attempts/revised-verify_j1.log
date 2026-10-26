@@ -1,0 +1,7 @@
+COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/verify_sweep.py /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/certificates/l1h2_j1.csv 0 0.0788111 --h2
+line 100 [0.0063602656500071639, 0.0064157719182494572] Lhat in [-0.0105688, -0.00900074] H2 count=4 loc=I+II PASS (38s)
+line 200 [0.01544202636458418, 0.015542157103545205] Lhat in [-0.0154387, -0.0120102] H2 count=4 loc=I+II PASS (79s)
+line 300 [0.027653489764812238, 0.027834120983634504] Lhat in [-0.025492, -0.0159796] H2 count=4 loc=I+II PASS (123s)
+line 400 [0.044489396591158935, 0.044652321770538253] Lhat in [-0.0303488, -0.0244216] H2 count=4 loc=II PASS (169s)
+line 500 [0.064905133761899131, 0.065199043244975816] Lhat in [-0.0372252, -0.0205432] H2 count=4 loc=II PASS (225s)
+SUMMARY l1h2_j1.csv: 562 lines re-proved (stride 1), 0 failures, coverage of [0, 0.0788111]: False -> FAIL (259s)

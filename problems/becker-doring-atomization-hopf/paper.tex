@@ -6,28 +6,30 @@
 \newcommand*{\PaperTitle}{Criticality of the Hopf bifurcations in the Becker--Döring equations with atomization}
 \newcommand*{\PaperTitlePlain}{Criticality of the Hopf bifurcations in the Becker-Doring equations with atomization}
 \newcommand*{\PaperShortTitle}{Hopf criticality in Becker--Döring with atomization}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 18 October 2026 \textperiodcentered{} partial result, verified (confirmed with corrections)}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; citing-works search by a nested Claude Opus 5.5 sub-agent (effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification and corrections: Claude Opus 5.5 (effort xhigh), fresh context, no access to the solver's reasoning}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 26 October 2026 \textperiodcentered{} complete for branches 1--3}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator; citing-works search by a nested Claude Opus 5.5 sub-agent (effort xhigh) \textperiodcentered{} LaTeX edition: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification and corrections: Claude Opus 5.5 (effort xhigh), fresh context \textperiodcentered{} All-M extension: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Completion, audit and edition: Codex (GPT-6, effort not recorded)}
 \newcommand*{\PaperKeywords}{Becker--Döring equations, nucleation, Hopf bifurcation, first Lyapunov coefficient, interval arithmetic}
 \input{chemop-preamble}
+\addbibresource{references.bib}
 
 \begin{document}
 \makepapertitle
 
 \begin{paperabstract}
-Pego and Velázquez proved that the Becker--Döring equations with atomization undergo Andronov--Hopf bifurcations
-at \(\kappa=\kappa_j(M)\) for large maximal cluster size \(M\), and wrote that they had not managed to determine
-analytically whether the bifurcating periodic solutions are stable. We evaluate the first Lyapunov coefficient
-\(\ell_1\) in exact closed form at a cost independent of \(M\), enclose the Hopf points by a Krawczyk operator in ball
-arithmetic, and certify the sign of \(\ell_1\) for every integer \(M\) in \(15\le M\le10^5\) on the first branch
-(\(44\le M\le10^5\) and \(87\le M\le10^5\) on the second and third): \(\ell_1<0\) (supercritical) except at
-\(M=15\) on the first branch, where \(\ell_1>0\) (subcritical). The remaining spectral hypothesis of the Hopf theorem
-is certified for \(M\le160\). The first-branch periodic orbits are therefore rigorously orbitally stable for
-\(16\le M\le160\). For larger \(M\) this conclusion rests on that hypothesis, which was checked only in floating
-point. A verification re-proved the signs for \(M\le300\) with different coordinates and code. It also
-showed by exact algebra that, for \(15\le M\le57\), \(\kappa_1(M)\) is the first loss of stability. A formal reduction for
-\(M\to\infty\) to a scalar renewal equation predicts a negative Landau coefficient on every branch, and certified values up
-to \(M=10^8\) approach the predicted limit. The infinite range \(M>10^5\) remains unproved.
+We answer Pego and Velázquez's stability question for the first three Hopf branches of the
+Becker--Döring equations with atomization, for every integer maximal cluster size on each branch.
+The first branch starts at $M=15$: it is subcritical there, and supercritical with orbitally
+asymptotically stable periodic solutions in the mass hyperplane for every $M\ge16$.
+Branches 2 and 3 start exactly at $M=44$ and $M=87$; they are supercritical on the centre manifold,
+but their periodic solutions are unstable in the full mass hyperplane. The proof combines direct
+ball-arithmetic certificates for small matrices with a formulation regular at $M^{-1/2}=0$.
+A finite cover of this compact parameter interval certifies the first Lyapunov coefficient,
+simplicity, transversality and the full spectral hypothesis for every $M\ge161$.
+Argument-principle counts use interval arithmetic throughout. Certified junctions identify
+all three curves from their finite onsets to the limiting roots. Exact Hurwitz determinants
+exclude Hopf bifurcations for $3\le M\le14$, and symbolic algebra identifies the limit of the
+rescaled discrete Lyapunov coefficient. This completes the local answer on branches 1--3;
+no global assertion about distant periodic orbits or all higher branches is made.
 \end{paperabstract}
 
 \section{Problem and source}
@@ -90,7 +92,7 @@ equilibrium is \(v=0\) for every \(\kappa\).
 
 \textbf{Coefficient.} Let \(Bq=i\omega q\), let \(u\) be a row vector with \(uB=i\omega u\), normalized by
 \(uq=1\), and set \(\langle p,x\rangle:=ux\). Kuznetsov's formula (\emph{Elements of Applied Bifurcation Theory}, 3rd
-ed., §3.5), with \(\mathcal C=0\), reads
+ed.; the general formula is also given in \cite{kuznetsov2006}), with \(\mathcal C=0\), reads
 \[\ell_1=\frac1{2\omega}\,\mathrm{Re}\Big[-2\,u\,\mathcal B\big(q,w_{11}\big)+u\,\mathcal B\big(\bar q,w_{20}\big)\Big],\]
 \[w_{11}=(B|_H)^{-1}\mathcal B(q,\bar q)\in H,\qquad w_{20}=(2i\omega-B)^{-1}\mathcal B(q,q). \tag{3.1}\]
 
@@ -204,8 +206,10 @@ imaginary at the zero (\(\mathrm{Re}\,\Lambda=0\)). It is not spurious, since \(
 \tightlist
 \item \emph{Simplicity:} \(0\notin\partial_zQ^\varepsilon\) on the box. Then \(\varphi\) is a simple root of \(F\), and by
 paper Lemma 5.4 \(i\omega\) is a simple eigenvalue of \(B\).
-\item \emph{Transversality:} \(\mathrm{Re}\big(\Lambda+\kappa\,d\Lambda/d\kappa\big)>0\) along the root curve, with
-\(dz/d\kappa=-\partial_\kappa Q^\varepsilon/\partial_zQ^\varepsilon\). This equals \(M^{3/2}\,\mathrm{Re}\,d\lambda/d\kappa\).
+\item \emph{Transversality:} along the root curve,
+\[\mathrm{Re}(\Lambda+\kappa\,d\Lambda/d\kappa)>0,
+\qquad dz/d\kappa=-\partial_\kappa Q^\varepsilon/\partial_zQ^\varepsilon.\]
+The first quantity equals \(M^{3/2}\,\mathrm{Re}\,d\lambda/d\kappa\).
 \end{itemize}
 
 \textbf{Sign of \(\ell_1\).} The closed form of §4 is evaluated with \(K=\kappa/\sqrt M\) and \(\varphi=1+z/M\) given as
@@ -227,11 +231,9 @@ the axis at smaller \(\kappa\); see the remark on the word ``first'' in §6.
 \item Result: all 217 points with \(M\le120\) PASS (106 for \(j=1\), 77 for \(j=2\), 34 for \(j=3\));
 log in \texttt{certificates/logs/07\_spectrum\_H2.log}. The verifier's own code extends this certificate to
 \(M\le160\) on all three branches (§11).
-\item For larger \(M\), H2 and the branch label \(j\) are supported by floating-point eigenvalue counts: at
-\(\kappa_j(1\mp10^{-7})\), \(j-1\) resp. \(j\) unstable pairs, for all \(M\le300\) and every 50th \(M\le2000\).
-For \(M>2000\) there is no direct check of H2 or of the label. The label rests on the continuation in \(M\):
-\(\kappa_j(M)\) is strictly decreasing and \(\kappa_j(M)\) and \(\operatorname{Im}z_j(M)\) vary smoothly along each
-certificate file. The paper's Theorem 3.2 gives H2 for \(M>M_{0,k}\), but \(M_{0,k}\) is not explicit.
+\item For every $M\ge161$, H2 is now certified by localization and interval winding counts
+in Section~\ref{sec:allm}. Consecutive parameter boxes are rigorously linked to the
+limiting Hopf roots; the earlier floating-point label checks are no longer needed.
 \item \emph{Simplicity and the paper's Lemma 5.4.} The first step of the proof of Lemma 5.4 (the \(2\times2\) matrix
 \(\mathcal D(\varphi)\) is not zero) uses a convexity argument that is valid only for real \(\varphi\). At the
 certified points \(\varphi\) is not real. The step is then replaced by a direct check:
@@ -273,29 +275,29 @@ for \(M=15\) where it is \textbf{subcritical}.
 separate code: \(M\le160\), and also \(M=250,300\)). Hence, for every integer \(16\le M\le160\), the Hopf
 bifurcation at \(\kappa_1(M)\) is supercritical and its periodic orbits are orbitally asymptotically stable within
 the mass hyperplane. At \(M=15\) it is subcritical.
-\item \emph{Conditional range.} For \(160<M\le10^5\) the same conclusion holds \emph{provided} H2 holds. H2 is checked
-only in floating point, for \(M\le300\) and every 50th \(M\le2000\). It is not checked at all for \(M>2000\). The
-paper's Theorem 3.2 gives H2 for \(M>M_{0,k}\), but \(M_{0,k}\) is not explicit, so it may lie beyond \(10^5\). The
-sign \(\ell_1<0\) itself is certified on the whole range.
+\item \emph{Complete range.} Theorem D in Section~\ref{sec:allm} supplies H2 for every
+$M\ge161$ and extends the coefficient sign to arbitrarily large $M$. Thus the first-branch
+stability conclusion holds unconditionally for every $M\ge16$.
 \item \emph{The word ``first''.} The stability of the bifurcating orbits only requires the spectrum at \(\kappa_1(M)\):
 all other eigenvalues in \(\operatorname{Re}\lambda<0\), which is H2 together with the count of §5. That
 \(\kappa_1(M)\) is the \emph{first} value of \(\kappa\) at which the constant equilibrium loses stability is a
 separate statement. The verifier proved it by exact algebra for \(15\le M\le57\) (§11): for these \(M\), every
 crossing of the imaginary axis for \(K>0\) is located and the constant equilibrium is linearly stable on the mass
 hyperplane for all \(0<\kappa<\kappa_1(M)\). For \(M>57\), ``first'' is used in the sense of the paper's
-Theorem 3.2 (first crossing in \((\beta_0,\beta_k)\)) and is supported only by the floating-point counts of §5.
+Theorem 3.2, namely continuation from its first limiting Hopf root. Section~\ref{sec:allm}
+certifies that identification for the entire branch; a global assertion for all smaller parameters
+is not needed here.
 \end{itemize}
 
 Remarks.
 \begin{itemize}
 \tightlist
-\item The first branch exists from \(M=15\), at \(K\approx212.9\), \(\kappa\approx824.5\). For \(M\le14\) no crossing
-was found for \(K\le10^5\) (floating-point scan). Branch 2 starts at \(M=44\) (\(K\approx232\)) and branch 3 at
-\(M=87\) (\(K\approx265\)). At each onset the crossing comes in from \(K=\infty\). The verifier proved the first
-two onsets by exact algebra (§11): for \(3\le M\le14\) the constant equilibrium is linearly stable on the mass
-hyperplane for every \(K>0\) and no eigenvalue ever reaches the imaginary axis; for \(15\le M\le43\) there is
-exactly one crossing; for \(44\le M\le57\) exactly two. The onset of branch 3 at \(M=87\) remains a
-floating-point statement.
+\item The first branch exists from \(M=15\), at \(K\approx212.9\), \(\kappa\approx824.5\).
+Branch 2 starts at \(M=44\) (\(K\approx232\)) and branch 3 at \(M=87\) (\(K\approx265\)).
+All three integer onsets are exact by AM7 in Section~\ref{sec:allm}; the real curves enter
+from \(K=\infty\) at \(M_j^*\in(M_j-1,M_j)\). Exact Hurwitz determinants exclude every
+crossing for \(3\le M\le14\), for every \(K>0\). The original verification also located
+all crossings for \(15\le M\le57\): one for \(15\le M\le43\), two for \(44\le M\le57\).
 \item \(M=15\) is a genuine exception. \(\ell_1=+1.1952\times10^{-9}\) (unit normalization), certified, with tight
 radius. The dense floating-point formula gives the same value. BifurcationKit, a separate code with automatic
 differentiation, reports \texttt{SubCritical} there and \texttt{SuperCritical} at \(M=16,17,30\).
@@ -499,63 +501,18 @@ a proof, for both the formal limit and the closed form.
   \end{itemize}
 \end{itemize}
 
-\section{What is proved, what is not, and points for the verifier}
+\section{Scope of the complete result}
 
-\textbf{Proved (computer-assisted, ball arithmetic).}
-\begin{itemize}
-\tightlist
-\item Theorem A: the sign of \(\ell_1\) for every \((M,j)\in\mathcal S\), with simplicity and transversality.
-\item H2 and the number of unstable pairs at \(\kappa_j(M)\) for \(M\le120\) (solver), extended by the verifier to
-\(M\le160\) and \(M=250,300\).
-\item (Verifier, exact algebra.) All crossings of the imaginary axis for \(K>0\) and \(3\le M\le57\): none for
-\(M\le14\), one for \(15\le M\le43\), two for \(44\le M\le57\). The constant equilibrium is stable before the first one.
-\end{itemize}
+Theorem A certifies the finite-range coefficient. Theorem D in Section~\ref{sec:allm}
+completes all local Hopf hypotheses for every integer $M$ on branches 1--3, proves their
+exact onsets, and identifies the limit of the discrete coefficient with the closed form
+of Proposition B. The $M\le160$ certificates and the compact $\varepsilon$-interval
+certificates overlap at their junction, leaving no gap in cluster size.
 
-\textbf{Exact (symbolic).}
-\begin{itemize}
-\tightlist
-\item The Landau coefficient of the limit equation (R) and its sign for every \(j\) (Proposition B, algebraic part).
-\end{itemize}
-
-\textbf{Formal or not proved.}
-\begin{enumerate}
-\tightlist
-\item \emph{Large \(M\) is not covered rigorously.} There is no proof that \(\ell_1(q_1=1)/M\to L_j\); §8 is numerical
-evidence plus certified samples. A complete answer for all \(M>M_{0,k}\) needs this convergence with an explicit
-rate, together with Theorem A up to the resulting threshold. An \(\varepsilon\)-graded interval evaluation of the
-closed form is not directly possible: the inner products contain an exact cancellation of relative order
-\(\varepsilon^{-3}\) between the row-1 term and the bulk sum (mass conservation). A proof would have to reorganize
-the computation around the continuum structure of §7.
-\item \emph{Derivation of (R)} (§7.1): formal (quasi-static boundary layer, slaved monomers, neglected diffusion). It
-reproduces the paper's \(Q\) at linear order. The match of §8 (to \(10^{-3}\) at \(M=10^8\)) supports it at
-cubic order.
-\item \emph{Multiple-scales coefficient as the Lyapunov coefficient of (R):} standard but not re-proved here (renewal
-equations: sun-star calculus).
-\item \emph{H2 for \(160<M\le10^5\)} (except \(M=250,300\)) and the branch label \(j\) for \(M>300\). H2 is checked in
-floating point only for \(M\le300\) and every 50th \(M\le2000\), and not at all beyond; the label rests on
-continuation. The paper covers H2 for \(M>M_{0,k}\) with \(M_{0,k}\) not explicit. Consequently the orbital stability
-of the first-branch orbits is rigorous only for \(16\le M\le160\) and conditional on H2 for \(160<M\le10^5\).
-\item \emph{Onset values}: \(M=15\) and \(M=44\) are now proved exactly (verifier, §11); \(M=87\) rests on
-floating-point scans with \(K\le10^5\). This affects only the \emph{existence} of the branch below these values, not
-the certified signs.
-\item \(j\ge4\) is not certified. Floating point gives \(\ell_1<0\) for \(j\le6\) at \(M=150\)--\(300\), and the limit
-coefficient is negative for every \(j\).
-\end{enumerate}
-
-\textbf{Points for a verifier.} All six points were addressed by the verifier (§11 and
-\texttt{verification.md}). Points (a), (b), (d) and (e) were checked; (c) was re-run on all lines with
-\(M\le10^4\) and on a sample beyond; for (f), two further separate codes and two formula-free tests were used.
-\begin{itemize}
-\tightlist
-\item (a) Re-derive (2.1) and the role of \(H\) in (3.1): the choice \(w_{11}\in H\).
-\item (b) Check the ansatz argument in §4, in particular the completeness of the family and row 1 versus the mass
-condition.
-\item (c) Re-run \texttt{04\_verify\_certificates.py\ 1\ ...}. It re-proves every line from the stored midpoints alone.
-\item (d) Re-derive the boundary-layer mass \(\Gamma/(\kappa(\kappa+\Gamma))\) and the Lagrangian reduction to (R).
-\item (e) Check the multiple-scales algebra (signs of \(c_3\)), using \texttt{05\_limit\_coefficient.py}, claims C2 and C4b.
-\item (f) Confirm \(M=15\) separately. Already done here by BifurcationKit's normal form (V3) and its periodic-orbit
-continuation (V4); a third, separate code would be welcome.
-\end{itemize}
+The renewal-equation derivation in Section 7 remains formal and is not used to deduce
+Theorem D. Stability for all $0<\kappa<\kappa_1(M)$, or for cycles far from the Hopf point,
+is not asserted. The companion higher-branches folder treats a separate question and
+retains its own verification status.
 
 \section{Verification}
 
@@ -660,7 +617,7 @@ runtime
 \texttt{01\_check\_model.py} & model identities, paper's eigenvalues and Table 1, closed form = dense & 1 min \\
 \texttt{02\_validate\_l1.py} & planar test, stiff simulation (M = 30), BifurcationKit cross-check & 10 min \\
 \texttt{03\_certify\_range.py\ J\ MMIN\ MMAX\ OUT.csv\ {[}SEED.csv{]}} & certified sweep (Theorem A) & 12--30 ms per \(M\) \\
-\texttt{04\_verify\_certificates.py\ STRIDE\ files...} & separate re-check of the sweep files & 20 ms per line \\
+\texttt{04\_verify\_}\allowbreak\texttt{certificates.py\ STRIDE\ files...} & separate re-check of the sweep files & 20 ms per line \\
 \texttt{05\_limit\_coefficient.py} & limit problem, exact algebra, simulation of (R) & 1 min \\
 \texttt{06\_large\_M\_samples.py} & certified samples up to \(M=10^8\), convergence to \(L_j\) & 2 min \\
 \texttt{07\_spectrum\_H2.py\ MMAX\ files...} & rigorous spectra, H2 and branch label for \(M\le\) MMAX & 15 min \\
@@ -671,5 +628,10 @@ runtime
 
 The verifier's scripts \texttt{v01}--\texttt{v09} are in \texttt{verification/} and are described in §11 and in
 \texttt{verification.md}, with their logs and run times.
+
+\input{all-M/proof}
+
+\nocite{pego2020,kuznetsov2004,krawczyk1969,moore1977,johansson2017}
+\paperreferences
 
 \end{document}

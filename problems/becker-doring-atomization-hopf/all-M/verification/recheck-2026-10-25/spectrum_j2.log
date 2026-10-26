@@ -1,0 +1,13 @@
+COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/h2j_sweep.py 2 /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/certificates/l1_j2.csv /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/verification/recheck-2026-10-25-final/h2j_j2.csv 20 20.4 -0.3 0.25
+box 50 [0.00168168477749516, 0.0017109070735778255] kappa=3.264653 NP=6 NPm=4 PASS (49s)
+box 100 [0.0033857984692216201, 0.0034135516033427667] kappa=3.374625 NP=6 NPm=4 PASS (100s)
+box 150 [0.0054575609883026014, 0.0055102766579657562] kappa=3.508520 NP=6 NPm=4 PASS (151s)
+box 200 [0.0087388418609166893, 0.008838972599877714] kappa=3.720396 NP=6 NPm=4 PASS (202s)
+box 250 [0.013925749172903535, 0.014020845801182628] kappa=4.054953 NP=6 NPm=4 PASS (261s)
+box 300 [0.021268989066918386, 0.021449620285740652] kappa=4.544985 NP=6 NPm=4 PASS (317s)
+box 350 [0.030703545158909835, 0.030875095075051238] kappa=5.211891 NP=6 NPm=4 PASS (377s)
+box 400 [0.041283892295157901, 0.041446817474537219] kappa=6.045503 NP=6 NPm=4 PASS (443s)
+box 450 [0.052510952931299058, 0.052665686985811228] kappa=7.076597 NP=6 NPm=4 PASS (511s)
+box 500 [0.062592811494929679, 0.062739766236468028] kappa=8.188024 NP=6 NPm=4 PASS (581s)
+box 550 [0.072177157060248978, 0.072316723596708488] kappa=9.478117 NP=6 NPm=4 PASS (650s)
+SUMMARY j=2: 589 boxes processed (eps up to 0.078811099999999995), 0 failures -> PASS (705s)

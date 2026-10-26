@@ -50,7 +50,7 @@ def level_chain(c, Y, n, kap, eps, side, margin):
     """vertices (x_k, y_k), y_k = -Y..Y increasing, on Re Lambda = c, shifted by margin (side=-1: left, +1: right)"""
     pts = []
     for i in range(n + 1):
-        y = -Y + 2 * Y * i / n
+        y = -Y if i == 0 else Y if i == n else -Y + 2 * Y * i / n
         x = _solve_x(c, y, kap, eps, c)
         pts.append(complex(x + side * margin, y))
     return pts
@@ -123,6 +123,11 @@ def h2j_checks(j, eb, box, R0, Y, cL, cR, a1="0.1", nchain=48):
     if not okc:
         out.update(ok=False, fail="right chain"); return out
     xmin = min(p.real for p in left) - 1e-9
+    geometry = all(chain[0].imag == -Y and chain[-1].imag == Y
+                   and all(a.imag < b.imag for a, b in zip(chain, chain[1:]))
+                   and all(xmin < p.real < R0 for p in chain) for chain in (left, right))
+    if not geometry:
+        out.update(ok=False, fail="contour geometry"); return out
     mono = mono_check(eb, kap, xmin, R0, Y)
     out["mono_ub"] = float(mono)
     if not (mono < 1) or not (R0 <= Y):

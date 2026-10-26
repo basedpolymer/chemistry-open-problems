@@ -19,6 +19,7 @@ Notation (all exact identities, M = eps^-2, K = kappa eps, A = 1 + K, phi = 1 + 
     At eps = 0:  Q^0(z) = e^z (1 + z^2/kappa^2) - (1 + z)   (paper (87)).
 """
 from flint import arb, acb, arb_mat, ctx
+from functools import lru_cache
 
 # ------------------------------------------------------------------------------------------------ helpers
 def arb_up(x):
@@ -471,13 +472,16 @@ def _seg_box(z0, z1):
 def winding_count(path_pts, kap, eps, max_depth=30, Qfun=None):
     """Number of zeros (with multiplicity) of Q^eps(.; kappa) inside the closed polygon path_pts (list of complex
     points, counterclockwise, closed: last == first), valid for all kappa in kap, eps in eps.
-    Each edge is subdivided until the mean-value enclosure of Q over the edge (and the parameter boxes) excludes 0;
-    then the argument increment along the edge is the principal difference of the arguments of Q at the
-    endpoints (at the midpoint parameters).  Returns (count, number of segments) or (None, info) on failure."""
+    Each edge image, divided by its initial value at midpoint parameters, must lie in Re > 0.
+    Its argument increment is therefore the principal argument of the endpoint ratio, evaluated in Arb.
+    The sum / (2*pi) must contain a unique integer. No floating-point angle or rounding is used.
+    Returns (count, number of segments) or (None, info) on failure."""
+    if len(path_pts) < 4 or path_pts[0] != path_pts[-1]:
+        return None, "polygon is not closed"
     if Qfun is None:
         Qfun = Q_centered
     km = arb(arb(kap).mid()); em = arb(arb(eps).mid())
-    total = 0.0
+    total = arb(0)
     nseg = 0
     def val(zz):
         return QL(km, acb(zz), em)[0].v
@@ -486,32 +490,23 @@ def winding_count(path_pts, kap, eps, max_depth=30, Qfun=None):
         while stack:
             z0, z1, d = stack.pop()
             B = Qfun(_seg_box(z0, z1), kap, eps)
-            if B.contains(0) or not B.is_finite():
+            v0 = val(z0)
+            if B.contains(0) or not B.is_finite() or v0.contains(0) or not ((B / v0).real > 0):
                 if d >= max_depth:
                     return None, ("zero not excluded near", complex(z0.mid()), complex(z1.mid()))
                 zm = acb(((z0 + z1) / 2).mid())
                 stack.append((zm, z1, d + 1)); stack.append((z0, zm, d + 1))   # z0..zm processed first
                 continue
-            v0 = val(z0); v1 = val(z1)
-            a0 = math.atan2(float(v0.imag.mid()), float(v0.real.mid()))
-            a1 = math.atan2(float(v1.imag.mid()), float(v1.real.mid()))
-            da = a1 - a0
-            while da > math.pi: da -= 2 * math.pi
-            while da < -math.pi: da += 2 * math.pi
-            # rigour of the principal difference: B excludes 0, so |true increment| < pi; the float error is
-            # bounded by the relative radii of v0, v1 (checked small) plus 1e-12
-            for v in (v0, v1):
-                rel = float(acb_absup(acb(arb(0, v.real.rad()), arb(0, v.imag.rad())))) / max(float(v.abs_lower()), 1e-300)
-                if rel > 1e-6:
-                    return None, ("endpoint value not precise", complex(z0.mid()))
-            total += da
+            v1 = val(z1)
+            total += (v1 / v0).arg()
             nseg += 1
-    w = total / (2 * math.pi)
-    n = round(w)
-    if abs(w - n) > 1e-3:
-        return None, ("non-integer winding", w)
-    return n, nseg
+    w = total / (2 * arb.pi())
+    n = w.unique_fmpz()
+    if n is None:
+        return None, ("winding integer not isolated", w)
+    return int(n), nseg
 
+@lru_cache(maxsize=16)
 def contour_D(R0, sigma, n_arc=96, n_seg=24):
     """Counterclockwise convex polygon P containing D = {|z| <= R0, Re z >= -sigma}: vertices on the circle of
     radius R1 = R0/cos(Delta/2) (Delta = angular step), so that every chord is at distance >= R0 from 0, at angles
@@ -531,11 +526,27 @@ def contour_D(R0, sigma, n_arc=96, n_seg=24):
     for k in range(n_arc + 1):
         th = -th1 + Delta * k
         pts.append(complex(R1 * math.cos(th), R1 * math.sin(th)))
-    xs = pts[-1].real
+    # Move the closing chord strictly to the left. Floating-point construction proposes
+    # vertices only; the supporting-half-plane checks below certify containment in Arb.
+    xs = -sigma - 1e-12
+    pts[0] = complex(xs, pts[0].imag)
+    pts[-1] = complex(xs, pts[-1].imag)
     Y1 = pts[-1].imag
     for k in range(1, n_seg):
         pts.append(complex(xs, Y1 - 2 * Y1 * k / n_seg))
     pts.append(pts[0])
+    for i in range(n_arc):
+        a, b = acb(pts[i]), acb(pts[i + 1])
+        d = b - a
+        cross = d.real * (-a.imag) - d.imag * (-a.real)
+        assert cross > 0 and cross ** 2 > arb(R0) ** 2 * (d.real ** 2 + d.imag ** 2)
+    assert arb(xs) < -arb(sigma)
+    # Every vertex lies in every inward half-plane (convex polygon, CCW).
+    for i in range(len(pts) - 1):
+        a, b = acb(pts[i]), acb(pts[i + 1]); d = b - a
+        for p in pts[:-1]:
+            v = acb(p) - a
+            assert d.real * v.imag - d.imag * v.real >= 0
     return pts, R1
 
 # ------------------------------------------------------------------------------------------------ localization without Gershgorin

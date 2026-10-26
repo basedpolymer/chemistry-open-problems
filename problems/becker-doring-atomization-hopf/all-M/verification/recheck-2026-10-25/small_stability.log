@@ -1,0 +1,14 @@
+COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_small_stability.py
+PASS M=3: all 2 Hurwitz determinants positive for K>0
+PASS M=4: all 3 Hurwitz determinants positive for K>0
+PASS M=5: all 4 Hurwitz determinants positive for K>0
+PASS M=6: all 5 Hurwitz determinants positive for K>0
+PASS M=7: all 6 Hurwitz determinants positive for K>0
+PASS M=8: all 7 Hurwitz determinants positive for K>0
+PASS M=9: all 8 Hurwitz determinants positive for K>0
+PASS M=10: all 9 Hurwitz determinants positive for K>0
+PASS M=11: all 10 Hurwitz determinants positive for K>0
+PASS M=12: all 11 Hurwitz determinants positive for K>0
+PASS M=13: all 12 Hurwitz determinants positive for K>0
+PASS M=14: all 13 Hurwitz determinants positive for K>0
+SUMMARY PASS: M=3..14, every K>0, exact polynomial arithmetic

@@ -1,6 +1,12 @@
 # Hopf criticality in Becker–Döring with atomization for every M: proofs, constants, certificates
 
 Extension of result 8 (`../README.md`, `../paper.tex`, `../verification.md`) to all $M$.
+
+**Completion and audit, 26 October 2026.** Confirmed with corrections by Codex (GPT-6, effort not recorded).
+The integrated, updated proof is Theorem D and Section 13 of `../paper.pdf` (source `proof.tex`).
+The report `verification.md` specifies every correction and recheck. The onset chart now proves the exact
+onsets 15, 44, 87; all adjacent parameter boxes and all finite integer points are linked. The scope is the
+three specified connected branches, with no claim about additional disconnected Hopf components.
 Primary source: R. L. Pego, J. J. L. Velázquez, *Temporal oscillations in Becker–Döring equations with atomization*,
 Nonlinearity 33 (2020) 1812–1846, doi:10.1088/1361-6544/ab6815, arXiv:1905.02605 (v2, read in full). We write
 "PV (n)" for equation (n) and "PV Lemma/Prop. x" for their numbered statements; numbering is that of the arXiv v2 PDF.
@@ -46,15 +52,14 @@ $$\widehat L:=\ell_1(q_1=1)/M=\varepsilon^2\,\ell_1(q_1=1).$$
 4. *(asymptotics)* $\widehat L(\varepsilon)$ is given by an expression that is continuous on $[0,\varepsilon_0]$
    (Section 6); the limit $\lim_{M\to\infty}\ell_1(q_1=1)/M$ exists, and the certified enclosures give
    $\widehat L\in[-0.0093670,-0.0092545]$ for every $M\ge10^{10}$ and
-   $\widehat L(0)=-0.0093113983807621626459917505990\ldots$ (enclosed to $10^{-42}$), which agrees with result 8's
-   formal closed-form limit $L_1$ to about 53 significant digits (Section 6).
+   $\widehat L(0)=-0.0093113983807621626459917505990\ldots$ (enclosed to $10^{-42}$), which equals the closed-form limit $L_1$ by the exact symbolic check in Section 6.
 
 **Theorem 2 (second and third branches).** Let $j\in\{2,3\}$ and let $\kappa_j(M)$ be PV's $j$-th Hopf point
 (the continuation of the $j$-th imaginary root $(\kappa_j^0,it_j)$ of the limit function, PV (89)–(91)): for
 $M\le10^5$ the point certified by result 8, for $M\ge161$ the unique zero in the Krawczyk boxes of this work,
 continued in $\varepsilon$ from $(\kappa_j^0,it_j)$; for $161\le M\le10^5$ these are the same points (Section 8). The
 branch is certified to exist for every $M\ge44$ ($j=2$; the onset $M=44$ is exact, verifier of result 8) and every
-$M\ge87$ ($j=3$; the first $M$ certified by result 8).
+$M\ge87$ ($j=3$; the onset is now exact by Section 11 below).
 1. At $\kappa_j(M)$, $\pm i\omega$ are simple eigenvalues of $B$, the crossing is transversal and $\ell_1<0$, for
    every $M\ge44$ ($j=2$), $M\ge87$ ($j=3$): result 8 (Theorem A) for $M\le10^5$, this work (Theorem 7.2) for
    $M\ge161$.
@@ -142,13 +147,15 @@ and $\{D_XG(\xi;\varepsilon):\xi\in X\}$ over $\varepsilon\in E$ (the product $Y
 before multiplying by the scalar interval $E-\varepsilon_m$). If $\mathcal K\subset\operatorname{int}X$, then for
 every $\varepsilon\in E$, $G(\cdot;\varepsilon)$ has exactly one zero in $X$.
 
-*Proof.* Fix $\varepsilon\in E$. By the mean value theorem applied to each component,
-$G(m;\varepsilon)=G(m;\varepsilon_m)+g'\,(\varepsilon-\varepsilon_m)$ with a vector $g'\in\partial_\varepsilon G(m;E)$ (the
-components may use different intermediate points), so $Y\,G(m;\varepsilon)\in YG(m;\varepsilon_m)+(Y\partial_\varepsilon
-G(m;E))(E-\varepsilon_m)$. Hence the Krawczyk operator of $G(\cdot;\varepsilon)$ (R. Krawczyk, Computing 4 (1969);
-R. E. Moore, SIAM J. Numer. Anal. 14 (1977)) satisfies $K_\varepsilon(X)\subset\mathcal K\subset\operatorname{int}X$,
-which gives existence and uniqueness. $G$ is $C^1$ in $X$, and $C^1$ in $\varepsilon\in[0,\varepsilon_{hi}]$ up to
-$\varepsilon=0$ (the $T$-part and its derivatives tend to $0$). $\square$
+*Proof.* For fixed $\varepsilon\in E$, apply the fundamental theorem of calculus to the
+preconditioned function:
+$$YG(m;\varepsilon)-YG(m;\varepsilon_m)
+=\int_{\varepsilon_m}^{\varepsilon}Y\partial_tG(m;t)\,dt.$$
+Thus the parameter term is enclosed by $(Y\partial_\varepsilon G(m;E))(E-\varepsilon_m)$,
+with the matrix product formed first. The ordinary Krawczyk operator is contained in $\mathcal K$.
+Strict inclusion gives existence and uniqueness for every parameter; the weighted row sums of
+$I-YD_XG$ are strictly below one. All formulas are $C^1$ up to $\varepsilon=0$, since the
+exponential terms and their derivatives vanish there. $\square$
 (`allm_core.krawczyk`; forming $Y\partial_\varepsilon G$ first avoids the wrapping effect, which on the second branch
 near $M\approx230$ made the boxes $\approx40$ times too large. The box is found by $\epsilon$-inflation from the
 variation of Newton solutions at the ends of $E$, `h2_lib.hopf_box`; only the final inclusion test matters for the
@@ -246,13 +253,16 @@ $[R_0\varepsilon_{lo}^2,a_{\max}]$ is used (the growth factor $|\varphi|^M$ is t
 
 ## 4. Counting zeros (argument principle in ball arithmetic)
 
-**Lemma 4.1 (winding number).** Let $\Gamma$ be a closed counterclockwise polygon and $(\varepsilon,\kappa)$ range over
-a box. Subdivide every edge until the mean-value enclosure of $Q^\varepsilon$ over the edge and the parameter box
-excludes $0$ (`allm_core.Q_centered`; the $T$-part as a disk). On each such sub-edge the image lies in a convex set
-not containing $0$, so the argument increment is in $(-\pi,\pi)$ and equals the principal difference of the arguments
-at the endpoints; summing these (computed at the midpoint parameters from balls of relative radius $<10^{-6}$) gives
-$2\pi$ times an integer, which by homotopy invariance is the number of zeros of $Q^\varepsilon(\cdot;\kappa)$ inside
-$\Gamma$ for **every** parameter in the box (`allm_core.winding_count`).
+**Lemma 4.1 (winding number, corrected).** For each polygon edge let $B_e$ enclose
+$Q^\varepsilon$ on the entire edge and parameter box, and $v_0,v_1$ its endpoint values at
+midpoint parameters, in complex ball arithmetic. Subdivide until $\operatorname{Re}(B_e/v_0)>0$.
+The image rotated by its initial value then lies in the right half-plane, so the increment is
+$\arg(v_1/v_0)$, evaluated rigorously by Arb. The sum divided by $2\pi$ must contain a unique
+integer. Nonvanishing on the contour gives homotopy invariance over the parameter box.
+No floating-point angle or nearest-integer tolerance is used. `check_winding.py` includes
+multiplicity, orientation and boundary-zero rejection checks. Polygon containment is also
+certified: supporting half-planes for branch 1; increasing graph ordinates and containment
+in the monotonicity rectangle for branches 2 and 3.
 
 **First branch** (`h2_lib`). $D=\{|z|\le R_0,\ \operatorname{Re}z\ge-\sigma\}$, $R_0=8$, $\sigma=0.3$; $\Gamma$ is the
 convex polygon with vertices on the circle of radius $R_1=R_0/\cos(\Delta/2)$ (96 chords, each at distance $\ge R_0$
@@ -432,10 +442,13 @@ $\widehat L(0)=-0.00931139838076216264599175059900929\ldots$ ($j=1$), $-0.007941
 ($j=2$), $-0.00377769678777992295622359976274\ldots$ ($j=3$); A3: result 8's closed form $L_j$ (Proposition B of
 result 8), evaluated in ball arithmetic at the same $t_j$, differs from $\widehat L(0)$ by at most
 $3.5\cdot10^{-56}$, $4.4\cdot10^{-57}$, $2.7\cdot10^{-57}$; A4: for $\varepsilon\in[0,10^{-5}]$ (all $M\ge10^{10}$)
-$\widehat L\in[-0.0093670,-0.0092545]$, $[-0.0079785,-0.0079006]$, $[-0.0038184,-0.0037344]$. The identity between
-(5.2) at $\varepsilon=0$ and result 8's closed form $L_j$ is **not** proved symbolically here; it is confirmed to
-about 53 significant digits. (What the certificates prove does not depend on this identity: the sign of
-$\widehat L$ is certified directly on every box, including $\varepsilon=0$.)
+$\widehat L\in[-0.0093670,-0.0092545]$, $[-0.0079785,-0.0079006]$, $[-0.0038184,-0.0037344]$. The identity between (5.2) at $\varepsilon=0$ and $L_j$ is now proved exactly by
+`limit_symbolic.py`: substitute $R=(4\tau^4+1)/(4\tau^2)$,
+$t=(4\tau^4-1)/(4\tau^2)$, $\kappa=(2\tau^2-1)/(2\tau)$ and $e^{it}=-(1+it)/R$;
+the difference reduces to the zero rational function. Exact real-root isolation checks
+both numerator and denominator of each normalization/resolvent divisor for $\tau\ge2$.
+All Hopf roots have $\tau>2.12$, and the limiting coefficient is strictly negative.
+The finite-parameter sign certificates do not depend on this symbolic identity.
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -444,17 +457,17 @@ $\widehat L$ is certified directly on every box, including $\varepsilon=0$.)
 Each certificate file has one line per box $[\varepsilon_{lo},\varepsilon_{hi}]$; consecutive boxes share endpoints
 (identical decimal strings; `allm_core.eps_interval` rounds outwards), the first starts at $\varepsilon=0$.
 
-**Theorem 7.1 (first branch, $M\ge161$).** `certificates/l1h2_j1.csv` (`l1_sweep.py 1 0 0.0788111 --h2`): 562
-boxes covering $[0,0.0788111]\supset[0,161^{-1/2}]$ ($161^{-1/2}=0.0788110406\ldots$), all PASS: on each box the
+**Theorem 7.1 (first branch, $M\ge161$).** `certificates/l1h2_j1.csv` (`l1_sweep.py 1 0 0.078811099999999995 --h2`): 562
+boxes covering $[0,0.078811099999999995]\supset[0,161^{-1/2}]$ ($161^{-1/2}=0.0788110406\ldots$), all PASS: on each box the
 Krawczyk test of Lemma 2.1, the checks of Section 2, $\widehat L<0$ on the whole box (Lemma 5.2), and the hypotheses of
 Theorem 4.3 ($R_0=8$, $\sigma=0.3$, $a_1=0.1$; winding count 4). Runtime 690 s. Ranges: $\kappa_1\in[1.8983,3.3354]$,
 $\widehat L\in[-0.03744,-0.00672]$; first box $[0,10^{-5}]$ (all $M\ge10^{10}$, including $M=\infty$):
 $\widehat L\in[-0.0093670,-0.0092545]$. Every line is re-proved from the stored data by
-`verify_sweep.py certificates/l1h2_j1.csv 0 0.0788111 --h2` (562 lines re-proved, coverage checked, PASS, 246 s). (`h2_sweep.py`, an H2-only version of the
+`verify_sweep.py certificates/l1h2_j1.csv 0 0.078811099999999995 --h2` (562 lines re-proved, coverage checked, PASS, 246 s). (`h2_sweep.py`, an H2-only version of the
 same check, is kept as a tool; its output is superseded by this file.)
 
 **Theorem 7.2 (branches 2 and 3, $\ell_1$, $M\ge161$).** `certificates/l1_j2.csv` (589 boxes) and
-`certificates/l1_j3.csv` (834 boxes), `l1_sweep.py J 0 0.0788111`, cover $[0,0.0788111]$; all PASS: Krawczyk box of
+`certificates/l1_j3.csv` (834 boxes), `l1_sweep.py J 0 0.078811099999999995`, cover $[0,0.078811099999999995]$; all PASS: Krawczyk box of
 the $j$-th Hopf point (continued from $(\kappa_j^0,it_j)$ at $\varepsilon=0$), simplicity, transversality,
 $\operatorname{Im}z>0$, $f(\varphi)\ne0$, and $\widehat L<0$ on the whole box. Ranges: $j=2$:
 $\kappa_2\in[3.1547,10.538]$, $\widehat L\in[-0.01066,-0.00169]$; $j=3$: $\kappa_3\in[4.0319,30.040]$,
@@ -466,7 +479,7 @@ levels $-0.3$, $0.25$ ($j=2$), $R_0=26$, $Y=26.6$, levels $-0.15$, $0.25$ ($j=3$
 boxes, $N(P)=6$, $N(P_-)=4$ on every box (573 s); $j=3$, 834 boxes, $N(P)=8$, $N(P_-)=4$ (956 s). Localization: (I)+(II′) on
 261 resp. 218 boxes (small $\varepsilon$), (II′) on $[R_0\varepsilon_{lo}^2,a_{big}]$ on the others; Lemma 4.4 bound
 $\le0.690$ resp. $\le0.383$; Lemma 4.2′ with $\sigma=-x_{\min}\approx0.32$ resp. $0.17$. Since the boxes are those of
-Theorem 7.2, they cover $[0,0.0788111]\supset[0,161^{-1/2}]$. Hence Theorem 4.5 holds at $\kappa_j(M)$ for every
+Theorem 7.2, they cover $[0,0.078811099999999995]\supset[0,161^{-1/2}]$. Hence Theorem 4.5 holds at $\kappa_j(M)$ for every
 $M\ge161$, $j=2,3$. (A first run with the cruder Lemma 4.2 failed on the 60 boxes of branch 2 with
 $\varepsilon\ge0.068484$, i.e. $M\le213$; Lemma 4.2′ removes the failure.)
 
@@ -499,32 +512,45 @@ $\widehat L$), `ad.py` (AD and series), `h2_lib.py`, `h2j_lib.py`.
 
 ---------------------------------------------------------------------------------------------------------------
 
-## 10. What is proved, what is assumed, what is not proved
+## 10. Scope after completion
 
-**Proved (computer-assisted, this work).** Theorem 7.1 (first branch, all $M\ge161$: Hopf point, simplicity,
-transversality, H2, no unstable eigenvalue, $\ell_1<0$); Theorems 7.2 and 7.3 (branches 2 and 3, all $M\ge161$:
-Hopf point, simplicity, transversality, $\ell_1<0$, H2, $2(j-1)$ zeros of $F$ giving eigenvalues with
-$\operatorname{Re}\lambda>0$); the asymptotic enclosures of Section 6. All certificate lines were re-proved from the
-stored data (`verify_sweep.py`, `h2j_sweep.py`).
+**Proved.** The coefficient sign, simplicity, positive frequency, transversality and H2 hold at every
+integer point of branches 1–3. Branch 1 has stable small periodic orbits for all $M\ge16$, and
+is subcritical at $15$; branches 2 and 3 have unstable, supercritical small periodic orbits for
+all $M\ge44$ and $M\ge87$. The exact integer onsets are 15, 44, 87. Every $K>0$ is stable
+for $3\le M\le14$ (exact Hurwitz determinants). The discrete coefficient has the closed-form limit $L_j$.
 
-**Taken from result 8 and its verifier (verified there).** $3\le M\le14$ (no crossing), $M=15$
-(subcritical), $16\le M\le160$ (supercritical, H2), branches 2, 3 for $M\le10^5$ ($\ell_1<0$) and $M\le160$ (H2).
+**Scope.** These are the three connected Hopf curves continued from their limiting roots. No claim
+is made about other disconnected components, global stability for all smaller $K$, or cycles far
+from bifurcation. The extra unstable zeros need not be simple; their existence suffices.
+The formal renewal reduction is not needed. Higher branches have a separate status in `../higher-branches/`.
 
-**Standard results used, not re-proved.** The Hopf bifurcation theorem in $\mathbb R^n$ with the centre manifold
-reduction and the sign rule of the first Lyapunov coefficient (Kuznetsov, *Elements of Applied Bifurcation
-Theory*, 3rd ed., §3.5 and §5.4; the formula was validated in result 8 by a planar test, simulations and
-BifurcationKit); the Krawczyk–Moore theorem; correctness of Arb (python-flint 0.9). PV Prop. 5.3, Lemma 3.1 and Lemma
-5.4 (with the verifier's correction of its first step, re-checked here as $f(\varphi)\ne0$).
+**Standard foundations.** The finite-dimensional Hopf and centre manifold theorems, Krawczyk's theorem,
+the argument principle, and correctness of Arb and exact polynomial arithmetic. The additional
+condition $f(\varphi)\ne0$ repairs the use of PV Lemma 5.4, as in the original verification.
 
-**Not proved.**
-* For $j\ge4$ nothing beyond result 8's floating-point checks and the formal limit coefficient.
-* For $j=2,3$ and $M>200$: that the unstable zeros are simple, i.e. that $B|_H$ has exactly $j-1$ unstable pairs
-  (only "at least one eigenvalue with $\operatorname{Re}\lambda>0$" is used, and proved).
-* Whether branch 3 already exists for some $M<87$ (its onset is not proved exact; the statements concern the
-  branch for $M\ge87$, where result 8 certifies it).
-* That $\kappa_1(M)$ is the *first* loss of stability (for all $0<\kappa<\kappa_1(M)$) for $M>57$; the stability of
-  the bifurcating orbits only needs the spectrum at $\kappa_1(M)$, which is proved.
-* The identity of the limit $\widehat L(0)$ with result 8's closed form $L_j$ (they agree to about 53 significant
-  digits, Section 6); it is not needed for any claim.
-* Global statements (existence of periodic orbits far from the bifurcation, their stability for $\kappa$ not close
-  to $\kappa_1$).
+## 11. Completion certificates: onsets and branch junctions
+
+`check_branch_links.py` proves exact rational coverage and certifies a new narrow zero at each
+shared epsilon endpoint, contained in both neighbouring boxes. It identifies the initial zero
+by $(2j-1)\pi<\operatorname{Im}z<(2j-1/2)\pi$, so each whole chain belongs to branch $j$.
+
+`check_onsets.py J OUTDIR` reuses the explicit chart from `../higher-branches/scripts/onset_sweep.py`
+without assuming that folder's claimed results. With $s=1/(1+K)$ and $\varphi=1+u+iv$, it solves
+$(\operatorname{Re}(F/A^3),\operatorname{Im}(F/A^3),\operatorname{Re}(\lambda/A))=0$.
+The complete formulas and proof are in AM7 of `proof.tex`. At $s=0$ the equations are $u=0$ and
+$$-\varphi^{M-2}(\varphi^3+M(\varphi-1)^2)+(M+1)\varphi-M=0.$$
+An $s$-parametrized chain with $dM/ds>0$ joins an $M$-parametrized chain, which reaches 162 and
+joins the epsilon chain. Every stored box and every endpoint is re-proved, including the transition
+between charts. The small-M integer certificates are enclosed afresh and linked to this same curve.
+The first boxes prove $14<M_1^*<15$, $43<M_2^*<44$, $86<M_3^*<87$.
+Nonsingular local systems prevent an extra arc attaching at any finite point; the endpoints leave
+the domain at $K=\infty$ and $M=\infty$. Hence this graph is the entire connected component and
+its integer onsets are exact.
+
+`check_small_stability.py` constructs the mass-restricted Jacobian directly from the vector field,
+then checks that every leading Hurwitz determinant is positive for every $K>0$, for $M=3,\ldots,14$.
+This uses exact polynomial arithmetic and positivity/root isolation, not scans in $K$.
+
+The full suite is `scripts/recheck_all.py`; current logs and generated certificates are in
+`verification/recheck-2026-10-25/`. See `verification.md` for the audit, corrections and precise results.

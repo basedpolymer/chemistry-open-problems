@@ -14,6 +14,7 @@ eps_hi >= EPS_HI.  Prints a PASS/FAIL line per checked line (failures, every 100
 all PASS.
 """
 import sys, os, csv, time
+from fractions import Fraction
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from flint import arb, acb, ctx
 import allm_core as C
@@ -22,12 +23,15 @@ import l1reg as R
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
-    fn, elo, ehi = args[0], args[1], float(args[2])
+    fn, elo, ehi = args[0], args[1], Fraction(args[2])
     stride = int(args[3]) if len(args) > 3 else 1
     do_h2 = "--h2" in sys.argv
     ctx.prec = 192
     rows = list(csv.DictReader(open(fn)))
-    cover = rows[0]["eps_lo"] == elo and float(rows[-1]["eps_hi"]) >= ehi
+    if not rows or stride < 1:
+        raise ValueError("nonempty certificate and positive stride required")
+    cover = Fraction(rows[0]["eps_lo"]) == Fraction(elo) and Fraction(rows[-1]["eps_hi"]) >= ehi
+    cover &= all(Fraction(r["eps_lo"]) < Fraction(r["eps_hi"]) for r in rows)
     for a, b in zip(rows[:-1], rows[1:]):
         cover &= (a["eps_hi"] == b["eps_lo"])
     has_L = "Lhat_lo" in rows[0]
@@ -44,7 +48,7 @@ def main():
         Ls = ""
         if enc is not None:
             simple, tr, fphi, laim = C.hopf_checks(box, eb)
-            ok &= simple and bool(tr > 0) and bool(fphi.abs_lower() > 0) and bool(arb(box[2].lower()) > 0)
+            ok &= simple and bool(tr > 0) and bool(fphi.abs_lower() > 0) and bool(arb(box[2].lower()) > 0) and bool(laim > 0)
             if has_L:
                 L = R.Lhat_box(eb, box[0], box[1], box[2])
                 ok &= L is not None and bool(L < 0)
