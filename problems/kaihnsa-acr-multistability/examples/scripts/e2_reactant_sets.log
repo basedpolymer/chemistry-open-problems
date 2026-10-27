@@ -1,0 +1,20 @@
+n = 4: 26 reactant sets (up to species permutation) with rank A = 3 and an ACR species  [1 s]
+PASS n = 4: no reactant set has an ACR species with three distinct nonzero exponents off it (26 sets checked)
+n = 5: 8 reactant sets (up to species permutation) with rank A = 3 and an ACR species  [2 s]
+PASS n = 5: number of structures = 8
+     ((0, 0, 0, 0, 0), (0, 0, 0, 0, 1), (0, 0, 1, 1, 0), (1, 1, 0, 0, 0)) ACR species (0-based): [4]  ker A basis^T: [[-1, 1, 0, 0, 0], [0, 0, -1, 1, 0]]
+     ((0, 0, 0, 0, 0), (0, 0, 0, 0, 2), (0, 0, 1, 1, 0), (1, 1, 0, 0, 0)) ACR species (0-based): [4]  ker A basis^T: [[-1, 1, 0, 0, 0], [0, 0, -1, 1, 0]]
+     ((0, 0, 0, 0, 1), (0, 0, 0, 0, 2), (0, 0, 1, 1, 0), (1, 1, 0, 0, 0)) ACR species (0-based): [4]  ker A basis^T: [[-1, 1, 0, 0, 0], [0, 0, -1, 1, 0]]
+     ((0, 0, 0, 0, 1), (0, 0, 0, 1, 0), (0, 0, 1, 0, 1), (1, 1, 0, 0, 0)) ACR species (0-based): [2]  ker A basis^T: [[-1, 1, 0, 0, 0], [1, 0, 0, 1, 1]]
+     ((0, 0, 0, 0, 1), (0, 0, 0, 1, 1), (0, 0, 1, 0, 1), (1, 1, 0, 0, 0)) ACR species (0-based): [2, 3]  ker A basis^T: [[-1, 1, 0, 0, 0], [1, 0, 0, 0, 1]]
+     ((0, 0, 0, 0, 1), (0, 0, 0, 1, 1), (0, 0, 1, 1, 0), (1, 1, 0, 0, 0)) ACR species (0-based): [3]  ker A basis^T: [[-1, 1, 0, 0, 0], [1, 0, 1, 0, 1]]
+     ((0, 0, 0, 0, 1), (0, 0, 0, 1, 1), (0, 0, 2, 0, 0), (1, 1, 0, 0, 0)) ACR species (0-based): [3]  ker A basis^T: [[-1, 1, 0, 0, 0], [1, 0, 1/2, 0, 1]]
+     ((0, 0, 0, 0, 1), (0, 0, 0, 1, 1), (0, 1, 1, 0, 0), (1, 0, 1, 0, 0)) ACR species (0-based): [3]  ker A basis^T: [[-1, -1, 1, 0, 0], [1, 1, 0, 0, 1]]
+n = 6: 1 reactant sets (up to species permutation) with rank A = 3 and an ACR species  [5 s]
+PASS n = 6: number of structures = 1
+     ((0, 0, 0, 0, 0, 1), (0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)) ACR species (0-based): [4]  ker A basis^T: [[-1, 1, 0, 0, 0, 0], [0, 0, -1, 1, 0, 0], [1, 0, 1, 0, 0, 1]]
+n = 7: 0 reactant sets (up to species permutation) with rank A = 3 and an ACR species  [6 s]
+PASS n = 7: number of structures = 0
+n = 8: 0 reactant sets (up to species permutation) with rank A = 3 and an ACR species  [8 s]
+PASS n = 8: number of structures = 0
+runtime 8 s

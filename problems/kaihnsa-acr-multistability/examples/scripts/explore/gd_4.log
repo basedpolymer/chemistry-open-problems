@@ -1,0 +1,1 @@
+struct 4 tried 18642 hist (n_ss, n_stable, degenerate): {(1, np.int64(1), False): 17403, (2, np.int64(1), False): 516, (1, np.int64(0), False): 722, (2, np.int64(0), False): 1} hits 0

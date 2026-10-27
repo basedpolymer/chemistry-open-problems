@@ -1,0 +1,530 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Absolute concentration robustness with multistability in bimolecular networks: three species suffice, dimension two does not}
+\newcommand*{\PaperTitlePlain}{Absolute concentration robustness with multistability in bimolecular networks: three species suffice, dimension two does not}
+\newcommand*{\PaperShortTitle}{ACR with multistability}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 27 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verifier: Claude Opus 5.5 (effort xhigh)}
+\newcommand*{\PaperKeywords}{absolute concentration robustness, multistability, reaction networks, mass-action kinetics, bimolecular networks, deficiency}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\providecommand{\R}{\mathbb{R}}
+\newcommand{\Rpos}{\mathbb{R}_{>0}}
+\newcommand{\Rnn}{\mathbb{R}_{\ge 0}}
+\newcommand{\spn}{\operatorname{span}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\Vp}{V^{+}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Kaihnsa, Nguyen and Shiu proved that an at-most-bimolecular reaction network in which absolute concentration
+robustness (ACR) and nondegenerate multistationarity coexist has at least 3 species, 3 reactant complexes,
+5 complexes and a two-dimensional stoichiometric subspace, all four bounds being attained. They conjectured that
+each of these four lower bounds becomes strictly larger when multistationarity is replaced by multistability. We
+show that the conjecture holds for three of the four quantities and fails for the fourth. The main result is that a
+two-dimensional bimolecular mass-action system with ACR has at most one exponentially stable positive steady state
+in each stoichiometric compatibility class. The proof combines a normal form of the vector field on the ACR
+hyperplane, a connectedness property of the positive steady-state set that holds precisely because products are
+at most bimolecular, and the global ACR condition. Consequently ACR with multistability needs dimension at least 3,
+at least 4 reactant complexes and, by a kinetic-subspace argument and the deficiency-one theorem, at least
+6 complexes. On the other hand, three species suffice: the six-reaction network
+$\{Z\to Y+Z,\ 2Z\to Z,\ Y\to Y+Z,\ Y+Z\to 2X,\ X+Z\to 2Z,\ 2X\to Y\}$ has ACR in $X$ for all rate constants and,
+for suitable ones, two exponentially stable positive steady states, certified in exact arithmetic. It has
+$3$ species, $6$ complexes and dimension $3$, so these three minima are attained. The minimal number of reactant
+complexes lies between $4$ and $6$; with exactly $4$ it is impossible for $4$ species and for six of the nine
+reactant structures that can occur, and with $3$ species at least $6$ reactions are needed.
+\end{paperabstract}
+
+\section*{The question}
+
+Kaihnsa, Nguyen and Shiu~\autocite{KNS2024} study the minimal size of reaction networks in which ACR and
+multistationarity coexist. Their main result (Theorem~1.2 there) states that an at-most-bimolecular network~$G$
+admitting a vector of rate constants for which the mass-action system has ACR and is nondegenerately
+multistationary has at least 3 species, at least 3 reactant complexes, at least 5 complexes and dimension at least
+2; the network $\{X_1+X_2\to 2X_3,\ X_3\to X_1,\ 2X_3\to 2X_2\}$ attains all four bounds. Section~6 of the paper
+ends with the following conjecture:
+
+\begin{openquote}
+``In the present work, our interest in multistationarity comes from the fact that it is a necessary condition for
+multistability. Another interesting direction, therefore, is to investigate conditions for coexistence of ACR and
+multistability, rather than multistationarity. The "minimal" networks in the current work admit only two positive
+steady states and are not multistable. Hence, we conjecture that the lower bounds (on dimension and the numbers of
+species, reactant complexes, and all complexes) for the coexistence of ACR and multistability are strictly larger
+than the bounds proven here for ACR and multistationarity.''
+\end{openquote}
+
+\begin{theorem}[main result]\label{thm:main}
+Let $G$ be an at-most-bimolecular reaction network and suppose that for some vector of positive rate constants
+$\kappa$ the mass-action system $(G,\kappa)$ has ACR and is multistable. Then
+\begin{enumerate}
+\item the stoichiometric subspace of $G$ has dimension at least $3$;
+\item $G$ has at least $4$ reactant complexes;
+\item $G$ has at least $6$ complexes.
+\end{enumerate}
+On the other hand, there is a bimolecular network with $3$ species, $6$ complexes and dimension $3$ that has ACR for
+every vector of rate constants and, for an open set of them, two exponentially stable positive steady states in one
+compatibility class (\zcref{thm:three-species}). Hence the conjecture holds for dimension, reactant complexes and
+complexes, and fails for the number of species. The bounds $3$ (dimension), $3$ (species) and $6$ (complexes) are
+attained; the minimal number of reactant complexes lies between $4$ and $6$ (\zcref{sec:further}).
+\end{theorem}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lccc}
+\toprule
+& ACR + nondegenerate & ACR + multistability & ACR + multistability\\
+& multistationarity \autocite{KNS2024} & lower bound & best example\\
+\midrule
+dimension & $2$ & $3$ & $3$ ($\mathcal N_1$)\\
+species & $3$ & $3$ & $3$ ($\mathcal N_1$)\\
+reactant complexes & $3$ & $4$ & $6$ ($\mathcal N_1$)\\
+complexes & $5$ & $6$ & $6$ ($\mathcal N_1$)\\
+\bottomrule
+\end{tabular}
+\caption{Minimal sizes of at-most-bimolecular networks. All bounds of the first column are attained by the network
+$\{X_1+X_2\to2X_3,\ X_3\to X_1,\ 2X_3\to2X_2\}$ of \autocite{KNS2024}.}
+\label{tab:summary}
+\end{table}
+
+Part~1 is the substance of the paper (\zcref{thm:dim-two}); parts~2 and~3 follow from it together with results of
+\autocite{KNS2024} and a short argument on the kinetic subspace (\zcref{sec:consequences}).
+
+\section{Setting}\label{sec:setting}
+
+A reaction network $G$ on species $X_1,\dots,X_n$ is a finite set of reactions $y\to y'$ between complexes
+$y,y'\in\mathbb{Z}_{\ge0}^n$, $y\neq y'$. It is \emph{at most bimolecular} (bimolecular for short) if every
+complex, reactant or product, satisfies $|y|:=y_1+\dots+y_n\le 2$. Given positive rate constants
+$\kappa=(\kappa_{y\to y'})$, the mass-action system is
+\begin{equation}\label{eq:ma}
+\dot x=f(x):=\sum_{y\to y'}\kappa_{y\to y'}\,x^{y}\,(y'-y)=\sum_{y}x^{y}\,v_{y},\qquad
+v_{y}:=\sum_{y'\colon y\to y'}\kappa_{y\to y'}(y'-y),
+\end{equation}
+the second sum running over reactant complexes. The stoichiometric subspace is
+$S=\spn\{y'-y\}$, $s=\dim S$ is the dimension of $G$, and the stoichiometric compatibility classes are the sets
+$(x^0+S)\cap\Rnn^n$. A positive steady state $x^*$ is \emph{nondegenerate} if the restriction $Df(x^*)|_S\colon S\to
+S$ is invertible, and \emph{exponentially stable} if all eigenvalues of $Df(x^*)|_S$ have negative real part; the
+latter implies the former.
+
+\begin{definition}\label{def:acr-ms}
+Following \autocite[Definition~2.6]{KNS2024}, $(G,\kappa)$ has \emph{ACR in $X_i$} if it has a positive steady state
+and $x_i$ takes the same value $c>0$ at all positive steady states (in all compatibility classes). We call
+$(G,\kappa)$ \emph{multistable} if some compatibility class contains at least two exponentially stable positive
+steady states. Both properties refer to the same $\kappa$.
+\end{definition}
+
+This is the usual notion of stability in the literature on small multistable networks
+\autocite[§2.2]{JTZ2025}: a steady state is stable if it is nondegenerate and the nonzero eigenvalues of the Jacobian
+have negative real parts, which is equivalent to our definition. As in \autocite[Theorem~1.2]{KNS2024}, the
+question is existential: a network qualifies if one vector $\kappa$ gives both properties.
+
+Exponentially stable steady states are nondegenerate, so a multistable system is nondegenerately multistationary and
+every lower bound of \autocite{KNS2024} applies to ACR with multistability.
+
+\begin{lemma}[coefficient cones]\label{lem:cones}
+Let $G$ be bimolecular and let $v_y$ be the coefficient vector of the monomial $x^y$ in~\eqref{eq:ma}. Then
+$(v_y)_i\ge 0$ for every $i\notin\supp(y)$, and $\sum_i (v_y)_i\le 0$ whenever $|y|=2$.
+\end{lemma}
+
+\begin{proof}
+Each $y'-y$ with $y\to y'$ has $(y'-y)_i=y'_i\ge 0$ for $i\notin\supp(y)$, and $\sum_i(y'-y)_i=|y'|-|y|\le 0$ if
+$|y|=2$, because $|y'|\le 2$. Both properties pass to nonnegative combinations.
+\end{proof}
+
+The first property is the familiar characterization of mass-action vector fields~\autocite[Lemma~2.3]{KNS2024}; the
+second one is where bimolecularity of the \emph{products} enters, and it is essential below
+(\zcref{rem:products}).
+
+\section{Dimension two}\label{sec:dim-two}
+
+Throughout this section $G$ is bimolecular with $\dim S=2$, $\kappa$ is fixed, $(G,\kappa)$ has ACR in $X_1$ with
+value $c>0$, $f$ is the vector field~\eqref{eq:ma} and $H:=\{x\in\R^n\colon x_1=c\}$. All positive steady states lie
+in $H$. For $x\in H$ we write $x=(c,x')$ with $x'\in\R^{n-1}$.
+
+\begin{lemma}\label{lem:not-conserved}
+If $(G,\kappa)$ has a nondegenerate positive steady state, then $e_1\notin S^\perp$.
+\end{lemma}
+
+\begin{proof}
+Let $x^*$ be a nondegenerate positive steady state and let $W$ be a matrix whose $n-2$ rows form a basis of
+$S^\perp$. The map $F(x)=(f(x),Wx)\in S\times\R^{n-2}$ has invertible derivative at $x^*$: if $Df(x^*)u=0$ and
+$Wu=0$ then $u\in S$, hence $u=0$. By the inverse function theorem, for every $T$ near $Wx^*$ there is a positive
+steady state $x(T)$ near $x^*$ with $Wx(T)=T$. If $e_1\in S^\perp$ we may take $e_1^{\mathsf T}$ as a row of $W$; the
+corresponding coordinate of $T$ equals $x_1(T)$, which can then be made different from $c$, contradicting ACR.
+\end{proof}
+
+Under the hypothesis of the lemma, $S\cap e_1^\perp$ is one-dimensional; we fix a vector $\ell$ spanning it. Every
+compatibility class meets $H$ in a segment parallel to~$\ell$.
+
+\begin{lemma}[the field on the ACR hyperplane]\label{lem:field-on-H}
+Suppose some compatibility class contains two distinct nondegenerate positive steady states $p$ and $q$. Then there
+are $\alpha\in S\setminus\{0\}$ and a polynomial $h$ of degree at most $2$ such that $f(x)=h(x)\,\alpha$ for all
+$x\in H$. Moreover $q=p+\tau\ell$ for some $\tau\neq0$, and $h_L(t):=h(p+t\ell)$ has degree exactly $2$ with simple
+zeros $t=0$ and $t=\tau$.
+\end{lemma}
+
+\begin{proof}
+Choose a basis $\sigma_1,\sigma_2$ of $S$ and write $f=g_1\sigma_1+g_2\sigma_2$ with polynomials $g_1,g_2$ of degree
+at most $2$. Since $Df(p)$ maps onto $S$, the set $f^{-1}(0)$ is, near $p$, a smooth submanifold of dimension $n-2$,
+and by ACR its positive points lie in~$H$. Thus the restrictions $g_1|_H$ and $g_2|_H$, viewed as polynomials on
+$H\cong\R^{n-1}$, vanish on a smooth hypersurface $M$ of $H$.
+
+We claim that they have a nonconstant common factor (or one of them vanishes identically, in which case the lemma
+holds with $\alpha$ the other basis vector). By Baire's theorem, an irreducible factor $F_1$ of $g_1|_H$ vanishes on a
+nonempty open subset $M_1$ of $M$, and an irreducible factor $F_2$ of $g_2|_H$ vanishes on a nonempty open subset
+$M_2\subseteq M_1$. If $F_1$ and $F_2$ were not proportional, they would be coprime, their common complex zero set
+would have dimension at most $n-3$, and so would its real points; but it contains the $(n-2)$-dimensional manifold
+$M_2$.
+
+If the common factor $F$ has degree $2$, then $g_i|_H=c_iF$ with constants $c_i$, and $f|_H=F\,(c_1\sigma_1+c_2\sigma_2)$.
+If $F$ has degree $1$, then $g_i|_H=F\,m_i$ with $\deg m_i\le 1$. If $m_1,m_2$ are proportional we conclude as before.
+Otherwise $\{x\in H\colon m_1=m_2=0\}$ is empty or an affine subspace of dimension at most $n-3$. A nondegenerate
+positive steady state $y$ with $F(y)\neq 0$ would have a neighbourhood in $f^{-1}(0)$, of dimension $n-2$, contained
+in that set; so every nondegenerate positive steady state satisfies $F=0$. The steady states of the class of $p$ lie
+on the segment $(p+\R\ell)\cap\Rpos^n$, on which $F$ is affine; vanishing at $p\neq q$, it vanishes on the whole
+segment, so $p$ is not isolated in its class, which contradicts nondegeneracy (nondegenerate steady states are
+isolated in their class by the inverse function theorem).
+
+Finally, $p,q\in H$ lie in the same class, so $q-p\in S\cap e_1^\perp=\R\ell$. The polynomial $h_L$ vanishes at $0$
+and $\tau$; if its degree were at most one it would vanish identically and $p$ would again not be isolated. Hence
+$\deg h_L=2$ and both zeros are simple. Likewise $f|_H\not\equiv0$ (otherwise $p$ would not be isolated), so the
+vector $\alpha$ obtained above is nonzero.
+\end{proof}
+
+From now on we assume that a class contains two distinct nondegenerate positive steady states $p,q$, and we use
+$\alpha$, $h$, $\ell$, $\tau$ and $h_L$ from \zcref{lem:field-on-H}.
+
+\begin{lemma}\label{lem:alpha1-zero}
+If $\alpha_1=0$, then $Df|_S$ has a positive real eigenvalue at $p$ or at $q$.
+\end{lemma}
+
+\begin{proof}
+Then $\alpha\in S\cap e_1^\perp$, so $\alpha=\gamma\ell$ with $\gamma\neq0$. For $x_t:=p+t\ell\in H$ we have
+$f(x_t)=\gamma h_L(t)\ell$, hence $Df(x_t)\ell=\gamma h_L'(t)\ell$: $\ell$ is an eigenvector with eigenvalue
+$\gamma h_L'(t)$. Since $h_L'(0)$ and $h_L'(\tau)$ are nonzero with opposite signs, this eigenvalue is positive at $p$
+or at $q$.
+\end{proof}
+
+\paragraph{Normal form.}
+If $\alpha_1\neq0$ we normalize $\alpha_1=1$. Since $\{\alpha,\ell\}$ is a basis of $S$ and $\ell_1=0$, we can write
+uniquely
+\begin{equation}\label{eq:normal-form}
+f=\psi\,\alpha+\varphi\,\ell,\qquad \psi=f_1 .
+\end{equation}
+On $H$ we have $f=h\alpha$, so $\varphi$ vanishes on $H$ and $\psi|_H=h$. As $\deg\varphi\le2$, there is an affine
+function $P$ with $\varphi=(x_1-c)\,P$. The positive steady states are the positive solutions of $\psi=0$ and
+$(x_1-c)P=0$.
+
+\begin{lemma}[determinant on the ACR hyperplane]\label{lem:det}
+If $\alpha_1=1$, then $\det\bigl(Df(x)|_S\bigr)=-P(x)\,\bigl(\nabla\psi(x)\cdot\ell\bigr)$ for every $x\in H$.
+\end{lemma}
+
+\begin{proof}
+On $H$, $Df=\alpha\,\nabla\psi^{\mathsf T}+P\,\ell\,e_1^{\mathsf T}$. Hence $Df\,\alpha=(\nabla\psi\cdot\alpha)\alpha+P\ell$
+and $Df\,\ell=(\nabla\psi\cdot\ell)\alpha$. In the basis $(\alpha,\ell)$ the matrix of $Df|_S$ is
+$\begin{psmallmatrix}\nabla\psi\cdot\alpha&\nabla\psi\cdot\ell\\ P&0\end{psmallmatrix}$, with determinant
+$-P\,(\nabla\psi\cdot\ell)$.
+\end{proof}
+
+\begin{corollary}\label{cor:P-changes-sign}
+If $\alpha_1=1$ and $p,q$ are both exponentially stable, then $P(p)\,P(q)<0$.
+\end{corollary}
+
+\begin{proof}
+A $2\times2$ matrix whose eigenvalues have negative real parts has positive determinant. Here
+$\nabla\psi(p)\cdot\ell=h_L'(0)$ and $\nabla\psi(q)\cdot\ell=h_L'(\tau)$ are nonzero with opposite signs, so
+\zcref{lem:det} forces $P(p)$ and $P(q)$ to have opposite signs.
+\end{proof}
+
+The remaining steps show that $P$ cannot change sign along the positive steady states. Write
+$\psi_H(x'):=\psi(c,x')$ and
+\[
+\Vp:=\{x'\in\Rpos^{n-1}\colon \psi_H(x')=0\},
+\]
+so that the positive steady states are exactly the points $(c,x')$ with $x'\in\Vp$.
+
+\begin{lemma}[bimolecularity makes $\Vp$ connected]\label{lem:connected}
+Assume $\alpha_1=1$. Then $\Vp$ is connected, and $\nabla\psi_H\neq0$ at every point of $\Vp$.
+\end{lemma}
+
+\begin{proof}
+For $2\le j\le k\le n$ let $a_{jk}$ be the coefficient of $x_jx_k$ in $\psi=f_1$. Monomials containing $x_1$ become
+of degree at most one in $x'$ on $H$, and $(x_1-c)P$ contains no monomial $x_jx_k$ with $j,k\ge2$; hence the
+quadratic part of $\psi_H$ is $Q(x')=\sum_{j\le k}a_{jk}x_jx_k$ and the coefficient vector of $x_jx_k$ in $f$ is
+$a_{jk}\alpha$. By \zcref{lem:cones} applied to $y=X_j+X_k$: $a_{jk}\ge0$ (coordinate $1$), and if $a_{jk}>0$ then
+$\alpha_i\ge0$ for all $i\notin\{1,j,k\}$ and $1+\sum_{i\ge2}\alpha_i\le 0$, so that
+$\sum_{i\in\{j,k\}}\alpha_i\le -1-\sum_{i\notin\{1,j,k\}}\alpha_i\le -1$ (a single term when $j=k$). Let
+$N:=\{i\ge2\colon\alpha_i<0\}$. Every monomial
+$x_jx_k$ with $a_{jk}>0$ therefore satisfies $N\subseteq\{j,k\}$ and $N\cap\{j,k\}\neq\emptyset$. Since
+$h_L(t)=\psi_H(p'+t\ell')$ has degree $2$, $Q(\ell')\ne0$, so $Q\neq0$ and $1\le|N|\le2$.
+
+Second, for $i\in N$ the component $f_i$ restricted to $H$ equals $\alpha_i\psi_H$; its monomials not containing
+$x_i$ have nonnegative coefficients (setting $x_1=c>0$ preserves this property of $f_i$), so the monomials of
+$\psi_H$ not containing $x_i$ have nonpositive coefficients. Two cases remain.
+
+\emph{Case $N=\{a,b\}$.} Then $Q=\beta x_ax_b$ with $\beta>0$, every other monomial of $\psi_H$ lacks $x_a$ or $x_b$,
+and $\psi_H=\beta x_ax_b-G_0-G_ax_a-G_bx_b-\sum_{k\notin\{a,b\}}G_kx_k$ with all $G\ge0$. Writing
+$F:=G_0+G_ax_a+\sum_{k\notin\{a,b\}}G_kx_k$, the equation $\psi_H=0$ reads $x_b(\beta x_a-G_b)=F$. On the open
+orthant either $F>0$, and then $\Vp$ is the graph $x_b=F/(\beta x_a-G_b)$ over the convex set
+$\{\beta x_a>G_b\}\cap\Rpos^{n-2}$, with $\partial\psi_H/\partial x_b=\beta x_a-G_b>0$; or $F\equiv0$, and then
+$\Vp=\{x_a=G_b/\beta\}\cap\Rpos^{n-1}$ is convex, with $\partial\psi_H/\partial x_a=\beta x_b>0$.
+
+\emph{Case $N=\{a\}$.} Then $Q=x_a\sum_{k\ge2}\beta_kx_k$ with all $\beta_k\ge0$, not all zero, and
+$\psi_H=\beta_ax_a^2+x_a\bigl(K+R(x'')\bigr)-G(x'')$, where $x''$ collects the coordinates other than $x_1,x_a$,
+$R(x'')=\sum_{k\neq a}\beta_kx_k$, $K\in\R$, and $G$ is affine with nonnegative coefficients. On the open orthant
+either $G>0$ or $G\equiv0$. If $G>0$ and $\beta_a>0$, the quadratic in $x_a$ has exactly one positive root, which is
+simple; if $G>0$ and $\beta_a=0$, the positive root $x_a=G/(K+R)$ exists exactly on the convex set $\{K+R>0\}$, where
+$\partial\psi_H/\partial x_a=K+R>0$. In both cases $\Vp$ is the graph of a smooth function of $x''$ over a convex set.
+If $G\equiv0$, then $\Vp=\{\beta_ax_a+K+R(x'')=0\}\cap\Rpos^{n-1}$ is convex, and on it
+$\nabla\psi_H=x_a\nabla(\beta_ax_a+K+R)\neq0$, because $\beta_a$ or some $\beta_k$ with $k\ne a$ is positive.
+\end{proof}
+
+\begin{lemma}[global ACR]\label{lem:global}
+Assume $\alpha_1=1$ and $P(p)P(q)<0$, and write $P_H(x'):=P(c,x')$. Then
+$Z:=\{x'\in\Rpos^{n-1}\colon P_H(x')=0\}$ is nonempty, and there is $\varepsilon\in\{1,-1\}$ with
+$\varepsilon\,\psi_H\ge0$ on $Z$.
+\end{lemma}
+
+\begin{proof}
+$P_H$ takes both signs on the convex set $\Rpos^{n-1}$, so $Z\neq\emptyset$; in particular $P$ depends on some
+$x_k$ with $k\ge2$, and the hyperplane $\Pi:=\{P=0\}$ of $\R^n$ is transverse to $H$. At a positive point of $\Pi$
+we have $f=\psi\alpha$, so by ACR $\psi$ has no zero on the convex sets
+$\Pi^{\pm}:=\Pi\cap\Rpos^n\cap\{\pm(x_1-c)>0\}$, and hence has a constant sign $\varepsilon_\pm$ on each. Both sets
+accumulate at every point of $\{c\}\times Z$ (move inside $\Pi$ along $e_1-(\pi_1/\pi_k)e_k$, where $\pi_j$ are the
+coefficients of $P$ and $\pi_k\neq0$), so $\varepsilon_+\psi_H\ge0$ and $\varepsilon_-\psi_H\ge0$ on $Z$. If
+$\varepsilon_+\neq\varepsilon_-$, then $\psi_H$ vanishes on $Z$, a nonempty open subset of the hyperplane
+$\{P_H=0\}$, so $P_H$ divides $\psi_H$: $\psi_H=P_H\,A$ with $A$ affine. Since $P_H(p'),P_H(q')\neq0$, $A$ vanishes at
+$p'$ and $q'$, hence on the line through them, and $h_L\equiv0$, contradicting \zcref{lem:field-on-H}. So
+$\varepsilon:=\varepsilon_+=\varepsilon_-$ works.
+\end{proof}
+
+\begin{lemma}[no transversal sign change]\label{lem:tangency}
+In the situation of \zcref{lem:global}, let $z\in\Vp\cap Z$. Then $\nabla\psi_H(z)=\mu\,\nabla P_H$ for some
+$\mu\neq0$, and $z$ has a neighbourhood $U$ in $\Vp$ on which $-\operatorname{sign}(\mu)\,\varepsilon\,P_H\ge0$.
+\end{lemma}
+
+\begin{proof}
+Let $E:=\{P_H=0\}$, with direction space $T$. The function $\varepsilon\psi_H$ is nonnegative on the relatively open
+set $Z\subseteq E$ and vanishes at $z$, so $\nabla\psi_H(z)\perp T$, that is $\nabla\psi_H(z)=\mu\nabla P_H$; and
+$\mu\neq0$ by \zcref{lem:connected}. Let $Q$ be the quadratic part of $\psi_H$ and $B$ its polar form. For $v\in T$,
+$\psi_H(z+v)=Q(v)$, so $\varepsilon Q\ge0$ on $T$. Fix $\nu$ with $\nabla P_H\cdot\nu=1$ and write $w=v+s\nu$ with
+$v\in T$, $s=P_H(z+w)$. If $z+w\in\Vp$,
+\[
+0=\psi_H(z+w)=\mu s+Q(v)+2sB(v,\nu)+s^2Q(\nu),\quad\text{i.e.}\quad s\,\bigl(\mu+2B(v,\nu)+sQ(\nu)\bigr)=-Q(v).
+\]
+For $w$ small the bracket has the sign of $\mu$, so $s$ is zero or has the sign of $-\mu\varepsilon$.
+\end{proof}
+
+\begin{theorem}[dimension two]\label{thm:dim-two}
+Let $G$ be an at-most-bimolecular network of dimension $2$ and let $\kappa$ be such that $(G,\kappa)$ has ACR. Then
+every stoichiometric compatibility class contains at most one exponentially stable positive steady state. In
+particular $(G,\kappa)$ is not multistable.
+\end{theorem}
+
+\begin{proof}
+Suppose $p\neq q$ are exponentially stable positive steady states in one class; they are nondegenerate. By
+\zcref{lem:not-conserved,lem:field-on-H} we have the objects $\alpha,\ell,h$; by \zcref{lem:alpha1-zero},
+$\alpha_1\neq0$, and we normalize $\alpha_1=1$. By \zcref{cor:P-changes-sign}, $P(p)P(q)<0$. Define
+$\theta\colon\Vp\to\{1,-1\}$ by $\theta(x')=\operatorname{sign}P_H(x')$ if $P_H(x')\neq0$ and
+$\theta(x')=-\operatorname{sign}(\mu(x'))\,\varepsilon$ if $x'\in Z$, where $\mu(x')=\nabla\psi_H(x')\cdot\nabla
+P_H/|\nabla P_H|^2$ is continuous and nonzero on $\Vp\cap Z$ (\zcref{lem:tangency}). Then $\theta$ is locally
+constant: near a point with $P_H\neq0$ by continuity, and near $z\in\Vp\cap Z$ by \zcref{lem:tangency} applied on a
+neighbourhood where $\mu$ keeps its sign. As $\Vp$ is connected (\zcref{lem:connected}), $\theta$ is constant, so
+$P(p)$ and $P(q)$ have the same sign, a contradiction.
+\end{proof}
+
+\begin{remark}[where the bimolecular products matter]\label{rem:products}
+The bound $|y'|\le2$ on product complexes is used only through the second property in \zcref{lem:cones}, inside
+\zcref{lem:connected}. Without it, $\psi_H$ may contain the terms $x_2^2-3x_2+2$, and $\Vp$ may consist of two
+parallel sheets on which $P$ has opposite signs; the argument then breaks down. In the planar model
+$\dot u=t^2-1-u/c$, $\dot t=-ut$ (with $u=x_1-c$), the two stable nodes $t=\pm1$ of the ACR line $u=0$ are separated
+by the invariant line $t=0$, which ends at a saddle on the face $x_1=0$. We have not found a mass-action realization
+of this mechanism with bimolecular reactant complexes (linear programs with the constraints of \zcref{lem:cones}
+minus the product bound are feasible locally, but the global ACR condition failed on every sample), so we do not
+know whether \zcref{thm:dim-two} extends to networks with larger product complexes.
+\end{remark}
+
+\section{Reactant complexes and complexes}\label{sec:consequences}
+
+\begin{corollary}[dimension and reactant complexes]\label{cor:reactants}
+If a bimolecular network $G$ admits $\kappa$ with ACR and multistability, then $\dim S\ge3$ and $G$ has at least
+$4$ reactant complexes.
+\end{corollary}
+
+\begin{proof}
+One-dimensional networks never have ACR with nondegenerate multistationarity \autocite[Proposition~3.10]{KNS2024},
+and dimension~$2$ is excluded by \zcref{thm:dim-two}. A bimolecular network with ACR and nondegenerate
+multistationarity has at least $3$ species \autocite[Theorem~4.1]{KNS2024}. If $G$ has $k\ge1$ independent
+conservation laws, it has at least $n-k+1=\dim S+1\ge4$ reactant complexes \autocite[Theorem~5.5]{KNS2024}; if it
+is full-dimensional, at least $n+2\ge5$ \autocite[Theorem~5.1]{KNS2024}.
+\end{proof}
+
+For the number of complexes we use the classical objects of chemical reaction network theory: $m$ complexes, $\ell$
+linkage classes, $t$ terminal strong linkage classes, deficiency $\delta=m-\ell-s$, and the factorization
+$f(x)=Y A_\kappa \Psi(x)$, where $Y$ is the $n\times m$ matrix of complexes, $\Psi(x)=(x^{y})_y$ and $A_\kappa$ is
+the Laplacian matrix of the weighted reaction graph \autocite{Feinberg2019}. The kinetic subspace
+$K_\kappa:=Y(\operatorname{Im}A_\kappa)\subseteq S$ contains every value of $f$ and every column of $Df$.
+
+\begin{lemma}[kinetic subspace]\label{lem:kinetic}
+If $(G,\kappa)$ has a nondegenerate positive steady state and $G$ has a nonterminal complex, then $\delta\ge
+t-\ell+1$.
+\end{lemma}
+
+\begin{proof}
+At a nondegenerate positive steady state $x^*$ the image of $Df(x^*)|_S$ is $S$, so $K_\kappa=S$. The kernel of
+$A_\kappa$ has dimension $t$ and consists of vectors supported on terminal complexes, so
+$\dim\operatorname{Im}A_\kappa=m-t$, and $A_\kappa\Psi(x^*)\neq0$ because $\Psi(x^*)$ is positive on a nonterminal
+complex. As $YA_\kappa\Psi(x^*)=f(x^*)=0$, the map $Y$ has a nonzero kernel on $\operatorname{Im}A_\kappa$. Hence
+$s=\dim K_\kappa\le m-t-1$, that is $\delta=m-\ell-s\ge t-\ell+1$.
+\end{proof}
+
+\begin{corollary}[complexes]\label{cor:complexes}
+If a bimolecular network $G$ admits $\kappa$ with ACR and multistability, then $G$ has at least $6$ complexes.
+\end{corollary}
+
+\begin{proof}
+By \zcref{cor:reactants}, $s\ge3$. A network of deficiency zero is not multistationary \autocite[Lemma~2.4]{KNS2024},
+so $\delta\ge1$ and $m=\ell+s+\delta\ge5$, with equality only if $\ell=1$, $s=3$, $\delta=1$. Suppose $m=5$. If $G$
+has a nonterminal complex, \zcref{lem:kinetic} gives $t\le\ell+\delta-1=1$; otherwise all complexes are terminal and
+$t=\ell=1$. So $G$ has one linkage class, of deficiency one, with a single terminal strong linkage class, and the
+deficiency-one theorem \autocite{Feinberg1995} gives at most one positive steady state in each compatibility class.
+This contradicts multistability.
+\end{proof}
+
+\begin{remark}[on the deficiency-one theorem]\label{rem:def-one}
+The uniqueness part of the deficiency-one theorem holds without weak reversibility, provided each linkage class
+contains exactly one terminal strong linkage class, $\delta_\theta\le1$ for each linkage class and
+$\sum_\theta\delta_\theta=\delta$ \autocite{Feinberg1995}. \textcite[Lemma~2.5]{KNS2024} state it for weakly reversible
+networks only, but their proof of the bound of $5$ complexes (Theorem~4.9(2) there) applies it to networks that need
+not be weakly reversible; \zcref{lem:kinetic} supplies the missing hypothesis $t=1$ there, so their bound stands. The
+same argument shows that two nondegenerate positive steady states in one class force $m\ge s+3$ for networks of any
+molecularity: $\delta\ge1$ always, and $\delta\ge2$ when $\ell=1$.
+\end{remark}
+
+\section{Three species and six complexes suffice}\label{sec:three}
+
+\begin{theorem}[three species, six complexes]\label{thm:three-species}
+The bimolecular network on species $X,Y,Z$
+\[
+\mathcal N_1:\quad Z\xrightarrow{k_1}Y+Z,\quad 2Z\xrightarrow{k_2}Z,\quad Y\xrightarrow{k_3}Y+Z,\quad
+Y+Z\xrightarrow{k_4}2X,\quad X+Z\xrightarrow{k_5}2Z,\quad 2X\xrightarrow{k_6}Y
+\]
+has $3$ species, $6$ reactions, $6$ reactant complexes, $6$ complexes and dimension $3$. For every vector of rate
+constants it has ACR in $X$, with value $2k_1/k_5$. For $(k_1,\dots,k_6)=(5,1,1,4,10,7)$ its positive steady states
+are exactly
+\[
+P_1=\bigl(1,\tfrac{19}{4},\tfrac12\bigr),\qquad P_2=(1,3,1),\qquad P_3=\bigl(1,\tfrac74,\tfrac72\bigr),
+\]
+and $P_1,P_3$ are exponentially stable while $P_2$ is a saddle. The network being full-dimensional, all three lie in
+the unique compatibility class $\Rnn^3$. Multistability and ACR persist for all rate constants in a neighbourhood of
+this vector.
+\end{theorem}
+
+\begin{proof}
+The mass-action system is
+\begin{align*}
+\dot x&=2k_4yz-k_5xz-2k_6x^2,\\
+\dot y&=k_1z-k_4yz+k_6x^2,\\
+\dot z&=-k_2z^2+k_3y-k_4yz+k_5xz .
+\end{align*}
+The reaction vectors $(0,1,0)$, $(0,0,-1)$, $(2,-1,-1)$ and $(-1,0,1)$ span $\R^3$. The weight $w=(1,2,0)$ gives
+$\dot x+2\dot y=z\,(2k_1-k_5x)$, so every positive steady state has $x=c:=2k_1/k_5$. On this plane $\dot y=0$ gives
+$y=(k_1z+k_6c^2)/(k_4z)$, and then
+\[
+k_4z\,\dot z=-k_2k_4z^3+k_1k_4z^2+(k_1k_3-k_4k_6c^2)\,z+k_3k_6c^2 ,
+\]
+which is positive at $z=0$ and negative for large $z$. So a positive steady state exists for every $\kappa$, and ACR
+holds for every $\kappa$. For the given rate constants $c=1$, $y=(5z+7)/(4z)$ and
+$4z\,\dot z=-(2z-1)(z-1)(2z-7)$, which gives exactly $P_1,P_2,P_3$. The Jacobian matrices and their characteristic
+polynomials are
+\begin{align*}
+J(P_1)&=\begin{psmallmatrix}-33&4&28\\14&-2&-14\\5&-1&-10\end{psmallmatrix}, &
+\chi_1&=\lambda^3+45\lambda^2+206\lambda+30=(\lambda+5)(\lambda^2+40\lambda+6),\\
+J(P_2)&=\begin{psmallmatrix}-38&8&14\\14&-4&-7\\10&-3&-4\end{psmallmatrix}, &
+\chi_2&=\lambda^3+46\lambda^2+47\lambda-50,\\
+J(P_3)&=\begin{psmallmatrix}-63&28&4\\14&-14&-2\\35&-13&-4\end{psmallmatrix}, &
+\chi_3&=\lambda^3+81\lambda^2+632\lambda+1050 .
+\end{align*}
+By the Routh--Hurwitz criterion ($45\cdot206>30$ and $81\cdot632>1050$, all coefficients positive) $P_1$ and $P_3$
+are exponentially stable; $\chi_2(0)=-50<0$ gives $P_2$ a positive real eigenvalue. All three steady states are
+nondegenerate, so they persist, with their stability types, for nearby rate constants, and ACR holds for all rate
+constants.
+\end{proof}
+
+The mechanism is a weighted integral feedback: the pair of complexes $\{Z,\,X+Z\}$ is the only one whose reactions
+change $w\cdot x=x+2y$, so that $w\cdot f=z\,(2k_1-k_5x)$. Two further certified networks with six complexes, one of
+them weakly reversible with two linkage classes of deficiency zero and total deficiency one, are given in the
+sub-study \texttt{complexes/report.md}.
+
+\section{Further results and open questions}\label{sec:further}
+
+The following results complete \zcref{tab:summary}. Their proofs, partly computer-assisted with exact arithmetic, are
+in the two sub-study reports \texttt{examples/report.md} and \texttt{complexes/report.md}, with the scripts that
+check them.
+
+\begin{enumerate}
+\item \emph{A second three-species example with rational steady states.} The network
+$\mathcal G_7=\{X+Y\xrightarrow{1}2Y,\ Y\xrightarrow{1}2Z,\ 0\xrightarrow{5}X+Z,\ X+Z\xrightarrow{4}2Z,\
+2Z\xrightarrow{1}X+Z,\ Y+Z\xrightarrow{6}Y\}$ has $\dot y=y(k_1x-k_2)$, hence ACR in $X$ for all rate constants,
+and for the indicated ones exactly three positive steady states $(1,2,1)$, $(1,\frac54,\frac32)$,
+$(1,\frac{10}9,\frac53)$, the first and the last exponentially stable (exact Gröbner basis and Routh--Hurwitz).
+It has $7$ complexes.
+\item \emph{Six complexes in two linkage classes.} The weakly reversible network
+$\{2Z\rightleftarrows X+Z,\ Y+Z\to X,\ Y+Z\to X+Y,\ X\to2X,\ X+Y\to X,\ 2X\to Y+Z\}$ has $6$ complexes, two linkage
+classes of deficiency~$0$ and total deficiency~$1$, ACR in $X$ and, for suitable rate constants, two exponentially
+stable positive steady states. So the deficiency-one theorem cannot be applied to two linkage classes when
+$\sum_\theta\delta_\theta<\delta$, and six-complex examples need not have a single linkage class.
+\item \emph{Reactions with three species.} No full-dimensional bimolecular network with $3$ species and at most
+$5$ reactions has three nondegenerate positive steady states, or two exponentially stable ones, for any rate
+constants. Networks with at most $4$ distinct reactant complexes are covered by
+\autocite[Propositions~3.1(3) and~3.5]{KNS2024}; the $3\,188\,646$ networks with $5$ distinct reactant complexes
+were enumerated exactly, through a reduction to the sign changes of one univariate function whose derivative has,
+up to a fixed sign, the sign of the Jacobian determinant (two exponentially stable states have determinants of the same sign, which
+forces a third steady state between them). By \zcref{cor:reactants}, a three-species network with ACR and
+multistability is full-dimensional, so it needs at least $6$ reactions, which $\mathcal N_1$ and $\mathcal G_7$
+attain. The restriction to full-dimensional networks is necessary: the two-dimensional network
+$\{0\xrightarrow{10}Z,\ Y+Z\xrightarrow{10}X,\ X+Z\xrightarrow{1}Y+Z,\ X+Y\xrightarrow{1}2Y\}$ has the three
+nondegenerate positive steady states $(5,1,1)$, $(4,2,\frac12)$, $(3,3,\frac13)$ in the class $x+y=6$, the outer two
+exponentially stable (it has no ACR).
+\item \emph{Four reactant complexes.} With exactly $4$ reactant complexes and ACR, the positive steady states form a
+coset of a toric variety, and the number of them in a class is bounded by a rule of signs for exponential sums.
+For $4$ species no class contains two exponentially stable positive steady states (two such states would force a
+third one, and the rule of signs allows at most two). For $5$ or more species exactly nine reactant
+structures are compatible with ACR (none with $7$ or $8$ species); six of them are excluded by proof, and the
+remaining three were excluded only numerically, by sampling all realizable stoichiometric subspaces.
+\end{enumerate}
+
+\paragraph{Open questions.} Is the minimal number of reactant complexes $4$, $5$ or $6$? For full-dimensional
+networks on three species, is the bound $n+2=5$ of \autocite[Theorem~5.1]{KNS2024} attained with multistability? Does \zcref{thm:dim-two} hold for networks with
+bimolecular reactant complexes but larger products (\zcref{rem:products})? Finally, \autocite{JNJ2026} found ACR with
+bistability in a dual-site futile cycle with bifunctional enzymes (six species, dimension four); our examples show
+that much smaller mechanisms, based on a weighted integral feedback, suffice.
+
+\section{Computer verification}\label{sec:computer}
+
+All scripts print \texttt{PASS}/\texttt{FAIL} for each claim and exit with a nonzero code on failure. They were run
+under WSL (Fedora~44) with Python~3.12, sympy~1.14 and python-flint~0.9.
+\begin{itemize}
+\item \texttt{scripts/check\_dimension\_two\_example.py} (8~s): on $20$ random rational instances of the KNS network
+of Example~4.10, checks the determinant formula of \zcref{lem:det} and that the two positive steady states of a
+class have determinants of opposite signs. This is a sanity check; \zcref{thm:dim-two} is proved by hand.
+\item \texttt{complexes/scripts/certify\_examples.py} (exact rational arithmetic, standard library only, under
+$0.1$~s): \zcref{thm:three-species} and the two further six-complex examples (ACR identity, steady states,
+characteristic polynomials, Routh--Hurwitz conditions, counts of complexes and deficiency).
+\texttt{complexes/scripts/eigen\_enclosures.py}: eigenvalue enclosures in ball arithmetic.
+\item \texttt{examples/scripts/certify\_example.py} (under $1$~s): the network $\mathcal G_7$ (exact Gröbner basis,
+root isolation, ball-arithmetic eigenvalues). \texttt{examples/scripts/enum5\_reactions.py} (about two minutes on
+$12$ cores): the enumeration of item~3. \texttt{examples/scripts/e2\_reactant\_sets.py} and
+\texttt{check\_gale\_formula.py}: the reactant structures of item~4 and the determinant formula used there.
+\end{itemize}
+Searches and simulations used to find the examples are in \texttt{explore} sub-folders; they are floating-point and
+not part of any proof.
+
+\paperreferences
+\end{document}

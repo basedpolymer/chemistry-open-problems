@@ -1,0 +1,46 @@
+network G7:
+   R1: X+Y -> 2Y   k1 = 1
+   R2: Y -> 2Z   k2 = 1
+   R3: 0 -> X+Z   k3 = 5
+   R4: X+Z -> 2Z   k4 = 4
+   R5: 2Z -> X+Z   k5 = 1
+   R6: Y+Z -> Y   k6 = 6
+PASS at most bimolecular
+     species 3, reactions 6, reactant complexes 6, complexes 7, linkage classes 2, terminal strong linkage classes 2, rank 3, deficiency 2
+PASS stoichiometric subspace = R^3 (full-dimensional; one compatibility class R^3_{>0})
+     dx/dt = -k1*x*y + k3 - k4*x*z + k5*z**2
+     dy/dt = k1*x*y - k2*y
+     dz/dt = 2*k2*y + k3 + k4*x*z - k5*z**2 - k6*y*z
+PASS structural ACR: dy/dt = y*(k1*x - k2) for all kappa, so x = k2/k1 at every positive steady state
+     ACR value x* = k2/k1 = 1
+PASS lex Groebner basis of {f_X, f_Z} at x = x* has shape {y - q(z), p(z)}
+PASS leading coefficient of the y-element is a nonzero constant
+     p(z) = 6*z**3 - 25*z**2 + 34*z - 15
+     y = q(z) = z**2 - 4*z + 5
+PASS p is square-free (all roots simple)
+PASS isolating intervals (width < 2^-200) are pairwise disjoint
+PASS z = 0 is not a root of p
+PASS root interval does not straddle 0
+PASS exact rational root z = 1
+PASS root interval does not straddle 0
+PASS exact rational root z = 3/2
+PASS root interval does not straddle 0
+PASS exact rational root z = 5/3
+     number of real roots of p: 3; positive steady states: 3
+   steady state 1: x = 1, y in 2.00000000000, z in 1.00000000000
+       a1 = 16.0000000000000, a2 = 70.0000000000000, a3 = 4.00000000000000, a1*a2-a3 = 1116.00000000000
+       eigenvalues: [-0.057906521 +/- 2.72e-10] + [+/- 2.33e-10]j, [-7.9710467 +/- 9.56e-8] + [-2.3535638 +/- 8.69e-8]j, [-7.9710467 +/- 9.56e-8] + [2.3535638 +/- 8.69e-8]j
+PASS steady state 1 nondegenerate (det J != 0, certified)
+PASS steady state 1 exponentially stable (Routh-Hurwitz a1>0, a3>0, a1*a2>a3 certified)
+   steady state 2: x = 1, y in 1.25000000000, z in 1.50000000000
+       a1 = 13.7500000000000, a2 = 54.3750000000000, a3 = -0.625000000000000, a1*a2-a3 = 748.281250000000
+       eigenvalues: [0.0114610090 +/- 8.74e-11] + [+/- 4.15e-11]j, [-6.8807305 +/- 2.13e-8] + [-2.6810945 +/- 6.02e-8]j, [-6.8807305 +/- 2.13e-8] + [2.6810945 +/- 6.02e-8]j
+PASS steady state 2 nondegenerate (det J != 0, certified)
+     steady state 2 unstable (certified: a3<0, real positive eigenvalue)
+   steady state 3: x = 1, y in 1.11111111111, z in 1.66666666667
+       a1 = [13.7777777777778 +/- 2.23e-14], a2 = [52.2222222222222 +/- 2.23e-14], a3 = [0.740740740740741 +/- 2.60e-16], a1*a2-a3 = [718.765432098765 +/- 4.33e-13]
+       eigenvalues: [-0.014237824 +/- 4.13e-10] + [+/- 9.41e-11]j, [-6.8817700 +/- 8.37e-8] + [-2.1604401 +/- 7.85e-8]j, [-6.8817700 +/- 8.37e-8] + [2.1604401 +/- 7.85e-8]j
+PASS steady state 3 nondegenerate (det J != 0, certified)
+PASS steady state 3 exponentially stable (Routh-Hurwitz a1>0, a3>0, a1*a2>a3 certified)
+PASS two exponentially stable positive steady states in the single class R^3_{>0} (multistability), together with ACR in X
+runtime 0.2 s

@@ -8,7 +8,7 @@ manuscript, and scripts that re-check every computational claim.
 
 ## Models
 
-- **Claude Opus 5.5** (Anthropic), effort *xhigh*: orchestration; results 1–3, 5–9 and 11–25; editing and
+- **Claude Opus 5.5** (Anthropic), effort *xhigh*: orchestration; results 1–3, 5–9, 11–25 and 27; editing and
   verification of results 4 and 10.
 - **GPT-6-Astra** (OpenAI), effort *xhigh* (*High* for result 26): results 4, 10 and 26; contributions to results 8,
   11, 12, 20 and 25.
@@ -47,6 +47,7 @@ manuscript, and scripts that re-check every computational claim.
 | 24 | [Connective constants of the diamond and face-centred cubic lattices](problems/saw-diamond-fcc-upper-bounds/) (Alm, Combin. Probab. Comput. 1993: 2.90940 and 10.27777; follow-up of result 9) | Polymer physics | μ(diamond) ≤ 2.8958880 and μ(fcc) ≤ 10.1630815 by exact certificates (previous best 2.90940, and 10.240586 from the 2017 exact counts) | [record (preliminary)](problems/saw-diamond-fcc-upper-bounds/paper.pdf), 25 Oct 2026; not yet verified |
 | 25 | [Becker–Döring with atomization, Hopf branches j ≥ 4](problems/becker-doring-atomization-hopf/higher-branches/) (Pego–Velázquez, Nonlinearity 2020, §3.3; follow-up of result 8) | Nucleation kinetics | Branches 4–13 for every M: one Hopf point from M_j = 142, 210, …, 1135 on, supercritical on the centre manifold with unstable orbits, except the subcritical onsets M = 142 (j = 4) and M = 1135 (j = 13); every branch supercritical for large M; open for j ≥ 14 below a non-explicit M | [partial result (preliminary)](problems/becker-doring-atomization-hopf/higher-branches/paper.pdf), 25 Oct 2026; not yet verified |
 | 26 | [Kaibel–Petlyuk vapour penalty](problems/kaibel-petlyuk-energy-gap/) (Halvorsen–Skogestad, AIChE 2006, paper 216d) | Chemical engineering (distillation) | Strictly positive for four positive feed fractions and distinct volatilities in the ideal infinite-stage Underwood model; algebraic gap formula; source equation (7) corrected from min to max | [already solved (literature audit)](problems/kaibel-petlyuk-energy-gap/paper.pdf), 27 Oct 2026 |
+| 27 | [Absolute concentration robustness with multistability](problems/kaihnsa-acr-multistability/) (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), §6, conjecture) | Reaction networks | Conjecture true for dimension (≥ 3), reactant complexes (≥ 4) and complexes (≥ 6), false for species: a 3-species, 6-complex network has ACR for all rate constants and two stable steady states. Dimension-two systems with ACR have at most one stable positive steady state per class | [**solved**](problems/kaihnsa-acr-multistability/paper.pdf), 27 Oct 2026; verified 27 Oct 2026 |
 
 ## Candidate problems
 
@@ -55,7 +56,6 @@ Shortlisted, no result yet; statements checked against the sources and the liter
 | Problem (source) | Field | What is open |
 |---|---|---|
 | [Uniqueness of the Brownian coagulation similarity profile](problems/brownian-coagulation-profile-uniqueness/) (Smoluchowski equation, full Brownian kernel) | Aggregation kinetics | Uniqueness at fixed mass of the self-similar profile for K(x,y) = 2 + (x/y)^(1/3) + (y/x)^(1/3) |
-| [Absolute concentration robustness with multistability](problems/kaihnsa-acr-multistability/) (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), final discussion, conjecture) | Reaction networks | Whether the minimal dimension and numbers of species, reactant complexes and complexes exceed those proved for ACR with multistationarity (3 species, 3 reactions, 5 complexes, dimension 2, at-most-bimolecular) |
 | Knotting probability of random-jump heptagons (Geisz–Peterson–Shonkwiler, [arXiv:2609.24860](https://arxiv.org/abs/2609.24860), §5) | Polymer physics (ring polymers) | Exact knot probabilities for seven uniform points on the sphere joined cyclically; unlike n = 6, the convex hull no longer determines the knot type |
 | Conjectures 1(c) and 1(d) on fullerene duals for every n (Bille–Buchstaber–Spodarev 2021) | Mathematical chemistry | Verified for n ≤ 138 only |
 

@@ -1,0 +1,18 @@
+n=3, mode theorem: {'tried': 12000, 'feasible': 1524, 'acr_fails': 1524, 'candidates': 0}  (88 s)
+PASS n=3, mode theorem: no configuration with two exponentially stable zeros on a class line and global ACR (1524 locally feasible LP solutions, all violating global ACR)
+n=3, mode global: {'tried': 12000, 'feasible': 708, 'acr_fails': 708, 'candidates': 0}  (141 s)
+PASS n=3, mode global: whenever P changes sign between two zeros p, q of a class line (cones with (C2), deg h_L = 2), a positive zero off H exists, i.e. ACR fails (708 feasible LP solutions)
+n=3, mode control: {'tried': 12000, 'feasible': 2998, 'acr_fails': 2998, 'candidates': 0}  (368 s)
+     control without (C2): 2998 feasible, 2998 with a zero off H found, 0 without
+n=4, mode theorem: {'tried': 12000, 'feasible': 176, 'acr_fails': 176, 'candidates': 0}  (510 s)
+PASS n=4, mode theorem: no configuration with two exponentially stable zeros on a class line and global ACR (176 locally feasible LP solutions, all violating global ACR)
+n=4, mode global: {'tried': 12000, 'feasible': 72, 'acr_fails': 72, 'candidates': 0}  (640 s)
+PASS n=4, mode global: whenever P changes sign between two zeros p, q of a class line (cones with (C2), deg h_L = 2), a positive zero off H exists, i.e. ACR fails (72 feasible LP solutions)
+n=4, mode control: {'tried': 12000, 'feasible': 530, 'acr_fails': 530, 'candidates': 0}  (823 s)
+     control without (C2): 530 feasible, 530 with a zero off H found, 0 without
+runtime 823 s
+ALL PASS
+
+real	13m43.469s
+user	9m19.201s
+sys	0m20.849s

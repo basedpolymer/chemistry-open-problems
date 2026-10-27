@@ -282,3 +282,16 @@ progress journal. Global topology ordering remains unresolved.
   new research priority or separate fresh-context verification is claimed.
 - Credits corrected: the completion of result 8 (26 October) is by GPT-6-Astra, effort xhigh (previously
   "Codex, GPT-6, effort not recorded"); remaining "via Codex CLI" mentions dropped.
+- Result 27, Kaihnsa–Nguyen–Shiu conjecture on ACR with multistability (Eur. J. Appl. Math. 2024, §6), **solved**:
+  true for dimension, reactant complexes and complexes, false for species. Main theorem: a two-dimensional
+  bimolecular mass-action system with ACR has at most one exponentially stable positive steady state per
+  compatibility class (normal form on the ACR hyperplane, connectedness of the positive steady-state set from
+  bimolecular products, global ACR). Consequences: dimension ≥ 3, ≥ 4 reactant complexes, ≥ 6 complexes
+  (kinetic-subspace lemma and deficiency-one theorem). The 3-species, 6-complex, 6-reaction network N1 has ACR for
+  every rate constant vector and two stable steady states (exact certificate), so dimension 3, species 3 and
+  complexes 6 are attained; the minimal number of reactant complexes (4, 5 or 6) stays open. Also noted: KNS state
+  the deficiency-one theorem for weakly reversible networks only but use it for general ones; the general version
+  and the kinetic-subspace lemma close that gap. Solver and two sub-studies: Claude Opus 5.5 (xhigh). Verified the
+  same day in a fresh context (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS (scope of the 5-reaction
+  enumeration restricted to full-dimensional networks, two wording fixes, one missing sentence). The candidate entry
+  is removed from the root README.

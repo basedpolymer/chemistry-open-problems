@@ -1,0 +1,25 @@
+networks up to species permutation: 3 reactions 6568, 4 reactions 47698, 5 reactions (sample) 60000  (33 s)
+after filters (>= 3 reactant complexes, positive flux): 47847  (158 s)
+totals over (network, rate vector) pairs: {'acr': 48907, 'acr_multi': 107, 'two_stable': 0, 'opposite_ok': 4875, 'opposite_bad': 0}  (1136 s)
+ACR + nondegenerate multistationarity found in 59 networks, e.g.:
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(1, 0, 1) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(2, 0, 0) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 1)->(1, 0, 0) , (0, 0, 2)->(0, 1, 1) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 1)->(1, 0, 0) , (0, 0, 2)->(0, 2, 0) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(0, 1, 1) , (0, 0, 2)->(1, 0, 1) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(0, 2, 0) , (0, 0, 2)->(1, 0, 1) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(0, 2, 0) , (0, 0, 2)->(2, 0, 0) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(1, 0, 1) , (0, 0, 2)->(1, 1, 0) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(1, 0, 1) , (0, 0, 2)->(2, 0, 0) , (1, 1, 0)->(0, 0, 2)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(1, 0, 1) , (1, 1, 0)->(0, 0, 2) , (1, 1, 0)->(0, 1, 1)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(1, 0, 1) , (1, 1, 0)->(0, 0, 2) , (1, 1, 0)->(0, 2, 0)
+    (0, 0, 1)->(0, 1, 0) , (0, 0, 2)->(1, 0, 1) , (1, 1, 0)->(0, 0, 2) , (1, 1, 0)->(1, 0, 1)
+PASS KNS Example 4.10 is detected as ACR + nondegenerately multistationary
+PASS no ACR system with two exponentially stable positive steady states in a class
+PASS two nondegenerate positive steady states in a class of an ACR system always have determinants of opposite signs (4875 classes)
+runtime 1136 s
+ALL PASS
+
+real	18m56.193s
+user	197m5.798s
+sys	0m4.781s

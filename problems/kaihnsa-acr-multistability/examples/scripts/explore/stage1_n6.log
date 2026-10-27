@@ -1,0 +1,2 @@
+n = 6 distinct reactant sets (up to S_n) with rank A = 3 and an ACR species: 1
+((0, 0, 0, 0, 0, 1), (0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)) ACR species [4] V^T = [[-1, 1, 0, 0, 0, 0], [0, 0, -1, 1, 0, 0], [1, 0, 1, 0, 0, 1]]

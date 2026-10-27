@@ -1,0 +1,9 @@
+canonical reactant 5-subsets: 54
+{"total": 3188646, "rank3": 1251698, "consistent": 628446, "degenerateY": 0, "P": [0, 0, 36303, 265885, 253227, 73031], "P4_pair": 48644, "P4_pair_sc2": 0, "P5_sc2": 0, "sc2_any": 0, "sc_hist": [298879, 27379, 0, 0]}
+PASS enumerated 3188646 networks ( 54 reactant sets x 9^5 )
+P4 structural-ACR candidates with >=2 sign changes of g': 0
+P5 candidates with >=2 sign changes of g': 0
+networks (any P>=4) whose g' changes sign >= 2 times on the cone (needed for 3 nondegenerate positive steady states): 0  histogram of sign changes (0,1,2,>=3): [298879, 27379, 0, 0]
+PASS no 5-reaction network has ACR together with >= 3 nondegenerate positive steady states for some kappa (hence none has ACR + multistability)
+PASS no 5-reaction network has >= 3 nondegenerate positive steady states at all
+runtime 112.2 s
