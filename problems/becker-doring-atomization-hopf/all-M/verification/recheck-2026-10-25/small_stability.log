@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_small_stability.py
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/check_small_stability.py
 PASS M=3: all 2 Hurwitz determinants positive for K>0
 PASS M=4: all 3 Hurwitz determinants positive for K>0
 PASS M=5: all 4 Hurwitz determinants positive for K>0

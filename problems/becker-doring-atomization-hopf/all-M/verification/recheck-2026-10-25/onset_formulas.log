@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/higher-branches/scripts/check_onset_formula.py
+COMMAND: python problems/becker-doring-atomization-hopf/higher-branches/scripts/check_onset_formula.py
 O1   PASS F/A^3 = s-form (symbolic in s, phi, M, phi^M, s^M)
 O2   PASS lambda/A = (1 - s/phi)(phi - 1)
 O3   PASS s = 0 (and s^M = 0): s-form = -phi^3 G

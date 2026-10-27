@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_formulas.py
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/check_formulas.py
 F1   PASS F = f1 g2 - g1 f2 (PV (71)) = -P1 + phi^M P2 + A^-M R1 + (A phi)^-M R2 (PV (76)) with the closed forms PV (102), (103), (140), (141) -- exact, symbolic M
 F2   PASS eps-regular forms P2t, P1t, W, g, h, Lambda (exact)
 F3   PASS lambda(w), region Re lambda >= 0 <=> a^2(1-Au) <= u(K+2Au), F(1) = F'(1) = 0 for real M

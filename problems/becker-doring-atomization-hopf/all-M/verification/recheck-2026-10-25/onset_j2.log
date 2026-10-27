@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_onsets.py 2 /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/verification/recheck-2026-10-25-final
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/check_onsets.py 2 problems/becker-doring-atomization-hopf/all-M/verification/recheck-2026-10-25-final
 junction A/B: M-box [43.6794 +/- 6.07e-5] inside the last s-box: True
 100 boxes; M-box [45.046107683340928, 45.060084848008827] M in [45.046108, 45.060085] s in [0.0172492, 0.017655] (3s)
 200 boxes; M-box [46.913233867605371, 46.933594105947911] M in [46.913234, 46.933594] s in [0.0394737, 0.0401321] (4s)

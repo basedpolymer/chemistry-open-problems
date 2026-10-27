@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/h2j_sweep.py 3 /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/certificates/l1_j3.csv /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/verification/recheck-2026-10-25-final/h2j_j3.csv 26 26.6 -0.15 0.25
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/h2j_sweep.py 3 problems/becker-doring-atomization-hopf/all-M/certificates/l1_j3.csv problems/becker-doring-atomization-hopf/all-M/verification/recheck-2026-10-25-final/h2j_j3.csv 26 26.6 -0.15 0.25
 box 50 [0.0011140883092891887, 0.0011433106053718542] kappa=4.206485 NP=8 NPm=4 PASS (56s)
 box 100 [0.0022387214927730823, 0.0022664746268942289] kappa=4.377766 NP=8 NPm=4 PASS (111s)
 box 150 [0.003337057352892699, 0.0033634151877242765] kappa=4.542531 NP=8 NPm=4 PASS (166s)

@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/asymptotics.py
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/asymptotics.py
 A1   PASS j=1: kappa_j^0 in [1.89824625608789239422813247370 +/- 1.64e-30], t_j in [4.49340945790906417530788092728 +/- 3.23e-31]
 A2   PASS j=1: Lhat(0) = [-0.009311398380762162645991750599009292709349 +/- 4.26e-43]
 A3   PASS j=1: L_j (result 8) = [-0.009311398380762162645991750599009292709349 +/- 4.26e-43], difference enclosure [+/- 3.45e-56]

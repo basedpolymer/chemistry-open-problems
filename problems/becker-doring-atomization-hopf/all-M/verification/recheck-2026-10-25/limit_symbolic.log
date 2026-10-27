@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/limit_symbolic.py
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/limit_symbolic.py
 bracket power at eps = 0: 1 (must be <= 1; the value at power 1 is used)
      j=1: symbolic -0.009311398380762162645991750599, l1reg at eps=0 [-0.009311398380762162645991751 +/- 4.02e-28] ok
      j=2: symbolic -0.007941017251333519392688761651, l1reg at eps=0 [-0.007941017251333519392688762 +/- 3.50e-28] ok

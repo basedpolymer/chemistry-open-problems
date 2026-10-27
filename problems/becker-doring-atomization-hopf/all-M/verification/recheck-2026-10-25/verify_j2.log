@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/verify_sweep.py /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/certificates/l1_j2.csv 0 0.078811099999999995
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/verify_sweep.py problems/becker-doring-atomization-hopf/all-M/certificates/l1_j2.csv 0 0.078811099999999995
 line 100 [0.0033857984692216201, 0.0034135516033427667] Lhat in [-0.00763763, -0.00737697] PASS (7s)
 line 200 [0.0087388418609166893, 0.008838972599877714] Lhat in [-0.00946967, -0.00626388] PASS (15s)
 line 300 [0.021268989066918386, 0.021449620285740652] Lhat in [-0.00954011, -0.00691313] PASS (24s)

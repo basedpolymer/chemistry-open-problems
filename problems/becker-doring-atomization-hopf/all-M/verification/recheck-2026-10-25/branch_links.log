@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_branch_links.py
+COMMAND: python problems/becker-doring-atomization-hopf/all-M/scripts/check_branch_links.py
 PASS j=1: exact coverage, limit label, 561 junctions
 PASS j=2: exact coverage, limit label, 588 junctions
 PASS j=3: exact coverage, limit label, 833 junctions

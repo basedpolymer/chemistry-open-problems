@@ -1,4 +1,4 @@
-COMMAND: /home/matisse/envs/sci/bin/python /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/verification/v02_dense_certify.py /mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/verification/recheck-2026-10-25/dense_j1.csv --eig --range 1 15 160
+COMMAND: python problems/becker-doring-atomization-hopf/verification/v02_dense_certify.py problems/becker-doring-atomization-hopf/all-M/verification/recheck-2026-10-25/dense_j1.csv --eig --range 1 15 160
 M=15 j=1 kappa=824.539627339 l1_unit=1.1951866439e-09 (+-8.9e-45) solver=1.1951866439e-09 agree=True label=(0, 1) simple=True dRe/dK>0.00109 eig=(2, 0, 12) tri=0 PASS 0.0s
 M=16 j=1 kappa=83.0952513765 l1_unit=-1.2963292434e-05 (+-1.1e-45) solver=-1.2963292434e-05 agree=True label=(0, 1) simple=True dRe/dK>0.00998 eig=(2, 0, 13) tri=0 PASS 0.0s
 M=17 j=1 kappa=45.4043619976 l1_unit=-8.0755942830e-05 (+-2.0e-45) solver=-8.0755942830e-05 agree=True label=(0, 1) simple=True dRe/dK>0.0169 eig=(2, 0, 14) tri=0 PASS 0.0s

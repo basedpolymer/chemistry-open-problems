@@ -27,10 +27,10 @@ junction: M in [161.053 +/- 4.84e-4] -> eps in [0.0787982 +/- 8.89e-8], kappa in
 SUMMARY j=3: onset sweep PASS, junction with the eps-chart PASS -> PASS (33s)
 PASS j=3: M* in [86.387 +/- 2.99e-4], integer onset 87
 Traceback (most recent call last):
-  File "/mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_onsets.py", line 89, in <module>
+  File "problems/becker-doring-atomization-hopf/all-M/scripts/check_onsets.py", line 89, in <module>
     sys.exit(main())
              ^^^^^^
-  File "/mnt/c/Users/demor/chemistry-open-problems/problems/becker-doring-atomization-hopf/all-M/scripts/check_onsets.py", line 62, in main
+  File "problems/becker-doring-atomization-hopf/all-M/scripts/check_onsets.py", line 62, in main
     assert Ps.contains(X[0]) and Xs[0].contains(P)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 AssertionError
