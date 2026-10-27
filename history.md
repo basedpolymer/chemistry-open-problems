@@ -304,3 +304,7 @@ progress journal. Global topology ordering remains unresolved.
   weakly reversible networks the dual preclusters are singletons. Ten new exact claims in `certify_examples.py`
   (142 in all, PASS). The stale sentence "No verification has been carried out yet" was removed from the manuscript.
   Revision: Claude Opus 5.5 (xhigh); the new remarks are not yet verified.
+- Result 17, manuscript §5 and README: the non-preservation of weak reversibility under the duality is now credited to
+  Blanchini and Giordano (2022, p. 6), who observed it first; the GAC is noted as claimed in full by Craciun's
+  arXiv v3 and by OpenAI's preprint on boundedness and persistence of weakly reversible mass-action systems
+  (25 September 2026).

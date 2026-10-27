@@ -105,8 +105,8 @@ facts, added to §5 of the manuscript on 27 October 2026, constrain such an argu
 1. The duality preserves the dimension. Γ(N*) = Γᵀ, so N* has r species, n reactions and the same dimension s as N.
    The known case of dimension at most three (Pantea 2012) is mapped to itself. The codimension n − s of N becomes
    the dimension of the cycle space of N*.
-2. The duality does not preserve weak reversibility, which complex balancing requires. W is weakly reversible with
-   deficiency zero, so it is complex balanced for all rate constants. W* (R₁+R₂ → R₃+R₄, R₃ → R₁, R₄ → R₂) is not
+2. The duality does not preserve weak reversibility, which complex balancing requires (already observed by Blanchini
+   and Giordano, p. 6). W is weakly reversible with deficiency zero, so it is complex balanced for all rate constants. W* (R₁+R₂ → R₃+R₄, R₃ → R₁, R₄ → R₂) is not
    weakly reversible, so it is complex balanced for no rate constants. The 3-cycle T is self-dual.
 3. For weakly reversible N the preclusters of N* are singletons, and at deficiency zero P(N) ≠ MIPS(N*)
    (Corollaries 9 and 10). In the setting of the GAC, the preclusters carry no information on the species side.
@@ -116,7 +116,10 @@ are Lyapunov functions, which F. Blanchini and G. Giordano relate between a netw
 Lett. 6, 2022), and the siphon conditions of recent special cases of the GAC. Two recent preprints bear on the GAC
 itself and have not been checked here: G. Craciun, arXiv:1501.02860 v3 (23 September 2026, "a major revision" of the
 general proof), and C. Wiuf, arXiv:2609.24553 (21 September 2026, a special case stated through conditions on
-realisable siphons).
+realisable siphons). The GAC itself is now claimed in full by Craciun's v3 and by OpenAI's preprint
+*Boundedness and persistence of weakly reversible mass-action systems* (25 September 2026, in the `openai/math`
+repository), from which the GAC follows. If it is settled, the open question becomes which structure the duality
+transfers, rather than which new cases of the GAC it yields.
 
 ## Reproduce
 

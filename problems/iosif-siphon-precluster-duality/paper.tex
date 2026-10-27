@@ -615,7 +615,8 @@ species, \(r\) reactions and a stoichiometric subspace of dimension \(s\) is sen
 mapped to itself. The codimension \(n-s\) of \(\Net\) becomes the dimension of the cycle space \(\ker\Gamma(\Net^*)\),
 not a dimension of \(\Net^*\).
 \item The duality does not preserve weak reversibility, which complex balancing requires~\autocite{HornJackson1972}.
-The network \(W\) is weakly reversible with deficiency zero, hence complex balanced for all rate constants, whereas
+Blanchini and Giordano already observe that the dual of a reversible network is not even weakly reversible, and
+that mass-action rate functions are not preserved (\autocite[p.~6]{BlanchiniGiordano2022}). The network \(W\) is weakly reversible with deficiency zero, hence complex balanced for all rate constants, whereas
 \(W^*\colon R_1+R_2\to R_3+R_4,\ R_3\to R_1,\ R_4\to R_2\) is not weakly reversible, hence complex balanced for no rate
 constants. The 3-cycle \(T\) is self-dual, so weak reversibility is sometimes preserved.
 \item For weakly reversible \(\Net\), the preclusters of \(\Net^*\) are singletons (\zcref{cor:wr}). At deficiency
@@ -625,8 +626,12 @@ partition carries no information on the species side.
 A transfer of known cases of the GAC through duality would therefore have to act on other objects than the
 partitions compared here. Two candidates are Lyapunov functions, which Blanchini and Giordano relate between a
 network and its dual~\autocite{BlanchiniGiordano2022}, and the siphon conditions used in recent special cases of the
-GAC~\autocite{Wiuf2026}. The GAC itself is the subject of a recent major revision of Craciun's proof~\autocite{Craciun2015GAC}
-and of a new special case by Wiuf~\autocite{Wiuf2026}. Both are preprints, and we have not checked them.
+GAC~\autocite{Wiuf2026}. The GAC itself is now claimed in full by two preprints: a major revision of Craciun's
+proof~\autocite{Craciun2015GAC}, and a proof of the boundedness and persistence conjectures for weakly reversible
+mass-action systems~\autocite{OpenAI2026persistence}, from which the GAC follows by the classical argument. A new
+special case is due to Wiuf~\autocite{Wiuf2026}. We have not checked these preprints. If the GAC is settled, the
+question raised by the source becomes which structure the duality transfers, rather than which new cases of the GAC
+it yields.
 
 \paragraph{Limitations.} Our reading of Definition~17 (\zcref{prop:mips}) quantifies over all \(c\in Q\), including
 values on the boundary of chambers. This is the reading under which Remark~18 holds. The counterexamples were checked

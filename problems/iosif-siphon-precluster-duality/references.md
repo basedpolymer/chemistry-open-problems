@@ -63,8 +63,10 @@
 - F. Blanchini, G. Giordano, IEEE Control Syst. Lett. 6 (2022) 488–493, DOI 10.1109/LCSYS.2021.3081369 (dual networks,
   mentioned by the source). Abstract read on 27 October 2026: the dual network is defined by the transposed
   stoichiometric matrix; structural local stability carries over to the dual, and a polyhedral Lyapunov function in
-  concentrations corresponds to a piecewise-linear-in-rates Lyapunov function of the dual. Full text not read (an
-  accepted manuscript is listed in the IRIS repository of the University of Trento, which refused automated access).
+  concentrations corresponds to a piecewise-linear-in-rates Lyapunov function of the dual. Full text read on
+  27 October 2026: their dual is defined from Γᵀ for monotone kinetics without autocatalysis, and p. 6 already notes
+  that the dual of a reversible network is not even weakly reversible and that mass action is not preserved
+  (credited in §5 of the manuscript).
 - J. A. De Loera, E. D. Kim, S. Onn, F. Santos, J. Combin. Theory Ser. A 116 (2009) 1306–1325, DOI
   10.1016/j.jcta.2009.03.010 (cited by the source for the finiteness of the combinatorial types of invariant polyhedra). Not read; cited
   only as the source cites it.
@@ -80,6 +82,10 @@ Read for the motivation of the source (§3: a GAC case in small codimension "thr
   assisted according to its comments). Abstract and main theorem read: GAC for weakly reversible complex balanced
   networks when every realisable siphon Σ satisfies S₀(Σ) = S_bl(Σ) and a condition (⋄) on Σ-minimal linkage
   classes of an embedded network. It does not mention network duality, preclusters or Iosif's paper. Not checked.
+- OpenAI, *Boundedness and persistence of weakly reversible mass-action systems*, preprint of 25 September 2026 in the
+  `openai/math` GitHub repository (folder `preprints/`), with a companion *Uniform permanence* preprint of 5 October
+  2026. Catalogue entries read: they claim the boundedness and persistence conjectures for weakly reversible
+  mass-action systems with constant rates, which imply the GAC. Not checked.
 - C. Pantea, SIAM J. Math. Anal. 44 (2012) 1636–1673, DOI 10.1137/110840509 (GAC for stoichiometric dimension at most
   three). Cited as listed by Wiuf; not read.
 - Other special cases listed by Wiuf, not read: D. F. Anderson, SIAM J. Appl. Math. 71 (2011), DOI
