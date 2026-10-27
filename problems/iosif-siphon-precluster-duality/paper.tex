@@ -3,10 +3,10 @@
 \input{preamble/pdfA-compliance/glyphtounicode}
 \documentclass[11pt,a4paper]{report}
 
-\newcommand*{\PaperTitle}{Preclusters, maximal invariant polyhedral supports and siphons are not dual: exact criteria and counterexamples for Iosif's duality conjecture}
-\newcommand*{\PaperTitlePlain}{Preclusters, maximal invariant polyhedral supports and siphons are not dual: exact criteria and counterexamples for Iosif's duality conjecture}
+\newcommand*{\PaperTitle}{Preclusters, maximal invariant polyhedral supports and siphons: exact criteria and counterexamples for the precise forms of Iosif's duality conjecture}
+\newcommand*{\PaperTitlePlain}{Preclusters, maximal invariant polyhedral supports and siphons: exact criteria and counterexamples for the precise forms of Iosif's duality conjecture}
 \newcommand*{\PaperShortTitle}{Preclusters and invariant polyhedral supports}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 25 October 2026, revised 27 October 2026 \textperiodcentered{} partial result, verified}
 \newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verifier: GPT-6-Astra (effort xhigh)}
 \newcommand*{\PaperKeywords}{mass-action networks, network duality, preclusters, invariant polyhedra, siphons, flux coupling, conservation laws}
 \input{chemop-preamble}
@@ -45,6 +45,10 @@ duality and under three readings of MIPS. The counterexamples are tiny: \(X_1\ri
 \(X_1\to X_2\to X_3\to X_1\) (weakly reversible, deficiency zero, self-dual), the one-site futile cycle, and two
 examples from the author's thesis. The siphon formulations of Question~24 and the claim of Remark~23 (internal cycles
 refine preclusters) fail on the same networks. Exact computations on 15\,513 small networks confirm the criteria.
+The conjecture as stated, with the relation left undefined, remains open, as does its motivation: a transfer of
+known cases of the Global Attractor Conjecture through duality. We note three constraints on such a transfer: the
+duality preserves the dimension of the stoichiometric subspace, it does not preserve weak reversibility, and for
+weakly reversible networks the preclusters of the dual network are singletons.
 \end{paperabstract}
 
 \section*{The question}
@@ -421,7 +425,7 @@ in the order listed.
 
 \begin{proof}[Proof of \zcref{thm:main}]
 Each entry of \zcref{tab:formulations} is checked by hand below and by exact computation
-(\texttt{certify\_examples.py}, 132 claims). For every network, \(k=\sum_{\text{extreme flux rays}}v\) and
+(\texttt{certify\_examples.py}, 142 claims). For every network, \(k=\sum_{\text{extreme flux rays}}v\) and
 \(x=(1,\dots,1)\) give a positive steady state, so (H2) holds. Conservativity and (H3) are checked directly.
 
 \emph{\(T\).} \(\Gamma\) has rows \((-1,0,1),(1,-1,0),(0,1,-1)\). They are pairwise linearly independent, and so are
@@ -589,19 +593,49 @@ Theorem~21, \(\Pre(\Net^*)=\Mips(\Net)\) or \(\Pre(\Net)=\Mips(\Net^*)\), which 
 \zcref{thm:criteria} and \zcref{cor:species} determine exactly the networks for which these relations hold. The six
 siphon relations of Question~24 fail as well, and so does the claim of Remark~23.
 
-\paragraph{Open.} (i) Conjecture~22 does not define ``duality relation''. A relation of a different kind (for
-instance a Galois correspondence that is not a refinement) is not excluded by our counterexamples. Any relation that
-forces a bijection between blocks, or a refinement, is excluded. (ii) We examined clusters (in the thesis and in
-Conradi--Flockerzi) only on \(N_3\) and on the two-site phosphorylation network (\zcref{rem:clusters}). (iii) The paper motivates the conjecture by a possible new case of the Global
-Attractor Conjecture in small codimension (§3 of~\autocite{Iosif2026}). We have no result on that.
+\paragraph{Open: the relation itself.} Conjecture~22 does not define ``duality relation'', and the closing diagram
+of the source writes ``Refine'' both literally (internal cycles refine preclusters) and in quotation marks (between
+MIPS and siphons). Our results exclude every relation that forces a refinement or a bijection between blocks. They do
+not exclude a relation of another kind, for instance a Galois correspondence that is not a refinement, or a
+refinement that holds outside an explicit list of degenerate networks. Excluding small or degenerate networks does
+not by itself rescue the precise forms: among the 11\,121 enumerated networks whose rows and columns of \(\Gamma\) are
+pairwise linearly independent, the species-side equality A1 holds for 338 and the reaction-side equality B1 for
+1\,278 (\zcref{tab:enum}). We examined clusters (in the thesis and in Conradi--Flockerzi) only on \(N_3\) and on the
+two-site phosphorylation network (\zcref{rem:clusters}).
+
+\paragraph{Open: the Global Attractor Conjecture.} The source motivates the conjecture by a possible new case of the
+Global Attractor Conjecture (GAC) in small codimension, by analogy with the known cases in small dimension (§3
+of~\autocite{Iosif2026}). We have no result on this. Three elementary facts constrain an argument through the network
+duality \(\Net\mapsto\Net^*\). The first two are checked on the networks of this paper by
+\texttt{certify\_examples.py}; the third restates two corollaries of §2.
+\begin{enumerate}
+\item The duality preserves the dimension. Since \(\Gamma(\Net^*)=\Gamma^{\mathsf T}\), a network with \(n\)
+species, \(r\) reactions and a stoichiometric subspace of dimension \(s\) is sent to a network with \(r\) species,
+\(n\) reactions and the same dimension \(s\). The case of dimension at most three~\autocite{Pantea2012} is therefore
+mapped to itself. The codimension \(n-s\) of \(\Net\) becomes the dimension of the cycle space \(\ker\Gamma(\Net^*)\),
+not a dimension of \(\Net^*\).
+\item The duality does not preserve weak reversibility, which complex balancing requires~\autocite{HornJackson1972}.
+The network \(W\) is weakly reversible with deficiency zero, hence complex balanced for all rate constants, whereas
+\(W^*\colon R_1+R_2\to R_3+R_4,\ R_3\to R_1,\ R_4\to R_2\) is not weakly reversible, hence complex balanced for no rate
+constants. The 3-cycle \(T\) is self-dual, so weak reversibility is sometimes preserved.
+\item For weakly reversible \(\Net\), the preclusters of \(\Net^*\) are singletons (\zcref{cor:wr}). At deficiency
+zero, moreover, \(\Pre(\Net)\ne\Mips(\Net^*)\) (\zcref{cor:wrB}). In the setting of the GAC, the precluster
+partition carries no information on the species side.
+\end{enumerate}
+A transfer of known cases of the GAC through duality would therefore have to act on other objects than the
+partitions compared here. Two candidates are Lyapunov functions, which Blanchini and Giordano relate between a
+network and its dual~\autocite{BlanchiniGiordano2022}, and the siphon conditions used in recent special cases of the
+GAC~\autocite{Wiuf2026}. The GAC itself is the subject of a recent major revision of Craciun's proof~\autocite{Craciun2015GAC}
+and of a new special case by Wiuf~\autocite{Wiuf2026}. Both are preprints, and we have not checked them.
 
 \paragraph{Limitations.} Our reading of Definition~17 (\zcref{prop:mips}) quantifies over all \(c\in Q\), including
 values on the boundary of chambers. This is the reading under which Remark~18 holds. The counterexamples were checked
 under the other two readings as well. The paper defines preclusters only through Definition~19. We used the thesis
 for the iterated version and for the examples \(N_3\) and \(N_{4.12}\). The original definitions of Conradi and
 Flockerzi~\autocite{ConradiFlockerzi2012} (doubling vectors, the span rule, clusters) agree with those of the thesis
-on the points used here (\zcref{rem:clusters}). No verification has been carried
-out yet.
+on the points used here (\zcref{rem:clusters}). The criteria, the counterexamples and the enumeration were checked by
+a second agent with a fresh context on 25 October 2026 (\texttt{verification.md}). The remarks on the GAC in §5 were
+added on 27 October 2026, after that check.
 
 \section{Computer verification}
 
@@ -614,7 +648,7 @@ All scripts are in \texttt{scripts/}. They use only the Python standard library 
 constant sign with support \(S\)), the dual network, siphons by exhaustive search, the three precluster constructions,
 the three MIPS readings (the set reading via exact vertex supports of \(P_c\) for representatives of every cell of the
 chamber decomposition when \(q\le2\)), and the hypotheses.
-\item \texttt{certify\_examples.py}: 132 claims. These include consistency with Examples~15 and~25 of the paper and
+\item \texttt{certify\_examples.py}: 142 claims. These include consistency with Examples~15 and~25 of the paper and
 Examples~1.22, 4.1, 4.5 and 4.12 of the thesis, every entry of \zcref{tab:formulations}, and an explicit positive
 steady state for each counterexample. Under 1~s.
 \item \texttt{motifs.py}: \zcref{tab:motifs}. Under 10~s.

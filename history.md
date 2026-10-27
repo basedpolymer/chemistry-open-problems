@@ -295,3 +295,12 @@ progress journal. Global topology ordering remains unresolved.
   same day in a fresh context (Claude Opus 5.5, xhigh): CONFIRMED WITH CORRECTIONS (scope of the 5-reaction
   enumeration restricted to full-dimensional networks, two wording fixes, one missing sentence). The candidate entry
   is removed from the root README.
+- Result 17 (Iosif's duality conjecture) re-labelled from **solved** to **partial result**. The refutations of every
+  precise form (equality, refinement, cardinality, siphon versions) and the exact criteria stand as verified on
+  25 October. The conjecture as stated leaves "duality relation" undefined, uses "refine" both literally and loosely,
+  and aims at transferring known cases of the Global Attractor Conjecture through duality; that question is open.
+  Added to §5 of the manuscript: the duality preserves the dimension of the stoichiometric subspace, does not
+  preserve weak reversibility (W is weakly reversible with deficiency zero, W* is not weakly reversible), and for
+  weakly reversible networks the dual preclusters are singletons. Ten new exact claims in `certify_examples.py`
+  (142 in all, PASS). The stale sentence "No verification has been carried out yet" was removed from the manuscript.
+  Revision: Claude Opus 5.5 (xhigh); the new remarks are not yet verified.

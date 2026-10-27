@@ -138,6 +138,18 @@ PASS: U* (species side of U): preclusters (closure) = [[1, 2, 3, 4]]
 PASS: U: MIPS(U) discrete (ray and set readings); semiflow supports {X1,X2,X4},{X1,X3,X4}
 PASS: U: P(U*) refines no reading of MIPS(U)
 
+== Duality and the setting of the Global Attractor Conjecture (§5)
+PASS: R: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: T: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: W: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: N3: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: F: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: Y: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: U: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: D: N** = N, and N* has r species, n reactions and the same rank s as N
+PASS: W: weakly reversible with deficiency zero, but W* is not weakly reversible
+PASS: T: weakly reversible with deficiency zero, and T* = T is weakly reversible
+
 == Explicit rate constants and positive steady states for every counterexample
 PASS: R: k = [1, 1], x = [1, 1] is a positive steady state (Gamma diag(k) x^Ye = 0 exactly)
 PASS: T: k = [1, 1, 1], x = [1, 1, 1] is a positive steady state (Gamma diag(k) x^Ye = 0 exactly)
@@ -152,4 +164,4 @@ PASS: U: k = [1, 1, 1], x = [1, 1, 1, 1] is a positive steady state (Gamma diag(
 PASS: U*: k = [3, 1, 1, 2], x = [1, 1, 1] is a positive steady state (Gamma diag(k) x^Ye = 0 exactly)
 PASS: D: k = [1, 1, 1], x = [1, 1, 1] is a positive steady state (Gamma diag(k) x^Ye = 0 exactly)
 
-132/132 claims PASS
+142/142 claims PASS

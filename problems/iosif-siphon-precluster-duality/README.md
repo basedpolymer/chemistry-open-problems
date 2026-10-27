@@ -1,11 +1,17 @@
 # Iosif: are preclusters dual to maximal invariant polyhedral supports, and to siphons?
 
-**Status: solved, with a negative answer.** Every precise formulation of the conjectured "duality
-relation" that we could extract is false, and we prove exact criteria for when each relation holds. The conjecture
-itself does not define "duality relation", so a relation of a different kind is not excluded (see "Open" below). Verified; see [verification.md](verification.md).
+**Status: partial result.** Every precise form of the conjectured "duality relation" that we could extract
+(equality, refinement in either direction, equal number of blocks, and the siphon versions) is false, and we prove
+exact criteria for when each relation holds. These refutations and criteria are verified; see
+[verification.md](verification.md). The conjecture itself is not settled. The source does not define "duality
+relation", uses "refine" both literally and loosely, and is motivated by a possible transfer of known cases of the
+Global Attractor Conjecture (GAC) through duality. Whether a relation of another kind exists, one that would allow
+such a transfer, is open; see [What remains open](#what-remains-open).
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), 25 Oct 2026, covering the novelty check, proofs, scripts and
-manuscript. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md).
+manuscript. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md). Revision of
+27 October 2026 (status, remarks on the GAC in §5 of the manuscript, ten further certified claims): Claude Opus 5.5
+(effort xhigh), not yet verified.
 
 ## Problem
 
@@ -76,23 +82,48 @@ precluster is a siphon", "every precluster is a union of minimal siphons", and e
 of the duality.
 
 **What is computer-assisted.** All claims about the explicit networks have hand proofs in the manuscript. They are
-re-checked by exact rational computation (132 claims). The exhaustive enumeration of 15 513 small networks satisfying
+re-checked by exact rational computation (142 claims). The exhaustive enumeration of 15 513 small networks satisfying
 the hypotheses confirms the criteria and gives the statistics of Table 15; it is a check, not part of the proofs.
 Nothing is numerical (no floating point anywhere).
 
-**Open.** "Duality relation" is not defined in the source. Any relation that forces a refinement or a bijection
-between blocks is excluded, but a relation of another kind is not. Clusters were checked only on N₃ (where the cluster
-version also fails) and on the two-site phosphorylation network. This covers both the thesis's rate-dependent
-definition and the rate-independent original of Conradi–Flockerzi (2012), whose doubling vectors and span rule
-agree with the definitions used here. The motivation of the source, a case of the Global Attractor
-Conjecture in small codimension, is not addressed.
+## What remains open
+
+**The relation itself.** "Duality relation" is not defined in the source, and its closing diagram (p. 8 of v2) writes
+"Refine" both literally (internal cycles refine preclusters) and in quotation marks (between MIPS and siphons). Any
+relation that forces a refinement or a bijection between blocks is excluded. A relation of another kind is not, for
+example a Galois correspondence, or a refinement that holds outside an explicit list of degenerate networks. Excluding
+degenerate networks does not by itself rescue the precise forms. Among the 11 121 enumerated networks whose rows and
+columns of Γ are pairwise linearly independent, the species-side equality holds for 338 and the reaction-side
+equality for 1 278 (Table 15). Clusters were checked only on N₃ (where the cluster version also fails) and on the
+two-site phosphorylation network. Both the thesis's rate-dependent definition and the rate-independent original of
+Conradi–Flockerzi (2012) were used; their doubling vectors and span rule agree with the definitions used here.
+
+**The Global Attractor Conjecture.** The source hopes for a new case of the GAC in small codimension, by analogy with
+the known cases in small dimension, obtained "through duality" (§3). We have no result on this. Three elementary
+facts, added to §5 of the manuscript on 27 October 2026, constrain such an argument:
+
+1. The duality preserves the dimension. Γ(N*) = Γᵀ, so N* has r species, n reactions and the same dimension s as N.
+   The known case of dimension at most three (Pantea 2012) is mapped to itself. The codimension n − s of N becomes
+   the dimension of the cycle space of N*.
+2. The duality does not preserve weak reversibility, which complex balancing requires. W is weakly reversible with
+   deficiency zero, so it is complex balanced for all rate constants. W* (R₁+R₂ → R₃+R₄, R₃ → R₁, R₄ → R₂) is not
+   weakly reversible, so it is complex balanced for no rate constants. The 3-cycle T is self-dual.
+3. For weakly reversible N the preclusters of N* are singletons, and at deficiency zero P(N) ≠ MIPS(N*)
+   (Corollaries 9 and 10). In the setting of the GAC, the preclusters carry no information on the species side.
+
+A transfer through duality would therefore have to act on objects other than these partitions. Possible candidates
+are Lyapunov functions, which F. Blanchini and G. Giordano relate between a network and its dual (IEEE Control Syst.
+Lett. 6, 2022), and the siphon conditions of recent special cases of the GAC. Two recent preprints bear on the GAC
+itself and have not been checked here: G. Craciun, arXiv:1501.02860 v3 (23 September 2026, "a major revision" of the
+general proof), and C. Wiuf, arXiv:2609.24553 (21 September 2026, a special case stated through conditions on
+realisable siphons).
 
 ## Reproduce
 
 From `scripts/`, with Python 3.12 (standard library only; run under WSL Fedora 44):
 
 ```bash
-python certify_examples.py      # 132 exact claims on the explicit networks            (< 1 s)
+python certify_examples.py      # 142 exact claims on the explicit networks            (< 1 s)
 python motifs.py                # Table 14: standard biochemical motifs                  (< 10 s)
 python enumerate_small.py 2 2 5 12 ../certificates/enumeration_n2_m2_r5.json    # (n, molecularity, r_max, cores)
 python enumerate_small.py 3 2 4 12 ../certificates/enumeration_n3_m2_r4.json    # ~75 s on 12 cores
@@ -111,7 +142,7 @@ Each script prints PASS/FAIL per claim and exits with a nonzero status on failur
 |---|---|
 | `paper.tex`, `paper.pdf`, `references.bib` | Manuscript: definitions, Proposition 3 (MIPS), Lemma 5 (precluster variants), Theorem 7 and Corollaries 8–10 (criteria), Theorem 1 (counterexamples), enumeration |
 | `scripts/crn.py` | Library: exact extreme rays, dual network, siphons, three precluster constructions, three readings of MIPS |
-| `scripts/certify_examples.py` | Exact certificates for every network of the manuscript, including Examples 15 and 25 of the paper and Examples 1.22, 4.1, 4.5 and 4.12 of the thesis |
+| `scripts/certify_examples.py` | Exact certificates for every network of the manuscript, including Examples 15 and 25 of the paper and Examples 1.22, 4.1, 4.5 and 4.12 of the thesis, and the duality facts of §5 |
 | `scripts/motifs.py` | Standard motifs (Michaelis–Menten, futile cycles, thesis network G, a triangle) |
 | `scripts/enumerate_small.py` | Exhaustive enumeration with the check of the criteria |
 | `scripts/summarize_enumeration.py` | Combined statistics (Table 15) |

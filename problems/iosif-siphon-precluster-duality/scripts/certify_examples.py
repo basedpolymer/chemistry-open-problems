@@ -261,6 +261,17 @@ claim("U: P(U*) refines no reading of MIPS(U)",
       and not refines(UD.preclusters("thesis"), mips_set_q2(U)))
 
 # ------------------------------------------------------------------------------------------------
+print("\n== Duality and the setting of the Global Attractor Conjecture (§5)")
+for name, net in (("R", R), ("T", T), ("W", W), ("N3", N3), ("F", Fn), ("Y", Y), ("U", U), ("D", Dn)):
+    claim(f"{name}: N** = N, and N* has r species, n reactions and the same rank s as N",
+          net.dual().dual().reactions == net.reactions and net.dual().n == net.r and net.dual().r == net.n
+          and net.dual().rank() == net.rank())
+claim("W: weakly reversible with deficiency zero, but W* is not weakly reversible",
+      W.weakly_reversible() and W.deficiency() == 0 and not WD.weakly_reversible())
+claim("T: weakly reversible with deficiency zero, and T* = T is weakly reversible",
+      T.weakly_reversible() and T.deficiency() == 0 and T.dual().weakly_reversible())
+
+# ------------------------------------------------------------------------------------------------
 print("\n== Explicit rate constants and positive steady states for every counterexample")
 for name, net in (("R", R), ("T", T), ("W", W), ("W*", WD), ("N3", N3), ("Ex. 4.12", N412), ("F", Fn), ("F*", FD),
                   ("Y", Y), ("U", U), ("U*", UD), ("D", Dn)):

@@ -61,10 +61,32 @@
   F. Horn, R. Jackson, Arch. Rational Mech. Anal. 47 (1972) 81–116, DOI 10.1007/BF00251225 (deficiency, complex
   balancing). Standard facts, not re-read.
 - F. Blanchini, G. Giordano, IEEE Control Syst. Lett. 6 (2022) 488–493, DOI 10.1109/LCSYS.2021.3081369 (dual networks,
-  mentioned by the source). Not read.
+  mentioned by the source). Abstract read on 27 October 2026: the dual network is defined by the transposed
+  stoichiometric matrix; structural local stability carries over to the dual, and a polyhedral Lyapunov function in
+  concentrations corresponds to a piecewise-linear-in-rates Lyapunov function of the dual. Full text not read (an
+  accepted manuscript is listed in the IRIS repository of the University of Trento, which refused automated access).
 - J. A. De Loera, E. D. Kim, S. Onn, F. Santos, J. Combin. Theory Ser. A 116 (2009) 1306–1325, DOI
   10.1016/j.jcta.2009.03.010 (cited by the source for the finiteness of the combinatorial types of invariant polyhedra). Not read; cited
   only as the source cites it.
+
+## Global Attractor Conjecture (added 27 October 2026)
+
+Read for the motivation of the source (§3: a GAC case in small codimension "through duality"), not for the proofs.
+
+- G. Craciun, *Toric differential inclusions and a proof of the global attractor conjecture*, arXiv:1501.02860.
+  Abstract page read: v1 13 January 2015, v2 9 January 2016, v3 23 September 2026, with the comment that v3 "is a
+  major revision" completing the extension from dimensions 3 and 4 to general dimension. Not checked.
+- C. Wiuf, *A proof of the Global Attractor Conjecture in a special case*, arXiv:2609.24553 (21 September 2026, AI
+  assisted according to its comments). Abstract and main theorem read: GAC for weakly reversible complex balanced
+  networks when every realisable siphon Σ satisfies S₀(Σ) = S_bl(Σ) and a condition (⋄) on Σ-minimal linkage
+  classes of an embedded network. It does not mention network duality, preclusters or Iosif's paper. Not checked.
+- C. Pantea, SIAM J. Math. Anal. 44 (2012) 1636–1673, DOI 10.1137/110840509 (GAC for stoichiometric dimension at most
+  three). Cited as listed by Wiuf; not read.
+- Other special cases listed by Wiuf, not read: D. F. Anderson, SIAM J. Appl. Math. 71 (2011), DOI
+  10.1137/11082631X (single linkage class); M. Gopalkrishnan, E. Miller, A. Shiu, SIAM J. Appl. Dyn. Syst. 13 (2014),
+  DOI 10.1137/130928170 (strongly endotactic); C. Xu, J. Math. Biol. 92 (2026) 74, DOI 10.1007/s00285-026-02378-2,
+  arXiv:2409.01598 (first-order endotactic). The source cites G. Craciun, A. Dickenstein, A. Shiu, B. Sturmfels,
+  J. Symb. Comput. 44 (2009), DOI 10.1016/j.jsc.2008.08.006, for small dimension.
 
 ## Novelty check (25 October 2026)
 
