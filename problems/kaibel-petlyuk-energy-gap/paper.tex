@@ -1,0 +1,247 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+\newcommand*{\PaperTitle}{The Kaibel--Petlyuk vapour penalty: a previously answered candidate}
+\newcommand*{\PaperTitlePlain}{The Kaibel-Petlyuk vapour penalty: a previously answered candidate}
+\newcommand*{\PaperShortTitle}{The Kaibel--Petlyuk vapour penalty}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 27 October 2026 \textperiodcentered{} already solved}
+\newcommand*{\PaperCredits}{Original result: Ivar J. Halvorsen and Sigurd Skogestad (2006).\\
+Literature audit, exposition and certificates: GPT-6-Astra (effort High).}
+\newcommand*{\PaperKeywords}{Kaibel column, Petlyuk arrangement, Underwood equations, minimum vapour flow}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\begin{document}
+\makepapertitle
+\begin{paperabstract}
+The repository shortlisted the strict energy penalty of the four-product Kaibel
+column relative to the fully extended Petlyuk arrangement, together with an
+analytic expression for that penalty. The literature check resolves this candidate:
+Halvorsen and Skogestad answered it in 2006 in the ideal, infinite-stage Underwood
+model. This note records their priority, makes the strict comparison explicit,
+and supplies exact rational checks. We correct the printed minimum in their
+equation (7) to a maximum, as required by their accompanying text and example.
+This is an exposition of a known result, not a new solution of an open problem.
+\end{paperabstract}
+
+\section{The candidate and its disposition}
+The candidate in the repository asked whether the Kaibel arrangement has a
+strictly positive energy penalty for every four-component feed and whether that
+penalty has a closed form. No source declaring this question open was attached.
+The primary source located during the audit is Halvorsen--Skogestad
+\autocite{HS2006}, Section 2, PDF page 4:
+\begin{openquote}
+The minimum vapour flow for the Kaibel arrangement can never come down to the
+minimum energy for the extended four-product Petlyuk column.
+\end{openquote}
+Their Section 2 gives the algebraic calculation, and Section 4 compares the
+relevant peaks. Thus the correct repository status is \emph{already solved}.
+The exposition and certificates below document that disposition; they do not
+claim priority for the comparison or the underlying column model.
+
+\section{Model and exact answer}
+Assume a positive feed rate \(F\), four strictly positive mole fractions
+\(z_A,z_B,z_C,z_D\) summing to one, and constant relative volatilities
+\[
+ a>b>c>d>0.
+\]
+The products are pure, pressure and molar flows are constant in the sense of
+the Underwood model, and the number of equilibrium stages tends to infinity.
+Write \(q\) for the feed thermal parameter and \(s=1-q\). The algebra below
+holds for every finite real \(q\); the usual two-phase range is \(0\le q\le1\).
+We compare normalized \emph{overhead vapour flows}, not exergy or capital cost.
+For a common feed the corresponding bottom flows subtract the same \(sF\),
+so their difference is identical. Conversion to heat duties requires the
+same latent-heat convention for both arrangements.
+
+Define the two rational functions
+\begin{equation}\label{eq:hg}
+ h(x)=\frac{az_A}{a-x}+\frac{bz_B}{b-x},\qquad
+ g(x)=\frac{cz_C}{c-x}+\frac{dz_D}{d-x}.
+\end{equation}
+Let \(\theta_A,t,\theta_C\) be the unique roots of \(h(x)+g(x)=s\) in
+\((b,a),(c,b),(d,c)\), respectively. Put
+\begin{equation}\label{eq:uv}
+ u=h(t)>0,\qquad v=u-s=-g(t)>0.
+\end{equation}
+The three normalized Petlyuk peak requirements are
+\begin{equation}\label{eq:peaks}
+ H_A=\frac{az_A}{a-\theta_A},\qquad H_B=u,\qquad
+ H_C=s+\frac{dz_D}{\theta_C-d}.
+\end{equation}
+The last expression also equals the sum of the A, B and C terms in the
+feed equation evaluated at \(\theta_C\).
+
+\begin{theorem}[note=Known comparison in the Underwood model]\label{thm:gap}
+Under the stated assumptions the ideal minimum overhead flows are
+\begin{align}
+ P:=\frac{V_{T,\min}^{\rm Petlyuk}}F
+     &=\max\{H_A,u,H_C\},\label{eq:P}\\
+ K:=\frac{V_{T,\min}^{\rm Kaibel}}F
+     &=\max\left\{\frac{u(a-t)}{a-b},\;
+                 s+\frac{v(t-d)}{c-d}\right\}.\label{eq:K}
+\end{align}
+Consequently the penalty is the explicit algebraic quantity
+\begin{equation}\label{eq:gap}
+ \Delta V_T=F(K-P)>0.
+\end{equation}
+The same formula gives \(\Delta V_B\). The strict inequality is pointwise;
+no feed-independent positive lower bound is asserted.
+\end{theorem}
+
+Here ``algebraic'' has a precise meaning: with
+\(\alpha=(a,b,c,d)\), the three specified roots are roots of
+\begin{equation}\label{eq:polynomial}
+ R(x)=\sum_{i=1}^4\alpha_i z_i
+             \prod_{j\ne i}(\alpha_j-x)
+             -s\prod_{i=1}^4(\alpha_i-x).
+\end{equation}
+It has degree four when \(s\ne0\) and degree three when \(s=0\).
+The intervals specify each required root uniquely, eliminating the ambiguity
+of a bare polynomial-root expression. Thus only a polynomial of degree at
+most four and rational arithmetic are needed; a choice of quartic or cubic
+radicals can be substituted if desired. Formula \eqref{eq:gap} is not a
+claim that the penalty is rational in the input data.
+
+\section{Derivation and strictness}
+\paragraph{Existence and location of the feed roots.}
+Every term \(\alpha_i z_i/(\alpha_i-x)\) has positive derivative away
+from its pole. On each interval between two consecutive volatilities,
+\(h+g\) increases continuously from \(-\infty\) to \(+\infty\).
+This proves the asserted existence and uniqueness for any real \(s\).
+For \(c<t<b\), both terms of \(h(t)\) are positive and both terms of
+\(g(t)\) are negative, proving \eqref{eq:uv}.
+
+\paragraph{The column requirements used from the primary source.}
+The ideal fully extended Petlyuk arrangement has requirement \eqref{eq:P}.
+For the Kaibel arrangement the prefractionator makes the sharp AB/CD split,
+with minimum top flow \(uF\) and bottom flow \(vF\).
+The propagated roots are the unique numbers
+\begin{equation}\label{eq:propagated}
+ \phi\in(b,a),\quad h(\phi)=u,\qquad
+ \psi\in(d,c),\quad g(\psi)=-v.
+\end{equation}
+The binary sections therefore require, in overhead-flow units,
+\begin{equation}\label{eq:binary}
+ K_A=\frac{az_A}{a-\phi},\qquad
+ K_C=s+\frac{dz_D}{\psi-d}.
+\end{equation}
+These are the thermal-coupling and Underwood relations of
+\autocite{HS2006}, equations (1)--(6). We use that ideal model as the
+premise of the comparison, rather than asserting a new derivation of
+distillation theory from stage equations.
+Both sections must operate, so the total requirement is
+\(K=\max\{K_A,K_C\}\). A minimum would satisfy only the less demanding
+section. This corrects the two occurrences of \(\min\) in the source's
+equation (7), consistently with its Sections 2 and 4 and Table 1.
+
+Operating the prefractionator above its minimum cannot lower this optimum
+within the same model. Indeed, replace \(u\) by \(w\ge u\) in
+\(h(\phi_w)=w\) and \(g(\psi_w)=s-w\). Then \(\phi_w\) increases
+and \(\psi_w\) decreases with \(w\), so both binary requirements in
+\eqref{eq:binary} increase. Hence their maximum is minimized at \(w=u\).
+
+\paragraph{Eliminating the propagated roots.}
+After multiplication by \((a-x)(b-x)\), the equation \(h(x)=u\) becomes
+\[
+ u(a-x)(b-x)-az_A(b-x)-bz_B(a-x)=u(x-t)(x-\phi).
+\]
+Both sides are quadratic with leading coefficient \(u\) and the same
+two distinct roots. Evaluating at \(x=a\) gives
+\[
+ u(a-t)(a-\phi)=az_A(a-b),\qquad
+ K_A=\frac{u(a-t)}{a-b}.
+\]
+Similarly, clearing the denominators in \(g(x)=-v\) gives
+\[
+ v(c-x)(d-x)+cz_C(d-x)+dz_D(c-x)=v(x-t)(x-\psi).
+\]
+At \(x=d\), this yields
+\[
+ v(t-d)(\psi-d)=dz_D(c-d),\qquad
+ K_C=s+\frac{v(t-d)}{c-d}.
+\]
+This proves \eqref{eq:K} from \eqref{eq:binary} without additional
+quadratic solves.
+
+\paragraph{Comparison of the peaks.}
+Since \(g\) is strictly increasing on \((c,\infty)\) and
+\(\theta_A>t\),
+\[
+ h(\theta_A)=s-g(\theta_A)<s-g(t)=u=h(\phi).
+\]
+Strict increase of \(h\) on \((b,a)\) implies
+\(\phi>\theta_A\), hence \(K_A>H_A\).
+Similarly \(h\) is strictly increasing on \((-\infty,b)\) and
+\(\theta_C<t\), so
+\[
+ g(\theta_C)=s-h(\theta_C)>s-h(t)=-v=g(\psi).
+\]
+Thus \(\psi<\theta_C\) and \(K_C>H_C\).
+Finally the reduced formulas give the particularly simple differences
+\begin{equation}\label{eq:strict}
+ K_A-u=\frac{u(b-t)}{a-b}>0,\qquad
+ K_C-u=\frac{v(t-c)}{c-d}>0.
+\end{equation}
+Whichever of \(H_A,u,H_C\) attains \(P\), one of \(K_A,K_C\)
+is strictly larger. This proves \(K>P\), including ties between any
+of the Petlyuk peaks, and completes the comparison.
+
+\section{Exact computational checks}
+The proof above covers the whole stated parameter domain. The examples
+are reproducibility checks, not a finite substitute for that proof.
+For the source's Table 1 feed,
+\[
+ F=1,\quad \alpha=(6,4,2,1),\quad
+ z=(3/10,1/5,1/5,3/10),\quad q=1,
+\]
+the certificates enclose \(P\) between \(1.375\) and \(1.385\)
+and \(K\) between \(1.825\) and \(1.835\), reproducing the published
+rounded values \(1.38\) and \(1.83\).
+The committed certificate contains much narrower rational enclosures,
+of width at most \(10^{-10}\), for all three Petlyuk peaks, both
+Kaibel peaks, the two overall requirements and their difference.
+
+There are seven cases: that source example, saturated vapour,
+a two-phase feed, an example with the bottom section as bottleneck,
+an exactly rational middle root, and thermal parameters on either
+side of \([0,1]\). All use \(\alpha=(6,4,2,1)\).
+The rational-middle-root case has the source composition and
+\(q=3/20\), giving \(t=3\), \(u=7/5\), \(v=11/20\),
+\(K_A=21/10\), and \(K_C=39/20\).
+
+The generator uses rational bisection. The checker does not trust that
+procedure: it reads the saved root intervals, checks their endpoint
+signs and locations, then propagates intervals using only integer
+arithmetic and Python's \texttt{Fraction}. It checks all strict comparisons,
+the stated decimal-rounding windows, and both the propagated-root and
+reduced expressions. Intervals containing a denominator zero are rejected.
+It exits with a nonzero code and prints \texttt{FAIL} on a failed check.
+Run from the repository root:
+\begin{verbatim}
+python problems/kaibel-petlyuk-energy-gap/scripts/verify.py
+\end{verbatim}
+No external Python package is required. Regeneration is optional:
+\begin{verbatim}
+python problems/kaibel-petlyuk-energy-gap/scripts/generate.py
+\end{verbatim}
+
+\section{Scope and verification status}
+Strictly positive amounts of all four components and distinct volatilities
+are essential to this statement. Removing a component or merging
+volatilities changes the problem and invalidates the strict-inequality
+argument. Perfectly pure products and minimum vapour flows here are
+infinite-stage limits; this note claims no attainment at a finite tray count.
+It also makes no universal claim for nonideal mixtures, variable molar
+flows, pressure differences, or impure-product specifications.
+
+The literature result is credited to Halvorsen and Skogestad (2006).
+The present exposition and certificate checks were performed by
+GPT-6-Astra (effort High), with attribution supplied by the user.
+No separate fresh-context verification was performed. The repository
+status \emph{already solved} records the identified prior answer and
+does not label this note as a newly verified research result.
+
+\paperreferences
+\end{document}

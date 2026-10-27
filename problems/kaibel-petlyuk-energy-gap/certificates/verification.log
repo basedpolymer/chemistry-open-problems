@@ -1,0 +1,132 @@
+PASS certificate schema
+PASS seven distinct examples
+PASS source_table_1: admissible Underwood input
+PASS source_table_1: unique theta_A
+PASS source_table_1: unique theta_B
+PASS source_table_1: unique theta_C
+PASS source_table_1: positive prefractionator flows
+PASS source_table_1: unique phi
+PASS source_table_1: unique psi
+PASS source_table_1: certified H_A
+PASS source_table_1: certified H_B
+PASS source_table_1: certified H_C
+PASS source_table_1: certified K_A
+PASS source_table_1: certified K_C
+PASS source_table_1: certified Petlyuk
+PASS source_table_1: certified Kaibel
+PASS source_table_1: certified gap
+PASS source_table_1: direct and reduced K_A
+PASS source_table_1: direct and reduced K_C
+PASS source_table_1: all strict comparisons
+PASS source_table_1: bottleneck K_A
+PASS source_table_1: published rounded values 1.38 and 1.83
+PASS saturated_vapor: admissible Underwood input
+PASS saturated_vapor: unique theta_A
+PASS saturated_vapor: unique theta_B
+PASS saturated_vapor: unique theta_C
+PASS saturated_vapor: positive prefractionator flows
+PASS saturated_vapor: unique phi
+PASS saturated_vapor: unique psi
+PASS saturated_vapor: certified H_A
+PASS saturated_vapor: certified H_B
+PASS saturated_vapor: certified H_C
+PASS saturated_vapor: certified K_A
+PASS saturated_vapor: certified K_C
+PASS saturated_vapor: certified Petlyuk
+PASS saturated_vapor: certified Kaibel
+PASS saturated_vapor: certified gap
+PASS saturated_vapor: direct and reduced K_A
+PASS saturated_vapor: direct and reduced K_C
+PASS saturated_vapor: all strict comparisons
+PASS two_phase_feed: admissible Underwood input
+PASS two_phase_feed: unique theta_A
+PASS two_phase_feed: unique theta_B
+PASS two_phase_feed: unique theta_C
+PASS two_phase_feed: positive prefractionator flows
+PASS two_phase_feed: unique phi
+PASS two_phase_feed: unique psi
+PASS two_phase_feed: certified H_A
+PASS two_phase_feed: certified H_B
+PASS two_phase_feed: certified H_C
+PASS two_phase_feed: certified K_A
+PASS two_phase_feed: certified K_C
+PASS two_phase_feed: certified Petlyuk
+PASS two_phase_feed: certified Kaibel
+PASS two_phase_feed: certified gap
+PASS two_phase_feed: direct and reduced K_A
+PASS two_phase_feed: direct and reduced K_C
+PASS two_phase_feed: all strict comparisons
+PASS bottom_bottleneck: admissible Underwood input
+PASS bottom_bottleneck: unique theta_A
+PASS bottom_bottleneck: unique theta_B
+PASS bottom_bottleneck: unique theta_C
+PASS bottom_bottleneck: positive prefractionator flows
+PASS bottom_bottleneck: unique phi
+PASS bottom_bottleneck: unique psi
+PASS bottom_bottleneck: certified H_A
+PASS bottom_bottleneck: certified H_B
+PASS bottom_bottleneck: certified H_C
+PASS bottom_bottleneck: certified K_A
+PASS bottom_bottleneck: certified K_C
+PASS bottom_bottleneck: certified Petlyuk
+PASS bottom_bottleneck: certified Kaibel
+PASS bottom_bottleneck: certified gap
+PASS bottom_bottleneck: direct and reduced K_A
+PASS bottom_bottleneck: direct and reduced K_C
+PASS bottom_bottleneck: all strict comparisons
+PASS bottom_bottleneck: bottleneck K_C
+PASS rational_middle_root: admissible Underwood input
+PASS rational_middle_root: unique theta_A
+PASS rational_middle_root: unique theta_B
+PASS rational_middle_root: unique theta_C
+PASS rational_middle_root: positive prefractionator flows
+PASS rational_middle_root: unique phi
+PASS rational_middle_root: unique psi
+PASS rational_middle_root: certified H_A
+PASS rational_middle_root: certified H_B
+PASS rational_middle_root: certified H_C
+PASS rational_middle_root: certified K_A
+PASS rational_middle_root: certified K_C
+PASS rational_middle_root: certified Petlyuk
+PASS rational_middle_root: certified Kaibel
+PASS rational_middle_root: certified gap
+PASS rational_middle_root: direct and reduced K_A
+PASS rational_middle_root: direct and reduced K_C
+PASS rational_middle_root: all strict comparisons
+PASS superheated_parameter: admissible Underwood input
+PASS superheated_parameter: unique theta_A
+PASS superheated_parameter: unique theta_B
+PASS superheated_parameter: unique theta_C
+PASS superheated_parameter: positive prefractionator flows
+PASS superheated_parameter: unique phi
+PASS superheated_parameter: unique psi
+PASS superheated_parameter: certified H_A
+PASS superheated_parameter: certified H_B
+PASS superheated_parameter: certified H_C
+PASS superheated_parameter: certified K_A
+PASS superheated_parameter: certified K_C
+PASS superheated_parameter: certified Petlyuk
+PASS superheated_parameter: certified Kaibel
+PASS superheated_parameter: certified gap
+PASS superheated_parameter: direct and reduced K_A
+PASS superheated_parameter: direct and reduced K_C
+PASS superheated_parameter: all strict comparisons
+PASS subcooled_parameter: admissible Underwood input
+PASS subcooled_parameter: unique theta_A
+PASS subcooled_parameter: unique theta_B
+PASS subcooled_parameter: unique theta_C
+PASS subcooled_parameter: positive prefractionator flows
+PASS subcooled_parameter: unique phi
+PASS subcooled_parameter: unique psi
+PASS subcooled_parameter: certified H_A
+PASS subcooled_parameter: certified H_B
+PASS subcooled_parameter: certified H_C
+PASS subcooled_parameter: certified K_A
+PASS subcooled_parameter: certified K_C
+PASS subcooled_parameter: certified Petlyuk
+PASS subcooled_parameter: certified Kaibel
+PASS subcooled_parameter: certified gap
+PASS subcooled_parameter: direct and reduced K_A
+PASS subcooled_parameter: direct and reduced K_C
+PASS subcooled_parameter: all strict comparisons
+PASS all certificates (exact Fraction arithmetic)

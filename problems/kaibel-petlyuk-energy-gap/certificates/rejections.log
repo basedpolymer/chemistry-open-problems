@@ -1,0 +1,6 @@
+PASS reject root in the wrong volatility interval
+PASS reject forged Kaibel minimum
+PASS reject wrong binding section
+PASS reject negative gap
+PASS reject division across a pole
+PASS all rejection checks

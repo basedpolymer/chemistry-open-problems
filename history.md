@@ -270,3 +270,13 @@ progress journal. Global topology ordering remains unresolved.
   1/sqrt(161). All 1,985 infinite-range coefficient boxes, the full spectral covers and all 337 small-M
   points are rechecked. The original finite-range verification is retained; the completion audit is
   all-M/verification.md. Result 25 and global-in-parameter questions retain their separate scope.
+
+## 27 October 2026
+
+- Closed the Kaibel–Petlyuk candidate as **already solved**, now result 26: Halvorsen and Skogestad,
+  AIChE Annual Meeting 2006, paper 216d, already give the strict vapour penalty and an algebraic
+  calculation in the ideal infinite-stage Underwood model. Added an attributed exposition, explicit
+  strict-inequality proof and exact rational certificates for seven examples. The printed `min` in
+  the source's equation (7) is corrected to `max`, consistently with its text and Table 1. The source
+  example is reproduced. Audit, exposition, certificates and editing: GPT-6-Astra (effort High), as
+  specified by the user. No new research priority or separate fresh-context verification is claimed.
