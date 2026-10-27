@@ -11,9 +11,8 @@ manuscript, and scripts that re-check every computational claim.
 - **Claude Opus 5.5** (Anthropic), effort *xhigh*: orchestration, solvers, verifiers and editors.
 - **GPT-6-Astra** (OpenAI), effort *xhigh*: solver of results 4 and 10, contributor to results 11 and 12, to the
   Frank–Kasper problem and to the Becker–Döring branches j ≥ 4; completion, verification, corrections and
-  manuscript edition of result 8 for branches 1–3, 26 Oct 2026.
-- **GPT-6-Astra** (OpenAI), effort *High* (user-specified attribution): literature audit, exposition and exact
-  certificates for result 26, 27 Oct 2026; original result by Halvorsen–Skogestad (2006).
+  manuscript edition of result 8 for branches 1–3, 26 Oct 2026; effort *High*: literature audit, exposition and
+  exact certificates for result 26 (original result by Halvorsen–Skogestad, 2006), 27 Oct 2026.
 
 > **Status of this collection.** Results have at most been checked by a second AI agent with a fresh context; none
 > has been refereed by humans. Statuses follow [PROTOCOL.md](PROTOCOL.md); corrections are recorded in
@@ -48,17 +47,17 @@ manuscript, and scripts that re-check every computational claim.
 | 23 | [Infinite families of β-Kirchhoff Šoltés graphs](problems/kirchhoff-soltes-beta-families/) (Gottwald–Majstorović Ergotić–Došlić 2026, Problem 4) | Mathematical chemistry | The source settles β < 2/3; every rational β < 2/3 is also an exact proportion; limiting proportions of splices with branches of at most 9 vertices cannot exceed 2/3; open for β ≥ 2/3 | [partial result (preliminary)](problems/kirchhoff-soltes-beta-families/paper.pdf), 25 Oct 2026; not yet verified |
 | 24 | [Connective constants of the diamond and face-centred cubic lattices](problems/saw-diamond-fcc-upper-bounds/) (Alm, Combin. Probab. Comput. 1993: 2.90940 and 10.27777; follow-up of result 9) | Polymer physics | μ(diamond) ≤ 2.8958880 and μ(fcc) ≤ 10.1630815 by exact certificates (previous best 2.90940, and 10.240586 from the 2017 exact counts) | [record (preliminary)](problems/saw-diamond-fcc-upper-bounds/paper.pdf), 25 Oct 2026; not yet verified |
 | 25 | [Becker–Döring with atomization, Hopf branches j ≥ 4](problems/becker-doring-atomization-hopf/higher-branches/) (Pego–Velázquez, Nonlinearity 2020, §3.3; follow-up of result 8) | Nucleation kinetics | Branches 4–13 for every M: one Hopf point from M_j = 142, 210, …, 1135 on, supercritical on the centre manifold with unstable orbits, except the subcritical onsets M = 142 (j = 4) and M = 1135 (j = 13); every branch supercritical for large M; open for j ≥ 14 below a non-explicit M | [partial result (preliminary)](problems/becker-doring-atomization-hopf/higher-branches/paper.pdf), 25 Oct 2026; not yet verified |
-| 26 | [Kaibel–Petlyuk vapour penalty](problems/kaibel-petlyuk-energy-gap/) (Halvorsen–Skogestad, AIChE 2006, paper 216d) | Chemical engineering (distillation) | Strictly positive for four positive feed fractions and distinct volatilities in the ideal infinite-stage Underwood model; algebraic gap formula; source equation (7) corrected from min to max | [already solved (literature audit)](problems/kaibel-petlyuk-energy-gap/paper.pdf), 27 Oct 2026; exposition and exact checks: GPT-6-Astra (High) |
+| 26 | [Kaibel–Petlyuk vapour penalty](problems/kaibel-petlyuk-energy-gap/) (Halvorsen–Skogestad, AIChE 2006, paper 216d) | Chemical engineering (distillation) | Strictly positive for four positive feed fractions and distinct volatilities in the ideal infinite-stage Underwood model; algebraic gap formula; source equation (7) corrected from min to max | [already solved (literature audit)](problems/kaibel-petlyuk-energy-gap/paper.pdf), 27 Oct 2026 |
 
 ## Candidate problems
 
-Shortlisted, not yet started; statements to be checked against the sources before work starts.
+Shortlisted, no result yet; statements checked against the sources and the literature on 27 Oct 2026.
 
 | Problem (source) | Field | What is open |
 |---|---|---|
 | [Uniqueness of the Brownian coagulation similarity profile](problems/brownian-coagulation-profile-uniqueness/) (Smoluchowski equation, full Brownian kernel) | Aggregation kinetics | Uniqueness at fixed mass of the self-similar profile for K(x,y) = 2 + (x/y)^(1/3) + (y/x)^(1/3) |
-| Smallest networks with absolute concentration robustness and multistationarity (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), Question 1.1) | Reaction networks | Which small networks, not necessarily reversible, have both properties |
-| Knotting probability of equilateral heptagons (Geisz–Peterson–Shonkwiler, [arXiv:2609.24860](https://arxiv.org/abs/2609.24860), §5) | Polymer physics (ring polymers) | No rigorous bound on p₇ known |
+| Absolute concentration robustness with multistability (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), final discussion, conjecture) | Reaction networks | Whether the minimal dimension and numbers of species, reactant complexes and complexes exceed those proved for ACR with multistationarity (3 species, 3 reactions, 5 complexes, dimension 2, at-most-bimolecular) |
+| Knotting probability of random-jump heptagons (Geisz–Peterson–Shonkwiler, [arXiv:2609.24860](https://arxiv.org/abs/2609.24860), §5) | Polymer physics (ring polymers) | Exact knot probabilities for seven uniform points on the sphere joined cyclically; unlike n = 6, the convex hull no longer determines the knot type |
 | Conjectures 1(c) and 1(d) on fullerene duals for every n (Bille–Buchstaber–Spodarev 2021) | Mathematical chemistry | Verified for n ≤ 138 only |
 
 ## Layout
