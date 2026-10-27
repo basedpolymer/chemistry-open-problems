@@ -1,0 +1,20 @@
+# enum_s1_general.py n=2 m=4 R=3 H3=True
+# Python 3.14.0 on Windows (AMD64)
+# networks: 4409; satisfying (E1) (extreme complexes of every linkage class are sources): 283
+ALL        nonWR  1880
+ALL        WR     24
+NONE       nonWR  2468
+NONE       WR     21
+TWO-SIDED  nonWR  16
+# smallest ALL WR: N = X2 -> X1, X1 -> X2 | N* = k2 -> k1, k1 -> k2 | non-IN faces []
+# smallest ALL nonWR: N = X2 -> X1, 2X1 -> 2X2 | N* = 2k2 -> k1, k1 -> 2k2 | non-IN faces []
+# smallest NONE WR: N = 2X2 -> X1+X2, X1+X2 -> 2X2 | N* = k2 -> k1, 2k1+k2 -> k1+2k2 | non-IN faces [((1,), 1, 'ESC')]
+# smallest NONE nonWR: N = X2 -> X1, X1+X2 -> 2X2 | N* = k2 -> k1, k1+k2 -> 2k2 | non-IN faces [((1,), 1, 'ESC')]
+# smallest NONE nonWR withDOM: N = X2 -> X1, X1+X2 -> 2X2, 2X1+X2 -> 3X1 | N* = k2+2k3 -> k1+3k3, k1+k2+k3 -> 2k2 | non-IN faces [((1,), 1, 'ESC'), ((2,), -1, 'OUT'), ((0, 2), -1, 'DOM')]
+# smallest TWO-SIDED nonWR withDOM: N = X1+X2 -> 2X2, X1+X2 -> 2X1 | N* = k1+k2 -> 2k2, k1+k2 -> 2k1 | non-IN faces [((0,), 1, 'DOM'), ((1,), -1, 'DOM')]
+G1: PASS (0 failures)
+G2: PASS (0 failures)
+G3: PASS (0 failures)
+G4: PASS (0 failures)
+G5: PASS (0 failures)
+# runtime 0.8 s

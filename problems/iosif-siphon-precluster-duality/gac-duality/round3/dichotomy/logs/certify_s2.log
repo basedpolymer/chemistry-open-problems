@@ -1,0 +1,39 @@
+# certify_s2.py  Python 3.12.15 on Linux; exact rational arithmetic
+# 18861 WR networks with (H1)-(H3) and s = 2 (E2's list); E2 undecided: 14825
+PASS: W: DOM siphon facets in 0 of 18861 duals
+PASS: K: 0 networks with both a NONE certificate and the ALL conditions
+PASS: E2a: 2988 of 2988 E2-ALL networks certified ALL
+PASS: E2b: E2-NONE networks: {'NONE': 1048}
+PASS: F: networks with a realizable OUT siphon facet: 2515, verdicts {'NONE': 2508, 'UNDECIDED': 7}
+PASS: D: on E2's 14825 undecided networks: ALL 1885, NONE 12769, SOME 0 (none certified), undecided 171
+# NONE certificates used (on E2's undecided networks; several may apply, all listed): {'B': 86, 'CM': 3414, 'CM+E': 26, 'CM+E+H': 2, 'CM+E+H+L': 20, 'CM+E+H+S': 1, 'CM+E+L': 687, 'CM+E+L+S': 39, 'CM+E+S': 6, 'CM+H': 1099, 'CM+H+L': 540, 'CM+H+L+S': 32, 'CM+H+S': 11, 'CM+L': 1431, 'CM+L+S': 317, 'CM+S': 127, 'E': 465, 'E+H': 31, 'E+H+L': 52, 'E+H+L+S': 6, 'E+H+S': 9, 'E+L': 1902, 'E+L+S': 232, 'E+S': 35, 'H': 1120, 'H+L': 44, 'H+L+S': 40, 'H+S': 11, 'L': 427, 'L+S': 108, 'S': 449}
+# NONE by first applicable certificate (order B, E, H, CM, L, S): {'CM': 5289, 'E': 3513, 'L': 535, 'S': 449, 'H': 2897, 'B': 86}
+# all 18861 networks: {'ALL': 4873, 'NONE': 13817, 'UNDECIDED': 171}
+# smallest examples (E2's undecided networks):
+  ALL: N = 2X3 -> X2, X2 -> 2X1 + X3, 2X1 + X3 -> 2X3
+      N* = 2k3 -> 2k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+  NONE [B]: N = X4 -> X3, X3 -> X4, 2X2 -> X1 + X2, X1 + X2 -> 2X2
+      N* = k4 -> k3, 2k3 + k4 -> k3 + 2k4, k2 -> k1, k1 -> k2
+      witness: ('B', ['ALL', 'NONE'])
+  NONE [E]: N = 2X3 -> 2X2 + X3, 2X2 + X3 -> X1 + X2 + X3, X1 + X2 + X3 -> 2X3
+      N* = k3 -> k2, 2k2 + k3 -> 2k1 + k2, 2k1 + k2 + k3 -> k1 + k2 + 2k3
+      witness: ('E', (2,), 'ESC', ('zero-flow', 0, [Fraction(0, 1), Fraction(-1, 1)]))
+  NONE [H]: N = X3 -> X2, 2X3 -> X1 + X2, X2 -> X3, X1 + X2 -> 2X3
+      N* = k4 -> k2, k3 + k4 -> k1 + k2, k1 + 2k2 -> k3 + 2k4
+      witness: ('H', (0, 3), ('theta', 0, (0, 2), [Fraction(0, 1), Fraction(-1, 1)]))
+  NONE [CM]: N = 2X3 -> X2 + X3, X2 + X3 -> X1 + X2, X1 + X2 -> 2X3
+      N* = k3 -> k2, k2 + k3 -> k1 + k2, 2k1 + k2 -> k1 + 2k3
+      witness: ('CM', (0, 2), ('cm', 1, 2, 2, [Fraction(-1, 1)]))
+  NONE [L]: N = 2X3 -> 2X2 + X3, 2X2 + X3 -> 2X1 + X3, 2X1 + X3 -> 2X3
+      N* = 2k3 -> 2k2, 2k2 -> 2k1, 2k1 + k2 + k3 -> k1 + k2 + 2k3
+      witness: ('L', (1, 2), ('lyap', 1, 2, [Fraction(-1, 2)]))
+  NONE [S]: N = 3X3 -> X2 + 2X3, X2 + 2X3 -> 2X1 + X2, 2X1 + X2 -> 3X3
+      N* = 2k3 -> 2k2, k2 + k3 -> k1 + k2, 3k1 + 2k2 -> 2k1 + 3k3
+      witness: ('S', (1, 2), ('sector', 0, False, [Fraction(-1, 3), Fraction(1, 1)]))
+  UNDECIDED: N = 3X3 -> 2X1 + X2, X2 + 2X3 -> 3X3, 2X1 + X2 -> X2 + 2X3
+      N* = 2k3 -> 2k1, k2 + k3 -> k1 + k3, 3k1 + 2k2 -> 3k2 + 2k3
+      open features: facets [], vertices [(1, 2)], cycle possible False
+# undecided by open feature (facet types/flows, vertex open, cycle possible): {((), True, False): 136, (('IN/bi',), False, False): 18, (('IN/zero',), False, False): 17}
+# list written to round3/dichotomy/logs/undecided_s2.txt
+# runtime 19.3 s
+ALL CLAIMS PASS

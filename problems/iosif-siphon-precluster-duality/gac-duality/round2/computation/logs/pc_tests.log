@@ -1,0 +1,14 @@
+# pc_tests.py count=60 seed=5; Python 3.12.15 on Linux; exact; msolve 0.10.1
+PASS NP hypotheses: PC, not EC, not BH, connected, (H1), (H2), s = #clusters - 1
+# NP + 60 random PC networks (not EC, not BH) after 131270 draws
+PASS no critical siphon, side N: 61/61
+PASS no critical siphon, side D: 61/61
+PASS absolutely consistent (decided), side N: 61/61
+PASS absolutely consistent (decided), side D: 61/61
+PASS class Jacobian Hurwitz at 6 random points, side N: 61/61
+PASS class Jacobian Hurwitz at 6 random points, side D: 61/61
+PASS exactly one positive steady state (msolve, 2 samples), side N: 61/61
+PASS exactly one positive steady state (msolve, 2 samples), side D: 61/61
+# NP: {'n': 4, 'rx': (((1, 2, 0, 0), (0, 0, 1, 0)), ((2, 4, 0, 0), (0, 0, 1, 1)), ((0, 0, 1, 0), (1, 2, 0, 0)), ((0, 0, 0, 1), (1, 2, 0, 0))), 'N': {'crit': False, 'v': 'AC1', 'hurwitz': True, 'counts': [1, 1]}, 'D': {'crit': False, 'v': 'ACB', 'hurwitz': True, 'counts': [1, 1]}}
+PASS: all claims
+# runtime 24.6 s

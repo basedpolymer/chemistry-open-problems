@@ -1,0 +1,37 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=6
+# 359737 distinct networks from 8 record files: wr_2_2_5_zero.pkl.gz, wr_2_3_6.pkl.gz, wr_3_2_5_zero.pkl.gz, wr_3_2_6.pkl.gz, wr_3_3_5.pkl.gz, wr_4_2_6.pkl.gz, wr_5_2_5.pkl.gz, wr_6_2_5_homog.pkl.gz
+# families: {"(2, 2, 5, 'zero')": 996, '(2, 3, 6, False)': 91237, "(3, 2, 5, 'zero')": 4574, '(3, 2, 6, False)': 26306, "(3, 3, 5, '')": 136525, '(4, 2, 6, False)': 95087, "(5, 2, 5, '')": 4272, "(6, 2, 5, 'homog')": 740}
+# candidates: X-endoN X-endoD X-sendoD X-sendoN X-drainN X-drainD X-drainD1
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+X-endoN        proved    34927/34927     34927/34927      5390/5390      34927/34927     10585/10585     13275/13275     20470/20470       622/622      PASS
+X-endoD        test         92/34927        92/34927        12/5390         92/34927        48/10585        35/13275        19/20470         5/622      REFUTED
+X-sendoD       test         39/34927        39/34927        12/5390         39/34927        22/10585        13/13275         7/20470         4/622      REFUTED
+X-sendoN       proved    24200/24200     24200/24200      5190/5190      24200/24200      5991/5991       8596/8596      14697/14697       622/622      PASS
+X-drainN       proved    36587/36587     34927/34927      5390/5390      34927/34927     10585/10585     13275/13275     20470/20470       622/622      PASS
+X-drainD       test      34786/34927     34786/34927      5384/5390      34786/34927     10540/10585     13135/13275     20470/20470       622/622      REFUTED
+X-drainD1      test       8775/8881       8775/8881        795/801        8775/8881        983/1014       8491/8596          0/0             0/0        REFUTED
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+X-endoN: WR+H, r <= 6 => N endotactic (Craciun-Nazarov-Pantea 2013; consistency check of endo.py)
+X-endoD: WR+H: N* is endotactic
+   counterexample (side N; n=2, r=2, s=1, H=True, H*=True, WR=True, WR*=False, def=0, family=(2, 2, 5, 'zero')):
+     N : 2X2 -> X1, X1 -> 2X2
+     N*: k2 -> k1, 2k1 -> 2k2
+X-sendoD: WR+H: N* is strongly endotactic
+   counterexample (side N; n=2, r=2, s=1, H=True, H*=True, WR=True, WR*=False, def=0, family=(2, 2, 5, 'zero')):
+     N : 2X2 -> X1, X1 -> 2X2
+     N*: k2 -> k1, 2k1 -> 2k2
+X-sendoN: WR+H, one linkage class, r <= 6: N strongly endotactic (Gopalkrishnan-Miller-Shiu 2014; check of endo.py)
+X-drainN: WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)
+X-drainD: WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)
+   counterexample (side N; n=2, r=2, s=1, H=True, H*=True, WR=True, WR*=False, def=0, family=(2, 3, 6, False)):
+     N : 3X2 -> X1 + 2X2, X1 + 2X2 -> 3X2
+     N*: k2 -> k1, 3k1 + 2k2 -> 2k1 + 3k2
+X-drainD1: WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)
+   counterexample (side N; n=2, r=2, s=1, H=True, H*=True, WR=True, WR*=False, def=0, family=(2, 3, 6, False)):
+     N : 3X2 -> X1 + 2X2, X1 + 2X2 -> 3X2
+     N*: k2 -> k1, 3k1 + 2k2 -> 2k1 + 3k2
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 336.0 s

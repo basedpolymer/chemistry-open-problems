@@ -1,0 +1,5 @@
+# dual_search.py n=3 r<=5 mol<=3 NKAPPA=3 NCLASS=3 NSTART=25 seed=11; Python 3.12.15, numpy 2.5.4 on Linux
+# unbalanced WF-EC networks generated: 23 (266.4 s)
+# histogram of max number of solutions found per network: {1: 23}
+# (N, kappa, class) with >=2 solutions: 0; with an unstable solution: 0; with no solution found: 0
+# runtime 267.3 s

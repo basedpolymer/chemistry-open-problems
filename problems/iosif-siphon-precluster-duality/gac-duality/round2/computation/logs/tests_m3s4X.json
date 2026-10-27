@@ -1,0 +1,407 @@
+{
+ "X-endoN": {
+  "doc": "WR+H, r <= 6 => N endotactic (Craciun-Nazarov-Pantea 2013; consistency check of endo.py)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    15767,
+    15767
+   ],
+   "H": [
+    15767,
+    15767
+   ],
+   "strong": [
+    11186,
+    11186
+   ],
+   "WR": [
+    15767,
+    15767
+   ],
+   "WR0": [
+    15767,
+    15767
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    15767,
+    15767
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-endoD": {
+  "doc": "WR+H: N* is endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    28883,
+    0
+   ],
+   "H": [
+    28883,
+    0
+   ],
+   "strong": [
+    12586,
+    0
+   ],
+   "WR": [
+    28883,
+    0
+   ],
+   "WR0": [
+    26519,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    28883,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X5 -> X4, X4 -> 3X2, X3 -> X5, 3X2 -> X1 + X2, X1 + X2 -> X3",
+   "Nstar": "k5 -> k4, 3k4 + k5 -> 3k2 + k4, k3 -> k5, k2 -> k1, k1 -> k3"
+  }
+ },
+ "X-sendoD": {
+  "doc": "WR+H: N* is strongly endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    28883,
+    0
+   ],
+   "H": [
+    28883,
+    0
+   ],
+   "strong": [
+    12586,
+    0
+   ],
+   "WR": [
+    28883,
+    0
+   ],
+   "WR0": [
+    26519,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    28883,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X5 -> X4, X4 -> 3X2, X3 -> X5, 3X2 -> X1 + X2, X1 + X2 -> X3",
+   "Nstar": "k5 -> k4, 3k4 + k5 -> 3k2 + k4, k3 -> k5, k2 -> k1, k1 -> k3"
+  }
+ },
+ "X-sendoN": {
+  "doc": "WR+H, one linkage class, r <= 6: N strongly endotactic (Gopalkrishnan-Miller-Shiu 2014; check of endo.py)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    11767,
+    11767
+   ],
+   "H": [
+    11767,
+    11767
+   ],
+   "strong": [
+    9951,
+    9951
+   ],
+   "WR": [
+    11767,
+    11767
+   ],
+   "WR0": [
+    11767,
+    11767
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    11767,
+    11767
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainN": {
+  "doc": "WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    30000,
+    30000
+   ],
+   "H": [
+    28883,
+    28883
+   ],
+   "strong": [
+    12586,
+    12586
+   ],
+   "WR": [
+    28883,
+    28883
+   ],
+   "WR0": [
+    26519,
+    26519
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    28883,
+    28883
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainD": {
+  "doc": "WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)",
+  "status": "test",
+  "stats": {
+   "all": [
+    28883,
+    28645
+   ],
+   "H": [
+    28883,
+    28645
+   ],
+   "strong": [
+    12586,
+    12446
+   ],
+   "WR": [
+    28883,
+    28645
+   ],
+   "WR0": [
+    26519,
+    26293
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    28883,
+    28645
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X5 -> 3X4, 3X4 -> X2 + X4, 3X3 -> X5, X2 + X4 -> X1 + 2X3, X1 + 2X3 -> 3X3",
+   "Nstar": "k5 -> k4, k4 -> k2, 3k3 + 2k5 -> 2k4 + 3k5, 3k2 + k4 -> 3k1 + k2, k1 -> k3"
+  }
+ },
+ "X-drainD1": {
+  "doc": "WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)",
+  "status": "test",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "no applicable network"
+ },
+ "X-L5": {
+  "doc": "manuscript Lemma 5: the three precluster variants (onestep, thesis, closure) agree, for N under (H2) and for N* under (H1)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    60000,
+    60000
+   ],
+   "H": [
+    57766,
+    57766
+   ],
+   "strong": [
+    25172,
+    25172
+   ],
+   "WR": [
+    57766,
+    57766
+   ],
+   "WR0": [
+    53038,
+    53038
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    57766,
+    57766
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-G4.1": {
+  "doc": "G Prop. 4.1: N WR, (H3), no zero reaction vector, q = 1, N* WR, n prime => N strongly endotactic",
+  "status": "proved",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS (vacuous)"
+ },
+ "X-G4.1np": {
+  "doc": "same hypotheses without primality (n not prime): N strongly endotactic (expected to fail)",
+  "status": "test",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "no applicable network"
+ }
+}

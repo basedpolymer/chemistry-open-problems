@@ -1,0 +1,8 @@
+family n=3 m<=3 r<=6 ordinary=1: {'EC': 8, 'H3': 7, 'WF': 7, 'WFFC': 7, 'WR': 6, 'pureWF': 6}
+PASS Theorem A
+PASS Theorem B
+PASS Theorem C (pure)
+PASS Theorem C'
+PASS Theorem D
+PASS Prop F
+runtime 4.0 s

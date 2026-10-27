@@ -1,0 +1,6 @@
+# figures.py  Python 3.12.15, numpy 2.5.4, scipy 1.18.1, matplotlib 3.11.2
+# status 0, 43719 steps, max |a+b+c-T| = 2.71e-11
+# min b = 3.278e-20, min c = 7.001e-13, max a = 2.010000000022979 (T = 2.01)
+# successive maxima of log10 c at t = ['2.7756e+06', '5.2883e+06', '7.8009e+06', '1.0313e+07']
+# period estimate 2.5126e+06
+# wrote figures/theoremO-orbit.pdf; runtime 15.7 s

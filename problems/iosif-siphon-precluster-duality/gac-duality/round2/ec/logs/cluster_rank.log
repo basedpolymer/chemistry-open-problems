@@ -1,0 +1,9 @@
+# cluster_rank.py; Python 3.12.15 on Linux
+REPORT  kind BH     -> after deleting pure catalysts: BH           13
+REPORT  kind BH     -> after deleting pure catalysts: no catalyst  490
+REPORT  kind TEFC   -> after deleting pure catalysts: BH           58
+REPORT  kind TEFC   -> after deleting pure catalysts: EC           6
+REPORT  kind other  -> after deleting pure catalysts: BH           129
+REPORT  kind other  -> after deleting pure catalysts: EC           41
+# genuine (not EC/BH even after deleting pure catalysts): 0
+# runtime 2.4 s

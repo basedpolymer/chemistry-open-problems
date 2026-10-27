@@ -1,0 +1,3106 @@
+{
+ "E-a1": {
+  "doc": "WR: P(N) refines M(N*) iff no complex is the source of two reactions (every linkage class is a directed cycle)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    29812,
+    29812
+   ],
+   "H": [
+    12268,
+    12268
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12268
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5618
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "E-a2": {
+  "doc": "WR+H: M(N) refines P(N*) iff M(N) is discrete iff im Gamma has no vector supported on exactly two species",
+  "status": "proved",
+  "stats": {
+   "all": [
+    12268,
+    12268
+   ],
+   "H": [
+    12268,
+    12268
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12268
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5618
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "E-a3": {
+  "doc": "H: P(N) = M(N*) (reaction side, equality)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    8
+   ],
+   "H": [
+    12268,
+    8
+   ],
+   "strong": [
+    5471,
+    0
+   ],
+   "WR": [
+    12268,
+    8
+   ],
+   "WR0": [
+    12156,
+    0
+   ],
+   "WR,s=2": [
+    5618,
+    8
+   ],
+   "WR,s=3": [
+    6649,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4",
+   "Nstar": "k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2"
+  }
+ },
+ "E-a4": {
+  "doc": "H: P(N*) = M(N) (species side, equality)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    2527
+   ],
+   "H": [
+    12268,
+    2527
+   ],
+   "strong": [
+    5471,
+    309
+   ],
+   "WR": [
+    12268,
+    2527
+   ],
+   "WR0": [
+    12156,
+    2527
+   ],
+   "WR,s=2": [
+    5618,
+    2247
+   ],
+   "WR,s=3": [
+    6649,
+    279
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4",
+   "Nstar": "2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3"
+  }
+ },
+ "E-a5": {
+  "doc": "H: P(N*) refines M(N) (species side; exceptional class = some twin pair not conservation-coupled)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    12268
+   ],
+   "H": [
+    12268,
+    12268
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12268
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5618
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "E-a6": {
+  "doc": "H: M(N) refines P(N*) (species side)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    2527
+   ],
+   "H": [
+    12268,
+    2527
+   ],
+   "strong": [
+    5471,
+    309
+   ],
+   "WR": [
+    12268,
+    2527
+   ],
+   "WR0": [
+    12156,
+    2527
+   ],
+   "WR,s=2": [
+    5618,
+    2247
+   ],
+   "WR,s=3": [
+    6649,
+    279
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4",
+   "Nstar": "2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3"
+  }
+ },
+ "E-a7": {
+  "doc": "H: P(N) refines M(N*) (reaction side; exceptional class = some doubling pair not fully coupled)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    11539
+   ],
+   "H": [
+    12268,
+    11539
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    11539
+   ],
+   "WR0": [
+    12156,
+    11427
+   ],
+   "WR,s=2": [
+    5618,
+    4889
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X3, X4 -> X1 + 2X2, X3 -> X4, X1 + 2X2 -> X4",
+   "Nstar": "k4 -> k2, 2k4 -> 2k2, k3 -> k1, k1 + k2 -> k3 + k4"
+  }
+ },
+ "E-a8": {
+  "doc": "H: M(N*) refines P(N) (reaction side)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    737
+   ],
+   "H": [
+    12268,
+    737
+   ],
+   "strong": [
+    5471,
+    0
+   ],
+   "WR": [
+    12268,
+    737
+   ],
+   "WR0": [
+    12156,
+    729
+   ],
+   "WR,s=2": [
+    5618,
+    737
+   ],
+   "WR,s=3": [
+    6649,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4",
+   "Nstar": "k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2"
+  }
+ },
+ "E-b1": {
+  "doc": "(H1),(H2) for the side's network (both sides): every MIPS block is a union of minimal siphons",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    12289
+   ],
+   "H": [
+    24536,
+    9404
+   ],
+   "strong": [
+    10942,
+    4274
+   ],
+   "WR": [
+    24536,
+    9404
+   ],
+   "WR0": [
+    24312,
+    9357
+   ],
+   "WR,s=2": [
+    11236,
+    4265
+   ],
+   "WR,s=3": [
+    13298,
+    5138
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-b2": {
+  "doc": "(H1),(H2) for the side's network (both sides): every minimal siphon is a union of MIPS blocks",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    11338
+   ],
+   "H": [
+    24536,
+    7322
+   ],
+   "strong": [
+    10942,
+    985
+   ],
+   "WR": [
+    24536,
+    7322
+   ],
+   "WR0": [
+    24312,
+    7220
+   ],
+   "WR,s=2": [
+    11236,
+    6249
+   ],
+   "WR,s=3": [
+    13298,
+    1071
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4",
+   "Nstar": "k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3"
+  }
+ },
+ "E-b3": {
+  "doc": "(H1),(H2) for the side's network (both sides): every precluster of the dual is a union of minimal siphons",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    2272
+   ],
+   "H": [
+    24536,
+    496
+   ],
+   "strong": [
+    10942,
+    0
+   ],
+   "WR": [
+    24536,
+    496
+   ],
+   "WR0": [
+    24312,
+    496
+   ],
+   "WR,s=2": [
+    11236,
+    496
+   ],
+   "WR,s=3": [
+    13298,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-b4": {
+  "doc": "(H1),(H2) for the side's network (both sides): every minimal siphon is a union of preclusters of the dual",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    29114
+   ],
+   "H": [
+    24536,
+    23807
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24536,
+    23807
+   ],
+   "WR0": [
+    24312,
+    23583
+   ],
+   "WR,s=2": [
+    11236,
+    10507
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-c1": {
+  "doc": "WR: P(N) v M(N*) (join of partitions = image lattice of the Galois connection) = linkage classes",
+  "status": "test",
+  "stats": {
+   "all": [
+    29812,
+    29457
+   ],
+   "H": [
+    12268,
+    12156
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12156
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5506
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> 2X4, 2X4 -> 3X4, 3X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k4 -> k3, k4 -> k3, k4 -> k3, k1 + 2k2 + 3k3 -> 2k1 + 3k2 + k4"
+  }
+ },
+ "E-c1'": {
+  "doc": "WR, deficiency 0: P(N) v M(N*) = linkage classes",
+  "status": "test",
+  "stats": {
+   "all": [
+    29457,
+    29457
+   ],
+   "H": [
+    12156,
+    12156
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12156,
+    12156
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5506,
+    5506
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "E-c2": {
+  "doc": "H: P(N) v M(N*) refines the linkage-class partition",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    12268
+   ],
+   "H": [
+    12268,
+    12268
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12268
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5618
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "E-c3": {
+  "doc": "H: P(N*) v M(N) is the one-block partition when N is connected (species side join)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12094,
+    2765
+   ],
+   "H": [
+    12094,
+    2765
+   ],
+   "strong": [
+    5471,
+    2765
+   ],
+   "WR": [
+    12094,
+    2765
+   ],
+   "WR0": [
+    11982,
+    2765
+   ],
+   "WR,s=2": [
+    5444,
+    0
+   ],
+   "WR,s=3": [
+    6649,
+    2765
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4",
+   "Nstar": "k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2"
+  }
+ },
+ "E-c4": {
+  "doc": "(H1),(H2) for the side's network (both sides): join(P(dual), M) = join(P(dual), M, minimal siphons) (siphons add nothing to the join)",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    22599
+   ],
+   "H": [
+    24536,
+    15203
+   ],
+   "strong": [
+    10942,
+    8289
+   ],
+   "WR": [
+    24536,
+    15203
+   ],
+   "WR0": [
+    24312,
+    15144
+   ],
+   "WR,s=2": [
+    11236,
+    5661
+   ],
+   "WR,s=3": [
+    13298,
+    9541
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-d1": {
+  "doc": "(H1),(H2) for the side's network (both sides): non-singleton blocks of P(dual) = non-singleton blocks of M",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    2740
+   ],
+   "H": [
+    24536,
+    2535
+   ],
+   "strong": [
+    10942,
+    309
+   ],
+   "WR": [
+    24536,
+    2535
+   ],
+   "WR0": [
+    24312,
+    2527
+   ],
+   "WR,s=2": [
+    11236,
+    2255
+   ],
+   "WR,s=3": [
+    13298,
+    279
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-d2": {
+  "doc": "(H1),(H2) for the side's network (both sides): non-singleton blocks of P(dual) refine M (singletons removed)",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    29004
+   ],
+   "H": [
+    24536,
+    23807
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24536,
+    23807
+   ],
+   "WR0": [
+    24312,
+    23583
+   ],
+   "WR,s=2": [
+    11236,
+    10507
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-d3": {
+  "doc": "(H1),(H2) for the side's network (both sides): non-singleton blocks of M lie in blocks of P(dual)",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    7639
+   ],
+   "H": [
+    24536,
+    3264
+   ],
+   "strong": [
+    10942,
+    309
+   ],
+   "WR": [
+    24536,
+    3264
+   ],
+   "WR0": [
+    24312,
+    3256
+   ],
+   "WR,s=2": [
+    11236,
+    2984
+   ],
+   "WR,s=3": [
+    13298,
+    279
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-d4": {
+  "doc": "(H1),(H2) for the side's network (both sides): non-singleton minimal siphons = non-singleton blocks of P(dual)",
+  "status": "test",
+  "stats": {
+   "all": [
+    34910,
+    2061
+   ],
+   "H": [
+    24536,
+    1619
+   ],
+   "strong": [
+    10942,
+    986
+   ],
+   "WR": [
+    24536,
+    1619
+   ],
+   "WR0": [
+    24312,
+    1614
+   ],
+   "WR,s=2": [
+    11236,
+    488
+   ],
+   "WR,s=3": [
+    13298,
+    1131
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2"
+  }
+ },
+ "E-e1": {
+  "doc": "WR+H: N* has (H1)-(H3) as well (dual inherits the hypotheses)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    12228
+   ],
+   "H": [
+    12268,
+    12228
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12228
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5578
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "2X4 -> X1 + 2X2, X3 + X4 -> 2X4, 2X3 -> X3 + X4, X1 + 2X2 -> 2X3",
+   "Nstar": "k4 -> k1, 2k4 -> 2k1, k2 + 2k3 -> k3 + 2k4, 2k1 + k2 -> 2k2 + k3"
+  }
+ },
+ "E-e2": {
+  "doc": "WR+H: ADLS criterion (no critical siphon) for N implies it for N*",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    12234
+   ],
+   "H": [
+    12268,
+    12234
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12234
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5584
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4",
+   "Nstar": "k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4"
+  }
+ },
+ "E-e3": {
+  "doc": "WR+H: ADLS criterion for N* implies it for N",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    10912
+   ],
+   "H": [
+    12268,
+    10912
+   ],
+   "strong": [
+    5471,
+    5344
+   ],
+   "WR": [
+    12268,
+    10912
+   ],
+   "WR0": [
+    12156,
+    10800
+   ],
+   "WR,s=2": [
+    5618,
+    4379
+   ],
+   "WR,s=3": [
+    6649,
+    6532
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X3 -> X2 + 2X4, X2 + 2X4 -> X1 + X4, X1 + X4 -> X3",
+   "Nstar": "k3 -> k2, k2 -> k1, k1 -> k3, 2k2 + k3 -> 2k1 + k2"
+  }
+ },
+ "E-e4": {
+  "doc": "WR+H and N* WR: ADLS(N) iff ADLS(N*)",
+  "status": "test",
+  "stats": {
+   "all": [
+    95,
+    95
+   ],
+   "H": [
+    95,
+    95
+   ],
+   "strong": [
+    7,
+    7
+   ],
+   "WR": [
+    95,
+    95
+   ],
+   "WR0": [
+    93,
+    93
+   ],
+   "WR,s=2": [
+    84,
+    84
+   ],
+   "WR,s=3": [
+    10,
+    10
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "E-e4b": {
+  "doc": "N and N* both WR with (H1)-(H3): ADLS(N) iff ADLS(N*)",
+  "status": "test",
+  "stats": {
+   "all": [
+    95,
+    95
+   ],
+   "H": [
+    95,
+    95
+   ],
+   "strong": [
+    7,
+    7
+   ],
+   "WR": [
+    95,
+    95
+   ],
+   "WR0": [
+    93,
+    93
+   ],
+   "WR,s=2": [
+    84,
+    84
+   ],
+   "WR,s=3": [
+    10,
+    10
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "E-e5": {
+  "doc": "WR+H and N* WR: N* satisfies (H1)-(H3)",
+  "status": "test",
+  "stats": {
+   "all": [
+    95,
+    95
+   ],
+   "H": [
+    95,
+    95
+   ],
+   "strong": [
+    7,
+    7
+   ],
+   "WR": [
+    95,
+    95
+   ],
+   "WR0": [
+    93,
+    93
+   ],
+   "WR,s=2": [
+    84,
+    84
+   ],
+   "WR,s=3": [
+    10,
+    10
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "E-e6": {
+  "doc": "WR+H, deficiency 0: N* has deficiency 0",
+  "status": "test",
+  "stats": {
+   "all": [
+    12156,
+    92
+   ],
+   "H": [
+    12156,
+    92
+   ],
+   "strong": [
+    5471,
+    7
+   ],
+   "WR": [
+    12156,
+    92
+   ],
+   "WR0": [
+    12156,
+    92
+   ],
+   "WR,s=2": [
+    5506,
+    82
+   ],
+   "WR,s=3": [
+    6649,
+    10
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4",
+   "Nstar": "k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2"
+  }
+ },
+ "E-e7": {
+  "doc": "WR+H: the dual satisfies (H1)-(H3) and has no critical siphon whenever N has none (ADLS transfer under H*)",
+  "status": "test",
+  "stats": {
+   "all": [
+    1588,
+    1568
+   ],
+   "H": [
+    1588,
+    1568
+   ],
+   "strong": [
+    96,
+    96
+   ],
+   "WR": [
+    1588,
+    1568
+   ],
+   "WR0": [
+    1564,
+    1564
+   ],
+   "WR,s=2": [
+    1430,
+    1410
+   ],
+   "WR,s=3": [
+    157,
+    157
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4",
+   "Nstar": "k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4"
+  }
+ },
+ "P-K1": {
+  "doc": "no hypothesis: a minimal siphon contains at most one species of each class of species with the same set of consuming reactions (both sides)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    59624,
+    59624
+   ],
+   "H": [
+    24536,
+    24536
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24536,
+    24536
+   ],
+   "WR0": [
+    24312,
+    24312
+   ],
+   "WR,s=2": [
+    11236,
+    11236
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K2": {
+  "doc": "(H1) side N / (H2) side D: P(dual) refines S iff no twin pair and every element lies in a minimal siphon",
+  "status": "proved",
+  "stats": {
+   "all": [
+    34910,
+    34910
+   ],
+   "H": [
+    24536,
+    24536
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24536,
+    24536
+   ],
+   "WR0": [
+    24312,
+    24312
+   ],
+   "WR,s=2": [
+    11236,
+    11236
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K2n": {
+  "doc": "no hypothesis (P's latest version of K2): P(dual) refines S iff no twin pair and every element lies in a minimal siphon (preclusters computed by crn.py even when the dual is not consistent)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    59624,
+    59624
+   ],
+   "H": [
+    24536,
+    24536
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24536,
+    24536
+   ],
+   "WR0": [
+    24312,
+    24312
+   ],
+   "WR,s=2": [
+    11236,
+    11236
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3a": {
+  "doc": "WF-FC: the dual is WF-FC (Hack)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3b": {
+  "doc": "WF-FC: extreme conservation rays = 0/1 indicators of minimal siphons",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3c": {
+  "doc": "WF-FC: extreme flux rays = 0/1 indicators of minimal T-traps (minimal siphons of the dual)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3d": {
+  "doc": "WF-FC: ray MIPS = classes of species lying in the same minimal siphons",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3e": {
+  "doc": "WF-FC: profile rule gives P(dual)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3f": {
+  "doc": "WF-FC: N and N* have no critical siphon",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3g": {
+  "doc": "WF-FC: no twin pair conservation-coupled; P(dual)<=M iff JF; P(dual)=M fails if n>=2; P(dual)<=S iff JF",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3g'": {
+  "doc": "WF-FC: reaction side: no doubling pair fully coupled; P<=M(dual) iff CF; P=M(dual) fails if r>=2; P<=S(dual) iff CF",
+  "status": "proved",
+  "stats": {
+   "all": [
+    46,
+    46
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K3-need": {
+  "doc": "FC+(H1)+(H2)+connected but rank equation violated: (b)-(e) all hold (expected to FAIL somewhere: the rank equation is needed)",
+  "status": "test",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "no applicable network"
+ },
+ "P-K4i": {
+  "doc": "well-formed EC (EC, connected, (H1), (H2), s = #doubling classes - 1) with balanced joins: semiflow supports = minimal siphons",
+  "status": "test",
+  "stats": {
+   "all": [
+    352,
+    352
+   ],
+   "H": [
+    48,
+    48
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    48,
+    48
+   ],
+   "WR0": [
+    48,
+    48
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    48,
+    48
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K4ii": {
+  "doc": "well-formed EC without balanced joins: semiflow supports = minimal siphons",
+  "status": "test",
+  "stats": {
+   "all": [
+    171,
+    171
+   ],
+   "H": [
+    97,
+    97
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    97,
+    97
+   ],
+   "WR0": [
+    97,
+    97
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    27,
+    27
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K5": {
+  "doc": "EC, connected, (H1), (H2): s >= #doubling classes - 1",
+  "status": "test",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K6": {
+  "doc": "(H1),(H2): N has no critical siphon iff N* has no critical siphon",
+  "status": "test",
+  "stats": {
+   "all": [
+    17455,
+    15260
+   ],
+   "H": [
+    12268,
+    10878
+   ],
+   "strong": [
+    5471,
+    5344
+   ],
+   "WR": [
+    12268,
+    10878
+   ],
+   "WR0": [
+    12156,
+    10800
+   ],
+   "WR,s=2": [
+    5618,
+    4345
+   ],
+   "WR,s=3": [
+    6649,
+    6532
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X3 + 2X4 -> X1 + X2 + X4, X1 + X2 + X4 -> X3 + 2X4",
+   "Nstar": "k2 -> k1, k2 -> k1, k1 -> k2, 2k1 + k2 -> k1 + 2k2"
+  }
+ },
+ "P-K7": {
+  "doc": "WR+EC: distinct complexes have disjoint supports, deficiency 0, minimal siphons = semiflow supports, no critical siphon; with (H3)+ordinary every complex is one species",
+  "status": "proved",
+  "stats": {
+   "all": [
+    365,
+    365
+   ],
+   "H": [
+    160,
+    160
+   ],
+   "strong": [
+    24,
+    24
+   ],
+   "WR": [
+    160,
+    160
+   ],
+   "WR0": [
+    160,
+    160
+   ],
+   "WR,s=2": [
+    108,
+    108
+   ],
+   "WR,s=3": [
+    51,
+    51
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K9i": {
+  "doc": "(H1)-(H3) on the side's network: every minimal siphon is a union of ray-MIPS blocks",
+  "status": "test",
+  "stats": {
+   "all": [
+    29612,
+    9054
+   ],
+   "H": [
+    24496,
+    7309
+   ],
+   "strong": [
+    10942,
+    985
+   ],
+   "WR": [
+    24496,
+    7309
+   ],
+   "WR0": [
+    24312,
+    7220
+   ],
+   "WR,s=2": [
+    11196,
+    6236
+   ],
+   "WR,s=3": [
+    13298,
+    1071
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4",
+   "Nstar": "k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3"
+  }
+ },
+ "P-K9ii": {
+  "doc": "(H1)-(H3) on the side's network: every ray-MIPS block lies in a minimal siphon",
+  "status": "test",
+  "stats": {
+   "all": [
+    29612,
+    11742
+   ],
+   "H": [
+    24496,
+    9457
+   ],
+   "strong": [
+    10942,
+    1887
+   ],
+   "WR": [
+    24496,
+    9457
+   ],
+   "WR0": [
+    24312,
+    9321
+   ],
+   "WR,s=2": [
+    11196,
+    7167
+   ],
+   "WR,s=3": [
+    13298,
+    2288
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4",
+   "Nstar": "k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3"
+  }
+ },
+ "P-K9iii": {
+  "doc": "(H1)-(H3) on the side's network: minimal siphons = semiflow supports",
+  "status": "test",
+  "stats": {
+   "all": [
+    29612,
+    6154
+   ],
+   "H": [
+    24496,
+    4526
+   ],
+   "strong": [
+    10942,
+    319
+   ],
+   "WR": [
+    24496,
+    4526
+   ],
+   "WR0": [
+    24312,
+    4484
+   ],
+   "WR,s=2": [
+    11196,
+    4093
+   ],
+   "WR,s=3": [
+    13298,
+    431
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4",
+   "Nstar": "k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3"
+  }
+ },
+ "P-K9iv": {
+  "doc": "(H1)-(H3) on the side's network: every semiflow support is a union of minimal siphons",
+  "status": "test",
+  "stats": {
+   "all": [
+    29612,
+    15729
+   ],
+   "H": [
+    24496,
+    12650
+   ],
+   "strong": [
+    10942,
+    5288
+   ],
+   "WR": [
+    24496,
+    12650
+   ],
+   "WR0": [
+    24312,
+    12562
+   ],
+   "WR,s=2": [
+    11196,
+    6056
+   ],
+   "WR,s=3": [
+    13298,
+    6592
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "D",
+   "N": "2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4",
+   "Nstar": "k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3"
+  }
+ },
+ "P-H": {
+  "doc": "(H1) for the side's network (so its dual is consistent): every block of P(dual) with >= 2 elements is a union of MIPS blocks",
+  "status": "proved",
+  "stats": {
+   "all": [
+    47267,
+    47267
+   ],
+   "H": [
+    24536,
+    24536
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24536,
+    24536
+   ],
+   "WR0": [
+    24312,
+    24312
+   ],
+   "WR,s=2": [
+    11236,
+    11236
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-C": {
+  "doc": "well-formed EC (EC, connected, (H1), (H2), s = m-1): no critical siphon and minimal siphons = supports of extreme conservation laws",
+  "status": "proved",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-C'": {
+  "doc": "well-formed EC: the dual has no critical siphon (every T-trap contains an internal cycle)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14a": {
+  "doc": "well-formed EC: minimal T-traps (minimal siphons of the dual) = internal cycles",
+  "status": "proved",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14b": {
+  "doc": "well-formed EC and pure: minimal siphons = semiflow supports = internal cycles of the dual",
+  "status": "proved",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14c": {
+  "doc": "well-formed EC and NOT pure: minimal siphons = semiflow supports (is purity needed?)",
+  "status": "test",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "no applicable network"
+ },
+ "P-G": {
+  "doc": "(H1)-(H3): minimal siphons = semiflow supports implies every minimal siphon is a union of MIPS and every MIPS lies in a minimal siphon",
+  "status": "proved",
+  "stats": {
+   "all": [
+    29612,
+    29612
+   ],
+   "H": [
+    24496,
+    24496
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24496,
+    24496
+   ],
+   "WR0": [
+    24312,
+    24312
+   ],
+   "WR,s=2": [
+    11196,
+    11196
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K10": {
+  "doc": "EC, connected, (H1), (H2), m = #source complexes: if s = m-1 then for k = 1 and 3 seeded random rational k, ker A_k is a line spanned by a positive vector; if s >= m, some tested k has no positive steady state",
+  "status": "proved",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K11": {
+  "doc": "EC with balanced joins, connected, (H1), (H2): [N has a positive steady state for all tested k] = [N* has one for all tested kappa] = [s = #clusters - 1] (k, kappa: all ones and 3 seeded random rationals)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    352,
+    352
+   ],
+   "H": [
+    48,
+    48
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    48,
+    48
+   ],
+   "WR0": [
+    48,
+    48
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    48,
+    48
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K9i-EC": {
+  "doc": "(H1)-(H3) and EC on the side's network: K9(i)",
+  "status": "test",
+  "stats": {
+   "all": [
+    414,
+    414
+   ],
+   "H": [
+    205,
+    205
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    205,
+    205
+   ],
+   "WR0": [
+    205,
+    205
+   ],
+   "WR,s=2": [
+    129,
+    129
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9i-FC": {
+  "doc": "(H1)-(H3) and FC on the side's network: K9(i)",
+  "status": "test",
+  "stats": {
+   "all": [
+    27,
+    27
+   ],
+   "H": [
+    4,
+    4
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    4,
+    4
+   ],
+   "WR0": [
+    4,
+    4
+   ],
+   "WR,s=2": [
+    2,
+    2
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9i-WFFC": {
+  "doc": "(H1)-(H3) and WFFC on the side's network: K9(i)",
+  "status": "test",
+  "stats": {
+   "all": [
+    24,
+    24
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9ii-EC": {
+  "doc": "(H1)-(H3) and EC on the side's network: K9(ii)",
+  "status": "test",
+  "stats": {
+   "all": [
+    414,
+    414
+   ],
+   "H": [
+    205,
+    205
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    205,
+    205
+   ],
+   "WR0": [
+    205,
+    205
+   ],
+   "WR,s=2": [
+    129,
+    129
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9ii-FC": {
+  "doc": "(H1)-(H3) and FC on the side's network: K9(ii)",
+  "status": "test",
+  "stats": {
+   "all": [
+    27,
+    27
+   ],
+   "H": [
+    4,
+    4
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    4,
+    4
+   ],
+   "WR0": [
+    4,
+    4
+   ],
+   "WR,s=2": [
+    2,
+    2
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9ii-WFFC": {
+  "doc": "(H1)-(H3) and WFFC on the side's network: K9(ii)",
+  "status": "test",
+  "stats": {
+   "all": [
+    24,
+    24
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9iii-EC": {
+  "doc": "(H1)-(H3) and EC on the side's network: K9(iii)",
+  "status": "test",
+  "stats": {
+   "all": [
+    414,
+    414
+   ],
+   "H": [
+    205,
+    205
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    205,
+    205
+   ],
+   "WR0": [
+    205,
+    205
+   ],
+   "WR,s=2": [
+    129,
+    129
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9iii-FC": {
+  "doc": "(H1)-(H3) and FC on the side's network: K9(iii)",
+  "status": "test",
+  "stats": {
+   "all": [
+    27,
+    27
+   ],
+   "H": [
+    4,
+    4
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    4,
+    4
+   ],
+   "WR0": [
+    4,
+    4
+   ],
+   "WR,s=2": [
+    2,
+    2
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9iii-WFFC": {
+  "doc": "(H1)-(H3) and WFFC on the side's network: K9(iii)",
+  "status": "test",
+  "stats": {
+   "all": [
+    24,
+    24
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9iv-EC": {
+  "doc": "(H1)-(H3) and EC on the side's network: K9(iv)",
+  "status": "test",
+  "stats": {
+   "all": [
+    414,
+    414
+   ],
+   "H": [
+    205,
+    205
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    205,
+    205
+   ],
+   "WR0": [
+    205,
+    205
+   ],
+   "WR,s=2": [
+    129,
+    129
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9iv-FC": {
+  "doc": "(H1)-(H3) and FC on the side's network: K9(iv)",
+  "status": "test",
+  "stats": {
+   "all": [
+    27,
+    27
+   ],
+   "H": [
+    4,
+    4
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    4,
+    4
+   ],
+   "WR0": [
+    4,
+    4
+   ],
+   "WR,s=2": [
+    2,
+    2
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K9iv-WFFC": {
+  "doc": "(H1)-(H3) and WFFC on the side's network: K9(iv)",
+  "status": "test",
+  "stats": {
+   "all": [
+    24,
+    24
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2,
+    2
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "G-2.1": {
+  "doc": "all networks: q = beta* + delta* (q = n - s, beta* = n - m* + l*); if N* WR then l* + delta* <= q; q = 1 and N* WR => l* = 1, delta* = 0, dual graph one directed cycle",
+  "status": "proved",
+  "stats": {
+   "all": [
+    29812,
+    29812
+   ],
+   "H": [
+    12268,
+    12268
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12268
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5618
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "G-2.2": {
+  "doc": "WR+(H3): source rows distinct, product rows distinct; N* WR iff {source rows} = {product rows}; then m* = n, l* = c(pi), delta* = q - c(pi), each pi-orbit sums to a conservation law; q = 1 => pi one n-cycle",
+  "status": "proved",
+  "stats": {
+   "all": [
+    19367,
+    19367
+   ],
+   "H": [
+    12268,
+    12268
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12268
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5618
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "G-7.1": {
+  "doc": "WR + (H1) + every row of Ye has sum <= 1: disjoint cycles (each complex source of one reaction), deficiency 0, no critical siphon; with (H3) every complex is one species",
+  "status": "proved",
+  "stats": {
+   "all": [
+    10,
+    10
+   ],
+   "H": [
+    2,
+    2
+   ],
+   "strong": [
+    1,
+    1
+   ],
+   "WR": [
+    2,
+    2
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    1,
+    1
+   ],
+   "WR,s=3": [
+    1,
+    1
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "G-req1": {
+  "doc": "(H1)-(H3) for N, N WR: the ADLS criterion holds for N but fails for N* (count of witnesses; 'holds' = no witness)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    12234
+   ],
+   "H": [
+    12268,
+    12234
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12234
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5584
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4",
+   "Nstar": "k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4"
+  }
+ },
+ "G-req1'": {
+  "doc": "(H1)-(H3) for N and N*, N WR: ADLS(N) and not ADLS(N*) (witnesses)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12228,
+    12208
+   ],
+   "H": [
+    12228,
+    12208
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12228,
+    12208
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5578,
+    5558
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4",
+   "Nstar": "k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4"
+  }
+ }
+}

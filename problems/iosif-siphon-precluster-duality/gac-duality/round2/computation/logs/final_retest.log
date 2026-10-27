@@ -1,0 +1,6 @@
+# final_retest.py  Python 3.12.15 on Linux; exact records
+# 494298 distinct networks (first-round files and the round-2 molecularity-3 samples)
+PASS K5gen: s >= #clusters - 1 on 315466 connected sides with (H1), (H2) (0 failures)
+PASS Cgen: no critical siphon in the side nor in its dual on 9318 sides with s = #clusters - 1 (3307 of them not EC) (0 failures)
+PASS: all claims
+# runtime 157.8 s

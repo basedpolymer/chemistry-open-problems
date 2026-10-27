@@ -1,0 +1,62 @@
+# gs_sim.py n=5 nets=60 seed=100; Python 3.12.15, numpy 2.5.4
+NET s=3 balanced=False M-increase=2.5e-14 mu-decrease=0.0e+00 N: spread=4.0e-15 |f|=8.9e-16  N*: spread=5.8e-15 |f|=2.7e-15  2X5 -> 2X4 + X5, 2X4 -> X3 + X4, X3 -> X1, 2X1 + X2 -> X2 + X5
+NET s=3 balanced=False M-increase=1.8e-12 mu-decrease=6.2e-13 N: spread=2.5e-14 |f|=8.9e-16  N*: spread=1.5e-14 |f|=2.2e-16  2X5 -> 2X3, 2X4 -> 2X1 + X3, 2X3 -> 2X1 + X4, 2X1 + X2 -> X2 + X5
+NET s=3 balanced=False M-increase=1.5e-12 mu-decrease=4.0e-12 N: spread=8.2e-15 |f|=2.2e-16  N*: spread=4.6e-14 |f|=8.9e-16  2X5 -> X1 + X3, 2X4 -> X1 + X4, X3 -> X4, 2X1 + X2 -> X2 + X3 + X5
+NET s=3 balanced=False M-increase=5.6e-14 mu-decrease=6.1e-14 N: spread=9.8e-14 |f|=2.2e-16  N*: spread=9.6e-14 |f|=8.9e-16  2X5 -> 2X4 + X5, 2X4 -> X1 + X3, 2X3 -> 2X4, 2X1 + X2 -> X2 + X5
+NET s=3 balanced=False M-increase=3.2e-11 mu-decrease=3.9e-11 N: spread=3.2e-14 |f|=1.1e-16  N*: spread=7.1e-15 |f|=2.2e-16  2X5 -> X1 + 2X3, 2X4 -> X1 + X5, 2X3 -> X1, 2X1 + X2 -> X1 + X2 + X4
+NET s=3 balanced=False M-increase=7.7e-13 mu-decrease=8.3e-12 N: spread=8.3e-13 |f|=3.6e-15  N*: spread=3.8e-13 |f|=6.2e-15  2X5 -> X1 + X4, 2X4 -> X3 + X5, 2X3 -> X1 + X5, 2X1 + X2 -> X1 + X2 + X3
+NET s=3 balanced=False M-increase=2.8e-12 mu-decrease=2.7e-12 N: spread=1.2e-14 |f|=6.7e-16  N*: spread=6.8e-14 |f|=1.8e-15  2X5 -> 2X2, 2X4 -> X1 + X3, X3 -> X4, 2X1 + X2 -> X1 + X4 + X5
+NET s=3 balanced=False M-increase=0.0e+00 mu-decrease=1.6e-12 N: spread=3.6e-15 |f|=2.2e-16  N*: spread=1.3e-15 |f|=8.9e-16  2X5 -> 2X1, 2X4 -> X2 + X3 + X4, 2X3 -> X3 + X5, 2X1 + X2 -> X4 + X5
+NET s=3 balanced=False M-increase=7.0e-12 mu-decrease=6.9e-12 N: spread=7.3e-14 |f|=2.2e-16  N*: spread=5.1e-14 |f|=3.3e-16  2X5 -> X1 + X5, 2X4 -> X1 + X5, X3 -> X2, 2X1 + X2 -> X3 + X4 + X5
+NET s=3 balanced=False M-increase=2.7e-11 mu-decrease=1.5e-11 N: spread=4.0e-15 |f|=2.2e-16  N*: spread=5.4e-14 |f|=2.2e-16  X5 -> X1 + X3, 2X4 -> X1 + X5, 2X3 -> X2, 2X1 + X2 -> X3 + 2X4
+NET s=3 balanced=False M-increase=4.7e-12 mu-decrease=7.1e-12 N: spread=7.3e-14 |f|=8.9e-16  N*: spread=4.4e-14 |f|=4.4e-16  2X5 -> X1 + X2, 2X4 -> X3 + 2X5, 2X3 -> X1 + X3 + X4, 2X1 + X2 -> X4
+NET s=3 balanced=False M-increase=1.0e-11 mu-decrease=4.9e-12 N: spread=2.9e-15 |f|=2.2e-16  N*: spread=5.3e-14 |f|=4.4e-16  X5 -> X1, 2X4 -> X1 + 2X3, 2X3 -> X4 + X5, 2X1 + X2 -> X2 + X4
+NET s=3 balanced=False M-increase=6.2e-15 mu-decrease=4.3e-12 N: spread=5.0e-14 |f|=3.3e-16  N*: spread=4.4e-13 |f|=8.9e-16  2X5 -> X3 + X4, 2X4 -> 2X5, 2X3 -> X1 + X5, 2X1 + X2 -> X2 + 2X5
+NET s=3 balanced=False M-increase=2.5e-12 mu-decrease=1.8e-12 N: spread=2.2e-13 |f|=6.7e-16  N*: spread=8.4e-15 |f|=2.2e-16  2X5 -> X3 + X5, 2X4 -> X3 + X5, 2X4 -> X1 + X4, 2X3 -> X1 + X4, 2X1 + X2 -> X2 + 2X3
+NET s=3 balanced=False M-increase=4.8e-12 mu-decrease=3.8e-16 N: spread=3.1e-15 |f|=2.2e-16  N*: spread=3.5e-14 |f|=2.2e-16  2X5 -> X3 + X4, 2X4 -> X2, X3 -> X1 + X5, 2X1 + X2 -> 2X5
+NET s=3 balanced=False M-increase=1.1e-11 mu-decrease=1.8e-11 N: spread=4.4e-16 |f|=8.9e-16  N*: spread=7.5e-15 |f|=4.4e-16  X5 -> X2 + X3, 2X4 -> X2 + X5, 2X3 -> 2X1 + X3, 2X1 + X2 -> X1 + X4
+NET s=3 balanced=False M-increase=5.4e-13 mu-decrease=5.6e-13 N: spread=3.8e-13 |f|=2.2e-15  N*: spread=1.7e-13 |f|=2.2e-15  2X5 -> 2X1 + X2, 2X4 -> 2X1 + X5, 2X3 -> X2 + X5, 2X1 + X2 -> X3 + X4
+NET s=3 balanced=False M-increase=3.3e-13 mu-decrease=1.6e-12 N: spread=8.9e-16 |f|=1.1e-16  N*: spread=4.4e-15 |f|=1.7e-16  2X5 -> X3 + X5, 2X4 -> X3 + X4, 2X4 -> X2 + X4, 2X3 -> 2X4, 2X1 + X2 -> 2X1 + X5
+NET s=3 balanced=False M-increase=1.8e-11 mu-decrease=1.9e-11 N: spread=8.9e-16 |f|=3.3e-16  N*: spread=1.6e-15 |f|=3.3e-16  X5 -> X3, 2X4 -> X1 + X5, X3 -> X4, 2X1 + X2 -> X1 + X2 + X3
+NET s=3 balanced=False M-increase=2.0e-11 mu-decrease=6.2e-12 N: spread=7.8e-14 |f|=8.9e-16  N*: spread=7.8e-14 |f|=4.4e-16  2X5 -> X3 + 2X4, 2X5 -> 2X1 + X3, 2X4 -> X5, 2X3 -> 2X1 + X5, 2X1 + X2 -> X2 + X3
+NET s=3 balanced=False M-increase=1.8e-12 mu-decrease=1.4e-11 N: spread=1.9e-14 |f|=1.1e-16  N*: spread=1.2e-13 |f|=1.8e-15  X5 -> X1, 2X4 -> 2X3 + X5, 2X3 -> X1 + 2X2, 2X1 + X2 -> X4 + X5
+NET s=3 balanced=False M-increase=4.8e-12 mu-decrease=1.7e-12 N: spread=1.2e-13 |f|=2.2e-16  N*: spread=1.3e-13 |f|=4.4e-16  2X5 -> 2X1, 2X4 -> X5, 2X3 -> X2 + X3 + X4, 2X1 + X2 -> X3 + X4 + X5
+NET s=3 balanced=False M-increase=1.6e-12 mu-decrease=3.9e-16 N: spread=3.1e-15 |f|=4.4e-16  N*: spread=1.8e-13 |f|=4.4e-16  X5 -> X2 + 2X4, 2X4 -> X3, 2X3 -> 2X1 + X3, 2X1 + X2 -> X5
+NET s=3 balanced=False M-increase=3.5e-16 mu-decrease=1.8e-16 N: spread=8.9e-16 |f|=8.9e-16  N*: spread=2.2e-13 |f|=2.7e-15  X5 -> X4, 2X4 -> X1 + X3, 2X3 -> X2 + 2X5, 2X1 + X2 -> 2X4
+NET s=3 balanced=False M-increase=3.9e-12 mu-decrease=2.2e-12 N: spread=6.9e-15 |f|=5.6e-16  N*: spread=5.8e-14 |f|=2.2e-16  2X5 -> X2 + X3, X4 -> X1 + X5, 2X3 -> X4, 2X1 + X2 -> X1 + X3 + X5
+NET s=3 balanced=False M-increase=6.7e-14 mu-decrease=3.0e-14 N: spread=1.1e-14 |f|=6.7e-16  N*: spread=1.6e-13 |f|=1.6e-15  2X5 -> X4, 2X4 -> 2X3 + X5, 2X3 -> X1 + X4, 2X1 + X2 -> X1 + X2 + X5
+NET s=3 balanced=False M-increase=1.1e-16 mu-decrease=6.8e-12 N: spread=2.0e-15 |f|=2.2e-16  N*: spread=3.2e-14 |f|=6.7e-16  2X5 -> X1 + X2, 2X4 -> X3, 2X3 -> X3 + X4 + X5, 2X1 + X2 -> X1 + 2X4
+NET s=3 balanced=False M-increase=5.4e-13 mu-decrease=7.0e-12 N: spread=6.9e-14 |f|=1.1e-15  N*: spread=1.8e-15 |f|=8.9e-16  2X5 -> 2X1, 2X4 -> X3 + X5, 2X3 -> X4 + X5, 2X1 + X2 -> X1 + X2 + X4
+NET s=3 balanced=False M-increase=6.4e-12 mu-decrease=5.7e-12 N: spread=3.8e-13 |f|=2.7e-15  N*: spread=2.0e-14 |f|=2.2e-16  2X5 -> X1 + X3 + X4, 2X4 -> X1 + X3 + X5, 2X3 -> X2, 2X1 + X2 -> 2X4
+NET s=3 balanced=False M-increase=8.9e-13 mu-decrease=3.1e-12 N: spread=5.3e-15 |f|=1.1e-15  N*: spread=1.1e-13 |f|=8.9e-16  2X5 -> X1 + X3, 2X4 -> X4 + X5, 2X3 -> X2 + X4, 2X1 + X2 -> X1 + X3 + X4
+NET s=3 balanced=False M-increase=2.1e-12 mu-decrease=1.5e-16 N: spread=2.2e-16 |f|=1.1e-16  N*: spread=1.5e-13 |f|=6.7e-16  2X5 -> 2X1 + X4, 2X4 -> X3, X3 -> X5, 2X1 + X2 -> X2 + X4 + X5
+NET s=3 balanced=False M-increase=1.2e-14 mu-decrease=9.0e-12 N: spread=3.8e-14 |f|=7.8e-16  N*: spread=8.8e-14 |f|=4.4e-16  2X5 -> X1 + X2 + X3, X4 -> X1, 2X3 -> X2 + X3 + X4, 2X1 + X2 -> X4 + X5
+NET s=3 balanced=False M-increase=2.6e-16 mu-decrease=6.0e-14 N: spread=4.0e-15 |f|=5.6e-16  N*: spread=6.0e-13 |f|=1.8e-15  2X5 -> 2X3, X4 -> X1, 2X3 -> X2 + X4 + X5, 2X1 + X2 -> X3 + X4
+NET s=3 balanced=False M-increase=4.8e-12 mu-decrease=1.3e-12 N: spread=1.4e-13 |f|=1.3e-15  N*: spread=5.1e-14 |f|=1.5e-15  2X5 -> X1 + X5, 2X4 -> X1 + X2 + X4, 2X3 -> X1 + X2 + X4, 2X1 + X2 -> X3 + X5, 2X1 + X2 -> X1 + X4
+NET s=3 balanced=False M-increase=8.6e-14 mu-decrease=4.8e-14 N: spread=1.0e-13 |f|=1.3e-15  N*: spread=1.2e-14 |f|=2.2e-16  2X5 -> X4 + X5, 2X4 -> 3X1, 2X3 -> X1 + X4 + X5, 2X1 + X2 -> X2 + X3
+NET s=3 balanced=False M-increase=2.4e-11 mu-decrease=2.2e-11 N: spread=4.5e-13 |f|=8.9e-16  N*: spread=4.9e-15 |f|=2.2e-16  2X5 -> X4 + X5, 2X4 -> X2 + X5, 2X3 -> X3 + X5, 2X3 -> X2 + X3, 2X1 + X2 -> 2X1 + X3
+NET s=3 balanced=False M-increase=5.5e-11 mu-decrease=1.7e-11 N: spread=7.0e-14 |f|=4.4e-16  N*: spread=5.1e-14 |f|=1.8e-15  2X5 -> X4, 2X4 -> X1 + 2X5, 2X3 -> 2X2 + X4, 2X1 + X2 -> X3 + X4 + X5
+NET s=3 balanced=False M-increase=1.5e-16 mu-decrease=6.6e-13 N: spread=3.1e-15 |f|=8.9e-16  N*: spread=6.9e-13 |f|=4.7e-13  2X5 -> 2X3 + X4, X4 -> 2X1, X3 -> X2, 2X1 + X2 -> X1 + X5
+NET s=3 balanced=False M-increase=2.6e-12 mu-decrease=2.0e-12 N: spread=6.7e-16 |f|=4.4e-16  N*: spread=1.1e-14 |f|=4.4e-16  2X5 -> 2X1 + X3, 2X4 -> X3, X3 -> X5, 2X1 + X2 -> X2 + 2X4
+NET s=3 balanced=False M-increase=1.2e-11 mu-decrease=1.2e-11 N: spread=3.1e-15 |f|=2.2e-16  N*: spread=1.1e-13 |f|=4.4e-16  X5 -> X2 + X3, 2X4 -> X1 + X2 + X3, 2X3 -> X1 + X5, 2X1 + X2 -> X1 + X4
+NET s=3 balanced=False M-increase=1.4e-12 mu-decrease=5.0e-13 N: spread=4.3e-13 |f|=1.3e-15  N*: spread=2.8e-13 |f|=2.7e-15  2X5 -> 2X1 + X4, 2X4 -> X1 + 2X3, 2X3 -> X1 + X5, 2X1 + X2 -> X2 + X5
+NET s=3 balanced=False M-increase=4.0e-11 mu-decrease=4.7e-11 N: spread=5.8e-15 |f|=2.2e-15  N*: spread=1.1e-15 |f|=1.9e-16  2X5 -> 2X1 + X5, X4 -> 2X2 + X5, 2X3 -> X4 + X5, 2X1 + X2 -> X3
+NET s=3 balanced=False M-increase=2.7e-13 mu-decrease=4.9e-11 N: spread=1.1e-15 |f|=8.9e-16  N*: spread=4.4e-16 |f|=8.9e-16  2X5 -> X4, 2X4 -> 2X2, 2X3 -> X2 + 2X5, 2X1 + X2 -> 2X1 + X3
+NET s=3 balanced=False M-increase=8.2e-16 mu-decrease=3.6e-12 N: spread=3.1e-15 |f|=1.1e-16  N*: spread=2.6e-13 |f|=3.6e-15  2X5 -> X1, 2X4 -> X1 + X3, 2X3 -> 2X2 + X3, 2X1 + X2 -> X1 + X4 + X5
+NET s=3 balanced=False M-increase=4.1e-12 mu-decrease=3.1e-12 N: spread=3.6e-15 |f|=2.2e-16  N*: spread=4.0e-15 |f|=5.3e-15  X5 -> 2X3, 2X4 -> X1 + X4, 2X3 -> X4, 2X1 + X2 -> X2 + X4 + X5
+NET s=3 balanced=False M-increase=1.6e-11 mu-decrease=8.1e-12 N: spread=2.6e-13 |f|=8.9e-16  N*: spread=1.2e-13 |f|=4.4e-16  2X5 -> X1 + 2X4, 2X4 -> X1 + X3 + X5, 2X3 -> X2, 2X1 + X2 -> X3 + X5
+NET s=3 balanced=False M-increase=3.4e-14 mu-decrease=1.0e-13 N: spread=2.2e-14 |f|=8.9e-16  N*: spread=8.1e-14 |f|=8.9e-16  2X5 -> X4, 2X4 -> 2X1, 2X3 -> 2X2 + X4, 2X1 + X2 -> X3 + X4 + X5
+NET s=3 balanced=False M-increase=1.5e-11 mu-decrease=1.1e-11 N: spread=4.1e-13 |f|=3.6e-15  N*: spread=6.9e-15 |f|=8.9e-16  2X5 -> 3X4, 2X4 -> X3, 2X3 -> 2X2 + X4, 2X1 + X2 -> 2X1 + X5
+NET s=3 balanced=False M-increase=2.7e-11 mu-decrease=2.2e-11 N: spread=9.8e-15 |f|=2.2e-16  N*: spread=2.2e-16 |f|=1.1e-16  X5 -> X3, X4 -> X1, 2X3 -> X4 + X5, 2X1 + X2 -> X2 + 2X3
+NET s=3 balanced=False M-increase=4.9e-15 mu-decrease=1.0e-12 N: spread=1.4e-13 |f|=2.7e-15  N*: spread=3.6e-15 |f|=8.9e-16  2X5 -> X4 + X5, 2X4 -> X3 + X5, 2X3 -> X2 + X3, 2X1 + X2 -> 2X1 + X5
+NET s=3 balanced=False M-increase=4.6e-13 mu-decrease=1.4e-13 N: spread=4.6e-13 |f|=8.9e-16  N*: spread=2.0e-13 |f|=4.4e-16  X5 -> 2X1 + X4, 2X4 -> X3, 2X3 -> X2 + X3 + X4, 2X1 + X2 -> X5
+NET s=3 balanced=False M-increase=4.6e-11 mu-decrease=5.6e-11 N: spread=1.2e-13 |f|=1.3e-15  N*: spread=2.2e-14 |f|=1.9e-16  2X5 -> X3, 2X4 -> 2X1 + X4, 2X3 -> X2 + X4 + X5, 2X1 + X2 -> 3X5
+NET s=3 balanced=False M-increase=9.5e-13 mu-decrease=1.9e-12 N: spread=1.3e-15 |f|=4.4e-16  N*: spread=6.1e-14 |f|=1.3e-15  2X5 -> X4, 2X4 -> 2X1 + X5, 2X3 -> X3 + X5, 2X1 + X2 -> X2 + X3 + X4
+NET s=3 balanced=False M-increase=5.0e-12 mu-decrease=7.3e-12 N: spread=1.5e-13 |f|=8.9e-16  N*: spread=1.7e-13 |f|=8.9e-16  X5 -> X1 + X4, 2X4 -> X1, 2X3 -> X1 + X4 + X5, 2X1 + X2 -> X2 + X3 + X4
+NET s=3 balanced=False M-increase=4.0e-12 mu-decrease=2.4e-13 N: spread=3.1e-13 |f|=1.8e-15  N*: spread=3.1e-14 |f|=2.2e-16  X5 -> X4, X4 -> X1 + X3, 2X3 -> X1 + X5, 2X1 + X2 -> X2 + X3
+NET s=3 balanced=False M-increase=2.3e-12 mu-decrease=1.1e-11 N: spread=3.6e-15 |f|=8.9e-16  N*: spread=3.8e-13 |f|=8.9e-16  2X5 -> X1 + X3 + X5, 2X4 -> 2X1 + X4, 2X3 -> 2X2 + X4, 2X1 + X2 -> X5
+NET s=3 balanced=False M-increase=2.6e-11 mu-decrease=3.4e-11 N: spread=8.9e-16 |f|=4.4e-16  N*: spread=1.1e-14 |f|=8.9e-16  X5 -> 2X2, 2X4 -> X2 + X3, 2X3 -> X5, 2X1 + X2 -> 2X1 + X4
+NET s=3 balanced=False M-increase=2.2e-12 mu-decrease=4.4e-13 N: spread=4.4e-15 |f|=4.4e-16  N*: spread=1.3e-13 |f|=8.9e-16  2X5 -> X1 + X2 + X3, X4 -> X1, X3 -> X4, 2X1 + X2 -> 2X5
+NET s=3 balanced=False M-increase=3.4e-16 mu-decrease=1.8e-12 N: spread=4.9e-15 |f|=4.4e-16  N*: spread=4.2e-13 |f|=8.9e-16  2X5 -> X2 + X4, X4 -> X1 + X3, 2X3 -> 2X5, 2X1 + X2 -> X1 + X5
+NET s=3 balanced=False M-increase=1.1e-11 mu-decrease=3.8e-12 N: spread=1.3e-15 |f|=8.9e-16  N*: spread=5.3e-15 |f|=3.3e-16  X5 -> 2X1, X4 -> X5, 2X3 -> X2, 2X1 + X2 -> 2X3 + X4
+# networks by s: {3: 60}; runtime 214.0 s

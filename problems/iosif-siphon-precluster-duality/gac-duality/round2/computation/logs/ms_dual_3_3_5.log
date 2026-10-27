@@ -1,0 +1,2 @@
+# ms_dual.py n=3 molecularity<=3 r<=5; inverse trials 200, msolve samples 3; Python 3.12.15 on Linux; msolve 0.10.1
+# stopped by the 1500 s timeout (machine overloaded): no result

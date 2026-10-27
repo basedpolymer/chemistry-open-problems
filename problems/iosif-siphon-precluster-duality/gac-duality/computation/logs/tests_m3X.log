@@ -1,0 +1,43 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=10
+# 29812 distinct networks from 2 record files: wr_4_3_4.pkl.gz, wr_5_3_4.pkl.gz
+# families: {"(4, 3, 4, '')": 14480, "(5, 3, 4, '')": 15332}
+# candidates: E-e4b P-K2n P-K14a P-K14b P-K14c X-endoD X-sendoD X-drainN X-drainD X-drainD1
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+E-e4b          test         95/95           95/95            7/7            95/95           93/93           84/84           10/10            0/0        holds on all tested
+P-K2n          proved    59624/59624     24536/24536     10942/10942     24536/24536     24312/24312     11236/11236     13298/13298         0/0        PASS
+P-K14a         proved      523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        PASS
+P-K14b         proved      523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        PASS
+P-K14c         test          0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        no applicable network
+X-endoD        test        102/12268       102/12268        10/5471        102/12268       100/12156        87/5618         14/6649          0/0        REFUTED
+X-sendoD       test         16/12268        16/12268        10/5471         16/12268        15/12156         4/5618         11/6649          0/0        REFUTED
+X-drainN       proved    17455/17455     12268/12268      5471/5471      12268/12268     12156/12156      5618/5618       6649/6649          0/0        PASS
+X-drainD       test      12106/12268     12106/12268      5380/5471      12106/12268     11994/12156      5559/5618       6546/6649          0/0        REFUTED
+X-drainD1      test        998/1002        998/1002         30/30          998/1002        886/890         997/1001          0/0             0/0        REFUTED
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+E-e4b: N and N* both WR with (H1)-(H3): ADLS(N) iff ADLS(N*)
+P-K2n: no hypothesis (P's latest version of K2): P(dual) refines S iff no twin pair and every element lies in a minimal siphon (preclusters computed by crn.py even when the dual is not consistent)
+P-K14a: well-formed EC: minimal T-traps (minimal siphons of the dual) = internal cycles
+P-K14b: well-formed EC and pure: minimal siphons = semiflow supports = internal cycles of the dual
+P-K14c: well-formed EC and NOT pure: minimal siphons = semiflow supports (is purity needed?)
+X-endoD: WR+H: N* is endotactic
+   counterexample (side N; n=4, r=3, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4
+     N*: 2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3
+X-sendoD: WR+H: N* is strongly endotactic
+   counterexample (side N; n=4, r=3, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4
+     N*: 2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3
+X-drainN: WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)
+X-drainD: WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)
+   counterexample (side N; n=4, r=3, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : 3X4 -> X2 + 2X3, X2 + 2X3 -> X1 + 2X4, X1 + 2X4 -> 3X4
+     N*: k3 -> k2, k2 -> k1, 2k2 -> 2k1, 3k1 + 2k3 -> 2k2 + 3k3
+X-drainD1: WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)
+   counterexample (side N; n=4, r=3, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : 3X4 -> X2 + 2X3, X2 + 2X3 -> X1 + 2X4, X1 + 2X4 -> 3X4
+     N*: k3 -> k2, k2 -> k1, 2k2 -> 2k1, 3k1 + 2k3 -> 2k2 + 3k3
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 5.1 s

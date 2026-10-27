@@ -1,0 +1,17 @@
+# enum_s1_general.py n=3 m=2 R=4 H3=True
+# Python 3.14.0 on Windows (AMD64)
+# networks: 99; satisfying (E1) (extreme complexes of every linkage class are sources): 6
+ALL        nonWR  44
+ALL        WR     3
+NONE       nonWR  51
+NONE       WR     1
+# smallest ALL WR: N = X2+X3 -> X1+X3, X1+X3 -> X2+X3 | N* = k2 -> k1, k1 -> k2, k1+k2 -> k1+k2 | non-IN faces []
+# smallest ALL nonWR: N = X3 -> X2, X1+X2 -> X1+X3 | N* = k2 -> k2, k2 -> k1, k1 -> k2 | non-IN faces []
+# smallest NONE WR: N = 2X3 -> X2+X3, X2+X3 -> 2X3, X1+X3 -> X1+X2, X1+X2 -> X1+X3 | N* = k3+k4 -> k3+k4, k2+k4 -> k1+k3, 2k1+k2+k3 -> k1+2k2+k4 | non-IN faces [((1,), 1, 'ESC')]
+# smallest NONE nonWR: N = X2+X3 -> 2X3, X1+X3 -> X1+X2 | N* = k2 -> k2, k1 -> k2, k1+k2 -> 2k1 | non-IN faces [((0,), 1, 'ESC')]
+G1: PASS (0 failures)
+G2: PASS (0 failures)
+G3: PASS (0 failures)
+G4: PASS (0 failures)
+G5: PASS (0 failures)
+# runtime 0.1 s

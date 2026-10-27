@@ -1,0 +1,8 @@
+2X4 -> X1 + X4, X3 -> 2X1, 2X1 + X2 -> X2 + X3, 2X1 + X2 -> X1 + X2 + X4: end point min=1.407e-01 residual=3.16e-16 class drift=8.0e-15
+2X4 -> 2X1, X3 -> 2X1, 2X1 + X2 -> X2 + X3, 2X1 + X2 -> X1 + X2 + X4: end point min=1.074e-01 residual=5.06e-17 class drift=8.9e-16
+2X4 -> X1 + X4, X3 -> X1, 2X1 + X2 -> X2 + X3 + X4, 2X1 + X2 -> X1 + X2 + X4: end point min=3.116e-01 residual=1.64e-16 class drift=3.9e-15
+2X4 -> X1 + X3, X3 -> X4, 2X1 + X2 -> X2 + X3 + X4, 2X1 + X2 -> X1 + X2 + X4: end point min=1.010e+00 residual=2.46e-16 class drift=1.6e-13
+2X4 -> 2X3, X3 -> X1, 2X1 + X2 -> X2 + X3 + X4, 2X1 + X2 -> X1 + X2 + X4: end point min=4.927e-01 residual=3.73e-16 class drift=2.2e-15
+2X4 -> X1 + X2 + X4, X3 -> X1, 2X1 + X2 -> X2 + 2X3, 2X1 + X2 -> X1 + X4: end point min=4.357e-01 residual=1.39e-16 class drift=8.4e-15
+2X4 -> X2 + X3 + X4, X3 -> X1, 2X1 + X2 -> X2 + 2X3, 2X1 + X2 -> X1 + X4: end point min=1.997e-02 residual=1.78e-17 class drift=4.4e-15
+# 50 cases re-checked; worst residual 1.93e-15

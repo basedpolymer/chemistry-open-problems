@@ -1,0 +1,82 @@
+# v3_examples.py  Python 3.12.15 on Linux; sympy 1.14.0; exact
+## agent G
+PASS: G3.dual  D = M* = 3U+2V -> 2U+3V, V -> U
+PASS: G3.Gamma both [[-1,1],[1,-1]]
+PASS: G3.H  (H1)-(H3) for M and for D
+PASS: G3.counts  (m,l,s,delta): M (2,1,1,0), D (4,2,1,1)
+PASS: G3.WR  M reversible/WR, D not WR
+PASS: G3.endo  w=(0,1) witnesses that D is not endotactic
+PASS: G3.ode  unit rates: v' = u^3 v^2 - v
+PASS: G3.h'  h'(v) = (2-v)^2 (2-4v)
+PASS: G3.h(1/8) = 3375/4096 and 1 - h(1/8) = 721/4096
+PASS: G3.eq  (1,1) is an equilibrium of the class T=2
+PASS: E.G3  class u+v=2 has exactly two positive equilibria (v=1 and one root in (1/8,1/2)) -- [0.16071324, 1.0000000]
+PASS: E.G3b  all rates: v' = v (k1 u^3 v - k2)
+PASS: E.G3b  k1 T^3 * (k2/(2 k1 T^3)) = k2/2 (so v' <= -(k2/2) v below v*)
+PASS: G3.M  a' = a^2 (k2 b - k1 a) for M (single positive equilibrium on each segment, global attraction)
+PASS: G2.1(2)  dual of 0<->A is V -> U (conservative)
+PASS: G2.1  A<->B: same Gamma as M, dual counts (2,1,1,0)
+PASS: G4.1a  5-species: 10 reactions, (m,l,s,delta) = (10,2,4,4), q = 1, WR, H3
+PASS: G4.1b  dual is WR, one linkage class, deficiency 0 (a single 5-cycle)
+PASS: G4.1c  each linkage class spans S (rank 4)
+PASS: G4.1d  {X1,X2,X3} is a siphon containing no semiflow support
+PASS: G4.1e  realizable at (0,0,0,2,3) in the class of (1,1,1,1,1); codim rank Gamma[Sigma,:] = 3
+PASS: G4.1f  no blind reaction (J0 empty), dim S0 = 1 (Wiuf (a) fails)
+PASS: G4.1g  strongly endotactic test (GMS Def 3.14) passes for 3000 random integer w (corroboration only)
+PASS: G4.1np  A->B->C->D->A, A+C<->B+D: q=1, H3, WR, dual WR; w=(3,2,1,2) not orthogonal to S, no strictly inward reaction at the maximal reactant height (not strongly endotactic) -- heights [3, 2, 1, 2, 4, 4], deltas [-1, -1, 1, 1, 0, 0]
+PASS: G5.dual  H* = 2U1+2U3+U4 -> 2U2+U3+2U4, 2U2+U4 -> 2U1+U3
+PASS: G5.H  H is WR with (H1)-(H3), minimal siphons = [{A,B}] containing the support of a+b
+PASS: G5.crit  {U4} is a siphon of H*, row 4 of Gamma* = (1,-1), H* has (H1)-(H3)
+PASS: G8.1a  Gamma = [[-1,-2,3],[3,-1,-2],[-2,3,-1]], rank 2, delta 0, flux (1,1,1), law a+b+c
+PASS: G8.1b  support condition (Ye)_ij > 0 iff Gamma_ij < 0
+PASS: G8.1c  dual WR with deficiency 0
+PASS: G8.1d  alternative realisation has the same Gamma
+PASS: G8.1e  G = Dg(1,1,1) = [[10,0,2],[2,1,0],[0,10,1]]
+PASS: G8.1f  J_S = [[-15,27],[24,-25]], det = -273 (positive eigenvalue) -- [[-15, 27], [24, -25]]
+## agent E
+PASS: E.ex  X4 -> 3X3 -> X1+2X2 -> 3X2 -> X4: (m,l,s,delta) = (4,1,3,0), WR, (H1)-(H3)
+PASS: E.ex  dual equals k4 -> k2, 3k3+2k4 -> 2k2+3k4, 3k2 -> 3k1, k1 -> k3 up to relabelling
+PASS: E.ex  dual satisfies (H1)-(H3)
+PASS: E.ex  the dual has a drain species (E.4 hypotheses), d0 = 1 -- [(2, 1)]
+PASS: E.ex  N itself has no drain species (consistent with WR)
+PASS: E.4  every producing reaction of the drain species has order >= d0+1
+## agent Q1
+PASS: Q1.X  N = 2X2 <-> X1+X2: WR, (H1)-(H3), delta 0; dual = k2 -> k1, 2k1+k2 -> k1+2k2
+PASS: Q1.X  k2' = k2 (kappa2 k1^2 - kappa1)
+PASS: Q1.X  face classification: NONE, face {k2} is ESC -- [(1, (1,), 'ESC'), (-1, (0,), 'IN')]
+PASS: Q1.X  dual has no drain species
+PASS: Q1.X  dual has no drain set ({k2} with d=1 fails (D2): ratio 1)
+PASS: Q1.C  N = 2X3 -> X2+X3 -> X1+X3 -> 2X3: WR, (H1)-(H3), (m,l,s,d) = (3,1,2,0); dual as stated
+PASS: Q1.C  V = k2 + 2k3: V' = -kappa1 k3 - kappa2 k2 + 2 kappa3 k1^2 k2 k3
+PASS: Q1.C  {k2,k3} drain set with w=(1,2), d=(1,1); no drain species
+PASS: Q1.P  WR, s=1, (H1)-(H3); dual: all singleton faces IN, the face {k1,k3} (forward reactions) is ESC, verdict NONE -- [(1, (1,), 'IN'), (1, (3,), 'IN'), (1, (1, 3), 'IN'), (-1, (0,), 'IN'), (-1, (2,), 'IN'), (-1, (0, 2), 'ESC')]
+PASS: Q1.S  (H1)-(H3), s=1, not WR; dual = k1+k2 -> 2k2, k1+k2 -> 2k1, 2k2 -> 2k1
+PASS: Q1.S  k1' = k2 ((kappa2 - kappa1) k1 + 2 kappa3 k2)
+PASS: Q1.S  dual: DOM faces only at one end, all others IN (Theorem S1(3) case) -- [(1, (0,), 'IN'), (-1, (1,), 'DOM')]
+PASS: Q1.B  k1' = (kappa2 - kappa1) k1 k2; DOM faces at both ends -- [(1, (0,), 'DOM'), (-1, (1,), 'DOM')]
+PASS: Q1.Q  pure, (H1)-(H3), s=2; dual = k1+k2 -> 2k3, k3 -> k1, k3 -> k2; (k2-k1)' = (kappa3-kappa2) k3
+PASS: V3.Cpure  0 <-> A: pure, WR, (H2), s=1, not (H1); dual k2 -> k1 is conservative and NONE (OUT face): C-pure needs (H1) -- [(1, (1,), 'OUT'), (-1, (0,), 'IN')]
+PASS: V3.ZGD  A+B -> 2A, 2A -> A+B, 3A+B -> 4A: conservative rank one, every face IN (S1: persistent for all rates), siphons [(0,), (0, 1)], but NOT W_I-endotactic (ZGD Thm 3.10 does not apply) -- [(1, (1,), 'IN'), (-1, (0,), 'IN')]
+## agent E2
+PASS: E2.7ex  N = 2X3 -> X2 -> X1+X3 -> 2X3; dual = k3 -> k2, k2 -> k1, 2k1+k3 -> k2+2k3
+PASS: E2.7ex  linearisation at (T,0,0): eigenvalues -kappa2 and kappa3 T^2 - kappa1 -- [[-k2, T**2*k3 + k1], [0, T**2*k3 - k1]]
+PASS: E2.Q1-6  N = X4 <-> X2+X3, 3X3 <-> X1+2X4: pure, WR, (H1)-(H3), s=2, delta 0; dual as stated (relabelled)
+PASS: E2.Q1-6  the dual has a drain set of two species with d = (1,1) (Q1-6 refuted) -- [((1, 3), (3, 1)), ((1, 3), (4, 1))]
+PASS: E2.S  generic SOME example: s=1, (H1), (H2), not WR; dual as stated; only non-IN face is DOM -- [(1, (1,), 'DOM')]
+PASS: E2.S  face {k2}: sigma*L = y1*(quadratic in y3); kappa=(1,1,3/2,3/2): negative for all y3>0 (leading coeff < 0, discriminant < 0); kappa=(3,3,1,1): positive at y3=1 -- sigma*L(kappa1) = -y1*(3*y3**2 - 2*y3 + 3)/2 ; sigma*L(kappa2) = -y1*(y3**2 - 3*y3 + 1)
+## agent D2
+PASS: D2.U  N = 3X3 -> 2X1+X2 (R1), X2+2X3 -> 3X3 (R2), 2X1+X2 -> X2+2X3 (R3): one 3-cycle, WR, (H1)-(H3), s=2; dual = 2k3 -> 2k1, k2+k3 -> k1+k3, 3k1+2k2 -> 3k2+2k3
+PASS: D2.U  k2' = -kappa2 k2 k3 + kappa3 k1^3 k2^2, k3' = -2 kappa1 k3^2 + 2 kappa3 k1^3 k2^2
+PASS: D2.U  z = a/b: z' = a[(2kappa1 - kappa2) + K z (1 - 2z)] (exact identity)
+PASS: D2.U  u = b/a: u' = a[(kappa2 - 2kappa1)u^2 - K u + 2K], a' = a^2 (K - kappa2 u)
+PASS: D2.U  b' = b^2 (-2 kappa1 + 2 K z^2) (identity)
+PASS: D2.CM  N = 2X3 -> X2+X3 -> X1+X2 -> 2X3; dual = k3 -> k2, k2+k3 -> k1+k2, 2k1+k2 -> k1+2k3
+PASS: D2.CM  a' = kappa2 T b - kappa3 T a^2 + h.o.t., b' = -(kappa1 + kappa2 T) b + 2 kappa3 T a^2 + h.o.t.
+PASS: D2.CM  reduced coefficient on the centre manifold = kappa3 T (kappa2 T - kappa1)/(kappa1 + kappa2 T) -- T*k3*(T*k2 - k1)/(T*k2 + k1)
+PASS: D2.L  N = 2X3 -> 2X2+X3 -> 2X1+X3 -> 2X3: V = k2 + 2k3, V' = -2kappa1 k3^2 - 2kappa2 k2^2 + 2kappa3 k1^2 k2 k3
+PASS: D2.L  quadratic form [[-2k2, k3 T^2],[k3 T^2, -2k1]] negative definite iff kappa3^2 T^4 < 4 kappa1 kappa2
+PASS: D2.ALL  N = 2X3 -> X2 -> 2X1+X3 -> 2X3; dual = 2k3 -> 2k2, k2 -> k1, 2k1+k3 -> k2+2k3; k3' = k3 (kappa3 k1^2 - 2 kappa1 k3)
+PASS: D2.ALL  edge (facet) zero sets that are siphons: only {k3} (edges k1=0, k2=0 not siphons); vertex siphons: only {k2,k3} = the vertex (T,0,0) -- ([(2,)], [(1, 2)])
+PASS: D2.E  N = 2X3 -> 2X2+X3 -> X1+X2+X3 -> 2X3: facet {k3} of the dual is ESC and a siphon; every dual reaction has k3 in its source (zero edge flow), minimal load 1 -- [((2,), 'ESC')]
+# runtime 1.6 s
+ALL CLAIMS PASS

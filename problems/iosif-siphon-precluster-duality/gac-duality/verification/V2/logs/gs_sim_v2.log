@@ -1,0 +1,6 @@
+seed 2: 40 WF-EC networks (n = 4..6), tries 232
+N : max relative increase of M(t) on the grid 1.28e-12; max relative decrease of mu(t) 9.37e-13
+N : max spread of end points within a class 9.02e-13; max scaled residual |f| at t = 400: 6.94e-14
+N : min over trajectories of min_p x_p(t) / max(1, max x0) = 1.02e-07 (near-boundary starts at 1e-6 scale)
+N*: max spread of end points within a class 5.26e-13; max scaled residual 5.48e-15
+runtime 88.0 s

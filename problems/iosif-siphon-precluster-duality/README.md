@@ -1,17 +1,22 @@
-# Iosif: are preclusters dual to maximal invariant polyhedral supports, and to siphons?
+# Iosif's network duality: preclusters, invariant polyhedral supports, siphons, and what the duality transfers
 
-**Status: partial result.** Every precise form of the conjectured "duality relation" that we could extract
-(equality, refinement in either direction, equal number of blocks, and the siphon versions) is false, and we prove
-exact criteria for when each relation holds. These refutations and criteria are verified; see
-[verification.md](verification.md). The conjecture itself is not settled. The source does not define "duality
-relation", uses "refine" both literally and loosely, and is motivated by a possible transfer of known cases of the
-Global Attractor Conjecture (GAC) through duality. Whether a relation of another kind exists, one that would allow
-such a transfer, is open; see [What remains open](#what-remains-open).
+**Status: partial result.** Every precise form of the conjectured "duality relation" is false, with exact criteria
+and minimal counterexamples. The relation left open by the source is answered in three parts:
+- the duality is the reverse dual of Petri-net theory;
+- it transfers siphon structure, persistence, uniqueness and stability on an explicit self-dual class of networks;
+- outside that class it transfers none of weak reversibility, persistence or convergence.
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), 25 Oct 2026, covering the novelty check, proofs, scripts and
-manuscript. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md). Revision of
-27 October 2026 (status, remarks on the GAC in §5 of the manuscript, ten further certified claims): Claude Opus 5.5
-(effort xhigh), not yet verified.
+The conjecture as written is not a decidable statement, and the rank-two persistence dichotomy is open; see
+[What remains open](#what-remains-open). Manuscript: [paper.pdf](paper.pdf).
+
+**Attribution.**
+- Research: Claude Opus 5.5 (effort xhigh), for the original refutation (25 October 2026) and agents P, E, Q1, Q2,
+  Q3, E2 and D2 (27 October 2026). GPT-6-Astra (effort xhigh), for agents G and A2.
+- Literature: Claude Opus 5.5 (effort xhigh; effort medium for the second search).
+- Verification: GPT-6-Astra (effort xhigh) for the original report ([verification.md](verification.md)); Claude Opus
+  5.5 (effort xhigh) for the new results, by three fresh-context verifiers V1–V3, and for the review of the rewritten
+  manuscript (R1, R2).
+- Writing of the manuscript (28 October 2026): Claude Opus 5.5 (effort xhigh).
 
 ## Problem
 
@@ -30,128 +35,116 @@ hal-03058670 v3). Section 3, p. 7 of v2 (identical in v1):
 >
 > Question 24. Is there a duality relation between preclusters and siphons?"
 
-The abstract and the introduction state both as conjectures: "we conjecture that there is a duality relation between
-preclusters and maximal invariant polyhedral supports. Given the close relation between maximal invariant polyhedral
-supports and siphons, we also conjecture that siphons and preclusters are dual objects."
-
-Definitions used: siphons (Def. 13), maximal invariant polyhedral supports (MIPS, Def. 17 and Remark 18), preclusters
-(Def. 19; the iterated version is Algorithm 4.4 of the author's thesis, DOI 10.25673/13949), the dual network
-(x^Ye →k x^Yp)* = k^(Yeᵀ) →x k^(Ypᵀ) (§3), and internal cycles (Def. 20). The statement has changed status over
-time. The 2020 HAL v1 states it as a theorem, without proof and without the positive-steady-state hypothesis. A 2024
-talk and a 2025 poster abstract (Ananiadi and Iosif) say it is proved. The 2026 preprint calls it a conjecture.
+The motivation follows (p. 7–8): "It is well known that the Global Attractor Conjecture holds in small dimensions
+[4], and we wonder whether there is a similar argument, through duality, in small codimensions." The dual network
+exchanges species and rate constants: N* has one species per reaction of N and one reaction per species, with
+stoichiometric matrix Γᵀ. Networks with matrix ±Γᵀ appeared before (Famili–Palsson 2003, Jamshidi–Palsson 2009,
+Blanchini–Giordano 2022, Duvall 2024); they transfer linear and local properties (conservation pools, spectra,
+structural stability), not siphons or persistence. The statement has changed status over time. The 2020 HAL v1 states it as a theorem, without
+proof. A 2024 talk and a 2025 poster abstract say it is proved, and the 2026 preprint calls it a conjecture.
 
 ## Result
 
-**Making the conjecture precise** (manuscript §1):
+The manuscript asks three questions that the source supports, and answers them. Below, N is a network, N* its dual,
+s the rank of Γ (the same for N and N*), q the number of Petri clusters, and (H1)–(H3) the hypotheses of Conjecture
+22 (conservative, consistent, distinct rows of Γ).
 
-- The hypotheses are self-dual. N is conservative if and only if its dual N* is consistent, and vice versa (Γ(N*) = Γᵀ).
-  "At least one positive steady state" for some rate constants means consistency. "No two species with exactly the
-  same rates" means that the rows of Γ are pairwise distinct.
-- Definition 17 (each decorated invariant polytope invariant under swapping xᵢ, xⱼ) is equivalent to Remark 18. Both
-  say that xᵢ and xⱼ are in one MIPS if and only if their columns in a conservation-law matrix are positively
-  proportional, if and only if eᵢ − μeⱼ ∈ im Γ for some μ > 0. So MIPS partition the species. The MIPS of N* are the
-  classes of fully coupled reactions (flux coupling analysis).
-- The one-step precluster graph of the paper (Def. 19) and the iterated one of the thesis (Alg. 4.4, in any order)
-  have the same connected components.
+**The precise forms fail** (§3.1, condensed from the [archived report](archive/paper-precise-forms.pdf)). Equality,
+refinement in either direction, equal cardinality and the siphon versions are all false. Exact criteria say when each
+holds. The counterexamples are tiny: X₁ ⇄ X₂, the 3-cycle X₁ → X₂ → X₃ → X₁, the one-site futile cycle.
 
-**Exact criteria** (Theorem 7, Corollaries 8–10). For a consistent N:
+**1. Preclusters and siphons are related by transversality, and preclusters can be repaired** (§2–3).
+- Iosif's dual is the weighted *reverse dual* of Petri nets (Hack 1972): places and transitions are exchanged, every
+  arc is reversed, weights are kept.
+- In this dictionary, conservation laws of N are flux vectors of N*, and siphons of N are the T-traps of N*.
+- A minimal siphon contains at most one species of each class of species with the same consumers. This extends
+  Desel–Esparza Thm 4.30(a) for free-choice nets. So a precluster with two elements never lies in a minimal siphon.
+- Definition 19 depends on how a choice is split into binary choices. The Conradi–Flockerzi clusters P̂ are
+  invariant under duplication and splitting.
+- For P̂, the maximal invariant polyhedral supports refine the preclusters for every consistent (respectively
+  conservative) network. Equality holds exactly when twin pairs are coupled, in particular on the species side of
+  every weakly reversible network satisfying (H1)–(H3).
+- Remark 23 for P̂ is the isolation property, which gives toric steady states for all rates.
 
-- the preclusters P(N) refine the MIPS of N* if and only if every pair of reactions with a common source is fully
-  coupled;
-- P(N) = MIPS(N*) if and only if, in addition, every class of at least two fully coupled reactions contains such a pair.
+**2. The duality transfers structure on a self-dual class** (§4, Figure 46).
+- **Cluster rank class.** If N is connected and satisfies (H1), (H2) and s = q − 1, the rank equation of free-choice
+  and equal-conflict nets, then neither N nor N* has a critical siphon. Both are persistent for every rate vector.
+  The siphon part is known for ordinary nets (Desel 1994); the weighted version was not found in the literature.
+- **Proportional-conflict networks** (a self-dual subclass). N and N* each have a positive steady state for every
+  rate vector, exactly one per class, and the Jacobian is Hurwitz on the stoichiometric subspace at every positive
+  point.
+- **Well-formed equal-conflict networks** (reactions sharing a reactant have the same reactant complex). N has toric
+  steady states and is globally stable; N* is globally stable when s ≤ 2.
+- **Boundary of the dynamical statements.** The network NC3 = {D → B+C, C → A, A+B → B+C, 2A+B → C+D} satisfies the
+  cluster rank equation but is not proportional-conflict. It has three positive steady states in one class, one of
+  them a saddle.
 
-The species side is obtained by applying this to N*, where "same source" becomes "identical rows of Ye". For weakly
-reversible N, P(N*) always consists of singletons. For weakly reversible N with deficiency zero, P(N) ≠ MIPS(N*)
-always.
+**3. Outside this class, the dynamics do not transfer** (§5–6).
+- Weak reversibility, deficiency, endotacticity and the siphon criterion of Angeli–De Leenheer–Sontag are not
+  preserved. Weak reversibility was already noted by Blanchini–Giordano 2022.
+- **Persistence is not preserved.** The dual of 2X₂ ⇄ X₁+X₂ loses a species for every rate vector. Drain species and
+  drain sets give such extinction in every dimension.
+- **Convergence is not preserved, even when persistence is.** The 3-cycle 3X₃ → X₁+X₂ → X₂+2X₃+3X₄ → 3X₃ is weakly
+  reversible with deficiency zero. Its dual is persistent for every rate vector and has a unique positive
+  equilibrium in every class. Yet at the rates (17, 400, 70000, 10⁶) that equilibrium is a source, and the class
+  contains a periodic orbit (Theorem 54). The certificate is exact; a figure illustrates the orbit.
+- **Rank one.** Persistence of the dual is decided exactly by face types (IN, OUT, ESC, DOM). For weakly reversible N
+  it is all-or-none over rate vectors. Only a weaker form of the "if" half is in print (Zhang–Gao–Dochain 2023).
+- **Any rank.** For weakly reversible N, the dual has no dominated facet.
+- **Rank two.** Among 18 861 networks, 4 873 have duals persistent for all rates and 13 817 for none; 171 are
+  undecided. Two exact families refute the conjecture that a facet attracting the flow forces extinction.
 
-**Counterexamples** (Theorem 1, Table 11). Every network below satisfies all hypotheses of Conjecture 22 and has an
-explicit positive steady state.
+**The Global Attractor Conjecture** (§7). The duality preserves the dimension s and exchanges the codimension n − s
+with the cycle-space dimension of N*. So it cannot turn small codimension into small dimension. The GAC itself is
+now claimed in full by Craciun (arXiv:1501.02860 v3) and by OpenAI's preprint of 25 September 2026; neither proof
+was checked here.
 
-| Network | Refutes |
-|---|---|
-| T: X₁ → X₂ → X₃ → X₁ (weakly reversible, deficiency 0, self-dual, rows/columns of Γ pairwise linearly independent) | equality, "MIPS refine preclusters", equal cardinality, on both sides and in all three readings of MIPS; all siphon formulations except "every precluster lies in a minimal siphon"; Remark 23 |
-| R: X₁ ⇄ X₂ (smallest) | the same as T |
-| W: X₁ → X₂, X₁ → X₃, X₂ → X₁, X₃ → X₁, and its dual W* | "preclusters refine MIPS" (reaction side for W, species side for W*) |
-| U: X₄ → X₂+X₃, X₃+X₄ → X₁, X₁+X₂ → 2X₄ | "preclusters refine MIPS", species side, with the strongest hypotheses on N and N* |
-| D: X₁ → X₂, X₁ → X₃, X₂+X₃ → 2X₁ (self-dual) | Question 24, "every precluster lies in a minimal siphon" (both sides), although both equalities of Conjecture 22 hold for D |
-| F: one-site futile cycle | "preclusters refine MIPS" on both sides; "every precluster lies in a minimal siphon" |
-| N₃ = 2X₁ ⇄ X₁+X₂ → 2X₂ and 2X₁ ⇄ X₁+X₂ (thesis Examples 4.1 and 4.12) | equality and refinements on the reaction side; Remark 23 |
-
-The siphon formulations of Question 24 are: precluster = minimal siphon, refinement in both directions, "every
-precluster is a siphon", "every precluster is a union of minimal siphons", and equal numbers. All fail on both sides
-of the duality.
-
-**What is computer-assisted.** All claims about the explicit networks have hand proofs in the manuscript. They are
-re-checked by exact rational computation (142 claims). The exhaustive enumeration of 15 513 small networks satisfying
-the hypotheses confirms the criteria and gives the statistics of Table 15; it is a check, not part of the proofs.
-Nothing is numerical (no floating point anywhere).
+**What is computer-assisted.** Every example and finite claim of the manuscript is certified in exact arithmetic
+(`scripts/certify_duality.py`, 130 claims; `scripts/certify_examples.py`, 142 claims for the archived report). Counts
+on large families (enumerations of agents E, E2, D2, recounted by the verifiers) are checks, not proofs. The figure of
+the periodic orbit is a numerical illustration only.
 
 ## What remains open
 
-**The relation itself.** "Duality relation" is not defined in the source, and its closing diagram (p. 8 of v2) writes
-"Refine" both literally (internal cycles refine preclusters) and in quotation marks (between MIPS and siphons). Any
-relation that forces a refinement or a bijection between blocks is excluded. A relation of another kind is not, for
-example a Galois correspondence, or a refinement that holds outside an explicit list of degenerate networks. Excluding
-degenerate networks does not by itself rescue the precise forms. Among the 11 121 enumerated networks whose rows and
-columns of Γ are pairwise linearly independent, the species-side equality holds for 338 and the reaction-side
-equality for 1 278 (Table 15). Clusters were checked only on N₃ (where the cluster version also fails) and on the
-two-site phosphorylation network. Both the thesis's rate-dependent definition and the rate-independent original of
-Conradi–Flockerzi (2012) were used; their doubling vectors and span rule agree with the definitions used here.
-
-**The Global Attractor Conjecture.** The source hopes for a new case of the GAC in small codimension, by analogy with
-the known cases in small dimension, obtained "through duality" (§3). We have no result on this. Three elementary
-facts, added to §5 of the manuscript on 27 October 2026, constrain such an argument:
-
-1. The duality preserves the dimension. Γ(N*) = Γᵀ, so N* has r species, n reactions and the same dimension s as N.
-   The known case of dimension at most three (Pantea 2012) is mapped to itself. The codimension n − s of N becomes
-   the dimension of the cycle space of N*.
-2. The duality does not preserve weak reversibility, which complex balancing requires (already observed by Blanchini
-   and Giordano, p. 6). W is weakly reversible with deficiency zero, so it is complex balanced for all rate constants. W* (R₁+R₂ → R₃+R₄, R₃ → R₁, R₄ → R₂) is not
-   weakly reversible, so it is complex balanced for no rate constants. The 3-cycle T is self-dual.
-3. For weakly reversible N the preclusters of N* are singletons, and at deficiency zero P(N) ≠ MIPS(N*)
-   (Corollaries 9 and 10). In the setting of the GAC, the preclusters carry no information on the species side.
-
-A transfer through duality would therefore have to act on objects other than these partitions. Possible candidates
-are Lyapunov functions, which F. Blanchini and G. Giordano relate between a network and its dual (IEEE Control Syst.
-Lett. 6, 2022), and the siphon conditions of recent special cases of the GAC. Two recent preprints bear on the GAC
-itself and have not been checked here: G. Craciun, arXiv:1501.02860 v3 (23 September 2026, "a major revision" of the
-general proof), and C. Wiuf, arXiv:2609.24553 (21 September 2026, a special case stated through conditions on
-realisable siphons). The GAC itself is now claimed in full by Craciun's v3 and by OpenAI's preprint
-*Boundedness and persistence of weakly reversible mass-action systems* (25 September 2026, in the `openai/math`
-repository), from which the GAC follows. If it is settled, the open question becomes which structure the duality
-transfers, rather than which new cases of the GAC it yields.
+1. The rank-two dichotomy: is the dual of a weakly reversible network with (H1)–(H3) and s = 2 persistent for all
+   rate vectors or for none? 171 networks are undecided.
+2. Global stability of the dual of equal-conflict networks for s ≥ 3, and global stability for
+   proportional-conflict networks.
+3. Absolute consistency under the cluster rank equation, and for duals of unbalanced equal-conflict networks with
+   s = m.
+4. A liveness theory for weighted impure equal-conflict nets.
+5. An exact algorithm for P̂ when s ≥ 2, and whether P̂ is the finest invariant repair of Definition 19.
+6. Which facets that attract the flow force extinction in higher rank.
 
 ## Reproduce
 
-From `scripts/`, with Python 3.12 (standard library only; run under WSL Fedora 44):
+From `scripts/`, with Python 3 (standard library; `figures.py` needs scipy and matplotlib, run under WSL Fedora 44):
 
 ```bash
-python certify_examples.py      # 142 exact claims on the explicit networks            (< 1 s)
-python motifs.py                # Table 14: standard biochemical motifs                  (< 10 s)
-python enumerate_small.py 2 2 5 12 ../certificates/enumeration_n2_m2_r5.json    # (n, molecularity, r_max, cores)
-python enumerate_small.py 3 2 4 12 ../certificates/enumeration_n3_m2_r4.json    # ~75 s on 12 cores
-python enumerate_small.py 3 3 3 12 ../certificates/enumeration_n3_m3_r3.json    # ~50 s
-python enumerate_small.py 4 1 12 12 ../certificates/enumeration_n4_m1_r12.json  # ~20 s
-python enumerate_small.py 4 2 3 12 ../certificates/enumeration_n4_m2_r3.json    # ~5 s
-python summarize_enumeration.py ../certificates/enumeration_*.json             # Table 15
+python certify_duality.py       # 130 exact claims of the manuscript                      (~1 s)
+python certify_examples.py      # 142 exact claims of the archived report                 (< 1 s)
+python figures.py               # Figure 55, numerical illustration of Theorem 54         (~16 s)
+python motifs.py                # archived report, Table 14
+python enumerate_small.py 3 2 4 12 ../certificates/enumeration_n3_m2_r4.json    # archived enumeration, ~75 s
+python summarize_enumeration.py ../certificates/enumeration_*.json
 ```
 
-Each script prints PASS/FAIL per claim and exits with a nonzero status on failure. The manuscript is built with
-`python templates/build_tex.py problems/iosif-siphon-precluster-duality/paper.tex` from the repository root.
+Each certificate script prints PASS/FAIL per claim and exits with a nonzero status on failure. The manuscripts are
+built from the repository root with `python templates/build_tex.py problems/iosif-siphon-precluster-duality/paper.tex`
+(and `.../archive/paper-precise-forms.tex`). The working notes, their scripts and the verification reports are in
+`gac-duality/`; each folder's notes state how to re-run its computations.
 
 ## Files
 
 | File | Content |
 |---|---|
-| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript: definitions, Proposition 3 (MIPS), Lemma 5 (precluster variants), Theorem 7 and Corollaries 8–10 (criteria), Theorem 1 (counterexamples), enumeration |
-| `scripts/crn.py` | Library: exact extreme rays, dual network, siphons, three precluster constructions, three readings of MIPS |
-| `scripts/certify_examples.py` | Exact certificates for every network of the manuscript, including Examples 15 and 25 of the paper and Examples 1.22, 4.1, 4.5 and 4.12 of the thesis, and the duality facts of §5 |
-| `scripts/motifs.py` | Standard motifs (Michaelis–Menten, futile cycles, thesis network G, a triangle) |
-| `scripts/enumerate_small.py` | Exhaustive enumeration with the check of the criteria |
-| `scripts/summarize_enumeration.py` | Combined statistics (Table 15) |
-| `certificates/*.log`, `certificates/*.json` | Outputs (all PASS), enumeration statistics and smallest failing networks |
+| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript (41 pages): Petri dictionary, precise forms, corrected preclusters, transversality, what the duality transfers and does not transfer, persistence in rank one and two, the GAC, open problems, verification record and credits |
+| `scripts/certify_duality.py`, `certificates/certify_duality.log` | Exact certificates for every example and finite claim of the manuscript |
+| `scripts/figures.py`, `figures/`, `certificates/figures.log` | Numerical illustration of Theorem 54 (periodic orbit), in logarithmic coordinates |
+| `archive/` | Earlier report (25 October 2026, revised 27 October): exact criteria and counterexamples for the precise forms (`paper-precise-forms.tex`, `.pdf`, `references-precise-forms.bib`), verified; certified by `scripts/certify_examples.py` |
+| `scripts/crn.py`, `certify_examples.py`, `motifs.py`, `enumerate_small.py`, `summarize_enumeration.py`, `certificates/enumeration_*` | Library and certificates of the archived report |
+| `gac-duality/` | Working notes of the agents (P, E, L, G, Q1, Q2, Q3, E2, D2, A2, L2) with their scripts and logs; verification reports `verification/V1–V3/`; prior-art table `literature2/novelty.md`; the writer's list of changes `writer/CHANGES.md`; reviews `review/R1–R2/` |
+| `verification.md`, `verification/` | Verification of the archived report, with addenda for the new results |
 | `references.md` | Sources read and novelty check |
-| `NEEDS.md` | No source needed |
 
-`certificates/sources/` holds the arXiv, HAL, thesis and slide PDFs. It is git-ignored because the files are
-copyrighted.
+`certificates/sources/` and the agents' `sources/` folders hold copyrighted PDFs; they are git-ignored.

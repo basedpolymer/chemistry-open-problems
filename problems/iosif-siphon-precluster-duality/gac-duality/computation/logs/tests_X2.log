@@ -1,0 +1,20 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=2
+# 262983 distinct networks from 15 record files: all_2_2_5.pkl.gz, all_2_2_6.pkl.gz, all_2_3_4.pkl.gz, all_3_2_4.pkl.gz, all_3_3_3.pkl.gz, all_4_1_12.pkl.gz, all_4_2_3.pkl.gz, fc_3_6.pkl.gz, fc_4_5.pkl.gz, wr_3_2_6.pkl.gz, wr_2_3_6.pkl.gz, wr_5_2_5.pkl.gz, wr_6_2_5_homog.pkl.gz, wr_4_2_6.pkl.gz, wr_5_2_6_homog.pkl.gz
+# families: {"('all', 2, 2, 5)": 100, "('all', 2, 2, 6)": 16, "('all', 2, 3, 4)": 2712, "('all', 3, 2, 4)": 3883, "('all', 3, 3, 3)": 11210, "('all', 4, 1, 12)": 84, "('all', 4, 2, 3)": 151, "('fc', 3, 6)": 2, "('fc', 4, 5)": 63, '(3, 2, 6, False)': 29004, '(2, 3, 6, False)': 91509, "(5, 2, 5, '')": 4272, "(6, 2, 5, 'homog')": 740, '(4, 2, 6, False)': 95046, "(5, 2, 6, 'homog')": 24191}
+# candidates: X-L5 X-G4.1 X-G4.1np
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+X-L5           proved   331653/331653   126998/126998    51648/51648     91584/91584     48606/48606      6862/6862      49542/49542     34220/34220    PASS
+X-G4.1         proved       27/27           27/27           10/10           27/27           14/14            9/9             0/0             4/4        PASS
+X-G4.1np       test          4/5             4/5             2/2             4/5             2/2             0/0             4/5             0/0        REFUTED
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+X-L5: manuscript Lemma 5: the three precluster variants (onestep, thesis, closure) agree, for N under (H2) and for N* under (H1)
+X-G4.1: G Prop. 4.1: N WR, (H3), no zero reaction vector, q = 1, N* WR, n prime => N strongly endotactic
+X-G4.1np: same hypotheses without primality (n not prime): N strongly endotactic (expected to fail)
+   counterexample (side N; n=4, r=6, s=3, H=True, H*=True, WR=True, WR*=True, def=1, family=(4, 2, 6, False)):
+     N : X4 -> X3, X3 -> X2, X2 -> X1, X2 + X4 -> X1 + X3, X1 -> X4, X1 + X3 -> X2 + X4
+     N*: k5 + k6 -> k3 + k4, k3 + k4 -> k2 + k6, k2 + k6 -> k1 + k4, k1 + k4 -> k5 + k6
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 997.0 s

@@ -1,0 +1,14 @@
+PASS DeselEsparza1995: 10.1017/CBO9780511526558 -> Free Choice Petri Nets |  vol  no  pp  | [1995, 1, 12] | Jorg Desel, Javier Esparza | ISBN ['9780521465199', '9780521019453', '9780511526558']
+PASS CamposChiolaSilva1991: 10.1109/9.106153 -> Properties and performance bounds for closed free choice synchronized monoclass queueing networks | IEEE Transactions on Automatic Control vol 36 no 12 pp 1368-1382 | [1991] | J. Campos, G. Chiola, M. Silva | ISBN 
+PASS RecaldeJulvezSilva2002: 10.3182/20020721-6-ES-1901.00078 -> STEADY STATE PERFORMANCE EVALUATION FOR SOME CONTINUOUS PETRI NETS | IFAC Proceedings Volumes vol 35 no 1 pp 455-460 | [2002] | Laura Recalde, Jorge Júlvez, Manuel Silva | ISBN 
+PASS MaedaKodamaOhta1978: 10.1109/TCS.1978.1084490 -> Asymptotic behavior of nonlinear compartmental systems: Nonoscillation and stability | IEEE Transactions on Circuits and Systems vol 25 no 6 pp 372-378 | [1978, 6] | H. Maeda, S. Kodama, Y. Ohta | ISBN 
+PASS Moreau2005: 10.1109/TAC.2004.841888 -> Stability of multiagent systems with time-dependent communication links | IEEE Transactions on Automatic Control vol 50 no 2 pp 169-182 | [2005, 2] | L. Moreau | ISBN 
+PASS CraciunNazarovPantea2013: 10.1137/100812355 -> Persistence and Permanence of Mass-Action and Power-Law Dynamical Systems | SIAM Journal on Applied Mathematics vol 73 no 1 pp 305-329 | [2013, 1] | Gheorghe Craciun, Fedor Nazarov, Casian Pantea | ISBN 
+PASS ZhangGaoDochain2023: 10.1109/TAC.2023.3275880 -> On Persistence of Some $\mathcal {W}_{I}$-Endotactic Chemical Reaction Networks | IEEE Transactions on Automatic Control vol 68 no 12 pp 7420-7435 | [2023, 12] | Xiaoyu Zhang, Chuanhou Gao, Denis Dochain | ISBN 
+PASS Iosif2020 HAL v1: https://hal.science/hal-03058670v1 -> HTTP 200, final https://hal.science/hal-03058670v1
+PASS Iosif2024talk slides: https://gasiull.webs.ull.es/beamer-2024-11-19.pdf -> HTTP 200, final https://gasiull.webs.ull.es/beamer-2024-11-19.pdf
+PASS Hack1972 handle: https://hdl.handle.net/1721.1/149406 -> HTTP 200, final https://dspace.mit.edu/handle/1721.1/149406
+PASS CamposChiolaSilva1991 author copy: https://webdiis.unizar.es/~jcampos/web/pdf/ccs-tac-91.pdf -> HTTP 200, final https://webdiis.unizar.es/~jcampos/web/pdf/ccs-tac-91.pdf
+PASS OpenAI2026persistence repository: https://github.com/openai/math -> HTTP 200, final https://github.com/openai/math
+PASS Iosif thesis landing (DataCite url): https://opendata.uni-halle.de//handle/1981185920/14078 -> HTTP 200, final https://opendata.uni-halle.de//handle/1981185920/14078
+FAILS: 0

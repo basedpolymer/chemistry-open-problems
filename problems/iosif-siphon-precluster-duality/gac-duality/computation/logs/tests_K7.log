@@ -1,0 +1,18 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=10
+# 464331 distinct networks from 22 record files: all_2_2_5.pkl.gz, all_2_2_6.pkl.gz, all_2_3_4.pkl.gz, all_3_2_4.pkl.gz, all_3_3_3.pkl.gz, all_4_1_12.pkl.gz, all_4_2_3.pkl.gz, fc_3_6.pkl.gz, fc_4_5.pkl.gz, sample_5_2_4_8_s1.pkl.gz, sample_6_2_5_8_s2.pkl.gz, wr_2_2_5_zero.pkl.gz, wr_2_3_6.pkl.gz, wr_3_2_5_zero.pkl.gz, wr_3_2_6.pkl.gz, wr_3_3_5.pkl.gz, wr_4_2_6.pkl.gz, wr_4_3_4.pkl.gz, wr_5_2_5.pkl.gz, wr_5_2_6_homog.pkl.gz, wr_5_3_4.pkl.gz, wr_6_2_5_homog.pkl.gz
+# families: {"('all', 2, 2, 5)": 100, "('all', 2, 2, 6)": 16, "('all', 2, 3, 4)": 2712, "('all', 3, 2, 4)": 3883, "('all', 3, 3, 3)": 11210, "('all', 4, 1, 12)": 84, "('all', 4, 2, 3)": 151, "('fc', 3, 6)": 2, "('fc', 4, 5)": 63, "('sample', 5, 2, 4, 8, 1, '', 'cons')": 20000, "('sample', 6, 2, 5, 8, 2, '', 'cons')": 20000, "(2, 2, 5, 'zero')": 980, '(2, 3, 6, False)': 91177, "(3, 2, 5, 'zero')": 4459, '(3, 2, 6, False)': 26305, "(3, 3, 5, '')": 136410, '(4, 2, 6, False)': 95046, "(4, 3, 4, '')": 14169, "(5, 2, 5, '')": 2049, "(5, 2, 6, 'homog')": 20321, "(5, 3, 4, '')": 15178, "(6, 2, 5, 'homog')": 16}
+# candidates: P-K7 P-K7r
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+P-K7           proved     1857/1883        704/704         116/116         704/704         704/704         195/195         433/433          66/66       FAIL
+P-K7r          proved     1683/1683        704/704         116/116         704/704         704/704         195/195         433/433          66/66       PASS
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+P-K7: WR+EC: distinct complexes have disjoint supports, deficiency 0, minimal siphons = semiflow supports, no critical siphon; with (H3)+ordinary every complex is one species
+   counterexample (side N; n=2, r=3, s=2, H=False, H*=False, WR=True, WR*=False, def=0, family=(2, 2, 5, 'zero')):
+     N : 0 -> X2, X2 -> X1, X1 -> 0
+     N*: k3 -> k2, k2 -> k1
+P-K7r: K7 restricted (P, 18:15): WR + EC + no zero complex => all clauses of K7
+
+FAIL: every candidate marked 'proved' holds on all applicable networks
+# runtime 51.4 s

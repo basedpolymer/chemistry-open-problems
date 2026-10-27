@@ -1,0 +1,247 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=10
+# 29812 distinct networks from 2 record files: wr_4_3_4.pkl.gz, wr_5_3_4.pkl.gz
+# families: {"(4, 3, 4, '')": 14480, "(5, 3, 4, '')": 15332}
+# candidates: E-a1 E-a2 E-a3 E-a4 E-a5 E-a6 E-a7 E-a8 E-b1 E-b2 E-b3 E-b4 E-c1 E-c1' E-c2 E-c3 E-c4 E-d1 E-d2 E-d3 E-d4 E-e1 E-e2 E-e3 E-e4 E-e4b E-e5 E-e6 E-e7 P-K1 P-K2 P-K2n P-K3a P-K3b P-K3c P-K3d P-K3e P-K3f P-K3g P-K3g' P-K3-need P-K4i P-K4ii P-K5 P-K6 P-K7 P-K9i P-K9ii P-K9iii P-K9iv P-H P-C P-C' P-K14a P-K14b P-K14c P-G P-K10 P-K11 P-K9i-EC P-K9i-FC P-K9i-WFFC P-K9ii-EC P-K9ii-FC P-K9ii-WFFC P-K9iii-EC P-K9iii-FC P-K9iii-WFFC P-K9iv-EC P-K9iv-FC P-K9iv-WFFC G-2.1 G-2.2 G-7.1 G-req1 G-req1'
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+E-a1           proved    29812/29812     12268/12268      5471/5471      12268/12268     12156/12156      5618/5618       6649/6649          0/0        PASS
+E-a2           proved    12268/12268     12268/12268      5471/5471      12268/12268     12156/12156      5618/5618       6649/6649          0/0        PASS
+E-a3           test          8/12268         8/12268         0/5471          8/12268         0/12156         8/5618          0/6649          0/0        REFUTED
+E-a4           test       2527/12268      2527/12268       309/5471       2527/12268      2527/12156      2247/5618        279/6649          0/0        REFUTED
+E-a5           test      12268/12268     12268/12268      5471/5471      12268/12268     12156/12156      5618/5618       6649/6649          0/0        holds on all tested
+E-a6           test       2527/12268      2527/12268       309/5471       2527/12268      2527/12156      2247/5618        279/6649          0/0        REFUTED
+E-a7           test      11539/12268     11539/12268      5471/5471      11539/12268     11427/12156      4889/5618       6649/6649          0/0        REFUTED
+E-a8           test        737/12268       737/12268         0/5471        737/12268       729/12156       737/5618          0/6649          0/0        REFUTED
+E-b1           test      12289/34910      9404/24536      4274/10942      9404/24536      9357/24312      4265/11236      5138/13298         0/0        REFUTED
+E-b2           test      11338/34910      7322/24536       985/10942      7322/24536      7220/24312      6249/11236      1071/13298         0/0        REFUTED
+E-b3           test       2272/34910       496/24536         0/10942       496/24536       496/24312       496/11236         0/13298         0/0        REFUTED
+E-b4           test      29114/34910     23807/24536     10942/10942     23807/24536     23583/24312     10507/11236     13298/13298         0/0        REFUTED
+E-c1           test      29457/29812     12156/12268      5471/5471      12156/12268     12156/12156      5506/5618       6649/6649          0/0        REFUTED
+E-c1'          test      29457/29457     12156/12156      5471/5471      12156/12156     12156/12156      5506/5506       6649/6649          0/0        holds on all tested
+E-c2           test      12268/12268     12268/12268      5471/5471      12268/12268     12156/12156      5618/5618       6649/6649          0/0        holds on all tested
+E-c3           test       2765/12094      2765/12094      2765/5471       2765/12094      2765/11982         0/5444       2765/6649          0/0        REFUTED
+E-c4           test      22599/34910     15203/24536      8289/10942     15203/24536     15144/24312      5661/11236      9541/13298         0/0        REFUTED
+E-d1           test       2740/34910      2535/24536       309/10942      2535/24536      2527/24312      2255/11236       279/13298         0/0        REFUTED
+E-d2           test      29004/34910     23807/24536     10942/10942     23807/24536     23583/24312     10507/11236     13298/13298         0/0        REFUTED
+E-d3           test       7639/34910      3264/24536       309/10942      3264/24536      3256/24312      2984/11236       279/13298         0/0        REFUTED
+E-d4           test       2061/34910      1619/24536       986/10942      1619/24536      1614/24312       488/11236      1131/13298         0/0        REFUTED
+E-e1           test      12228/12268     12228/12268      5471/5471      12228/12268     12156/12156      5578/5618       6649/6649          0/0        REFUTED
+E-e2           test      12234/12268     12234/12268      5471/5471      12234/12268     12156/12156      5584/5618       6649/6649          0/0        REFUTED
+E-e3           test      10912/12268     10912/12268      5344/5471      10912/12268     10800/12156      4379/5618       6532/6649          0/0        REFUTED
+E-e4           test         95/95           95/95            7/7            95/95           93/93           84/84           10/10            0/0        holds on all tested
+E-e4b          test         95/95           95/95            7/7            95/95           93/93           84/84           10/10            0/0        holds on all tested
+E-e5           test         95/95           95/95            7/7            95/95           93/93           84/84           10/10            0/0        holds on all tested
+E-e6           test         92/12156        92/12156         7/5471         92/12156        92/12156        82/5506         10/6649          0/0        REFUTED
+E-e7           test       1568/1588       1568/1588         96/96         1568/1588       1564/1564       1410/1430        157/157           0/0        REFUTED
+P-K1           proved    59624/59624     24536/24536     10942/10942     24536/24536     24312/24312     11236/11236     13298/13298         0/0        PASS
+P-K2           proved    34910/34910     24536/24536     10942/10942     24536/24536     24312/24312     11236/11236     13298/13298         0/0        PASS
+P-K2n          proved    59624/59624     24536/24536     10942/10942     24536/24536     24312/24312     11236/11236     13298/13298         0/0        PASS
+P-K3a          proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3b          proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3c          proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3d          proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3e          proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3f          proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3g          proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3g'         proved       46/46            2/2             2/2             2/2             2/2             0/0             2/2             0/0        PASS
+P-K3-need      test          0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        no applicable network
+P-K4i          test        352/352          48/48           48/48           48/48           48/48            0/0            48/48            0/0        holds on all tested
+P-K4ii         test        171/171          97/97            0/0            97/97           97/97           69/69           27/27            0/0        holds on all tested
+P-K5           test        523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        holds on all tested
+P-K6           test      15260/17455     10878/12268      5344/5471      10878/12268     10800/12156      4345/5618       6532/6649          0/0        REFUTED
+P-K7           proved      365/365         160/160          24/24          160/160         160/160         108/108          51/51            0/0        PASS
+P-K9i          test       9054/29612      7309/24496       985/10942      7309/24496      7220/24312      6236/11196      1071/13298         0/0        REFUTED
+P-K9ii         test      11742/29612      9457/24496      1887/10942      9457/24496      9321/24312      7167/11196      2288/13298         0/0        REFUTED
+P-K9iii        test       6154/29612      4526/24496       319/10942      4526/24496      4484/24312      4093/11196       431/13298         0/0        REFUTED
+P-K9iv         test      15729/29612     12650/24496      5288/10942     12650/24496     12562/24312      6056/11196      6592/13298         0/0        REFUTED
+P-H            proved    47267/47267     24536/24536     10942/10942     24536/24536     24312/24312     11236/11236     13298/13298         0/0        PASS
+P-C            proved      523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        PASS
+P-C'           proved      523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        PASS
+P-K14a         proved      523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        PASS
+P-K14b         proved      523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        PASS
+P-K14c         test          0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        no applicable network
+P-G            proved    29612/29612     24496/24496     10942/10942     24496/24496     24312/24312     11196/11196     13298/13298         0/0        PASS
+P-K10          proved      523/523         145/145          48/48          145/145         145/145          69/69           75/75            0/0        PASS
+P-K11          proved      352/352          48/48           48/48           48/48           48/48            0/0            48/48            0/0        PASS
+P-K9i-EC       test        414/414         205/205          48/48          205/205         205/205         129/129          75/75            0/0        holds on all tested
+P-K9i-FC       test         27/27            4/4             2/2             4/4             4/4             2/2             2/2             0/0        holds on all tested
+P-K9i-WFFC     test         24/24            2/2             2/2             2/2             2/2             0/0             2/2             0/0        holds on all tested
+P-K9ii-EC      test        414/414         205/205          48/48          205/205         205/205         129/129          75/75            0/0        holds on all tested
+P-K9ii-FC      test         27/27            4/4             2/2             4/4             4/4             2/2             2/2             0/0        holds on all tested
+P-K9ii-WFFC    test         24/24            2/2             2/2             2/2             2/2             0/0             2/2             0/0        holds on all tested
+P-K9iii-EC     test        414/414         205/205          48/48          205/205         205/205         129/129          75/75            0/0        holds on all tested
+P-K9iii-FC     test         27/27            4/4             2/2             4/4             4/4             2/2             2/2             0/0        holds on all tested
+P-K9iii-WFFC   test         24/24            2/2             2/2             2/2             2/2             0/0             2/2             0/0        holds on all tested
+P-K9iv-EC      test        414/414         205/205          48/48          205/205         205/205         129/129          75/75            0/0        holds on all tested
+P-K9iv-FC      test         27/27            4/4             2/2             4/4             4/4             2/2             2/2             0/0        holds on all tested
+P-K9iv-WFFC    test         24/24            2/2             2/2             2/2             2/2             0/0             2/2             0/0        holds on all tested
+G-2.1          proved    29812/29812     12268/12268      5471/5471      12268/12268     12156/12156      5618/5618       6649/6649          0/0        PASS
+G-2.2          proved    19367/19367     12268/12268      5471/5471      12268/12268     12156/12156      5618/5618       6649/6649          0/0        PASS
+G-7.1          proved       10/10            2/2             1/1             2/2             2/2             1/1             1/1             0/0        PASS
+G-req1         test      12234/12268     12234/12268      5471/5471      12234/12268     12156/12156      5584/5618       6649/6649          0/0        REFUTED
+G-req1'        test      12208/12228     12208/12228      5471/5471      12208/12228     12156/12156      5558/5578       6649/6649          0/0        REFUTED
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+E-a1: WR: P(N) refines M(N*) iff no complex is the source of two reactions (every linkage class is a directed cycle)
+E-a2: WR+H: M(N) refines P(N*) iff M(N) is discrete iff im Gamma has no vector supported on exactly two species
+E-a3: H: P(N) = M(N*) (reaction side, equality)
+   counterexample (side N; n=4, r=2, s=1, H=True, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4
+     N*: k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2
+E-a4: H: P(N*) = M(N) (species side, equality)
+   counterexample (side N; n=4, r=3, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4
+     N*: 2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3
+E-a5: H: P(N*) refines M(N) (species side; exceptional class = some twin pair not conservation-coupled)
+E-a6: H: M(N) refines P(N*) (species side)
+   counterexample (side N; n=4, r=3, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4
+     N*: 2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3
+E-a7: H: P(N) refines M(N*) (reaction side; exceptional class = some doubling pair not fully coupled)
+   counterexample (side N; n=4, r=4, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X3, X4 -> X1 + 2X2, X3 -> X4, X1 + 2X2 -> X4
+     N*: k4 -> k2, 2k4 -> 2k2, k3 -> k1, k1 + k2 -> k3 + k4
+E-a8: H: M(N*) refines P(N) (reaction side)
+   counterexample (side N; n=4, r=2, s=1, H=True, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4
+     N*: k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2
+E-b1: (H1),(H2) for the side's network (both sides): every MIPS block is a union of minimal siphons
+   counterexample (side N; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-b2: (H1),(H2) for the side's network (both sides): every minimal siphon is a union of MIPS blocks
+   counterexample (side D; n=4, r=3, s=2, H=False, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : 2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4
+     N*: k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+E-b3: (H1),(H2) for the side's network (both sides): every precluster of the dual is a union of minimal siphons
+   counterexample (side D; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-b4: (H1),(H2) for the side's network (both sides): every minimal siphon is a union of preclusters of the dual
+   counterexample (side N; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-c1: WR: P(N) v M(N*) (join of partitions = image lattice of the Galois connection) = linkage classes
+   counterexample (side N; n=4, r=4, s=2, H=False, H*=False, WR=True, WR*=False, def=1, family=(4, 3, 4, '')):
+     N : X4 -> 2X4, 2X4 -> 3X4, 3X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k4 -> k3, k4 -> k3, k4 -> k3, k1 + 2k2 + 3k3 -> 2k1 + 3k2 + k4
+E-c1': WR, deficiency 0: P(N) v M(N*) = linkage classes
+E-c2: H: P(N) v M(N*) refines the linkage-class partition
+E-c3: H: P(N*) v M(N) is the one-block partition when N is connected (species side join)
+   counterexample (side N; n=4, r=2, s=1, H=True, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4
+     N*: k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2
+E-c4: (H1),(H2) for the side's network (both sides): join(P(dual), M) = join(P(dual), M, minimal siphons) (siphons add nothing to the join)
+   counterexample (side N; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-d1: (H1),(H2) for the side's network (both sides): non-singleton blocks of P(dual) = non-singleton blocks of M
+   counterexample (side D; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-d2: (H1),(H2) for the side's network (both sides): non-singleton blocks of P(dual) refine M (singletons removed)
+   counterexample (side N; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-d3: (H1),(H2) for the side's network (both sides): non-singleton blocks of M lie in blocks of P(dual)
+   counterexample (side D; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-d4: (H1),(H2) for the side's network (both sides): non-singleton minimal siphons = non-singleton blocks of P(dual)
+   counterexample (side D; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X4 -> X1 + X2 + X3, X1 + X2 + X3 -> X4
+     N*: k2 -> k1, k2 -> k1, k2 -> k1, k1 -> k2
+E-e1: WR+H: N* has (H1)-(H3) as well (dual inherits the hypotheses)
+   counterexample (side N; n=4, r=4, s=2, H=True, H*=False, WR=True, WR*=False, def=1, family=(4, 3, 4, '')):
+     N : 2X4 -> X1 + 2X2, X3 + X4 -> 2X4, 2X3 -> X3 + X4, X1 + 2X2 -> 2X3
+     N*: k4 -> k1, 2k4 -> 2k1, k2 + 2k3 -> k3 + 2k4, 2k1 + k2 -> 2k2 + k3
+E-e2: WR+H: ADLS criterion (no critical siphon) for N implies it for N*
+   counterexample (side N; n=4, r=4, s=2, H=True, H*=True, WR=True, WR*=False, def=1, family=(4, 3, 4, '')):
+     N : 2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4
+     N*: k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4
+E-e3: WR+H: ADLS criterion for N* implies it for N
+   counterexample (side N; n=4, r=3, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : X3 -> X2 + 2X4, X2 + 2X4 -> X1 + X4, X1 + X4 -> X3
+     N*: k3 -> k2, k2 -> k1, k1 -> k3, 2k2 + k3 -> 2k1 + k2
+E-e4: WR+H and N* WR: ADLS(N) iff ADLS(N*)
+E-e4b: N and N* both WR with (H1)-(H3): ADLS(N) iff ADLS(N*)
+E-e5: WR+H and N* WR: N* satisfies (H1)-(H3)
+E-e6: WR+H, deficiency 0: N* has deficiency 0
+   counterexample (side N; n=4, r=2, s=1, H=True, H*=True, WR=True, WR*=True, def=0, family=(4, 3, 4, '')):
+     N : X2 + 2X4 -> X1 + 2X3, X1 + 2X3 -> X2 + 2X4
+     N*: k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2
+E-e7: WR+H: the dual satisfies (H1)-(H3) and has no critical siphon whenever N has none (ADLS transfer under H*)
+   counterexample (side N; n=4, r=4, s=2, H=True, H*=True, WR=True, WR*=False, def=1, family=(4, 3, 4, '')):
+     N : 2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4
+     N*: k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4
+P-K1: no hypothesis: a minimal siphon contains at most one species of each class of species with the same set of consuming reactions (both sides)
+P-K2: (H1) side N / (H2) side D: P(dual) refines S iff no twin pair and every element lies in a minimal siphon
+P-K2n: no hypothesis (P's latest version of K2): P(dual) refines S iff no twin pair and every element lies in a minimal siphon (preclusters computed by crn.py even when the dual is not consistent)
+P-K3a: WF-FC: the dual is WF-FC (Hack)
+P-K3b: WF-FC: extreme conservation rays = 0/1 indicators of minimal siphons
+P-K3c: WF-FC: extreme flux rays = 0/1 indicators of minimal T-traps (minimal siphons of the dual)
+P-K3d: WF-FC: ray MIPS = classes of species lying in the same minimal siphons
+P-K3e: WF-FC: profile rule gives P(dual)
+P-K3f: WF-FC: N and N* have no critical siphon
+P-K3g: WF-FC: no twin pair conservation-coupled; P(dual)<=M iff JF; P(dual)=M fails if n>=2; P(dual)<=S iff JF
+P-K3g': WF-FC: reaction side: no doubling pair fully coupled; P<=M(dual) iff CF; P=M(dual) fails if r>=2; P<=S(dual) iff CF
+P-K3-need: FC+(H1)+(H2)+connected but rank equation violated: (b)-(e) all hold (expected to FAIL somewhere: the rank equation is needed)
+P-K4i: well-formed EC (EC, connected, (H1), (H2), s = #doubling classes - 1) with balanced joins: semiflow supports = minimal siphons
+P-K4ii: well-formed EC without balanced joins: semiflow supports = minimal siphons
+P-K5: EC, connected, (H1), (H2): s >= #doubling classes - 1
+P-K6: (H1),(H2): N has no critical siphon iff N* has no critical siphon
+   counterexample (side N; n=4, r=2, s=1, H=False, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : X3 + 2X4 -> X1 + X2 + X4, X1 + X2 + X4 -> X3 + 2X4
+     N*: k2 -> k1, k2 -> k1, k1 -> k2, 2k1 + k2 -> k1 + 2k2
+P-K7: WR+EC: distinct complexes have disjoint supports, deficiency 0, minimal siphons = semiflow supports, no critical siphon; with (H3)+ordinary every complex is one species
+P-K9i: (H1)-(H3) on the side's network: every minimal siphon is a union of ray-MIPS blocks
+   counterexample (side D; n=4, r=3, s=2, H=False, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : 2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4
+     N*: k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+P-K9ii: (H1)-(H3) on the side's network: every ray-MIPS block lies in a minimal siphon
+   counterexample (side D; n=4, r=3, s=2, H=False, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : 2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4
+     N*: k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+P-K9iii: (H1)-(H3) on the side's network: minimal siphons = semiflow supports
+   counterexample (side D; n=4, r=3, s=2, H=False, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : 2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4
+     N*: k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+P-K9iv: (H1)-(H3) on the side's network: every semiflow support is a union of minimal siphons
+   counterexample (side D; n=4, r=3, s=2, H=False, H*=True, WR=True, WR*=False, def=0, family=(4, 3, 4, '')):
+     N : 2X4 -> X3, X3 -> X1 + X2 + X4, X1 + X2 + X4 -> 2X4
+     N*: k3 -> k2, k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+P-H: (H1) for the side's network (so its dual is consistent): every block of P(dual) with >= 2 elements is a union of MIPS blocks
+P-C: well-formed EC (EC, connected, (H1), (H2), s = m-1): no critical siphon and minimal siphons = supports of extreme conservation laws
+P-C': well-formed EC: the dual has no critical siphon (every T-trap contains an internal cycle)
+P-K14a: well-formed EC: minimal T-traps (minimal siphons of the dual) = internal cycles
+P-K14b: well-formed EC and pure: minimal siphons = semiflow supports = internal cycles of the dual
+P-K14c: well-formed EC and NOT pure: minimal siphons = semiflow supports (is purity needed?)
+P-G: (H1)-(H3): minimal siphons = semiflow supports implies every minimal siphon is a union of MIPS and every MIPS lies in a minimal siphon
+P-K10: EC, connected, (H1), (H2), m = #source complexes: if s = m-1 then for k = 1 and 3 seeded random rational k, ker A_k is a line spanned by a positive vector; if s >= m, some tested k has no positive steady state
+P-K11: EC with balanced joins, connected, (H1), (H2): [N has a positive steady state for all tested k] = [N* has one for all tested kappa] = [s = #clusters - 1] (k, kappa: all ones and 3 seeded random rationals)
+P-K9i-EC: (H1)-(H3) and EC on the side's network: K9(i)
+P-K9i-FC: (H1)-(H3) and FC on the side's network: K9(i)
+P-K9i-WFFC: (H1)-(H3) and WFFC on the side's network: K9(i)
+P-K9ii-EC: (H1)-(H3) and EC on the side's network: K9(ii)
+P-K9ii-FC: (H1)-(H3) and FC on the side's network: K9(ii)
+P-K9ii-WFFC: (H1)-(H3) and WFFC on the side's network: K9(ii)
+P-K9iii-EC: (H1)-(H3) and EC on the side's network: K9(iii)
+P-K9iii-FC: (H1)-(H3) and FC on the side's network: K9(iii)
+P-K9iii-WFFC: (H1)-(H3) and WFFC on the side's network: K9(iii)
+P-K9iv-EC: (H1)-(H3) and EC on the side's network: K9(iv)
+P-K9iv-FC: (H1)-(H3) and FC on the side's network: K9(iv)
+P-K9iv-WFFC: (H1)-(H3) and WFFC on the side's network: K9(iv)
+G-2.1: all networks: q = beta* + delta* (q = n - s, beta* = n - m* + l*); if N* WR then l* + delta* <= q; q = 1 and N* WR => l* = 1, delta* = 0, dual graph one directed cycle
+G-2.2: WR+(H3): source rows distinct, product rows distinct; N* WR iff {source rows} = {product rows}; then m* = n, l* = c(pi), delta* = q - c(pi), each pi-orbit sums to a conservation law; q = 1 => pi one n-cycle
+G-7.1: WR + (H1) + every row of Ye has sum <= 1: disjoint cycles (each complex source of one reaction), deficiency 0, no critical siphon; with (H3) every complex is one species
+G-req1: (H1)-(H3) for N, N WR: the ADLS criterion holds for N but fails for N* (count of witnesses; 'holds' = no witness)
+   counterexample (side N; n=4, r=4, s=2, H=True, H*=True, WR=True, WR*=False, def=1, family=(4, 3, 4, '')):
+     N : 2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4
+     N*: k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4
+G-req1': (H1)-(H3) for N and N*, N WR: ADLS(N) and not ADLS(N*) (witnesses)
+   counterexample (side N; n=4, r=4, s=2, H=True, H*=True, WR=True, WR*=False, def=1, family=(4, 3, 4, '')):
+     N : 2X4 -> 2X3, X3 + X4 -> X1 + 2X2, 2X3 -> X3 + X4, X1 + 2X2 -> 2X4
+     N*: k4 -> k2, 2k4 -> 2k2, k2 + 2k3 -> 2k1 + k3, 2k1 + k2 -> k3 + 2k4
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 8.6 s

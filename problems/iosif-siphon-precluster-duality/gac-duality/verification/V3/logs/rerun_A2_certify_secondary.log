@@ -1,0 +1,94 @@
+Environment: Python standard library; exact integer/Fraction arithmetic.
+Runtime: expected <1 second; measured below.
+PASS: AF-network-3-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-3-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-4-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-5-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-6-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-7-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-8-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-9-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-1: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-2: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-3: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-4: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-5: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-6: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-7: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-8: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-9: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-network-10-10: positive conservation/flux, WR, rank two, distinct rows.
+PASS: AF-count: 80 finite parameter pairs checked; general family proof is in notes.md.
+PASS: AF-NONE-unit: u=3,R=2,rates=1,T=1: c' <= -c^2.
+PASS: E-selector: Yp=Ye*Sigma, using the three-cycle selector.
+PASS: E-lift: Ye*R=Pi, R=[[-1,0],[1,-1],[0,1]].
+PASS: E-positive-Gram: exact positive Hessian witness at kappa=(11,1,4,1), t=0: [[48, -35], [-35, 36]].
+PASS: O-equilibrium: k=(1,1,1/100), rates=(17,400,70000,1000000), flux=(17,4,7,1).
+PASS: O-Jacobian: reduced Jacobian [[-59,3658],[-25,79]].
+PASS: O-source: trace=20, determinant=86789; eigenvalues 10 +/- i sqrt(86689).
+PASS: O-quadratic-source: H positive definite, det(H)=1177283151421, J^T H+H J=3471560 I.
+PASS: O-initial: x0=(1,99/100,1/50) is a different positive point in the same class.
+PASS: O-uniqueness-identity: b'-2c'=(2 beta c-alpha)b+9 delta c^3; monotone equilibrium parametrization in notes.md.
+Runtime seconds: 0.005701

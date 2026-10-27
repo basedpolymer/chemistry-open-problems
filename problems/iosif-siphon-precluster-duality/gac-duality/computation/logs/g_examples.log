@@ -1,0 +1,30 @@
+# g_examples.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2
+PASS G3a.1: dual of M is 3U + 2V -> 2U + 3V, V -> U
+PASS G3a.2: both Gamma = [[-1,1],[1,-1]]
+PASS G3a.3: M and D satisfy (H1)-(H3)
+PASS G3a.4: M weakly reversible, deficiency 0, one linkage class
+PASS G3a.5: D: 4 complexes, 2 linkage classes, deficiency 1, not WR
+PASS G3a.6: w=(0,1): a w-maximal source among w-essential reactions points outward (D not endotactic)
+PASS G3b.1: h'(v) = (2-v)^2 (2-4v) for h(v) = (2-v)^3 v
+PASS G3b.2: h(1/8) = 3375/4096, h(1) = 1
+PASS G3b.3: h' > 0 on [0,1/8] (sign of (2-v)^2(2-4v): 2-4v >= 3/2 there) and h(1/8) - 1 = -721/4096
+PASS G3b.4: mass action with unit rates: v' = u^3 v^2 - v for D, a' = a^2 (b - a) for M
+PASS G3c: u+v=2: h increases on (0,1/2) from 0 to 27/16 and decreases to 0 on (1/2,2): exactly two positive equilibria, v=1 and one v0 in (1/8,1/2)
+PASS G5.1: H is WR with (H1)-(H3); only minimal siphon {A,B}; ADLS holds
+PASS G5.2: dual of H: 2k1 + 2k3 + k4 -> 2k2 + k3 + 2k4, 2k2 + k4 -> 2k1 + k3
+PASS G5.3: dual has (H1)-(H3), {U4} is a siphon with row (1,-1): no conservation law on it; ADLS fails
+PASS G10.1: 575 reversible unions + 130 cycles = 705 networks
+PASS G10.2: 702 satisfy (H3)
+PASS G10.3: ADLS both / only N / only N* / neither = 18 / 177 / 0 / 507
+PASS G10.4: 13 have a WR dual
+PASS G10.5: q = beta* + delta* on all 702
+PASS G4.1a: 5-species example: 10 reactions, 10 complexes, 2 linkage classes, s=4, deficiency 4, WR, (H1)-(H3)
+PASS G4.1b: its dual is one 5-cycle with deficiency 0: k1 + 2k2 + k7 + 2k8 -> k5 + 2k6 + k9 + 2k10, k3 + 2k4 + k9 + 2k10 -> k1 + 2k2 + k7 + 2k8, k1 + 2k2 + k5 + 2k6 -> k3 + 2k4 + k9 + 2k10, k3 + 2k4 + k7 + 2k8 -> k1 + 2k2 + k5 + 2k6, k5 + 2k6 + k9 + 2k10 -> k3 + 2k4 + k7 + 2k8
+PASS G4.1c: {X1,X2,X3} is a critical minimal siphon (critical: [frozenset({0, 1, 2}), frozenset({1, 2, 3}), frozenset({0, 1, 4}), frozenset({0, 3, 4}), frozenset({2, 3, 4})])
+PASS G4.1d: the 5-species example is strongly endotactic (exact)
+PASS G4.1e: A->B->C->D->A, A+C<->B+D: WR, (H3), q=1, dual WR, NOT strongly endotactic (primality needed)
+PASS G4.1f: w=(3,2,1,2): the maximal sources (height 4) carry only w-orthogonal reactions
+PASS G8.1a: Gamma, rank 2, deficiency 0, dual WR with deficiency 0
+PASS G8.1b: J_S = [[-15, 27], [24, -25]], det = -273 (saddle)
+PASS G8.1c: 10A+2C -> 9A+3B, 2A+B -> 3C, 10B+C -> 3A+8B has the same Gamma
+# runtime 9.7 s

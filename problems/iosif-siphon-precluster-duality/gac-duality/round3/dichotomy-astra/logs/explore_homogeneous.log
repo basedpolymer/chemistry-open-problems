@@ -1,0 +1,21 @@
+Environment: Python standard library; certificates use exact rationals.
+Runtime: measured at end; expected under 5 minutes.
+EXAMPLE (2, 'ALL') ((0, 0, 2), (0, 2, 0), (2, 0, 0)) []
+COUNTS 2 {(2, 'ALL'): 2}
+EXAMPLE (3, 'ALL') ((0, 0, 3), (0, 2, 1), (2, 1, 0)) []
+COUNTS 3 {(2, 'ALL'): 2, (3, 'ALL'): 18}
+EXAMPLE (4, 'ALL') ((0, 0, 4), (0, 2, 2), (3, 1, 0)) []
+EXAMPLE (4, 'NONE') ((0, 0, 4), (0, 3, 1), (2, 1, 1)) [('E', (2,), 'ESC', ('zero-flow', 1, [Fraction(0, 1), Fraction(1, 2)])), ('L', (0, 2), ('lyap', 4, 1, [Fraction(0, 1)]))]
+EXAMPLE (4, 'UNDECIDED') ((0, 0, 4), (1, 2, 1), (2, 1, 1)) []
+COUNTS 4 {(2, 'ALL'): 2, (3, 'ALL'): 18, (4, 'ALL'): 49, (4, 'NONE'): 33, (4, 'UNDECIDED'): 16}
+EXAMPLE (5, 'ALL') ((0, 0, 5), (0, 2, 3), (3, 2, 0)) []
+EXAMPLE (5, 'UNDECIDED') ((0, 0, 5), (0, 3, 2), (3, 1, 1)) []
+EXAMPLE (5, 'NONE') ((0, 0, 5), (0, 4, 1), (3, 0, 2)) [('E', (2,), 'OUT', ('zero-flow', None, [Fraction(0, 1), Fraction(0, 1)]))]
+COUNTS 5 {(2, 'ALL'): 2, (3, 'ALL'): 18, (4, 'ALL'): 49, (4, 'NONE'): 33, (4, 'UNDECIDED'): 16, (5, 'ALL'): 101, (5, 'UNDECIDED'): 140, (5, 'NONE'): 81}
+EXAMPLE (6, 'UNDECIDED') ((0, 0, 6), (0, 3, 3), (3, 2, 1)) []
+EXAMPLE (6, 'ALL') ((0, 0, 6), (0, 3, 3), (4, 2, 0)) []
+EXAMPLE (6, 'NONE') ((0, 0, 6), (0, 5, 1), (3, 1, 2)) [('E', (2,), 'OUT', ('zero-flow', None, [Fraction(0, 1), Fraction(0, 1)]))]
+COUNTS 6 {(2, 'ALL'): 2, (3, 'ALL'): 18, (4, 'ALL'): 49, (4, 'NONE'): 33, (4, 'UNDECIDED'): 16, (5, 'ALL'): 101, (5, 'UNDECIDED'): 140, (5, 'NONE'): 81, (6, 'UNDECIDED'): 309, (6, 'ALL'): 132, (6, 'NONE'): 141}
+PASS: H0 imported certificates have no conflict.
+Claim homogeneous implies ALL: REFUTED
+Runtime seconds: 2.984

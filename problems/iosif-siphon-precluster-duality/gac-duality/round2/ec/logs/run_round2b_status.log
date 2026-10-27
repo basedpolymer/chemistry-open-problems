@@ -1,0 +1,9 @@
+beyond_ec exit 143
+k8s n4 exit 0
+dual P 2 3 5 0 exit 0
+dual P 3 2 5 0 exit 0
+dual P 3 3 6 1 exit 0
+dual P 4 2 5 1 exit 0
+dual P 4 2 4 0 exit 0
+dual P 3 3 4 0 exit 0
+dual U n3 r5 exit 0

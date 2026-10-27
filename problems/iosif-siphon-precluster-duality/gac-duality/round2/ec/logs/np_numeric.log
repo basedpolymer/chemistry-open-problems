@@ -1,0 +1,2 @@
+NP solutions per (k, class), 40 samples: {np.int64(1): np.int64(40)}
+NP* solutions per (k, class), 40 samples: {np.int64(1): np.int64(40)}

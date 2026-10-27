@@ -1,0 +1,17 @@
+Environment: Python 3.14.0 ; standard library; exact rationals.
+Runtime: expected <1 second; measured below.
+PASS: A-matrix: Gamma=[[1,-1,0],[1,0,-1],[-3,2,1],[0,3,-3]].
+PASS: A-H1: positive conservation vector (11,1,4,1); complex values (12,12,12).
+PASS: A-H2: positive flux (1,1,1).
+PASS: A-H3: all four stoichiometric rows distinct.
+PASS: A-rank: rank 2; displayed 2x2 minor equals 1.
+PASS: A-WR: directed three-cycle; deficiency 3-1-2=0.
+PASS: A-dual: b->a; b+c->a+b; 3a+2c->2b+3c; 3c->3b.
+PASS: A-classes: classes are a+b+c=T, T>0.
+PASS: A-OUT: only siphon facet {c}; transverse order 1, OUT, one-way flow.
+PASS: A-field: three displayed mass-action equations; sum zero.
+PASS: A-integrating-factor: alpha*c*(log(c*exp(-beta*b/alpha)))' = alpha*c' - beta*c*b'; exact polynomial identity.
+PASS: A-general-margin: bracket >= gamma*T^3/8-E*epsilon >= gamma*T^3/16 for the stated epsilon.
+PASS: A-unit-example: rates=(1,1,1,1), T=1, epsilon=1/128, (log V)' >= c/16.
+PASS: A-proof-artifact: complete all-rates/all-classes proof in notes.md Sections 2.2--2.3.
+Runtime seconds: 0.001414

@@ -1,0 +1,6 @@
+# sample_wr.py n=6 m=3 R in [5,8] count=10000 seed=4 homog=False cons=True s in [4]; Python 3.12.15 on Linux
+# 10000 distinct networks kept after 92754 draws (70.8 s)
+#   s=4: 10000 networks, 8883 with (H1)-(H3), 8625 of these with deficiency 0, 0 with WR dual
+# records written to sample_6_3_5_8_s4.pkl.gz
+PASS C1: all 10000 sampled networks WR, s in target, conservative
+# runtime 89.7 s

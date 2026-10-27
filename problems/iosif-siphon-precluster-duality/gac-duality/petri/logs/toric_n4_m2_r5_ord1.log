@@ -1,0 +1,4 @@
+# check_toric.py n=4 m=2 r<=5 ordinary=1 NK=3; Python 3.12.15 on Linux
+PASS  K10 WF-EC: ker A_k one-dimensional and positive for all sampled k: 34/34
+REPORT  non-WF EC (H1,H2,connected): property holds for 0/32  e.g. failure ((((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1))), ('rank', 1, 2, [Fraction(1, 1), Fraction(1, 1), Fraction(1, 1)]))
+# runtime 157.0 s

@@ -308,3 +308,18 @@ progress journal. Global topology ordering remains unresolved.
   Blanchini and Giordano (2022, p. 6), who observed it first; the GAC is noted as claimed in full by Craciun's
   arXiv v3 and by OpenAI's preprint on boundedness and persistence of weakly reversible mass-action systems
   (25 September 2026).
+
+## 28 October 2026
+
+- Result 17 (Iosif's duality), manuscript rewritten from scratch (28 October 2026) as "Iosif's network duality is the
+  Petri-net reverse dual: what it transfers and what it does not" (41 pages); the earlier report moves to
+  `archive/paper-precise-forms.*`. The duality is identified with the weighted reverse dual of Petri nets. Preclusters
+  are repaired by the Conradi–Flockerzi clusters and related to siphons by transversality. On the self-dual cluster
+  rank class the duality transfers the absence of critical siphons and persistence, and on proportional-conflict
+  networks uniqueness and stability (network NC3 shows the boundary). Outside it, persistence and convergence are lost:
+  a weakly reversible deficiency-zero network has a persistent dual with a periodic orbit. Rank-one persistence of the
+  dual is decided exactly; the rank-two dichotomy is open. Research agents: Claude Opus 5.5 (xhigh) and GPT-6-Astra
+  (xhigh); literature: Claude Opus 5.5 (xhigh, and medium for the second search); verification V1–V3 and reviews
+  R1–R2: Claude Opus 5.5 (xhigh). 130 exact claims PASS. Status stays "partial result".
+- Root README: the Status column now gives only the result type; dates and verification notes were removed, and
+  unverified results are marked "not yet verified". Halvorsen–Skogestad: `Archive/` renamed `archive/`.

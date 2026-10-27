@@ -1,0 +1,10 @@
+# check_wfec_families.py n=4 molecularity<=2 r<=5 ordinary=1; Python 3.12.15 on Linux
+# counts: EC=66, WF=34, WF impure=16, WF unbalanced=0, WF impure unbalanced=0
+PASS  C [WF]: 34/34
+REPORT  C [nonWF]: 0/32  smallest failure: X3 + X4 -> X2 + X4, X3 + X4 -> X1 + X3, X1 + X2 -> X3 + X4
+PASS  U1 [WF]: 34/34
+PASS  U1d [WF]: 34/34
+REPORT  U1d [nonWF]: 0/32  smallest failure: X3 + X4 -> X2 + X4, X3 + X4 -> X1 + X3, X1 + X2 -> X3 + X4
+PASS  U2 [WF]: 34/34
+REPORT  U2 [nonWF]: 0/32  smallest failure: X3 + X4 -> X2 + X4, X3 + X4 -> X1 + X3, X1 + X2 -> X3 + X4
+# runtime 24.6 s

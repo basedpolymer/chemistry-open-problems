@@ -1,0 +1,62 @@
+# check_families.py; Python 3.12.15 on Linux; families ['wr_6_2_5_homog.pkl.gz']
+## family wr_6_2_5_homog.pkl.gz: 740 networks with (H1),(H2); 100.6 s
+   CF determined (D): 740
+   CF determined (N): 740
+   Condition 3.1 at generic V (D): 348
+   Condition 3.1 at generic V (N): 730
+   Condition 3.1 fails at generic V (D): 392   smallest: n=6 (((0, 0, 0, 0, 0, 2), (0, 0, 0, 1, 1, 0)), ((0, 0, 0, 1, 1, 0), (0, 0, 0, 0, 0, 2)), ((0, 0, 1, 0, 0, 1), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 1, 0, 0, 1)))
+   Condition 3.1 fails at generic V (N): 10   smallest: n=6 (((0, 0, 0, 0, 0, 2), (0, 0, 0, 0, 1, 1)), ((0, 0, 0, 0, 1, 1), (0, 0, 0, 0, 2, 0)), ((0, 0, 0, 0, 2, 0), (0, 0, 0, 0, 0, 2)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 1, 1, 0, 0)))
+   EC sides with pi+ one block (D): 29
+   EC sides with pi+ one block (N): 29
+   P != Pcs (N): 1   smallest: n=6 (((0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0)), ((0, 0, 0, 0, 1, 1), (1, 1, 0, 0, 0, 0)), ((0, 0, 1, 1, 0, 0), (0, 0, 0, 0, 1, 1)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 0, 0, 1, 1)))
+   Pcs != pi (D): 462   smallest: n=6 (((0, 0, 0, 0, 0, 2), (0, 0, 0, 0, 1, 1)), ((0, 0, 0, 0, 1, 1), (0, 0, 0, 0, 0, 2)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 1, 1, 0, 0)))
+   Pcs != pi (N): 560   smallest: n=6 (((0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 0, 0, 1, 1)))
+   WR0 sides with pi+ = linkage classes (D): 8
+   WR0 sides with pi+ = linkage classes (N): 729
+   checked K1 D: 740
+   checked K1 N: 740
+   checked K2 D: 740
+   checked K2 N: 740
+   checked K3 D: 740
+   checked K3 N: 740
+   checked K4 D: 29
+   checked K4 N: 29
+   checked K5 D: 8
+   checked K5 N: 729
+   checked K6 D: 348
+   checked K6 N: 730
+   checked K7: 740
+   isolation (R23 for CF) (D): 348   smallest: n=6 (((0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 0, 0, 1, 1)))
+   isolation (R23 for CF) (N): 730   smallest: n=6 (((0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 0, 0, 1, 1)))
+   networks: 740
+   networks with (H3): 251
+   pi != CF (D): 7   smallest: n=6 (((0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 0, 0, 1, 1)))
+   reaction side Q1 fails: 594   smallest: n=6 (((0, 0, 0, 0, 0, 2), (0, 0, 0, 0, 1, 1)), ((0, 0, 0, 0, 1, 1), (0, 0, 0, 0, 0, 2)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 1, 1, 0, 0)))
+   reaction side Q1 holds: 146
+   reaction side Q2 fails: 35   smallest: n=6 (((0, 0, 0, 0, 0, 2), (0, 0, 0, 0, 1, 1)), ((0, 0, 0, 0, 1, 1), (0, 0, 0, 0, 2, 0)), ((0, 0, 0, 0, 2, 0), (0, 0, 0, 0, 0, 2)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 1, 1, 0, 0)))
+   reaction side Q2 holds: 705
+   reaction side Q3 fails: 561   smallest: n=6 (((0, 0, 0, 0, 0, 2), (0, 0, 0, 0, 1, 1)), ((0, 0, 0, 0, 1, 1), (0, 0, 0, 0, 0, 2)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 1, 1, 0, 0)))
+   reaction side Q3 holds: 179
+   species side Q1 fails: 730   smallest: n=6 (((0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 0, 0, 1, 1)))
+   species side Q1 holds: 10
+   species side Q1 holds, (H3): 8
+   species side Q2 fails: 457   smallest: n=6 (((0, 0, 0, 0, 0, 2), (0, 0, 0, 1, 1, 0)), ((0, 0, 0, 1, 1, 0), (0, 0, 0, 0, 0, 2)), ((0, 0, 1, 0, 0, 1), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 1, 0, 0, 1)))
+   species side Q2 holds: 283
+   species side Q2 holds, (H3): 15
+   species side Q3 fails: 546   smallest: n=6 (((0, 0, 0, 0, 1, 1), (0, 0, 1, 1, 0, 0)), ((0, 0, 1, 1, 0, 0), (1, 1, 0, 0, 0, 0)), ((1, 1, 0, 0, 0, 0), (0, 0, 0, 0, 1, 1)))
+   species side Q3 holds: 194
+   species side Q3 holds, (H3): 183
+PASS K1 D on wr_6_2_5_homog.pkl.gz: 740 checked, 0 failures
+PASS K1 N on wr_6_2_5_homog.pkl.gz: 740 checked, 0 failures
+PASS K2 D on wr_6_2_5_homog.pkl.gz: 740 checked, 0 failures
+PASS K2 N on wr_6_2_5_homog.pkl.gz: 740 checked, 0 failures
+PASS K3 D on wr_6_2_5_homog.pkl.gz: 740 checked, 0 failures
+PASS K3 N on wr_6_2_5_homog.pkl.gz: 740 checked, 0 failures
+PASS K4 D on wr_6_2_5_homog.pkl.gz: 29 checked, 0 failures
+PASS K4 N on wr_6_2_5_homog.pkl.gz: 29 checked, 0 failures
+PASS K5 D on wr_6_2_5_homog.pkl.gz: 8 checked, 0 failures
+PASS K5 N on wr_6_2_5_homog.pkl.gz: 729 checked, 0 failures
+PASS K6 D on wr_6_2_5_homog.pkl.gz: 348 checked, 0 failures
+PASS K6 N on wr_6_2_5_homog.pkl.gz: 730 checked, 0 failures
+PASS K7 on wr_6_2_5_homog.pkl.gz: 740 checked, 0 failures
+# runtime 100.6 s; 0 FAIL

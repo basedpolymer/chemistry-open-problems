@@ -1,0 +1,11 @@
+PASS (2, 2, 4): ALL + NONE = networks (4 + 8 = 12); ALL share 4/12 = 0.3333
+PASS (2, 3, 6): ALL + NONE = networks (115 + 345 = 460); ALL share 115/460 = 0.2500
+PASS (2, 4, 6): ALL + NONE = networks (381 + 3163 = 3544); ALL share 381/3544 = 0.1075
+PASS (2, 5, 5): ALL + NONE = networks (662 + 2080 = 2742); ALL share 662/2742 = 0.2414
+PASS (3, 2, 6): ALL + NONE = networks (4 + 8 = 12); ALL share 4/12 = 0.3333
+PASS (3, 3, 6): ALL + NONE = networks (101 + 325 = 426); ALL share 101/426 = 0.2371
+PASS (3, 4, 5): ALL + NONE = networks (245 + 584 = 829); ALL share 245/829 = 0.2955
+PASS (4, 3, 4): ALL + NONE = networks (1 + 0 = 1); ALL share 1/1 = 1.0000
+families with more than one network: ALL share from 381/3544 = 0.1075 to 1/3 = 0.3333
+FAIL paper's lower bound 17 %: smallest share 10.75 % is NOT at least 16.5 %
+FAILS: 1

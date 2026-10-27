@@ -1,0 +1,17 @@
+success True steps 72167 tmax 30000000.0
+upward crossings of b = 1: 13
+loop  0: t = 0.000168623, period 0.000168623, min log10 c = -1.71, min log10 b = -0.00, max a = 1.0000, sum-T = 3.1e-13
+loop  1: t = 950617, period 950617, min log10 c = -11.73, min log10 b = -18.64, max a = 2.0100, sum-T = 2.8e-13
+loop  2: t = 3.46324e+06, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 7.9e-12
+loop  3: t = 5.97586e+06, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.5e-11
+loop  4: t = 8.48848e+06, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 2.5e-11
+loop  5: t = 1.10011e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 2.5e-11
+loop  6: t = 1.35137e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.9e-11
+loop  7: t = 1.60263e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.9e-11
+loop  8: t = 1.8539e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.6e-11
+loop  9: t = 2.10516e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.7e-11
+loop 10: t = 2.35642e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.9e-11
+loop 11: t = 2.60768e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.9e-11
+loop 12: t = 2.85894e+07, period 2.51262e+06, min log10 c = -12.15, min log10 b = -19.48, max a = 2.0100, sum-T = 1.9e-11
+final point (t=3e+07): a=2.01 b=1.70408e-19 c=1.59629e-12
+# runtime 29.5 s (numerical illustration only)

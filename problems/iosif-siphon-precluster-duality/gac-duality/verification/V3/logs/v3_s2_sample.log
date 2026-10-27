@@ -1,0 +1,5 @@
+# v3_s2_sample.py  Python 3.12.15 on Linux; exact; nk=3
+# D2 verdicts recomputed: {'ALL': 4873, 'NONE': 13817, 'UNDECIDED': 171}
+PASS: no Hurwitz boundary vertex equilibrium found in 4873 ALL networks x 3 rate vectors x 11 class scalings (10^-6..10^6, anisotropic)
+# information: among 3000 sampled NONE networks, 796 show a Hurwitz vertex equilibrium for some sampled (kappa, scaling) (other NONE mechanisms: non-hyperbolic vertices, edges, theta-scalings)
+# runtime 93.0 s

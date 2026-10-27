@@ -1,0 +1,10 @@
+# e_examples.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2
+PASS E1.1: Y5 is WR, deficiency 0, (H1)-(H3)
+PASS E1.2: P(Y5) = [[0], [1, 2, 3, 4, 5, 6]], M(Y5*) = [[0], [1, 4], [2, 5], [3, 6]]: the join has 2 blocks, Y5 one linkage class
+PASS E2.1: k1 T^3 v* <= k2/2 with v* = min(T, k2/(2 k1 T^3)) > 0 on a grid of (k1, k2, T)
+PASS E2.2: V is a drain species of D (source V of V->U, producing reaction has V-coefficient 2 > 1); D has (H1)-(H3)
+PASS E2.3: M = D* = 3k1 -> 2k1 + k2, 2k1 + k2 -> 3k1: reversible, one linkage class, deficiency 0, (H1)-(H3), no drain species
+PASS E3: N = 3X1 -> 2X1 + X2, 2X1 + X2 -> 3X1 WR with (H1)-(H3); N* = 3k1 + 2k2 -> 2k1 + 3k2, k2 -> k1 has drain species [1]; s = 1
+PASS E3: N = 3X3 -> X2, X2 -> X1 + 2X3, X1 + 2X3 -> 3X3 WR with (H1)-(H3); N* = k3 -> k2, k2 -> k1, 3k1 + 2k3 -> 2k2 + 3k3 has drain species [2]; s = 2
+PASS E3: N = X4 -> 3X3, 3X3 -> X1 + 2X2, 3X2 -> X4, X1 + 2X2 -> 3X2 WR with (H1)-(H3); N* = k4 -> k2, 3k3 + 2k4 -> 2k2 + 3k4, 3k2 -> 3k1, k1 -> k3 has drain species [3]; s = 3
+# runtime 0.0 s

@@ -1,0 +1,7 @@
+# v3_rank1_enum.py n=2 m=4 R=6  Python 3.12.15 on Linux; exact
+networks 3544 (generator sanity failures 0): ALL 381, NONE 3163 (with an OUT face 1833), DOM-only 0; duals with a DOM face: 0
+  smallest ALL: X2 -> X1, X1 -> X2
+  smallest NONE: 2X2 -> X1+X2, X1+X2 -> 2X2
+PASS: counts equal Q1's table (3544, 381, 3163, 1833, 0) (got (3544, 381, 3163, 1833, 0))
+PASS: R5 no DOM face in any dual (Theorem S1-WR) and generator sanity
+# runtime 3.3 s

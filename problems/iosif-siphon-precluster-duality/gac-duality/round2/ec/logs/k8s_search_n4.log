@@ -1,0 +1,4 @@
+# k8s_search.py n=4 mol<=2 r in [3,6] samples=4000x6 seed=1; Python 3.12.15 on Linux
+# strong (H1)-(H3) networks with a twin pair: 33
+# labelled keys: 150; witness: none
+# runtime 5.7 s

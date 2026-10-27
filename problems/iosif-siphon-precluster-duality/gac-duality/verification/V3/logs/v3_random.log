@@ -1,0 +1,13 @@
+# v3_random.py seed=271027  Python 3.12.15 on Linux; sympy 1.14.0; exact
+PASS: RW1 S1-WR: no DOM face in the dual of 2669 random WR rank-one networks (verdicts {'ALL': 1314, 'NONE': 1355, 'DOM-only': 0})
+PASS: RW2 S1-WR weak hypothesis (extreme complexes are sources): no DOM face in 2745 random duals
+PASS: RW3 Theorem W: no DOM facet set (siphon or not) in the duals of random WR networks: s=2: 525 networks / 2150 facet sets, s=3: 1088 / 7903
+PASS: RW4 q = beta* + delta* on 1953 random networks
+PASS: RW5 Prop 2.2 on 2237 WR networks with (H3) (1270 with WR dual)
+PASS: RW6 WR-Sigma: k_j' = G_{y'_j}(P) - G_{y_j}(P) on 40 random WR networks
+# runtime 7.9 s
+ALL CLAIMS PASS
+
+real	0m8.353s
+user	0m8.218s
+sys	0m0.077s

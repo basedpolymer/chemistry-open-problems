@@ -1,0 +1,98 @@
+# enumerate_ec.py n=4 molecularity<=2 r<=4 ordinary=0; Python 3.12.15 on Linux
+# class counts: EC=1057, FC=31, H3=980, WF=692, WF-EC-weighted=670, WF-FC=22, WR=30
+PASS  K1 min T-traps meet each same-reactant-support class in <= 1 reaction: 1057/1057
+PASS  K1 min T-traps of N = min siphons of N*: 1057/1057
+PASS  K1 min siphons meet each same-consumer class in <= 1 species: 1057/1057
+PASS  K2 Q3 reaction side iff no doubling pair and every reaction in a min T-trap: 1057/1057
+PASS  K2 Q3 species side iff no twins and every species in a min siphon: 1057/1057
+PASS  K3a N* is WF-FC: 22/22
+PASS  K3b extreme conservation laws = 0/1 indicators of the minimal siphons: 22/22
+PASS  K3b minimal siphons are S-components: 22/22
+PASS  K3c extreme flux rays = 0/1 indicators of the minimal T-traps (T-components): 22/22
+PASS  K3d ray MIPS(N) = atoms of the minimal siphons: 22/22
+PASS  K3d ray MIPS(N*) = atoms of the minimal T-traps: 22/22
+PASS  K3e profile rule gives P(N): 22/22
+PASS  K3e profile rule gives P(N*): 22/22
+PASS  K3f no critical siphons in N and N*: 22/22
+PASS  K3g A1 fails (n>=2), B1 fails (r>=2): 22/22
+PASS  K3g A2 iff JF, B2 iff CF: 22/22
+PASS  K3g Q3 species side iff JF, reaction side iff CF: 22/22
+PASS  K3g twins never conservation-coupled, doubling pairs never fully coupled: 22/22
+PASS  K3h live and bounded from M0 = (1,...,1): 22/22
+PASS  K7 WR+EC: deficiency 0: 30/30
+PASS  K7 WR+EC: min siphons = supports of extreme conservation laws: 30/30
+PASS  K7 WR+EC: no critical siphon: 30/30
+PASS  RT WF (rank equation) iff live+bounded from the Teruel-Silva marking: 1057/1057
+# reports (holds/total per class; not PASS/FAIL)
+REPORT  [EC] K4 extreme conservation laws are 0/1: 755/1057  smallest failure: (((0, 0, 1, 1), (0, 2, 0, 0)), ((0, 0, 1, 1), (2, 0, 0, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [FC] K4 extreme conservation laws are 0/1: 31/31
+REPORT  [H3] K4 extreme conservation laws are 0/1: 738/980  smallest failure: (((0, 0, 0, 1), (0, 0, 2, 0)), ((0, 1, 1, 0), (1, 1, 0, 0)), ((2, 0, 0, 0), (0, 0, 0, 1)))
+REPORT  [WF] K4 extreme conservation laws are 0/1: 463/692  smallest failure: (((0, 0, 0, 1), (0, 0, 2, 0)), ((0, 1, 1, 0), (1, 1, 0, 0)), ((2, 0, 0, 0), (0, 0, 0, 1)))
+REPORT  [WF-EC-weighted] K4 extreme conservation laws are 0/1: 441/670  smallest failure: (((0, 0, 0, 1), (0, 0, 2, 0)), ((0, 1, 1, 0), (1, 1, 0, 0)), ((2, 0, 0, 0), (0, 0, 0, 1)))
+REPORT  [WF-FC] K4 extreme conservation laws are 0/1: 22/22
+REPORT  [WR] K4 extreme conservation laws are 0/1: 9/30  smallest failure: (((0, 0, 0, 1), (0, 1, 1, 0)), ((0, 1, 1, 0), (2, 0, 0, 0)), ((2, 0, 0, 0), (0, 0, 0, 1)))
+REPORT  [EC] K4 min siphons = supports of extreme conservation laws: 692/1057  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [FC] K4 min siphons = supports of extreme conservation laws: 22/31  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [H3] K4 min siphons = supports of extreme conservation laws: 622/980  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [WF] K4 min siphons = supports of extreme conservation laws: 692/692
+REPORT  [WF-EC-weighted] K4 min siphons = supports of extreme conservation laws: 670/670
+REPORT  [WF-FC] K4 min siphons = supports of extreme conservation laws: 22/22
+REPORT  [WR] K4 min siphons = supports of extreme conservation laws: 30/30
+REPORT  [EC] K5 s >= #EC sets - 1: 1057/1057
+REPORT  [FC] K5 s >= #EC sets - 1: 31/31
+REPORT  [H3] K5 s >= #EC sets - 1: 980/980
+REPORT  [WF] K5 s >= #EC sets - 1: 692/692
+REPORT  [WF-EC-weighted] K5 s >= #EC sets - 1: 670/670
+REPORT  [WF-FC] K5 s >= #EC sets - 1: 22/22
+REPORT  [WR] K5 s >= #EC sets - 1: 30/30
+REPORT  [EC] K6 (no crit N) == (no crit N*): 1057/1057
+REPORT  [FC] K6 (no crit N) == (no crit N*): 31/31
+REPORT  [H3] K6 (no crit N) == (no crit N*): 980/980
+REPORT  [WF] K6 (no crit N) == (no crit N*): 692/692
+REPORT  [WF-EC-weighted] K6 (no crit N) == (no crit N*): 670/670
+REPORT  [WF-FC] K6 (no crit N) == (no crit N*): 22/22
+REPORT  [WR] K6 (no crit N) == (no crit N*): 30/30
+REPORT  [EC] K6 no critical siphon in N: 692/1057  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [FC] K6 no critical siphon in N: 22/31  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [H3] K6 no critical siphon in N: 622/980  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [WF] K6 no critical siphon in N: 692/692
+REPORT  [WF-EC-weighted] K6 no critical siphon in N: 670/670
+REPORT  [WF-FC] K6 no critical siphon in N: 22/22
+REPORT  [WR] K6 no critical siphon in N: 30/30
+REPORT  [EC] K6 no critical siphon in N*: 692/1057  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [FC] K6 no critical siphon in N*: 22/31  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [H3] K6 no critical siphon in N*: 622/980  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [WF] K6 no critical siphon in N*: 692/692
+REPORT  [WF-EC-weighted] K6 no critical siphon in N*: 670/670
+REPORT  [WF-FC] K6 no critical siphon in N*: 22/22
+REPORT  [WR] K6 no critical siphon in N*: 30/30
+REPORT  [EC] K9i every min siphon is a union of MIPS blocks: 692/1057  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [FC] K9i every min siphon is a union of MIPS blocks: 22/31  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [H3] K9i every min siphon is a union of MIPS blocks: 622/980  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [WF] K9i every min siphon is a union of MIPS blocks: 692/692
+REPORT  [WF-EC-weighted] K9i every min siphon is a union of MIPS blocks: 670/670
+REPORT  [WF-FC] K9i every min siphon is a union of MIPS blocks: 22/22
+REPORT  [WR] K9i every min siphon is a union of MIPS blocks: 30/30
+REPORT  [EC] K9ii every MIPS block lies in a min siphon: 697/1057  smallest failure: (((0, 0, 1, 1), (0, 2, 0, 0)), ((0, 0, 1, 1), (2, 0, 0, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [FC] K9ii every MIPS block lies in a min siphon: 27/31  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 1, 1, 0)), ((1, 1, 0, 0), (1, 0, 0, 1)))
+REPORT  [H3] K9ii every MIPS block lies in a min siphon: 627/980  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 0, 1)), ((1, 1, 0, 0), (0, 0, 2, 0)))
+REPORT  [WF] K9ii every MIPS block lies in a min siphon: 692/692
+REPORT  [WF-EC-weighted] K9ii every MIPS block lies in a min siphon: 670/670
+REPORT  [WF-FC] K9ii every MIPS block lies in a min siphon: 22/22
+REPORT  [WR] K9ii every MIPS block lies in a min siphon: 30/30
+REPORT  [EC] K9iii min siphons = semiflow supports: 692/1057  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [FC] K9iii min siphons = semiflow supports: 22/31  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [H3] K9iii min siphons = semiflow supports: 622/980  smallest failure: (((0, 0, 1, 1), (0, 1, 0, 1)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+REPORT  [WF] K9iii min siphons = semiflow supports: 692/692
+REPORT  [WF-EC-weighted] K9iii min siphons = semiflow supports: 670/670
+REPORT  [WF-FC] K9iii min siphons = semiflow supports: 22/22
+REPORT  [WR] K9iii min siphons = semiflow supports: 30/30
+REPORT  [EC] K9iv every semiflow support is a union of min siphons: 1057/1057
+REPORT  [FC] K9iv every semiflow support is a union of min siphons: 31/31
+REPORT  [H3] K9iv every semiflow support is a union of min siphons: 980/980
+REPORT  [WF] K9iv every semiflow support is a union of min siphons: 692/692
+REPORT  [WF-EC-weighted] K9iv every semiflow support is a union of min siphons: 670/670
+REPORT  [WF-FC] K9iv every semiflow support is a union of min siphons: 22/22
+REPORT  [WR] K9iv every semiflow support is a union of min siphons: 30/30
+REPORT  K8 (H3 class): groups (n, twin classes, minimal siphons) with >1 distinct P(N*): 0
+# runtime 98.1 s

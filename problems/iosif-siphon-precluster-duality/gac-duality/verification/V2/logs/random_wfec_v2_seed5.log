@@ -1,0 +1,29 @@
+seed 5: generated EC 120, PC 120, GEN 120, negative controls 30, tries 28995
+PASS C': N* has no critical siphon: 120/120
+PASS C: N has no critical siphon: 120/120
+INFO CR probe [GEN, not PC]: J|_S Hurwitz at random point: 68/68
+PASS Cgen [GEN]: N has no critical siphon: 120/120
+PASS Cgen [GEN]: N* has no critical siphon: 120/120
+PASS Cgen [PC]: N has no critical siphon: 120/120
+PASS Cgen [PC]: N* has no critical siphon: 120/120
+PASS Cgen [unconstrained random]: no critical siphon in N and N*: 113/113
+PASS GS/U(b): G(x) Metzler, irreducible, G(x)u(k) = 0 at random (x,k): 240/240
+PASS K5gen [GEN]: s >= q - 1: 120/120
+PASS K5gen [PC]: s >= q - 1: 120/120
+PASS K5gen [unconstrained random]: s >= q - 1: 240/240
+PASS PC(c): J*|_S* Hurwitz at random point (N*): 240/240
+PASS PC(c): J|_S Hurwitz at random point (N): 240/240
+PASS PC: N is PC and N* is PC with the same cluster count and rank: 120/120
+PASS T: ker A_k one-dimensional and positive (random k): 240/240
+PASS U(b): det(tI-J) = t^(n-s) q(t), q Hurwitz, at random non-steady x: 240/240
+PASS U(c): sigma(S) cap sigma(D^perp) = {0} (maximal minors): 120/120
+PASS U*(a): det(tI-J*) = t^(r-s) q(t), q Hurwitz, at random k: 240/240
+PASS control: EC with s >= m -> Hurwitz test fails at a positive steady state: 30/30
+PASS generator: WF-EC (EC, connected, H1, H2, s = m-1): 120/120
+INFO info: PC network neither EC nor BH: 7/120
+INFO info: S != D (Birch does not apply): 114/120
+INFO info: impure: 101/120
+INFO info: unbalanced joins: 42/120
+INFO info[GEN]: rank-equation network that is not PC: 34/120
+INFO info[unconstrained]: cluster-rank network not EC: 5/113
+runtime 43.3 s

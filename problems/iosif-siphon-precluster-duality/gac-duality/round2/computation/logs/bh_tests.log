@@ -1,0 +1,11 @@
+# bh_tests.py count=400 seed=3; Python 3.12.15 on Linux; exact; msolve 0.10.1
+# 88 block-homogeneous networks (connected, (H1), (H2), s = #blocks - 1) after 800000 draws
+PASS dual WF-EC: 88/88
+PASS no critical siphon in K: 88/88
+PASS no critical siphon in K*: 88/88
+PASS absolutely consistent (decided cases): 88/88
+PASS Jacobian on S Hurwitz at 6 random points: 88/88
+PASS msolve: exactly one positive steady state (2 samples): 88/88
+# absolute-consistency verdicts: {'AC0': 64, 'ACB': 4, 'OPEN': 3, 'AC1': 17}; EC among them: 66
+PASS: all claims
+# runtime 324.0 s

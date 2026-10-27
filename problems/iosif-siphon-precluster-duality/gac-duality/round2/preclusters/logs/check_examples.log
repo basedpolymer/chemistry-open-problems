@@ -1,0 +1,278 @@
+# check_examples.py; Python 3.12.15 on Linux
+## R: n=2 r=2 s=1  P={{R1}, {R2}}  Pcs={{R1}, {R2}}  pi={{R1,R2}}  pi+={{R1,R2}}  CFup={{R1,R2}}  M*={{R1,R2}}
+PASS X1-chain R
+PASS X1-join R
+## T: n=3 r=3 s=2  P={{R1}, {R2}, {R3}}  Pcs={{R1}, {R2}, {R3}}  pi={{R1,R2,R3}}  pi+={{R1,R2,R3}}  CFup={{R1,R2,R3}}  M*={{R1,R2,R3}}
+PASS X1-chain T
+PASS X1-join T
+## W: n=3 r=4 s=2  P={{R1,R2,R3,R4}}  Pcs={{R1,R2,R3,R4}}  pi={{R1,R2,R3,R4}}  pi+={{R1,R2,R3,R4}}  CFup={{R1,R2,R3,R4}}  M*={{R1,R3}, {R2,R4}}
+PASS X1-chain W
+PASS X1-join W
+## U: n=4 r=3 s=2  P={{R1}, {R2}, {R3}}  Pcs={{R1}, {R2}, {R3}}  pi={{R1,R2,R3}}  pi+={{R1,R2,R3}}  CFup={{R1,R2,R3}}  M*={{R1,R2,R3}}
+PASS X1-chain U
+PASS X1-join U
+## D: n=3 r=3 s=2  P={{R1,R2,R3}}  Pcs={{R1,R2,R3}}  pi={{R1,R2,R3}}  pi+={{R1,R2,R3}}  CFup={{R1,R2,R3}}  M*={{R1,R2,R3}}
+PASS X1-chain D
+PASS X1-join D
+## F: n=6 r=6 s=3  P={{R1,R2,R3,R4,R5,R6}}  Pcs={{R1,R2,R3,R4,R5,R6}}  pi={{R1,R2,R3,R4,R5,R6}}  pi+={{R1,R2,R3,R4,R5,R6}}  CFup={{R1,R2,R3,R4,R5,R6}}  M*={{R1}, {R2}, {R3,R6}, {R4}, {R5}}
+PASS X1-chain F
+PASS X1-join F
+## N3: n=2 r=3 s=1  P={{R1,R2,R3}}  Pcs={{R1,R2,R3}}  pi={{R1,R2,R3}}  pi+={{R1,R2,R3}}  CFup={{R1,R2,R3}}  M*={{R1}, {R2}, {R3}}
+PASS X1-chain N3
+PASS X1-join N3
+## N4.12: n=2 r=2 s=1  P={{R1}, {R2}}  Pcs={{R1}, {R2}}  pi={{R1,R2}}  pi+={{R1,R2}}  CFup={{R1,R2}}  M*={{R1,R2}}
+PASS X1-chain N4.12
+PASS X1-join N4.12
+## B2: n=4 r=5 s=3  P={{R1,R2,R3,R4,R5}}  Pcs={{R1,R2,R3,R4,R5}}  pi={{R1,R2,R3,R4,R5}}  pi+={{R1,R2,R3,R4,R5}}  CFup={{R1,R2,R3,R4,R5}}  M*={{R1,R3}, {R2,R4}, {R5}}
+PASS X1-chain B2
+PASS X1-join B2
+## B3: n=5 r=7 s=4  P={{R1,R2,R3,R4,R5,R6}, {R7}}  Pcs={{R1,R2,R3,R4,R5,R6,R7}}  pi={{R1,R2,R3,R4,R5,R6,R7}}  pi+={{R1,R2,R3,R4,R5,R6,R7}}  CFup={{R1,R2,R3,R4,R5,R6,R7}}  M*={{R1,R4}, {R2,R5}, {R3,R6}, {R7}}
+PASS X1-chain B3
+PASS X1-join B3
+## K3: n=3 r=6 s=2  P={{R1,R2}, {R3,R4}, {R5,R6}}  Pcs={{R1,R2}, {R3,R4}, {R5,R6}}  pi={{R1,R2}, {R3,R4}, {R5,R6}}  pi+={{R1,R2,R3,R4,R5,R6}}  CFup={{R1,R2,R3,R4,R5,R6}}  M*={{R1}, {R2}, {R3}, {R4}, {R5}, {R6}}
+PASS X1-chain K3
+PASS X1-join K3
+## XY4: n=2 r=4 s=1  P={{R1,R2}, {R3,R4}}  Pcs={{R1,R2}, {R3,R4}}  pi={{R1,R2}, {R3,R4}}  pi+={{R1,R2}, {R3,R4}}  CFup={{R1,R2}, {R3,R4}}  M*={{R1}, {R2}, {R3}, {R4}}
+PASS X1-chain XY4
+PASS X1-join XY4
+## Y5: n=5 r=7 s=4  P={{R1}, {R2,R3,R4,R5,R6,R7}}  Pcs={{R1,R2,R3,R4,R5,R6,R7}}  pi={{R1,R2,R3,R4,R5,R6,R7}}  pi+={{R1,R2,R3,R4,R5,R6,R7}}  CFup={{R1,R2,R3,R4,R5,R6,R7}}  M*={{R1}, {R2,R5}, {R3,R6}, {R4,R7}}
+PASS X1-chain Y5
+PASS X1-join Y5
+## Z4: n=2 r=4 s=1  P={{R1}, {R2}, {R3,R4}}  Pcs={{R1}, {R2}, {R3,R4}}  pi={{R1}, {R2}, {R3,R4}}  pi+={{R1}, {R2}, {R3,R4}}  CFup={{R1}, {R2}, {R3,R4}}  M*={{R1}, {R2}, {R3}, {R4}}
+PASS X1-chain Z4
+PASS X1-join Z4
+## B3split: n=6 r=8 s=5  P={{R1,R2,R3,R4,R5,R6,R7,R8}}  Pcs={{R1,R2,R3,R4,R5,R6,R7,R8}}  pi={{R1,R2,R3,R4,R5,R6,R7,R8}}  pi+={{R1,R2,R3,R4,R5,R6,R7,R8}}  CFup={{R1,R2,R3,R4,R5,R6,R7,R8}}  M*={{R1,R4}, {R2,R5}, {R3,R6}, {R7}, {R8}}
+PASS X1-chain B3split
+PASS X1-join B3split
+## B2dup: n=4 r=6 s=3  P={{R1,R2,R3,R4}, {R5,R6}}  Pcs={{R1,R2,R3,R4}, {R5,R6}}  pi={{R1,R2,R3,R4}, {R5,R6}}  pi+={{R1,R2,R3,R4,R5,R6}}  CFup={{R1,R2,R3,R4,R5,R6}}  M*={{R1,R3}, {R2,R4}, {R5}, {R6}}
+PASS X1-chain B2dup
+PASS X1-join B2dup
+## N4.12dup: n=2 r=3 s=1  P={{R1,R2,R3}}  Pcs={{R1,R2,R3}}  pi={{R1,R2,R3}}  pi+={{R1,R2,R3}}  CFup={{R1,R2,R3}}  M*={{R1}, {R2}, {R3}}
+PASS X1-chain N4.12dup
+PASS X1-join N4.12dup
+PASS X2 B3: P 2 blocks, Pcs = pi = CF = 1 block
+PASS X2 B3 split binary: P = 1 block
+PASS X3 N4.12: P = Pcs = singletons; pi = CF = 1 block
+PASS X3 N4.12 with R1 duplicated: P = 1 block
+PASS X4 B2dup: pi 2 blocks, CF = 1 block (lower bound pi+ = upper bound)
+PASS X4 B2: pi = 1 block
+PASS X5 K3: pi = 3 blocks, CF upper = 1 block
+PASS X5 K3: one-block certificate (minor rows (0, 1))
+PASS X5 B2dup: one-block certificate (minor rows (0,))
+PASS X6 XY4: kappa at generic V [Fraction(1662168, 1), Fraction(1803465, 1), Fraction(1526366, 1), Fraction(1385069, 1)] is one block
+PASS X6 XY4: pi = pi+ = CF = 2 blocks (split witness V_a = V_b, V_d = V_e)
+PASS X6 XY4: kappa at V = (1,1,2,2) has 2 blocks
+PASS X9 B2dup: pi = Pcs = 2 blocks; after splitting {R1,R2}: pi = Pcs = 1 block
+PASS X6 Z4: kappa_gen = CF = {R1},{R2},{R3,R4}; kappa at V = (1,1,2,2) = {R1,R2},{R3,R4} (coarser)
+PASS X7-dup R duplicate R1
+PASS X7-dup R duplicate R2
+PASS X7-split R split ['R1']
+PASS X7-split R split ['R2']
+PASS X7-dup T duplicate R1
+PASS X7-dup T duplicate R2
+PASS X7-dup T duplicate R3
+PASS X7-split T split ['R1']
+PASS X7-split T split ['R2']
+PASS X7-split T split ['R3']
+PASS X7-dup W duplicate R1
+PASS X7-dup W duplicate R2
+PASS X7-dup W duplicate R3
+PASS X7-dup W duplicate R4
+PASS X7-split W split ['R1']
+PASS X7-split W split ['R2']
+PASS X7-split W split ['R1', 'R2']
+PASS X7-split W split ['R3']
+PASS X7-split W split ['R4']
+PASS X7-dup U duplicate R1
+PASS X7-dup U duplicate R2
+PASS X7-dup U duplicate R3
+PASS X7-split U split ['R1']
+PASS X7-split U split ['R2']
+PASS X7-split U split ['R3']
+PASS X7-dup D duplicate R1
+PASS X7-dup D duplicate R2
+PASS X7-dup D duplicate R3
+PASS X7-split D split ['R1']
+PASS X7-split D split ['R2']
+PASS X7-split D split ['R1', 'R2']
+PASS X7-split D split ['R3']
+PASS X7-dup F duplicate R1
+PASS X7-dup F duplicate R2
+PASS X7-dup F duplicate R3
+PASS X7-dup F duplicate R4
+PASS X7-dup F duplicate R5
+PASS X7-dup F duplicate R6
+PASS X7-split F split ['R1']
+PASS X7-split F split ['R2']
+PASS X7-split F split ['R3']
+PASS X7-split F split ['R2', 'R3']
+PASS X7-split F split ['R4']
+PASS X7-split F split ['R5']
+PASS X7-split F split ['R6']
+PASS X7-split F split ['R5', 'R6']
+PASS X7-dup N3 duplicate R1
+PASS X7-dup N3 duplicate R2
+PASS X7-dup N3 duplicate R3
+PASS X7-split N3 split ['R1']
+PASS X7-split N3 split ['R2']
+PASS X7-split N3 split ['R3']
+PASS X7-split N3 split ['R2', 'R3']
+PASS X7-dup N4.12 duplicate R1
+PASS X7-dup N4.12 duplicate R2
+PASS X7-split N4.12 split ['R1']
+PASS X7-split N4.12 split ['R2']
+PASS X7-dup B2 duplicate R1
+PASS X7-dup B2 duplicate R2
+PASS X7-dup B2 duplicate R3
+PASS X7-dup B2 duplicate R4
+PASS X7-dup B2 duplicate R5
+PASS X7-split B2 split ['R1']
+PASS X7-split B2 split ['R2']
+PASS X7-split B2 split ['R1', 'R2']
+PASS X7-split B2 split ['R3']
+PASS X7-split B2 split ['R4']
+PASS X7-split B2 split ['R5']
+PASS X7-dup B3 duplicate R1
+PASS X7-dup B3 duplicate R2
+PASS X7-dup B3 duplicate R3
+PASS X7-dup B3 duplicate R4
+PASS X7-dup B3 duplicate R5
+PASS X7-dup B3 duplicate R6
+PASS X7-dup B3 duplicate R7
+PASS X7-split B3 split ['R1']
+PASS X7-split B3 split ['R2']
+PASS X7-split B3 split ['R3']
+PASS X7-split B3 split ['R1', 'R2']
+PASS X7-split B3 split ['R1', 'R3']
+PASS X7-split B3 split ['R2', 'R3']
+PASS X7-split B3 split ['R1', 'R2', 'R3']
+PASS X7-split B3 split ['R4']
+PASS X7-split B3 split ['R5']
+PASS X7-split B3 split ['R6']
+PASS X7-split B3 split ['R7']
+PASS X7-dup K3 duplicate R1
+PASS X7-dup K3 duplicate R2
+PASS X7-dup K3 duplicate R3
+PASS X7-dup K3 duplicate R4
+PASS X7-dup K3 duplicate R5
+PASS X7-dup K3 duplicate R6
+PASS X7-split K3 split ['R1']
+PASS X7-split K3 split ['R2']
+PASS X7-split K3 split ['R1', 'R2']
+PASS X7-split K3 split ['R3']
+PASS X7-split K3 split ['R4']
+PASS X7-split K3 split ['R3', 'R4']
+PASS X7-split K3 split ['R5']
+PASS X7-split K3 split ['R6']
+PASS X7-split K3 split ['R5', 'R6']
+PASS X7-dup XY4 duplicate R1
+PASS X7-dup XY4 duplicate R2
+PASS X7-dup XY4 duplicate R3
+PASS X7-dup XY4 duplicate R4
+PASS X7-split XY4 split ['R1']
+PASS X7-split XY4 split ['R2']
+PASS X7-split XY4 split ['R1', 'R2']
+PASS X7-split XY4 split ['R3']
+PASS X7-split XY4 split ['R4']
+PASS X7-split XY4 split ['R3', 'R4']
+PASS X7-dup Y5 duplicate R1
+PASS X7-dup Y5 duplicate R2
+PASS X7-dup Y5 duplicate R3
+PASS X7-dup Y5 duplicate R4
+PASS X7-dup Y5 duplicate R5
+PASS X7-dup Y5 duplicate R6
+PASS X7-dup Y5 duplicate R7
+PASS X7-split Y5 split ['R1']
+PASS X7-split Y5 split ['R2']
+PASS X7-split Y5 split ['R3']
+PASS X7-split Y5 split ['R4']
+PASS X7-split Y5 split ['R2', 'R3']
+PASS X7-split Y5 split ['R2', 'R4']
+PASS X7-split Y5 split ['R3', 'R4']
+PASS X7-split Y5 split ['R2', 'R3', 'R4']
+PASS X7-split Y5 split ['R5']
+PASS X7-split Y5 split ['R6']
+PASS X7-split Y5 split ['R7']
+PASS X7-dup Z4 duplicate R1
+PASS X7-dup Z4 duplicate R2
+PASS X7-dup Z4 duplicate R3
+PASS X7-dup Z4 duplicate R4
+PASS X7-split Z4 split ['R1']
+PASS X7-split Z4 split ['R2']
+PASS X7-split Z4 split ['R3']
+PASS X7-split Z4 split ['R4']
+PASS X7-split Z4 split ['R3', 'R4']
+PASS X7-dup B3split duplicate R1
+PASS X7-dup B3split duplicate R2
+PASS X7-dup B3split duplicate R3
+PASS X7-dup B3split duplicate R4
+PASS X7-dup B3split duplicate R5
+PASS X7-dup B3split duplicate R6
+PASS X7-dup B3split duplicate R7
+PASS X7-dup B3split duplicate R8
+PASS X7-split B3split split ['R1']
+PASS X7-split B3split split ['R8']
+PASS X7-split B3split split ['R1', 'R8']
+PASS X7-split B3split split ['R2']
+PASS X7-split B3split split ['R3']
+PASS X7-split B3split split ['R2', 'R3']
+PASS X7-split B3split split ['R4']
+PASS X7-split B3split split ['R5']
+PASS X7-split B3split split ['R6']
+PASS X7-split B3split split ['R7']
+PASS X7-dup B2dup duplicate R1
+PASS X7-dup B2dup duplicate R2
+PASS X7-dup B2dup duplicate R3
+PASS X7-dup B2dup duplicate R4
+PASS X7-dup B2dup duplicate R5
+PASS X7-dup B2dup duplicate R6
+PASS X7-split B2dup split ['R1']
+PASS X7-split B2dup split ['R2']
+PASS X7-split B2dup split ['R1', 'R2']
+PASS X7-split B2dup split ['R3']
+PASS X7-split B2dup split ['R4']
+PASS X7-split B2dup split ['R5']
+PASS X7-split B2dup split ['R6']
+PASS X7-split B2dup split ['R5', 'R6']
+PASS X7-dup N4.12dup duplicate R1
+PASS X7-dup N4.12dup duplicate R2
+PASS X7-dup N4.12dup duplicate R3
+PASS X7-split N4.12dup split ['R1']
+PASS X7-split N4.12dup split ['R3']
+PASS X7-split N4.12dup split ['R1', 'R3']
+PASS X7-split N4.12dup split ['R2']
+PASS X8-reaction R: doubling pairs all fully coupled = True
+PASS X8-species R: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2}} vs M(N) {{X1,X2}}
+PASS X8-reaction T: doubling pairs all fully coupled = True
+PASS X8-species T: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2,X3}} vs M(N) {{X1,X2,X3}}
+PASS X8-reaction W: doubling pairs all fully coupled = False
+PASS X8-species W: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2,X3}} vs M(N) {{X1,X2,X3}}
+PASS X8-reaction U: doubling pairs all fully coupled = True
+PASS X8-species U: twin pairs all conservation-coupled = False; CF(N*) {{X1,X2,X3,X4}} vs M(N) {{X1}, {X2}, {X3}, {X4}}
+PASS X8-reaction D: doubling pairs all fully coupled = True
+PASS X8-species D: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2,X3}} vs M(N) {{X1,X2,X3}}
+PASS X8-reaction F: doubling pairs all fully coupled = False
+PASS X8-species F: twin pairs all conservation-coupled = False; CF(N*) {{S0,S1,E,F,ES0,FS1}} vs M(N) {{S0,S1}, {E}, {F}, {ES0}, {FS1}}
+PASS X8-reaction N3: doubling pairs all fully coupled = False
+PASS X8-species N3: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2}} vs M(N) {{X1,X2}}
+PASS X8-reaction N4.12: doubling pairs all fully coupled = True
+PASS X8-species N4.12: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2}} vs M(N) {{X1,X2}}
+PASS X8-reaction B2: doubling pairs all fully coupled = False
+PASS X8-species B2: twin pairs all conservation-coupled = True; CF(N*) {{X,Y1,Y2,Z}} vs M(N) {{X,Y1,Y2,Z}}
+PASS X8-reaction B3: doubling pairs all fully coupled = False
+PASS X8-species B3: twin pairs all conservation-coupled = True; CF(N*) {{X,Y1,Y2,Y3,Z}} vs M(N) {{X,Y1,Y2,Y3,Z}}
+PASS X8-reaction K3: doubling pairs all fully coupled = False
+PASS X8-species K3: twin pairs all conservation-coupled = True; CF(N*) {{X,Y,Z}} vs M(N) {{X,Y,Z}}
+PASS X8-reaction XY4: doubling pairs all fully coupled = False
+PASS X8-species XY4: twin pairs all conservation-coupled = True; CF(N*) {{X,Y}} vs M(N) {{X,Y}}
+PASS X8-reaction Y5: doubling pairs all fully coupled = False
+PASS X8-species Y5: twin pairs all conservation-coupled = True; CF(N*) {{A,B,C,D,E}} vs M(N) {{A,B,C,D,E}}
+PASS X8-reaction Z4: doubling pairs all fully coupled = False
+PASS X8-species Z4: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2}} vs M(N) {{X1,X2}}
+PASS X8-reaction B3split: doubling pairs all fully coupled = False
+PASS X8-species B3split: twin pairs all conservation-coupled = True; CF(N*) {{X,Y1,Y2,Y3,Z,W}} vs M(N) {{X,Y1,Y2,Y3,Z,W}}
+PASS X8-reaction B2dup: doubling pairs all fully coupled = False
+PASS X8-species B2dup: twin pairs all conservation-coupled = True; CF(N*) {{X,Y1,Y2,Z}} vs M(N) {{X,Y1,Y2,Z}}
+PASS X8-reaction N4.12dup: doubling pairs all fully coupled = False
+PASS X8-species N4.12dup: twin pairs all conservation-coupled = True; CF(N*) {{X1,X2}} vs M(N) {{X1,X2}}
+# runtime 17.9 s; 0 FAIL

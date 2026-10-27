@@ -1,0 +1,5 @@
+# check_dual_families.py U 3 5 3 6; Python 3.12.15 on Linux
+# WF-EC networks tested: 23 (unbalanced: 23)
+PASS  UN: 23/23
+PASS  Ustar: 23/23
+# runtime 123.4 s

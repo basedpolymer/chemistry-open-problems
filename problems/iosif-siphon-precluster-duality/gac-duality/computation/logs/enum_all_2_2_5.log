@@ -1,0 +1,6 @@
+# enum_all.py n=2 m=2 R=5 nproc=3; Python 3.12.15 on Linux
+# 100 networks with (H1),(H2); 100 also with (H3); 16 of these weakly reversible
+# records written to ~/gacE-data/all_2_2_5.pkl.gz
+PASS C1: representatives pairwise distinct
+PASS C2: (H, H+WR, H1H2 with equal rows) = (100, 16, 0), result 17 logs: (100, 16, 0)
+# runtime 2.9 s

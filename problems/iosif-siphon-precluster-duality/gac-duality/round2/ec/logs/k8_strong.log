@@ -1,0 +1,16 @@
+# k8_strong.py  Python 3.12.15 on Linux
+# 431148 distinct networks in the record files
+# 31892 with (H1)-(H3) and rows, columns of Gamma pairwise linearly independent
+# side N: 12 buckets; colliding labelled keys: 0
+# side D: 1138 buckets; colliding labelled keys: 130860
+#   first: n=3 r=5 rx=(((0, 0, 2), (0, 2, 0)), ((0, 0, 2), (1, 1, 0)), ((0, 2, 0), (1, 0, 1)), ((1, 0, 1), (0, 0, 2)), ((1, 1, 0), (0, 2, 0))) family=(3, 2, 5, 'zero') WR=True
+#   second: n=4 r=5 rx=(((0, 0, 0, 2), (0, 0, 1, 0)), ((0, 0, 1, 0), (0, 1, 0, 1)), ((0, 0, 1, 0), (1, 0, 0, 1)), ((0, 1, 0, 1), (0, 0, 0, 2)), ((1, 0, 0, 1), (0, 0, 0, 2))) family=(4, 2, 6, False) WR=True
+#   key: classes [[0, 1], [2], [3], [4]], minimal sets [[3], [4]]
+#   first: n=3 r=5 rx=(((0, 0, 2), (1, 0, 1)), ((0, 0, 2), (1, 1, 0)), ((0, 2, 0), (0, 0, 2)), ((1, 0, 1), (0, 2, 0)), ((1, 1, 0), (0, 2, 0))) family=(3, 2, 5, 'zero') WR=True
+#   second: n=4 r=5 rx=(((0, 0, 0, 2), (0, 1, 0, 1)), ((0, 0, 0, 2), (1, 0, 1, 0)), ((0, 0, 1, 1), (0, 0, 0, 2)), ((0, 1, 0, 1), (0, 0, 1, 1)), ((1, 0, 1, 0), (0, 1, 0, 1))) family=(4, 2, 6, False) WR=True
+#   key: classes [[0, 1], [2], [3], [4]], minimal sets [[2, 3], [4]]
+#   first: n=3 r=5 rx=(((0, 1, 1), (0, 2, 0)), ((0, 1, 1), (1, 0, 1)), ((0, 2, 0), (1, 0, 1)), ((1, 0, 1), (2, 0, 0)), ((2, 0, 0), (0, 1, 1))) family=(3, 2, 5, 'zero') WR=True
+#   second: n=4 r=5 rx=(((0, 0, 0, 2), (0, 1, 1, 0)), ((0, 0, 1, 1), (0, 0, 0, 2)), ((0, 1, 1, 0), (1, 0, 0, 1)), ((1, 0, 0, 1), (0, 0, 0, 2)), ((1, 0, 0, 1), (0, 0, 1, 1))) family=(4, 2, 6, False) WR=True
+#   key: classes [[0, 1], [2], [3], [4]], minimal sets [[0], [1, 4], [3]]
+# runtime 169.5 s
+exit 0

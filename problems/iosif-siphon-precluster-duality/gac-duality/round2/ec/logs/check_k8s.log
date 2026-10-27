@@ -1,0 +1,27 @@
+# check_k8s.py; Python 3.14.0 on Windows
+PASS  M1 = 2X3 -> 2X2, 2X3 -> X1 + X2, 2X2 -> X1 + X3, X1 + X3 -> 2X3, X1 + X2 -> 2X2: weakly reversible
+PASS  M1: (H1)-(H3) on M and on M*
+PASS  M1: rows and columns of Gamma pairwise linearly independent
+PASS  M1: the three precluster variants agree
+#   M1: pure=False, doubling classes [[0, 1], [2], [3], [4]], minimal T-traps [[3], [4]], P = [[0, 1], [2], [3], [4]], s = 2, deficiency = 1
+PASS  M2 = 2X4 -> X3, X3 -> X2 + X4, X3 -> X1 + X4, X2 + X4 -> 2X4, X1 + X4 -> 2X4: weakly reversible
+PASS  M2: (H1)-(H3) on M and on M*
+PASS  M2: rows and columns of Gamma pairwise linearly independent
+PASS  M2: the three precluster variants agree
+#   M2: pure=False, doubling classes [[0], [1, 2], [3], [4]], minimal T-traps [[3], [4]], P = [[0, 1, 2, 3, 4]], s = 3, deficiency = 0
+PASS  [M1,M2] some relabelling of the reactions carries (doubling classes, minimal T-traps) onto each other  4 relabellings
+PASS  [M1,M2] for every such relabelling the preclusters differ
+PASS  M3, M4 pure
+PASS  M3 = X4 -> 2X3, X4 -> X2 + X3, 2X3 -> 2X2, X2 + X3 -> 2X1, 2X2 -> X4, 2X1 -> 2X3: weakly reversible
+PASS  M3: (H1)-(H3) on M and on M*
+PASS  M3: rows and columns of Gamma pairwise linearly independent
+PASS  M3: the three precluster variants agree
+#   M3: pure=True, doubling classes [[0, 1], [2], [3], [4], [5]], minimal T-traps [[0, 2, 4], [1, 2, 4], [3, 5]], P = [[0, 1, 4], [2], [3], [5]], s = 3, deficiency = 1
+PASS  M4 = X4 -> X2 + X3, 2X3 -> X4, 2X3 -> 2X2, X2 + X3 -> 2X1, 2X2 -> X4, 2X1 -> 2X3: weakly reversible
+PASS  M4: (H1)-(H3) on M and on M*
+PASS  M4: rows and columns of Gamma pairwise linearly independent
+PASS  M4: the three precluster variants agree
+#   M4: pure=True, doubling classes [[0], [1, 2], [3], [4], [5]], minimal T-traps [[0, 1, 4], [0, 2, 4], [3, 5]], P = [[0], [1, 2], [3], [4], [5]], s = 3, deficiency = 1
+PASS  [M3,M4] some relabelling of the reactions carries (doubling classes, minimal T-traps) onto each other  8 relabellings
+PASS  [M3,M4] for every such relabelling the preclusters differ
+# runtime 0.20 s

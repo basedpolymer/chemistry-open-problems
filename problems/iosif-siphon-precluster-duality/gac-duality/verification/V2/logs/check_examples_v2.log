@@ -1,0 +1,66 @@
+== N0, N0*  (T*-cex)
+PASS N0 EC, unbalanced, s = m = 1
+PASS N0 and N0* satisfy (H1)-(H3), connected
+PASS N0* = {2K1+2K2 -> 3K1+K2, K1+K2 -> 2K2}
+PASS N0: xdot_A = (k1-k2) x^2 y, so no positive steady state unless k1 = k2
+PASS N0*: K1dot = kA (K1K2)^2 - kB K1K2
+PASS N0*: (1, kB/kA) is a positive steady state for all kappa
+== N1, N1*
+PASS N1 EC, s = m = 2, (H1) (H2) connected
+PASS N1: ker Gamma = R(3,2,1) so w2/w3 = k2/k3 must equal 2
+PASS N1* = {2K1 -> 3K2, K1 -> 3K3, K2+K3 -> K1}
+PASS N1*: (kB/kA, 3kA K1^2/kC, 1) is a positive steady state for all kappa
+== N2, N2*  (tor*)
+PASS N2 WF-EC unbalanced
+PASS N2* = {2K1 -> 2K2, K1 -> K2, K2 -> K1}
+PASS N2*: steady states K2 = (2k1K1^2 + k2K1)/k3
+PASS N2*: log K2 is not affine in log K1 (second derivative 2k1k2e^{3L}/(...)^2 > 0)
+== NT, NT*, NTc  (T*-dim (iii))
+PASS NT EC, unbalanced, s = m = 2
+PASS NT and NT* satisfy (H1)-(H3), connected
+PASS NT: every conservation law has z1 = z2
+PASS NT*: reactions rho1, rho2 have the same source K1+K2
+PASS NT*: steady state iff omega in L (= ker Gamma^T); omega1/omega2 = kappa1/kappa2 -> none if kappa1 != kappa2 -- follows from the two lines above (omega_p = kappa_p K^{Ye row p})
+PASS NT* with kappa = (1,2,1,1): steady-state ideal contains a monomial (no positive steady state) -- [K1*K2, 2*K3**2 + K3]
+PASS NTc: one cluster, molecularity 4, (H1)-(H3) on both sides
+PASS NTc*: kappa = (1,1,2) gives no positive steady state (monomial in the steady-state ideal) -- [K1*K2]
+== NM (TEFC, multistationary, critical siphon)
+PASS NM: m_src = 3, m_cl = 2, s = 2; PC (so also TEFC), not EC, not BH
+PASS NM and NM* satisfy (H1)-(H3), connected
+PASS NM* = {k3 -> k1, 2k3 -> k1+k2, 2k1+3k2 -> 2k2+3k3}
+PASS NM, k = (1,2,1): exactly two positive steady states in x1+x2+x3 = 5/2 (roots of x2^3-2x2^2+1/4 in (0,2))
+PASS NM: {X1,X3} is a critical siphon (NM has exactly two critical minimal siphons, {X1,X3} and {X2,X3}) -- [(0, 2), (1, 2)]
+PASS NM* has two critical siphons -- [(0, 2), (1, 2)]
+== NB (BH one above the rank equation)
+PASS NB: s = 2, 2 clusters, BH (sources a*1_B), not EC
+PASS NB and NB* satisfy (H1)-(H3), connected
+PASS NB* = {k3 -> k2, k3 -> k1, k1+2k2 -> 3k3}
+PASS NB, k = 1: two positive steady states in 2x1+x2+x3 = 6 -- [5/4 - sqrt(17)/4, sqrt(17)/4 + 5/4]
+PASS NB has a critical siphon; NB* too -- [(0, 2), (1, 2)] / [(0, 2), (1, 2)]
+== U, U* (P, T-cex)
+PASS U satisfies (H1)-(H3)
+PASS U: (k1/k3, 1, k1/k2, 1) is a positive steady state for every k
+PASS U*: f_K1 - f_K2 = (kp2 - kp1) K3 + 2 kp3 K2 (> 0 when kp2 >= kp1) -- 2*K2*kp3 - K3*kp1 + K3*kp2
+PASS U*: m_src = 3, m_cl = 2, s = 2
+== 3A <-> 2A+B
+PASS N* = {3U+2V -> 2U+3V, V -> U}
+PASS {V} is a critical siphon of N*
+PASS N*: Vdot = V (ka U^3 V - kb); with U+V = T, Vdot <= V(ka T^4 - kb) < 0 if T^4 < kb/ka (extinction of V)
+== X4 -> 3X3 -> X1+2X2 -> 3X2 -> X4 (E's s = 3 example, row 4 of the table)
+PASS m_src = 4, m_cl = 3, s = 3
+     N* = [((0, 0, 1, 0), (0, 1, 0, 0)), ((0, 0, 2, 3), (0, 2, 3, 0)), ((0, 3, 0, 0), (3, 0, 0, 0)), ((1, 0, 0, 0), (0, 0, 0, 1))]  critical siphons of N*: [(2,)]
+PASS N*: the only critical minimal siphon is {k3} (k3 = dual species of X1+2X2 -> 3X2; E's k4)
+PASS N*: k3dot = k3 (c2 k3 k4^3 - c1): drain species (extinct in classes with small totals, for every kappa) -- -c1*q3 + c2*q3**2*q4**3
+== NP (proportional conflict, neither EC nor BH)
+PASS NP: PC, not EC, not BH; connected, (H1), (H2), s = #clusters - 1
+PASS NP*: PC and well-formed
+PASS NP, NP*: no critical siphon
+== table of §7.2: connectedness and (H1)-(H3) on both sides for every row
+PASS U*: N and N* connected with (H1)-(H3)
+PASS U: N and N* connected with (H1)-(H3)
+PASS 3A<->2A+B: N and N* connected with (H1)-(H3)
+PASS E's 4-cycle: N and N* connected with (H1)-(H3)
+PASS NM: N and N* connected with (H1)-(H3)
+PASS NB: N and N* connected with (H1)-(H3)
+PASS NT: N and N* connected with (H1)-(H3)
+runtime 1.6 s; 0 FAIL

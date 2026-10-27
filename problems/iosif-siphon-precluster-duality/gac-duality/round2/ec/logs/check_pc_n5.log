@@ -1,0 +1,8 @@
+# check_pc.py n=5 nets=15 seed=23; Python 3.12.15 on Linux
+# networks tested: 4 (neither EC nor balanced: 4); first: A + 2B -> C, 2A + 4B -> C + D, C -> A + 2B, D -> A + 2B
+PASS  PC1 self-duality: 4/4
+PASS  PC2 J|_S Hurwitz, G Metzler with positive null vector (N): 4/4
+PASS  PC3 same for N*: 4/4
+PASS  PC4 no critical siphon in N and N*: 4/4
+# runtime 523.2 s
+exit 0

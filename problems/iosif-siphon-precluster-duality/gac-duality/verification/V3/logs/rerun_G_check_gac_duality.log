@@ -1,0 +1,160 @@
+Environment: Python 3.12.15, Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43; exact Fraction arithmetic; expected runtime <10 s
+PASS counterexample dual reactions
+PASS M exact matrix/rank/nullities
+PASS M H1 H2 H3
+PASS M positive equilibrium at all ones
+PASS D exact matrix/rank/nullities
+PASS D H1 H2 H3
+PASS D positive equilibrium at all ones
+PASS M reversible, one linkage, two complexes, deficiency 0
+PASS D not WR, two linkages, four complexes, deficiency 1
+PASS D violates endotacticity in rational direction (0,1)
+PASS extinction initial state shares equilibrium's class
+PASS extinction rational threshold
+PASS extinction vector field at initial state
+PASS rational lower bounds for factors of h' on interval
+PASS dual incidence circulations do not contain positive vector
+PASS M complex balanced at all ones
+PASS H ADLS criterion passes, dual criterion fails
+PASS H and dual H satisfy H1 H2 H3
+PASS dual H singleton 4 is critical
+PASS same primal matrix/counts can have different dual counts
+PASS bounded-class property is not unconditional: 0 <-> X
+PASS M transposition/involution
+PASS M nullity=graph cycle rank+deficiency
+PASS M conservativity-consistency swap
+PASS M row-permutation WR characterization
+PASS M siphon/T-trap (0,)
+PASS M face projection/subnetwork rank (0,)
+PASS M siphon/T-trap (1,)
+PASS M face projection/subnetwork rank (1,)
+PASS M siphon/T-trap (0, 1)
+PASS M face projection/subnetwork rank (0, 1)
+PASS M ADLS/T-trap-cycle equivalence
+PASS D transposition/involution
+PASS D nullity=graph cycle rank+deficiency
+PASS D conservativity-consistency swap
+PASS D siphon/T-trap (0,)
+PASS D face projection/subnetwork rank (0,)
+PASS D siphon/T-trap (1,)
+PASS D face projection/subnetwork rank (1,)
+PASS D siphon/T-trap (0, 1)
+PASS D face projection/subnetwork rank (0, 1)
+PASS D ADLS/T-trap-cycle equivalence
+PASS C transposition/involution
+PASS C nullity=graph cycle rank+deficiency
+PASS C conservativity-consistency swap
+PASS C row-permutation WR characterization
+PASS C siphon/T-trap (0,)
+PASS C face projection/subnetwork rank (0,)
+PASS C siphon/T-trap (1,)
+PASS C face projection/subnetwork rank (1,)
+PASS C siphon/T-trap (2,)
+PASS C face projection/subnetwork rank (2,)
+PASS C siphon/T-trap (0, 1)
+PASS C face projection/subnetwork rank (0, 1)
+PASS C siphon/T-trap (0, 2)
+PASS C face projection/subnetwork rank (0, 2)
+PASS C siphon/T-trap (1, 2)
+PASS C face projection/subnetwork rank (1, 2)
+PASS C siphon/T-trap (0, 1, 2)
+PASS C face projection/subnetwork rank (0, 1, 2)
+PASS C ADLS/T-trap-cycle equivalence
+PASS W transposition/involution
+PASS W nullity=graph cycle rank+deficiency
+PASS W conservativity-consistency swap
+PASS W row-permutation WR characterization
+PASS W siphon/T-trap (0,)
+PASS W face projection/subnetwork rank (0,)
+PASS W siphon/T-trap (1,)
+PASS W face projection/subnetwork rank (1,)
+PASS W siphon/T-trap (2,)
+PASS W face projection/subnetwork rank (2,)
+PASS W siphon/T-trap (0, 1)
+PASS W face projection/subnetwork rank (0, 1)
+PASS W siphon/T-trap (0, 2)
+PASS W face projection/subnetwork rank (0, 2)
+PASS W siphon/T-trap (1, 2)
+PASS W face projection/subnetwork rank (1, 2)
+PASS W siphon/T-trap (0, 1, 2)
+PASS W face projection/subnetwork rank (0, 1, 2)
+PASS W ADLS/T-trap-cycle equivalence
+PASS Q transposition/involution
+PASS Q nullity=graph cycle rank+deficiency
+PASS Q conservativity-consistency swap
+PASS Q row-permutation WR characterization
+PASS Q siphon/T-trap (0,)
+PASS Q face projection/subnetwork rank (0,)
+PASS Q siphon/T-trap (1,)
+PASS Q face projection/subnetwork rank (1,)
+PASS Q siphon/T-trap (0, 1)
+PASS Q face projection/subnetwork rank (0, 1)
+PASS Q ADLS/T-trap-cycle equivalence
+PASS Z transposition/involution
+PASS Z nullity=graph cycle rank+deficiency
+PASS Z conservativity-consistency swap
+PASS Z row-permutation WR characterization
+PASS Z siphon/T-trap (0,)
+PASS Z face projection/subnetwork rank (0,)
+PASS Z ADLS/T-trap-cycle equivalence
+PASS Zstar transposition/involution
+PASS Zstar nullity=graph cycle rank+deficiency
+PASS Zstar conservativity-consistency swap
+PASS Zstar siphon/T-trap (0,)
+PASS Zstar face projection/subnetwork rank (0,)
+PASS Zstar siphon/T-trap (1,)
+PASS Zstar face projection/subnetwork rank (1,)
+PASS Zstar siphon/T-trap (0, 1)
+PASS Zstar face projection/subnetwork rank (0, 1)
+PASS Zstar ADLS/T-trap-cycle equivalence
+PASS H transposition/involution
+PASS H nullity=graph cycle rank+deficiency
+PASS H conservativity-consistency swap
+PASS H row-permutation WR characterization
+PASS H siphon/T-trap (0,)
+PASS H face projection/subnetwork rank (0,)
+PASS H siphon/T-trap (1,)
+PASS H face projection/subnetwork rank (1,)
+PASS H siphon/T-trap (0, 1)
+PASS H face projection/subnetwork rank (0, 1)
+PASS H ADLS/T-trap-cycle equivalence
+PASS face certificate positive point and boundary point differ in S
+PASS face is a facet: s=2, projected rank=1
+PASS Wiuf (a) rank sum for blind reactions
+PASS Wiuf (a) identical transposed rank sum
+PASS Wiuf diamond positive image / dual no positive kernel
+PASS Wiuf (a) can fail in a WR strongly endotactic network
+PASS BG example both orientations WR and deficiency zero
+PASS BG example complex balanced at ones
+PASS BG support condition includes a nonpure network
+PASS BG alternate realization has same net matrix and dependence support
+PASS BG alternate kinetics positive equilibrium at ones
+PASS BG alternate restricted Jacobian exact
+PASS BG alternate positive eigenvalue: determinant -273
+PASS prime example dimensions and complex graph counts
+PASS prime example WR, H3, dual WR and dual deficiency zero
+PASS prime example every linkage spans full S
+PASS prime example complex balanced at ones
+PASS prime example critical siphon ABC
+PASS prime example realizable intermediate face
+PASS prime example fails Wiuf a
+PASS composite example q=1, both orientations WR and H3
+PASS composite example strong-endotacticity violation
+PASS prime p=2: all 2 nonconstant binary complex orbits span sum-zero space
+PASS prime p=3: all 6 nonconstant binary complex orbits span sum-zero space
+PASS prime p=5: all 30 nonconstant binary complex orbits span sum-zero space
+PASS prime p=7: all 126 nonconstant binary complex orbits span sum-zero space
+PASS cycle family n=2, q=1, s=n-1 in both orientations
+PASS cycle family n=3, q=1, s=n-1 in both orientations
+PASS cycle family n=4, q=1, s=n-1 in both orientations
+PASS cycle family n=5, q=1, s=n-1 in both orientations
+PASS cycle family n=6, q=1, s=n-1 in both orientations
+PASS cycle family n=7, q=1, s=n-1 in both orientations
+PASS cycle family n=8, q=1, s=n-1 in both orientations
+PASS cycle family n=9, q=1, s=n-1 in both orientations
+PASS cycle family n=10, q=1, s=n-1 in both orientations
+Claims: 154; failures: 0; runtime: 0.076 s
+
+real	0m0.215s
+user	0m0.138s
+sys	0m0.010s

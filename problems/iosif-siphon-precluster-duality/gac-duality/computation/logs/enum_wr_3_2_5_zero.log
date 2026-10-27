@@ -1,0 +1,16 @@
+# enum_wr.py n=3 m=2 R=5 zero=True homog=False nproc=8 sample=None seed=0
+# Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2
+# 10 complexes, 27033 linkage-class instances
+# phase 1: 4574 orbit representatives in 0.7 s
+# phase 2: 4574 records in 3.2 s
+# records written to ~/gacE-data/wr_3_2_5_zero.pkl.gz
+# counts by stoichiometric dimension s (H = (H1)-(H3) for N; H* = (H1)-(H3) for N*; crit = some critical minimal siphon; EC/EFC/FC = equal conflict / extended free choice / free choice)
+         s        nets          H1          H2          H3           H        H&H*        def0      H&def0         WR*       H&WR*  H&def0&WR*      H&crit        H&EC       H&EFC        H&FC
+         1           8           7           8           5           5           2           3           1           4           3           1           0           0           0           0
+         2         927         472         927         774         472         321         301         119           3           3           3         301          26          34          34
+         3        3639           0        3639        3639           0           0        2727           0           0           0           0           0           0           0           0
+       all        4574         479        4574        4418         477         323        3031         120           7           6           4         301          26          34          34
+PASS C1: all 4574 networks weakly reversible with <= 5 reactions
+PASS C2: orbit representatives pairwise distinct
+PASS C3: Gamma(N*) = Gamma^T, same rank, N** = N, (H1)/(H2) swap, (H3)(N*) <=> distinct columns, on all 4574 networks
+# runtime 4.4 s

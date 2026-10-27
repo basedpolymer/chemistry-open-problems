@@ -1,0 +1,62 @@
+# facts.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=4
+# Part A: all networks (no hypothesis), facts 1 and 5
+#   family n=2 m<=2 r<=5: 10874 networks (orbits), cumulative failures 0
+#   family n=2 m<=3 r<=4: 545806 networks (orbits), cumulative failures 0
+#   family n=3 m<=1 r<=6: 13 networks (orbits), cumulative failures 0
+#   family n=3 m<=2 r<=4: 179381 networks (orbits), cumulative failures 0
+#   family n=4 m<=1 r<=6: 117 networks (orbits), cumulative failures 0
+#   family n=4 m<=2 r<=3: 33125 networks (orbits), cumulative failures 0
+PASS F1: Gamma(N*)=Gamma^T, n<->r, same s, N**=N, dim ker Gamma(N*) = n-s, on all 769316 networks of Part A
+PASS F5a: siphons of N = T-traps of N* (produced <= consumed), on all 769316 networks of Part A
+PASS F5b: traps of N = T-siphons of N* (consumed <= produced), on all 769316 networks of Part A
+PASS F5c: semiflow supports of N = internal cycles of N*, on all 769316 networks of Part A
+# Part C: WR generator (ecore.lc_instances / wr_networks_from) against the logs of result 17
+#   (n,m,R)=(2,2,5): WR networks with (H1)-(H3): 16; result 17: 16
+#   (n,m,R)=(3,2,4): WR networks with (H1)-(H3): 112; result 17: 112
+#   (n,m,R)=(3,3,3): WR networks with (H1)-(H3): 123; result 17: 123
+#   (n,m,R)=(4,1,12): WR networks with (H1)-(H3): 84; result 17: 84
+#   (n,m,R)=(4,2,3): WR networks with (H1)-(H3): 4; result 17: 4
+PASS F0: the WR generator reproduces the WR counts of result 17 on its five families
+# Part B: weakly reversible networks, facts 2 and 6 (conservative = (H1); 'H1+H3' adds distinct rows)
+#   coordinator's families, union of orbits (114 WR networks):
+#     (H1):    {'nets': 31, 'WRdual': 8, 'def0': 23, 'def0_WRdual': 7, 'crit': 9, 'MS_eq_SF': 22, 'no_crit': 22}
+#     (H1,H3): {'nets': 29, 'WRdual': 7, 'def0': 21, 'def0_WRdual': 6, 'crit': 9, 'MS_eq_SF': 20, 'no_crit': 20}
+#     (H1), families summed with multiplicity: {'nets': 32, 'WRdual': 9, 'def0': 24, 'def0_WRdual': 8, 'crit': 9, 'MS_eq_SF': 23, 'no_crit': 23}
+# coordinator's counts 32/9/24/8 (fact 2) and 9/23 (fact 6) reproduced by: ['summed H1']
+#   smallest conservative WR network with non-WR dual: 2X2 -> X1, X1 -> 2X2  dual: k2 -> k1, 2k1 -> 2k2
+PASS F2: weak reversibility is not preserved by N -> N* (witness above)
+#   ~/gacE-data/wr_2_3_6.pkl.gz: family (2, 3, 6, False), 91585 WR networks
+#     (H1):    {'nets': 460, 'WRdual': 14, 'def0': 12, 'def0_WRdual': 4, 'crit': 38, 'MS_eq_SF': 422, 'no_crit': 422}
+#     (H1,H3): {'nets': 460, 'WRdual': 14, 'def0': 12, 'def0_WRdual': 4, 'crit': 38, 'MS_eq_SF': 422, 'no_crit': 422}
+#     s=1: (H1,H3) nets 460, WR dual 14, def0 12, def0&WR dual 4, critical siphon 38, minimal siphons = semiflow supports 422
+#   ~/gacE-data/wr_3_2_6.pkl.gz: family (3, 2, 6, False), 29120 WR networks
+#     (H1):    {'nets': 2587, 'WRdual': 11, 'def0': 131, 'def0_WRdual': 5, 'crit': 1447, 'MS_eq_SF': 1140, 'no_crit': 1140}
+#     (H1,H3): {'nets': 2585, 'WRdual': 10, 'def0': 129, 'def0_WRdual': 4, 'crit': 1447, 'MS_eq_SF': 1138, 'no_crit': 1138}
+#     s=1: (H1,H3) nets 12, WR dual 4, def0 1, def0&WR dual 1, critical siphon 0, minimal siphons = semiflow supports 12
+#     s=2: (H1,H3) nets 2573, WR dual 6, def0 128, def0&WR dual 3, critical siphon 1447, minimal siphons = semiflow supports 1126
+#   ~/gacE-data/wr_3_3_5.pkl.gz: family (3, 3, 5, ''), 139339 WR networks
+#     (H1):    {'nets': 10575, 'WRdual': 25, 'def0': 1701, 'def0_WRdual': 10, 'crit': 9328, 'MS_eq_SF': 1247, 'no_crit': 1247}
+#     (H1,H3): {'nets': 10560, 'WRdual': 24, 'def0': 1694, 'def0_WRdual': 9, 'crit': 9322, 'MS_eq_SF': 1238, 'no_crit': 1238}
+#     s=1: (H1,H3) nets 93, WR dual 18, def0 8, def0&WR dual 3, critical siphon 7, minimal siphons = semiflow supports 86
+#     s=2: (H1,H3) nets 10467, WR dual 6, def0 1686, def0&WR dual 6, critical siphon 9315, minimal siphons = semiflow supports 1152
+#   ~/gacE-data/wr_4_2_6.pkl.gz: family (4, 2, 6, False), 95087 WR networks
+#     (H1):    {'nets': 20352, 'WRdual': 29, 'def0': 7154, 'def0_WRdual': 11, 'crit': 17673, 'MS_eq_SF': 2679, 'no_crit': 2679}
+#     (H1,H3): {'nets': 19984, 'WRdual': 24, 'def0': 7084, 'def0_WRdual': 9, 'crit': 17634, 'MS_eq_SF': 2350, 'no_crit': 2350}
+#     s=2: (H1,H3) nets 684, WR dual 19, def0 89, def0&WR dual 7, critical siphon 147, minimal siphons = semiflow supports 537
+#     s=3: (H1,H3) nets 19300, WR dual 5, def0 6995, def0&WR dual 2, critical siphon 17487, minimal siphons = semiflow supports 1813
+#   ~/gacE-data/wr_5_2_5.pkl.gz: family (5, 2, 5, ''), 4272 WR networks
+#     (H1):    {'nets': 2352, 'WRdual': 19, 'def0': 2237, 'def0_WRdual': 19, 'crit': 1746, 'MS_eq_SF': 606, 'no_crit': 606}
+#     (H1,H3): {'nets': 1564, 'WRdual': 15, 'def0': 1535, 'def0_WRdual': 15, 'crit': 1224, 'MS_eq_SF': 340, 'no_crit': 340}
+#     s=2: (H1,H3) nets 22, WR dual 4, def0 17, def0&WR dual 4, critical siphon 2, minimal siphons = semiflow supports 20
+#     s=3: (H1,H3) nets 1047, WR dual 7, def0 1023, def0&WR dual 7, critical siphon 735, minimal siphons = semiflow supports 312
+#     s=4: (H1,H3) nets 495, WR dual 4, def0 495, def0&WR dual 4, critical siphon 487, minimal siphons = semiflow supports 8
+#   ~/gacE-data/wr_2_2_5_zero.pkl.gz: family (2, 2, 5, 'zero'), 996 WR networks
+#     (H1):    {'nets': 16, 'WRdual': 3, 'def0': 4, 'def0_WRdual': 2, 'crit': 1, 'MS_eq_SF': 15, 'no_crit': 15}
+#     (H1,H3): {'nets': 16, 'WRdual': 3, 'def0': 4, 'def0_WRdual': 2, 'crit': 1, 'MS_eq_SF': 15, 'no_crit': 15}
+#     s=1: (H1,H3) nets 16, WR dual 3, def0 4, def0&WR dual 2, critical siphon 1, minimal siphons = semiflow supports 15
+#   ~/gacE-data/wr_3_2_5_zero.pkl.gz: family (3, 2, 5, 'zero'), 4574 WR networks
+#     (H1):    {'nets': 479, 'WRdual': 7, 'def0': 122, 'def0_WRdual': 5, 'crit': 301, 'MS_eq_SF': 178, 'no_crit': 178}
+#     (H1,H3): {'nets': 477, 'WRdual': 6, 'def0': 120, 'def0_WRdual': 4, 'crit': 301, 'MS_eq_SF': 176, 'no_crit': 176}
+#     s=1: (H1,H3) nets 5, WR dual 3, def0 1, def0&WR dual 1, critical siphon 0, minimal siphons = semiflow supports 5
+#     s=2: (H1,H3) nets 472, WR dual 3, def0 119, def0&WR dual 3, critical siphon 301, minimal siphons = semiflow supports 171
+# runtime 316.0 s

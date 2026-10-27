@@ -1,0 +1,5 @@
+# q3_examples.py  Python 3.12.15 on Linux; exact; msolve 0.10.1
+PASS B: NM two positive steady states (2, 5, '2 ambiguous'); NB (2, 4, '2 ambiguous'); NT* verdict ('OPEN', 2); NT* positive steady states for kappa = (1,2,1,1) in the class of (1,2,3): (0, 4, '2 ambiguous')
+PASS K8s: M3, M4 (H1)-(H3)/WR/pure/strong: [True, True, True, True] [True, True, True, True]; relabellings matching doubling classes and minimal T-traps: 8, with different P: 8; P(M3) = [[0, 1, 4], [2], [3], [5]], P(M4) = [[0], [1, 2], [3], [4], [5]]
+PASS: all claims
+# runtime 0.3 s

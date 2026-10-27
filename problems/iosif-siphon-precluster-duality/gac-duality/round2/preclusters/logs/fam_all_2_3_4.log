@@ -1,0 +1,61 @@
+# check_families.py; Python 3.12.15 on Linux; families ['all_2_3_4.pkl.gz']
+## family all_2_3_4.pkl.gz: 2784 networks with (H1),(H2); 40.8 s
+   CF determined (D): 2784
+   CF determined (N): 2784
+   Condition 3.1 at generic V (D): 2784
+   Condition 3.1 at generic V (N): 229
+   Condition 3.1 fails at generic V (N): 2555   smallest: n=2 (((0, 1), (1, 0)), ((0, 2), (1, 1)), ((1, 0), (0, 1)))
+   EC sides with pi+ one block (D): 363
+   EC sides with pi+ one block (N): 71
+   P != Pcs (N): 27   smallest: n=2 (((0, 1), (1, 0)), ((1, 2), (0, 3)), ((1, 2), (2, 1)), ((1, 2), (3, 0)))
+   Pcs != pi (D): 2783   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   Pcs != pi (N): 63   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   WR0 sides with pi+ = linkage classes (D): 71
+   WR0 sides with pi+ = linkage classes (N): 12
+   checked K1 D: 2784
+   checked K1 N: 2784
+   checked K2 D: 2784
+   checked K2 N: 2784
+   checked K3 D: 2784
+   checked K3 N: 2784
+   checked K4 D: 363
+   checked K4 N: 71
+   checked K5 D: 71
+   checked K5 N: 12
+   checked K6 D: 2784
+   checked K6 N: 224
+   checked K7: 2784
+   isolation (R23 for CF) (D): 2784   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   isolation (R23 for CF) (N): 224   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   kappa_gen != CF (N): 5   smallest: n=2 (((1, 1), (0, 2)), ((1, 1), (2, 0)), ((1, 2), (0, 3)), ((1, 2), (2, 1)))
+   networks: 2784
+   networks with (H3): 2784
+   pi != CF (N): 38   smallest: n=2 (((0, 2), (1, 1)), ((0, 2), (2, 0)), ((1, 1), (0, 2)), ((1, 1), (2, 0)))
+   reaction side Q1 fails: 2750   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   reaction side Q1 holds: 34
+   reaction side Q2 fails: 1695   smallest: n=2 (((0, 1), (1, 0)), ((0, 2), (1, 1)), ((1, 0), (0, 1)))
+   reaction side Q2 holds: 1089
+   reaction side Q3 fails: 1498   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   reaction side Q3 holds: 1286
+   species side Q1 fails: 1022   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   species side Q1 holds: 1762
+   species side Q1 holds, (H3): 1762
+   species side Q2 holds: 2784
+   species side Q2 holds, (H3): 2784
+   species side Q3 fails: 1022   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   species side Q3 holds: 1762
+   species side Q3 holds, (H3): 1762
+PASS K1 D on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+PASS K1 N on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+PASS K2 D on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+PASS K2 N on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+PASS K3 D on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+PASS K3 N on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+PASS K4 D on all_2_3_4.pkl.gz: 363 checked, 0 failures
+PASS K4 N on all_2_3_4.pkl.gz: 71 checked, 0 failures
+PASS K5 D on all_2_3_4.pkl.gz: 71 checked, 0 failures
+PASS K5 N on all_2_3_4.pkl.gz: 12 checked, 0 failures
+PASS K6 D on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+PASS K6 N on all_2_3_4.pkl.gz: 224 checked, 0 failures
+PASS K7 on all_2_3_4.pkl.gz: 2784 checked, 0 failures
+# runtime 40.8 s; 0 FAIL

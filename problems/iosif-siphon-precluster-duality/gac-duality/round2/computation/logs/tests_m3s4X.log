@@ -1,0 +1,40 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=10
+# 30000 distinct networks from 2 record files: sample_5_3_5_8_s3.pkl.gz, sample_6_3_5_8_s4.pkl.gz
+# families: {"('sample', 5, 3, 5, 8, 3, '', 'cons')": 20000, "('sample', 6, 3, 5, 8, 4, '', 'cons')": 10000}
+# candidates: X-endoN X-endoD X-sendoD X-sendoN X-drainN X-drainD X-drainD1 X-L5 X-G4.1 X-G4.1np
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+X-endoN        proved    15767/15767     15767/15767     11186/11186     15767/15767     15767/15767         0/0             0/0         15767/15767    PASS
+X-endoD        test          0/28883         0/28883         0/12586         0/28883         0/26519         0/0             0/0             0/28883    REFUTED
+X-sendoD       test          0/28883         0/28883         0/12586         0/28883         0/26519         0/0             0/0             0/28883    REFUTED
+X-sendoN       proved    11767/11767     11767/11767      9951/9951      11767/11767     11767/11767         0/0             0/0         11767/11767    PASS
+X-drainN       proved    30000/30000     28883/28883     12586/12586     28883/28883     26519/26519         0/0             0/0         28883/28883    PASS
+X-drainD       test      28645/28883     28645/28883     12446/12586     28645/28883     26293/26519         0/0             0/0         28645/28883    REFUTED
+X-drainD1      test          0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        no applicable network
+X-L5           proved    60000/60000     57766/57766     25172/25172     57766/57766     53038/53038         0/0             0/0         57766/57766    PASS
+X-G4.1         proved        0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        PASS (vacuous)
+X-G4.1np       test          0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        no applicable network
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+X-endoN: WR+H, r <= 6 => N endotactic (Craciun-Nazarov-Pantea 2013; consistency check of endo.py)
+X-endoD: WR+H: N* is endotactic
+   counterexample (side N; n=5, r=5, s=4, H=True, H*=True, WR=True, WR*=False, def=0, family=('sample', 5, 3, 5, 8, 3, '', 'cons')):
+     N : X5 -> X4, X4 -> 3X2, X3 -> X5, 3X2 -> X1 + X2, X1 + X2 -> X3
+     N*: k5 -> k4, 3k4 + k5 -> 3k2 + k4, k3 -> k5, k2 -> k1, k1 -> k3
+X-sendoD: WR+H: N* is strongly endotactic
+   counterexample (side N; n=5, r=5, s=4, H=True, H*=True, WR=True, WR*=False, def=0, family=('sample', 5, 3, 5, 8, 3, '', 'cons')):
+     N : X5 -> X4, X4 -> 3X2, X3 -> X5, 3X2 -> X1 + X2, X1 + X2 -> X3
+     N*: k5 -> k4, 3k4 + k5 -> 3k2 + k4, k3 -> k5, k2 -> k1, k1 -> k3
+X-sendoN: WR+H, one linkage class, r <= 6: N strongly endotactic (Gopalkrishnan-Miller-Shiu 2014; check of endo.py)
+X-drainN: WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)
+X-drainD: WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)
+   counterexample (side N; n=5, r=5, s=4, H=True, H*=True, WR=True, WR*=False, def=0, family=('sample', 5, 3, 5, 8, 3, '', 'cons')):
+     N : X5 -> 3X4, 3X4 -> X2 + X4, 3X3 -> X5, X2 + X4 -> X1 + 2X3, X1 + 2X3 -> 3X3
+     N*: k5 -> k4, k4 -> k2, 3k3 + 2k5 -> 2k4 + 3k5, 3k2 + k4 -> 3k1 + k2, k1 -> k3
+X-drainD1: WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)
+X-L5: manuscript Lemma 5: the three precluster variants (onestep, thesis, closure) agree, for N under (H2) and for N* under (H1)
+X-G4.1: G Prop. 4.1: N WR, (H3), no zero reaction vector, q = 1, N* WR, n prime => N strongly endotactic
+X-G4.1np: same hypotheses without primality (n not prime): N strongly endotactic (expected to fail)
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 206.9 s

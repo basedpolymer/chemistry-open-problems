@@ -1,0 +1,16 @@
+# enum_s1.py n=4 m=3 R=4 zero=False
+# Python 3.14.0 on Windows (AMD64)
+# networks (WR, s = 1, (H1)-(H3)): 1
+# verdict counts by number of reactions r:
+verdict      r=2      total
+ALL          1        1
+# face types over all duals: {'IN': 2}
+# duals with an OUT face (rate-independent extinction in every class reaching it): 0; with a drain species (E.4): 0
+# networks whose singleton faces are all IN but which are not ALL (a face with |Z| >= 2 decides): 0
+# smallest ALL: N = X2+2X4 -> X1+2X3, X1+2X3 -> X2+2X4   N* = k2 -> k1, k1 -> k2, 2k2 -> 2k1, 2k1 -> 2k2
+E1: PASS (0 failures)
+E2: PASS (0 failures)
+E3: PASS (0 failures)
+E4: PASS (0 failures)
+E5: PASS (0 failures)
+# runtime 0.1 s

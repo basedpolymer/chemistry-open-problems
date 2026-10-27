@@ -1,0 +1,10 @@
+# examples_d2.py  Python 3.12.15 on Linux; sympy 1.14.0; exact
+PASS: WRS (products are sources and dual sources distinct in 18861 of 18861)
+PASS: U1 (z' identity)
+PASS: U2 (u' and a' identities)
+PASS: U3 (g(K/k2) = K (2 k1 K / k2^2 - 2): u* > K/k2 iff K < k2^2/k1, g increasing on u > 0)
+PASS: CM (reduced coefficient T*kappa3*(T*kappa2 - kappa1)/(T*kappa2 + kappa1))
+PASS: L (V' = -2*kappa1*x3**2 - 2*kappa2*x2**2 + 2*kappa3*x1**2*x2*x3)
+PASS: ALL (x3' = -2*kappa1*x3**2 + kappa3*x1**2*x3)
+# runtime 3.7 s
+ALL CLAIMS PASS

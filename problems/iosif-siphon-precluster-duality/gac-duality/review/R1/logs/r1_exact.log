@@ -1,0 +1,65 @@
+# r1_exact.py -- R1 review of result 17, exact re-checks (sympy 1.14.0, Python 3.12.15 on Linux)
+PASS: NC3: rank s = 2
+PASS: NC3: extreme conservation laws are B+D and A+C+D -- [[0, 1, 0, 1], [1, 0, 1, 1]]
+PASS: NC3: extreme flux rays are (0,1,1,0) and (1,2,0,1) -- [[0, 1, 1, 0], [1, 2, 0, 1]]
+PASS: NC3: (H1)-(H3) on NC3 and on NC3*
+PASS: NC3: connected
+PASS: NC3: Petri clusters {D},{C},{A,B}, q = 3 = s + 1
+PASS: NC3: not PC (sources A+B and 2A+B share A and are not proportional), not EC
+PASS: NC3 and NC3*: no critical siphon -- minimal siphons of NC3: [['B', 'D'], ['A', 'C', 'D']]
+PASS: NC3: f_B = -f_D and f_A + f_C + f_D = 0 (symbolic rates)
+PASS: NC3, k = (1/6,1/3,6,6): steady states <=> D = 36A^2B, C = 18AB + 36A^2B
+PASS: NC3: class equation gives 72A^3 - 204A^2 + 122A - 19 = (2A-1)(36A^2-84A+19)
+PASS: NC3: the roots of 36A^2 - 84A + 19 are (7 -+ sqrt30)/6 and both are positive
+PASS: NC3: full system (field + class equations, no reduction used) has exactly three positive real solutions, and their A-values are the roots of (2A-1)(36A^2-84A+19) -- univariate in A: (2*A - 1)*(36*A**2 - 84*A + 19)/72; real solutions 3; positive A-intervals [(0, 1/2), (1/2, 1/2), (2, 3)]
+PASS: NC3: x = (1/2, 1/3, 6, 3) is a steady state
+PASS: NC3: det J|_S at (1/2,1/3,6,3) = -7/9 (saddle) -- J|_S = [[-5/3, -2], [-17/3, -19/3]]
+PASS: NC3: the points A = (7 -+ sqrt30)/6 are positive steady states with trace J|_S < 0 < det J|_S (exponentially stable in the class), decided in Q(sqrt30) -- A=7/6 - sqrt(30)/6: B,C,D positive True, trace -61/3+4/3sqrt30, det 10/3+-4/9sqrt30; A=sqrt(30)/6 + 7/6: B,C,D positive True, trace -61/3+-4/3sqrt30, det 10/3+4/9sqrt30
+PASS: NC: (H1)-(H3) on NC and NC*, connected, rank 2, three clusters
+PASS: NC: conservation laws A + 2D and B + C -- [[1/2, 0, 0, 1], [0, 1, 1, 0]]
+PASS: NC, k = (2/3,5/18,24,64): x = (3,1/2,3,1/4) is a steady state in the class B+C = A+2D = 7/2, det J|_S = -88/9
+PASS: NC: the class contains exactly three positive steady states (so 'at least one further' in the paper is true, and V2's 'exactly two more' is confirmed) -- univariate in A: (A - 3)*(800*A**6 - 6000*A**5 + 4680*A**4 + 55340*A**3 - 102128*A**2 - 125783*A + 297381)/800; positive A-intervals [(2, 3), (3, 3), (3, 4)]
+PASS: NM: (H1)-(H3) both sides, connected, s = 2, clusters {X3},{X1,X2} (q = 2), sources 2X3, 3X3 proportional (PC)
+PASS: NM: critical siphons with two species are {X1,X3} and {X2,X3} -- [['X1', 'X3'], ['X2', 'X3']]
+PASS: NM, k = (1,2,1): x3 = 1/2, x1 x2^2 = 1/4 solve the steady-state equations
+PASS: NM: signs of t^3 - 2t^2 + 1/4 at -1, 0, 1, 2 are -, +, -, +
+PASS: NM: exactly two positive steady states in x1+x2+x3 = 5/2 (full system)
+PASS: NB, k = 1: x3 = 1, x1 = (5 -+ sqrt17)/4, x2 = 1/x1 are positive steady states in 2x1+x2+x3 = 6, and the only ones
+PASS: M* = 3K1+2K2 -> 2K1+3K2, K2 -> K1 (U = K1, V = K2); both Gamma = [[-1,1],[1,-1]]; (H1)-(H3) both sides
+PASS: M*: dv/dt = v (kappa1 u^3 v - kappa2)
+PASS: M*, unit rates, class u+v = 2: h(v) - 1 = -(v-1)(v^3 - 5v^2 + 7v - 1)
+PASS: M*: the cubic has discriminant -44 (one real root), g(1/8) < 0 < g(1/2), g(1) != 0 -- g(1/8) = -103/512, g(1/2) = 11/8
+PASS: M*: exactly two positive equilibria in the class u+v = 2 (v = 1 and the root in (1/8,1/2))
+PASS: M*: h'(v) = (2-v)^2 (2-4v) > 0 on [0,1/8], h(1/8) = 3375/4096, hence dv/dt <= -(721/4096) v on (0,1/8]
+PASS: Thm O: N* = b -> a, b+c -> a+b, 3a+2c -> 2b+3c, 3c -> 3b (a,b,c = K1,K2,K3)
+PASS: Thm O: N weakly reversible 3-cycle, s = 2, deficiency 3-1-2 = 0, (H1)-(H3) (law (11,1,4,1) = 12 on each complex)
+PASS: Thm O: the dual field is a' = al b + be b c - 3 ga a^3 c^2, b' = -al b + 2 ga a^3 c^2 + 3 de c^3, c' = -be b c + ga a^3 c^2 - 3 de c^3
+PASS: Thm O: b' - 2c' = (2 be c - al) b + 9 de c^3
+PASS: Thm O: b = 9 de c^3/(al - 2 be c), a^3 = 3 de c (al + be c)/(ga (al - 2 be c)) solve all three equations
+PASS: Thm O: d/dc of b and of a^3 have numerators c^2(3al - 4be c) and al^2 + 2 al be c - 2 be^2 c^2 (positive on 0<c<al/(2be))
+PASS: Thm O: with x = be c/al in (0,1/2): 3 - 4x > 0 and 1 + 2x - 2x^2 > 0 (minimum of each on [0,1/2] is positive)
+PASS: Thm O: at (17,400,70000,10^6), (1,1,1/100) is an equilibrium with fluxes (17,4,7,1); T = 201/100
+PASS: Thm O: Jacobian in (b,c) = [[-59,3658],[-25,79]], trace 20, det 86789, eigenvalues 10 +- i sqrt(86689)
+PASS: Thm O: H positive definite (93655 > 0, det H = 1177283151421 > 0) and J^T H + H J = 3471560 I
+PASS: Thm O: uniqueness per class holds for every rate vector (a+b+c strictly increasing in c from 0 to infinity on (0, al/(2be))) -- follows from the two previous derivative claims; limits: c->0 gives a,b->0, c -> al/(2be) gives b -> infinity
+PASS: Thm A: identity al c' - be c b' = c^2 [al ga a^3 - (3 al de + 2 be ga a^3) c - 3 be de c^2]
+PASS: Thm A: (log V)' = c * [ga a^3 - (3 de + 2 be ga a^3/al) c - 3 be de c^2/al]  (V = c exp(-be b/al)); note the factor c
+PASS: Thm A: the displayed inequality '(log V)' >= ga T^3/16' is false as written (counterexample point in the region b + c < eps at unit rates, T = 1), while (log V)' >= c ga T^3/16 holds there -- eps = 1/128, (log V)' = 9.88319E-7 < 1/16, c*ga T^3/16 = 6.25000E-8
+PASS: Thm A: on b + c < eps the bracket is >= ga T^3/8 - E eps >= ga T^3/16 (400 exact random points and rates)
+PASS: Thm AF: for u = 3..7, R = 1..7: law (uR+2,u-2,R+1,u-2), (H1)-(H3), rank 2, the stated dual, the identity for (log V)' and the decompositions used for R = 1, 2
+PASS: Ex. S1 / X: X* = K2 -> K1, 2K1+K2 -> K1+2K2 and K2' = K2 (kappa2 K1^2 - kappa1)
+PASS: Ex. S1 / S: S* = K1+K2 -> 2K2, K1+K2 -> 2K1, 2K2 -> 2K1 and K1' = K2((kappa2 - kappa1) K1 + 2 kappa3 K2)
+PASS: Ex. S1 / B: K1' = (kappa2 - kappa1) K1 K2
+PASS: Ex. S1 / Q: Q has rank 2, is pure, not weakly reversible; (K2 - K1)' = (kappa3 - kappa2) K3
+PASS: Ex. drain (3): C* = K3 -> K2, K2 -> K1, 2K1+K2+K3 -> K1+K2+2K3 and (K2+2K3)' = -k1 K3 - k2 K2 + 2 k3 K1^2 K2 K3
+PASS: Ex. drain (1): in path order the dual species K3 (dual to X1+2X2 -> 3X2) satisfies K3' = K3 (k2 K3 K4^3 - k1); (m,q,s) = (4,3,3), (H1)-(H3) both sides
+PASS: Sec. 6.3 example (L): V = K2 + 2K3, V' = -2k1 K3^2 - 2k2 K2^2 + 2k3 K1^2 K2 K3
+PASS: Ex. U: with the reaction order 3X3 -> 2X1+X2, X2+2X3 -> 3X3, 2X1+X2 -> X2+2X3 the dual is exactly the paper's 2K3 -> 2K1, K2+K3 -> K1+K3, 3K1+2K2 -> 3K2+2K3 (the paper does not state this non-path order)
+PASS: Ex. U: the identities for z', u', a', b' (a = K2, b = K3, K = kappa3 K1^3)
+PASS: Prop. Tstar-cex: N1* = 2K1 -> 3K2, K1 -> 3K3, K2+K3 -> K1 has the steady state (kB/kA, 3 kB^2/(kA kC), 1) for every kappa (the paper writes the middle entry as 3 kA K1^2/kC)
+PASS: Sec. 5.1 (converse of Prop. ADLS): X4 <-> X2+X3, 2X4 <-> X1+X3 satisfies (H1)-(H3) and has a critical siphon, while its dual satisfies (H1)-(H3) and has none (this example is not in certify_duality.py) -- critical siphons of N: [['X3', 'X4'], ['X2', 'X3', 'X4']]; of N*: []
+PASS: Abstract / transversality outside EC: N = A+B -> C, B+D -> C, C -> A+D, C -> 2B is connected with (H1)-(H3), not EC, and its minimal siphon {A,C,D} meets the Petri cluster {A,B,D} in two species -- minimal siphons [['B', 'C'], ['A', 'C', 'D']], cluster species parts [['A', 'B', 'D'], ['C']]
+PASS: Sec. 2: under (H2) alone q = m can fail for EC networks (0 -> X1, X1 -> 0, 0 -> X2, X2 -> 0: m = 3 sources, q = 4 clusters); (H1) excludes it
+PASS: Sec. 2 (applied form of R-4): 0 -> X1, 0 -> X2, X1+X2 -> 0 is connected, EC and consistent with m = 2 sources and q = 3 clusters, and not conservative
+
+# 62 claims: 62 PASS, 0 FAIL; runtime 5.2 s

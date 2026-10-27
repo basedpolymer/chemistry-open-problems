@@ -1,0 +1,12 @@
+# check_general.py n=3 m=3 r<=3; Python 3.12.15 on Linux
+# networks with (H1), (H2): 11409; of which (H3): 11332
+PASS  A: 11409/11409
+PASS  B: 11409/11409
+PASS  G: 1529/1529
+PASS  H: 11409/11409
+REPORT  K6: holds 11023/11409  smallest failure (((0, 1, 1), (1, 0, 0)), ((1, 0, 1), (0, 1, 2)))
+REPORT  K9iv: holds 6063/11409  smallest failure (((0, 0, 1), (0, 1, 0)), ((1, 1, 1), (1, 0, 2)))
+REPORT  K8 species side: (n, twin classes, minimal siphons) -> P(N*): 21 groups, 1 with two different preclusterings (H3 class)
+REPORT  K8 example _K8A: key=(3, ((1, 2),), ((0,), (1,), (2,))); networks [(((0, 1, 1), (0, 0, 3)), ((1, 1, 1), (0, 2, 0)), ((1, 1, 1), (2, 1, 0))), (((0, 1, 1), (0, 0, 2)), ((1, 1, 1), (1, 2, 0)))]
+REPORT  K8 reaction side: (r, doubling classes, minimal T-traps) -> P(N): 38 groups, 0 with two different preclusterings (H3 class)
+# runtime 84.8 s

@@ -1,0 +1,8 @@
+# sample_wr.py n=6 m=2 R in [5,8] count=20000 seed=2 homog=False cons=True s in [2, 3, 4]; Python 3.12.15 on Linux
+# 20000 distinct networks kept after 317955 draws (344.6 s)
+#   s=2: 28 networks, 1 with (H1)-(H3), 1 of these with deficiency 0, 1 with WR dual
+#   s=3: 4137 networks, 1531 with (H1)-(H3), 1371 of these with deficiency 0, 6 with WR dual
+#   s=4: 15835 networks, 12386 with (H1)-(H3), 10980 of these with deficiency 0, 1 with WR dual
+# records written to ~/gacE-data/sample_6_2_5_8_s2.pkl.gz
+PASS C1: all 20000 sampled networks WR, s in target, conservative
+# runtime 538.3 s

@@ -1,0 +1,5 @@
+# extract_undecided.py  Python 3.12.15 on Linux; exact
+# 18861 WR networks with (H1)-(H3) and s = 2
+# E2 categories: {'ALL': 2988, 'NONE-drain-set': 142, 'NONE-drain-species': 199, 'NONE-vertex-scaling': 707, 'UNDECIDED': 14825}
+PASS: reproduces E2's counts (18 861 networks, 14 825 undecided)
+# saved ~/gacD2-data/s2_all.pkl.gz; runtime 47.0 s

@@ -1,0 +1,10 @@
+# ms_wfec.py n=4 molecularity<=2 r<=4 ordinary=0; Python 3.12.15 on Linux; exact arithmetic; generator: agent P's enumerate_ec.gen_networks
+# WF-EC networks: 692 (with (H3): 622, WR: 30)
+# Birch case L = S: 206; L != S: 486
+# multistationary for some rates (common sign vector): 0 (with (H3): 0)
+PASS M1: exact witnesses (two positive steady states in one class) verified for 0/0
+PASS M2: Birch case never multistationary (206 networks)
+  smallest L != S (unique by the sign criterion: True): X3 + X4 -> X2 + X4, X1 + X2 -> X1 + X3
+  smallest L != S (unique by the sign criterion: True): X4 -> X3, X3 -> X2, X1 + X2 -> X1 + X4
+PASS: all claims
+# runtime 105.0 s

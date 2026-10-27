@@ -1,0 +1,21 @@
+# s2_persistence.py  Python 3.12.15 on Linux; certificates exact; numerics scipy LSODA (evidence); limit 100000/file, numeric on first 200 undecided
+# 18861 WR networks with (H1)-(H3) and s = 2
+# certificates: {'ALL': 2988, 'NONE-drain-set': 142, 'NONE-drain-species': 199, 'NONE-vertex-scaling': 707, 'UNDECIDED': 14825}
+# undecided networks by the set of facet types present: {(): 3235, ('ESC',): 3370, ('ESC', 'IN'): 3190, ('ESC', 'IN', 'OUT'): 609, ('ESC', 'OUT'): 405, ('IN',): 2783, ('IN', 'OUT'): 585, ('OUT',): 648}
+# 200 undecided networks, 4 sampled kappa each, 7 scaled classes (10^-6..10^6): stable boundary vertex (exact) for all kappa 15, for some 2, for none 183, errors 0
+# per-network outcome multisets (cert / num-ext / none): {('cert', 'cert', 'cert', 'cert'): 15, ('cert', 'none', 'none', 'num-ext'): 1, ('cert', 'num-ext', 'num-ext', 'num-ext'): 1, ('none', 'none', 'none', 'none'): 59, ('none', 'none', 'none', 'num-ext'): 40, ('none', 'none', 'num-ext', 'num-ext'): 38, ('none', 'num-ext', 'num-ext', 'num-ext'): 23, ('num-ext', 'num-ext', 'num-ext', 'num-ext'): 23}
+# OUT/ESC facet present but neither certificate nor numerical extinction for any kappa (against Q1-8): 1
+     N = X3 + 2X4 -> 2X1 + X2, X2 + X3 + X4 -> X3 + 2X4, 2X1 + X2 -> X2 + X3 + X4; facets [([1], 'ESC')]
+# networks with 'none' for some kappa and extinction (cert or numerical) for another (candidates against Q1-7, to be examined): 102
+  mixed: N = 2X3 -> X2 + X3, X2 + X3 -> X1 + X2, X1 + X2 -> 2X3; facets []; ['num-ext', 'num-ext', 'none', 'none']
+  mixed: N = 2X3 -> X2 + X3, X2 + X3 -> 2X1 + X2, 2X1 + X2 -> 2X3; facets []; ['none', 'num-ext', 'none', 'none']
+  mixed: N = 2X3 -> X2 + X3, X2 + X3 -> 3X1, 3X1 -> 2X3; facets []; ['none', 'num-ext', 'num-ext', 'num-ext']
+  mixed: N = 2X3 -> 2X2, 2X2 -> X1 + X3, X1 + X3 -> 2X3; facets [([2], 'ESC')]; ['num-ext', 'none', 'num-ext', 'none']
+  mixed: N = 2X3 -> 2X2 + X3, 2X2 + X3 -> X1 + X2, X1 + X2 -> 2X3; facets []; ['num-ext', 'none', 'none', 'none']
+  smallest ALL: N = X3 -> X2, X2 -> X1, X1 -> X3; N* = k3 -> k2, k2 -> k1, k1 -> k3
+  smallest NONE-drain-set: N = 2X3 -> X2 + X3, X2 + X3 -> X1 + X3, X1 + X3 -> 2X3; N* = k3 -> k2, k2 -> k1, 2k1 + k2 + k3 -> k1 + k2 + 2k3
+  smallest NONE-drain-species: N = 3X3 -> X2, X2 -> X1 + 2X3, X1 + 2X3 -> 3X3; N* = k3 -> k2, k2 -> k1, 3k1 + 2k3 -> 2k2 + 3k3
+  smallest NONE-vertex-scaling: N = 2X3 -> X2, X2 -> X1 + X3, X1 + X3 -> 2X3; N* = k3 -> k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+  smallest UNDECIDED: N = 2X3 -> X2, X2 -> 2X1 + X3, 2X1 + X3 -> 2X3; N* = 2k3 -> 2k2, k2 -> k1, 2k1 + k3 -> k2 + 2k3
+PASS: (no claim; certificates are proved statements applied exactly)
+# runtime 244.5 s

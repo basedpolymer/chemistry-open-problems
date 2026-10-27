@@ -1,0 +1,9 @@
+# enum_wfec_v2.py n=2 molecularity<=3 r<=5: generated 29402 canonical EC networks
+connected+(H1)+(H2): EC = 75, WF-EC = 71  (impure 62, unbalanced 0, S != D 34)
+PASS T: 71/71
+PASS C: 71/71
+PASS C': 71/71
+PASS U(b): 71/71
+PASS U(c): 71/71
+PASS U*(a): 71/71
+runtime 1.8 s

@@ -1,0 +1,9 @@
+# ms_dual.py n=3 molecularity<=3 r<=4; inverse trials 300, msolve samples 4; Python 3.12.15 on Linux; msolve 0.10.1
+# unbalanced WF-EC networks: 52
+PASS V: msolve interface sanity (expected 1 and 2 positive solutions): (1, 1, 'ok'), (2, 3, '1 ambiguous')
+PASS I: inverse certificates verified exactly: 0/0 (networks with two positive steady states of N* in one class for some kappa)
+PASS F: msolve finds >= 2 positive solutions at every certificate (0/0)
+# forward msolve samples: positive-solution counts {1: 208}; status {'ok': 208}
+# networks with a forward sample having >= 2 positive solutions: 0
+PASS: all claims
+# runtime 281.3 s

@@ -1,0 +1,9 @@
+Environment: Python standard library, exact rationals. Runtime measured at exit.
+PASS: C0 WR, H1 ones, H2 cycle fluxes, H3, rank two.
+RX [((2, 1, 0, 0, 1, 2), (0, 0, 0, 0, 3, 3)), ((0, 0, 0, 0, 3, 3), (0, 0, 2, 1, 1, 2)), ((0, 0, 2, 1, 1, 2), (2, 1, 0, 0, 1, 2)), ((1, 2, 2, 1, 0, 0), (3, 3, 0, 0, 0, 0)), ((3, 3, 0, 0, 0, 0), (1, 2, 0, 0, 2, 1)), ((1, 2, 0, 0, 2, 1), (1, 2, 2, 1, 0, 0)), ((0, 0, 1, 2, 2, 1), (0, 0, 3, 3, 0, 0)), ((0, 0, 3, 3, 0, 0), (2, 1, 1, 2, 0, 0)), ((2, 1, 1, 2, 0, 0), (0, 0, 1, 2, 2, 1))]
+DUAL [((2, 0, 0, 1, 3, 1, 0, 0, 2), (0, 0, 2, 3, 1, 1, 0, 2, 0)), ((1, 0, 0, 2, 3, 2, 0, 0, 1), (0, 0, 1, 3, 2, 2, 0, 1, 0)), ((0, 0, 2, 2, 0, 0, 1, 3, 1), (0, 2, 0, 0, 0, 2, 3, 1, 1)), ((0, 0, 1, 1, 0, 0, 2, 3, 2), (0, 1, 0, 0, 0, 1, 3, 2, 2)), ((1, 3, 1, 0, 0, 2, 2, 0, 0), (3, 1, 1, 0, 2, 0, 0, 0, 2)), ((2, 3, 2, 0, 0, 1, 1, 0, 0), (3, 2, 2, 0, 1, 0, 0, 0, 1))]
+CLASSIFICATION NONE first NONE certificate ('H', (0, 2), ('theta', 1, (1, 3), [Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)]))
+PASS: C1 vertex p=(0,1,0,1,1,1,1,1,1) lies in a positive class.
+PASS: C2 J=[[-kappa_2,0],[kappa_2,-kappa_4]]; Hurwitz for every positive rate vector.
+Candidate SOME status: REFUTED; this network is NONE, by the hyperbolic boundary sink.
+Runtime seconds: 0.283

@@ -1,0 +1,59 @@
+# check_families.py; Python 3.12.15 on Linux; families ['all_2_2_5.pkl.gz']
+## family all_2_2_5.pkl.gz: 100 networks with (H1),(H2); 2.3 s
+   CF determined (D): 100
+   CF determined (N): 100
+   Condition 3.1 at generic V (D): 100
+   Condition 3.1 at generic V (N): 20
+   Condition 3.1 fails at generic V (N): 80   smallest: n=2 (((0, 1), (1, 0)), ((0, 2), (1, 1)), ((1, 0), (0, 1)))
+   EC sides with pi+ one block (D): 29
+   EC sides with pi+ one block (N): 12
+   Pcs != pi (D): 99   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   Pcs != pi (N): 10   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   WR0 sides with pi+ = linkage classes (D): 6
+   WR0 sides with pi+ = linkage classes (N): 4
+   checked K1 D: 100
+   checked K1 N: 100
+   checked K2 D: 100
+   checked K2 N: 100
+   checked K3 D: 100
+   checked K3 N: 100
+   checked K4 D: 29
+   checked K4 N: 12
+   checked K5 D: 6
+   checked K5 N: 4
+   checked K6 D: 100
+   checked K6 N: 20
+   checked K7: 100
+   isolation (R23 for CF) (D): 100   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   isolation (R23 for CF) (N): 20   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   networks: 100
+   networks with (H3): 100
+   pi != CF (N): 2   smallest: n=2 (((0, 2), (1, 1)), ((0, 2), (2, 0)), ((1, 1), (0, 2)), ((1, 1), (2, 0)))
+   reaction side Q1 fails: 93   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   reaction side Q1 holds: 7
+   reaction side Q2 fails: 74   smallest: n=2 (((0, 1), (1, 0)), ((0, 2), (1, 1)), ((1, 0), (0, 1)))
+   reaction side Q2 holds: 26
+   reaction side Q3 fails: 59   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   reaction side Q3 holds: 41
+   species side Q1 fails: 15   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   species side Q1 holds: 85
+   species side Q1 holds, (H3): 85
+   species side Q2 holds: 100
+   species side Q2 holds, (H3): 100
+   species side Q3 fails: 15   smallest: n=2 (((0, 1), (1, 0)), ((1, 1), (0, 2)))
+   species side Q3 holds: 85
+   species side Q3 holds, (H3): 85
+PASS K1 D on all_2_2_5.pkl.gz: 100 checked, 0 failures
+PASS K1 N on all_2_2_5.pkl.gz: 100 checked, 0 failures
+PASS K2 D on all_2_2_5.pkl.gz: 100 checked, 0 failures
+PASS K2 N on all_2_2_5.pkl.gz: 100 checked, 0 failures
+PASS K3 D on all_2_2_5.pkl.gz: 100 checked, 0 failures
+PASS K3 N on all_2_2_5.pkl.gz: 100 checked, 0 failures
+PASS K4 D on all_2_2_5.pkl.gz: 29 checked, 0 failures
+PASS K4 N on all_2_2_5.pkl.gz: 12 checked, 0 failures
+PASS K5 D on all_2_2_5.pkl.gz: 6 checked, 0 failures
+PASS K5 N on all_2_2_5.pkl.gz: 4 checked, 0 failures
+PASS K6 D on all_2_2_5.pkl.gz: 100 checked, 0 failures
+PASS K6 N on all_2_2_5.pkl.gz: 20 checked, 0 failures
+PASS K7 on all_2_2_5.pkl.gz: 100 checked, 0 failures
+# runtime 2.3 s; 0 FAIL

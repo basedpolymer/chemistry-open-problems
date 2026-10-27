@@ -1,0 +1,58 @@
+# check_families.py; Python 3.12.15 on Linux; families ['wr_2_2_5_zero.pkl.gz']
+## family wr_2_2_5_zero.pkl.gz: 16 networks with (H1),(H2); 0.6 s
+   CF determined (D): 16
+   CF determined (N): 16
+   Condition 3.1 at generic V (D): 16
+   Condition 3.1 at generic V (N): 4
+   Condition 3.1 fails at generic V (N): 12   smallest: n=2 (((0, 2), (1, 1)), ((1, 1), (2, 0)), ((2, 0), (0, 2)))
+   EC sides with pi+ one block (D): 4
+   EC sides with pi+ one block (N): 3
+   Pcs != pi (D): 16   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   Pcs != pi (N): 4   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   WR0 sides with pi+ = linkage classes (D): 3
+   WR0 sides with pi+ = linkage classes (N): 4
+   checked K1 D: 16
+   checked K1 N: 16
+   checked K2 D: 16
+   checked K2 N: 16
+   checked K3 D: 16
+   checked K3 N: 16
+   checked K4 D: 4
+   checked K4 N: 3
+   checked K5 D: 3
+   checked K5 N: 4
+   checked K6 D: 16
+   checked K6 N: 4
+   checked K7: 16
+   isolation (R23 for CF) (D): 16   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   isolation (R23 for CF) (N): 4   smallest: n=2 (((0, 1), (1, 0)), ((1, 0), (0, 1)))
+   networks: 16
+   networks with (H3): 16
+   reaction side Q1 fails: 13   smallest: n=2 (((0, 2), (1, 1)), ((1, 1), (0, 2)))
+   reaction side Q1 holds: 3
+   reaction side Q2 fails: 12   smallest: n=2 (((0, 2), (1, 1)), ((1, 1), (2, 0)), ((2, 0), (0, 2)))
+   reaction side Q2 holds: 4
+   reaction side Q3 fails: 9   smallest: n=2 (((0, 2), (1, 1)), ((1, 1), (0, 2)))
+   reaction side Q3 holds: 7
+   species side Q1 fails: 1   smallest: n=2 (((0, 2), (1, 1)), ((1, 1), (0, 2)))
+   species side Q1 holds: 15
+   species side Q1 holds, (H3): 15
+   species side Q2 holds: 16
+   species side Q2 holds, (H3): 16
+   species side Q3 fails: 1   smallest: n=2 (((0, 2), (1, 1)), ((1, 1), (0, 2)))
+   species side Q3 holds: 15
+   species side Q3 holds, (H3): 15
+PASS K1 D on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+PASS K1 N on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+PASS K2 D on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+PASS K2 N on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+PASS K3 D on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+PASS K3 N on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+PASS K4 D on wr_2_2_5_zero.pkl.gz: 4 checked, 0 failures
+PASS K4 N on wr_2_2_5_zero.pkl.gz: 3 checked, 0 failures
+PASS K5 D on wr_2_2_5_zero.pkl.gz: 3 checked, 0 failures
+PASS K5 N on wr_2_2_5_zero.pkl.gz: 4 checked, 0 failures
+PASS K6 D on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+PASS K6 N on wr_2_2_5_zero.pkl.gz: 4 checked, 0 failures
+PASS K7 on wr_2_2_5_zero.pkl.gz: 16 checked, 0 failures
+# runtime 0.6 s; 0 FAIL

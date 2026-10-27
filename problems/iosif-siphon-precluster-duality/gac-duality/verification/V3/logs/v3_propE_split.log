@@ -1,0 +1,4 @@
+NONE verdicts by reliance: {'other': 13330, 'E-zero': 36, 'E-bi-only': 451}
+bicoloured-only, by smallest mu among the witnesses: {1: 451}
+bicoloured-only, E2 category: {'UNDECIDED': 429, 'NONE-drain-species': 22}
+# runtime 32.2 s

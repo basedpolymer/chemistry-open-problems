@@ -1,0 +1,2 @@
+# enumerate_ec.py n=5 molecularity<=2 r<=5 ordinary=1; Python 3.12.15 on Linux
+# TIMEOUT: killed after 1800 s (exit 124, see run_enum_status.log); no result for this family

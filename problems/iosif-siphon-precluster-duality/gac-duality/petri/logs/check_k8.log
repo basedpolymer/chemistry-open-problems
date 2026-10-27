@@ -1,0 +1,17 @@
+# check_k8.py  Python 3.14.0 on Windows
+#   N1: X3 -> X4, X2 + X3 -> X1 + X2, X1 + X4 -> 2X3; extreme conservation laws [(0, 1, 0, 0), (1, 0, 1, 1)]; P(N*) = [[0, 2, 3], [1]]; EC: False
+PASS  N1 satisfies (H1), (H2), (H3)
+#   N2: 2X3 -> 2X4, X2 + X3 -> 2X2, X2 + X3 -> 2X1, X1 + X4 -> 2X3; extreme conservation laws [(1, 1, 1, 1)]; P(N*) = [[0, 1, 2, 3]]; EC: False
+PASS  N2 satisfies (H1), (H2), (H3)
+PASS  same twin classes
+PASS  same species parts of the clusters
+PASS  same minimal siphons
+PASS  different preclusters of the dual
+PASS  the three precluster variants agree on both duals
+#   M1: X3 -> X1 + X2, X2 + X3 -> X1 + X3, X1 + X2 -> X3, X1 + X2 -> 2X2; extreme flux rays [(0, 1, 0, 1), (1, 0, 1, 0)]; P(N) = [[0, 1, 2, 3]]; EC: False
+PASS  M1 satisfies (H1), (H2), (H3); no zero row of Gamma (columns distinct: True)
+#   M2: 2X3 -> X2 + X3, X1 + X3 -> X1 + X2, X1 + X2 -> 2X3, X1 + X2 -> 2X1; extreme flux rays [(0, 2, 1, 1), (2, 0, 1, 1)]; P(N) = [[0], [1], [2, 3]]; EC: False
+PASS  M2 satisfies (H1), (H2), (H3); no zero row of Gamma (columns distinct: False)
+PASS  M1, M2: same doubling classes (= twin classes of the duals)
+PASS  M1, M2: same minimal T-traps (= minimal siphons of the duals)
+PASS  M1, M2: different preclusters

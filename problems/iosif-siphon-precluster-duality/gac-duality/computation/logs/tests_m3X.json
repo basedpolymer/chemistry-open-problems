@@ -1,0 +1,412 @@
+{
+ "E-e4b": {
+  "doc": "N and N* both WR with (H1)-(H3): ADLS(N) iff ADLS(N*)",
+  "status": "test",
+  "stats": {
+   "all": [
+    95,
+    95
+   ],
+   "H": [
+    95,
+    95
+   ],
+   "strong": [
+    7,
+    7
+   ],
+   "WR": [
+    95,
+    95
+   ],
+   "WR0": [
+    93,
+    93
+   ],
+   "WR,s=2": [
+    84,
+    84
+   ],
+   "WR,s=3": [
+    10,
+    10
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "P-K2n": {
+  "doc": "no hypothesis (P's latest version of K2): P(dual) refines S iff no twin pair and every element lies in a minimal siphon (preclusters computed by crn.py even when the dual is not consistent)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    59624,
+    59624
+   ],
+   "H": [
+    24536,
+    24536
+   ],
+   "strong": [
+    10942,
+    10942
+   ],
+   "WR": [
+    24536,
+    24536
+   ],
+   "WR0": [
+    24312,
+    24312
+   ],
+   "WR,s=2": [
+    11236,
+    11236
+   ],
+   "WR,s=3": [
+    13298,
+    13298
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14a": {
+  "doc": "well-formed EC: minimal T-traps (minimal siphons of the dual) = internal cycles",
+  "status": "proved",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14b": {
+  "doc": "well-formed EC and pure: minimal siphons = semiflow supports = internal cycles of the dual",
+  "status": "proved",
+  "stats": {
+   "all": [
+    523,
+    523
+   ],
+   "H": [
+    145,
+    145
+   ],
+   "strong": [
+    48,
+    48
+   ],
+   "WR": [
+    145,
+    145
+   ],
+   "WR0": [
+    145,
+    145
+   ],
+   "WR,s=2": [
+    69,
+    69
+   ],
+   "WR,s=3": [
+    75,
+    75
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14c": {
+  "doc": "well-formed EC and NOT pure: minimal siphons = semiflow supports (is purity needed?)",
+  "status": "test",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "no applicable network"
+ },
+ "X-endoD": {
+  "doc": "WR+H: N* is endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    102
+   ],
+   "H": [
+    12268,
+    102
+   ],
+   "strong": [
+    5471,
+    10
+   ],
+   "WR": [
+    12268,
+    102
+   ],
+   "WR0": [
+    12156,
+    100
+   ],
+   "WR,s=2": [
+    5618,
+    87
+   ],
+   "WR,s=3": [
+    6649,
+    14
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4",
+   "Nstar": "2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3"
+  }
+ },
+ "X-sendoD": {
+  "doc": "WR+H: N* is strongly endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    16
+   ],
+   "H": [
+    12268,
+    16
+   ],
+   "strong": [
+    5471,
+    10
+   ],
+   "WR": [
+    12268,
+    16
+   ],
+   "WR0": [
+    12156,
+    15
+   ],
+   "WR,s=2": [
+    5618,
+    4
+   ],
+   "WR,s=3": [
+    6649,
+    11
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X2 + 2X3, X2 + 2X3 -> 2X1, 2X1 -> X4",
+   "Nstar": "2k3 -> 2k2, k2 -> k1, 2k2 -> 2k1, k1 -> k3"
+  }
+ },
+ "X-drainN": {
+  "doc": "WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    17455,
+    17455
+   ],
+   "H": [
+    12268,
+    12268
+   ],
+   "strong": [
+    5471,
+    5471
+   ],
+   "WR": [
+    12268,
+    12268
+   ],
+   "WR0": [
+    12156,
+    12156
+   ],
+   "WR,s=2": [
+    5618,
+    5618
+   ],
+   "WR,s=3": [
+    6649,
+    6649
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainD": {
+  "doc": "WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)",
+  "status": "test",
+  "stats": {
+   "all": [
+    12268,
+    12106
+   ],
+   "H": [
+    12268,
+    12106
+   ],
+   "strong": [
+    5471,
+    5380
+   ],
+   "WR": [
+    12268,
+    12106
+   ],
+   "WR0": [
+    12156,
+    11994
+   ],
+   "WR,s=2": [
+    5618,
+    5559
+   ],
+   "WR,s=3": [
+    6649,
+    6546
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "3X4 -> X2 + 2X3, X2 + 2X3 -> X1 + 2X4, X1 + 2X4 -> 3X4",
+   "Nstar": "k3 -> k2, k2 -> k1, 2k2 -> 2k1, 3k1 + 2k3 -> 2k2 + 3k3"
+  }
+ },
+ "X-drainD1": {
+  "doc": "WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)",
+  "status": "test",
+  "stats": {
+   "all": [
+    1002,
+    998
+   ],
+   "H": [
+    1002,
+    998
+   ],
+   "strong": [
+    30,
+    30
+   ],
+   "WR": [
+    1002,
+    998
+   ],
+   "WR0": [
+    890,
+    886
+   ],
+   "WR,s=2": [
+    1001,
+    997
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "3X4 -> X2 + 2X3, X2 + 2X3 -> X1 + 2X4, X1 + 2X4 -> 3X4",
+   "Nstar": "k3 -> k2, k2 -> k1, 2k2 -> 2k1, 3k1 + 2k3 -> 2k2 + 3k3"
+  }
+ }
+}

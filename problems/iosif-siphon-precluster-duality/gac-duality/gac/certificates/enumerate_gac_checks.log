@@ -1,0 +1,7 @@
+Environment: Python 3.14.0, Windows-11-10.0.26300-SP0; exact integer/Fraction arithmetic; expected runtime <30 s
+PASS family size 705
+PASS row-permutation dual-WR equivalence
+PASS nullity decomposition
+Family total 705; H3-eligible 702; counts {"both_criteria": 18, "dual_only": 0, "dual_wr": 13, "neither": 507, "primal_only": 177}
+Witnesses: {"primal_only": {"dual": [[[2, 0, 2, 1], [0, 2, 1, 2]], [[0, 2, 0, 1], [2, 0, 1, 0]], [[0, 0, 0, 0], [0, 0, 0, 0]]], "dual_conservation_rays": [[0, 0, 1, 1], [0, 1, 2, 0], [1, 0, 0, 2], [1, 1, 0, 0]], "dual_siphons": [[3], [0, 1], [1, 2]], "primal": [[[2, 0, 0], [0, 2, 0]], [[0, 2, 0], [2, 0, 0]], [[2, 0, 0], [1, 1, 0]], [[1, 1, 0], [2, 0, 0]]], "primal_conservation_rays": [[0, 0, 1], [1, 1, 0]], "primal_siphons": [[2], [0, 1]]}}
+Runtime: 1.161 s

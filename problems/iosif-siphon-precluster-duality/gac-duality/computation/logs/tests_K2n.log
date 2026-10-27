@@ -1,0 +1,13 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=2
+# 434984 distinct networks from 20 record files: all_2_2_5.pkl.gz, all_2_2_6.pkl.gz, all_2_3_4.pkl.gz, all_3_2_4.pkl.gz, all_3_3_3.pkl.gz, all_4_1_12.pkl.gz, all_4_2_3.pkl.gz, fc_3_6.pkl.gz, fc_4_5.pkl.gz, wr_2_2_5_zero.pkl.gz, wr_2_3_6.pkl.gz, wr_3_2_5_zero.pkl.gz, wr_3_2_6.pkl.gz, wr_3_3_5.pkl.gz, wr_4_2_6.pkl.gz, wr_5_2_5.pkl.gz, wr_5_2_6_homog.pkl.gz, wr_6_2_5_homog.pkl.gz, sample_5_2_4_8_s1.pkl.gz, sample_6_2_5_8_s2.pkl.gz
+# families: {"('all', 2, 2, 5)": 100, "('all', 2, 2, 6)": 16, "('all', 2, 3, 4)": 2712, "('all', 3, 2, 4)": 3883, "('all', 3, 3, 3)": 11210, "('all', 4, 1, 12)": 84, "('all', 4, 2, 3)": 151, "('fc', 3, 6)": 2, "('fc', 4, 5)": 63, "(2, 2, 5, 'zero')": 980, '(2, 3, 6, False)': 91177, "(3, 2, 5, 'zero')": 4459, '(3, 2, 6, False)': 26305, "(3, 3, 5, '')": 136410, '(4, 2, 6, False)': 95046, "(5, 2, 5, '')": 4272, "(5, 2, 6, 'homog')": 24191, "(6, 2, 5, 'homog')": 740, "('sample', 5, 2, 4, 8, 1, '', 'cons')": 13907, "('sample', 6, 2, 5, 8, 2, '', 'cons')": 19276}
+# candidates: P-K2n
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+P-K2n          proved   869968/869968   200168/200168    60688/60688    164754/164754    93418/93418     26674/26674     58838/58838     78122/78122    PASS
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+P-K2n: no hypothesis (P's latest version of K2): P(dual) refines S iff no twin pair and every element lies in a minimal siphon (preclusters computed by crn.py even when the dual is not consistent)
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 84.8 s

@@ -1,0 +1,22 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=3
+# 20000 distinct networks from 1 record files: sample_6_2_5_8_s2.pkl.gz
+# families: {"('sample', 6, 2, 5, 8, 2, '', 'cons')": 20000}
+# candidates: X-endoD X-drainN X-drainD X-drainD1
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+X-endoD        test          8/13918         8/13918         0/2083          8/13918         8/12352         1/1             6/1531          1/12386    REFUTED
+X-drainN       proved    20000/20000     13918/13918      2083/2083      13918/13918     12352/12352         1/1          1531/1531      12386/12386    PASS
+X-drainD       test      13918/13918     13918/13918      2083/2083      13918/13918     12352/12352         1/1          1531/1531      12386/12386    holds on all tested
+X-drainD1      test          0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        no applicable network
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+X-endoD: WR+H: N* is endotactic
+   counterexample (side N; n=6, r=4, s=3, H=True, H*=True, WR=True, WR*=False, def=0, family=('sample', 6, 2, 5, 8, 2, '', 'cons')):
+     N : X4 + X6 -> X3 + X6, X3 + X6 -> X2 + X5, X2 + X5 -> X1 + X5, X1 + X5 -> X4 + X6
+     N*: k4 -> k3, k3 -> k2, k2 -> k1, k1 -> k4, k3 + k4 -> k2 + k3, k1 + k2 -> k1 + k4
+X-drainN: WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)
+X-drainD: WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)
+X-drainD1: WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 23.4 s

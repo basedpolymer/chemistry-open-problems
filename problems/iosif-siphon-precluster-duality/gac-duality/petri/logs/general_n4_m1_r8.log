@@ -1,0 +1,11 @@
+# check_general.py n=4 m=1 r<=8; Python 3.12.15 on Linux
+# networks with (H1), (H2): 66; of which (H3): 66
+PASS  A: 66/66
+PASS  B: 66/66
+PASS  G: 66/66
+PASS  H: 66/66
+REPORT  K6: holds 66/66
+REPORT  K9iv: holds 66/66
+REPORT  K8 species side: (n, twin classes, minimal siphons) -> P(N*): 2 groups, 0 with two different preclusterings (H3 class)
+REPORT  K8 reaction side: (r, doubling classes, minimal T-traps) -> P(N): 66 groups, 0 with two different preclusterings (H3 class)
+# runtime 2.0 s

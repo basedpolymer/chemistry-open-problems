@@ -1,0 +1,28 @@
+# examples.py, Python 3.12.15, sympy 1.14.0, Linux
+X1 N = 2X2 <-> X1+X2 is WR, one linkage class, deficiency 0, s = 1, (H1)-(H3): PASS
+X2 N* = k2 -> k1, 2k1+k2 -> k1+2k2: PASS
+X3 k2' = k2 (kappa2 k1^2 - kappa1) (identity): PASS
+X4 k1' + k2' = 0 (classes k1 + k2 = T): PASS
+X5 for 0<k1<T: kappa2 k1^2 - kappa1 <= kappa2 T^2 - kappa1 (monotone in k1): PASS
+X6 face classification: verdict NONE, lower face {k2} of type ESC: PASS
+X7 no drain species and no drain set in N* (the extinction is not of drain type): PASS
+M1 dual of 3A <-> 2A+B: verdict NONE with an OUT face: PASS
+M2 the OUT face is the drain species of E (k2) and a drain set: PASS
+P1 N = 2X1+X3 <-> 3X1+2X2, 2X2+X3 <-> X1+4X2: WR, s = 1, (H1)-(H3): PASS
+P2 all singleton faces of N* are IN, a two-element face is not, verdict NONE: PASS
+   non-IN faces: [(-1, (0, 2), 'ESC')]
+S1 N = X1+X2 -> 2X2+2X3, X1+X2+2X3 -> 2X1: s = 1, (H1)-(H3), not WR: PASS
+S2 N* = k1+k2 -> 2k2, k1+k2 -> 2k1, 2k2 -> 2k1: PASS
+S3 k1' = k2 ((kappa2 - kappa1) k1 + 2 kappa3 k2) (identity): PASS
+S4 verdict SOME: face {k2} DOM, face {k1} IN: PASS
+B1 N = X1+X2 -> 2X2, X1+X2 -> 2X1 (H1)-(H3); N* has k1' = (kappa2 - kappa1) k1 k2: PASS
+B2 verdict TWO-SIDED (DOM faces on both sides): PASS
+C1 N = 2X3 -> X2+X3 -> X1+X3 -> 2X3: WR, one linkage class, deficiency 0, s = 2, (H1)-(H3): PASS
+C2 N* = k3 -> k2, k2 -> k1, 2k1+k2+k3 -> k1+k2+2k3: PASS
+C3 V = k2 + 2 k3: V' = -kappa1 k3 - kappa2 k2 + 2 kappa3 k1^2 k2 k3 (identity): PASS
+C4 N* conservative (k1+k2+k3): PASS
+C5 drain set {k2, k3} found, no drain species: PASS
+Q1 N = X1 -> X2, X1 -> X3, X2+X3 -> 2X1: pure, s = 2, (H1)-(H3), not WR: PASS
+Q2 N* = k1+k2 -> 2k3, k3 -> k1, k3 -> k2 (pure too): PASS
+Q3 (k2 - k1)' = (kappa3 - kappa2) k3 and k1+k2+k3 conserved (identities): PASS
+# runtime 0.1 s

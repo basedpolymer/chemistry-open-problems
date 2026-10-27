@@ -1,0 +1,16 @@
+# k12_abscons.py  Python 3.12.15 on Linux; exact arithmetic; nproc=3
+# 464331 distinct networks (all first-round record files)
+
+# verdicts, side N (networks with (H2) on that side): {'AC0': 40288, 'AC1': 51793, 'ACB': 633, 'NOT1': 1496, 'OPEN': 370121}
+# verdicts, side D (networks with (H2) on that side): {'AC0': 96639, 'AC1': 936, 'ACB': 30725, 'NOT1': 644, 'OPEN': 33}
+
+PASS B: weakly reversible => absolutely consistent (Boros 2019), on decided cases  (79309 applicable, 0 failures)
+PASS T: EC, connected, (H1), (H2): AC iff s = m - 1 (Theorem T), on decided cases  (5707 applicable, 0 failures)
+PASS S: balanced EC, (H1), (H2): same verdict for N and N* (Corollary T*)  (1722 applicable, 0 failures)
+PASS U: U is AC (AC0) and U* is NOT1 (NOT1, {'c': ['-1', '1', '0', '0'], 'bounded': 'above', 'rays': 2})  (1 applicable, 0 failures)
+
+K12(a) EC, unbalanced joins, connected, (H1), (H2), s = m - 1 (N absolutely consistent): 177 networks; verdicts for N*: {'AC1': 42, 'ACB': 135}
+K12(b) weakly reversible with (H1)-(H3) (N absolutely consistent, Boros 2019): 94464 networks; verdicts for N*: {'AC0': 79678, 'ACB': 14786}
+
+PASS: all claims
+# runtime 150.0 s

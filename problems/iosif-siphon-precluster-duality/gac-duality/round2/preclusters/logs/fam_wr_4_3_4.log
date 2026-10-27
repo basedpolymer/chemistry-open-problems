@@ -1,0 +1,62 @@
+# check_families.py; Python 3.12.15 on Linux; families ['wr_4_3_4.pkl.gz']
+## family wr_4_3_4.pkl.gz: 7076 networks with (H1),(H2); 204.6 s
+   CF determined (D): 7076
+   CF determined (N): 7076
+   Condition 3.1 at generic V (D): 4451
+   Condition 3.1 at generic V (N): 6875
+   Condition 3.1 fails at generic V (D): 2625   smallest: n=4 (((0, 0, 1, 2), (1, 1, 0, 1)), ((1, 1, 0, 1), (0, 0, 1, 2)))
+   Condition 3.1 fails at generic V (N): 201   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((1, 1, 0, 1), (1, 1, 1, 0)), ((1, 1, 1, 0), (1, 1, 0, 1)))
+   EC sides with pi+ one block (D): 97
+   EC sides with pi+ one block (N): 132
+   P != Pcs (D): 3   smallest: n=4 (((0, 0, 0, 1), (1, 1, 1, 0)), ((1, 1, 1, 0), (0, 0, 0, 1)))
+   Pcs != pi (D): 5512   smallest: n=4 (((0, 1, 1, 1), (1, 0, 1, 1)), ((1, 0, 1, 1), (0, 1, 1, 1)))
+   Pcs != pi (N): 6133   smallest: n=4 (((0, 0, 0, 1), (1, 1, 1, 0)), ((1, 1, 1, 0), (0, 0, 0, 1)))
+   WR0 sides with pi+ = linkage classes (D): 67
+   WR0 sides with pi+ = linkage classes (N): 6859
+   checked K1 D: 7076
+   checked K1 N: 7076
+   checked K2 D: 7076
+   checked K2 N: 7076
+   checked K3 D: 7076
+   checked K3 N: 7076
+   checked K4 D: 97
+   checked K4 N: 132
+   checked K5 D: 67
+   checked K5 N: 6859
+   checked K6 D: 4451
+   checked K6 N: 6875
+   checked K7: 7076
+   isolation (R23 for CF) (D): 4451   smallest: n=4 (((0, 0, 0, 1), (1, 1, 1, 0)), ((1, 1, 1, 0), (0, 0, 0, 1)))
+   isolation (R23 for CF) (N): 6875   smallest: n=4 (((0, 0, 0, 1), (1, 1, 1, 0)), ((1, 1, 1, 0), (0, 0, 0, 1)))
+   networks: 7076
+   networks with (H3): 6139
+   pi != CF (D): 1   smallest: n=4 (((0, 0, 1, 1), (1, 1, 0, 0)), ((1, 1, 0, 0), (0, 0, 1, 1)))
+   reaction side Q1 fails: 6012   smallest: n=4 (((0, 0, 0, 2), (0, 0, 1, 0)), ((0, 0, 1, 0), (1, 1, 0, 1)), ((1, 1, 0, 1), (0, 0, 0, 2)))
+   reaction side Q1 holds: 1064
+   reaction side Q2 fails: 1146   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 0, 2), (1, 1, 1, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((1, 1, 1, 0), (0, 0, 0, 2)))
+   reaction side Q2 holds: 5930
+   reaction side Q3 fails: 5033   smallest: n=4 (((0, 0, 0, 2), (0, 0, 1, 0)), ((0, 0, 1, 0), (1, 1, 0, 1)), ((1, 1, 0, 1), (0, 0, 0, 2)))
+   reaction side Q3 holds: 2043
+   species side Q1 fails: 6816   smallest: n=4 (((0, 0, 0, 1), (1, 1, 1, 0)), ((1, 1, 1, 0), (0, 0, 0, 1)))
+   species side Q1 holds: 260
+   species side Q1 holds, (H3): 245
+   species side Q2 fails: 2628   smallest: n=4 (((0, 0, 1, 2), (1, 1, 0, 1)), ((1, 1, 0, 1), (0, 0, 1, 2)))
+   species side Q2 holds: 4448
+   species side Q2 holds, (H3): 3743
+   species side Q3 fails: 5256   smallest: n=4 (((0, 0, 0, 1), (1, 1, 1, 0)), ((1, 1, 1, 0), (0, 0, 0, 1)))
+   species side Q3 holds: 1820
+   species side Q3 holds, (H3): 1701
+PASS K1 D on wr_4_3_4.pkl.gz: 7076 checked, 0 failures
+PASS K1 N on wr_4_3_4.pkl.gz: 7076 checked, 0 failures
+PASS K2 D on wr_4_3_4.pkl.gz: 7076 checked, 0 failures
+PASS K2 N on wr_4_3_4.pkl.gz: 7076 checked, 0 failures
+PASS K3 D on wr_4_3_4.pkl.gz: 7076 checked, 0 failures
+PASS K3 N on wr_4_3_4.pkl.gz: 7076 checked, 0 failures
+PASS K4 D on wr_4_3_4.pkl.gz: 97 checked, 0 failures
+PASS K4 N on wr_4_3_4.pkl.gz: 132 checked, 0 failures
+PASS K5 D on wr_4_3_4.pkl.gz: 67 checked, 0 failures
+PASS K5 N on wr_4_3_4.pkl.gz: 6859 checked, 0 failures
+PASS K6 D on wr_4_3_4.pkl.gz: 4451 checked, 0 failures
+PASS K6 N on wr_4_3_4.pkl.gz: 6875 checked, 0 failures
+PASS K7 on wr_4_3_4.pkl.gz: 7076 checked, 0 failures
+# runtime 204.6 s; 0 FAIL

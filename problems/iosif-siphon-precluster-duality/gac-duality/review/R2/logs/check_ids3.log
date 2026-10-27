@@ -1,0 +1,4 @@
+PASS FamiliPalsson2003: 10.1016/S0006-3495(03)74450-6 -> The Convex Basis of the Left Null Space of the Stoichiometric Matrix Leads to the Definition of Metabolically Meaningful Pools | Biophysical Journal vol 85 no 1 pp 16-26 | [2003, 7] | Iman Famili, Bernhard O. Palsson
+PASS JamshidiPalsson2009: 10.1016/j.bpj.2009.06.049 -> Flux-Concentration Duality in Dynamic Nonequilibrium Biological Networks | Biophysical Journal vol 97 no 5 pp L11-L13 | [2009, 9] | Neema Jamshidi, Bernhard Ø. Palsson
+PASS Duvall2024: arXiv 2409.12487 -> Computationally Checking if a Reaction Network is Monotone or Non-expansive | Alon Duvall | first 2024-09-19T06:07:57Z | latest 2025-01-27T18:12:41Z | http://arxiv.org/abs/2409.12487v2
+FAILS: 0

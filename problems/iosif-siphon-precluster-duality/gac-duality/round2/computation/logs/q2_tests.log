@@ -1,0 +1,19 @@
+# q2_tests.py  Python 3.12.15 on Linux; exact; limit 4000 per file; files ['wr_2_3_6', 'wr_3_3_5', 'wr_4_2_6', 'wr_5_2_6_homog', 'wr_5_3_4', 'sample_5_2_4_8_s1', 'sample_6_2_5_8_s2', 'sample_5_3_5_8_s3.pkl.gz', 'sample_6_3_5_8_s4.pkl.gz', 'all_3_3_3', 'all_2_3_4']
+# 42784 networks
+PASS T1: pi+ refines kappa_V (Q2-1 soundness)  (0 failures over 73485 sides)
+PASS T2: EC+connected+(H1)+(H2) => kappa_V one block (Q2-5)  (0 failures over 1578 sides)
+PASS T3: WR, deficiency 0 => kappa_V = linkage classes (Q2-6)  (0 failures over 25867 sides)
+PASS T4: dim ker A_V <= #kappa_V (Q2-8)  (0 failures over 73485 sides)
+PASS T5: M* refines pi, and pi = M* iff kappa_V = M* iff doubling pairs fully coupled (Q2-3)  (0 failures over 73485 sides)
+PASS T6: blocks of CF(N*) in minimal siphons iff no twins and every ray-MIPS in a minimal siphon (Q2-10; CF determined cases)  (0 failures over 30701 sides)
+REFUTED T3b: (report) WR, deficiency 0 => pi+ = linkage classes (Q2's K5 form; not part of Q2-6)  (3 failures over 25867 sides)
+     failure side N: 2X2 -> 3X2, 2X2 -> 3X1, 3X2 -> 2X2, 3X2 -> 3X1, 3X1 -> 2X2, 3X1 -> 3X2
+     failure side N: X2 -> 2X2, X2 -> X1 + 2X2, 2X2 -> X2, 2X2 -> X1 + 2X2, X1 + 2X2 -> X2, X1 + 2X2 -> 2X2
+# R12 (WR networks): CF merges two linkage classes (certified) 0 (by deficiency {}), CF refines LC (certified) 36107, undetermined 0
+# R13 (every minimal siphon of N inside one block of CF(N*)): {'all': {'holds': 20764, 'fails': 9937}, 'H': {'holds': 17967, 'fails': 8875}, 'WR': {'holds': 11314, 'fails': 8875}}
+     fails (H): N = 2X3 -> X1 + 2X2, X1 + 2X2 -> 2X3
+     fails (H): N = 2X5 -> X3 + 2X4, X3 + 2X4 -> X1 + 2X2, X1 + 2X2 -> 2X5
+     fails (WR): N = 2X3 -> X1 + 2X2, X1 + 2X2 -> 2X3
+     fails (WR): N = 2X5 -> X3 + 2X4, X3 + 2X4 -> X1 + 2X2, X1 + 2X2 -> 2X5
+PASS: all claims
+# runtime 255.0 s

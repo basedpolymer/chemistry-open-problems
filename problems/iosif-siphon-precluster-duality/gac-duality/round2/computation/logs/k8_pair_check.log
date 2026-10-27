@@ -1,0 +1,7 @@
+# k8_pair_check.py  Python 3.12.15 on Linux
+# N1 = 2X3 -> 2X2, 2X3 -> X1 + X2, 2X2 -> X1 + X3, X1 + X3 -> 2X3, X1 + X2 -> 2X2: H=True WR=True strong=True s=2 deficiency=1
+#   doubling classes [[0, 1], [2], [3], [4]], minimal T-traps [[3], [4]], P = [[0, 1], [2], [3], [4]]
+# N2 = 2X4 -> X3, X3 -> X2 + X4, X3 -> X1 + X4, X2 + X4 -> 2X4, X1 + X4 -> 2X4: H=True WR=True strong=True s=3 deficiency=0
+#   doubling classes [[0], [1, 2], [3], [4]], minimal T-traps [[3], [4]], P = [[0, 1, 2, 3, 4]]
+PASS: relabellings matching doubling classes and minimal T-traps: 4; with different P: 4
+# runtime 0.01 s

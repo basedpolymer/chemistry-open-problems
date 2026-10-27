@@ -1,0 +1,12 @@
+# q3_tests2.py  Python 3.12.15 on Linux; exact; msolve 0.10.1; nproc=4
+PASS Ustar family (3, 3, 4): 6995 WF-EC networks (52 unbalanced), J* Hurwitz on im Gamma^T at 6 random points each (0 failures)
+PASS GS family (3, 3, 4): G = Dphi A_k Metzler with G u(k) = 0 at 3 random (x, k) each (0 failures)
+PASS Ustar family (4, 2, 4): 692 WF-EC networks (0 unbalanced), J* Hurwitz on im Gamma^T at 6 random points each (0 failures)
+PASS GS family (4, 2, 4): G = Dphi A_k Metzler with G u(k) = 0 at 3 random (x, k) each (0 failures)
+PASS Ustar family (2, 4, 4): 295 WF-EC networks (0 unbalanced), J* Hurwitz on im Gamma^T at 6 random points each (0 failures)
+PASS GS family (2, 4, 4): G = Dphi A_k Metzler with G u(k) = 0 at 3 random (x, k) each (0 failures)
+HOLDS CR (conjecture): 4651 connected networks with (H1), (H2), s = #clusters - 1 (2033 not EC); critical siphon in N or N*, or not absolutely consistent: 0; verdicts {'ACB': 74, 'AC0': 1611, 'OPEN': 1449, 'AC1': 1517}
+PASS B: NM two positive steady states (2, 5, '2 ambiguous'); NB (2, 4, '2 ambiguous'); NT* verdict ('OPEN', 2); NT* positive steady states for kappa = (1,2,1,1) in the class of (1,2,3): (0, 4, '2 ambiguous')
+PASS K8s: M3, M4 (H1)-(H3)/WR/pure/strong: [True, True, True, True] [True, True, True, True]; relabellings matching doubling classes and minimal T-traps: 8, with different P: 8; P(M3) = [[0, 1, 4], [2], [3], [5]], P(M4) = [[0], [1, 2], [3], [4], [5]]
+PASS: all claims (CR is a conjecture test)
+# runtime 1065.6 s

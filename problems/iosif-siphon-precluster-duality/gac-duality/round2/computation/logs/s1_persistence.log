@@ -1,0 +1,62 @@
+# s1_persistence.py  Python 3.12.15 on Linux; exact arithmetic
+# 4754 distinct networks with s = 1 and (H1), (H2) for N (all first-round record files)
+
+class         ALL       SOME HYPERPLANE       NONE  UNDECIDED      total
+all          2029          0          5       2720          0       4754
+H            1920          0          5       2674          0       4599
+WR            150          0          0        411          0        561
+WR0            17          0          0          4          0         21
+H & H*        870          0          3        678          0       1551
+# NONE certificates: 1119 by a strictly lower bad order, 1601 by a Newton-polytope vertex at a tie
+
+PASS F: factorisation Gamma = a b^T exact  (4754 applicable, 0 failures)
+PASS L: structural lemma (net consumers contain the species)  (4754 applicable, 0 failures)
+PASS A: ADLS(N*) (no critical siphon) => ALL  (924 applicable, 0 failures)
+PASS B: drain species in N* => NONE  (75 applicable, 0 failures)
+PASS W: WF-EC N => ALL (Cor. P)  (141 applicable, 0 failures)
+PASS K: SOME certificates re-verified exactly  (0 applicable, 0 failures)
+PASS T: sampled exact g near the ends agrees with leading order (and ALL never has a bad sign)  (14261 applicable, 0 failures)
+
+# smallest example per class and category (by n + r, then r)
+[all / ALL] n=2 r=2 WR=True def=0 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : X2 -> X1, X1 -> X2
+   N*: k2 -> k1, k1 -> k2
+[all / HYPERPLANE] n=2 r=2 WR=False def=1 H=True H*=True a=[1, -1] b=['-1', '1']
+   N : X1 + X2 -> 2X2, X1 + X2 -> 2X1
+   N*: k1 + k2 -> 2k2, k1 + k2 -> 2k1
+[all / NONE] n=2 r=2 WR=False def=1 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : X2 -> X1, X1 + X2 -> 2X2
+   N*: k2 -> k1, k1 + k2 -> 2k2
+   certificate: ('vertex', 1, (1,), (0,))  (side +1: species k_j with b_j<0 vanish; J 0-based)
+[H / ALL] n=2 r=2 WR=True def=0 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : X2 -> X1, X1 -> X2
+   N*: k2 -> k1, k1 -> k2
+[H / HYPERPLANE] n=2 r=2 WR=False def=1 H=True H*=True a=[1, -1] b=['-1', '1']
+   N : X1 + X2 -> 2X2, X1 + X2 -> 2X1
+   N*: k1 + k2 -> 2k2, k1 + k2 -> 2k1
+[H / NONE] n=2 r=2 WR=False def=1 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : X2 -> X1, X1 + X2 -> 2X2
+   N*: k2 -> k1, k1 + k2 -> 2k2
+   certificate: ('vertex', 1, (1,), (0,))  (side +1: species k_j with b_j<0 vanish; J 0-based)
+[WR / ALL] n=2 r=2 WR=True def=0 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : X2 -> X1, X1 -> X2
+   N*: k2 -> k1, k1 -> k2
+[WR / NONE] n=2 r=2 WR=True def=0 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : 2X2 -> X1 + X2, X1 + X2 -> 2X2
+   N*: k2 -> k1, 2k1 + k2 -> k1 + 2k2
+   certificate: ('vertex', 1, (1,), (0,))  (side +1: species k_j with b_j<0 vanish; J 0-based)
+[WR0 / ALL] n=2 r=2 WR=True def=0 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : X2 -> X1, X1 -> X2
+   N*: k2 -> k1, k1 -> k2
+[WR0 / NONE] n=2 r=2 WR=True def=0 H=True H*=True a=[1, -1] b=['1', '-1']
+   N : 2X2 -> X1 + X2, X1 + X2 -> 2X2
+   N*: k2 -> k1, 2k1 + k2 -> k1 + 2k2
+   certificate: ('vertex', 1, (1,), (0,))  (side +1: species k_j with b_j<0 vanish; J 0-based)
+PASS S: constructed example is SOME (generic: persistent for an open set of rates, not for another), certificates verified; N (H1)=True (H2)=True s=1 WR=False
+   N : X1 + X3 + X4 -> 2X1 + X2, X1 + 2X2 + X3 + X4 -> X2 + 2X3 + 2X4, X1 + X2 + 2X4 -> X3 + 3X4
+   N*: k1 + k2 + k3 -> 2k1, 2k2 + k3 -> k1 + k2, k1 + k2 -> 2k2 + k3, k1 + k2 + 2k3 -> 2k2 + 3k3
+   category SOME, ties [(1, (1,))]
+   kappa1 (persistent) = ['1', '1', '3/2', '3/2'], kappa2 (not) = ['3', '3', '1', '1']
+
+PASS: all claims
+# runtime 57.4 s

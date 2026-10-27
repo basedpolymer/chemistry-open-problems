@@ -1,0 +1,10 @@
+environment: Python 3.14.0 Windows
+environment: Python 3.14.0 Windows
+family n=3 m<=2 r<=5 ordinary=0: {'EC': 1143, 'H3': 1141, 'WF': 958, 'WFFC': 6, 'WR': 28, 'pureWF': 165}
+PASS Theorem A
+PASS Theorem B
+PASS Theorem C (pure)
+PASS Theorem C'
+PASS Theorem D
+PASS Prop F
+runtime 42.3 s

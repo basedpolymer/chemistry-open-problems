@@ -1,0 +1,14 @@
+Environment: Python 3.14.0, Windows-11-10.0.26300-SP0; expected runtime 5--90 s
+PASS anderson-2011: PDF fetched and text extracted
+PASS pantea-2012: PDF fetched and text extracted
+PASS cnp-2013: PDF fetched and text extracted
+PASS gms-2014: PDF fetched and text extracted
+PASS anderson-shiu-2010: PDF fetched and text extracted
+PASS xu-2026: PDF fetched and text extracted
+PASS wiuf-2026: PDF fetched and text extracted
+PASS craciun-v3-2026: PDF fetched and text extracted
+PASS adls-2007: PDF fetched and text extracted
+PASS craciun-v2-2016: PDF fetched and text extracted
+PASS openai-wr-2026: PDF fetched and text extracted
+PASS openai-permanence-2026: PDF fetched and text extracted
+Runtime: 2.748 s

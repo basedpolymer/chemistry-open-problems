@@ -1,0 +1,32 @@
+# scan_records.py, Python 3.12.15 on Linux
+wr_2_2_5_zero.pkl.gz         s=1 WR+H=    16 drain-species=    0 drain-set=    0 set-not-species=    0 s1: ALL=4 NONE=12 other=0
+wr_2_3_6.pkl.gz              s=1 WR+H=   460 drain-species=    1 drain-set=    1 set-not-species=    0 s1: ALL=115 NONE=345 other=0
+wr_3_2_5_zero.pkl.gz         s=1 WR+H=     5 drain-species=    0 drain-set=    0 set-not-species=    0 s1: ALL=3 NONE=2 other=0
+wr_3_2_5_zero.pkl.gz         s=2 WR+H=   472 drain-species=    0 drain-set=    3 set-not-species=    3
+wr_3_2_6.pkl.gz              s=1 WR+H=    12 drain-species=    0 drain-set=    0 set-not-species=    0 s1: ALL=4 NONE=8 other=0
+wr_3_2_6.pkl.gz              s=2 WR+H=  2573 drain-species=    0 drain-set=    3 set-not-species=    3
+wr_3_3_5.pkl.gz              s=1 WR+H=    93 drain-species=    0 drain-set=    0 set-not-species=    0 s1: ALL=33 NONE=60 other=0
+wr_3_3_5.pkl.gz              s=2 WR+H= 10467 drain-species=  140 drain-set=  169 set-not-species=   29
+wr_4_2_6.pkl.gz              s=2 WR+H=   684 drain-species=    0 drain-set=    0 set-not-species=    0
+wr_4_2_6.pkl.gz              s=3 WR+H= 19300 drain-species=    0 drain-set=  144 set-not-species=  144
+wr_4_3_4.pkl.gz              s=1 WR+H=     1 drain-species=    0 drain-set=    0 set-not-species=    0 s1: ALL=1 NONE=0 other=0
+wr_4_3_4.pkl.gz              s=2 WR+H=  3373 drain-species=   45 drain-set=  141 set-not-species=   96
+wr_4_3_4.pkl.gz              s=3 WR+H=  2765 drain-species=   73 drain-set=  294 set-not-species=  221
+wr_5_2_5.pkl.gz              s=2 WR+H=    22 drain-species=    0 drain-set=    0 set-not-species=    0
+wr_5_2_5.pkl.gz              s=3 WR+H=  1047 drain-species=    0 drain-set=   19 set-not-species=   19
+wr_5_2_5.pkl.gz              s=4 WR+H=   495 drain-species=    0 drain-set=   47 set-not-species=   47
+wr_5_2_6_homog.pkl.gz        s=2 WR+H=    63 drain-species=    0 drain-set=    0 set-not-species=    0
+wr_5_2_6_homog.pkl.gz        s=3 WR+H=  4766 drain-species=    0 drain-set=   35 set-not-species=   35
+wr_5_2_6_homog.pkl.gz        s=4 WR+H= 16800 drain-species=    0 drain-set=  437 set-not-species=  437
+wr_5_3_4.pkl.gz              s=2 WR+H=  2245 drain-species=   14 drain-set=   31 set-not-species=   17
+wr_5_3_4.pkl.gz              s=3 WR+H=  3884 drain-species=   30 drain-set=  401 set-not-species=  371
+wr_6_2_5_homog.pkl.gz        s=2 WR+H=     1 drain-species=    0 drain-set=    0 set-not-species=    0
+wr_6_2_5_homog.pkl.gz        s=3 WR+H=   123 drain-species=    0 drain-set=    1 set-not-species=    1
+wr_6_2_5_homog.pkl.gz        s=4 WR+H=   127 drain-species=    0 drain-set=    9 set-not-species=    9
+# totals by s: {1: {'nets': 587, 'drainsp': 1, 'drainset': 1, 'new': 0, 'ALL': 160, 'NONE': 427, 'other': 0}, 2: {'nets': 19900, 'drainsp': 199, 'drainset': 347, 'new': 148, 'ALL': 0, 'NONE': 0, 'other': 0}, 3: {'nets': 31885, 'drainsp': 103, 'drainset': 894, 'new': 791, 'ALL': 0, 'NONE': 0, 'other': 0}, 4: {'nets': 17422, 'drainsp': 0, 'drainset': 493, 'new': 493, 'ALL': 0, 'NONE': 0, 'other': 0}}
+# smallest WR network whose dual has a drain set but no drain species: N = 2X3 -> X2+X3, X2+X3 -> X1+X3, X1+X3 -> 2X3; N* = k3 -> k2, k2 -> k1, 2k1+k2+k3 -> k1+k2+2k3; drain set Z (0-based) = (1, 2), d = (1, 1)
+R1: PASS (0 failures)
+R2: PASS (0 failures)
+R3: PASS (0 failures)
+# runtime 77.4 s
+exit 0

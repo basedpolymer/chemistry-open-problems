@@ -1,0 +1,295 @@
+{
+ "X-endoN": {
+  "doc": "WR+H, r <= 6 => N endotactic (Craciun-Nazarov-Pantea 2013; consistency check of endo.py)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    34927,
+    34927
+   ],
+   "H": [
+    34927,
+    34927
+   ],
+   "strong": [
+    5390,
+    5390
+   ],
+   "WR": [
+    34927,
+    34927
+   ],
+   "WR0": [
+    10585,
+    10585
+   ],
+   "WR,s=2": [
+    13275,
+    13275
+   ],
+   "WR,s=3": [
+    20470,
+    20470
+   ],
+   "WR,s=4": [
+    622,
+    622
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-endoD": {
+  "doc": "WR+H: N* is endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    34927,
+    92
+   ],
+   "H": [
+    34927,
+    92
+   ],
+   "strong": [
+    5390,
+    12
+   ],
+   "WR": [
+    34927,
+    92
+   ],
+   "WR0": [
+    10585,
+    48
+   ],
+   "WR,s=2": [
+    13275,
+    35
+   ],
+   "WR,s=3": [
+    20470,
+    19
+   ],
+   "WR,s=4": [
+    622,
+    5
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "2X2 -> X1, X1 -> 2X2",
+   "Nstar": "k2 -> k1, 2k1 -> 2k2"
+  }
+ },
+ "X-sendoD": {
+  "doc": "WR+H: N* is strongly endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    34927,
+    39
+   ],
+   "H": [
+    34927,
+    39
+   ],
+   "strong": [
+    5390,
+    12
+   ],
+   "WR": [
+    34927,
+    39
+   ],
+   "WR0": [
+    10585,
+    22
+   ],
+   "WR,s=2": [
+    13275,
+    13
+   ],
+   "WR,s=3": [
+    20470,
+    7
+   ],
+   "WR,s=4": [
+    622,
+    4
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "2X2 -> X1, X1 -> 2X2",
+   "Nstar": "k2 -> k1, 2k1 -> 2k2"
+  }
+ },
+ "X-sendoN": {
+  "doc": "WR+H, one linkage class, r <= 6: N strongly endotactic (Gopalkrishnan-Miller-Shiu 2014; check of endo.py)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    24200,
+    24200
+   ],
+   "H": [
+    24200,
+    24200
+   ],
+   "strong": [
+    5190,
+    5190
+   ],
+   "WR": [
+    24200,
+    24200
+   ],
+   "WR0": [
+    5991,
+    5991
+   ],
+   "WR,s=2": [
+    8596,
+    8596
+   ],
+   "WR,s=3": [
+    14697,
+    14697
+   ],
+   "WR,s=4": [
+    622,
+    622
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainN": {
+  "doc": "WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    36587,
+    36587
+   ],
+   "H": [
+    34927,
+    34927
+   ],
+   "strong": [
+    5390,
+    5390
+   ],
+   "WR": [
+    34927,
+    34927
+   ],
+   "WR0": [
+    10585,
+    10585
+   ],
+   "WR,s=2": [
+    13275,
+    13275
+   ],
+   "WR,s=3": [
+    20470,
+    20470
+   ],
+   "WR,s=4": [
+    622,
+    622
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainD": {
+  "doc": "WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)",
+  "status": "test",
+  "stats": {
+   "all": [
+    34927,
+    34786
+   ],
+   "H": [
+    34927,
+    34786
+   ],
+   "strong": [
+    5390,
+    5384
+   ],
+   "WR": [
+    34927,
+    34786
+   ],
+   "WR0": [
+    10585,
+    10540
+   ],
+   "WR,s=2": [
+    13275,
+    13135
+   ],
+   "WR,s=3": [
+    20470,
+    20470
+   ],
+   "WR,s=4": [
+    622,
+    622
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "3X2 -> X1 + 2X2, X1 + 2X2 -> 3X2",
+   "Nstar": "k2 -> k1, 3k1 + 2k2 -> 2k1 + 3k2"
+  }
+ },
+ "X-drainD1": {
+  "doc": "WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)",
+  "status": "test",
+  "stats": {
+   "all": [
+    8881,
+    8775
+   ],
+   "H": [
+    8881,
+    8775
+   ],
+   "strong": [
+    801,
+    795
+   ],
+   "WR": [
+    8881,
+    8775
+   ],
+   "WR0": [
+    1014,
+    983
+   ],
+   "WR,s=2": [
+    8596,
+    8491
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "3X2 -> X1 + 2X2, X1 + 2X2 -> 3X2",
+   "Nstar": "k2 -> k1, 3k1 + 2k2 -> 2k1 + 3k2"
+  }
+ }
+}

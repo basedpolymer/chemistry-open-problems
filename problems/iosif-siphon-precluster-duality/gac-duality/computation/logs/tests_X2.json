@@ -1,0 +1,124 @@
+{
+ "X-L5": {
+  "doc": "manuscript Lemma 5: the three precluster variants (onestep, thesis, closure) agree, for N under (H2) and for N* under (H1)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    331653,
+    331653
+   ],
+   "H": [
+    126998,
+    126998
+   ],
+   "strong": [
+    51648,
+    51648
+   ],
+   "WR": [
+    91584,
+    91584
+   ],
+   "WR0": [
+    48606,
+    48606
+   ],
+   "WR,s=2": [
+    6862,
+    6862
+   ],
+   "WR,s=3": [
+    49542,
+    49542
+   ],
+   "WR,s=4": [
+    34220,
+    34220
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-G4.1": {
+  "doc": "G Prop. 4.1: N WR, (H3), no zero reaction vector, q = 1, N* WR, n prime => N strongly endotactic",
+  "status": "proved",
+  "stats": {
+   "all": [
+    27,
+    27
+   ],
+   "H": [
+    27,
+    27
+   ],
+   "strong": [
+    10,
+    10
+   ],
+   "WR": [
+    27,
+    27
+   ],
+   "WR0": [
+    14,
+    14
+   ],
+   "WR,s=2": [
+    9,
+    9
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    4,
+    4
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-G4.1np": {
+  "doc": "same hypotheses without primality (n not prime): N strongly endotactic (expected to fail)",
+  "status": "test",
+  "stats": {
+   "all": [
+    5,
+    4
+   ],
+   "H": [
+    5,
+    4
+   ],
+   "strong": [
+    2,
+    2
+   ],
+   "WR": [
+    5,
+    4
+   ],
+   "WR0": [
+    2,
+    2
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    5,
+    4
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 -> X3, X3 -> X2, X2 -> X1, X2 + X4 -> X1 + X3, X1 -> X4, X1 + X3 -> X2 + X4",
+   "Nstar": "k5 + k6 -> k3 + k4, k3 + k4 -> k2 + k6, k2 + k6 -> k1 + k4, k1 + k4 -> k5 + k6"
+  }
+ }
+}

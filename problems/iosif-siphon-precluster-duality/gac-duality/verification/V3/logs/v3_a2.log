@@ -1,0 +1,30 @@
+# v3_a2.py  Python 3.12.15 on Linux; sympy 1.14.0; exact
+PASS: A.net  Gamma = [[1,-1,0],[1,0,-1],[-3,2,1],[0,3,-3]]; WR, (m,l,s,delta) = (3,1,2,0); (H1) with (11,1,4,1) (value 12 on every complex), (H2), (H3)
+PASS: A.dual  N* = b -> a, b+c -> a+b, 3a+2c -> 2b+3c, 3c -> 3b
+PASS: A.ode  a' = alpha b + beta b c - 3 gamma a^3 c^2, b' = -alpha b + 2 gamma a^3 c^2 + 3 delta c^3, c' = -beta b c + gamma a^3 c^2 - 3 delta c^3
+PASS: A.bdry  a' = alpha b + beta b c > 0 on open edge a=0; b' = 2 gamma a^3 c^2 + 3 delta c^3 > 0 on open edge b=0; c=0 invariant with b' = -alpha b; field nonzero at (0,T,0) and (0,0,T), zero at (T,0,0)
+PASS: A.OUT  the only siphon facet of N* is {c} (Z = {R3}) and its type is OUT -- [((0,), 'IN'), ((1,), 'IN'), ((2,), 'OUT')]
+PASS: A.1  (log V)' = c[gamma a^3 - (3 delta + 2 beta gamma a^3/alpha) c - (3 beta delta/alpha) c^2] for V = c exp(-beta b/alpha) (exact)
+PASS: A.2.3  bracket >= gamma T^3/16 on U = {b + c < epsilon} (3000 random exact points, random rates and T)
+PASS: A.unit  rates = T = 1: epsilon = min(1/2, 1, 1/(16*8)) = 1/128
+PASS: AF.net  u=3..7, R=1..7: WR 3-cycle, (m,l,s,delta)=(3,1,2,0), (H1) with (uR+2,u-2,R+1,u-2) (value u(R+1)), (H2), (H3)
+PASS: AF.dual  N* = b -> a, b+c -> a+b, ua+2c -> 2b+uc, Rc -> Rb
+PASS: AF.1  (log V)' identity (exact, sympy) for all (u,R) tested
+PASS: AF.OUT  facet {c} is OUT for all (u,R) tested
+PASS: AF.R>=3  bracket >= L/2 on {b + c < epsilon} (60 random exact points per (u,R))
+PASS: AF.R=2  with T = min(1, delta/((u-2)gamma)): c' <= -delta c^2 on the class (sampled exactly)
+PASS: AF.R=1  with T = min(1, delta/(2(u-2)gamma)): c' <= -(delta/2) c on the class (sampled exactly)
+PASS: AF.R=2,1  c' + delta c^2 = -beta b c + c^2((u-2)gamma a^u - delta) (R=2); c' + (delta/2) c = -beta b c + c((u-2) gamma a^u c - delta/2) (R=1)
+PASS: E.span  im(Gamma) in im(Ye) for 300 random WR networks (WR-Sigma), i.e. E2's Cor. E2.5' hypothesis
+PASS: O.uniq  b' - 2c' = (2 beta c - alpha) b + 9 delta c^3; b(c), a(c)^3 as stated solve all three equilibrium equations -- [0, 0, 0]
+PASS: O.mono  b'(c) = -9*c**2*delta*(-3*alpha + 4*beta*c)/(-alpha + 2*beta*c)**2 > 0 and (a^3)'(c) = -3*delta*(-alpha**2 - 2*alpha*beta*c + 2*beta**2*c**2)/(gamma*(-alpha + 2*beta*c)**2) > 0 on 0 < c < alpha/(2 beta)
+PASS: O.mono2  on x = beta c/alpha in [0,1/2]: 3 - 4x > 0 (linear) and 1 + 2x - 2x^2 > 0 (concave): endpoint values positive; numerator identity alpha^2+2 alpha beta c-2 beta^2 c^2 = alpha^2 (1+2x-2x^2)
+PASS: O.eq  (1,1,1/100) is an equilibrium at rates (17,400,70000,10^6), T = 201/100, fluxes (17,4,7,1)
+PASS: O.J  Jacobian in (b,c) = [[-59,3658],[-25,79]], trace 20, det 86789, eigenvalues 10 +- i sqrt(86689)
+PASS: O.H  H positive definite (93655 > 0, det = 1177283151421 > 0), J^T H + H J = 3471560 I
+PASS: O.root  c = 1/100 lies in (0, alpha/(2 beta)) = (0, 17/800) and gives b = 1, a^3 = 1
+PASS: L  no siphon edge with two opposite active dual reaction vectors in 1393 random single-linkage rank-two networks
+PASS: S7.net  six species, nine reactions (three 3-cycles), WR, every complex has total 6 ((H1) with ones), (H2), (H3), rank 2
+PASS: S7.vertex  p = (0,1,0,1,1,1,1,1,1) is a boundary point of a positive class (p + Gamma^T z/4 > 0), an equilibrium for every kappa, with Jacobian in (k1,k3) = [[-kappa2, 0],[kappa2, -kappa4]] (Hurwitz) -- [[-kap2, 0], [kap2, -kap4]]
+# runtime 3.1 s
+ALL CLAIMS PASS

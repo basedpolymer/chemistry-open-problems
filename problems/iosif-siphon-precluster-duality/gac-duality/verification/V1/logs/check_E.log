@@ -1,0 +1,21 @@
+environment: Python 3.14.0 Windows
+environment: Python 3.14.0 Windows
+environment: Python 3.14.0 Windows
+PASS Prop E.3: c_P(U) <= V <=> U <= V <=> U <= i_F(V) for all partitions P and union-closed F (|X| <= 3; 5806 triples)
+PASS Prop E.3: for F = L(Q), c_P and i_Q are inverse isomorphisms iff P = Q (|X| <= 3)
+PASS Prop E.1 on 2014 random WR networks (P(N) <= M(N*) iff no complex has two outgoing reactions) -- []
+PASS Prop E.2 on 566 random WR networks with (H1),(H3) -- []
+PASS E-b1/b2 (side D): k2 -> k1; k1+k2 -> 2k2 satisfies (H1),(H2) [(H3): True] and refutes b1; b2 -- {'b1': False, 'b2': False}
+PASS E-b3, E-d1, E-d3, E-d4 (side D of R): k2 -> k1; k1 -> k2 satisfies (H1),(H2) [(H3): True] and refutes b3; d1; d3; d4 -- {'b3': False, 'd1': False, 'd3': False, 'd4': False}
+PASS E-b4 (side D): k1+k2 -> 2k2; k1+k2 -> 2k1 satisfies (H1),(H2) [(H3): True] and refutes b4 -- {'b4': False}
+PASS E-d2 (side N): X3 -> X2; X1+X2 -> X1+X3 satisfies (H1),(H2) [(H3): True] and refutes d2 -- {'d2': False}
+PASS E-c4 (side N): X3 -> X1+X2; X1+2X2 -> X2+X3 satisfies (H1),(H2) [(H3): False] and refutes c4 -- {'c4': False}
+PASS E-a3, a4, a6, a8 refuted by R: P(R) != M(R*), P(R*) != M(R), M(R) not<= P(R*), M(R*) not<= P(R)
+PASS E-a5 refuted: X3 -> X2, X1+X2 -> X1+X3 has (H1)-(H3), P(N*) not<= M(N) (dual has the loop k2 -> k2)
+PASS E-a7 refuted: X2 -> X1, X1+X2 -> 2X2, X1+X2 -> 2X1 has (H1)-(H3), P(N) not<= M(N*)
+PASS E-c1 refuted: WR X2 -> X1+X2; X1+X2 -> 2X1+X2; 2X1+X2 -> X2, P(N) v M(N*) != linkage classes
+PASS E-c1' refuted: WR deficiency 0 0 -> X2; 0 -> X1; X2 -> 0; X2 -> X1; X1 -> 0, P(N) v M(N*) != linkage classes
+PASS E-c2 refuted: X2 -> X1; X1+X2 -> 2X2 (H), P(N) v M(N*) does not refine the linkage classes
+PASS E-c3 refuted: X3 -> X2; X1+2X2 -> X1+2X3 connected with (H), P(N*) v M(N) not one block
+PASS E1 illustration Y5: P(Y5) = {A->B},{six others}; M(Y5*) = {A->B},{B->C,C->A},{B->D,D->A},{B->E,E->A}; join has two blocks; WR, deficiency 0, (H1)-(H3)
+runtime 3.9 s; 17 claims, 0 FAIL

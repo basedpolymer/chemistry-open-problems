@@ -1,0 +1,111 @@
+# check_dictionary_examples.py  Python 3.14.0 on Windows
+PASS  D1 R: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 R: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 R: clusters of N = clusters of N*
+PASS  D4 R: equal-conflict sets of N* = twin classes of N
+PASS  D4 R: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 R: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  D1 T: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 T: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 T: clusters of N = clusters of N*
+PASS  D4 T: equal-conflict sets of N* = twin classes of N
+PASS  D4 T: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 T: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  D1 W: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 W: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 W: clusters of N = clusters of N*
+PASS  D4 W: equal-conflict sets of N* = twin classes of N
+PASS  D4 W: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 W: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  D1 W*: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 W*: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 W*: clusters of N = clusters of N*
+PASS  D4 W*: equal-conflict sets of N* = twin classes of N
+PASS  D4 W*: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 W*: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  D1 U: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 U: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 U: clusters of N = clusters of N*
+PASS  D4 U: equal-conflict sets of N* = twin classes of N
+PASS  D4 U: N EC+balanced joins iff N* EC+balanced joins
+PASS  D1 D: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 D: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 D: clusters of N = clusters of N*
+PASS  D4 D: equal-conflict sets of N* = twin classes of N
+PASS  D4 D: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 D: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  D1 F: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 F: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 F: clusters of N = clusters of N*
+PASS  D4 F: equal-conflict sets of N* = twin classes of N
+PASS  D4 F: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 F: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  D1 N3: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 N3: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 N3: clusters of N = clusters of N*
+PASS  D4 N3: equal-conflict sets of N* = twin classes of N
+PASS  D4 N3: N EC+balanced joins iff N* EC+balanced joins
+PASS  D1 N4.12: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 N4.12: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 N4.12: clusters of N = clusters of N*
+PASS  D4 N4.12: equal-conflict sets of N* = twin classes of N
+PASS  D4 N4.12: N EC+balanced joins iff N* EC+balanced joins
+PASS  D1 B2: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 B2: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 B2: clusters of N = clusters of N*
+PASS  D4 B2: equal-conflict sets of N* = twin classes of N
+PASS  D4 B2: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 B2: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  D1 B3: N* is the weighted reverse-dual of N, N** = N
+PASS  D2 B3: siphons/traps of N = T-traps/T-siphons of N*, and conversely
+PASS  D3 B3: clusters of N = clusters of N*
+PASS  D4 B3: equal-conflict sets of N* = twin classes of N
+PASS  D4 B3: N EC+balanced joins iff N* EC+balanced joins
+PASS  D4 B3: (EC, balanced) EC sets / twin classes = reaction / species parts of clusters
+PASS  O1 R: ordinary FC, connected, (H1)-(H3), rank = #clusters-1 = 1
+PASS  O1 R: dual is well-formed FC too (Duality Theorem) and both are live+bounded at M0
+PASS  O1 T: ordinary FC, connected, (H1)-(H3), rank = #clusters-1 = 2
+PASS  O1 T: dual is well-formed FC too (Duality Theorem) and both are live+bounded at M0
+PASS  O1 W: ordinary FC, connected, (H1)-(H3), rank = #clusters-1 = 2
+PASS  O1 W: dual is well-formed FC too (Duality Theorem) and both are live+bounded at M0
+PASS  O1 W*: ordinary FC, connected, (H1)-(H3), rank = #clusters-1 = 2
+PASS  O1 W*: dual is well-formed FC too (Duality Theorem) and both are live+bounded at M0
+PASS  O1 F: ordinary FC, connected, (H1)-(H3), rank = #clusters-1 = 3
+PASS  O1 F: dual is well-formed FC too (Duality Theorem) and both are live+bounded at M0
+PASS  O1 B2: ordinary FC, connected, (H1)-(H3), rank = #clusters-1 = 3
+PASS  O1 B2: dual is well-formed FC too (Duality Theorem) and both are live+bounded at M0
+PASS  O1 B3: ordinary FC, connected, (H1)-(H3), rank = #clusters-1 = 4
+PASS  O1 B3: dual is well-formed FC too (Duality Theorem) and both are live+bounded at M0
+PASS  O3 U is not EC (hence not free choice)
+PASS  O3 D is EC, balanced joins, not ordinary, (H1)-(H3), rank 2 != #EC sets - 1 = 1: not well-formed
+PASS  O3 D: token game from M0 = (1,1,1) is bounded and not live
+PASS  O3 N3 is not EC
+PASS  O2 'A1 P=M' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'A2 P<=M' fails on a well-formed FC network: ['W*', 'F']
+PASS  O2 'A3 M<=P' fails on a well-formed FC network: ['R', 'T', 'W']
+PASS  O2 'A4 |P|=|M|' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'B1 P=M' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'B2 P<=M' fails on a well-formed FC network: ['W', 'F']
+PASS  O2 'B3 M<=P' fails on a well-formed FC network: ['R', 'T', 'W*']
+PASS  O2 'B4 |P|=|M|' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'C |P(N)|=|M(N)|' fails on a well-formed FC network: ['R', 'T', 'W*', 'F']
+PASS  O2 'Q1A P=S' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'Q1B P=S' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'Q2A S<=P' fails on a well-formed FC network: ['R', 'T', 'W']
+PASS  O2 'Q2B S<=P' fails on a well-formed FC network: ['R', 'T', 'W*']
+PASS  O2 'Q3A P<=S' fails on a well-formed FC network: ['W*', 'F']
+PASS  O2 'Q3B P<=S' fails on a well-formed FC network: ['W', 'F']
+PASS  O2 'Q4A every P block is a siphon' fails on a well-formed FC network: ['R', 'T', 'W']
+PASS  O2 'Q4B every P block is a siphon' fails on a well-formed FC network: ['R', 'T', 'W*']
+PASS  O2 'Q5A every P block is a union of min siphons' fails on a well-formed FC network: ['R', 'T', 'W']
+PASS  O2 'Q5B every P block is a union of min siphons' fails on a well-formed FC network: ['R', 'T', 'W*']
+PASS  O2 'Q6A |P|=|S|' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'Q6B |P|=|S|' fails on a well-formed FC network: ['R', 'T', 'W', 'W*', 'F']
+PASS  O2 'R23 cycles<=P' fails on a well-formed FC network: ['R', 'T', 'W*']
+PASS  P1 B2: Iosif precluster of the choice contains the join reaction: True (expected True); P = [[0, 1, 2, 3, 4]]
+PASS  P1 B2: class-span (ratio) closure is one block: [[0, 1, 2, 3, 4]]
+PASS  P1 B2: all three Iosif variants agree
+PASS  P1 B3: Iosif precluster of the choice contains the join reaction: False (expected False); P = [[0, 1, 2, 3, 4, 5], [6]]
+PASS  P1 B3: class-span (ratio) closure is one block: [[0, 1, 2, 3, 4, 5, 6]]
+PASS  P1 B3: all three Iosif variants agree
+# runtime 0.31 s; 0 failure(s)

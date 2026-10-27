@@ -1,0 +1,163 @@
+{
+ "X-endoD": {
+  "doc": "WR+H: N* is endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    13918,
+    8
+   ],
+   "H": [
+    13918,
+    8
+   ],
+   "strong": [
+    2083,
+    0
+   ],
+   "WR": [
+    13918,
+    8
+   ],
+   "WR0": [
+    12352,
+    8
+   ],
+   "WR,s=2": [
+    1,
+    1
+   ],
+   "WR,s=3": [
+    1531,
+    6
+   ],
+   "WR,s=4": [
+    12386,
+    1
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X4 + X6 -> X3 + X6, X3 + X6 -> X2 + X5, X2 + X5 -> X1 + X5, X1 + X5 -> X4 + X6",
+   "Nstar": "k4 -> k3, k3 -> k2, k2 -> k1, k1 -> k4, k3 + k4 -> k2 + k3, k1 + k2 -> k1 + k4"
+  }
+ },
+ "X-drainN": {
+  "doc": "WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    20000,
+    20000
+   ],
+   "H": [
+    13918,
+    13918
+   ],
+   "strong": [
+    2083,
+    2083
+   ],
+   "WR": [
+    13918,
+    13918
+   ],
+   "WR0": [
+    12352,
+    12352
+   ],
+   "WR,s=2": [
+    1,
+    1
+   ],
+   "WR,s=3": [
+    1531,
+    1531
+   ],
+   "WR,s=4": [
+    12386,
+    12386
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainD": {
+  "doc": "WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)",
+  "status": "test",
+  "stats": {
+   "all": [
+    13918,
+    13918
+   ],
+   "H": [
+    13918,
+    13918
+   ],
+   "strong": [
+    2083,
+    2083
+   ],
+   "WR": [
+    13918,
+    13918
+   ],
+   "WR0": [
+    12352,
+    12352
+   ],
+   "WR,s=2": [
+    1,
+    1
+   ],
+   "WR,s=3": [
+    1531,
+    1531
+   ],
+   "WR,s=4": [
+    12386,
+    12386
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "X-drainD1": {
+  "doc": "WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)",
+  "status": "test",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "no applicable network"
+ }
+}

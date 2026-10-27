@@ -1,0 +1,11 @@
+# check_absolute_consistency.py  Python 3.12.15, sympy 1.14.0, Linux
+PASS  U1 U: x = (k1/k3, 1, k1/k2, 1) is a positive steady state for every k
+PASS  U2 U*: f_K1 - f_K2 = 2*K2*kappa3 - K3*kappa1 + K3*kappa2
+PASS  U3 U and U* are not EC; U satisfies (H1)-(H3); U* satisfies (H1), (H2)
+PASS  W1 W*: {y3 = kappa1 y1 y2/kappa2, y4 = kappa1 y1 y2/kappa3} are steady states for all kappa, y1, y2 > 0
+#   W*: u(k) = [c3/c1, c3/c2, 1]
+PASS  T1 W*: ker A_k is one-dimensional, spanned by positive rational functions of k
+#   F: u(k) = [c6*(c2 + c3)/(c1*c3), c6/c3, (c5 + c6)/c4, 1]
+PASS  T1 F: ker A_k is one-dimensional, spanned by positive rational functions of k
+PASS  T1 D (not well-formed): det of A_k restricted to two rows vanishes only on k1 = k2 (no steady state otherwise)
+# runtime 0.82 s; 0 failure(s)

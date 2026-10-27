@@ -1,0 +1,153 @@
+# certify_duality.py -- certificates for the manuscript of result 17 (Iosif's duality)
+# Python 3.12.15 (CPython) on Linux x86_64; standard library only (fractions) + scripts/crn.py; exact arithmetic
+# runtime 0.7 s; claims 130: 130 PASS, 0 FAIL
+
+## S2 The dual network and the Petri dictionary
+PASS: S2 dual: Gamma(N*) = Gamma^T on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dual: N** = N on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dual: N* has r species, n reactions and the same rank s on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dual: (H1) for N <=> (H2) for N*, and (H2) for N <=> (H1) for N* on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dual: (H3) for N* <=> columns of Gamma pairwise distinct on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 Prop reverse-dual: Pre(N*) = Pre(N)^T and Post(N*) = Post(N)^T (every arc reversed, weight kept) on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dictionary: siphons of N = T-traps of N* (all subsets) on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dictionary: traps of N = T-siphons of N* (all subsets) on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dictionary: clusters of N* = clusters of N with species and reactions exchanged on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dictionary: internal cycles of N* = supports of extreme conservation laws of N on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 dictionary: MIPS(N*) = classes of fully coupled reactions of N on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 EC not self-dual: 2X1+X2 <-> X3 is EC, its dual 2K1 -> 2K2, K1 -> K2, K2 -> K1 is not EC
+PASS: S2 EC with balanced joins is preserved by the dual on R, T, W, U, D, F, N3, N4.12, M
+PASS: S2 figure 1: M = 3A <-> 2A+B has Ye = [[3,2],[0,1]], Yp = [[2,3],[1,0]]; M* = 3U+2V -> 2U+3V, V -> U
+
+## S3.1 Precise forms (condensed from the archived report)
+PASS: S3 table: R, T, W, W*, U, D, F, N3, N4.12 satisfy (H1)-(H3)
+PASS: S3 table: T, U, D have rows and columns of Gamma pairwise linearly independent; so do the rows of W
+PASS: S3 T: P(T) singletons, MIPS(T*) one block, P(T*) singletons, MIPS(T) one block
+PASS: S3 T: the only siphon of T and of T* is the whole species set; T* is again a 3-cycle
+PASS: S3 T: the internal cycle {R1,R2,R3} lies in no precluster (Remark 23 fails)
+PASS: S3 T: weakly reversible, deficiency 0
+PASS: S3 R: P(R) singletons, MIPS(R*) one block, R* isomorphic to R
+PASS: S3 W: P(W) one block, MIPS(W*) = {R1,R3},{R2,R4}; doubling pair {R1,R2} not fully coupled; W weakly reversible with deficiency 0
+PASS: S3 W*: = K1+K2 -> K3+K4, K3 -> K1, K4 -> K2, not weakly reversible
+PASS: S3 U: MIPS(U) singletons, P(U*) one block, twins X1,X2 not conservation-coupled
+PASS: S3 D: P(D) = MIPS(D*) = one block, P(D*) = MIPS(D) = one block, D* isomorphic to D
+PASS: S3 D: minimal siphons {X1,X2}, {X1,X3}; the single precluster of D* lies in none (Q3 fails)
+PASS: S3 F: P(F) one block, MIPS(F*) = {R3,R6} + singletons, P(F*) one block, MIPS(F) = {S0,S1} + singletons
+PASS: S3 F: minimal siphons {E,ES0}, {F,FS1}, {S0,S1,ES0,FS1}
+PASS: S3 N3: P(N3) one block, MIPS(N3*) singletons (no two reactions fully coupled)
+PASS: S3 N4.12: P = {R1},{R2}, MIPS(N4.12*) one block; internal cycle {R1,R2} in no precluster
+PASS: S3 the three precluster constructions agree on all these networks and their duals
+PASS: S3 R, T, W, W*, F are well-formed free-choice networks with well-formed free-choice duals
+PASS: S3 W: P(W*) singletons (no twins), as for every WR network with (H1)-(H3)
+
+## S3.2 Definition 19 is not invariant; corrected preclusters
+PASS: S3 B2, B3, B4 satisfy (H1)-(H3) and are well-formed free-choice
+PASS: S3 P(B2) is one block
+PASS: S3 P(B3) = {all but Z->X}, {Z->X}; P(B4) has two blocks
+PASS: S3 class-span closure P_cs is one block for B2, B3 and B4
+PASS: S3 splitting the choice of B3 through a new species W gives one precluster (Definition 19 is not invariant under splitting)
+PASS: S3 duplicating R1 of N4.12 merges its two preclusters (Definition 19 is not invariant under duplication)
+PASS: S3 B2dup (Z -> X duplicated): P_cs = pi = {R1..R4}, {R5,R6}, while P_cs(B2) = pi(B2) = one block
+PASS: S3 splitting the choice of B2dup through W: P_cs and pi become one block
+PASS: S3 CF(B2dup) is one block: certificate minor sign-definite on the open orthant of ray weights
+PASS: S3 hierarchy: B3 has P (two blocks) strictly finer than P_cs (one block)
+PASS: S3 hierarchy: R has P_cs = singletons strictly finer than pi = MIPS(R*) = one block
+PASS: S3 hierarchy: K3 (complete digraph on X, Y, Z) is EC, connected, (H1), (H2), weakly reversible, deficiency 0; pi(K3) = the three source classes, while CF(K3) is one block
+PASS: S3 hierarchy: XY4 satisfies (H1)-(H3); kappa_V is one block at a generic V, two blocks at V = (1,1,2,2), pi has two blocks, so CF = pi = {R1,R2},{R3,R4} is strictly finer than kappa_V(generic) -- V_generic = ['8', '7', '3', '4']
+PASS: S3 Z4: kappa_V = {R1},{R2},{R3,R4} at a generic V but {R1,R2},{R3,R4} at V = (1,1,2,2); pi = {R1},{R2},{R3,R4}, hence CF = {R1},{R2},{R3,R4}
+PASS: S3 Remark 23 for P-hat fails for XY4 and Z4 (an internal cycle meets two blocks of CF), and holds for T (CF(T) is one block)
+PASS: S3 Theorem (EC): ker A_V = R 1 at a sample flux V for W*, F, B3, K3
+PASS: S3 WR deficiency 0: kappa_V is the linkage-class partition (one block) for W and T at the flux 1
+PASS: S3 P-hat, species side: U, F, W* have a twin pair that is not conservation-coupled
+PASS: S3 P-hat, reaction side: W, N3, F have a doubling pair that is not fully coupled
+
+## S3.3 Siphons: transversality, Theorem B, MIPS and siphons, K8
+PASS: S3 Theorem B (twins with zero rows included) holds on both sides of R, T, W, W*, U, D, F, N3, N4.12, M
+PASS: S3 degenerate case: X1 <-> X2 with X3, X4 in no reaction: P(N*) = {X1},{X2},{X3,X4}, minimal siphons {X3},{X4},{X1,X2}; {X3,X4} is a twin pair of zero rows of Ye
+PASS: S3 Theorem A (transversality) on both sides of the same networks
+PASS: S3 Prop G: M(D) is one block while D has the two minimal siphons {X1,X2}, {X1,X3} (readings (i)-(iii) fail); N4.12 has the law X1+X2 but the only minimal siphon {X1} (reading (iv) fails)
+PASS: S3 Prop H: every precluster of N* with >= 2 elements is a union of MIPS of N, both sides of the examples
+PASS: S3 K8: M3, M4 weakly reversible, pure, (H1)-(H3) on both sides, rows and columns of Gamma pairwise linearly independent
+PASS: S3 K8: doubling classes {R1,R2} (M3), {R2,R3} (M4); minimal T-traps {R1,R3,R5},{R2,R3,R5},{R4,R6} (M3), {R1,R2,R5},{R1,R3,R5},{R4,R6} (M4); P(M3) = {R1,R2,R5},{R3},{R4},{R6}; P(M4) = {R2,R3} + singletons
+PASS: S3 K8: exactly 8 relabellings of the reactions match the doubling classes and minimal T-traps of M3 with those of M4, and the preclusters differ under all 8 -- matching 8, differing 8
+PASS: S3 Theorem D on B3 and F: extreme conservation laws = 0/1 indicators of the minimal siphons, extreme fluxes = indicators of the minimal T-traps, no critical siphon on either side
+
+## S4 Transfers: cluster rank equation, well-formed equal conflict, proportional conflict
+PASS: S4 W*, F, B3 are WF-EC (EC, connected, (H1), (H2), s = m - 1); W* and F are not weakly reversible (hence complex balanced for no rate vector)
+PASS: S4 B2, B3, B4 are weakly reversible with deficiency 0 (hence complex balanced for every rate vector)
+PASS: S4 W' = A -> C, 2C -> 2A is WF-EC with (H1)-(H3) and ker Gamma = R(2,1) (a circuit with unequal entries: no translation of deficiency zero)
+PASS: S4 N0 = 2A+B -> 3A, 2A+B -> A+2B: EC, unbalanced, connected and (H1)-(H3) on both sides, s = m = 1; a' = (k1 - k2) a^2 b
+PASS: S4 N0* = 2K1+2K2 -> 3K1+K2, K1+K2 -> 2K2; K1' = cA (K1 K2)^2 - cB K1 K2, so (1, cB/cA) is a positive steady state for every rate vector
+PASS: S4 N1 = 2A+B -> C, C -> 3A, C -> 3B: EC, (H1)-(H3), s = m = 2, ker Gamma = R(3,2,1) (so a positive steady state needs k2 = 2 k3); N1* = 2K1 -> 3K2, K1 -> 3K3, K2+K3 -> K1
+PASS: S4 N1*: (cB/cA, 3 cA K1^2/cC, 1) is a positive steady state (checked at three rational rate vectors)
+PASS: S4 N2 = 2A+B <-> C is WF-EC with unbalanced joins; N2* = 2K1 -> 2K2, K1 -> K2, K2 -> K1; K1' = -2 c1 K1^2 - c2 K1 + c3 K2 (steady states K2 = (2 c1 K1^2 + c2 K1)/c3)
+PASS: S4 tor*: with h = log(2 c1 K1^2 + c2 K1), dh/dlogK1 = (4c1K1 + c2)/(2c1K1 + c2) and K1 d/dK1 of it = 2 c1 c2 K1/(2 c1 K1 + c2)^2 (nonzero: the steady-state curve is not log-affine)
+PASS: S4 N2* is block-homogeneous (blocks {K1}, {K2}), not EC, connected, (H1), (H2), s = #blocks - 1
+PASS: S4 NT = X1+X2 -> 2X2, X1+X2 -> 2X3+X4, 2X3+X4 -> 2X1: EC, unbalanced, connected and (H1)-(H3) on both sides, s = m = 2; every conservation law has z1 = z2; the reactions of NT* dual to X1 and X2 have the same source K1+K2 (so NT* has no positive steady state when their rate constants differ)
+PASS: S4 NTc = 2A+B+C -> 2A+2B, 2A+B+C -> 2A+2C: EC with one cluster, (H1)-(H3) on both sides; every law has z_B = z_C; the dual reactions of B and C share the source K1+K2
+PASS: S4 U: (k1/k3, 1, k1/k2, 1) is a positive steady state (three rational rate vectors; all fluxes equal k1)
+PASS: S4 U* = K3 -> K2, K3 -> K1, K2 -> K1, K1+K2 -> 2K3; f_K1 - f_K2 = (c2 - c1) K3 + 2 c3 K2 (> 0 on the orthant when c2 >= c1); U and U* satisfy (H1)-(H3) and are not EC
+PASS: S4 NP = A+2B -> C, 2A+4B -> C+D, C -> A+2B, D -> A+2B: PC, neither EC nor BH, connected, (H1), (H2), s = q - 1 = 2; NP* is PC and satisfies the same; no critical siphon on either side
+PASS: S4 NC3 = D -> B+C, C -> A, A+B -> B+C, 2A+B -> C+D: connected, (H1)-(H3) on NC3 and NC3*, laws B+D and A+C+D, flux rays (0,1,1,0), (1,2,0,1), s = 2, clusters {D}, {C}, {A,B} (q = 3 = s + 1)
+PASS: S4 NC3: TEFC (sources sharing a species have the same support), not PC, not EC; no critical siphon on either side (as the cluster-rank theorem says)
+PASS: S4 NC3, k = (1/6, 1/3, 6, 6): x = (1/2, 1/3, 6, 3) is a positive steady state with det(J|_S) = -7/9 (a saddle in its class B+D = 10/3, A+C+D = 19/2) -- J_S = [['-5/3', '-2'], ['-17/3', '-19/3']]
+PASS: S4 NC3: f_B = -f_D and f_A + f_C + f_D = 0, so steady states are f_A = f_D = 0; on D = 36 A^2 B, C = 18 A B + 36 A^2 B both vanish identically
+PASS: S4 NC3: with B = (10/3)/(1 + 36 A^2) the class equation A + C + D = 19/2 becomes 72A^3 - 204A^2 + 122A - 19 = (2A - 1)(36A^2 - 84A + 19) = 0
+PASS: S4 NC3: exactly three positive steady states in the class, A = 1/2 (saddle) and A = (7 +- sqrt 30)/6 (trace < 0 < det on S: exponentially stable) -- ['saddle', 'stable', 'stable']
+PASS: S4 NC = C -> B, 2A -> D, 2B+D -> 2A+2B, 2B+2D -> 2A+2C+D: connected, (H1)-(H3), s = 2, three clusters, TEFC, not PC; no critical siphon on either side
+PASS: S4 NC, k = (2/3, 5/18, 24, 64): x = (3, 1/2, 3, 1/4) is a positive steady state with det(J|_S) = -88/9 in the class B + C = 7/2, A + 2D = 7/2
+PASS: S4 NM = 2X3 -> X1+X2, 3X3 -> X2+2X3, X1+2X2 -> 3X3: connected, (H1)-(H3) on both sides, PC, not EC, m_src = 3, q = 2, s = 2; critical siphons {X1,X3} and {X2,X3}
+PASS: S4 NM, k = (1,2,1): steady states satisfy x3 = 1/2 and x1 x2^2 = 1/4 (f1 = r1 - r3, f2 = r1 + r2 - 2r3); in the class x1+x2+x3 = 5/2, x2 is a root of t^3 - 2t^2 + 1/4 in (0,2), which has exactly two (sign changes at -1, 0, 1, 2: three real roots, one negative)
+PASS: S4 NB = X3 -> X2, 2X3 -> X1, X1+X2 -> 3X3: BH (blocks {X3}, {X1,X2}), q = 2 = s; for k = 1 the class 2x1+x2+x3 = 6 contains the two positive steady states x3 = 1, x1 = (5 +- sqrt 17)/4, x2 = 5 - 2 x1
+PASS: S4 table of failures: (m_src, m_cl, s) = U* (3,2,2), U (3,2,2), 3A<->2A+B (2,1,1), 4-cycle (4,3,3), NM (3,2,2), NB (3,2,2), NT (2,2,2); each is connected with (H1)-(H3) on both sides and violates s = m_cl - 1
+PASS: S4 im Gamma is contained in im Ye for the network of Theorem A and for W, T, M (weakly reversible)
+
+## S5 Non-transfers: weak reversibility, ADLS, persistence, convergence
+PASS: S5 2X2 <-> X1 is conservative and WR; its dual k2 -> k1, 2k1 -> 2k2 is not WR
+PASS: S5 H = 2A <-> 2B, 2A <-> A+B: WR, (H1)-(H3), only minimal siphon {A,B} = support of a+b (no critical siphon); H* = 2U1+2U3+U4 -> 2U2+U3+2U4, 2U2+U4 -> 2U1+U3 has (H1)-(H3) and the critical siphon {U4}
+PASS: S5 converse (agent E): X4 <-> X2+X3, 2X4 <-> X1+X3 is WR with (H1)-(H3) and has the critical siphons {X3,X4}, {X2,X3,X4}; its dual satisfies (H1)-(H3) and has no critical siphon
+PASS: S5 M = 3A <-> 2A+B: (m, l, s, delta) = (2,1,1,0), reversible; D = M* = 3U+2V -> 2U+3V, V -> U: (4,2,1,1), not WR; both satisfy (H1)-(H3) with Gamma = [[-1,1],[1,-1]]
+PASS: S5 D, all rates: v' = v (c1 u^3 v - c2); with u <= T and v <= min(T, c2/(2 c1 T^3)): v' <= -(c2/2) v
+PASS: S5 M, all rates: a' = a^2 (k2 b - k1 a) (one globally attracting equilibrium on each segment)
+PASS: S5 D, unit rates, class u+v = 2: v' = v (h(v) - 1), h = (2-v)^3 v, h' = (2-v)^2 (2-4v), h(1/8) = 3375/4096, so v' <= -(721/4096) v on (0,1/8]; h - 1 = -(v-1)(v^3 - 5v^2 + 7v - 1) and the cubic has negative discriminant (-44) and one root in (1/8, 1/2): exactly two positive equilibria
+PASS: S5 drain species: V (the dual species of 2A+B -> 3A) is a drain species of D with d0 = 1; M has none
+PASS: S5 4-cycle X4 -> 3X3 -> X1+2X2 -> 3X2 -> X4: WR, (H1)-(H3), (m,l,s,delta) = (4,1,3,0); the dual has (H1)-(H3) and exactly one drain species, k3 (dual to X1+2X2 -> 3X2), d0 = 1; N has none
+PASS: S5 5-cycle X5 -> 3X4 -> X2+X4 -> X1+2X3 -> 3X3 -> X5: WR, (H1)-(H3), (m,l,s,delta) = (5,1,4,0); the dual has (H1)-(H3) and the drain species k4 (dual to X1+2X3 -> 3X3) -- [(3, 1)]
+PASS: S5 C = 2X3 -> X2+X3 -> X1+X3 -> 2X3: WR, (H1)-(H3), (3,1,2,0); C* = k3 -> k2, k2 -> k1, 2k1+k2+k3 -> k1+k2+2k3; V = k2 + 2k3 has V' = -c1 k3 - c2 k2 + 2 c3 k1^2 k2 k3; {k2,k3} is a drain set (w = (1,2), d = (1,1)); C* has no drain species
+PASS: S5 X4 <-> X2+X3, 3X3 <-> X1+2X4: pure, WR, (H1)-(H3), (4,2,2,0); its dual has the drain set of two species with d = (1,1) (pure weakly reversible networks can have non-persistent duals) -- [((2, 4), (3, 1)), ((2, 4), (4, 1))]
+
+## S6 Persistence of duals in low rank
+PASS: S6 X = 2X2 <-> X1+X2: WR, (H1)-(H3), deficiency 0; X* = k2 -> k1, 2k1+k2 -> k1+2k2; k2' = k2 (c2 k1^2 - c1); faces of X*: {k2}:ESC, {k1}:IN; verdict NONE
+PASS: S6 X*: no drain species and {k2} with d = 1 is not a drain set
+PASS: S6 (3A <-> 2A+B)*: faces {U}:IN, {V}:OUT; verdict NONE (an OUT face)
+PASS: S6 P = 2X1+X3 <-> 3X1+2X2, 2X2+X3 <-> X1+4X2: WR, s = 1, (H1)-(H3); every singleton face of P* is IN, the face {k1,k3} of the two forward reactions is ESC: verdict NONE -- {k2}:IN, {k4}:IN, {k2,k4}:IN, {k1}:IN, {k3}:IN, {k1,k3}:ESC
+PASS: S6 S = X1+X2 -> 2X2+2X3, X1+X2+2X3 -> 2X1: (H1)-(H3), s = 1, not WR; S* = k1+k2 -> 2k2, k1+k2 -> 2k1, 2k2 -> 2k1; k1' = k2((c2 - c1) k1 + 2 c3 k2); DOM faces at one end only, others IN -- {k1}:IN, {k2}:DOM
+PASS: S6 B = X1+X2 -> 2X2, X1+X2 -> 2X1: (H1)-(H3); B* = k1+k2 -> 2k2, k1+k2 -> 2k1, k1' = (c2 - c1) k1 k2; DOM faces at both ends (persistent only on the hypersurface c1 = c2)
+PASS: S6 0 <-> A: pure, WR, consistent, s = 1, not conservative (unbounded classes); its dual k2 -> k1 is conservative with an OUT face (NONE): the corollary for pure networks needs (H1)
+PASS: S6 A+B -> 2A, 2A -> A+B, 3A+B -> 4A: conservative, rank one, every face IN (persistent for all rates), a' = a (k1 b - k2 a + k3 a^2 b); {A} is a siphon and the w_{A}-maximal source 3A+B points outward, so the network is not W_I-endotactic (Zhang-Gao-Dochain's sufficient condition does not apply)
+PASS: S6 Q = X1 -> X2, X1 -> X3, X2+X3 -> 2X1 (pure, (H1)-(H3), s = 2, not WR): Q* = k1+k2 -> 2k3, k3 -> k1, k3 -> k2 and (k2 - k1)' = (c3 - c2) k3
+PASS: S6 rank two, ALL example 2X3 -> X2 -> 2X1+X3 -> 2X3: WR, (H1)-(H3), s = 2; dual 2k3 -> 2k2, k2 -> k1, 2k1+k3 -> k2+2k3 with k3' = k3 (c3 k1^2 - 2 c1 k3); siphon edges {k3} only, siphon vertex {k2,k3} only
+PASS: S6 rank two, NONE example (edge equilibrium) 2X3 -> 2X2+X3 -> X1+X2+X3 -> 2X3: WR, (H1)-(H3), s = 2; the facet {k3} of the dual is a siphon of type ESC with minimal order 1 and zero edge flow (every reaction of the dual that changes the state has k3 in its source)
+PASS: S6 rank two, centre-manifold example 2X3 -> X2+X3 -> X1+X2 -> 2X3: dual k3 -> k2, k2+k3 -> k1+k2, 2k1+k2 -> k1+2k3; at (0,T,0) with a = k1, b = k3: a' = c2 T b - c3 T a^2 + ..., b' = -(c1 + c2 T) b + 2 c3 T a^2 + ...; reduced coefficient c3 T (c2 T - c1)/(c1 + c2 T)
+PASS: S6 rank two, Lyapunov example 2X3 -> 2X2+X3 -> 2X1+X3 -> 2X3: V = k2 + 2k3 has V' = -2c1 k3^2 - 2c2 k2^2 + 2c3 k1^2 k2 k3; the form is negative definite iff c3^2 T^4 < 4 c1 c2
+PASS: S6 vertex scaling example 2X3 -> X2 -> X1+X3 -> 2X3: dual k3 -> k2, k2 -> k1, 2k1+k3 -> k2+2k3; linearisation at (T,0,0) in (k2,k3) = [[-c2, c1 + c3 T^2], [0, c3 T^2 - c1]]
+PASS: S6 example U 3X3 -> 2X1+X2, X2+2X3 -> 3X3, 2X1+X2 -> X2+2X3 (WR, (H1)-(H3), s = 2): dual 2k3 -> 2k1, k2+k3 -> k1+k3, 3k1+2k2 -> 3k2+2k3; with a = k2, b = k3, K = c3 k1^3: z = a/b has z' = a[(2c1 - c2) + K z(1 - 2z)], u = b/a has u' = a[(c2 - 2c1)u^2 - K u + 2K], a' = a^2 (K - c2 u), b' = b^2(-2c1 + 2K z^2)
+
+## S6.2 Theorems A, AF (refutation of the OUT-facet conjecture) and O (periodic orbit)
+PASS: S6 Theorem AF, u = 3..7, R = 1..7: N(u,R) = uX3 -> X1+X2 -> X2+2X3+RX4 -> uX3 is WR, deficiency 0, rank 2, (H1)-(H3) (law (uR+2, u-2, R+1, u-2) with value u(R+1) on every complex, flux (1,1,1)); its dual is b -> a, b+c -> a+b, ua+2c -> 2b+uc, Rc -> Rb; b', c' as stated; identity (AF.1) for V = c exp(-be b/al); the facet c = 0 is OUT (all terms of c' of order 1 in c are negative) -- []
+PASS: S6 Theorem A: a' = al b + be b c - 3 ga a^3 c^2, b' = -al b + 2 ga a^3 c^2 + 3 de c^3, c' = -be b c + ga a^3 c^2 - 3 de c^3; on a = 0: a' = al b + be b c; on b = 0: b' = 2 ga a^3 c^2 + 3 de c^3; on c = 0: b' = -al b
+PASS: S6 Theorem A, identity (A.1): al c' - be c b' = c^2 [al ga a^3 - (3 al de + 2 be ga a^3) c - 3 be de c^2]
+PASS: S6 Theorem O: b' - 2c' = (2 be c - al) b + 9 de c^3
+PASS: S6 Theorem O: on 0 < c < al/(2 be), b = 9 de c^3/(al - 2 be c) and ga a^3 = 3 de c (al + be c)/(al - 2 be c) solve b' = c' = 0 (identities after clearing the denominator)
+PASS: S6 Theorem O: d/dc of c^3/(al - 2be c) has numerator c^2 (3al - 4be c) > 0 and d/dc of c(al + be c)/(al - 2be c) has numerator al^2 + 2 al be c - 2 be^2 c^2 > 0 on (0, al/(2be))
+PASS: S6 Theorem O: at (al,be,ga,de) = (17,400,70000,10^6), (1,1,1/100) is an equilibrium (fluxes 17,4,7,1) in the class T = 201/100; Jacobian in (b,c) = [[-59,3658],[-25,79]], trace 20, det 86789 (discriminant 20^2 - 4*86789 < 0: complex eigenvalues 10 +- i sqrt(86689))
+PASS: S6 Theorem O: H = [[93655,-290457],[-290457,13471234]] is positive definite (det 1177283151421) and J^T H + H J = 3471560 I
+
+## S7 The GAC: dimension, codimension, boundary dictionary
+PASS: S7 the monomolecular n-cycle (n = 2..6) has codimension q = n - s = 1, s = n - 1, (H1)-(H3), WR, deficiency 0, and its dual is again a monomolecular n-cycle
+PASS: S7 q = beta* + delta* (q = n - s of N; beta*, delta* of the complex graph of N*) on R, T, W, U, D, F, N3, N4.12, M
+PASS: S7 M and A <-> B have the same Gamma, m, l, delta, but (m*, l*, s*, delta*) = (4,2,1,1) for M* and (2,1,1,0) for (A <-> B)*
+PASS: S7 five-species example (X_i+X_{i+2} -> X_{i+1}+X_{i+3} and twice it, indices mod 5): 10 reactions, (m,l,s,delta) = (10,2,4,4), q = 1, WR, (H1)-(H3); the dual is one 5-cycle with deficiency 0; {X1,X2,X3} is a critical siphon, realised at (0,0,0,2,3) in the class of (1,1,1,1,1), with face codimension rank Gamma[Sigma,:] = 3; no blind reaction and dim S0 = 1
+PASS: S7 four-species example A -> B -> C -> D -> A, A+C <-> B+D: q = 1, (H3), WR with WR dual; for w = (3,2,1,2) the maximal source height 4 carries no strictly inward reaction (not strongly endotactic) -- heights [3, 2, 1, 2, 4, 4], displacements [-1, -1, 1, 1, 0, 0]
+PASS: S7 Example (structural stability): Gamma = [[-1,-2,3],[3,-1,-2],[-2,3,-1]], rank 2, deficiency 0, WR with WR dual of deficiency 0; (Ye)_ij > 0 iff Gamma_ij < 0; the realisation 10A+2C -> 9A+3B, 2A+B -> 3C, 10B+C -> 3A+8B has the same Gamma; G = [[10,0,2],[2,1,0],[0,10,1]]; J_S = [[-15,27],[24,-25]], det -273
+
+ALL CLAIMS PASS

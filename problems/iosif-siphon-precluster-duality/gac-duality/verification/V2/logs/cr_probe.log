@@ -1,0 +1,10 @@
+Gamma rows: [[0, 0, 0, 0, 0], [0, 0, -2, 2, 2], [1, 2, 0, 0, -2], [-1, -2, 0, 0, 2], [0, 0, 1, -1, -1]]
+s = 2 clusters: [([3], [0, 1]), ([1], [2]), ([0, 2, 4], [3, 4])] PC: False EC: False
+connected True H1 True H2 True H3 True
+flux rays [['0', '0', '1', '1', '0'], ['2', '0', '1', '0', '1'], ['0', '1', '1', '0', '1']]
+conservation rays [['1', '0', '0', '0', '0'], ['0', '1/2', '0', '0', '1'], ['0', '0', '1', '1', '0']]
+critical siphons N, N*: [] []
+steady states sampled: 3000; non-Hurwitz on S: 26
+first non-Hurwitz steady state x = ['31/7', '9', '16/13', '6', '7/33'] k = ['1/75', '29/1080', '46/2025', '9295/15872', '9263397/12300800']
+q(t) coefficients: ['1', '32701/1800', '-921019/1134000']  det sign of J|_S = sign((-1)^s q(0)): (-1)^s q(0) = -921019/1134000
+runtime 8.5 s

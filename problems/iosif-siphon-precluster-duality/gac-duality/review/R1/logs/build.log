@@ -1,0 +1,5 @@
+# py -3 templates/build_tex.py problems/iosif-siphon-precluster-duality/paper.tex (repository root), 28 October 2026
+# output of the final build (absolute path shortened to the repository-relative path by R1):
+PDF written: problems/iosif-siphon-precluster-duality/paper.pdf (41 pages)
+# no 'overfull' and no 'undefined references/citations' warning (build_tex.py prints both when present)
+# first build of the day (before two presentation fixes) reported: warning: 1 overfull line(s) (18.3 pt, proof of Prop. 66)

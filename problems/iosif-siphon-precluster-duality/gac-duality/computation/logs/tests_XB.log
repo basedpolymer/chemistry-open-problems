@@ -1,0 +1,31 @@
+# tests.py  Python 3.12.15 on Linux 6.6.114.1-microsoft-standard-WSL2, nproc=5
+# 40374 distinct networks from 2 record files: wr_5_2_6_homog.pkl.gz, sample_5_2_4_8_s1.pkl.gz
+# families: {"(5, 2, 6, 'homog')": 25461, "('sample', 5, 2, 4, 8, 1, '', 'cons')": 14913}
+# candidates: X-endoN X-endoD X-sendoD X-sendoN X-drainN X-drainD X-drainD1
+
+candidate      status              all               H          strong              WR             WR0          WR,s=2          WR,s=3          WR,s=4  verdict
+X-endoN        proved    25232/25232     25232/25232     11695/11695     25232/25232     19414/19414        73/73         6489/6489      18670/18670    PASS
+X-endoD        test         22/35258        22/35258         4/12741        22/35258        13/25469        11/84            7/8499          4/26675    REFUTED
+X-sendoD       test          4/35258         4/35258         4/12741         4/35258         4/25469         0/84            0/8499          4/26675    REFUTED
+X-sendoN       proved    16604/16604     16604/16604     10402/10402     16604/16604     12006/12006         0/0          2101/2101      14503/14503    PASS
+X-drainN       proved    40374/40374     35258/35258     12741/12741     35258/35258     25469/25469        84/84         8499/8499      26675/26675    PASS
+X-drainD       test      35258/35258     35258/35258     12741/12741     35258/35258     25469/25469        84/84         8499/8499      26675/26675    holds on all tested
+X-drainD1      test          0/0             0/0             0/0             0/0             0/0             0/0             0/0             0/0        no applicable network
+
+# statements and smallest counterexamples (side N: the network itself; side D: its dual)
+X-endoN: WR+H, r <= 6 => N endotactic (Craciun-Nazarov-Pantea 2013; consistency check of endo.py)
+X-endoD: WR+H: N* is endotactic
+   counterexample (side N; n=5, r=4, s=2, H=True, H*=True, WR=True, WR*=False, def=0, family=('sample', 5, 2, 4, 8, 1, '', 'cons')):
+     N : X5 -> X3 + X4, X3 + X4 -> X5, X2 + X5 -> X1 + X4, X1 + X4 -> X2 + X5
+     N*: k4 -> k3, k3 -> k4, k2 -> k1, k2 + k4 -> k1 + k3, k1 + k3 -> k2 + k4
+X-sendoD: WR+H: N* is strongly endotactic
+   counterexample (side N; n=5, r=4, s=2, H=True, H*=True, WR=True, WR*=True, def=0, family=('sample', 5, 2, 4, 8, 1, '', 'cons')):
+     N : X5 -> X4, X4 -> X5, X2 + X3 -> X1 + X3, X1 + X3 -> X2 + X3
+     N*: k4 -> k3, k3 -> k4, k3 + k4 -> k3 + k4, k2 -> k1, k1 -> k2
+X-sendoN: WR+H, one linkage class, r <= 6: N strongly endotactic (Gopalkrishnan-Miller-Shiu 2014; check of endo.py)
+X-drainN: WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)
+X-drainD: WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)
+X-drainD1: WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)
+
+PASS: every candidate marked 'proved' holds on all applicable networks
+# runtime 508.5 s

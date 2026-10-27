@@ -1,0 +1,8 @@
+# k8_strong.py  Python 3.12.15 on Linux; nproc=4
+# 48296 strong networks ((H1)-(H3), rows and columns of Gamma pairwise linearly independent)
+# side N: 48296 networks, 483 canonical keys, 0 witness keys
+# side D: 45419 networks, 2159 canonical keys, 384 witness keys
+#   first: N = 2X3 -> 2X2, 2X3 -> X1 + X2, 2X2 -> X1 + X3, X1 + X3 -> 2X3, X1 + X2 -> 2X2   N* = k4 + k5 -> k2 + k3, 2k3 + k5 -> 2k1 + k2 + 2k5, 2k1 + 2k2 + k4 -> k3 + 2k4   WR=True
+#   second: N = 2X4 -> X3, X3 -> X2 + X4, X3 -> X1 + X4, X2 + X4 -> 2X4, X1 + X4 -> 2X4   N* = k5 -> k3, k4 -> k2, k2 + k3 -> k1, 2k1 + k4 + k5 -> k2 + k3 + 2k4 + 2k5   WR=True
+#   canonical key (up to relabelling): ground set 5, classes ((0,), (1,), (2,), (3, 4)), minimal siphons ((0,), (1,))
+# runtime 269.6 s

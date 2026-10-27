@@ -1,0 +1,11 @@
+# q3_tests.py n=4 molecularity<=2 r<=4 ordinary=0; Python 3.12.15 on Linux; exact arithmetic
+# WF-EC networks: 692 (unbalanced joins: 0); EC with s = m: 343
+PASS Q3-C: no critical siphon (minimal siphons = extreme semiflow supports)  (692/692)
+PASS Q3-Uc: no common sign vector (LP enumeration and maximal minors agree, injective)  (692/692)
+PASS Q3-Uc': the two injectivity tests agree  (692/692)
+PASS Q3-Ub: Jacobian at 2 sampled steady states: t^(n-s) q(t), q Hurwitz  (692/692)
+PASS Q3-T*': N* absolutely consistent (exact verdict; 1 OPEN not counted)  (691/691)
+# Q3-T*cex report, EC with s = m, balanced joins: 343 networks; verdicts for N*: {'NOT1': 318, 'OPEN': 25}
+# Q3-T*cex report, EC with s = m, unbalanced joins: 0 networks; verdicts for N*: {}
+PASS: all claims
+# runtime 200.1 s

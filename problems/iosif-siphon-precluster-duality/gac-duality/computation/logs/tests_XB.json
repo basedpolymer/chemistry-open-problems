@@ -1,0 +1,285 @@
+{
+ "X-endoN": {
+  "doc": "WR+H, r <= 6 => N endotactic (Craciun-Nazarov-Pantea 2013; consistency check of endo.py)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    25232,
+    25232
+   ],
+   "H": [
+    25232,
+    25232
+   ],
+   "strong": [
+    11695,
+    11695
+   ],
+   "WR": [
+    25232,
+    25232
+   ],
+   "WR0": [
+    19414,
+    19414
+   ],
+   "WR,s=2": [
+    73,
+    73
+   ],
+   "WR,s=3": [
+    6489,
+    6489
+   ],
+   "WR,s=4": [
+    18670,
+    18670
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-endoD": {
+  "doc": "WR+H: N* is endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    35258,
+    22
+   ],
+   "H": [
+    35258,
+    22
+   ],
+   "strong": [
+    12741,
+    4
+   ],
+   "WR": [
+    35258,
+    22
+   ],
+   "WR0": [
+    25469,
+    13
+   ],
+   "WR,s=2": [
+    84,
+    11
+   ],
+   "WR,s=3": [
+    8499,
+    7
+   ],
+   "WR,s=4": [
+    26675,
+    4
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X5 -> X3 + X4, X3 + X4 -> X5, X2 + X5 -> X1 + X4, X1 + X4 -> X2 + X5",
+   "Nstar": "k4 -> k3, k3 -> k4, k2 -> k1, k2 + k4 -> k1 + k3, k1 + k3 -> k2 + k4"
+  }
+ },
+ "X-sendoD": {
+  "doc": "WR+H: N* is strongly endotactic",
+  "status": "test",
+  "stats": {
+   "all": [
+    35258,
+    4
+   ],
+   "H": [
+    35258,
+    4
+   ],
+   "strong": [
+    12741,
+    4
+   ],
+   "WR": [
+    35258,
+    4
+   ],
+   "WR0": [
+    25469,
+    4
+   ],
+   "WR,s=2": [
+    84,
+    0
+   ],
+   "WR,s=3": [
+    8499,
+    0
+   ],
+   "WR,s=4": [
+    26675,
+    4
+   ]
+  },
+  "verdict": "REFUTED",
+  "counterexample": {
+   "side": "N",
+   "N": "X5 -> X4, X4 -> X5, X2 + X3 -> X1 + X3, X1 + X3 -> X2 + X3",
+   "Nstar": "k4 -> k3, k3 -> k4, k3 + k4 -> k3 + k4, k2 -> k1, k1 -> k2"
+  }
+ },
+ "X-sendoN": {
+  "doc": "WR+H, one linkage class, r <= 6: N strongly endotactic (Gopalkrishnan-Miller-Shiu 2014; check of endo.py)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    16604,
+    16604
+   ],
+   "H": [
+    16604,
+    16604
+   ],
+   "strong": [
+    10402,
+    10402
+   ],
+   "WR": [
+    16604,
+    16604
+   ],
+   "WR0": [
+    12006,
+    12006
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    2101,
+    2101
+   ],
+   "WR,s=4": [
+    14503,
+    14503
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainN": {
+  "doc": "WR+(H1): N has no drain species (else N would be non-persistent for all rates, against the GAC in its proved cases)",
+  "status": "proved",
+  "stats": {
+   "all": [
+    40374,
+    40374
+   ],
+   "H": [
+    35258,
+    35258
+   ],
+   "strong": [
+    12741,
+    12741
+   ],
+   "WR": [
+    35258,
+    35258
+   ],
+   "WR0": [
+    25469,
+    25469
+   ],
+   "WR,s=2": [
+    84,
+    84
+   ],
+   "WR,s=3": [
+    8499,
+    8499
+   ],
+   "WR,s=4": [
+    26675,
+    26675
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "X-drainD": {
+  "doc": "WR+H: N* has no drain species (a witness is a WR network with (H1)-(H3) whose dual is non-persistent for EVERY choice of rate constants)",
+  "status": "test",
+  "stats": {
+   "all": [
+    35258,
+    35258
+   ],
+   "H": [
+    35258,
+    35258
+   ],
+   "strong": [
+    12741,
+    12741
+   ],
+   "WR": [
+    35258,
+    35258
+   ],
+   "WR0": [
+    25469,
+    25469
+   ],
+   "WR,s=2": [
+    84,
+    84
+   ],
+   "WR,s=3": [
+    8499,
+    8499
+   ],
+   "WR,s=4": [
+    26675,
+    26675
+   ]
+  },
+  "verdict": "holds on all tested"
+ },
+ "X-drainD1": {
+  "doc": "WR+H, one linkage class, s <= 2: N* has no drain species (witnesses: N globally attracting by Anderson 2011 / Pantea 2012 for complex-balanced rates, N* non-persistent for all rates)",
+  "status": "test",
+  "stats": {
+   "all": [
+    0,
+    0
+   ],
+   "H": [
+    0,
+    0
+   ],
+   "strong": [
+    0,
+    0
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "no applicable network"
+ }
+}

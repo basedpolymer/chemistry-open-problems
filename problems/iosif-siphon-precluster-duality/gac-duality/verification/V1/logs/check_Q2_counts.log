@@ -1,0 +1,8 @@
+environment: Python 3.14.0 Windows
+   all (2,2,5): networks 100 ((H3) 100) | P!=Pcs 0 | Pcs!=pi 10 | pi!=CF N/N* 2/0 | kappa_gen!=CF 0 | isolation N/N* 20/100 | species-side Q2 100; 100 of 100 with (H3) | pi not<= CF: 0
+PASS Q2 table row all (2,2,5) reproduced exactly (CF decided exactly, s = 1); 0.2 s
+   all (2,2,6): networks 116 ((H3) 116) | P!=Pcs 0 | Pcs!=pi 10 | pi!=CF N/N* 2/0 | kappa_gen!=CF 0 | isolation N/N* 20/116 | species-side Q2 116; 116 of 116 with (H3) | pi not<= CF: 0
+PASS Q2 table row all (2,2,6) reproduced exactly (CF decided exactly, s = 1); 0.3 s
+   all (2,3,4): networks 2784 ((H3) 2784) | P!=Pcs 27 | Pcs!=pi 63 | pi!=CF N/N* 38/0 | kappa_gen!=CF 5 | isolation N/N* 224/2784 | species-side Q2 2784; 2784 of 2784 with (H3) | pi not<= CF: 0
+PASS Q2 table row all (2,3,4) reproduced exactly (CF decided exactly, s = 1); 4.3 s
+runtime 4.9 s

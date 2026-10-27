@@ -1,0 +1,5 @@
+# enum_fc.py n=4 R=5 nproc=3; Python 3.12.15 on Linux
+# 76 ordinary EC networks with (H1),(H2); 59 with (H3); 17 weakly reversible
+# records written to ~/gacE-data/fc_4_5.pkl.gz
+PASS C1: kept networks pairwise distinct, ordinary and equal conflict
+# runtime 257.0 s

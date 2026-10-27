@@ -1,0 +1,6 @@
+# g6_props.py  Python 3.12.15 on Linux; exact; limit 1500 per file
+# 20230 conservative networks (seeded subsample, both classes x0 = 1 and a random x0)
+PASS 6.2: codim F_Sigma = rank Gamma[Sigma,:] = rank of the dual subnetwork on Sigma, and realizable siphons are T-traps of N*: 555430 realizable faces, 0 failures
+PASS 6.3: (i), (ii), (a) rank identity, (b) Stiemke translation on every siphon of 15446 weakly reversible networks (103222 siphons), 0 failures
+PASS: all claims
+# runtime 207.2 s

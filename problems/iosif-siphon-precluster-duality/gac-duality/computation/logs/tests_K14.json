@@ -1,0 +1,119 @@
+{
+ "P-K14a": {
+  "doc": "well-formed EC: minimal T-traps (minimal siphons of the dual) = internal cycles",
+  "status": "proved",
+  "stats": {
+   "all": [
+    5582,
+    5582
+   ],
+   "H": [
+    3894,
+    3894
+   ],
+   "strong": [
+    1754,
+    1754
+   ],
+   "WR": [
+    1244,
+    1244
+   ],
+   "WR0": [
+    1172,
+    1172
+   ],
+   "WR,s=2": [
+    241,
+    241
+   ],
+   "WR,s=3": [
+    832,
+    832
+   ],
+   "WR,s=4": [
+    152,
+    152
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14b": {
+  "doc": "well-formed EC and pure: minimal siphons = semiflow supports = internal cycles of the dual",
+  "status": "proved",
+  "stats": {
+   "all": [
+    3466,
+    3466
+   ],
+   "H": [
+    1802,
+    1802
+   ],
+   "strong": [
+    601,
+    601
+   ],
+   "WR": [
+    1244,
+    1244
+   ],
+   "WR0": [
+    1172,
+    1172
+   ],
+   "WR,s=2": [
+    241,
+    241
+   ],
+   "WR,s=3": [
+    832,
+    832
+   ],
+   "WR,s=4": [
+    152,
+    152
+   ]
+  },
+  "verdict": "PASS"
+ },
+ "P-K14c": {
+  "doc": "well-formed EC and NOT pure: minimal siphons = semiflow supports (is purity needed?)",
+  "status": "test",
+  "stats": {
+   "all": [
+    2116,
+    2116
+   ],
+   "H": [
+    2092,
+    2092
+   ],
+   "strong": [
+    1153,
+    1153
+   ],
+   "WR": [
+    0,
+    0
+   ],
+   "WR0": [
+    0,
+    0
+   ],
+   "WR,s=2": [
+    0,
+    0
+   ],
+   "WR,s=3": [
+    0,
+    0
+   ],
+   "WR,s=4": [
+    0,
+    0
+   ]
+  },
+  "verdict": "holds on all tested"
+ }
+}

@@ -1,0 +1,140 @@
+environment: Python 3.14.0 Windows
+PASS Rem 2.5: P(B2) has 1 block(s) (Def 19), thesis Alg 4.4 agrees; class-span closure one block -- P=[[0, 1, 2, 3, 4]] Pcs=[[0, 1, 2, 3, 4]]
+PASS Rem 2.5: B2 is WF-FC with (H1)-(H3)
+PASS Rem 2.5: P(B3) has 2 block(s) (Def 19), thesis Alg 4.4 agrees; class-span closure one block -- P=[[0, 1, 2, 3, 4, 5], [6]] Pcs=[[0, 1, 2, 3, 4, 5, 6]]
+PASS Rem 2.5: B3 is WF-FC with (H1)-(H3)
+PASS Rem 2.5: P(B4) has 2 block(s) (Def 19), thesis Alg 4.4 agrees; class-span closure one block -- P=[[0, 1, 2, 3, 4, 5, 6, 7], [8]] Pcs=[[0, 1, 2, 3, 4, 5, 6, 7, 8]]
+PASS Rem 2.5: B4 is WF-FC with (H1)-(H3)
+PASS Rem 2.5: P(B3) = {X->Ya, Ya->Z}, {Z->X}
+PASS Thm E(i): R WF-FC, (H1)-(H3), dual WF-FC with (H3)
+PASS Thm E(i): T WF-FC, (H1)-(H3), dual WF-FC with (H3)
+PASS Thm E(i): W WF-FC, (H1)-(H3), dual WF-FC with (H3)
+PASS Thm E(i): Wstar WF-FC, (H1)-(H3), dual WF-FC with (H3)
+PASS Thm E(i): F WF-FC, (H1)-(H3), dual WF-FC with (H3)
+   Table 1 on WF-FC networks (formulation: networks where it FAILS):
+     A1   ['R', 'T', 'W', 'Wstar', 'F']
+     A2   ['Wstar', 'F']
+     A3   ['R', 'T', 'W']
+     A4   ['R', 'T', 'W', 'Wstar', 'F']
+     B1   ['R', 'T', 'W', 'Wstar', 'F']
+     B2   ['W', 'F']
+     B3   ['R', 'T', 'Wstar']
+     B4   ['R', 'T', 'W', 'Wstar', 'F']
+     C    ['R', 'T', 'Wstar', 'F']
+     Q1s  ['R', 'T', 'W', 'Wstar', 'F']
+     Q2s  ['R', 'T', 'W']
+     Q3s  ['Wstar', 'F']
+     Q4s  ['R', 'T', 'W']
+     Q5s  ['R', 'T', 'W']
+     Q6s  ['R', 'T', 'W', 'Wstar', 'F']
+     Q1r  ['R', 'T', 'W', 'Wstar', 'F']
+     Q2r  ['R', 'T', 'Wstar']
+     Q3r  ['W', 'F']
+     Q4r  ['R', 'T', 'Wstar']
+     Q5r  ['R', 'T', 'Wstar']
+     Q6r  ['R', 'T', 'W', 'Wstar', 'F']
+     R23  ['R', 'T', 'Wstar']
+PASS Thm E(i): every formulation of Table 1 fails on one of R, T, W, W*, F (at least one side for Q's)
+PASS Thm E(i) list: A1 fails exactly on R T W Wstar F -- computed ['R', 'T', 'W', 'Wstar', 'F']
+PASS Thm E(i) list: A4 fails exactly on R T W Wstar F -- computed ['R', 'T', 'W', 'Wstar', 'F']
+PASS Thm E(i) list: B1 fails exactly on R T W Wstar F -- computed ['R', 'T', 'W', 'Wstar', 'F']
+PASS Thm E(i) list: B4 fails exactly on R T W Wstar F -- computed ['R', 'T', 'W', 'Wstar', 'F']
+PASS Thm E(i) list: A2 fails exactly on Wstar F -- computed ['Wstar', 'F']
+PASS Thm E(i) list: A3 fails exactly on R T W -- computed ['R', 'T', 'W']
+PASS Thm E(i) list: B2 fails exactly on W F -- computed ['W', 'F']
+PASS Thm E(i) list: B3 fails exactly on R T Wstar -- computed ['R', 'T', 'Wstar']
+PASS Thm E(i) list: C fails exactly on R T Wstar F -- computed ['R', 'T', 'Wstar', 'F']
+PASS Thm E(i) list: R23 fails exactly on R T Wstar -- computed ['R', 'T', 'Wstar']
+PASS Thm E(ii) on R (JF=True, CF=True)
+PASS Thm E(ii) on T (JF=True, CF=True)
+PASS Thm E(ii) on W (JF=True, CF=False)
+PASS Thm E(ii) on Wstar (JF=False, CF=True)
+PASS Thm E(ii) on F (JF=False, CF=False)
+PASS Thm E(ii) on B2 (JF=True, CF=False)
+PASS Thm E(ii) on B3 (JF=True, CF=False)
+PASS Thm E(ii) on B4 (JF=True, CF=False)
+PASS Thm E(ii) on K3 (JF=True, CF=False)
+PASS Thm E(ii) on Y5 (JF=True, CF=False)
+PASS Thm D(a)-(h) on R
+PASS Thm D(a)-(h) on T
+PASS Thm D(a)-(h) on W
+PASS Thm D(a)-(h) on Wstar
+PASS Thm D(a)-(h) on F
+PASS Thm D(a)-(h) on B2
+PASS Thm D(a)-(h) on B3
+PASS Thm D(a)-(h) on B4
+PASS Thm D(a)-(h) on K3
+PASS Thm D(a)-(h) on Y5
+PASS Prop G: D refutes (i), (ii), (iii); M(D) one block; S(D) = {X1,X2},{X1,X3}
+PASS Prop G: N4.12 refutes (iv): law X1+X2, only minimal siphon {X1}
+PASS Rem after C': internal cycles of D* = {{X1,X2,X3}} (as reactions of D*)
+   table row R: EC/bal/ord/WF = (1, 1, 1, 1) ; critical siphons (all / minimal): N 0 / 0, N* 0 / 0
+PASS table row R (N side EC/bal/ord/WF)
+   table row T: EC/bal/ord/WF = (1, 1, 1, 1) ; critical siphons (all / minimal): N 0 / 0, N* 0 / 0
+PASS table row T (N side EC/bal/ord/WF)
+   table row W: EC/bal/ord/WF = (1, 1, 1, 1) ; critical siphons (all / minimal): N 0 / 0, N* 0 / 0
+PASS table row W (N side EC/bal/ord/WF)
+   table row Wstar: EC/bal/ord/WF = (1, 1, 1, 1) ; critical siphons (all / minimal): N 0 / 0, N* 0 / 0
+PASS table row Wstar (N side EC/bal/ord/WF)
+   table row F: EC/bal/ord/WF = (1, 1, 1, 1) ; critical siphons (all / minimal): N 0 / 0, N* 0 / 0
+PASS table row F (N side EC/bal/ord/WF)
+   table row D: EC/bal/ord/WF = (1, 1, 0, 0) ; critical siphons (all / minimal): N 2 / 2, N* 2 / 2
+PASS table row D (N side EC/bal/ord/WF)
+   table row U: EC/bal/ord/WF = (0, 1, 0, 0) ; critical siphons (all / minimal): N 3 / 2, N* 1 / 1
+PASS table row U (N side EC/bal/ord/WF)
+   table row N3: EC/bal/ord/WF = (0, 1, 0, 0) ; critical siphons (all / minimal): N 1 / 1, N* 3 / 2
+PASS table row N3 (N side EC/bal/ord/WF)
+   N3*: EC False bal False ord False WF False
+   U*:  EC False bal True ord False WF False
+PASS EC alone not self-dual: 2X1+X2 <=> X3 is EC, dual is not EC
+   K8 N1/N2: twins [[0, 3], [1], [2]] / [[0, 3], [1], [2]], min siphons [[0, 2], [1], [2, 3]], P(N*) [[0, 2, 3], [1]] vs [[0, 1, 2, 3]], clusters same: True, zero rows of Gamma: [1]/[]
+PASS K8 species-side pair N1/N2: (H1)-(H3), same twins and minimal siphons, different P(N*)
+PASS K8 N1/N2 as stated: P(N1*) = {X1,X3,X4},{X2}; P(N2*) = one block; same species parts of clusters
+   K8 E1/E2: twins [[0], [1, 2]] / [[0], [1, 2]], min siphons [[0], [1], [2]], P(N*) [[0], [1, 2]] vs [[0, 1, 2]], clusters same: True, zero rows of Gamma: [0]/[]
+PASS K8 species-side pair E1/E2: (H1)-(H3), same twins and minimal siphons, different P(N*)
+   K8 M1/M2: doubling classes [[0], [1], [2, 3]] / [[0], [1], [2, 3]], min T-traps [[0, 2], [1, 2], [3]] / [[0, 2], [1, 2], [3]], P [[0, 1, 2, 3]] / [[0], [1], [2, 3]]
+PASS K8 reaction-side pair M1/M2: (H1)-(H3), same doubling classes and minimal T-traps; P(M1) one block, P(M2) = {R1},{R2},{R3,R4}
+PASS K8 M1/M2 have no zero row of Gamma (P: 'a pair without zero rows')
+   K8 M1/M2: dual (H3) (columns of Gamma distinct): M1 True, M2 False
+PASS Prop F on 'X1 -> X2, X2 -> X3, X3 -> X1'
+PASS Prop F on 'X1 + X2 -> X3, X3 -> X1 + X2'
+PASS Prop F on 'X1 -> X2, X2 -> X1, X3 -> X4, X4 -> X3'
+PASS Prop F on '2X1 -> X2, X2 -> X3 + X4, X3 + X4 -> 2X1'
+PASS Prop F needs 'no zero complex': 0 -> X2 -> X1 -> 0 has no siphon at all (clause fails as stated)
+PASS Thm C on 88 random pure WF-EC ordinary (WF-FC) networks (no critical siphon; min siphons = extreme-law supports) -- []
+PASS Thm C' on 150 random WF-EC ordinary (WF-FC) networks (N* no critical siphon; min T-traps = internal cycles) -- []
+   impure WF-EC ordinary (WF-FC) networks: 62, of which with a critical siphon: 0 (Theorem C without purity)
+PASS balanced-joins WF-EC => N* WF-EC (150 ordinary (WF-FC) networks)
+PASS Thm D(a)-(h) on 150 random WF-FC networks -- []
+PASS Thm C on 56 random pure WF-EC weighted networks (no critical siphon; min siphons = extreme-law supports) -- []
+PASS Thm C' on 150 random WF-EC weighted networks (N* no critical siphon; min T-traps = internal cycles) -- []
+   impure WF-EC weighted networks: 94, of which with a critical siphon: 0 (Theorem C without purity)
+PASS balanced-joins WF-EC => N* WF-EC (106 weighted networks)
+   random WF-EC tests: 376.7 s
+PASS A family n=2,mol<=2,r<=4 (zero complex allowed) (31818 networks, both sides)
+PASS B family n=2,mol<=2,r<=4 (zero complex allowed) (31818 networks, both sides)
+PASS 2.2 family n=2,mol<=2,r<=4 (zero complex allowed) (31818 networks, both sides)
+PASS H family n=2,mol<=2,r<=4 (zero complex allowed) (31818 networks, both sides)
+PASS G family n=2,mol<=2,r<=4 (zero complex allowed) (31818 networks, both sides)
+PASS H reaction side family n=2,mol<=2,r<=4 (zero complex allowed) (31818 networks, both sides)
+PASS Prop 1.1/1.2 dictionary, family n=2,mol<=2,r<=4 (zero complex allowed)
+   family n=2,mol<=2,r<=4 (zero complex allowed): 31818 networks, (H1) 168, (H2) 10618, Prop G(iv) fails on 58 (H1)-networks; 60.1 s
+PASS A family n=3,mol<=2,r<=3 (no zero complex) (58227 networks, both sides)
+PASS B family n=3,mol<=2,r<=3 (no zero complex) (58227 networks, both sides)
+PASS 2.2 family n=3,mol<=2,r<=3 (no zero complex) (58227 networks, both sides)
+PASS H family n=3,mol<=2,r<=3 (no zero complex) (58227 networks, both sides)
+PASS G family n=3,mol<=2,r<=3 (no zero complex) (58227 networks, both sides)
+PASS H reaction side family n=3,mol<=2,r<=3 (no zero complex) (58227 networks, both sides)
+PASS Prop 1.1/1.2 dictionary, family n=3,mol<=2,r<=3 (no zero complex)
+   family n=3,mol<=2,r<=3 (no zero complex): 58227 networks, (H1) 10227, (H2) 1857, Prop G(iv) fails on 8100 (H1)-networks; 109.9 s
+PASS A family n=2,mol<=3,r<=3 (no zero complex) (62186 networks, both sides)
+PASS B family n=2,mol<=3,r<=3 (no zero complex) (62186 networks, both sides)
+PASS 2.2 family n=2,mol<=3,r<=3 (no zero complex) (62186 networks, both sides)
+PASS H family n=2,mol<=3,r<=3 (no zero complex) (62186 networks, both sides)
+PASS G family n=2,mol<=3,r<=3 (no zero complex) (62186 networks, both sides)
+PASS H reaction side family n=2,mol<=3,r<=3 (no zero complex) (62186 networks, both sides)
+PASS Prop 1.1/1.2 dictionary, family n=2,mol<=3,r<=3 (no zero complex)
+   family n=2,mol<=3,r<=3 (no zero complex): 62186 networks, (H1) 1444, (H2) 10354, Prop G(iv) fails on 806 (H1)-networks; 70.1 s
+runtime 617.0 s; 93 claims, 0 FAIL
+exit 0
+exit 0

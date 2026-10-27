@@ -1,0 +1,11 @@
+# check_general.py n=2 m=2 r<=6; Python 3.14.0 on Windows
+# networks with (H1), (H2): 116; of which (H3): 116
+PASS  A: 116/116
+PASS  B: 116/116
+PASS  G: 101/101
+PASS  H: 116/116
+REPORT  K6: holds 44/116  smallest failure (((0, 2), (1, 1)), ((1, 1), (0, 2)), ((2, 0), (0, 2)))
+REPORT  K9iv: holds 102/116  smallest failure (((0, 2), (1, 1)), ((1, 1), (0, 2)))
+REPORT  K8 species side: (n, twin classes, minimal siphons) -> P(N*): 3 groups, 0 with two different preclusterings (H3 class)
+REPORT  K8 reaction side: (r, doubling classes, minimal T-traps) -> P(N): 44 groups, 0 with two different preclusterings (H3 class)
+# runtime 27.4 s

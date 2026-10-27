@@ -1,0 +1,23 @@
+== M3 / M4
+PASS M3/M4a: (H1)-(H3) on N and N*, WR, connected
+PASS M3/M4a: independent preclusters agree with crn.py (3 variants) -- [(0, 1, 4), (2,), (3,), (5,)]
+     M3/M4a: pure=True rows-indep=True cols-indep=True doubling=[(0, 1), (2,), (3,), (4,), (5,)] minTtraps=[(0, 2, 4), (1, 2, 4), (3, 5)] P=[(0, 1, 4), (2,), (3,), (5,)] s=3
+PASS M3/M4b: (H1)-(H3) on N and N*, WR, connected
+PASS M3/M4b: independent preclusters agree with crn.py (3 variants) -- [(0,), (1, 2), (3,), (4,), (5,)]
+     M3/M4b: pure=True rows-indep=True cols-indep=True doubling=[(0,), (1, 2), (3,), (4,), (5,)] minTtraps=[(0, 1, 4), (0, 2, 4), (3, 5)] P=[(0,), (1, 2), (3,), (4,), (5,)] s=3
+PASS M3/M4: relabellings matching doubling classes and minimal T-traps: 8; preclusters differ under all
+PASS M3: pure, rows and columns of Gamma pairwise linearly independent
+PASS M3*: rows and columns pairwise independent, (H1)-(H3)
+PASS M4: pure, rows and columns of Gamma pairwise linearly independent
+PASS M4*: rows and columns pairwise independent, (H1)-(H3)
+== M1 / M2 (Q3's smallest; E2's smallest strong pair)
+PASS M1/M2a: (H1)-(H3) on N and N*, WR, connected
+PASS M1/M2a: independent preclusters agree with crn.py (3 variants) -- [(0, 1), (2,), (3,), (4,)]
+     M1/M2a: pure=False rows-indep=True cols-indep=True doubling=[(0, 1), (2,), (3,), (4,)] minTtraps=[(3,), (4,)] P=[(0, 1), (2,), (3,), (4,)] s=2
+PASS M1/M2b: (H1)-(H3) on N and N*, WR, connected
+PASS M1/M2b: independent preclusters agree with crn.py (3 variants) -- [(0, 1, 2, 3, 4)]
+     M1/M2b: pure=False rows-indep=True cols-indep=True doubling=[(0,), (1, 2), (3,), (4,)] minTtraps=[(3,), (4,)] P=[(0, 1, 2, 3, 4)] s=3
+PASS M1/M2: relabellings matching doubling classes and minimal T-traps: 4; preclusters differ under all
+     M1: pairwise-indep rows/cols N: True/True; N*: True/True
+     M2: pairwise-indep rows/cols N: True/True; N*: True/True
+runtime 0.1 s; 0 FAIL

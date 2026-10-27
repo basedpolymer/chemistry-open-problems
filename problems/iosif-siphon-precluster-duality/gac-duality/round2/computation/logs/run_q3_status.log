@@ -1,0 +1,6 @@
+family 2 3 5 0 exit=0
+family 3 3 4 0 exit=0
+family 4 2 4 0 exit=0
+family 2 4 4 0 exit=0
+family 3 3 5 0 exit=143
+family 3 3 5 0 stopped by hand at 19:38 (would exceed the 25-minute cap; no result)

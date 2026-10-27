@@ -52,3 +52,32 @@ of the manuscript gained a paragraph on the Global Attractor Conjecture (the dua
 not preserve weak reversibility, and gives singleton dual preclusters for weakly reversible networks), and
 `certify_examples.py` gained ten claims for it (142 in all, PASS). This addendum was not part of the verification
 above: the new remarks have only been checked by the script, not by a second agent.
+
+## Addendum, 28 October 2026: the rewritten manuscript
+
+The manuscript was rewritten from scratch (the earlier report is kept in [archive/](archive/paper-precise-forms.pdf);
+the verdict above covers it). The new results come from agents' working notes in [gac-duality/](gac-duality/), which
+were checked before the writing by three fresh-context verifiers (Claude Opus 5.5, effort xhigh), each re-deriving
+the proofs and re-checking every example in exact arithmetic with its own code:
+
+- [V1](gac-duality/verification/V1/verification.md), Petri dictionary and corrected preclusters: no claim refuted;
+  ten corrected statements.
+- [V2](gac-duality/verification/V2/verification.md), equal-conflict and proportional-conflict theory: every proof
+  confirmed; Conjecture CR of the notes refuted (network NC3, three positive steady states in one class); five
+  corrections.
+- [V3](gac-duality/verification/V3/verification.md), persistence, obstructions and the results of agent A2: no claim
+  refuted; Theorem O (periodic orbit of a persistent dual) confirmed; one gap repaired in the case used (D2's
+  Proposition E, μ = 1); Conjecture F of the notes refuted (agent A2).
+
+The writer listed every merged, re-proved or dropped statement in
+[gac-duality/writer/CHANGES.md](gac-duality/writer/CHANGES.md). Two fresh-context reviewers (Claude Opus 5.5, effort
+xhigh) then checked the manuscript: [R1](gac-duality/review/R1/review.md) for the mathematics (no theorem false;
+three errors, sixteen corrections and fifteen missing proofs or pointers) and [R2](gac-duality/review/R2/review.md)
+for attribution, consistency and presentation (five errors, including citation numbers and an absolute path that
+pdfTeX embedded in the PDF; five gaps, including three earlier works on transposed networks). R1 applied both
+reports ([applied.md](gac-duality/review/R1/applied.md)).
+
+Final state: `certify_duality.py` 130/130 PASS and `certify_examples.py` 142/142 PASS (Windows and WSL); 41 pages, no
+undefined reference. Not checked beyond their worked examples: the general tropical certificates (CM), (L), (S) of the
+rank-two classification, which the manuscript labels as sketches; the large enumeration counts are checks, not
+proofs. This is an AI review, not human peer review.

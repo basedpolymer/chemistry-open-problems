@@ -1,0 +1,61 @@
+# check_families.py; Python 3.12.15 on Linux; families ['wr_5_2_5.pkl.gz']
+## family wr_5_2_5.pkl.gz: 2352 networks with (H1),(H2); 170.9 s
+   CF determined (D): 2352
+   CF determined (N): 2352
+   Condition 3.1 at generic V (D): 1582
+   Condition 3.1 at generic V (N): 2247
+   Condition 3.1 fails at generic V (D): 770   smallest: n=5 (((0, 0, 0, 1, 1), (0, 0, 1, 0, 1)), ((0, 0, 1, 0, 1), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 1, 1)))
+   Condition 3.1 fails at generic V (N): 105   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 0, 1, 0)), ((0, 0, 0, 1, 0), (0, 0, 0, 0, 1)), ((0, 0, 1, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 1, 0, 1)))
+   EC sides with pi+ one block (D): 175
+   EC sides with pi+ one block (N): 150
+   P != Pcs (N): 9   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 0, 0, 1), (1, 1, 0, 0, 0)), ((0, 0, 1, 1, 0), (0, 0, 0, 0, 1)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   Pcs != pi (D): 1607   smallest: n=5 (((0, 0, 0, 1, 1), (0, 0, 1, 0, 1)), ((0, 0, 1, 0, 1), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 1, 1)))
+   Pcs != pi (N): 1567   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   WR0 sides with pi+ = linkage classes (D): 19
+   WR0 sides with pi+ = linkage classes (N): 2237
+   checked K1 D: 2352
+   checked K1 N: 2352
+   checked K2 D: 2352
+   checked K2 N: 2352
+   checked K3 D: 2352
+   checked K3 N: 2352
+   checked K4 D: 175
+   checked K4 N: 150
+   checked K5 D: 19
+   checked K5 N: 2237
+   checked K6 D: 1582
+   checked K6 N: 2247
+   checked K7: 2352
+   isolation (R23 for CF) (D): 1582   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   isolation (R23 for CF) (N): 2247   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   networks: 2352
+   networks with (H3): 1564
+   reaction side Q1 fails: 1996   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 0, 0, 1), (1, 1, 0, 0, 0)), ((0, 0, 1, 1, 0), (0, 0, 0, 0, 1)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   reaction side Q1 holds: 356
+   reaction side Q2 fails: 323   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 0, 1, 0)), ((0, 0, 0, 0, 2), (0, 0, 1, 1, 0)), ((0, 0, 0, 1, 0), (0, 0, 0, 0, 1)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 2)))
+   reaction side Q2 holds: 2029
+   reaction side Q3 fails: 1751   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 0, 0, 1), (1, 1, 0, 0, 0)), ((0, 0, 1, 1, 0), (0, 0, 0, 0, 1)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   reaction side Q3 holds: 601
+   species side Q1 fails: 2280   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   species side Q1 holds: 72
+   species side Q1 holds, (H3): 70
+   species side Q2 fails: 940   smallest: n=5 (((0, 0, 0, 1, 1), (0, 0, 1, 0, 1)), ((0, 0, 1, 0, 1), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 1, 1)))
+   species side Q2 holds: 1412
+   species side Q2 holds, (H3): 678
+   species side Q3 fails: 1624   smallest: n=5 (((0, 0, 0, 0, 1), (0, 0, 1, 1, 0)), ((0, 0, 1, 1, 0), (1, 1, 0, 0, 0)), ((1, 1, 0, 0, 0), (0, 0, 0, 0, 1)))
+   species side Q3 holds: 728
+   species side Q3 holds, (H3): 707
+PASS K1 D on wr_5_2_5.pkl.gz: 2352 checked, 0 failures
+PASS K1 N on wr_5_2_5.pkl.gz: 2352 checked, 0 failures
+PASS K2 D on wr_5_2_5.pkl.gz: 2352 checked, 0 failures
+PASS K2 N on wr_5_2_5.pkl.gz: 2352 checked, 0 failures
+PASS K3 D on wr_5_2_5.pkl.gz: 2352 checked, 0 failures
+PASS K3 N on wr_5_2_5.pkl.gz: 2352 checked, 0 failures
+PASS K4 D on wr_5_2_5.pkl.gz: 175 checked, 0 failures
+PASS K4 N on wr_5_2_5.pkl.gz: 150 checked, 0 failures
+PASS K5 D on wr_5_2_5.pkl.gz: 19 checked, 0 failures
+PASS K5 N on wr_5_2_5.pkl.gz: 2237 checked, 0 failures
+PASS K6 D on wr_5_2_5.pkl.gz: 1582 checked, 0 failures
+PASS K6 N on wr_5_2_5.pkl.gz: 2247 checked, 0 failures
+PASS K7 on wr_5_2_5.pkl.gz: 2352 checked, 0 failures
+# runtime 170.9 s; 0 FAIL

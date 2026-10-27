@@ -1,0 +1,9 @@
+# check_cgen.py; Python 3.12.15 on Linux
+PASS  generalised K5 (s >= #clusters - 1, connected + (H1) + (H2)): 18220/18220
+PASS  C^gen N [EC]: 1250/1250
+PASS  C^gen N [nonEC]: 755/755
+PASS  C^gen N* [EC]: 1250/1250
+PASS  C^gen N* [nonEC]: 755/755
+PASS  certificate N, N* [EC]: 1250/1250
+PASS  certificate N, N* [nonEC]: 755/755
+# runtime 13.0 s

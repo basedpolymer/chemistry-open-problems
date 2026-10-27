@@ -1,0 +1,14 @@
+PASS connected, (H1)-(H3) on NC3 and NC3*
+PASS s = 2, q = 3 (clusters {D},{C},{A,B}): cluster rank equation -- [([3], [0]), ([2], [1]), ([0, 1], [2, 3])]
+PASS TEFC (A+B and 2A+B have the same support), not PC, not EC
+PASS no critical siphon in NC3 nor NC3*
+   conservation rays: [['0', '1', '0', '1'], ['1', '0', '1', '1']]  flux rays: [['0', '1', '1', '0'], ['1', '2', '0', '1']]  NC3* = [((0, 0, 1, 2), (0, 1, 0, 0)), ((0, 0, 1, 1), (1, 0, 1, 0)), ((0, 1, 0, 0), (1, 0, 1, 1)), ((1, 0, 0, 0), (0, 0, 0, 1))]
+PASS a rational positive steady state with det(J|_S) < 0 exists
+PASS f_k(x) = 0 exactly
+   x = ['1/2', '1/3', '6', '3']  k = ['1/6', '1/3', '6', '6']  det(J|_S) = -7/9  class: ['1B+1D = 10/3', '1A+1C+1D = 19/2']
+   msolve: 3 real solutions in the class, 3 with all coordinates > 0 (isolating boxes)
+PASS exactly three positive steady states in the class (msolve)
+   steady state ['0.25379574', '1.0043664', '6.9172373', '2.3289669']  eigenvalues: ['-12.96', '-0.06936', '-3.979e-16', '5.373e-17']
+   steady state ['0.5', '0.33333333', '6', '3']  eigenvalues: ['-8.096', '-1.848e-15', '-1.8e-17', '0.09607']
+   steady state ['2.0795376', '0.021274628', '4.1084037', '3.3120587']  eigenvalues: ['-27.43', '-0.2103', '-1.04e-18', '1.85e-15']
+runtime 61.7 s; 0 FAIL

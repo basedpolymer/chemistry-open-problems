@@ -1,0 +1,56 @@
+# check_families.py; Python 3.12.15 on Linux; families ['all_4_1_12.pkl.gz']
+## family all_4_1_12.pkl.gz: 84 networks with (H1),(H2); 15.8 s
+   CF determined (D): 84
+   CF determined (N): 84
+   Condition 3.1 at generic V (D): 84
+   Condition 3.1 at generic V (N): 84
+   EC sides with pi+ one block (D): 83
+   EC sides with pi+ one block (N): 83
+   P != Pcs (N): 39   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 0, 1), (0, 1, 0, 0)), ((0, 0, 0, 1), (1, 0, 0, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 1, 0, 0), (0, 0, 1, 0)), ((1, 0, 0, 0), (0, 0, 1, 0)))
+   Pcs != pi (D): 84   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 1, 0, 0), (1, 0, 0, 0)), ((1, 0, 0, 0), (0, 1, 0, 0)))
+   Pcs != pi (N): 2   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 1, 0, 0), (1, 0, 0, 0)), ((1, 0, 0, 0), (0, 1, 0, 0)))
+   WR0 sides with pi+ = linkage classes (D): 2
+   WR0 sides with pi+ = linkage classes (N): 84
+   checked K1 D: 84
+   checked K1 N: 84
+   checked K2 D: 84
+   checked K2 N: 84
+   checked K3 D: 84
+   checked K3 N: 84
+   checked K4 D: 83
+   checked K4 N: 83
+   checked K5 D: 2
+   checked K5 N: 84
+   checked K6 D: 84
+   checked K6 N: 84
+   checked K7: 84
+   isolation (R23 for CF) (D): 84   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 1, 0, 0), (1, 0, 0, 0)), ((1, 0, 0, 0), (0, 1, 0, 0)))
+   isolation (R23 for CF) (N): 84   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 1, 0, 0), (1, 0, 0, 0)), ((1, 0, 0, 0), (0, 1, 0, 0)))
+   networks: 84
+   networks with (H3): 84
+   pi != CF (N): 37   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 0, 1), (0, 1, 0, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 0, 1, 0), (1, 0, 0, 0)), ((0, 1, 0, 0), (0, 0, 1, 0)), ((1, 0, 0, 0), (0, 0, 0, 1)))
+   reaction side Q1 fails: 82   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 0, 1), (0, 1, 0, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 1, 0, 0), (1, 0, 0, 0)), ((1, 0, 0, 0), (0, 0, 0, 1)))
+   reaction side Q1 holds: 2
+   reaction side Q2 holds: 84
+   reaction side Q3 fails: 82   smallest: n=4 (((0, 0, 0, 1), (0, 0, 1, 0)), ((0, 0, 0, 1), (0, 1, 0, 0)), ((0, 0, 1, 0), (0, 0, 0, 1)), ((0, 1, 0, 0), (1, 0, 0, 0)), ((1, 0, 0, 0), (0, 0, 0, 1)))
+   reaction side Q3 holds: 2
+   species side Q1 holds: 84
+   species side Q1 holds, (H3): 84
+   species side Q2 holds: 84
+   species side Q2 holds, (H3): 84
+   species side Q3 holds: 84
+   species side Q3 holds, (H3): 84
+PASS K1 D on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K1 N on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K2 D on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K2 N on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K3 D on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K3 N on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K4 D on all_4_1_12.pkl.gz: 83 checked, 0 failures
+PASS K4 N on all_4_1_12.pkl.gz: 83 checked, 0 failures
+PASS K5 D on all_4_1_12.pkl.gz: 2 checked, 0 failures
+PASS K5 N on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K6 D on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K6 N on all_4_1_12.pkl.gz: 84 checked, 0 failures
+PASS K7 on all_4_1_12.pkl.gz: 84 checked, 0 failures
+# runtime 15.8 s; 0 FAIL
