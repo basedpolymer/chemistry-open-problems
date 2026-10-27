@@ -55,7 +55,7 @@ Shortlisted, no result yet; statements checked against the sources and the liter
 | Problem (source) | Field | What is open |
 |---|---|---|
 | [Uniqueness of the Brownian coagulation similarity profile](problems/brownian-coagulation-profile-uniqueness/) (Smoluchowski equation, full Brownian kernel) | Aggregation kinetics | Uniqueness at fixed mass of the self-similar profile for K(x,y) = 2 + (x/y)^(1/3) + (y/x)^(1/3) |
-| Absolute concentration robustness with multistability (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), final discussion, conjecture) | Reaction networks | Whether the minimal dimension and numbers of species, reactant complexes and complexes exceed those proved for ACR with multistationarity (3 species, 3 reactions, 5 complexes, dimension 2, at-most-bimolecular) |
+| [Absolute concentration robustness with multistability](problems/kaihnsa-acr-multistability/) (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), final discussion, conjecture) | Reaction networks | Whether the minimal dimension and numbers of species, reactant complexes and complexes exceed those proved for ACR with multistationarity (3 species, 3 reactions, 5 complexes, dimension 2, at-most-bimolecular) |
 | Knotting probability of random-jump heptagons (Geisz–Peterson–Shonkwiler, [arXiv:2609.24860](https://arxiv.org/abs/2609.24860), §5) | Polymer physics (ring polymers) | Exact knot probabilities for seven uniform points on the sphere joined cyclically; unlike n = 6, the convex hull no longer determines the knot type |
 | Conjectures 1(c) and 1(d) on fullerene duals for every n (Bille–Buchstaber–Spodarev 2021) | Mathematical chemistry | Verified for n ≤ 138 only |
 
