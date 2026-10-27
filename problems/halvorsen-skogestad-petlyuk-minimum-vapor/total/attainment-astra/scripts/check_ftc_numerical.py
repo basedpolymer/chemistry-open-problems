@@ -4,7 +4,7 @@ Python 3, numpy/scipy/mpmath; normally < 1 minute, <=2 threads, <3 GiB.
 Use --extended to also attempt 80 stages (known numerical failures, up to 4 min).
 This is numerical evidence, not a certificate or a proof of attainment.
 All output files are under this script's parent task folder.
-Attainment: GPT-6-Astra via Codex CLI (effort xhigh).
+Attainment: GPT-6-Astra (effort xhigh).
 """
 import os
 for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):

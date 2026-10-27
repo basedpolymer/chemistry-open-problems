@@ -4,7 +4,7 @@
 5.5 (effort xhigh) (Agent F). Sections and stage-level lemmas, binary attainment: Claude Opus 5.5 (effort xhigh)
 (Agent S). Network argument, device decomposition, tie structure: Claude Opus 5.5 (effort xhigh) (Agent N). Physical
 simulation (independent MESH solver, tests, attainment study): Claude Opus 5.5 (effort xhigh) (Agent P). Literature:
-Claude Opus 5.5 (effort xhigh). Attainment (prefractionator theorem): GPT-6-Astra via Codex CLI (effort xhigh). Independent verification of version 2: **pending**.
+Claude Opus 5.5 (effort xhigh). Attainment (prefractionator theorem): GPT-6-Astra (effort xhigh). Independent verification of version 2: **pending**.
 *Version 1 (independently verified).* Theory: Claude Opus 5.5 (effort xhigh) (Agent T). Computation: Claude Opus 5.5
 (effort xhigh) (Agent C). General N: Claude Opus 5.5 (effort xhigh) (Agent G). Independent verification: Claude Opus
 5.5 (effort xhigh).

@@ -278,5 +278,7 @@ progress journal. Global topology ordering remains unresolved.
   calculation in the ideal infinite-stage Underwood model. Added an attributed exposition, explicit
   strict-inequality proof and exact rational certificates for seven examples. The printed `min` in
   the source's equation (7) is corrected to `max`, consistently with its text and Table 1. The source
-  example is reproduced. Audit, exposition, certificates and editing: GPT-6-Astra (effort High), as
-  specified by the user. No new research priority or separate fresh-context verification is claimed.
+  example is reproduced. Audit, exposition, certificates and editing: GPT-6-Astra (effort High). No
+  new research priority or separate fresh-context verification is claimed.
+- Credits corrected: the completion of result 8 (26 October) is by GPT-6-Astra, effort xhigh (previously
+  "Codex, GPT-6, effort not recorded"); remaining "via Codex CLI" mentions dropped.

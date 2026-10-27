@@ -3,7 +3,7 @@
 Python 3 + mpmath, 70 digits, normally < 30 s. No file writes.
 Deterministic N=3..7, q=-0.5,0,0.5,1,1.5; PASS/FAIL and nonzero exit on failure.
 These are numerical checks of a proved formula, not interval certificates.
-Attainment: GPT-6-Astra via Codex CLI (effort xhigh).
+Attainment: GPT-6-Astra (effort xhigh).
 """
 import os
 for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):

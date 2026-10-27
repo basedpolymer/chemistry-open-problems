@@ -1,6 +1,6 @@
 # Completion and verification of result 8: branches 1–3
 
-Verifier and completion editor: Codex (GPT-6, effort not recorded). Date: 26 October 2026.
+Verifier and completion editor: GPT-6-Astra (effort xhigh). Date: 26 October 2026.
 Original all-M solver: Claude Opus 5.5 (effort xhigh).
 
 ## Verdict: CONFIRMED WITH CORRECTIONS

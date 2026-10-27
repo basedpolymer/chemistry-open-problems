@@ -1,7 +1,7 @@
 # Verification record
 
 Date: 27 October 2026. Performed by GPT-6-Astra (effort High), the same agent that prepared the
-exposition and certificates; attribution as specified by the user.
+exposition and certificates.
 
 **Disposition: already solved in the literature.** This is a self-check record, not the separate
 fresh-context verification required to label a new result `solved` under PROTOCOL.md.

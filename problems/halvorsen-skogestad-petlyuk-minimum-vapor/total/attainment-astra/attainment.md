@@ -1,6 +1,6 @@
 # Finite-stage attainment: a constructive prefractionator theorem and the remaining network problem
 
-Attainment: GPT-6-Astra via Codex CLI (effort xhigh).
+Attainment: GPT-6-Astra (effort xhigh).
 
 Status: **partial result, not independently verified**. Full FTC attainment for
 three or more components is **not proved here**. The new result is Theorem 1:

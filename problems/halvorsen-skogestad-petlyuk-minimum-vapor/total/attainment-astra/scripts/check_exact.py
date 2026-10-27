@@ -2,7 +2,7 @@
 
 Run from any directory. No files are written. At most two computational threads.
 PASS means the stated algebraic check, not finite-stage FTC attainment.
-Attainment: GPT-6-Astra via Codex CLI (effort xhigh).
+Attainment: GPT-6-Astra (effort xhigh).
 """
 import os
 for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):

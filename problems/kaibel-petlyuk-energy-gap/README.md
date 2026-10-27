@@ -3,8 +3,8 @@
 **Status: already solved by Halvorsen and Skogestad (2006); candidate closed by literature audit, 27 October 2026.**
 
 **Attribution.** Original result: Ivar J. Halvorsen and Sigurd Skogestad.
-Literature audit, explicit proof exposition, certificates and editing: **GPT-6-Astra (effort High)**,
-as specified by the user. No separate fresh-context verifier was used.
+Literature audit, explicit proof exposition, certificates and editing: **GPT-6-Astra (effort High)**.
+No separate fresh-context verifier was used.
 
 The candidate asked whether the four-product Kaibel arrangement always needs strictly more energy than
 the fully extended Petlyuk arrangement, and requested a closed form. In the ideal infinite-stage

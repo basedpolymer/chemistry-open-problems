@@ -1,6 +1,6 @@
 # Sources and novelty disposition
 
-Audit date: 27 October 2026. Attribution: GPT-6-Astra (effort High), as specified by the user.
+Audit date: 27 October 2026. Attribution: GPT-6-Astra (effort High).
 
 ## Decisive primary source
 

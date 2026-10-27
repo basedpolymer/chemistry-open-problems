@@ -2,7 +2,7 @@
 
 Python 3 + mpmath, 120 digits; normally <10 s. No files written.
 Checks every cross-section and interior composition for 9 constructions.
-Attainment: GPT-6-Astra via Codex CLI (effort xhigh).
+Attainment: GPT-6-Astra (effort xhigh).
 """
 import os
 for name in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):

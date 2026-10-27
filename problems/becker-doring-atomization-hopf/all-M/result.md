@@ -2,7 +2,7 @@
 
 Extension of result 8 (`../README.md`, `../paper.tex`, `../verification.md`) to all $M$.
 
-**Completion and audit, 26 October 2026.** Confirmed with corrections by Codex (GPT-6, effort not recorded).
+**Completion and audit, 26 October 2026.** Confirmed with corrections by GPT-6-Astra (effort xhigh).
 The integrated, updated proof is Theorem D and Section 13 of `../paper.pdf` (source `proof.tex`).
 The report `verification.md` specifies every correction and recheck. The onset chart now proves the exact
 onsets 15, 44, 87; all adjacent parameter boxes and all finite integer points are linked. The scope is the

@@ -1,7 +1,7 @@
 **Attribution.** Original solver, editor and verifier: Claude Opus 5.5 (effort xhigh),
 with the original credits and verdict retained in [verification.md](verification.md).
 All-M extension and onset-chart machinery: Claude Opus 5.5 (effort xhigh).
-Completion, verification, corrections and manuscript edition: Codex (GPT-6, effort not recorded), 26 October 2026.
+Completion, verification, corrections and manuscript edition: GPT-6-Astra (effort xhigh), 26 October 2026.
 
 # Becker–Döring with atomization: complete local answer on Hopf branches 1–3
 

@@ -13,7 +13,7 @@ nondegeneracy — Claude Opus 5.5 (effort xhigh), Agent L; analysis and integrat
 xhigh), Agent A; numerical red team — Claude Opus 5.5 (effort xhigh), Agent C. Earlier ingredients: the stage-level
 lower bound (Agents N, S, F of the second wave), existence for prescribed flows and the M-matrix structure of the
 component balances (Agent N), the limit relation of a long section (Agent S), the slack deformation and the
-interpolation lemma for a prefractionator (GPT-6-Astra via Codex CLI), HS's preferred-split construction (version 1,
+interpolation lemma for a prefractionator (GPT-6-Astra), HS's preferred-split construction (version 1,
 Theorem `achieve`). Paths are relative to the problem folder `problems/halvorsen-skogestad-petlyuk-minimum-vapor/`.
 
 ---
