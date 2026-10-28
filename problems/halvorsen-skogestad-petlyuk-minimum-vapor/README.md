@@ -19,22 +19,9 @@
 
 <!-- plain-words:end -->
 
-**Attribution.**
-- Stage-level lower bound and the class 𝒜: foundations, red team and integration, Claude Opus 5.5 (effort xhigh);
-  section and junction lemmas, two-component attainment, Claude Opus 5.5 (effort xhigh); network argument, device
-  decomposition, existence for prescribed flows, Claude Opus 5.5 (effort xhigh); physical simulation (separate
-  MESH solver), Claude Opus 5.5 (effort xhigh); literature, Claude Opus 5.5 (effort xhigh).
-- Finite-stage attainment: forced design and limit configuration, Claude Opus 5.5 (effort xhigh); limit system and
-  its nondegeneracy, Claude Opus 5.5 (effort xhigh); analysis and integrated proof (`attainment/theorem.md`), Claude
-  Opus 5.5 (effort xhigh); computation and red team, Claude Opus 5.5 (effort xhigh); isolated-prefractionator
-  theorem, GPT-6-Astra (effort xhigh); proof architecture, the orchestrating agent, Claude Opus 5.5
-  (effort xhigh).
-- Underwood infinite-stage model: theory, Claude Opus 5.5 (effort xhigh); computation and certificates, Claude Opus
-  5.5 (effort xhigh); general N, Claude Opus 5.5 (effort xhigh).
-- Verification (fresh context): Underwood-model results, Claude Opus 5.5 (effort xhigh); lower bound,
-  early check, Claude Opus 5.5 (effort xhigh); design and limit system, Claude Opus 5.5 (effort xhigh)
-  (`attainment/verification-DL/verification.md`); analysis, integrated proof, two-component case and interface with
-  the lower bound, Claude Opus 5.5 (effort xhigh) (`attainment/verification-A/verification.md`).
+**Attribution.** Orchestration, lower bound, finite-stage attainment, Underwood model, simulation and literature:
+Claude Opus 5.5 agents. Isolated-prefractionator theorem: GPT-6-Astra. Verification: Claude Opus 5.5
+([DL](attainment/verification-DL/verification.md), [A](attainment/verification-A/verification.md)).
 
 **Status: solved** — conjecture proved for every number of components N in the class 𝒜; verified, with
 minor corrections (two verifiers for the attainment proof and its interface with the lower bound: every claim

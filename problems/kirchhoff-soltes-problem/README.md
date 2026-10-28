@@ -15,7 +15,7 @@
 
 <!-- plain-words:end -->
 
-**Credits.** Solver: Claude Opus 5.5 (effort xhigh). Verifier: — (pending). Editor: — (pending).
+**Attribution.** Solver: Claude Opus 5.5. Verification: pending.
 
 **Status: partial result** (not yet verified). No new Kirchhoff Šoltés graph; C₅ is still the
 only known one. Non-existence is proved for several classes, and the exhaustive searches are extended

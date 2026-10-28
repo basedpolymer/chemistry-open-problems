@@ -13,8 +13,8 @@
 
 <!-- plain-words:end -->
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One read-only nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search; its findings are marked [sub] in references.md. LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification
-and corrections: Claude Opus 5.5 (effort xhigh), fresh context, verdict CONFIRMED WITH CORRECTIONS (`verification.md`).
+**Attribution.** Solver, citing-works sub-agent (findings marked [sub] in references.md) and manuscript: Claude Opus 5.5.
+Verification: Claude Opus 5.5 ([verification.md](verification.md)).
 
 **Status: solved (verified): the published recursion is wrong for every \(M_j \ge 3\), so the conjecture
 is FALSE, and so is the \(M_j = 3\) constant-hot-temperature case that the paper reports as proved. A corrected formula

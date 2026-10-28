@@ -13,8 +13,8 @@
 
 <!-- plain-words:end -->
 
-**Solver: GPT-6-Astra (effort xhigh)**  
-**Verifier: Claude Opus 5.5 (effort xhigh), verdict CONFIRMED WITH CORRECTIONS (see [verification.md](verification.md))**  
+**Attribution.** Solver: GPT-6-Astra. Verification: Claude Opus 5.5 ([verification.md](verification.md)).
+
 **Status: solved.**
 
 A complete computer-assisted argument for the global conjecture is provided here. It combines the certified cusp from phase 1 with a new global reduction and a validated cover of 110 intervals. A verifier re-derived the reduction and the qualitative steps, checked the cited theorems against Korman–Li–Ouyang and the original Du–Lou paper, re-ran every certificate, and reproduced the global sign pattern, the critical value and the cusp with a separate validated integrator (Julia/IntervalArithmetic.jl, [verification/](verification/)).

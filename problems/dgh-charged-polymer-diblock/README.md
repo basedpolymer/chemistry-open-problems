@@ -15,7 +15,7 @@
 
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, minor and editorial; see [verification.md](verification.md)).** The candidate value itself was already identified by Derrida, Griffiths and Higgs in 1992; the collapse side was argued there and proved by Poisat (Prop. 3.7). The new contribution is the matching uniform high-temperature bound. The verifier's novelty search found no earlier complete answer.
 
-**Attribution.** Solver: GPT-6-Astra (effort xhigh). Internal review: a GPT-6-Astra sub-agent launched by the solver (effort xhigh). LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 ([verification.md](verification.md)).
+**Attribution.** Solver and internal review: GPT-6-Astra. Manuscript: Claude Opus 5.5. Verification: Claude Opus 5.5 ([verification.md](verification.md)).
 
 ## Original question
 
@@ -80,4 +80,3 @@ Dependencies: Python 3.10+, `python-flint`, `mpmath`. One thread, under 250 MB R
 - `certificates/verification.log`: complete local check output (not the verification of PROTOCOL.md §4). `certificates/independent-verification.log` is the internal-review sub-agent's rerun of the same scripts. It is not the PROTOCOL.md verification either.
 - `certificates/source_manifest.json`: SHA-256 hashes of the source PDFs and snapshots used (the files themselves are kept locally, not redistributed).
 
-Solver: GPT-6-Astra (reasoning effort xhigh), 18 October 2026.

@@ -17,12 +17,9 @@
 CORRECTIONS, see `verification.md`; the corrections concern the wording of the claims, not the proofs). Not
 refereed.**
 
-**Attribution.** Time-dependent problem (part (ii), extended to every mass 0 < m ≤ 1 and to finite-mass data),
-part (i) as a corollary of the evolution, integration and final manuscript: Claude Opus 5.5 (effort xhigh)
-(`part-ii-opus/`). Novelty audit, singularity analysis of the stationary state (decay theorem), stationary-identity and
-Arb scripts, first manuscript draft, and three refinements adopted in the evolution proof (x-variable form of the
-boundary estimate, upper curvature bound, discrete Scheffé argument): GPT-6-Astra (effort xhigh).
-Verification: Claude Opus 5.5 (effort xhigh) (`verification.md`, `verification/`).
+**Attribution.** Time-dependent proof, part (i) and final manuscript: Claude Opus 5.5 (`part-ii-opus/`). Novelty audit,
+stationary-state analysis, Arb scripts, first draft and three refinements of the proof: GPT-6-Astra. Verification: Claude Opus 5.5
+([verification.md](verification.md)).
 
 ## Problem
 

@@ -13,13 +13,8 @@
 
 <!-- plain-words:end -->
 
-**Attribution.**
-- Solver (exact networks, block lemma and its enumeration, strengthened MILP and its validity proofs, first exact
-  SCIP runs; 24 Oct 2026): Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator.
-- Solver (VIPR closure of unbalanced10, hardening patch of VIPR's checker, separate VIPR checker, check of the
-  networks against the original 2018 model, manuscript; 25 Oct 2026): Claude Opus 5.5 (effort xhigh), sub-agent of
-  the orchestrator.
-- No helper agents. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md).
+**Attribution.** Solver (networks, block lemma, MILP, VIPR certificates and checker) and manuscript: Claude Opus 5.5.
+Verification: GPT-6-Astra ([verification.md](verification.md)).
 
 **Status: solved for four instances — 37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22, unbalanced10 = 25 —
 and partial result (record lower bound) for the balanced15 family; verified on 25 October 2026.**

@@ -15,8 +15,7 @@
 
 <!-- plain-words:end -->
 
-**Credits.** Solver: Claude Opus 5.5 (effort xhigh). Literature search helper: a Claude Opus 5.5 sub-agent (effort not
-recorded). Verifier: — (pending). Editor: — (pending).
+**Attribution.** Solver and literature sub-agent: Claude Opus 5.5. Verification: pending.
 
 **Status: partial result** (preliminary; verification pending). Problem 4 of the source is **still open for every
 rational β ∈ [2/3, 1)**. The source's own construction already settles it for β < 2/3. We prove exact-proportion

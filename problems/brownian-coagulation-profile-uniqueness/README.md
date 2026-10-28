@@ -2,7 +2,7 @@
 
 **Status: open; selected research target, 25 October 2026.** No new uniqueness theorem or numerical certificate is claimed.
 
-**Attribution.** Selection, literature audit and proposed approach: GPT-6-Astra (OpenAI; effort xhigh), without sub-agents.
+**Attribution.** Selection, literature audit and proposed approach: GPT-6-Astra.
 
 The target is to prove or disprove uniqueness of the finite-mass self-similar profile for the **full Brownian kernel** in Smoluchowski's coagulation equation. It is a precise problem in aerosol and colloidal aggregation, with a known existence theory and a substantial gap between existing uniqueness results and the physical kernel. The literature audit is in [references.md](references.md).
 

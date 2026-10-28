@@ -17,7 +17,7 @@
 
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
 
-**Attribution.** General family, proof and manuscript: Claude Opus 5.5 (effort xhigh), orchestrating agent. n = 3 case and computer searches for n ≤ 9: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (`verification.md`).
+**Attribution.** Solver and manuscript: Claude Opus 5.5. Case n = 3 and searches for n ≤ 9: Claude Opus 5.5 (effort high). Verification: Claude Opus 5.5 ([verification.md](verification.md)).
 
 ## Problem
 

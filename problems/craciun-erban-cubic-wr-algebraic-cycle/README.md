@@ -15,7 +15,7 @@
 
 **Status: solved: rigorous certificate, confirmed with minor corrections by a verifier (see `verification.md`).**
 
-**Attribution.** 17-reaction network: Claude Opus 5.5 exploration agent (effort high), 17 Oct 2026. Rigorous Arb certificate, 10-reaction integer network and manuscript: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), 18 Oct 2026.
+**Attribution.** 17-reaction network: Claude Opus 5.5 (effort high). Certificate, 10-reaction network and manuscript: Claude Opus 5.5. Verification: Claude Opus 5.5 ([verification.md](verification.md)).
 
 ## Problem
 

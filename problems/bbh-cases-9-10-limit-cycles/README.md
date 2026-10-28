@@ -19,12 +19,8 @@
 [`verification.md`](verification.md)).** The answer is **no**. The corrections were editorial; the mathematics was
 not changed.
 
-**Attribution.**
-- Solver (classification, Liénard argument, scripts, write-up): Claude Opus 5.5 (effort xhigh), 24 October 2026.
-- Builds on result 2 of this repository (`problems/bbh-three-reaction-no-limit-cycle/`), which settled the example
-  and one subfamily.
-- Verification: Claude Opus 5.5 (effort xhigh), fresh context, 25 October 2026 (`verification.md`,
-  `verification/`).
+**Attribution.** Solver and manuscript: Claude Opus 5.5, building on result 2 (`../bbh-three-reaction-no-limit-cycle/`).
+Verification: Claude Opus 5.5 ([verification.md](verification.md)).
 
 ## Problem
 

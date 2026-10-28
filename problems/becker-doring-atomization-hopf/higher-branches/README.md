@@ -1,9 +1,5 @@
-**Attribution.** Solver (method, scripts, branches 4–8, onset counts, Theorem C, local certificate at $M=1135$):
-Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. Editing after the solver stopped (text revisions,
-Theorem C in `result.md`, completeness checks in `summary.py`): GPT-6-Astra (effort xhigh). Branches 9–13 (runs of
-the solver's pipeline), final tables and manuscript: Claude Opus 5.5 (effort xhigh). Builds on result 8
-(`../README.md`) and its all-M extension (`../all-M/README.md`); their solvers, editor and verifier are credited
-there. Verification of this extension: pending.
+**Attribution.** Solver (branches 4–8, Theorem C) and final manuscript (branches 9–13): Claude Opus 5.5. Intermediate
+editing: GPT-6-Astra. Earlier credits: [../README.md](../README.md). Verification: pending.
 
 # Becker–Döring with atomization: the Hopf branches j ≥ 4
 

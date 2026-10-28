@@ -15,8 +15,7 @@
 
 **Status: solved. Complete proof, partly computer-assisted with exact arithmetic; verified; see [verification.md](verification.md).**
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), 25 Oct 2026, covering the novelty check, proof, scripts
-and manuscript. Verification: GPT-6-Astra (effort xhigh), 25 October 2026; [report](verification.md).
+**Attribution.** Solver and manuscript: Claude Opus 5.5. Verification: GPT-6-Astra ([verification.md](verification.md)).
 
 ## Problem
 

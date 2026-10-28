@@ -17,10 +17,8 @@
 conjecture holds for three of the four quantities (dimension, reactant complexes, complexes) and fails for the number
 of species.
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), 27 Oct 2026: novelty check, dimension-two theorem,
-consequences for reactant complexes and complexes, manuscript. Sub-studies by Claude Opus 5.5 (effort xhigh): certified
-examples, reactions and reactant complexes (`examples/`); minimal number of complexes (`complexes/`). Verification:
-Claude Opus 5.5 (effort xhigh), fresh context, 27 Oct 2026 ([verification.md](verification.md), `verification/`).
+**Attribution.** Solver, sub-studies (`examples/`, `complexes/`) and manuscript: Claude Opus 5.5. Verification: Claude Opus 5.5
+([verification.md](verification.md)).
 
 ## Problem
 

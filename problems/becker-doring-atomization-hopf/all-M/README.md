@@ -1,6 +1,5 @@
-**Attribution.** All-M solver: Claude Opus 5.5 (effort xhigh). Completion, verification, corrections and
-edition: GPT-6-Astra (effort xhigh), 26 October 2026. The finite-range solver and verifier are credited
-in [../README.md](../README.md).
+**Attribution.** Solver: Claude Opus 5.5. Completion, verification and manuscript: GPT-6-Astra. Earlier credits:
+[../README.md](../README.md).
 
 # Becker–Döring Hopf branches 1–3 for every M
 

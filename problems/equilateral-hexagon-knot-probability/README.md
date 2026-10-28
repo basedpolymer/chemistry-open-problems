@@ -19,8 +19,7 @@
 (ratio 27.7; Monte Carlo value 1.364·10⁻⁴); the exact value remains open. The branch and bound was paused
 after 24 rounds (resumable, see below).
 
-**Attribution.** Solver (novelty check, lemmas and proofs, certifier, branch and bound, write-up): Claude Opus 5.5
-(effort xhigh), sub-agent of the orchestrator, 24 Oct 2026. Verifier and editor: not yet assigned.
+**Attribution.** Solver and manuscript: Claude Opus 5.5. Verification: pending.
 
 ## Problem
 

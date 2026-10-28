@@ -22,14 +22,9 @@ and minimal counterexamples. The relation left open by the source is answered in
 The conjecture as written is not a decidable statement, and the rank-two persistence dichotomy is open; see
 [What remains open](#what-remains-open). Manuscript: [paper.pdf](paper.pdf).
 
-**Attribution.**
-- Research: Claude Opus 5.5 (effort xhigh), for the original refutation (25 October 2026) and agents P, E, Q1, Q2,
-  Q3, E2 and D2 (27 October 2026). GPT-6-Astra (effort xhigh), for agents G and A2.
-- Literature: Claude Opus 5.5 (effort xhigh; effort medium for the second search).
-- Verification: GPT-6-Astra (effort xhigh) for the original report ([verification.md](verification.md)); Claude Opus
-  5.5 (effort xhigh) for the new results, by three fresh-context verifiers V1–V3, and for the review of the rewritten
-  manuscript (R1, R2).
-- Writing of the manuscript (28 October 2026): Claude Opus 5.5 (effort xhigh).
+**Attribution.** Research: Claude Opus 5.5 (refutation; agents P, E, Q1–Q3, E2, D2) and GPT-6-Astra (agents G, A2). Literature:
+Claude Opus 5.5. Verification: GPT-6-Astra (original report, [verification.md](verification.md)), then Claude Opus 5.5 (V1–V3, R1, R2).
+Manuscript: Claude Opus 5.5.
 
 **Acknowledgment.** We thank Alexandru Iosif for helpful correspondence, which shaped questions Q1–Q3 and pointed us
 to recent work on the Global Attractor Conjecture.

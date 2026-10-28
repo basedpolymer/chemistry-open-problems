@@ -13,7 +13,8 @@
 
 <!-- plain-words:end -->
 
-**Solver: Claude Opus 5.5 (effort xhigh)**  
+**Attribution.** Solver: Claude Opus 5.5. Verification: pending.
+
 **Status: solved (preliminary)** for the long-time and short-time signs (computer-assisted proofs, not yet
 verified); **partial result** for the "all times" claim.
 

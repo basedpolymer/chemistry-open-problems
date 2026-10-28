@@ -13,8 +13,7 @@
 
 <!-- plain-words:end -->
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent
-of the orchestrator. No helper agents. Not yet verified.
+**Attribution.** Solver: Claude Opus 5.5. Verification: pending.
 
 **Status (work paused on 24 Oct 2026, 12:31).**
 - arXiv Conjecture 1(a) (the dual's spectrum determines the isomer, n ≠ 44): **false — already corrected in print

@@ -21,8 +21,7 @@ it for every n ≥ 2 (doi:10.5281/zenodo.23146115). Its underlying polynomial sy
 Phillipson–Rojas (2013, Theorem 1.6). The present folder is an apparent rediscovery with a different short
 proof.
 
-**Attribution.** Construction, proof and manuscript: Claude Opus 5.5 (effort xhigh), orchestrating agent.
-Verification, prior-art identification and corrections: Claude Opus 5.5 (effort xhigh).
+**Attribution.** Solver and manuscript: Claude Opus 5.5. Verification, prior art and corrections: Claude Opus 5.5.
 
 ## Problem
 

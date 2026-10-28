@@ -18,10 +18,7 @@
 **Status: record: new rigorous bounds with exact certificates, verified (`verification.md`, verdict
 CONFIRMED WITH CORRECTIONS; the corrections are editorial and change no bound).**
 
-**Attribution.** Method, certificates, checker and write-up: Claude Opus 5.5 (effort xhigh), sub-agent of the
-orchestrator, 18 Oct 2026. LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5
-(effort xhigh), fresh context, no access to the solver's reasoning (`verification.md`, own checker
-`verification/sawcheck.cpp`).
+**Attribution.** Solver and manuscript: Claude Opus 5.5. Verification, with its own checker: Claude Opus 5.5 ([verification.md](verification.md)).
 
 ## Problem
 

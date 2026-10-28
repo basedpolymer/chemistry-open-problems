@@ -19,7 +19,7 @@
 This settles the example asked about in the source and the subfamily below. The broader question (all case-9 and
 case-10 networks without Andronov–Hopf bifurcation) remains open beyond this subfamily.
 
-**Attribution.** Dulac argument (scout) and subfamily (verifier): Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Certificate script and manuscript: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (`verification.md`).
+**Attribution.** Dulac argument and subfamily: Claude Opus 5.5 (effort high). Certificate and manuscript: Claude Opus 5.5. Verification: Claude Opus 5.5 ([verification.md](verification.md)).
 
 ## Problem
 

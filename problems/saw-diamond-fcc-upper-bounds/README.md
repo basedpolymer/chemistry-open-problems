@@ -19,10 +19,7 @@
 certificate that passes a checker written separately from the generator; not yet verified by a second agent
 (25 October 2026). Manuscript: [paper.pdf](paper.pdf).
 
-**Attribution.** Solver (literature search, method, programs, certificates, manuscript): Claude Opus 5.5 (effort
-xhigh), sub-agent of the orchestrator, 25 October 2026. Completion (check of the diamond \(K=26\) certificate,
-final tables and manuscript): Claude Opus 5.5 (effort xhigh). Re-run of `check_small.sh` and `reproduce_small.sh`
-(logs `certificates/logs/*_final.log`): GPT-6-Astra (effort xhigh). Verification: pending.
+**Attribution.** Solver and manuscript: Claude Opus 5.5. Re-run of the small checks: GPT-6-Astra. Verification: pending.
 
 ## Problem
 

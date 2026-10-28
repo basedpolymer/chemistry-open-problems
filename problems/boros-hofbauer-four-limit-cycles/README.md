@@ -13,8 +13,7 @@
 
 <!-- plain-words:end -->
 
-**Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) was used, only for the
-literature/novelty check (read-only web search). LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context — **CONFIRMED WITH CORRECTIONS** (minor, editorial; see `verification.md`).
+**Attribution.** Solver, literature sub-agent and manuscript: Claude Opus 5.5. Verification: Claude Opus 5.5 ([verification.md](verification.md)).
 
 **Status: solved: complete computer-assisted proof, verified (`verification.md`).**
 
