@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Grey: the gap left by solvers in 2018. Blue: proved optimum, or the new interval.</sub></p>
 
-More detail, with every step explained: [guided reading, result 15](https://basedpolymer.eu/chemistry-open-problems#result-15) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d15).
-
 <!-- plain-words:end -->
 
 **Attribution.**

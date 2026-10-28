@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Extended phase: each block behaves like a chain of equal charges. Collapsed phase: all charges on one site cancel. The free energies cross at β<sub>c</sub>.</sub></p>
 
-More detail, with every step explained: [guided reading, result 4](https://basedpolymer.eu/chemistry-open-problems#result-4) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d4).
-
 <!-- plain-words:end -->
 
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, minor and editorial; see [verification.md](verification.md)).** The candidate value itself was already identified by Derrida, Griffiths and Higgs in 1992; the collapse side was argued there and proved by Poisat (Prop. 3.7). The new contribution is the matching uniform high-temperature bound. The verifier's novelty search found no earlier complete answer.

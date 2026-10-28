@@ -13,8 +13,6 @@
 
 <p align="center"><sub>The construction of result 1; result 7 rests on the same principle: steady states correspond to roots of a one-variable function.</sub></p>
 
-More detail, with every step explained: [guided reading, result 7](https://basedpolymer.eu/chemistry-open-problems#result-7) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d7).
-
 <!-- plain-words:end -->
 
 **Status: already solved. The proof here is correct and verified (see `verification.md`), but the

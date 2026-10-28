@@ -13,8 +13,6 @@
 
 <p align="center"><sub>C₅ has Kirchhoff index 10, and so does the path left after deleting any vertex.</sub></p>
 
-More detail, with every step explained: [guided reading, result 21](https://basedpolymer.eu/chemistry-open-problems#result-21) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d21).
-
 <!-- plain-words:end -->
 
 **Credits.** Solver: Claude Opus 5.5 (effort xhigh). Verifier: — (pending). Editor: — (pending).

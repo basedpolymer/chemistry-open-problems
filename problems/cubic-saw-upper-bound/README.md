@@ -13,8 +13,6 @@
 
 <p align="center"><sub>An automaton that only forbids short loops overcounts self-avoiding walks, so its growth rate bounds μ from above.</sub></p>
 
-More detail, with every step explained: [guided reading, result 9](https://basedpolymer.eu/chemistry-open-problems#result-9) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d9).
-
 <!-- plain-words:end -->
 
 **Status: record: new rigorous bounds with exact certificates, verified (`verification.md`, verdict

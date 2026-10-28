@@ -11,8 +11,6 @@
 
 <p align="center"><sub>One combination of the equations forces x = 1 at every steady state, yet two stable states coexist.</sub></p>
 
-More detail, with every step explained: [guided reading, result 27](https://basedpolymer.eu/chemistry-open-problems#result-27) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d27).
-
 <!-- plain-words:end -->
 
 **Status: solved; verified (verdict CONFIRMED WITH CORRECTIONS, see [verification.md](verification.md)).** The

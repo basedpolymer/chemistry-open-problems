@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Simulations give ν ≈ 0.588; proofs only give ν ≥ 2/9 and “less than ballistic”. Even ν ≥ 1/3 is unproved.</sub></p>
 
-More detail, with every step explained: [guided reading, result 18](https://basedpolymer.eu/chemistry-open-problems#result-18) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d18).
-
 <!-- plain-words:end -->
 
 ## Contents

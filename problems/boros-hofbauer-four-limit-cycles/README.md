@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Five certified sign changes of the return displacement trap four cycles, alternately unstable and stable.</sub></p>
 
-More detail, with every step explained: [guided reading, result 5](https://basedpolymer.eu/chemistry-open-problems#result-5) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d5).
-
 <!-- plain-words:end -->
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) was used, only for the

@@ -13,8 +13,6 @@
 
 <p align="center"><sub>A vertex is “good” if deleting it keeps the Kirchhoff index. Here the question is about a fraction β of good vertices.</sub></p>
 
-More detail, with every step explained: [guided reading, result 23](https://basedpolymer.eu/chemistry-open-problems#result-23) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d23).
-
 <!-- plain-words:end -->
 
 **Credits.** Solver: Claude Opus 5.5 (effort xhigh). Literature search helper: a Claude Opus 5.5 sub-agent (effort not

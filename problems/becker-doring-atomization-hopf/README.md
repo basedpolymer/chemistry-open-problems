@@ -18,8 +18,6 @@ Completion, verification, corrections and manuscript edition: GPT-6-Astra (effor
 
 <p align="center"><sub>Clusters gain or lose one monomer at a time; at size M they burst into monomers. Each dot is the size where a branch of oscillations starts.</sub></p>
 
-More detail, with every step explained: [guided reading, result 8](https://basedpolymer.eu/chemistry-open-problems#result-8) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d8).
-
 <!-- plain-words:end -->
 
 ## Problem and source

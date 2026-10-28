@@ -11,8 +11,6 @@
 
 <p align="center"><sub>From a fullerene to the spectrum of its dual graph, and what “cospectral” means.</sub></p>
 
-More detail, with every step explained: [guided reading, result 22](https://basedpolymer.eu/chemistry-open-problems#result-22) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d22).
-
 <!-- plain-words:end -->
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent

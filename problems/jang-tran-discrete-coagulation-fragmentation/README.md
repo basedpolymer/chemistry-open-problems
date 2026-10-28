@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Clusters merge at rate i·j and break at rate 1. Result 11 covers every total mass from 0 to the critical value 1.</sub></p>
 
-More detail, with every step explained: [guided reading, result 11](https://basedpolymer.eu/chemistry-open-problems#result-11) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d11).
-
 <!-- plain-words:end -->
 
 **Status: solved: complete proof of both parts, confirmed by a verifier (verdict CONFIRMED WITH

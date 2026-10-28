@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Iosif’s duality, identified: swap species and reactions and reverse the arrows (the reverse dual of Petri nets).</sub></p>
 
-More detail, with every step explained: [guided reading, result 17](https://basedpolymer.eu/chemistry-open-problems#result-17) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d17).
-
 <!-- plain-words:end -->
 
 **Status: partial result.** Every precise form of the conjectured "duality relation" is false, with exact criteria

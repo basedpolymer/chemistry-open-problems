@@ -20,8 +20,6 @@ there. Verification of this extension: pending.
 
 <p align="center"><sub>Orange: branches 4 to 13, treated here. Circled: the first point of the branch is subcritical.</sub></p>
 
-More detail, with every step explained: [guided reading, result 25](https://basedpolymer.eu/chemistry-open-problems#result-25) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d25).
-
 <!-- plain-words:end -->
 
 ## Problem

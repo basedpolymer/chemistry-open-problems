@@ -11,8 +11,6 @@
 
 <p align="center"><sub>The candidate structures are within 0.02 % of each other, while the proved lower bound is about 7 % lower.</sub></p>
 
-More detail, with every step explained: [guided reading, result 20](https://basedpolymer.eu/chemistry-open-problems#result-20) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d20).
-
 <!-- plain-words:end -->
 
 **Status: partial result — global minimization remains unresolved.** The numerical screen reports its lowest

@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Below ε₀ the curve is S-shaped (sudden ignition and extinction); above it is monotone. Curves computed by shooting; the dot is the certified cusp.</sub></p>
 
-More detail, with every step explained: [guided reading, result 10](https://basedpolymer.eu/chemistry-open-problems#result-10) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d10).
-
 <!-- plain-words:end -->
 
 **Solver: GPT-6-Astra (effort xhigh)**  

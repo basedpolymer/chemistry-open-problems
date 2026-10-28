@@ -13,8 +13,6 @@
 
 <p align="center"><sub>For κ = 1 trajectories spiral into the steady state; the Dulac function rules out a cycle for every choice of rate constants.</sub></p>
 
-More detail, with every step explained: [guided reading, result 2](https://basedpolymer.eu/chemistry-open-problems#result-2) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d2).
-
 <!-- plain-words:end -->
 
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**

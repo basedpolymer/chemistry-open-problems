@@ -13,8 +13,6 @@
 
 <p align="center"><sub>Oscillations usually appear through a Hopf bifurcation. The question: can they appear without one?</sub></p>
 
-More detail, with every step explained: [guided reading, result 13](https://basedpolymer.eu/chemistry-open-problems#result-13) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d13).
-
 <!-- plain-words:end -->
 
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see

@@ -13,8 +13,6 @@
 
 <p align="center"><sub>The method of result 9, applied here to the diamond and face-centred cubic lattices.</sub></p>
 
-More detail, with every step explained: [guided reading, result 24](https://basedpolymer.eu/chemistry-open-problems#result-24) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d24).
-
 <!-- plain-words:end -->
 
 **Status: record (preliminary)** — new rigorous upper bounds for both lattices, each certified by an exact

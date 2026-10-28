@@ -13,8 +13,6 @@
 
 <p align="center"><sub>The Petlyuk pays only the highest peak of this diagram; a Kaibel column must meet two binary separations at once.</sub></p>
 
-More detail, with every step explained: [guided reading, result 26](https://basedpolymer.eu/chemistry-open-problems#result-26) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d26).
-
 <!-- plain-words:end -->
 
 **Status: already solved by Halvorsen and Skogestad (2006); candidate closed by literature audit, 27 October 2026.**

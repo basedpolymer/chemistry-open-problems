@@ -1,10 +1,5 @@
 # Open problems in chemistry: manuscripts and certificates
 
-<!-- plain-words:start -->
-**New to these topics?** See the guided reading: [basedpolymer.eu/chemistry-open-problems](https://basedpolymer.eu/chemistry-open-problems) ([en français](https://basedpolymer.eu/chemistry-open-problems/fr)).
-
-<!-- plain-words:end -->
-
 This repository collects solutions, produced with AI agents, to **problems explicitly left open in recent
 chemistry papers**: questions stated as "we leave open", "we conjecture" or "it remains an open question" in
 reaction-network theory, polymer physics and chemical engineering. It follows the model of OpenAI's
@@ -55,7 +50,7 @@ manuscript, and scripts that re-check every computational claim.
 | 27 | [Absolute concentration robustness with multistability](problems/kaihnsa-acr-multistability/) (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), §6, conjecture) | Reaction networks | Conjecture true for dimension (≥ 3), reactant complexes (≥ 4) and complexes (≥ 6), false for species: a 3-species, 6-complex network has ACR for all rate constants and two stable steady states. Dimension-two systems with ACR have at most one stable positive steady state per class | [**solved**](problems/kaihnsa-acr-multistability/paper.pdf) |
 
 <!-- overlaps:start -->
-**Results that overlap.** The 27 results form 21 separate pieces of work ([details](https://basedpolymer.eu/chemistry-open-problems#overlaps)):
+**Results that overlap.** The 27 results form 21 separate pieces of work:
 
 <p align="center"><img src="figures/overlaps-map.svg" alt="Map of overlaps between the 27 results" width="760"></p>
 

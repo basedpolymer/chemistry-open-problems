@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Computed trajectories of the 10-reaction network wind onto the circle (x−2)² + (y−2)² = 1.</sub></p>
 
-More detail, with every step explained: [guided reading, result 3](https://basedpolymer.eu/chemistry-open-problems#result-3) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d3).
-
 <!-- plain-words:end -->
 
 **Status: solved: rigorous certificate, confirmed with minor corrections by a verifier (see `verification.md`).**

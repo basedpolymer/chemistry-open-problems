@@ -11,8 +11,6 @@
 
 <p align="center"><sub>Short times: positive for every shape. Long times: negative only for the triangle. In between, the sign is proved only on windows.</sub></p>
 
-More detail, with every step explained: [guided reading, result 14](https://basedpolymer.eu/chemistry-open-problems#result-14) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d14).
-
 <!-- plain-words:end -->
 
 **Solver: Claude Opus 5.5 (effort xhigh)**  

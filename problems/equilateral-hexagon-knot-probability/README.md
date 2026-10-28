@@ -11,8 +11,6 @@
 
 <p align="center"><sub>A six-stick trefoil, and the probability that a random hexagon is knotted, on a log scale.</sub></p>
 
-More detail, with every step explained: [guided reading, result 19](https://basedpolymer.eu/chemistry-open-problems#result-19) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d19).
-
 <!-- plain-words:end -->
 
 **Status: partial result (preliminary, not yet verified)** — a certified enclosure

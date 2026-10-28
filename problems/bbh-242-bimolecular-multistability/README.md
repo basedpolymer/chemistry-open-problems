@@ -11,8 +11,6 @@
 
 <p align="center"><sub>When two stable states coexist, one is the origin (extinction) and a saddle separates their basins.</sub></p>
 
-More detail, with every step explained: [guided reading, result 16](https://basedpolymer.eu/chemistry-open-problems#result-16) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d16).
-
 <!-- plain-words:end -->
 
 **Status: solved. Complete proof, partly computer-assisted with exact arithmetic; verified; see [verification.md](verification.md).**

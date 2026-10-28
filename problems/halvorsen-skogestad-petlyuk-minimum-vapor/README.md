@@ -17,8 +17,6 @@
 
 <p align="center"><sub>The proof of the lower bound: the sign of the Underwood flux splits any network into a light and a heavy side; the heat balance of the heavy side gives R ≥ H<sub>j</sub>.</sub></p>
 
-More detail, with every step explained: [guided reading, result 12](https://basedpolymer.eu/chemistry-open-problems#result-12) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d12).
-
 <!-- plain-words:end -->
 
 **Attribution.**

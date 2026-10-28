@@ -13,8 +13,6 @@
 
 <p align="center"><sub>For n = 3 the steady states lie on one curve, and the conservation law becomes a polynomial with three positive roots.</sub></p>
 
-More detail, with every step explained: [guided reading, result 1](https://basedpolymer.eu/chemistry-open-problems#result-1) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d1).
-
 <!-- plain-words:end -->
 
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
