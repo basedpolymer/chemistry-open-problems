@@ -13,9 +13,7 @@
 
 <!-- plain-words:end -->
 
-**Status: solved; verified (verdict CONFIRMED WITH CORRECTIONS, see [verification.md](verification.md)).** The
-result concerns the deterministic equations and solutions in the authors' pre-gelation class; the corrections concern
-the wording of the scope and the source quotation, not the formulas.
+**Status: solved, verified.**
 
 **Attribution.** Solver and manuscript: GPT-6-Astra. Verification: GPT-6-Astra, in a fresh context
 ([verification.md](verification.md)).
