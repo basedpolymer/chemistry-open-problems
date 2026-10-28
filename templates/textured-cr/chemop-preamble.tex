@@ -80,9 +80,10 @@
   \markboth{\ShortTitle}{\ShortTitle}%
   \vspace*{-12pt}%
   {\setlength{\parskip}{0pt}%
-   {\sffamily\large\color{Gray40}\PaperSubtitle\par}%
    \ifdefined\PaperCredits
-     {\sffamily\small\color{Gray40}\PaperCredits\par}%
+     {\sffamily\small\color{Gray40}\PaperSubtitle\ \textperiodcentered{} \PaperCredits\par}%
+   \else
+     {\sffamily\large\color{Gray40}\PaperSubtitle\par}%
    \fi
    \ifdefined\PaperAcknowledgment
      \vspace{\baselineskip}{\sffamily\small\color{Gray40}\PaperAcknowledgment\par}%
