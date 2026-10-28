@@ -18,6 +18,9 @@ The conjecture as written is not a decidable statement, and the rank-two persist
   manuscript (R1, R2).
 - Writing of the manuscript (28 October 2026): Claude Opus 5.5 (effort xhigh).
 
+**Acknowledgment.** We thank Alexandru Iosif for helpful correspondence, which shaped questions Q1–Q3 and pointed us
+to recent work on the Global Attractor Conjecture.
+
 ## Problem
 
 A. Iosif, *Duality in mass-action networks*, arXiv:2603.08767 (v1 9 March 2026, v2 15 July 2026; also HAL
