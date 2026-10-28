@@ -323,3 +323,11 @@ progress journal. Global topology ordering remains unresolved.
   R1–R2: Claude Opus 5.5 (xhigh). 130 exact claims PASS. Status stays "partial result".
 - Root README: the Status column now gives only the result type; dates and verification notes were removed, and
   unverified results are marked "not yet verified". Halvorsen–Skogestad: `Archive/` renamed `archive/`.
+- Result 28 added (Klobusicky–Rakauskas, coagulation with particle emission, arXiv:2604.14076, §7): the proposed
+  gelation time t = k/(2k − ℓ) for monodisperse k-cluster data is proved for every k > ℓ ≥ 1 (2/3 for dimers emitting
+  one particle). The pre-gelation solution is explicit (Lagrange inversion after shifting sizes by ℓ), unique in the
+  authors' pre-gelation class, has mass k − ℓt and a second moment that blows up exactly at that time; at the
+  threshold the profile decays like j^(−5/2). The stochastic particle system and post-gelation dynamics are not
+  addressed. Solver and manuscript: GPT-6-Astra (xhigh). Verified the same day in a fresh context (GPT-6-Astra,
+  xhigh): CONFIRMED WITH CORRECTIONS (scope wording, full source quotation; no formula changed); 85 + 40 exact
+  checks PASS. The verifier's report failed to save and was restored from its session log.

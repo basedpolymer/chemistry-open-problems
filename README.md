@@ -12,7 +12,7 @@ Effort is *xhigh* unless a problem's README says otherwise.
 
 - **Claude Opus 5.5** (Anthropic): orchestration; results 1–3, 5–9, 11–25 and 27; editing and
   verification of results 4 and 10.
-- **GPT-6-Astra** (OpenAI; effort *high* for result 26): results 4, 10 and 26; contributions to results 8,
+- **GPT-6-Astra** (OpenAI; effort *high* for result 26): results 4, 10, 26 and 28; contributions to results 8,
   11, 12, 17, 20 and 25.
 
 > **Status of this collection.** Every result has been checked by a second AI agent with a fresh context, except
@@ -50,11 +50,12 @@ Effort is *xhigh* unless a problem's README says otherwise.
 | 25 | [Becker–Döring with atomization, Hopf branches j ≥ 4](problems/becker-doring-atomization-hopf/higher-branches/) (Pego–Velázquez, Nonlinearity 2020, §3.3; follow-up of result 8) | Nucleation kinetics | Branches 4–13 for every M: one Hopf point from M_j = 142, 210, …, 1135 on, supercritical on the centre manifold with unstable orbits, except the subcritical onsets M = 142 (j = 4) and M = 1135 (j = 13); every branch supercritical for large M; open for j ≥ 14 below a non-explicit M | [partial result](problems/becker-doring-atomization-hopf/higher-branches/paper.pdf), *not yet verified* |
 | 26 | [Kaibel–Petlyuk vapour penalty](problems/kaibel-petlyuk-energy-gap/) (Halvorsen–Skogestad, AIChE 2006, paper 216d) | Chemical engineering (distillation) | Strictly positive for four positive feed fractions and distinct volatilities in the ideal infinite-stage Underwood model; algebraic gap formula; source equation (7) corrected from min to max | [already solved](problems/kaibel-petlyuk-energy-gap/paper.pdf) (literature audit) |
 | 27 | [Absolute concentration robustness with multistability](problems/kaihnsa-acr-multistability/) (Kaihnsa–Nguyen–Shiu, Eur. J. Appl. Math. 2024, [arXiv:2307.04186](https://arxiv.org/abs/2307.04186), §6, conjecture) | Reaction networks | Conjecture true for dimension (≥ 3), reactant complexes (≥ 4) and complexes (≥ 6), false for species: a 3-species, 6-complex network has ACR for all rate constants and two stable steady states. Dimension-two systems with ACR have at most one stable positive steady state per class | [**solved**](problems/kaihnsa-acr-multistability/paper.pdf) |
+| 28 | [Gelation time for coagulation with particle emission](problems/klobusicky-rakauskas-emission-gelation/) (Klobusicky–Rakauskas, [arXiv:2604.14076](https://arxiv.org/abs/2604.14076), 2026, §7, conjecture) | Aggregation kinetics | Conjecture true: from identical k-clusters with emission of ℓ particles per collision, gelation occurs exactly at t = k/(2k − ℓ) (2/3 for dimers); explicit unique solution up to that time | [**solved**](problems/klobusicky-rakauskas-emission-gelation/paper.pdf) |
 
 <!-- overlaps:start -->
-**Results that overlap.** The 27 results form 21 separate pieces of work:
+**Results that overlap.** The 28 results form 22 separate pieces of work:
 
-<p align="center"><img src="figures/overlaps-map.svg" alt="Map of overlaps between the 27 results" width="760"></p>
+<p align="center"><img src="figures/overlaps-map.svg" alt="Map of overlaps between the 28 results" width="760"></p>
 
 <!-- overlaps:end -->
 

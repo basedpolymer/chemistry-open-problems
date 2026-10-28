@@ -1,0 +1,205 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+\newcommand*{\PaperTitle}{Exact gelation time for coagulation with particle emission}
+\newcommand*{\PaperTitlePlain}{Exact gelation time for coagulation with particle emission}
+\newcommand*{\PaperShortTitle}{Coagulation with particle emission}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 28 October 2026 \textperiodcentered{} verified}
+\newcommand*{\PaperCredits}{Solver: GPT-6-Astra (effort xhigh) \textperiodcentered{} Verifier: GPT-6-Astra (effort xhigh)}
+\newcommand*{\PaperKeywords}{coagulation, particle emission, gelation, Lagrange inversion, exact solution}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\begin{document}
+\makepapertitle
+\begin{paperabstract}
+For the deterministic coagulation equations introduced by Klobusicky and Rakauskas, we prove the proposed gelation time for every monodisperse initial condition of size $k$ larger than the emission size $\ell$: $t_g=k/(2k-\ell)$. An explicit positive coefficient formula constructs the solution throughout the pre-gelation interval. Its generating function proves the mass identity required by the equations, uniform convergence of every moment on compact subintervals, and divergence of the second moment at $t_g$. In particular, the dimer case with monomer emission has exactly $t_g=2/3$. At the threshold the distribution has an explicit $j^{-5/2}$ tail. The argument concerns the deterministic equations and their definition of gelation, not convergence of the finite stochastic particle process or a choice of post-gelation dynamics.
+\end{paperabstract}
+
+\section{The open question and its precise scope}
+Klobusicky and Rakauskas~\autocite{KR2026} study the reaction
+\[
+S_i+S_j\longrightarrow S_{i+j-\ell},\qquad \ell\in\mathbb N_{>0},
+\]
+with time measured by the number of reactions divided by the initial cluster count. They prove local existence for bounded large-cluster initial data and derive moment formulas on the pre-gelation interval. In Section~7, p.~21, they conjecture a threshold of $2/3$ for dimers with monomer emission and state the general proposal:
+\begin{openquote}
+``Formula (96) suggests that under monodisperse $k$-mer initial conditions (94), $t_{\mathrm{gel}}=k/(2k-\ell)$.''
+\end{openquote}
+Their Definition~1 and discussion on p.~6 use finiteness of the second moment to delimit pre-gelation. We prove this deterministic threshold, including the existence statement missing between the local theory and the proposed time.
+
+Write $m_r(t)=\sum_{n>\ell}n^r u_n(t)$. The large-cluster equations, equation~(37) of~\autocite{KR2026}, are
+\begin{equation}\label{eq:original}
+\dot u_n=\frac{1}{m_1(t)^2}\sum_{i=\ell+1}^{n-1}i(n+\ell-i)u_i u_{n+\ell-i}
+-\frac{2n}{m_1(t)}u_n,\qquad n>\ell.
+\end{equation}
+An empty sum is zero. A pre-gelation solution is nonnegative and componentwise $C^1$, with $\sum n^2u_n$ uniformly convergent on each compact time interval under consideration. The initial condition here is $u_n(0)=\delta_{n,k}$, where $k>\ell$ is an integer. All smaller clusters have zero concentration. The first-moment denominator in~\eqref{eq:original} is the actual sum, not a prescribed function.
+
+\begin{theorem}\label{thm:main}
+Let $k>\ell\ge1$ be integers and put
+\begin{gather*}
+d=k-\ell,\qquad n_j=\ell+dj,\qquad
+a=\frac{2d}{\ell},\qquad p=a+1=\frac{2k-\ell}{\ell},\\
+t_g=\frac{k}{2k-\ell},\qquad M(t)=1-\frac{\ell t}{k}.
+\end{gather*}
+For $j\ge1$ define the positive constants
+\begin{equation}\label{eq:A}
+A_j=\frac{\ell^{j-1}k^j}{j n_j}\binom{pj}{j-1},
+\qquad
+\binom{x}{r}=\frac{x(x-1)\cdots(x-r+1)}{r!}.
+\end{equation}
+There is exactly one pre-gelation solution with these initial data on $[0,t_g)$. It is
+\begin{equation}\label{eq:u}
+u_{n_j}(t)=M(t)^{2n_j/\ell} A_j\left(\frac{t}{k^2}\right)^{j-1},
+\qquad u_n(t)=0\quad(n\notin\{n_j:j\ge1\}).
+\end{equation}
+The value at $t=0$ is understood by continuity. Every moment converges uniformly on $[0,T]$ for $T<t_g$, and
+\begin{align}
+m_0(t)&=1-t,&m_1(t)&=k-\ell t,\label{eq:mass}\\
+m_2(t)&=(k-\ell t)\frac{k^2-\ell(2k-\ell)t}{k-(2k-\ell)t}.\label{eq:m2}
+\end{align}
+The solution extends componentwise to $t=t_g$, where its mass is finite and
+\begin{equation}\label{eq:tail}
+u_{n_j}(t_g)\sim\frac{k}{\sqrt{\pi(k-\ell)(2k-\ell)}}\,j^{-5/2}.
+\end{equation}
+Consequently $m_2(t)\to\infty$ as $t\uparrow t_g$, $m_2(t_g)=\infty$, and no pre-gelation solution from these data can extend across $t_g$. Thus the first second-moment singularity is exactly $t_g$.
+\end{theorem}
+
+\begin{corollary}\label{cor:dimer}
+For $\ell=1$, $k=2$, the unique pre-gelation solution is
+\begin{equation}\label{eq:dimers}
+u_n(t)=\frac{\binom{3n-3}{n-2}}{n(n-1)8^{n-1}}
+t^{n-2}(2-t)^{2n},\quad n\ge2,
+\end{equation}
+and $u_1=0$. Its gelation time is $2/3$, and
+\[
+m_1=2-t,\qquad m_2=\frac{(2-t)(4-3t)}{2-3t}.
+\]
+\end{corollary}
+
+\section{An exact triangular system}
+The reaction adds the shifted sizes $n-\ell$. Starting from size $k$, the only reachable sizes are therefore $n_j=\ell+dj$, and two indices $i,j$ produce index $i+j$. We first solve equations with the proposed denominator $m(t)=k-\ell t$, and then prove that their actual mass is precisely $m(t)$. This last step prevents a circular use of the mass identity.
+
+Substitute
+\[
+u_{n_j}(t)=M(t)^{2n_j/\ell}v_j(\tau),\qquad \tau=t/k^2.
+\]
+The derivative of the prefactor supplies exactly the loss term $-2n_j u_{n_j}/m$. Since $n_i+n_{j-i}=n_j+\ell$ and $m^2=k^2M^2$, the remaining equations are
+\begin{equation}\label{eq:triangular}
+\frac{dv_j}{d\tau}=\sum_{i=1}^{j-1}n_i n_{j-i}v_i v_{j-i},
+\qquad v_1(0)=1,\quad v_j(0)=0\ (j>1).
+\end{equation}
+Induction gives $v_j(\tau)=A_j\tau^{j-1}$ with
+\begin{equation}\label{eq:recurrence}
+A_1=1,\qquad (j-1)A_j=\sum_{i=1}^{j-1}n_i n_{j-i}A_i A_{j-i}\quad(j\ge2).
+\end{equation}
+Every coefficient is positive. No convergence assertion is used in this finite recursion.
+
+\section{Solving the generating function}
+As a formal power series, set
+\[
+W(z,\tau)=\sum_{j\ge1}n_j A_j\tau^{j-1}z^j.
+\]
+Multiplication of~\eqref{eq:triangular} by $n_jz^j$ yields
+\begin{equation}\label{eq:PDE}
+W_\tau=\ell W^2+2dzWW_z,\qquad W(z,0)=kz.
+\end{equation}
+Indeed, the coefficient multiplier $n_j=\ell+dj$ is the operator $\ell+dz\partial_z$ acting on $W^2$.
+
+Let $H(q)$ be the unique formal series with zero constant term solving
+\begin{equation}\label{eq:H}
+H=q(1-H)^{-a}.
+\end{equation}
+Then
+\begin{equation}\label{eq:W}
+W(z,\tau)=\frac{H(\ell k\tau z)}{\ell\tau[1-H(\ell k\tau z)]}.
+\end{equation}
+For completeness, the characteristics of~\eqref{eq:PDE} starting at $z=\zeta$ satisfy
+\[
+\frac{dW}{d\tau}=\ell W^2,\qquad \frac{dz}{d\tau}=-2dzW,
+\]
+and hence
+\[
+W=\frac{k\zeta}{1-\ell k\tau\zeta},\qquad
+z=\zeta(1-\ell k\tau\zeta)^a.
+\]
+Writing $H=\ell k\tau\zeta$ gives~\eqref{eq:H}--\eqref{eq:W}. These identities may alternatively be verified by formal differentiation, so the characteristic derivation requires no assumption on global classical solutions of the PDE.
+
+Lagrange inversion applied to $H/(1-H)$ gives
+\begin{align}
+[q^j]\frac{H(q)}{1-H(q)}
+&=\frac1j[v^{j-1}](1-v)^{-aj-2}\\
+&=\frac1j\binom{pj}{j-1}
+=\frac{1}{aj+1}\binom{pj}{j}=:c_j.\label{eq:c}
+\end{align}
+Comparison with~\eqref{eq:W} proves~\eqref{eq:A} for every $j$, and consequently proves that it satisfies~\eqref{eq:recurrence}. All binomial factors here are positive, since $p>1$.
+
+\section{Convergence and the actual mass}
+Define
+\[
+q_c=\frac{a^a}{p^p},\qquad H_c=\frac1p.
+\]
+The real function $h\mapsto h(1-h)^a$ increases strictly from $0$ to $q_c$ on $[0,H_c]$, because its derivative is $(1-h)^{a-1}(1-ph)$. Its inverse there is the branch $H$ in~\eqref{eq:H}.
+
+Here are explicit convergence details. The generalized binomial formula~\eqref{eq:c} and Stirling's formula give
+\begin{equation}\label{eq:stirling}
+c_j\sim\frac1a\sqrt{\frac{p}{2\pi a}}\,j^{-3/2}q_c^{-j}.
+\end{equation}
+In particular $\sum c_jq^j$ has radius $q_c$ and converges even at $q_c$. The formal identity~\eqref{eq:H} is thus valid analytically on $0\le q<q_c$, with $H$ the increasing inverse just described; continuity extends its values to $q_c$.
+
+For $t>0$ and $x\ge0$ in the convergence domain, define the mass generating function in the index $j$:
+\begin{equation}\label{eq:massgf}
+\mathcal W(x,t)=\sum_{j\ge1}n_j u_{n_j}(t)x^j
+=\frac{k^2 M(t)^2}{\ell t}\frac{H(q(t)x)}{1-H(q(t)x)},
+\quad q(t)=\frac{\ell t}{k}M(t)^a.
+\end{equation}
+For $0<t<t_g$, the number $h_0=\ell t/k$ belongs to $(0,1/p)$, and
+\[
+q(t)=h_0(1-h_0)^a<q_c,\qquad H(q(t))=h_0.
+\]
+Substituting $x=1$ in~\eqref{eq:massgf} proves, rather than assumes,
+\[
+\sum_{j\ge1}n_j u_{n_j}(t)
+=\frac{k^2M^2}{\ell t}\frac{\ell t/k}{M}=kM=k-\ell t.
+\]
+Thus~\eqref{eq:u} really satisfies the original equations~\eqref{eq:original}.
+
+For any $T<t_g$, the function $q(t)$ is increasing on $[0,T]$ and $q(T)<q_c$. Choose $R>1$ so that $Rq(T)<q_c$. In~\eqref{eq:massgf} the apparent singularity at $t=0$ is removable, since $H(q)=q+O(q^2)$ and $q(t)=O(t)$. Hence $\mathcal W(R,t)$ is bounded on $[0,T]$. Its nonnegative coefficients bound each moment tail uniformly by an exponentially decaying sequence (powers of $j$ are dominated by $R^j$). This establishes every claimed uniform moment convergence. Each individual formula is $C^1$, including at zero. Summing~\eqref{eq:original}, justified by these bounds, gives $\dot m_0=-1$, so $m_0=1-t$.
+
+\section{The threshold and uniqueness}
+Implicit differentiation of~\eqref{eq:H} gives
+\[
+qH'(q)=\frac{H(1-H)}{1-pH}.
+\]
+As $n_j=\ell+dj$, apply $\ell+dx\partial_x$ to~\eqref{eq:massgf} and evaluate at $x=1$. This yields
+\[
+m_2=m_1\left(\ell+\frac{d}{1-p\ell t/k}\right),
+\]
+which is~\eqref{eq:m2}. The denominator vanishes at $t_g$, with a strictly positive numerator: at that time $k-\ell t_g>0$ and $k^2-\ell(2k-\ell)t_g=k(k-\ell)>0$. Therefore the second moment diverges to $+\infty$ there, and is finite at all earlier times.
+
+At $t=t_g$, $M=a/p$ and $q=q_c$. Equations~\eqref{eq:massgf} and~\eqref{eq:stirling} give
+\[
+u_{n_j}(t_g)=\frac{k^2M(t_g)^2}{\ell t_g n_j}c_jq_c^j
+\sim\frac{k}{\sqrt{\pi d(2k-\ell)}}j^{-5/2}.
+\]
+The mass is finite and the second moment is infinite. The mass series is uniformly convergent up to $t_g$: for $j\ge1$, writing $s=\ell t/k$ shows that its $j$th term is proportional to
+\[
+\frac{c_jq(t)^j}{t}M(t)^2
+=\frac{\ell}{k}c_jq(t)^{j-1}(1-s)^{a+2},
+\]
+which is bounded by $(\ell/k)c_jq_c^{j-1}$. This is summable by~\eqref{eq:stirling}. It justifies the endpoint mass and count limits. Each component and its derivative have finite one-sided limits there and satisfy~\eqref{eq:original} with the actual endpoint mass.
+
+Finally, consider any pre-gelation solution from the same data on a compact interval where its mass is positive. Its uniformly convergent second moment justifies summing $n\dot u_n$ in~\eqref{eq:original}. Absolute convergence follows from a bound by a constant times $m_1m_2+\ell m_1^2$ for the gain sum. Reindexing gives
+\[
+\dot m_1=\frac{\sum_{i,j>\ell}(i+j-\ell)ij u_i u_j}{m_1^2}
+-\frac{2m_2}{m_1}=-\ell.
+\]
+Consequently its mass equals $k-\ell t$. Induction on $n$ in the now triangular equations forces all non-reachable sizes to vanish and gives precisely~\eqref{eq:triangular} at reachable sizes. This proves uniqueness. Such a solution cannot extend across $t_g$, since it must coincide with~\eqref{eq:u} before $t_g$ and would then have an unbounded second moment on a compact interval containing $t_g$.
+
+\section{Scope and reproducible checks}
+The result proves the deterministic gelation-time claim for all the monodisperse large-cluster initial data proposed on p.~21 of~\autocite{KR2026}. It does not prove a hydrodynamic limit or the emergence of a giant cluster in the finite Markov chain. It does not select a post-gelation rule, nor assert that replacing $m_1$ by $k-\ell t$ remains valid after $t_g$. Indeed, after the turning point the inverse branch $H$ used above no longer takes the value $\ell t/k$, and the self-consistency argument would fail.
+
+The proof is analytic and does not depend on numerical tests. The supplementary script \texttt{scripts/verify\_exact.py} checks the coefficient formula against an independently generated triangular recursion for 56 parameter pairs through index 40, the general characteristic and moment identities, direct substitution in the original dimer equations, and exact rational tail enclosures. Its machine-readable output is \texttt{certificates/exact-checks.json}. A separate verifier rederived the generating equation in the form $Y=1+qY^p$, checked the proof and reran all 85 exact checks. The verifier's script \texttt{verification/check\_original\_series.py} adds 40 exact checks by expanding the original coupled equations with their actual mass denominator. Finite tests are corroboration, not a replacement for the all-index proof. The report \texttt{verification.md} records the verdict, the scope clarifications and the limits of this verification; no human peer review is claimed.
+
+\paperreferences
+\end{document}

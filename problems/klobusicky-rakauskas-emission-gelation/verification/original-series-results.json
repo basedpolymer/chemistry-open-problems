@@ -1,0 +1,168 @@
+{
+  "author": "GPT-6-Astra, verifier",
+  "arithmetic": "exact fractions; Python standard library",
+  "taylor_order": 7,
+  "checks": [
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=1, k=2",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=1, k=2",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=1, k=2",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=1, k=2",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=1, k=5",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=1, k=5",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=1, k=5",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=1, k=5",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=2, k=3",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=2, k=3",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=2, k=3",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=2, k=3",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=2, k=7",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=2, k=7",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=2, k=7",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=2, k=7",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=3, k=4",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=3, k=4",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=3, k=4",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=3, k=4",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=3, k=8",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=3, k=8",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=3, k=8",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=3, k=8",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=7, k=8",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=7, k=8",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=7, k=8",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=7, k=8",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=11, k=12",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=11, k=12",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=11, k=12",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=11, k=12",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=19, k=20",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=19, k=20",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=19, k=20",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=19, k=20",
+      "pass": true
+    },
+    {
+      "claim": "original coupled ODE Taylor coefficients through 7: ell=100, k=101",
+      "pass": true
+    },
+    {
+      "claim": "actual mass Taylor series: ell=100, k=101",
+      "pass": true
+    },
+    {
+      "claim": "actual count Taylor series: ell=100, k=101",
+      "pass": true
+    },
+    {
+      "claim": "off-support coefficients vanish: ell=100, k=101",
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}
