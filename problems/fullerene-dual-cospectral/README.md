@@ -1,5 +1,20 @@
 # Cospectral fullerene duals: Conjecture 1 of Bille–Buchstaber–Spodarev
 
+<!-- plain-words:start -->
+**The question.** Does the spectrum of a fullerene’s dual graph identify the isomer? Bille, Buchstaber and Spodarev conjectured how far it does.
+
+**The answer.** Infinite families of different fullerenes with identical dual spectra are proved for n ≡ 2, 20 (mod 24); several conjectures are checked up to n = 138; one claim is false in its literal form.
+
+**How.** Exhaustive exact enumeration, plus a construction that rotates a cap on the thinnest nanotube. Not yet verified.
+
+<p align="center"><img src="../../figures/fullerene-dual-spectrum.svg" alt="A fullerene, its dual graph and its spectrum" width="720"></p>
+
+<p align="center"><sub>From a fullerene to the spectrum of its dual graph, and what “cospectral” means.</sub></p>
+
+More detail, with every step explained: [guided reading, result 22](https://basedpolymer.eu/chemistry-open-problems#result-22) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d22).
+
+<!-- plain-words:end -->
+
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent
 of the orchestrator. No helper agents. Not yet verified.
 

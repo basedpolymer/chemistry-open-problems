@@ -1,5 +1,22 @@
 # Rigorous upper bound for the connective constant of the simple cubic lattice
 
+<!-- plain-words:start -->
+**The question.** A polymer chain cannot cross itself: on the cubic lattice, the number of such “self-avoiding walks” of n steps grows like μⁿ. Numerically μ ≈ 4.684, but the best proved upper bound (4.7387) dated from 2000.
+
+**The answer.** μ ≤ 4.722048, a 30 % cut of the gap to the estimate, plus better bounds in dimensions 4, 5 and 6.
+
+**How.** A finite automaton remembers recent sites and forbids only short loops, so it counts every self-avoiding walk plus a few extra paths. With a longer memory (206 million states) and a smarter choice of what to forget, its growth rate gives the bound, certified by an integer vector anyone can re-check.
+
+**Overlaps.** Method reused by [result 24](../saw-diamond-fcc-upper-bounds/).
+
+<p align="center"><img src="../../figures/saw-automaton-bound.svg" alt="A self-avoiding walk, the automaton bound and the new value" width="720"></p>
+
+<p align="center"><sub>An automaton that only forbids short loops overcounts self-avoiding walks, so its growth rate bounds μ from above.</sub></p>
+
+More detail, with every step explained: [guided reading, result 9](https://basedpolymer.eu/chemistry-open-problems#result-9) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d9).
+
+<!-- plain-words:end -->
+
 **Status: record: new rigorous bounds with exact certificates, verified (`verification.md`, verdict
 CONFIRMED WITH CORRECTIONS; the corrections are editorial and change no bound).**
 

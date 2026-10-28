@@ -1,5 +1,20 @@
 # DGH charged diblock: exact critical inverse temperature
 
+<!-- plain-words:start -->
+**The question.** A polymer carries n positive charges followed by n negative ones. Monomers either stack on the same site or step forward; equal charges on a site repel, opposite ones attract. At what temperature does the chain collapse?
+
+**The answer.** Exactly at the root of Σ<sub>ℓ≥1</sub> e<sup>−βℓ²/2</sup> = 1, β<sub>c</sub> = 0.698131700799…, the value predicted by Derrida, Griffiths and Higgs in 1992 and now proved. (Curiously, β<sub>c</sub> − 2π/9 ≈ 1.5·10⁻¹², close but not equal.)
+
+**How.** The 1992 prediction compares two free energies (figure). The missing step was to show that no intermediate configuration does better at high temperature, done by comparison with homogeneous charge sequences and gluing inequalities.
+
+<p align="center"><img src="../../figures/dgh-free-energies.svg" alt="Extended versus collapsed charged polymer" width="720"></p>
+
+<p align="center"><sub>Extended phase: each block behaves like a chain of equal charges. Collapsed phase: all charges on one site cancel. The free energies cross at β<sub>c</sub>.</sub></p>
+
+More detail, with every step explained: [guided reading, result 4](https://basedpolymer.eu/chemistry-open-problems#result-4) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d4).
+
+<!-- plain-words:end -->
+
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, minor and editorial; see [verification.md](verification.md)).** The candidate value itself was already identified by Derrida, Griffiths and Higgs in 1992; the collapse side was argued there and proved by Poisat (Prop. 3.7). The new contribution is the matching uniform high-temperature bound. The verifier's novelty search found no earlier complete answer.
 
 **Attribution.** Solver: GPT-6-Astra (effort xhigh). Internal review: a GPT-6-Astra sub-agent launched by the solver (effort xhigh). LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 ([verification.md](verification.md)).

@@ -1,5 +1,20 @@
 # Sign of the skewness of Taylor dispersion in regular polygonal ducts
 
+<!-- plain-words:start -->
+**The question.** A tracer released in a pipe flow spreads along the pipe; its profile is skewed forward or backward. Aminian, Camassa and McLaughlin claimed from simulations that the equilateral triangle is the only regular polygonal pipe whose long-time skewness becomes negative.
+
+**The answer.** Proved: negative for the triangle and positive for every polygon with n ≥ 4 sides at long times; positive for all at short times. “At all times” is only proved on certified time windows.
+
+**How.** The long-time sign reduces to one integral. It is computed exactly for the triangle and bounded rigorously (interval arithmetic) for the other polygons. Not yet verified by a second agent.
+
+<p align="center"><img src="../../figures/taylor-skewness.svg" alt="Skewness sign by duct shape and time" width="720"></p>
+
+<p align="center"><sub>Short times: positive for every shape. Long times: negative only for the triangle. In between, the sign is proved only on windows.</sub></p>
+
+More detail, with every step explained: [guided reading, result 14](https://basedpolymer.eu/chemistry-open-problems#result-14) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d14).
+
+<!-- plain-words:end -->
+
 **Solver: Claude Opus 5.5 (effort xhigh)**  
 **Status: solved (preliminary)** for the long-time and short-time signs (computer-assisted proofs, not yet
 verified); **partial result** for the "all times" claim.

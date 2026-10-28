@@ -1,5 +1,20 @@
 # Knotting probability of random equilateral hexagons: a certified two-sided enclosure
 
+<!-- plain-words:start -->
+**The question.** Small ring polymers can be knotted. What is the probability that a random closed chain of six unit sticks is a trefoil knot? Simulations say ≈ 1.4·10⁻⁴; proofs only gave ≤ 0.0238.
+
+**The answer.** 3.07·10⁻⁵ < p₆ < 8.49·10⁻⁴: an upper bound 28 times smaller and the first positive lower bound. Two lemmas of the earlier proof are false.
+
+**How.** In good coordinates the probability is a volume. Knotted hexagons are characterized by two “piercing” patterns, and an interval branch-and-bound measures their volume exactly. Not yet verified; the certificate was recomputed on a sample of 300 of its 245,448 leaves.
+
+<p align="center"><img src="../../figures/hexagon-knot-probability.svg" alt="A knotted hexagon and the probability bounds" width="720"></p>
+
+<p align="center"><sub>A six-stick trefoil, and the probability that a random hexagon is knotted, on a log scale.</sub></p>
+
+More detail, with every step explained: [guided reading, result 19](https://basedpolymer.eu/chemistry-open-problems#result-19) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d19).
+
+<!-- plain-words:end -->
+
 **Status: partial result (preliminary, not yet verified)** — a certified enclosure
 3.0675·10⁻⁵ ≤ p₆ ≤ 8.4945·10⁻⁴ of the knotting probability: the first positive lower bound, and an upper bound
 28 times smaller than the published one (whose proof, moreover, has a gap). The enclosure is not tight

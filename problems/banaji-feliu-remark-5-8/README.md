@@ -1,5 +1,22 @@
 # Banaji–Feliu, Remark 5.8: can quadratic (n, n+2, n) networks reach n + 1 equilibria?
 
+<!-- plain-words:start -->
+**The question.** Can quadratic networks with n species, n + 2 reactions and rank n reach their ceiling of n + 1 steady states?
+
+**The answer.** Yes, for every n, but an anonymous preprint (Zenodo, 4 October 2026) had already answered. This folder is a rediscovery with a different short proof.
+
+**How.** Steady states correspond to the roots of an explicit one-variable function; geometrically separated rate constants give n + 1 roots.
+
+**Overlaps.** Same paper and same kind of question as [result 1](../banaji-feliu-remark-4-23/).
+
+<p align="center"><img src="../../figures/banaji-feliu-construction.svg" alt="Steady states as roots of one polynomial" width="720"></p>
+
+<p align="center"><sub>The construction of result 1; result 7 rests on the same principle: steady states correspond to roots of a one-variable function.</sub></p>
+
+More detail, with every step explained: [guided reading, result 7](https://basedpolymer.eu/chemistry-open-problems#result-7) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d7).
+
+<!-- plain-words:end -->
+
 **Status: already solved. The proof here is correct and verified (see `verification.md`), but the
 question had already been answered.** An unrefereed manuscript posted on Zenodo and GitHub on 4 October 2026 answered
 it for every n ≥ 2 (doi:10.5281/zenodo.23146115). Its underlying polynomial system is the extremal fewnomial chain of

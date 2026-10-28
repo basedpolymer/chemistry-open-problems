@@ -1,5 +1,20 @@
 # Diblock foam model screen of the Frank–Kasper catalogue
 
+<!-- plain-words:start -->
+**The question.** Block copolymers self-assemble into sphere packings with complex crystal structures. In the “diblock foam model”, which structure has the lowest energy? The σ phase is seen in experiments.
+
+**The answer.** σ is lowest in a numerical screen (0.022 % ahead), and its energy is certified, but its optimality is not proved. The current lower-bound method provably cannot close the gap.
+
+**How.** Exact certificates for 121 topologies and 14 energies, a universal lower bound using Kepler’s sphere-packing theorem, and certified minimization over affine deformations. Not yet verified.
+
+<p align="center"><img src="../../figures/frank-kasper-bounds.svg" alt="Proved lower bound far below the energy of sigma" width="720"></p>
+
+<p align="center"><sub>The candidate structures are within 0.02 % of each other, while the proved lower bound is about 7 % lower.</sub></p>
+
+More detail, with every step explained: [guided reading, result 20](https://basedpolymer.eu/chemistry-open-problems#result-20) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d20).
+
+<!-- plain-words:end -->
+
 **Status: partial result — global minimization remains unresolved.** The numerical screen reports its lowest
 energy for σ, with a gap of about 0.022 % to its best reported competitors. Exact certificates now verify all
 121 catalogue input topologies and fourteen explicit energy witnesses. They do **not** establish separating lower bounds for

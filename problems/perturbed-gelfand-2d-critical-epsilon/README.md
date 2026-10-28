@@ -1,5 +1,20 @@
 # Perturbed Gelfand equation on the disk: the critical parameter
 
+<!-- plain-words:start -->
+**The question.** In a reacting disk that heats itself (a thermal-explosion model), the steady temperature can jump abruptly (an S-shaped curve) or change smoothly. Korman, Li and Ouyang conjectured that a single value ε₀ of the activation parameter separates the two behaviours.
+
+**The answer.** True: ε₀ = 0.2421061655952…, with exactly two folds below and none above. The published estimate 0.2385 was wrong for the disk.
+
+**How.** A change of variables turns ε into a “stopping level”, so folds correspond to solutions of E(a) = ε. One shows that E has a single maximum: by hand for small a, by validated numerical integration in the middle range, and by a known theorem for large a.
+
+<p align="center"><img src="../../figures/gelfand-s-curves.svg" alt="Solution curves for three values of epsilon" width="720"></p>
+
+<p align="center"><sub>Below ε₀ the curve is S-shaped (sudden ignition and extinction); above it is monotone. Curves computed by shooting; the dot is the certified cusp.</sub></p>
+
+More detail, with every step explained: [guided reading, result 10](https://basedpolymer.eu/chemistry-open-problems#result-10) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d10).
+
+<!-- plain-words:end -->
+
 **Solver: GPT-6-Astra (effort xhigh)**  
 **Verifier: Claude Opus 5.5 (effort xhigh), verdict CONFIRMED WITH CORRECTIONS (see [verification.md](verification.md))**  
 **Status: solved.**

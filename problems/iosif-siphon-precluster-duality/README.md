@@ -1,5 +1,20 @@
 # Iosif's network duality: preclusters, invariant polyhedral supports, siphons, and what the duality transfers
 
+<!-- plain-words:start -->
+**The question.** Iosif conjectured a “duality” between two families of structural objects of a reaction network, hoping to carry known stability results across it.
+
+**The answer.** Every precise version is false (minimal counterexamples), but the duality is identified as the reverse dual of Petri nets. It transfers persistence and stability on an explicit self-dual class, and nothing outside it.
+
+**How.** Exact criteria, minimal counterexamples and transfer theorems, with 130 exact claims checked by script.
+
+<p align="center"><img src="../../figures/iosif-reverse-dual.svg" alt="A network and its reverse dual" width="720"></p>
+
+<p align="center"><sub>Iosif’s duality, identified: swap species and reactions and reverse the arrows (the reverse dual of Petri nets).</sub></p>
+
+More detail, with every step explained: [guided reading, result 17](https://basedpolymer.eu/chemistry-open-problems#result-17) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d17).
+
+<!-- plain-words:end -->
+
 **Status: partial result.** Every precise form of the conjectured "duality relation" is false, with exact criteria
 and minimal counterexamples. The relation left open by the source is answered in three parts:
 - the duality is the reverse dual of Petri-net theory;

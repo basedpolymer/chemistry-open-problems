@@ -1,5 +1,20 @@
 # Craciun–Erban: can a cubic weakly reversible system have an algebraic limit cycle?
 
+<!-- plain-words:start -->
+**The question.** Can a “weakly reversible” network with at most three molecules per complex sustain an oscillation whose orbit is an algebraic curve?
+
+**The answer.** Yes: an explicit 10-reaction network with integer rate constants whose limit cycle is the circle (x−2)² + (y−2)² = 1.
+
+**How.** Exact algebra shows the circle is invariant and carries no steady state; a rigorous integration shows that the divergence integral along it is negative, so it attracts nearby trajectories.
+
+<p align="center"><img src="../../figures/algebraic-limit-cycle.svg" alt="Trajectories winding onto a circle" width="720"></p>
+
+<p align="center"><sub>Computed trajectories of the 10-reaction network wind onto the circle (x−2)² + (y−2)² = 1.</sub></p>
+
+More detail, with every step explained: [guided reading, result 3](https://basedpolymer.eu/chemistry-open-problems#result-3) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d3).
+
+<!-- plain-words:end -->
+
 **Status: solved: rigorous certificate, confirmed with minor corrections by a verifier (see `verification.md`).**
 
 **Attribution.** 17-reaction network: Claude Opus 5.5 exploration agent (effort high), 17 Oct 2026. Rigorous Arb certificate, 10-reaction integer network and manuscript: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), 18 Oct 2026.

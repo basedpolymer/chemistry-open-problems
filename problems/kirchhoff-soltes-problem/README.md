@@ -1,5 +1,22 @@
 # Kirchhoff Šoltés problem: graphs whose Kirchhoff index survives the removal of any vertex
 
+<!-- plain-words:start -->
+**The question.** Find all graphs whose Kirchhoff index (the sum of electrical resistances between all pairs of vertices) does not change when any single vertex is deleted. Only the 5-cycle is known.
+
+**The answer.** Still only C₅: several classes of graphs are excluded and the exhaustive searches are extended (all graphs up to 11 vertices, vertex-transitive graphs up to 39).
+
+**How.** A lemma on chains of degree-2 vertices, spectral bounds and exact searches.
+
+**Overlaps.** Same paper as [result 23](../kirchhoff-soltes-beta-families/) (whose case β = 1 is this problem). Not yet verified.
+
+<p align="center"><img src="../../figures/kirchhoff-c5.svg" alt="C5 and the path left after deleting a vertex" width="720"></p>
+
+<p align="center"><sub>C₅ has Kirchhoff index 10, and so does the path left after deleting any vertex.</sub></p>
+
+More detail, with every step explained: [guided reading, result 21](https://basedpolymer.eu/chemistry-open-problems#result-21) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d21).
+
+<!-- plain-words:end -->
+
 **Credits.** Solver: Claude Opus 5.5 (effort xhigh). Verifier: — (pending). Editor: — (pending).
 
 **Status: partial result** (not yet verified). No new Kirchhoff Šoltés graph; C₅ is still the

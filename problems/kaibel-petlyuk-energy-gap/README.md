@@ -1,5 +1,22 @@
 # The Kaibel–Petlyuk vapour penalty
 
+<!-- plain-words:start -->
+**The question.** The Kaibel column separates four components in one dividing-wall shell. Does it always need strictly more vapour than the full Petlyuk arrangement?
+
+**The answer.** Yes, in the ideal infinite-stage model, but this was already shown by Halvorsen and Skogestad in 2006. The folder is an audit: an explicit proof, exact examples, and a misprint (“min” for “max”) corrected in the 2006 paper.
+
+**How.** Underwood’s method; the Kaibel requirement is the maximum of two binary requirements.
+
+**Overlaps.** [Result 12](../halvorsen-skogestad-petlyuk-minimum-vapor/) already implies V(Kaibel) ≥ V(Petlyuk); this folder adds the strict inequality and a formula, both known since 2006.
+
+<p align="center"><img src="../../figures/petlyuk-vmin-diagram.svg" alt="Minimum-vapour diagram with two peaks" width="720"></p>
+
+<p align="center"><sub>The Petlyuk pays only the highest peak of this diagram; a Kaibel column must meet two binary separations at once.</sub></p>
+
+More detail, with every step explained: [guided reading, result 26](https://basedpolymer.eu/chemistry-open-problems#result-26) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d26).
+
+<!-- plain-words:end -->
+
 **Status: already solved by Halvorsen and Skogestad (2006); candidate closed by literature audit, 27 October 2026.**
 
 **Attribution.** Original result: Ivar J. Halvorsen and Sigurd Skogestad.

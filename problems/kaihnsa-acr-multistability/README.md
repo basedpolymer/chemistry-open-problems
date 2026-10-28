@@ -1,5 +1,20 @@
 # Kaihnsa–Nguyen–Shiu: does ACR with multistability need larger networks than ACR with multistationarity?
 
+<!-- plain-words:start -->
+**The question.** A species has “absolute concentration robustness” if it takes the same value in every steady state, an ideal regulation mechanism. Kaihnsa, Nguyen and Shiu conjectured that combining it with two stable states requires larger networks than combining it with several steady states.
+
+**The answer.** True for dimension (≥ 3), reactant complexes (≥ 4) and complexes (≥ 6); false for the number of species (3 are enough).
+
+**How.** A normal form shows that in dimension 2 robustness allows only one stable state. A 3-species network with two stable states is then built and certified exactly.
+
+<p align="center"><img src="../../figures/acr-multistability.svg" alt="Robust concentration with two stable steady states" width="720"></p>
+
+<p align="center"><sub>One combination of the equations forces x = 1 at every steady state, yet two stable states coexist.</sub></p>
+
+More detail, with every step explained: [guided reading, result 27](https://basedpolymer.eu/chemistry-open-problems#result-27) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d27).
+
+<!-- plain-words:end -->
+
 **Status: solved; verified (verdict CONFIRMED WITH CORRECTIONS, see [verification.md](verification.md)).** The
 conjecture holds for three of the four quantities (dimension, reactant complexes, complexes) and fails for the number
 of species.

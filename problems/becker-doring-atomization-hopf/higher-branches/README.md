@@ -7,6 +7,23 @@ there. Verification of this extension: pending.
 
 # Becker–Döring with atomization: the Hopf branches j ≥ 4
 
+<!-- plain-words:start -->
+**The question.** The same question as [result 8](../) for the next branches of oscillations (j ≥ 4): where do they start, and are the cycles stable?
+
+**The answer.** Branches 4 to 13 are settled for every size M (subcritical only at M = 142 and M = 1135); every branch is supercritical for large M. The cycles are unstable anyway.
+
+**How.** The tools of result 8, pushed to M ≈ 1150.
+
+**Overlaps.** Extends [result 8](../). Not yet verified by a second agent.
+
+<p align="center"><img src="../../../figures/becker-doring-branches.svg" alt="Cluster chain and the start of each Hopf branch" width="720"></p>
+
+<p align="center"><sub>Orange: branches 4 to 13, treated here. Circled: the first point of the branch is subcritical.</sub></p>
+
+More detail, with every step explained: [guided reading, result 25](https://basedpolymer.eu/chemistry-open-problems#result-25) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d25).
+
+<!-- plain-words:end -->
+
 ## Problem
 
 R. L. Pego and J. J. L. Velázquez, *Temporal oscillations in Becker–Döring equations with atomization*,

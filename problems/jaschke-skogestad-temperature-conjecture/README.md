@@ -1,5 +1,20 @@
 # Jäschke–Skogestad "Jäschke temperature" conjecture (heat exchanger networks with stream splits)
 
+<!-- plain-words:start -->
+**The question.** A cold stream is split between parallel branches of heat exchangers. Jäschke and Skogestad (2014) proposed to choose the split from temperature measurements alone, with a formula proved for up to two exchangers per branch and conjectured beyond.
+
+**The answer.** The formula is wrong from the third exchanger on (it forgets a term), and so is a case the paper reports as proved. A corrected formula is proved for any number of exchangers, so the idea of steering with thermometers stands.
+
+**How.** Each exchanger acts as an affine map on temperature; an energy balance and the chain rule give the exact sensitivity in half a page. Exact rational counterexamples show the published version picks a suboptimal split.
+
+<p align="center"><img src="../../figures/jaschke-recursion.svg" alt="Split cold stream heated in parallel branches" width="720"></p>
+
+<p align="center"><sub>The controller equalizes temperatures computed by a recursion. The published recursion drops the term a₁ at the third exchanger.</sub></p>
+
+More detail, with every step explained: [guided reading, result 6](https://basedpolymer.eu/chemistry-open-problems#result-6) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d6).
+
+<!-- plain-words:end -->
+
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One read-only nested Claude Opus 5.5 sub-agent (effort xhigh) did the citing-works search; its findings are marked [sub] in references.md. LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification
 and corrections: Claude Opus 5.5 (effort xhigh), fresh context, verdict CONFIRMED WITH CORRECTIONS (`verification.md`).
 

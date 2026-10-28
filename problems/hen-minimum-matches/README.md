@@ -1,5 +1,20 @@
 # Minimum number of matches: exact values on the Letsios–Kouyialis–Misener heat-recovery benchmarks
 
+<!-- plain-words:start -->
+**The question.** Once utility use is fixed, a heat-recovery network should use as few hot–cold exchanger pairings (“matches”) as possible. This is an NP-hard integer program; in 2018, 25 benchmark instances had no proved optimum.
+
+**The answer.** Four instances closed (37sp-yfyv = 36, 20sp1 = 19, 23sp1 = 22 with a new network, unbalanced10 = 25) and a better lower bound (32) for the balanced15 family.
+
+**How.** Explicit networks checked in exact arithmetic give upper bounds; a combinatorial “block lemma”, or an exact branch-and-bound proof with a VIPR certificate, gives matching lower bounds. Along the way, the VIPR checker turned out to accept invalid certificates; a patch is included.
+
+<p align="center"><img src="../../figures/hen-benchmarks.svg" alt="Bounds before and after on five benchmark instances" width="720"></p>
+
+<p align="center"><sub>Grey: the gap left by solvers in 2018. Blue: proved optimum, or the new interval.</sub></p>
+
+More detail, with every step explained: [guided reading, result 15](https://basedpolymer.eu/chemistry-open-problems#result-15) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d15).
+
+<!-- plain-words:end -->
+
 **Attribution.**
 - Solver (exact networks, block lemma and its enumeration, strengthened MILP and its validity proofs, first exact
   SCIP runs; 24 Oct 2026): Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator.

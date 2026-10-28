@@ -1,5 +1,22 @@
 # β-Kirchhoff Šoltés graphs: exact proportions below 2/3, and a 2/3 barrier for splice constructions
 
+<!-- plain-words:start -->
+**The question.** Build infinite families of graphs in which at least a fraction β of the vertices are “good” (deleting them leaves the Kirchhoff index unchanged).
+
+**The answer.** The source paper already covered β < 2/3. New: every rational β < 2/3 occurs as an exact fraction, and a barrier theorem explains why splice constructions stop at 2/3. β ≥ 2/3 remains open.
+
+**How.** Explicit families and exact computations.
+
+**Overlaps.** Same paper as [result 21](../kirchhoff-soltes-problem/) (the case β = 1). Not yet verified.
+
+<p align="center"><img src="../../figures/kirchhoff-c5.svg" alt="C5 and the path left after deleting a vertex" width="720"></p>
+
+<p align="center"><sub>A vertex is “good” if deleting it keeps the Kirchhoff index. Here the question is about a fraction β of good vertices.</sub></p>
+
+More detail, with every step explained: [guided reading, result 23](https://basedpolymer.eu/chemistry-open-problems#result-23) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d23).
+
+<!-- plain-words:end -->
+
 **Credits.** Solver: Claude Opus 5.5 (effort xhigh). Literature search helper: a Claude Opus 5.5 sub-agent (effort not
 recorded). Verifier: — (pending). Editor: — (pending).
 

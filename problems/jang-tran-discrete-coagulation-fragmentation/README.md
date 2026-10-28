@@ -1,5 +1,20 @@
 # Jang–Tran Conjecture 2: discrete critical coagulation–fragmentation (multiplicative coagulation, constant fragmentation)
 
+<!-- plain-words:start -->
+**The question.** Clusters merge and break. Total mass is conserved unless it escapes into an infinite cluster (a “gel”). Jang and Tran proved mass conservation for small masses (m < 1/2) and conjectured it up to the critical mass m = 1.
+
+**The answer.** True, and more: for every mass 0 < m ≤ 1 there is exactly one solution, it is classical and conserves mass, without the extra moment assumption. Below m = 1 it converges to a unique steady distribution.
+
+**How.** The generating function of the cluster distribution solves a Hamilton–Jacobi equation. A new invariant keeps its characteristics from crossing, so a global smooth solution exists and no mass can leak.
+
+<p align="center"><img src="../../figures/coagulation-fragmentation.svg" alt="Coagulation, fragmentation and what is known by mass" width="720"></p>
+
+<p align="center"><sub>Clusters merge at rate i·j and break at rate 1. Result 11 covers every total mass from 0 to the critical value 1.</sub></p>
+
+More detail, with every step explained: [guided reading, result 11](https://basedpolymer.eu/chemistry-open-problems#result-11) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d11).
+
+<!-- plain-words:end -->
+
 **Status: solved: complete proof of both parts, confirmed by a verifier (verdict CONFIRMED WITH
 CORRECTIONS, see `verification.md`; the corrections concern the wording of the claims, not the proofs). Not
 refereed.**

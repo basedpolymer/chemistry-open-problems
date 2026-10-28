@@ -1,5 +1,20 @@
 # Boros–Hofbauer: four limit cycles in a planar three-reaction mass-action system
 
+<!-- plain-words:start -->
+**The question.** Can a planar three-reaction system have a stable steady state surrounded by four nested oscillations, alternately unstable and stable? Boros and Hofbauer conjectured it.
+
+**The answer.** Yes.
+
+**How.** A parameter point where three “focal values” vanish and the fourth does not is certified by an interval Newton method; perturbing it step by step creates one cycle at each step. A second, independent proof follows trajectories with validated integration.
+
+<p align="center"><img src="../../figures/four-limit-cycles.svg" alt="Four nested limit cycles and the certified sign changes" width="720"></p>
+
+<p align="center"><sub>Five certified sign changes of the return displacement trap four cycles, alternately unstable and stable.</sub></p>
+
+More detail, with every step explained: [guided reading, result 5](https://basedpolymer.eu/chemistry-open-problems#result-5) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d5).
+
+<!-- plain-words:end -->
+
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), sub-agent of the orchestrator. One nested Claude Opus 5.5 sub-agent (general-purpose, effort xhigh) was used, only for the
 literature/novelty check (read-only web search). LaTeX edition: Claude Opus 5.5 (effort xhigh). Verification: Claude Opus 5.5 (effort xhigh), fresh context — **CONFIRMED WITH CORRECTIONS** (minor, editorial; see `verification.md`).
 

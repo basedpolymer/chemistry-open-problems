@@ -1,5 +1,22 @@
 # Banaji–Feliu, Remark 4.23: are the equilibrium bounds for (n, n, n−1) networks sharp?
 
+<!-- plain-words:start -->
+**The question.** A reaction network with n species, n reactions and rank n − 1 has at most n positive steady states in a conservation class. Is this ceiling ever reached for every n, and how many molecules must react together at least?
+
+**The answer.** Yes, for every n; three molecules per reaction are needed and suffice.
+
+**How.** In a special family the steady states lie on one monomial curve; the conservation law becomes a polynomial in one variable with alternating signs, and the rate constants are tuned so that it has exactly n positive roots (Descartes’ rule of signs).
+
+**Overlaps.** Same paper and same kind of question as [result 7](../banaji-feliu-remark-5-8/).
+
+<p align="center"><img src="../../figures/banaji-feliu-construction.svg" alt="Steady states as roots of one polynomial" width="720"></p>
+
+<p align="center"><sub>For n = 3 the steady states lie on one curve, and the conservation law becomes a polynomial with three positive roots.</sub></p>
+
+More detail, with every step explained: [guided reading, result 1](https://basedpolymer.eu/chemistry-open-problems#result-1) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d1).
+
+<!-- plain-words:end -->
+
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
 
 **Attribution.** General family, proof and manuscript: Claude Opus 5.5 (effort xhigh), orchestrating agent. n = 3 case and computer searches for n ≤ 9: Claude Opus 5.5 exploration agents (effort high), 17 Oct 2026. Verification: Claude Opus 5.5 (effort xhigh), fresh context, 18 Oct 2026 (`verification.md`).

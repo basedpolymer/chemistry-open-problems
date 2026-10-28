@@ -1,5 +1,26 @@
 # Halvorsen–Skogestad conjecture: the generalized Petlyuk arrangement minimizes total vaporization
 
+<!-- plain-words:start -->
+**The question.** Distillation separates a mixture by boiling it, and the energy bill is the vapour produced. With N components, columns can be arranged in thousands of ways. In 2003 Halvorsen and Skogestad conjectured that the fully thermally coupled “Petlyuk” arrangement always needs the least vapour, namely the highest peak of their minimum-vapour diagram.
+
+**The answer.** True, for every number of components, in the ideal model (constant relative volatilities and molar flows, no heat exchange between process streams).
+
+**How.** An invariant attached to every stream (the Underwood flux) has the same sign on everything leaving a stage. Adding up the heat balances of all “heavy-side” units shows that any arrangement needs at least each peak. A forced Petlyuk design with enough stages then gets within any margin of the highest peak.
+
+**Overlaps.** Implies the weak form of [result 26](../kaibel-petlyuk-energy-gap/) (the Kaibel column needs at least as much vapour).
+
+<p align="center"><img src="../../figures/petlyuk-vmin-diagram.svg" alt="Minimum-vapour diagram with two peaks" width="720"></p>
+
+<p align="center"><sub>Minimum vapour for an equimolar A/B/C feed (volatilities 4 : 2 : 1). A conventional sequence pays one peak per column; the Petlyuk pays only the highest one.</sub></p>
+
+<p align="center"><img src="../../figures/petlyuk-underwood-cut.svg" alt="Light side and heavy side of a column network" width="720"></p>
+
+<p align="center"><sub>The proof of the lower bound: the sign of the Underwood flux splits any network into a light and a heavy side; the heat balance of the heavy side gives R ≥ H<sub>j</sub>.</sub></p>
+
+More detail, with every step explained: [guided reading, result 12](https://basedpolymer.eu/chemistry-open-problems#result-12) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d12).
+
+<!-- plain-words:end -->
+
 **Attribution.**
 - Stage-level lower bound and the class 𝒜: foundations, red team and integration, Claude Opus 5.5 (effort xhigh);
   section and junction lemmas, two-component attainment, Claude Opus 5.5 (effort xhigh); network argument, device

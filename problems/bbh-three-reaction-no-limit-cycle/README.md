@@ -1,5 +1,22 @@
 # Banaji–Boros–Hofbauer: does the three-reaction example have a limit cycle?
 
+<!-- plain-words:start -->
+**The question.** Can the three-reaction system 2X → 3X + 2Y, X + Y → 0, Y → X + Y oscillate for some rate constants?
+
+**The answer.** Never.
+
+**How.** Multiplying the vector field by B = y<sup>−1−2κ₁/κ₂</sup> makes its divergence a negative-definite quadratic form, which rules out closed orbits (Dulac’s criterion, from Green’s theorem).
+
+**Overlaps.** Contained in [result 13](../bbh-cases-9-10-limit-cycles/), which proves the same for the whole class.
+
+<p align="center"><img src="../../figures/bbh-example-dulac.svg" alt="From network to equations, phase portrait and Dulac argument" width="720"></p>
+
+<p align="center"><sub>For κ = 1 trajectories spiral into the steady state; the Dulac function rules out a cycle for every choice of rate constants.</sub></p>
+
+More detail, with every step explained: [guided reading, result 2](https://basedpolymer.eu/chemistry-open-problems#result-2) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d2).
+
+<!-- plain-words:end -->
+
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see `verification.md`).**
 This settles the example asked about in the source and the subfamily below. The broader question (all case-9 and
 case-10 networks without Andronov–Hopf bifurcation) remains open beyond this subfamily.

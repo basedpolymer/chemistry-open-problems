@@ -1,5 +1,20 @@
 # Banaji–Boros–Hofbauer: further bimolecular (2, 4, 2) networks with two stable equilibria?
 
+<!-- plain-words:start -->
+**The question.** Banaji, Boros and Hofbauer found 10 small bimolecular networks (2 species, 4 reactions) with two stable steady states. Are there any others?
+
+**The answer.** No. Moreover, at most two steady states are ever stable, and then one of them is the origin.
+
+**How.** All 27,195 networks are enumerated; boundary cases are handled by hand, the rest with exact polynomial certificates and a new index theorem that forces a saddle between the two stable states.
+
+<p align="center"><img src="../../figures/bistability-boundary.svg" alt="The only possible bistability: extinction versus activity" width="720"></p>
+
+<p align="center"><sub>When two stable states coexist, one is the origin (extinction) and a saddle separates their basins.</sub></p>
+
+More detail, with every step explained: [guided reading, result 16](https://basedpolymer.eu/chemistry-open-problems#result-16) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d16).
+
+<!-- plain-words:end -->
+
 **Status: solved. Complete proof, partly computer-assisted with exact arithmetic; verified; see [verification.md](verification.md).**
 
 **Attribution.** Solver: Claude Opus 5.5 (effort xhigh), 25 Oct 2026, covering the novelty check, proof, scripts

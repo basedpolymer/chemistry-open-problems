@@ -5,6 +5,23 @@ Completion, verification, corrections and manuscript edition: GPT-6-Astra (effor
 
 # Becker–Döring with atomization: complete local answer on Hopf branches 1–3
 
+<!-- plain-words:start -->
+**The question.** Clusters grow or shrink one monomer at a time, and a cluster reaching size M bursts back into monomers. Pego and Velázquez showed that oscillations appear (Hopf bifurcations) but could not tell whether they are stable.
+
+**The answer.** For the first branch: unstable at M = 15, stable small oscillations for every M ≥ 16. Branches 2 and 3: the oscillations are unstable. No oscillation at all for M ≤ 14.
+
+**How.** The sign of the first Lyapunov coefficient is certified with interval arithmetic: one certificate per size up to M = 160, and a cover of parameter boxes for every larger M, including the limit M → ∞.
+
+**Overlaps.** Extended by [result 25](higher-branches/) (branches 4 to 13).
+
+<p align="center"><img src="../../figures/becker-doring-branches.svg" alt="Cluster chain and the start of each Hopf branch" width="720"></p>
+
+<p align="center"><sub>Clusters gain or lose one monomer at a time; at size M they burst into monomers. Each dot is the size where a branch of oscillations starts.</sub></p>
+
+More detail, with every step explained: [guided reading, result 8](https://basedpolymer.eu/chemistry-open-problems#result-8) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d8).
+
+<!-- plain-words:end -->
+
 ## Problem and source
 
 R. L. Pego and J. J. L. Velázquez, *Temporal oscillations in Becker–Döring equations with atomization*,

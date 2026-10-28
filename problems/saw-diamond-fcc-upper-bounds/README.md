@@ -1,5 +1,22 @@
 # Rigorous upper bounds for the connective constants of the diamond and fcc lattices
 
+<!-- plain-words:start -->
+**The question.** The same question as result 9 on two other lattices: diamond (the geometry of sp³ carbon chains) and face-centred cubic (dense melts).
+
+**The answer.** μ(diamond) ≤ 2.8958880 (was 2.90940) and μ(fcc) ≤ 10.1630815 (was 10.240586).
+
+**How.** The finite-memory automata of [result 9](../cubic-saw-upper-bound/), with exact certificates.
+
+**Overlaps.** Same method as result 9. Not yet verified by a second agent.
+
+<p align="center"><img src="../../figures/saw-automaton-bound.svg" alt="A self-avoiding walk and the automaton bound" width="720"></p>
+
+<p align="center"><sub>The method of result 9, applied here to the diamond and face-centred cubic lattices.</sub></p>
+
+More detail, with every step explained: [guided reading, result 24](https://basedpolymer.eu/chemistry-open-problems#result-24) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d24).
+
+<!-- plain-words:end -->
+
 **Status: record (preliminary)** — new rigorous upper bounds for both lattices, each certified by an exact
 certificate that passes a checker written separately from the generator; not yet verified by a second agent
 (25 October 2026). Manuscript: [paper.pdf](paper.pdf).

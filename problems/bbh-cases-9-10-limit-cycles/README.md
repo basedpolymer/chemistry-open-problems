@@ -1,5 +1,22 @@
 # Banaji–Boros–Hofbauer, cases 9 and 10: can a network without Andronov–Hopf bifurcation have a limit cycle?
 
+<!-- plain-words:start -->
+**The question.** Among small networks (2 species, 3 reactions, “cases 9 and 10”), can a network that never undergoes a Hopf bifurcation still oscillate through another mechanism?
+
+**The answer.** No. So in these cases: a network can oscillate if and only if it admits a Hopf bifurcation.
+
+**How.** All but three families are excluded by elementary arguments; the rest are turned into a Liénard oscillator, for which a comparison lemma rules out closed orbits exactly when there is no Hopf bifurcation.
+
+**Overlaps.** Contains [result 2](../bbh-three-reaction-no-limit-cycle/).
+
+<p align="center"><img src="../../figures/hopf-super-sub.svg" alt="Supercritical and subcritical Hopf bifurcations" width="720"></p>
+
+<p align="center"><sub>Oscillations usually appear through a Hopf bifurcation. The question: can they appear without one?</sub></p>
+
+More detail, with every step explained: [guided reading, result 13](https://basedpolymer.eu/chemistry-open-problems#result-13) · [en français](https://basedpolymer.eu/chemistry-open-problems/fr#d13).
+
+<!-- plain-words:end -->
+
 **Status: solved: complete proof, verified (verdict CONFIRMED WITH CORRECTIONS, see
 [`verification.md`](verification.md)).** The answer is **no**. The corrections were editorial; the mathematics was
 not changed.
