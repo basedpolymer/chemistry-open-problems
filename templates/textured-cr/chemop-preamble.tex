@@ -79,14 +79,19 @@
   \chapter*{\PaperTitle}%
   \markboth{\ShortTitle}{\ShortTitle}%
   \vspace*{-12pt}%
-  {\sffamily\large\color{Gray40}\PaperSubtitle\par}%
-  \ifdefined\PaperCredits
-    \vspace{4pt}{\sffamily\small\color{Gray40}\PaperCredits\par}%
-  \fi
+  {\setlength{\parskip}{0pt}%
+   {\sffamily\large\color{Gray40}\PaperSubtitle\par}%
+   \ifdefined\PaperCredits
+     {\sffamily\small\color{Gray40}\PaperCredits\par}%
+   \fi
+   \ifdefined\PaperAcknowledgment
+     \vspace{\baselineskip}{\sffamily\small\color{Gray40}\PaperAcknowledgment\par}%
+   \fi}%
   \vspace{14pt}%
 }
 %% Attribution line (model and reasoning effort of every agent involved), e.g.
 %%   \newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verifier: \dots}
+%% Optional acknowledgment, set one line below the credits: \newcommand*{\PaperAcknowledgment}{We thank \dots}
 %% Abstract: grey rule on the left, like quotations
 \NewDocumentEnvironment{paperabstract}{}{\begin{quote}\textbf{Abstract.}\ }{\end{quote}}
 %% Quotation of the open statement
