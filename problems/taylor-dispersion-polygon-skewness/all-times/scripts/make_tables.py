@@ -16,7 +16,7 @@ print('max Delta0', max(r['Delta0'] for r in res))
 
 def sci(x, d=1):
     mant, exp = f"{x:.{d}e}".split('e')
-    return f"{mant}\cdot10^{{{int(exp)}}}"
+    return f"{mant}\\cdot10^{{{int(exp)}}}"
 
 
 rows = [4, 5, 6, 8, 12, 16, 24, 32, 48, 64, 100, 150, 199]

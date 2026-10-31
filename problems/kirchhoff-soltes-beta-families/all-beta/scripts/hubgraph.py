@@ -158,6 +158,8 @@ def construct(p, r, b, s):
     assert gcd(p, r) == 1 and 0 < p < r and s % p == 0 and b*(r-p) > p
     B = b*(b-1)
     x, Q = q_list(b, s)
+    if x < 4:
+        return None
     a = (b-1)*s*Q[1]
     assert a*b == x*Q[1]
     N = a*b+1

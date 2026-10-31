@@ -319,7 +319,9 @@ Let \(Y_c=Y-\avg Y=\frac14+\frac{t^2}{12}-\frac{r^2}2\), \(\phi=Y_c^2-\avg{Y_c^2
 \(-\Delta\Phi=\phi\), and \(\varrho_\Phi=\Phi-\text{(mean of }\Phi\text{ on the side)}\) on \(\partial\Pg\). Since \(u=Y_c+H_c\), Green's identity gives
 \[
 \avg{u^3}=M(t)+\frac3{|\Pg|}\oint\varrho_\Phi\,\partial_nH+3\avg{Y_cH_c^2}+\avg{H_c^3},
-\qquad M(t)=\avg{Y_c^3}-\frac3{|\Pg|}\oint H\,\partial_n\Phi=\frac{t^4}{360}+\frac{19t^6}{7560},
+\]
+\[
+M(t)=\avg{Y_c^3}-\frac3{|\Pg|}\oint H\,\partial_n\Phi=\frac{t^4}{360}+\frac{19t^6}{7560},
 \]
 the last equality being an exact polynomial identity. By \zcref{lem:harmonic}, \(|\frac3{|\Pg|}\oint\varrho_\Phi\partial_nH|\le6(t+R)t^5(q(t)/3)^{1/2}\), where
 \(\int_0^t\varrho_\Phi^2=t^9q(t)\), \(q(0)=1/4082400\). By \zcref{lem:Hsmall} and \(1/(n+1)\le t/\pi\),
@@ -369,11 +371,12 @@ For every \(4\le n\le200\), \(K>0\) on \([0.015,\infty)\) and \(S(0.015)>0\).
 \end{proposition}
 
 \zcref{tab:finite} shows sample data. The smallest value of \((\text{lower bound}-\mathcal E)/\tilde K\) over all \(n\) and grid points is
-attained at \(\tau_0\); the minimum over all \(n\) is \(0.29\), at \(n=21\). The smallest \(S(	au_0)\) is \(1.3\cdot10^{-4}\), at \(n=4\). The table gives \(\tilde K(\tau_0)\) and \(\mathcal E\) at the next grid point.
+attained at \(\tau_0\); the minimum over all \(n\) is \(0.29\), at \(n=21\). The smallest \(S(\tau_0)\) is \(1.3\cdot10^{-4}\), at \(n=4\). The table gives \(\tilde K(\tau_0)\) and \(\mathcal E\) at the next grid point.
 
 \begin{table}
 \centering
-\small
+\footnotesize
+\setlength{\tabcolsep}{4pt}
 \input{table-finite}
 \caption{Certificates of \zcref{prop:finite}, sample of \(n\). All numbers are rounded to the digits shown, \(\tau_0=0.015\).
 Full data: \texttt{certificates/finite\_4\_200.json}.}
@@ -392,7 +395,9 @@ series of \(\arctan\) gives \(1-t^2/3\le a^2\le1-t^2/3+t^4/5\) and \(v^2\le1+\fr
 In \(L^2(D)\) with the average product, the \(\psi_k\) are orthonormal, \(\avg{\bar u\psi_k}_D=-2/\mu_k\), \(\avg{g_0\psi_k}_D=-2/\mu_k^2\),
 \(\avg{g_0^2}_D=1/11520\), \(\avg{\bar ug_0^2}_D=1/184320\), and
 \[
-\avg{\bar u\psi_k^2}_D=\frac1{12},\quad\avg{\bar u\psi_k\psi_l}_D=-\frac{2(\mu_k+\mu_l)}{(\mu_k-\mu_l)^2}\ (k\ne l),\quad
+\avg{\bar u\psi_k^2}_D=\frac1{12},\qquad\avg{\bar u\psi_k\psi_l}_D=-\frac{2(\mu_k+\mu_l)}{(\mu_k-\mu_l)^2}\quad(k\ne l),
+\]
+\[
 \avg{\bar ug_0\psi_k}_D=\frac{\mu_k^2+96\mu_k-1728}{48\mu_k^3}.
 \]
 \end{lemma}
@@ -476,12 +481,13 @@ For derivatives: with \(e=A-\tilde A\) one has
 
 \begin{table}
 \centering
-\small
+\footnotesize
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{rllll}
 \toprule
-\(n\) & long-time coefficient, source & enclosure & \(S^G\), source & enclosure \\
+\(n\) & long-time, source & enclosure & \(S^G\), source & enclosure \\
 \midrule
-3 & \(-0.035\) & \(-789\sqrt{770}/618800=-0.0353812\) & 0.185 & \(4\sqrt{21}/99=0.1851546\)\\
+3 & \(-0.035\) & \(-0.0353812\dots\) (exact) & 0.185 & \(0.1851546\dots\) (exact)\\
 4 & 0.139 & \([0.13849,0.13856]\) & 0.0813 & \([0.081294,0.081297]\)\\
 5 & 0.194 & \([0.19390,0.19429]\) & 0.042 & \([0.042262,0.042270]\)\\
 6 & 0.215 & \([0.21474,0.21603]\) & 0.024 & \([0.024264,0.024274]\)\\
@@ -502,25 +508,29 @@ All scripts are in \texttt{all-times/scripts/} unless noted, print PASS or FAIL 
 Environment: Python 3.12, python-flint 0.9.0 (Arb), numpy, scipy, sympy, under WSL Fedora. \texttt{run\_all.sh} runs everything; logs are in \texttt{all-times/logs/}.
 
 \begin{center}
-\small
-\begin{tabular}{lp{7.9cm}l}
+\footnotesize
+\begin{tabular}{lp{5.2cm}l}
 \toprule
 script & claim & time \\
 \midrule
-\texttt{run\_finite.py 4 200} & \zcref{prop:finite}, using \texttt{finite\_n.py}, \texttt{modal\_lib.py} & 45 min on 3 cores \\
-\texttt{uniform.py 200}, \texttt{uniform.py 0} & \zcref{prop:large}, large \(n\) and the disk & 10 s \\
+\texttt{run\_finite.py 4 200} & \zcref{prop:finite} (\texttt{finite\_n.py}, \texttt{modal\_lib.py}) & 45 min, 3 cores \\
+\texttt{uniform.py 200}, \texttt{uniform.py 0} & \zcref{prop:large}, large \(n\), the disk & 10 s \\
 \texttt{u3\_uniform.py 40} & \(\avg{u^3}>0\), \(n\ge40\) & 5 s \\
 \texttt{../scripts/sg\_certify.py 4 150} & \(\avg{u^3}>0\), \(4\le n\le150\) & 15 min \\
 \texttt{../scripts/sg\_uniform.py 140 6} & \(\avg{u^3}>0\), \(n\ge140\), second proof & 5 s \\
 \texttt{triangle.py} & \zcref{thm:triangle} & 2 min \\
-\texttt{../scripts/triangle\_exact.py}, \texttt{table1.py} & exact triangle values, \zcref{tab:source} & 5 min \\
-\texttt{numerics\_check.py} & floating-point cross-checks, not a certificate & 3 min \\
+\texttt{../scripts/triangle\_exact.py} & exact triangle values & 5 s \\
+\texttt{../scripts/table1.py} & \zcref{tab:source} & 5 min \\
+\texttt{numerics\_check.py} & cross-checks, not a certificate & 3 min \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\paragraph{Cross-checks.} For the square, \(K\) from the exact lattice sum \(G(a,b)=\sum_{\xi,\eta\in\mathbb Z^2}\hat u_\xi\hat u_\eta\hat u_{\xi+\eta}\mathrm e^{-\pi^2(|\xi|^2a+|\eta|^2b)}\) agrees with the
-Galerkin value to four digits at \(\tau=0.015\) (\(8.20\cdot10^{-10}\)), and with the certified \(\tilde K\). The law in \zcref{rem:E} is confirmed numerically and against equation~(14) of the source.
+\paragraph{Cross-checks.} For the square, let \(\hat u_\xi\) be the Fourier coefficients of \(u\) on the torus \((\mathbb R/2\mathbb Z)^2\). Then
+\[
+G(a,b)=\sum_{\xi,\eta\in\mathbb Z^2}\hat u_\xi\hat u_\eta\hat u_{\xi+\eta}\mathrm e^{-\pi^2(|\xi|^2a+|\eta|^2b)},
+\]
+and the resulting \(K\) agrees with the Galerkin value to four digits at \(\tau=0.015\) (\(8.20\cdot10^{-10}\)), and with the certified \(\tilde K\). The law in \zcref{rem:E} is confirmed numerically and against equation~(14) of the source.
 
 \paragraph{Trusted base.} Payne--Weinberger constant~\autocite{PayneWeinberger1960,Bebendorf2003}; \(H^2\) regularity on convex polygons~\autocite{Grisvard1985}; the spectral theorem for the Neumann Laplacian; Green's identities;
 Arb and python-flint for ball arithmetic; sympy for exact rational identities. Floating point only chooses coefficients.

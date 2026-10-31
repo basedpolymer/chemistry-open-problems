@@ -13,3 +13,13 @@ gadget 2 K_11, j=7, y cut vertex
 gadget 2 K_11, j=7, clique not good Delta~  13.4
 gadget 2 K_11, j=7, leaf not good Delta~  12.1
 gadget 3 K_17, j=8, y cut vertex
+gadget 3 K_17, j=8, clique not good Delta~  21.1
+gadget 3 K_17, j=8, leaf not good Delta~  13.2
+gadget 4 K_29, j=18, y cut vertex
+gadget 4 K_29, j=18, clique not good Delta~  19.8
+gadget 4 K_29, j=18, leaf not good Delta~  14.0
+gadget 5 K_41, j=10, y cut vertex
+gadget 5 K_41, j=10, clique not good Delta~  22.4
+gadget 5 K_41, j=10, leaf not good Delta~  13.5
+tree end not good Delta~  13.4
+tree first cut vertex
