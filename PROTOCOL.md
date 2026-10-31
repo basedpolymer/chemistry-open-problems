@@ -14,7 +14,8 @@ statement.
    - google-deepmind/formal-conjectures (graph theory);
    - `gh api "users/ipitchford/repos?per_page=100" --paginate` (Evidence Press: 160+ unrefereed AI-assisted
      candidates, mirrored on Zenodo, including CRNT; it had answered Banaji–Feliu Rem. 5.8 before result 7);
-   - Zenodo (`https://zenodo.org/api/records?q=...`) and `gh search repos` on the problem's key phrases;
+   - Zenodo (`https://zenodo.org/api/records?q=...`), `gh search repos` and `gh search code` on the problem's key
+     phrases (result 31 was only findable by code search: it is on neither arXiv, Zenodo nor Crossref);
    - a web search on the problem's key phrases.
 3. If the problem turns out to be already solved, that is a result: record who solved it, where, and stop.
 

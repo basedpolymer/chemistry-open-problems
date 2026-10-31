@@ -3,12 +3,12 @@
 \input{preamble/pdfA-compliance/glyphtounicode}
 \documentclass[11pt,a4paper]{report}
 
-\newcommand*{\PaperTitle}{Absolute concentration robustness with multistability in bimolecular networks: three species suffice, dimension two does not}
-\newcommand*{\PaperTitlePlain}{Absolute concentration robustness with multistability in bimolecular networks: three species suffice, dimension two does not}
+\newcommand*{\PaperTitle}{Absolute concentration robustness with multistability in bimolecular networks: the exact minimal sizes}
+\newcommand*{\PaperTitlePlain}{Absolute concentration robustness with multistability in bimolecular networks: the exact minimal sizes}
 \newcommand*{\PaperShortTitle}{ACR with multistability}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 27 October 2026 \textperiodcentered{} verified}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verifier: Claude Opus 5.5 (effort xhigh)}
-\newcommand*{\PaperKeywords}{absolute concentration robustness, multistability, reaction networks, mass-action kinetics, bimolecular networks, deficiency}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 31 October 2026 \textperiodcentered{} merged manuscript, verification pending}
+\newcommand*{\PaperCredits}{Solvers: Claude Opus 5.5 (effort xhigh; dimension two, species, complexes), GPT-6-Astra (effort xhigh; five reactant complexes) \textperiodcentered{} Merge: Claude Opus 5.5 (effort not recorded) \textperiodcentered{} Verifiers of the two parts: Claude Opus 5.5 (effort xhigh; effort not recorded) \textperiodcentered{} Verification of the merged text: pending}
+\newcommand*{\PaperKeywords}{absolute concentration robustness, multistability, reaction networks, mass-action kinetics, bimolecular networks, deficiency, exact enumeration, toric steady states}
 \input{chemop-preamble}
 \addbibresource{references.bib}
 
@@ -19,6 +19,10 @@
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\one}{\mathbf{1}}
 \newcommand{\Vp}{V^{+}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\im}{\operatorname{im}}
+\providecommand{\diag}{\operatorname{diag}}
+\providecommand{\sgn}{\operatorname{sgn}}
 
 \begin{document}
 \makepapertitle
@@ -28,18 +32,19 @@ Kaihnsa, Nguyen and Shiu proved that an at-most-bimolecular reaction network in 
 robustness (ACR) and nondegenerate multistationarity coexist has at least 3 species, 3 reactant complexes,
 5 complexes and a two-dimensional stoichiometric subspace, all four bounds being attained. They conjectured that
 each of these four lower bounds becomes strictly larger when multistationarity is replaced by multistability. We
-show that the conjecture holds for three of the four quantities and fails for the fourth. The main result is that a
-two-dimensional bimolecular mass-action system with ACR has at most one exponentially stable positive steady state
-in each stoichiometric compatibility class. The proof combines a normal form of the vector field on the ACR
-hyperplane, a connectedness property of the positive steady-state set that holds precisely because products are
-at most bimolecular, and the global ACR condition. Consequently ACR with multistability needs dimension at least 3,
-at least 4 reactant complexes and, by a kinetic-subspace argument and the deficiency-one theorem, at least
-6 complexes. On the other hand, three species suffice: the six-reaction network
-$\{Z\to Y+Z,\ 2Z\to Z,\ Y\to Y+Z,\ Y+Z\to 2X,\ X+Z\to 2Z,\ 2X\to Y\}$ has ACR in $X$ for all rate constants and,
-for suitable ones, two exponentially stable positive steady states, certified in exact arithmetic. It has
-$3$ species, $6$ complexes and dimension $3$, so these three minima are attained. The minimal number of reactant
-complexes lies between $4$ and $6$; with exactly $4$ it is impossible for $4$ species and for six of the nine
-reactant structures that can occur, and with $3$ species at least $6$ reactions are needed.
+determine the four exact minima for ACR with multistability: dimension $3$, $3$ species, $5$ reactant complexes and
+$6$ complexes. The conjecture therefore holds for three of the four quantities and fails for the number of species.
+Two theorems carry the lower bounds. A two-dimensional bimolecular mass-action system with ACR has at most one
+exponentially stable positive steady state in each stoichiometric compatibility class; the proof combines a normal
+form of the vector field on the ACR hyperplane, a connectedness property of the positive steady-state set that holds
+precisely because products are at most bimolecular, and the global ACR condition. A rank-three system with four
+reactant complexes and ACR has at most two nondegenerate positive steady states per class, of opposite determinant
+signs; an exact finite classification reduces this to nineteen scalar normal forms. Six complexes follow by a
+kinetic-subspace argument and the deficiency-one theorem. Two explicit networks attain the bounds. The six-reaction
+network $\{Z\to Y+Z,\ 2Z\to Z,\ Y\to Y+Z,\ Y+Z\to 2X,\ X+Z\to 2Z,\ 2X\to Y\}$ has ACR in $X$ for all rate constants
+and, for suitable ones, two exponentially stable positive steady states, with $3$ species, $6$ complexes and
+dimension $3$. A four-species, six-reaction network with integer rates has $5$ reactant complexes. Stability and ACR
+are certified in exact arithmetic. We do not know whether one network attains all four minima.
 \end{paperabstract}
 
 \section*{The question}
@@ -65,27 +70,27 @@ Let $G$ be an at-most-bimolecular reaction network and suppose that for some vec
 $\kappa$ the mass-action system $(G,\kappa)$ has ACR and is multistable. Then
 \begin{enumerate}
 \item the stoichiometric subspace of $G$ has dimension at least $3$;
-\item $G$ has at least $4$ reactant complexes;
+\item $G$ has at least $3$ species;
+\item $G$ has at least $5$ reactant complexes;
 \item $G$ has at least $6$ complexes.
 \end{enumerate}
-On the other hand, there is a bimolecular network with $3$ species, $6$ complexes and dimension $3$ that has ACR for
-every vector of rate constants and, for an open set of them, two exponentially stable positive steady states in one
-compatibility class (\zcref{thm:three-species}). Hence the conjecture holds for dimension, reactant complexes and
-complexes, and fails for the number of species. The bounds $3$ (dimension), $3$ (species) and $6$ (complexes) are
-attained; the minimal number of reactant complexes lies between $4$ and $6$ (\zcref{sec:further}).
+All four bounds are attained: the network $\mathcal N_1$ of \zcref{thm:three-species}, which has ACR for every
+vector of rate constants, attains those on dimension, species and complexes, and the network $\mathcal N_2$ of
+\zcref{sec:five} attains the one on reactant complexes. Hence the conjecture holds for dimension, reactant complexes
+and complexes, and fails for the number of species.
 \end{theorem}
 
 \begin{table}[ht]
 \centering
 \begin{tabular}{lccc}
 \toprule
-& ACR + nondegenerate & ACR + multistability & ACR + multistability\\
-& multistationarity \autocite{KNS2024} & lower bound & best example\\
+& ACR + nondegenerate & ACR + multistability & attained\\
+& multistationarity \autocite{KNS2024} & exact minimum & by\\
 \midrule
-dimension & $2$ & $3$ & $3$ ($\mathcal N_1$)\\
-species & $3$ & $3$ & $3$ ($\mathcal N_1$)\\
-reactant complexes & $3$ & $4$ & $6$ ($\mathcal N_1$)\\
-complexes & $5$ & $6$ & $6$ ($\mathcal N_1$)\\
+dimension & $2$ & $3$ & $\mathcal N_1$\\
+species & $3$ & $3$ & $\mathcal N_1$\\
+reactant complexes & $3$ & $5$ & $\mathcal N_2$\\
+complexes & $5$ & $6$ & $\mathcal N_1$\\
 \bottomrule
 \end{tabular}
 \caption{Minimal sizes of at-most-bimolecular networks. All bounds of the first column are attained by the network
@@ -93,8 +98,14 @@ $\{X_1+X_2\to2X_3,\ X_3\to X_1,\ 2X_3\to2X_2\}$ of \autocite{KNS2024}.}
 \label{tab:summary}
 \end{table}
 
-Part~1 is the substance of the paper (\zcref{thm:dim-two}); parts~2 and~3 follow from it together with results of
-\autocite{KNS2024} and a short argument on the kinetic subspace (\zcref{sec:consequences}).
+Part~1 follows from \zcref{thm:dim-two} (\zcref{cor:dimension}), and part~2 from \autocite[Theorem~4.1]{KNS2024},
+because a multistable system is nondegenerately multistationary. Part~3 combines \zcref{thm:dim-two} with
+\zcref{thm:rank-three} (\zcref{cor:five}). Part~4 is \zcref{cor:complexes}. The lower and upper bounds concern
+arbitrary numbers of species and reactions, and no claim of simultaneous minimization is made.
+
+This text merges two reports of this repository, each checked by a fresh-context verifier: one on the conjecture
+(sections on dimension two, complexes and three species), one on the exact number of reactant complexes. Their
+original versions are kept in the folder \texttt{archive/}. The merged text has not yet been re-verified.
 
 \section{Setting}\label{sec:setting}
 
@@ -126,6 +137,10 @@ question is existential: a network qualifies if one vector $\kappa$ gives both p
 
 Exponentially stable steady states are nondegenerate, so a multistable system is nondegenerately multistationary and
 every lower bound of \autocite{KNS2024} applies to ACR with multistability.
+
+The zero complex is allowed and counts as a complex, also as a reactant complex: Example~4.13
+of~\autocite{KNS2024} counts $0\to X$ among its four reactant complexes. The result on reactant complexes depends on
+this convention. Arbitrarily many reactions may leave each reactant complex.
 
 \begin{lemma}[coefficient cones]\label{lem:cones}
 Let $G$ be bimolecular and let $v_y$ be the coefficient vector of the monomial $x^y$ in~\eqref{eq:ma}. Then
@@ -350,19 +365,15 @@ minus the product bound are feasible locally, but the global ACR condition faile
 know whether \zcref{thm:dim-two} extends to networks with larger product complexes.
 \end{remark}
 
-\section{Reactant complexes and complexes}\label{sec:consequences}
+\section{Dimension and number of complexes}\label{sec:consequences}
 
-\begin{corollary}[dimension and reactant complexes]\label{cor:reactants}
-If a bimolecular network $G$ admits $\kappa$ with ACR and multistability, then $\dim S\ge3$ and $G$ has at least
-$4$ reactant complexes.
+\begin{corollary}[dimension]\label{cor:dimension}
+If a bimolecular network $G$ admits $\kappa$ with ACR and multistability, then $\dim S\ge3$.
 \end{corollary}
 
 \begin{proof}
 One-dimensional networks never have ACR with nondegenerate multistationarity \autocite[Proposition~3.10]{KNS2024},
-and dimension~$2$ is excluded by \zcref{thm:dim-two}. A bimolecular network with ACR and nondegenerate
-multistationarity has at least $3$ species \autocite[Theorem~4.1]{KNS2024}. If $G$ has $k\ge1$ independent
-conservation laws, it has at least $n-k+1=\dim S+1\ge4$ reactant complexes \autocite[Theorem~5.5]{KNS2024}; if it
-is full-dimensional, at least $n+2\ge5$ \autocite[Theorem~5.1]{KNS2024}.
+dimension~$2$ is excluded by \zcref{thm:dim-two}, and dimension~$0$ has singleton classes.
 \end{proof}
 
 For the number of complexes we use the classical objects of chemical reaction network theory: $m$ complexes, $\ell$
@@ -389,7 +400,7 @@ If a bimolecular network $G$ admits $\kappa$ with ACR and multistability, then $
 \end{corollary}
 
 \begin{proof}
-By \zcref{cor:reactants}, $s\ge3$. A network of deficiency zero is not multistationary \autocite[Lemma~2.4]{KNS2024},
+By \zcref{cor:dimension}, $s\ge3$. A network of deficiency zero is not multistationary \autocite[Lemma~2.4]{KNS2024},
 so $\delta\ge1$ and $m=\ell+s+\delta\ge5$, with equality only if $\ell=1$, $s=3$, $\delta=1$. Suppose $m=5$. If $G$
 has a nonterminal complex, \zcref{lem:kinetic} gives $t\le\ell+\delta-1=1$; otherwise all complexes are terminal and
 $t=\ell=1$. So $G$ has one linkage class, of deficiency one, with a single terminal strong linkage class, and the
@@ -412,8 +423,10 @@ molecularity: $\delta\ge1$ always, and $\delta\ge2$ when $\ell=1$.
 \begin{theorem}[three species, six complexes]\label{thm:three-species}
 The bimolecular network on species $X,Y,Z$
 \[
-\mathcal N_1:\quad Z\xrightarrow{k_1}Y+Z,\quad 2Z\xrightarrow{k_2}Z,\quad Y\xrightarrow{k_3}Y+Z,\quad
+\begin{gathered}
+\mathcal N_1:\quad Z\xrightarrow{k_1}Y+Z,\quad 2Z\xrightarrow{k_2}Z,\quad Y\xrightarrow{k_3}Y+Z,\\
 Y+Z\xrightarrow{k_4}2X,\quad X+Z\xrightarrow{k_5}2Z,\quad 2X\xrightarrow{k_6}Y
+\end{gathered}
 \]
 has $3$ species, $6$ reactions, $6$ reactant complexes, $6$ complexes and dimension $3$. For every vector of rate
 constants it has ACR in $X$, with value $2k_1/k_5$. For $(k_1,\dots,k_6)=(5,1,1,4,10,7)$ its positive steady states
@@ -462,9 +475,425 @@ change $w\cdot x=x+2y$, so that $w\cdot f=z\,(2k_1-k_5x)$. Two further certified
 them weakly reversible with two linkage classes of deficiency zero and total deficiency one, are given in the
 sub-study \texttt{complexes/report.md}.
 
+\section{Five reactant complexes suffice}\label{sec:five}
+Consider four species $A,B,C,R$ and the network $\mathcal N_2$ of six reactions
+\begin{equation}\label{eq:network}
+\begin{gathered}
+ 0\xrightarrow{64}C,\qquad A+B\xrightarrow{3}2B,\qquad
+ A+C\xrightarrow{5}B+C,\qquad B+C\xrightarrow{64}A,\\
+ 0\xrightarrow{1}R,\qquad R\xrightarrow{1}0.
+\end{gathered}
+\end{equation}
+Its five distinct reactant complexes are $0,A+B,A+C,B+C,R$. Every reactant and product has
+molecularity at most two. With the mass-action convention $k x^y$ its equations are
+\begin{equation}\label{eq:exampleode}
+\begin{aligned}
+ \dot a&=-3ab-5ac+64bc, &\quad \dot b&=3ab+5ac-64bc,\\
+ \dot c&=64-64bc, &\quad \dot r&=1-r.
+\end{aligned}
+\end{equation}
+The stoichiometric subspace is $\{v:v_a+v_b=0\}$, of dimension three; the only independent
+conservation law is $a+b=T$. Every positive equilibrium has $r=1$, so ACR holds globally, across
+all compatibility classes. In fact arbitrary positive rates in the last two reactions give the
+ACR value $k_{0R}/k_{R0}$.
+
+In the class $a+b=9$, equilibrium requires $b=9-a$, $c=1/(9-a)$ and $r=1$, with $0<a<9$.
+The remaining equation factors exactly as
+\[
+ \dot a\big|_{b=9-a,\,c=1/(9-a)}
+ =\frac{-3(a-4)(a-6)(a-8)}{9-a}=0.
+\]
+Thus the complete list of positive equilibria in this class is
+\[
+ P_1=(4,5,1/5,1),\qquad P_2=(6,3,1/3,1),\qquad P_3=(8,1,1,1).
+\]
+In the class coordinates $(a,c,r)$ the restricted Jacobian is
+\[
+ J_{\rm red}=\begin{pmatrix}
+ 6a-27-69c&576-69a&0\\
+ 64c&-64(9-a)&0\\
+ 0&0&-1
+ \end{pmatrix}.
+\]
+Its characteristic polynomial is $(\lambda+1)(\lambda^2-\tau\lambda+\Delta)$, where
+$\tau$ and $\Delta$ are the trace and determinant of the upper left $2\times2$ block:
+\begin{center}
+\begin{tabular}{crrl}
+\toprule
+Equilibrium & $\tau$ & $\Delta$ & Stability in the class\\
+\midrule
+$P_1$ & $-1684/5$ & $1536$ & Exponentially stable\\
+$P_2$ & $-206$ & $-768$ & Saddle\\
+$P_3$ & $-112$ & $1536$ & Exponentially stable\\
+\bottomrule
+\end{tabular}
+\end{center}
+The trace-negative, determinant-positive criterion for a real $2\times2$ matrix proves the two
+stability assertions exactly; no numerical eigenvalue calculation is used.
+
+The regulator can also affect the other species without increasing the number of sources. Replace
+$0\xrightarrow{64}C$, $0\xrightarrow1 R$, $R\xrightarrow1 0$ by
+$0\xrightarrow{62}C$, $0\xrightarrow1 C+R$, $R\xrightarrow1 C$.
+Only $\dot c$ changes, by adding $r-1$. The equilibria are unchanged and the Jacobian remains
+triangular in the two blocks, with exactly the same characteristic polynomial. Both versions are
+verified directly from their reaction lists by \texttt{certify\_five\_example.py}.
+
+\section{Four reactant complexes do not suffice}\label{sec:four}
+\begin{theorem}\label{thm:rank-three}
+Let a mass-action system have stoichiometric rank three, four distinct reactant complexes, and
+at-most-bimolecular sources and products. If it has ACR, each positive compatibility class contains at most
+two nondegenerate positive equilibria. When there are two, their restricted Jacobian determinants have
+opposite signs. In particular, at most one is exponentially stable.
+\end{theorem}
+
+\begin{corollary}\label{cor:five}
+An at-most-bimolecular mass-action system with ACR and two exponentially stable positive equilibria in one
+class has at least five distinct reactant complexes.
+\end{corollary}
+\begin{proof}
+With $r$ reactant complexes a positive equilibrium gives a strictly positive vector in the kernel of
+the aggregated coefficient matrix $N$, so $\rank N\le r-1$. At a nondegenerate equilibrium,
+$\im N$ equals the stoichiometric subspace $S$: indeed $\im J\subseteq\im N\subseteq S$, while
+$J|_S$ is invertible. For $r\le4$ this forces $\dim S\le3$. Dimension two is excluded by
+\zcref{thm:dim-two}, which holds for every number of species and reactant
+complexes. Dimension one is excluded by Proposition~3.10 of~\autocite{KNS2024}; directly, on a class the
+field is a fixed vector times a polynomial of degree at most two in the class coordinate, and two
+simple zeros of such a polynomial have opposite derivative signs. Dimension zero has singleton classes.
+Dimension three forces $r=4$ and is excluded by \zcref{thm:rank-three}.
+\end{proof}
+\zcref{thm:rank-three} does not use \zcref{thm:dim-two}; only \zcref{cor:five} does.
+
+\section{Toric reduction and the determinant sign}
+List the sources as $y_1,\ldots,y_4$, and write $f(x)=N m(x)$, where $m_a(x)=x^{y_a}$.
+It suffices to consider a system possessing a nondegenerate positive equilibrium $x^*$.
+Then $\rank N=3$ and $\ker N$ is generated by $m(x^*)>0$.
+Let $A$ be the $3\times n$ matrix with rows $y_a-y_4$, $a=1,2,3$.
+The equilibrium equations are
+\[
+ A\log x=A\log x^*,\qquad
+ \mathcal E=x^*\circ\exp(\ker A).
+\]
+Nondegeneracy forces $\rank A=3$. Otherwise the differential of these equations, and hence
+the restricted Jacobian, has rank at most two. ACR in species $i$ is equivalent to
+$e_i\in\operatorname{row}(A)$, or to a zero $i$th row in any basis matrix $V$ of $\ker A$.
+
+Let $W$ have rows forming a basis of $S^\perp$. Compatibility is $Wx=Wx^*$.
+Set $N_0=[N_1\ N_2\ N_3]$ and $p_a=m_a(x^*)/m_4(x^*)>0$.
+Any three columns of $N$ are independent. At equilibrium,
+\[
+ J=m_4(x)N_0\diag(p_1,p_2,p_3)A\diag(1/x).
+\]
+Consequently, for a fixed nonzero constant $\sigma$ and a positive factor $q(x)$,
+\begin{equation}\label{eq:orientation}
+ \det(J|_S)=\sigma q(x)
+ \det\begin{pmatrix}W\\ A\diag(1/x)\end{pmatrix}.
+\end{equation}
+To see this, use the basis $N_0$ for $S$ and complete it by columns $B$ to a basis of $\R^n$.
+Multiplication of the displayed block matrix by $[B\ N_0]$ gives a block triangular matrix with
+diagonal blocks $WB$ and $A\diag(1/x)N_0$. All change-of-basis determinants are fixed and nonzero.
+
+The same determinant can be written with a basis matrix $V$ of $\ker A$. Choose $C$ with $AC$ invertible.
+Then $[V\ C]$ is invertible, and multiplying the block matrix on the right by $\diag(x)[V\ C]$ gives a block
+triangular matrix with diagonal blocks $W\diag(x)V$ and $AC$. Hence, for a fixed constant $c\ne0$,
+\begin{equation}\label{eq:orientationV}
+ \det\begin{pmatrix}W\\ A\diag(1/x)\end{pmatrix}
+ =\frac{c}{x_1\cdots x_n}\,\det\bigl(W\diag(x)V\bigr).
+\end{equation}
+At a positive equilibrium, nondegeneracy is therefore equivalent to $\det(W\diag(x)V)\ne0$, and the sign
+of $\det(J|_S)$ is a fixed sign times the sign of $\det(W\diag(x)V)$.
+
+Replacing logarithmic binomials by ordinary binomials multiplies their differential rows by positive
+monomial factors, followed by a fixed nonsingular row transformation. Fixing the ACR concentration and
+performing linear eliminations therefore preserves the comparison of determinant signs.
+In a one-variable reduction $F(t)=0$, the augmented determinant is a fixed sign times a positive
+factor times $F'(t)$, provided the eliminated equations have nonsingular differentials on the positive
+parameter interval. We verify this condition explicitly below. Two simple roots of a quadratic on an
+interval have opposite derivative signs. The same holds for $h(t)-p$ when $p>0$ and $\log h$ is
+strictly concave on that interval. Since a real Hurwitz $3\times3$ matrix has negative determinant,
+opposite determinant signs preclude two stable equilibria.
+
+\section{Exhaustive source classification}
+A species absent from every source has a nonnegative derivative. At a positive equilibrium every
+reaction rate is positive, so no reaction can produce that species either. Such species are inert and
+can be removed. They cannot be ACR species, since their arbitrary positive concentrations give
+equilibria with different values. Four bimolecular sources then involve at most eight species.
+
+The source classification is elementary and finite. For $4\le n\le8$, enumerate four-element subsets
+of
+\[
+ \{0,e_i,2e_i,e_i+e_j:1\le i<j\le n\}.
+\]
+Retain only sets covering all species, having $\rank A=3$, and having an ACR coordinate.
+The rank test uses integer $3\times3$ minors. The ACR coordinates are precisely the indices contained
+in every nonzero three-column minor: deleting such a column lowers the rank to two.
+Canonicalization permutes the four sources and sorts the species columns, so no floating-point
+rank decision or heuristic is involved. The script \texttt{certify\_sources.py} performs this enumeration.
+
+For three species the toric equilibrium set is a singleton. For four species there are 26 source types.
+In each, a generator $v$ of $\ker A$ has at most three distinct entries, including zero; this is checked
+by its integer cofactor formula. The class equation is
+\[
+ \sum_{j=1}^4 W_j x_j^* e^{v_j t}-Wx^*=0.
+\]
+It has at most three distinct exponential terms. A nonzero sum of three real exponentials has at most
+two real zeros counted with multiplicity: divide by the smallest exponential and apply Rolle's theorem
+to the resulting derivative, which has at most two terms. If the sum is identically zero, all equilibria
+on the curve are degenerate. In the nondegenerate case the two determinants have opposite signs by
+\eqref{eq:orientation}.
+
+For five or more species the exact list, up to species and source permutations, is as follows.
+\begin{center}
+\begin{tabular}{cll}
+\toprule
+Type & Sources & ACR species\\
+\midrule
+S1 & $0,E,C+D,A+B$ & $E$\\
+S2 & $0,2E,C+D,A+B$ & $E$\\
+S3 & $E,2E,C+D,A+B$ & $E$\\
+S4 & $E,D,C+E,A+B$ & $C$\\
+S5 & $E,D+E,C+E,A+B$ & $C,D$\\
+S6 & $E,D+E,C+D,A+B$ & $D$\\
+S7 & $E,D+E,2C,A+B$ & $D$\\
+S8 & $E,D+E,B+C,A+C$ & $D$\\
+S9 & $F,E+F,C+D,A+B$ & $E$\\
+\bottomrule
+\end{tabular}
+\end{center}
+There are eight types on five species, one on six species, and none on seven or eight.
+
+For S4, S5, S6 and S8 the varying equilibrium concentrations, after positive constant factors are
+removed, belong to three groups $g_1=u,g_2=w/u,g_3=w$. For S4, $c$ is fixed and $d,e$ are
+proportional to $ab$; for S5, $c,d$ are fixed and $e$ is proportional to $ab$; for S6, $d$ is fixed
+and $c,e$ are proportional to $ab$; for S8, $d$ is fixed, $a,b$ are proportional, and $e$ is
+proportional to $ac$. The class equations are $Qg=T$, two linear equations in the three group
+variables. If $\rank Q<2$, the equilibria are degenerate. Otherwise write the affine solution line
+as $g(t)=g^0+t\rho$, where $\rho$ spans $\ker Q$. Positivity of all three components cuts out an
+interval. The remaining equation is the polynomial $F(t)=g_1(t)g_2(t)-g_3(t)$ of degree at most two.
+The augmented determinant with rows $Q$ and $\nabla(g_1g_2-g_3)$ is a fixed nonzero multiple of
+$F'(t)$: the cross product of the rows of $Q$ is a fixed nonzero multiple of $\rho$.
+The group embedding is linear with independent columns and positive constant entries on disjoint
+coordinate groups. Eliminating the other fixed linear equations therefore changes the original
+augmented determinant only by a fixed nonzero factor. Hence \eqref{eq:orientation} applies, and
+two nondegenerate equilibria have opposite determinant signs. If $F$ vanishes identically, every
+equilibrium is degenerate.
+
+\section{Exhaustive stoichiometric classification}
+We now give an exact classification for S1, S2, S3, S7 and S9.
+
+For a fixed source set, form every possible nonzero reaction vector $p-y_a$, where $p$ is any
+at-most-bimolecular product. Every rank-three stoichiometric subspace is spanned by three of these
+vectors. Enumerate these triples and identify equal spans by their primitive exterior coordinates
+(their $3\times3$ minors, divided by their gcd, with the first nonzero entry positive).
+For each span $S$, retain all allowed reaction vectors lying in it, giving a maximal matrix $G$.
+Membership is checked by the integer adjugate identity in a nonsingular three-coordinate projection.
+
+\begin{lemma}\label{lem:maximal}
+If some subnetwork with this span has a positive equilibrium, the maximal matrix $G$ has a strictly
+positive kernel vector. In a three-coordinate projection, failure of this condition is detected by
+a nonzero cross product of two columns having nonnegative inner products with every column,
+after possibly reversing its sign.
+\end{lemma}
+\begin{proof}
+The subnetwork equilibrium supplies a positive dependence among vectors spanning $S$. Their positive
+cone is therefore all of $S$: any linear representation can be made nonnegative by adding a sufficiently
+large multiple of that dependence. Each additional vector can thus be cancelled by a nonnegative
+combination of the old vectors. Adding these dependencies to the original positive dependence gives
+a dependence positive on every maximal-network reaction.
+
+Conversely, a finite collection spanning $\R^3$ positively spans $\R^3$ exactly when its dual cone is
+$\{0\}$. If this dual cone is nonzero it is pointed, since the original vectors span $\R^3$.
+It has an extreme ray, on which at least two independent constraints are active. Such a ray is
+perpendicular to two independent original vectors, and hence is their cross product up to sign.
+This proves the exact finite test.
+\end{proof}
+
+Next write
+\begin{equation}\label{eq:minors}
+ D_W(z)=\det(W\diag(z)V)
+       =\sum_{|I|=n-3}\det W_{:,I}\det V_{I,:}\prod_{i\in I}z_i.
+\end{equation}
+If all coefficients vanish, every equilibrium is degenerate by \eqref{eq:orientation} and
+\eqref{eq:orientationV}. If the nonzero coefficients have one
+sign, there is at most one positive equilibrium per class. Indeed, if $x,y$ are two such equilibria,
+$\log x-\log y=Vt$ and $x-y=\diag(\ell)Vt$ with all logarithmic means $\ell_i>0$.
+Then $W\diag(\ell)Vt=0$, contradicting \eqref{eq:minors} unless $t=0$.
+
+A further exact exclusion concerns the aggregated kinetic rank. Let $K$ be a rational basis matrix
+of $\ker G$, write a general flux as $K\theta$, and sum its reaction vectors separately for each
+source, giving columns $L_1(\theta),\ldots,L_4(\theta)$ with sum zero. Project onto three independent
+coordinates. If the cubic polynomial
+\[
+ \det[L_1(\theta)\ L_2(\theta)\ L_3(\theta)]
+\]
+vanishes identically, $\rank N<3$ at every positive equilibrium of every subnetwork with this span.
+Such equilibria are degenerate. The certificate checks polynomial identity exactly. Nonzero evaluations
+are used only to retain a case, never to discard one.
+
+The complete counts are:
+\begin{center}\small
+\begin{tabular}{crrrrr}
+\toprule
+ & S1 & S2 & S3 & S7 & S9\\
+\midrule
+All rank-three spans & 4333&4287&4333&4397&23035\\
+Missing a source &2965&3161&2965&3050&17734\\
+No positive maximal flux &1126&782&1126&1042&4442\\
+Injective &169&301&129&231&569\\
+Class-degenerate &34&6&6&32&144\\
+Kinetically degenerate &39&37&43&20&92\\
+Remaining &0&0&64&22&54\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each span occurs in exactly one row after the first row. After fixing the ACR coordinate, remove its
+column from $W$ and row-reduce. Permutations $A\leftrightarrow B$, $C\leftrightarrow D$, and interchange
+of the two pairs are allowed for S3 and S9; only $A\leftrightarrow B$ is needed for S7. The remaining
+spaces reduce to eleven, five and three forms respectively. The next sections list \emph{all} of them
+and prove the required root and determinant properties.
+
+\section{The eleven S3 forms}
+The positive equilibria have
+\[
+ e=e_0,\qquad ab=p,\qquad cd=q,\qquad p,q,e_0>0.
+\]
+After $e$ is fixed the two conservation equations have one of the following forms. Constants $T,U$
+are arbitrary real numbers; existence of a positive solution supplies any needed positivity restrictions.
+\begin{center}\small
+\begin{tabular}{cll}
+\toprule
+Index & First equation & Second equation\\
+\midrule
+0 &$b=T$ &$c+d=U$\\
+1 &$a-2c+2d=T$ &$b+c=U$\\
+2 &$a-c+d=T$ &$b+(c+d)/2=U$\\
+3 &$a-c+d=T$ &$b+c=U$\\
+4 &$a-c+d=T$ &$b+c+d=U$\\
+5 &$a-c+d=T$ &$b+2c=U$\\
+6 &$a-c/2+d=T$ &$b+c/2=U$\\
+7 &$a=T$ &$b+c+d=U$\\
+8 &$a+d=T$ &$b+c=U$\\
+9 &$a+(c+d)/2=T$ &$b+(c+d)/2=U$\\
+10 &$a+c+d=T$ &$b+c+d=U$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Forms 0 and 7 fix $a,b>0$ and $c+d$, so $cd=q$ is a quadratic on the interval $c,d>0$.
+For form 8 take $a=t$, $b=p/t$, $c=U-p/t$, $d=T-t$. The positive interval is
+$p/U<t<T$, with $T,U>0$. Multiplication of $cd-q=0$ by $t>0$ gives
+\[
+ -Ut^2+(UT+p-q)t-pT=0.
+\]
+For forms 9 and 10, subtraction fixes $a-b$; together with $ab=p$ this uniquely fixes the positive
+pair $(a,b)$, since $a-p/a$ is strictly increasing from $-\infty$ to $+\infty$.
+Again $c+d$ is fixed and $cd=q$ is quadratic on its positive interval.
+
+For forms 1--6 put $c=t>0$, $d=q/t$. Then
+\[
+ a=T+\alpha t-\beta q/t,\qquad
+ b=U-\gamma t-\delta q/t,
+\]
+where $\alpha,\beta,\gamma>0$ and $\delta\ge0$, as read directly from the table.
+The functions $a,b$ are concave; $a$ is strictly concave. Their common positivity set is an interval.
+On it,
+\[
+ (\log(ab))''=
+ \frac{a''}{a}-\frac{(a')^2}{a^2}
+ +\frac{b''}{b}-\frac{(b')^2}{b^2}<0.
+\]
+Hence $ab=p$ has at most two roots, with opposite derivative signs when two roots exist.
+
+For completeness, take the augmented determinant with rows $R$, $\nabla(ab-p)$, $\nabla(cd-q)$,
+where $R$ is the conservation matrix in the table. On the displayed scalar curves its multiplier of
+the derivative is, up to a fixed sign: $T>0$ for forms 0 and 7; $t>0$ for forms 1--6 and 8;
+and $h(a+b)>0$ for forms 9 and 10, where $h=1/2$ and $h=1$ respectively.
+For form 8 multiplication of the scalar equation by $t$ preserves the sign at a root.
+These identities also prove that repeated roots and identically zero reductions cannot be
+nondegenerate equilibria.
+
+\section{The five S7 forms}
+Here the positive equilibrium equations are
+\[
+ d=d_0,\qquad ab=pe,\qquad c^2=qe,\qquad p,q,d_0>0.
+\]
+The reduced variables are $(a,b,c,e)$, and the conservation equations are:
+\begin{center}\small
+\begin{tabular}{cll}
+\toprule
+Index & First equation & Second equation\\
+\midrule
+0 &$b+e=T$ &$c-e=U$\\
+1 &$a-c+2e=T$ &$b+c=U$\\
+2 &$a-c/2+e/2=T$ &$b+c/2+e/2=U$\\
+3 &$a-e=T$ &$b=U$\\
+4 &$a+b+e=T$ &$c=U$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For form 0 take $c=t$, $e=t-U$, $b=T-t+U$, $a=pe/b$.
+Positivity is an interval, and $c^2-qe=t^2-q(t-U)=0$ is quadratic.
+Its determinant multiplier has magnitude $b>0$.
+
+For forms 1 and 2 put $u=1/c>0$, so $e=1/(qu^2)$. Then
+\[
+ A(u):=a/c=Tu+\alpha-\frac{\beta}{qu},\qquad
+ B(u):=b/c=Uu-\gamma-\frac{\delta}{qu},
+\]
+with $(\alpha,\beta,\gamma,\delta)=(1,2,1,0)$ or $(1/2,1/2,1/2,1/2)$.
+The positive interval is $A(u)>0$, $B(u)>0$. Both functions are concave and $A''(u)<0$.
+Thus $\log(A B)$ is strictly concave, and $A B=p/q$ has at most two roots with opposite
+derivative signs. If $H=AB-p/q$, the augmented determinant with rows $R$, $\nabla(ab-pe)$,
+$\nabla(c^2-qe)$ equals, up to fixed orientation,
+\[
+ q\bigl(H'(u)-2H(u)/u\bigr).
+\]
+At a root its multiplier of $H'$ is the positive constant $q$.
+
+For form 3 the equation $ab=pe$ is $UT+(U-p)e=0$, with $U=b>0$.
+There is at most one positive solution, unless the equation is an identity, in which case the
+positive solutions form a curve and are degenerate. For form 4, $c=U>0$ fixes $e=U^2/q$;
+the sum and product of $a,b$ are fixed, giving a quadratic on $a,b>0$.
+The determinant multiplier has magnitude $q>0$ in both scalar parametrizations used by the certificate.
+
+\section{The three S9 forms}
+The equilibrium equations are
+\[
+ e=e_0,\qquad ab=pf,\qquad cd=qf,\qquad p,q,e_0>0.
+\]
+In variables $(a,b,c,d,f)$ the three conservation equations have one of these forms:
+\begin{center}\small
+\begin{tabular}{clll}
+\toprule
+Index & First equation & Second equation & Third equation\\
+\midrule
+0 &$b+f=T$ &$c-f=U$ &$d=V$\\
+1 &$a-c/2+f/2=T$ &$b+c/2+f/2=U$ &$d=V$\\
+2 &$a=T$ &$b=U$ &$c+d+f=V$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For form 0, put $f=t$, $b=T-t$, $c=t+U$, $d=V$, $a=pt/(T-t)$.
+Positivity is an interval with $V>0$. The remaining equation is
+$(V-q)t+VU=0$. It has at most one solution, or is an identity giving only degenerate equilibria.
+The determinant multiplier has magnitude $b>0$.
+
+For form 1, put $f=t$, $d=V>0$, $c=qt/V$,
+\[
+ a=T+\tfrac12(q/V-1)t,\qquad
+ b=U-\tfrac12(q/V+1)t.
+\]
+The positive domain is an interval defined by three linear inequalities $t,a,b>0$.
+The remaining equation $ab-pt=0$ is quadratic. Its determinant multiplier has magnitude $V>0$.
+
+For form 2, $a=T>0$ and $b=U>0$ fix $f=TU/p$.
+The sum $c+d=V-TU/p$ and product $cd=qTU/p$ are fixed, so there are at most two positive
+solutions, with opposite derivative signs. The determinant multiplier has magnitude $p>0$.
+
+All nineteen forms have now been treated. Together with the source classification, the injectivity
+and degeneracy exclusions, and \eqref{eq:orientation}, this proves \zcref{thm:rank-three}.
+
 \section{Further results and open questions}\label{sec:further}
 
-The following results complete \zcref{tab:summary}. Their proofs, partly computer-assisted with exact arithmetic, are
+The following results complement \zcref{tab:summary}. Their proofs, partly computer-assisted with exact arithmetic, are
 in the two sub-study reports \texttt{examples/report.md} and \texttt{complexes/report.md}, with the scripts that
 check them.
 
@@ -486,30 +915,26 @@ constants. Networks with at most $4$ distinct reactant complexes are covered by
 \autocite[Propositions~3.1(3) and~3.5]{KNS2024}; the $3\,188\,646$ networks with $5$ distinct reactant complexes
 were enumerated exactly, through a reduction to the sign changes of one univariate function whose derivative has,
 up to a fixed sign, the sign of the Jacobian determinant (two exponentially stable states have determinants of the same sign, which
-forces a third steady state between them). By \zcref{cor:reactants}, a three-species network with ACR and
+forces a third steady state between them). By \zcref{cor:dimension}, a three-species network with ACR and
 multistability is full-dimensional, so it needs at least $6$ reactions, which $\mathcal N_1$ and $\mathcal G_7$
 attain. The restriction to full-dimensional networks is necessary: the two-dimensional network
 $\{0\xrightarrow{10}Z,\ Y+Z\xrightarrow{10}X,\ X+Z\xrightarrow{1}Y+Z,\ X+Y\xrightarrow{1}2Y\}$ has the three
 nondegenerate positive steady states $(5,1,1)$, $(4,2,\frac12)$, $(3,3,\frac13)$ in the class $x+y=6$, the outer two
 exponentially stable (it has no ACR).
-\item \emph{Four reactant complexes.} With exactly $4$ reactant complexes and ACR, the positive steady states form a
-coset of a toric variety, and the number of them in a class is bounded by a rule of signs for exponential sums.
-For $4$ species no class contains two exponentially stable positive steady states (two such states would force a
-third one, and the rule of signs allows at most two). For $5$ or more species exactly nine reactant
-structures are compatible with ACR (none with $7$ or $8$ species); six of them are excluded by proof, and the
-remaining three were excluded only numerically, by sampling all realizable stoichiometric subspaces.
 \end{enumerate}
 
-\paragraph{Open questions.} Is the minimal number of reactant complexes $4$, $5$ or $6$? For full-dimensional
-networks on three species, is the bound $n+2=5$ of \autocite[Theorem~5.1]{KNS2024} attained with multistability? Does \zcref{thm:dim-two} hold for networks with
-bimolecular reactant complexes but larger products (\zcref{rem:products})? Finally, \autocite{JNJ2026} found ACR with
-bistability in a dual-site futile cycle with bifunctional enzymes (six species, dimension four); our examples show
-that much smaller mechanisms, based on a weighted integral feedback, suffice.
+\paragraph{Open questions.} Does one network attain all four minima of \zcref{tab:summary}? $\mathcal N_1$ has six
+reactant complexes and $\mathcal N_2$ has four species. In particular, for full-dimensional networks on three
+species, is the bound $n+2=5$ of \autocite[Theorem~5.1]{KNS2024} attained with multistability? Does
+\zcref{thm:dim-two} hold for networks with bimolecular reactant complexes but larger products
+(\zcref{rem:products})? Finally, \autocite{JNJ2026} found ACR with bistability in a dual-site futile cycle with
+bifunctional enzymes (six species, dimension four); our examples show that much smaller mechanisms, based on a
+weighted integral feedback, suffice.
 
 \section{Computer verification}\label{sec:computer}
 
 All scripts print \texttt{PASS}/\texttt{FAIL} for each claim and exit with a nonzero code on failure. They were run
-under WSL (Fedora~44) with Python~3.12, sympy~1.14 and python-flint~0.9.
+under WSL (Fedora~44) with Python~3.12, sympy~1.14, python-flint~0.9 and NumPy.
 \begin{itemize}
 \item \texttt{scripts/check\_dimension\_two\_example.py} (8~s): on $20$ random rational instances of the KNS network
 of Example~4.10, checks the determinant formula of \zcref{lem:det} and that the two positive steady states of a
@@ -519,12 +944,47 @@ $0.1$~s): \zcref{thm:three-species} and the two further six-complex examples (AC
 characteristic polynomials, Routh--Hurwitz conditions, counts of complexes and deficiency).
 \texttt{complexes/scripts/eigen\_enclosures.py}: eigenvalue enclosures in ball arithmetic.
 \item \texttt{examples/scripts/certify\_example.py} (under $1$~s): the network $\mathcal G_7$ (exact Gröbner basis,
-root isolation, ball-arithmetic eigenvalues). \texttt{examples/scripts/enum5\_reactions.py} (about two minutes on
-$12$ cores): the enumeration of item~3. \texttt{examples/scripts/e2\_reactant\_sets.py} and
-\texttt{check\_gale\_formula.py}: the reactant structures of item~4 and the determinant formula used there.
+root isolation, ball-arithmetic eigenvalues). The enumeration of item~3 is
+\texttt{examples/scripts/enum5\_reactions.py} (about two minutes on $12$ cores).
 \end{itemize}
 Searches and simulations used to find the examples are in \texttt{explore} sub-folders; they are floating-point and
 not part of any proof.
+
+For the four-reactant classification and the network $\mathcal N_2$, run from the folder \texttt{four-reactants/}:
+\begin{verbatim}
+python scripts/certify_sources.py
+python scripts/certify_subspaces.py
+python scripts/certify_normal_forms.py
+python scripts/certify_five_example.py
+\end{verbatim}
+The first script re-enumerates every eligible source set. The second generates from scratch all
+40,385 reaction spans for the five specified source types, proves each exclusion, and writes the
+retained spaces and their classifications to \texttt{certificates/subspaces.json}. It does not read
+any numerical candidate list. The third symbolically checks all nineteen determinant identities
+and the concavity derivatives, including the conservation equations along every scalar curve.
+The fourth derives the upper-bound example from its reaction list, factors its complete steady-state
+equation and checks every stability claim in rational arithmetic.
+Each script prints PASS/FAIL and exits nonzero on a failure.
+
+The environment used was Python 3.12, SymPy 1.14 and NumPy under Fedora 44 in WSL. The runs take
+less than one minute in total. Integer arrays use signed 64-bit entries; their input values are
+in $[-2,2]$, three-minors have absolute value at most 48, adjugate entries at most 8, membership
+products at most 288, and cross-product inner products at most 48. Thus these operations cannot
+overflow. Nullspaces, polynomial identities and all subsequent coefficients are rational and symbolic.
+No numerical eigenvalue, optimizer tolerance, random search or sampling result is used as an exclusion.
+
+Fresh-context verifiers checked the two reports merged here; see \texttt{verification.md} and
+\texttt{four-reactants/verification.md}. The second one reimplemented the enumeration, obtained the same label for
+every span, and recorded two facts that make the proof sturdier. The positive-flux exclusion is not needed: every
+span it rejects is also rejected by the injectivity or degeneracy tests. The kinetic exclusion also has an elementary
+reason, without the cubic: on each span that it removes, the spans of the reaction vectors of some three sources
+fail Rado's condition, so three columns of $N$ are forced to be dependent.
+
+The merged text itself has not been re-verified. A public-source novelty audit on 31 October 2026, recorded in
+\texttt{four-reactants/references.md}, found no prior resolution of the exact-minimum question; absence of search hits
+is not a proof of priority. This is a computer-assisted proof, checked by fresh-context AI verifiers, not by human
+referees. The results do not concern larger products or nonhyperbolic notions of stability, and they do not classify
+every network attaining the minima.
 
 \paperreferences
 \end{document}

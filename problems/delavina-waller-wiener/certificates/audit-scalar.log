@@ -1,0 +1,35 @@
+PASS C1: c_h <= U_d(h), d in [8,400) and sampled up to 3000 smallest gap 0.8329 at (d,h)=(8,3)
+PASS C2: R > interpolant of c_h for all 4<=d<=260, 5<=k<=2d smallest margin 0.65685 at (d,k,x)=(4,6,2)
+   d<=7 minima (d,k): margin (compare Table 9 of the paper, which uses slightly larger rational c-bar):
+    (4, 5) 1.4069 at x = 2
+    (4, 6) 0.6569 at x = 2
+    (4, 7) 0.6569 at x = 2
+    (4, 8) 2.0 at x = 1
+    (5, 5) 1.7947 at x = 8/5
+    (5, 6) 2.4246 at x = 2
+    (5, 7) 3.0746 at x = 2
+    (5, 8) 2.4912 at x = 2
+    (5, 9) 2.8246 at x = 2
+    (5, 10) 5.0 at x = 1
+    (6, 5) 1.371 at x = 29/13
+    (6, 6) 1.7742 at x = 33/19
+    (6, 7) 3.1782 at x = 2
+    (6, 8) 3.2304 at x = 3
+    (6, 9) 3.1804 at x = 3
+    (6, 10) 1.7637 at x = 3
+    (6, 11) 5.9282 at x = 2
+    (6, 12) 9.0 at x = 1
+    (7, 5) 2.0475 at x = 97/37
+    (7, 6) 1.8054 at x = 11/5
+    (7, 7) 3.7588 at x = 29/13
+    (7, 8) 4.5905 at x = 2
+    (7, 9) 6.2333 at x = 2
+    (7, 10) 5.7605 at x = 3
+    (7, 11) 6.0105 at x = 3
+    (7, 12) 4.7605 at x = 3
+    (7, 13) 9.9833 at x = 2
+    (7, 14) 14.0 at x = 1
+PASS C3: (9.3) S_d(a,x) > U_d(x) on the whole region, d>=8, by rational branch and bound boxes closed: 11625; smallest lower bound on a closed box: 1.5305884090470678e-09
+PASS C4: for k in 5,6,7 and d>260, A/(2s) > U_d(x) for every x in [1,d/2] 
+PASS C5: (5.3) tree inequality, direct for 5<=d<400, via U_d for d>=30 
+ALL PASS

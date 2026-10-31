@@ -331,3 +331,32 @@ progress journal. Global topology ordering remains unresolved.
   addressed. Solver and manuscript: GPT-6-Astra (xhigh). Verified the same day in a fresh context (GPT-6-Astra,
   xhigh): CONFIRMED WITH CORRECTIONS (scope wording, full source quotation; no formula changed); 85 + 40 exact
   checks PASS. The verifier's report failed to save and was restored from its session log.
+
+## 31 October 2026
+
+- Result 29 added (follow-up of result 27): the exact minimum number of reactant complexes for ACR with two
+  exponentially stable positive steady states in one class, at most bimolecular reactants and products, is five.
+  Four sources force a toric steady-state set; an exact enumeration (35 source types, 40,385 rank-three spans) leaves
+  19 normal forms, each with at most two nondegenerate steady states of opposite determinant signs. An explicit
+  4-species, 6-reaction network attains five. Solver and manuscript: GPT-6-Astra (xhigh). Verified the same
+  day in a fresh context (Claude Opus 5.5, effort not recorded): CONFIRMED WITH CORRECTIONS. No theorem, count or
+  certificate value changed; one missing formula added, the convention that the zero complex is a reactant stated,
+  citations made exact. The verifier reimplemented the enumeration before reading the solver's scripts (all 1,992
+  span labels agree), caught 24 of 24 relevant corruptions, and found an elementary Rado criterion that coincides
+  exactly with the kinetic exclusion the theorem depends on.
+- Result 30 added as **already solved**: the DeLaViña–Waller conjecture (W(G) ≤ W(C_{2d+1}) at order 2d + 1 and
+  diameter d ≥ 3) is proved in M. Liu's unrefereed working paper (Zenodo, 19 August 2026), which scouting and a first
+  search had missed. Solver stopped under PROTOCOL §1.3; no new proof. Audit (Claude Opus 5.5, effort not recorded):
+  no error found, scalar sections re-proved by another method, all connected graphs on 7, 9, 11 vertices enumerated;
+  no separate verification yet.
+- Result 31 added as **already solved**: McClure–Shiu's question on one-species networks with four or five reactions is
+  answered by P. White's unrefereed preprint (7 September 2026, GitHub pw/crnt-connectivity and a personal site, absent
+  from arXiv, Zenodo and Crossref; found only by GitHub code search): every region is connected unless the network has
+  exactly three sources, all two-way. Audit (Claude Opus 5.5, effort not recorded): no error found, 17 exact checks,
+  a second proof of the gluing step; no separate verification yet. PROTOCOL §1 now requires GitHub code search.
+- Root README: rows 2 and 13, 8 and 25, 27 and 29 merged, numbers unchanged; each merged row states its status per
+  part. Results 27 and 29 also become one manuscript, `problems/kaihnsa-acr-multistability/paper.tex`, "the exact
+  minimal sizes" (19 pages). Its proofs are copied by script from the two verified texts; the abstract, the main
+  theorem, the table, the corollaries on dimension and reactant complexes, the open questions and the closing section
+  were adapted. The verified texts stay in `archive/` and `four-reactants/`. Merge: Claude Opus 5.5 (effort not
+  recorded). The merged text has not been verified yet.

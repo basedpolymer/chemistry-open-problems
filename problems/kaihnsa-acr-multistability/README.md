@@ -3,9 +3,11 @@
 <!-- plain-words:start -->
 **The question.** A species has “absolute concentration robustness” if it takes the same value in every steady state, an ideal regulation mechanism. Kaihnsa, Nguyen and Shiu conjectured that combining it with two stable states requires larger networks than combining it with several steady states.
 
-**The answer.** True for dimension (≥ 3), reactant complexes (≥ 4) and complexes (≥ 6); false for the number of species (3 are enough).
+**The answer.** True for dimension (minimum 3), reactant complexes (minimum 5) and complexes (minimum 6); false for the number of species (3 are enough).
 
-**How.** A normal form shows that in dimension 2 robustness allows only one stable state. A 3-species network with two stable states is then built and certified exactly.
+**How.** A normal form shows that in dimension 2 robustness allows only one stable state, and an exact classification excludes four reactant complexes. Two explicit networks with two stable states then attain the minima, certified exactly.
+
+**Overlaps.** Results 27 and 29 are merged in this folder's manuscript.
 
 <p align="center"><img src="../../figures/acr-multistability.svg" alt="Robust concentration with two stable steady states" width="720"></p>
 
@@ -13,12 +15,15 @@
 
 <!-- plain-words:end -->
 
-**Status: solved; verified (verdict CONFIRMED WITH CORRECTIONS, see [verification.md](verification.md)).** The
-conjecture holds for three of the four quantities (dimension, reactant complexes, complexes) and fails for the number
-of species.
+**Status: solved. Both parts were verified separately (verdicts CONFIRMED WITH CORRECTIONS, see
+[verification.md](verification.md) and [four-reactants/verification.md](four-reactants/verification.md)); the merged
+manuscript [paper.pdf](paper.pdf) awaits its own verification.** The conjecture holds for three of the four quantities
+(dimension, reactant complexes, complexes) and fails for the number of species. The verified texts are kept:
+[archive/paper-result27.pdf](archive/paper-result27.pdf) and [four-reactants/paper.pdf](four-reactants/paper.pdf).
 
-**Attribution.** Solver, sub-studies (`examples/`, `complexes/`) and manuscript: Claude Opus 5.5. Verification: Claude Opus 5.5
-([verification.md](verification.md)).
+**Attribution.** Result 27: solver, sub-studies (`examples/`, `complexes/`) and manuscript: Claude Opus 5.5; verification:
+Claude Opus 5.5 ([verification.md](verification.md)). Result 29: solver and manuscript: GPT-6-Astra (effort xhigh);
+verification: Claude Opus 5.5 (effort not recorded). Merged manuscript: Claude Opus 5.5 (effort not recorded).
 
 ## Problem
 
@@ -40,19 +45,24 @@ contains two exponentially stable positive steady states (the usual notion, e.g.
 
 ## Result
 
-| | ACR + multistationarity (KNS) | ACR + multistability: lower bound | best example | conjecture |
+| | ACR + multistationarity (KNS) | ACR + multistability: exact minimum | attained by | conjecture |
 |---|---|---|---|---|
-| dimension | 2 | **3** | 3 | true |
-| species | 3 | 3 | **3** | **false** |
-| reactant complexes | 3 | **4** | 6 | true (minimum 4, 5 or 6: open) |
-| complexes | 5 | **6** | 6 | true |
+| dimension | 2 | **3** | N1 | true |
+| species | 3 | **3** | N1 | **false** |
+| reactant complexes | 3 | **5** | N2 (below) | true |
+| complexes | 5 | **6** | N1 | true |
 
 - **Dimension two (main theorem).** A bimolecular mass-action system of dimension 2 with ACR has at most one
   exponentially stable positive steady state in each compatibility class. Proof: on the ACR hyperplane the vector field
   is h·α for a fixed vector α, which gives a normal form f = ψα + (x₁−c)Pℓ and det J = −P·(∇ψ·ℓ); two stable states
   force P to change sign along the positive steady-state set; bimolecularity of the products makes that set connected
   and smooth; global ACR forces every zero of P on it to be a tangency, so P cannot change sign. With KNS Prop. 3.10
-  (dimension 1) this gives dimension ≥ 3, and with KNS Thm 5.1/5.5 at least 4 reactant complexes.
+  (dimension 1) this gives dimension ≥ 3.
+- **Reactant complexes (result 29, [four-reactants/](four-reactants/)).** With four reactant complexes and rank three
+  the positive steady states form a toric set, ACR becomes linear algebra, and an exact classification (35 reactant
+  types, 40,385 stoichiometric subspaces) leaves 19 scalar normal forms: at most two nondegenerate steady states per
+  class, of opposite determinant signs. So at least 5 are needed, and the 4-species network
+  N2 = {0 → C, A+B → 2B, A+C → B+C, B+C → A, 0 → R, R → 0} has exactly 5.
 - **Complexes.** If a network has a nondegenerate positive steady state and a nonterminal complex, then δ ≥ t − ℓ + 1
   (kinetic-subspace argument). With dimension ≥ 3, five complexes force one linkage class of deficiency one with one
   terminal class, excluded by Feinberg's deficiency-one theorem. Hence at least 6 complexes. (This also closes a small
@@ -65,16 +75,14 @@ contains two exponentially stable positive steady states (the usual notion, e.g.
 - **Further results** (manuscript §6): a second certified example G7 with rational steady states; a weakly reversible
   six-complex example with two linkage classes; with 3 species at least 6 reactions are needed (such a network is
   full-dimensional, and an exact enumeration of all 3 188 646 networks with 5 reactions and 5 reactant complexes
-  shows that no full-dimensional one has two stable states); with exactly 4 reactant complexes, 4 species are
-  impossible and 6 of the 9 possible structures for more species are excluded by proof (the other 3 numerically).
+  shows that no full-dimensional one has two stable states).
 
 **What is computer-assisted.** The examples (exact rational arithmetic, ball-arithmetic eigenvalue enclosures), the
-5-reaction enumeration, and the list of 4-reactant structures. The dimension-two theorem and the bounds on dimension,
-reactant complexes and complexes are proved by hand. **Numerical only:** the exclusion of the reactant structures
-S3, S7, S9 (not needed for the conjecture) and the searches that found the examples.
+5-reaction enumeration, and the classification of four-reactant structures and subspaces. The dimension-two theorem
+and the bounds on dimension and complexes are proved by hand. **Numerical only:** the searches that found the examples.
 
-**Open.** The exact minimal number of reactant complexes (4, 5 or 6); whether the dimension-two theorem extends to
-networks with bimolecular reactants but larger products.
+**Open.** Whether one network attains all four minima (N1 has 6 reactant complexes, N2 has 4 species); whether the
+dimension-two theorem extends to networks with bimolecular reactants but larger products.
 
 ## Reproduce
 
@@ -101,7 +109,9 @@ Each script prints PASS/FAIL per claim and exits non-zero on failure.
 
 | File | Content |
 |---|---|
-| `paper.tex`, `paper.pdf`, `references.bib` | Manuscript: dimension-two theorem with full proof, consequences, certified examples |
+| `paper.tex`, `paper.pdf`, `references.bib` | Merged manuscript of results 27 and 29: the four exact minima, with full proofs |
+| `four-reactants/` | Result 29: scripts, certificates, verification and the text its verifier checked |
+| `archive/` | Verified texts before the merge (`paper-result27.*`, `paper-result29.pdf`) |
 | `scripts/` | Sanity check of the dimension-two determinant formula |
 | `complexes/report.md`, `complexes/scripts/` | Minimal number of complexes: lemma, structure of 6-complex examples, certified N1–N3 |
 | `examples/report.md`, `examples/scripts/` | Certified G7, minimal number of reactions on 3 species, 4 reactant complexes |

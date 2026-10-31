@@ -1,0 +1,13 @@
+253 spans, 100 random classes each; control 155 spans
+S3 positive solutions per class: {'positive-dimensional': 20, 1: 49, 2: 6331}
+S4 positive solutions per class: {'positive-dimensional': 28, 1: 1666, 2: 606}
+S6 positive solutions per class: {'positive-dimensional': 77, 1: 2442, 2: 2281}
+S7 positive solutions per class: {'positive-dimensional': 46, 1: 1669, 2: 485}
+S8 positive solutions per class: {'positive-dimensional': 13, 1: 2141, 2: 2046}
+S9 positive solutions per class: {'positive-dimensional': 76, 1: 4406, 2: 918}
+PASS no class with three or more positive solutions in surviving spans
+PASS two positive solutions always have opposite D signs 0
+PASS the seed point is always recovered 0
+control, kinetic-degenerate mixed-sign spans: {'positive-dimensional': 11, 1: 257, 2: 7246, 4: 236}
+PASS harness detects classes with three or more solutions in the control
+RESULT PASS

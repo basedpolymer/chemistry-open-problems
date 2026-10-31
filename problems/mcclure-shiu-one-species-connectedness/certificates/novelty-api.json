@@ -1,0 +1,1714 @@
+{
+ "date": "2026-10-31",
+ "openalex": {
+  "id": "W4392868789",
+  "cited_by_count": 2,
+  "citers": [],
+  "error": "<HTTPError 429: 'Too Many Requests'>"
+ },
+ "semantic_scholar": {
+  "offset": 0,
+  "data": [
+   {
+    "citingPaper": {
+     "paperId": "7dd710aee0b284b12461560dcc8e481e0c0e2f59",
+     "externalIds": {
+      "ArXiv": "2608.18509",
+      "CorpusId": 291217636
+     },
+     "title": "Characterization of Minimal Degenerate Zero-One Reaction Networks",
+     "year": 2026
+    }
+   },
+   {
+    "citingPaper": {
+     "paperId": "2aaacd199e04cea369cc84999ace172f4232632e",
+     "externalIds": {
+      "ArXiv": "2607.25456",
+      "CorpusId": 290635421
+     },
+     "title": "Disconnectivity in Multistationarity Regions of Cascade of Goldbeter--Koshland Loops",
+     "year": 2026
+    }
+   },
+   {
+    "citingPaper": {
+     "paperId": "52099a0e51ddc203ffaffc5e1de0efcc010c345e",
+     "externalIds": {
+      "ArXiv": "2512.07560",
+      "CorpusId": 283694258
+     },
+     "title": "An effective criterion for multiple positive zeros of vertically parametrized polynomial systems",
+     "year": 2025
+    }
+   },
+   {
+    "citingPaper": {
+     "paperId": "d60dca1033a5e73efdedfd48ea8e416ca17c0e53",
+     "externalIds": {
+      "ArXiv": "2406.11586",
+      "DOI": "10.1007/s00285-025-02306-w",
+      "CorpusId": 270559472,
+      "PubMed": "41254364"
+     },
+     "title": "Multistability of small zero-one reaction networks",
+     "year": 2024
+    }
+   },
+   {
+    "citingPaper": {
+     "paperId": "f1cc5dbccc75053112a2183b1ebda4909ba1d0c5",
+     "externalIds": {
+      "PubMedCentral": "11534856",
+      "ArXiv": "2403.16556",
+      "DOI": "10.1007/s11538-024-01368-z",
+      "CorpusId": 268680829,
+      "PubMed": "39495318"
+     },
+     "title": "Connectivity of Parameter Regions of Multistationarity for Multisite Phosphorylation Networks",
+     "year": 2024
+    }
+   },
+   {
+    "citingPaper": {
+     "paperId": "46e06f045bd51917ea480a04f4a1cc5435aedd17",
+     "externalIds": {
+      "ArXiv": "2307.04186",
+      "DOI": "10.1017/S0956792523000335",
+      "CorpusId": 259501795
+     },
+     "title": "Absolute concentration robustness and multistationarity in reaction networks: Conditions for coexistence",
+     "year": 2023
+    }
+   }
+  ]
+ },
+ "arxiv": {
+  "all:\"multistationarity region\" AND all:\"one-species\"": [
+   [
+    "http://arxiv.org/abs/2303.03960v2",
+    "On the connectedness of multistationarity regions of small reaction networks"
+   ]
+  ],
+  "all:\"multistationarity regions\" AND all:connected": [
+   [
+    "http://arxiv.org/abs/2607.25456v1",
+    "Disconnectivity in Multistationarity Regions of Cascade of Goldbeter--Koshland Loops"
+   ],
+   [
+    "http://arxiv.org/abs/2303.03960v2",
+    "On the connectedness of multistationarity regions of small reaction networks"
+   ]
+  ],
+  "all:\"multistationarity\" AND all:\"one species\" AND all:connected": [
+   [
+    "http://arxiv.org/abs/2303.03960v2",
+    "On the connectedness of multistationarity regions of small reaction networks"
+   ]
+  ],
+  "all:\"parameter region of multistationarity\" AND all:connectivity": [
+   [
+    "http://arxiv.org/abs/2403.16556v2",
+    "Connectivity of Parameter Regions of Multistationarity for Multisite Phosphorylation Networks"
+   ],
+   [
+    "http://arxiv.org/abs/2310.05466v2",
+    "Geometry of the signed support of a multivariate polynomial and Descartes' rule of signs"
+   ],
+   [
+    "http://arxiv.org/abs/2209.13936v2",
+    "Topological descriptors of the parameter region of multistationarity: deciding upon connectivity"
+   ],
+   [
+    "http://arxiv.org/abs/2206.08908v2",
+    "Parameter region for multistationarity in $n-$site phosphorylation networks"
+   ]
+  ],
+  "all:\"one-species networks\"": [
+   [
+    "http://arxiv.org/abs/2108.09695v1",
+    "Multistationarity of Reaction Networks with One-Dimensional Stoichiometric Subspaces"
+   ]
+  ],
+  "all:\"one-species\" AND all:\"mass-action\" AND all:multistationary": [],
+  "ti:\"one-species reaction networks\"": [],
+  "au:White_P AND abs:multistationarity": []
+ },
+ "zenodo": {
+  "\"multistationarity region\"": [
+   [
+    "10.5281/zenodo.6927946",
+    "Computation files of the paper Polynomial Superlevel Set Representation of the Multistationarity Region of Chemical Reaction Networks",
+    "2022-01-27"
+   ],
+   [
+    "10.5281/zenodo.22858244",
+    "Path connectedness of multistationarity in a two-layer phosphorylation cascade with a shared phosphatase",
+    "2026-09-20"
+   ]
+  ],
+  "\"one-species\" multistationarity": [
+   [
+    "10.5281/zenodo.17054846",
+    "Computation files of the paper Understanding Multistationarity of Fully Open Reaction Networks",
+    "2025-09-04"
+   ],
+   [
+    "10.5061/dryad.ghx3ffbsf",
+    "Spatial distribution data of stomata at the areole level for eight Magnoliaceae species",
+    "2022-12-23"
+   ],
+   [
+    "10.5281/zenodo.22858244",
+    "Path connectedness of multistationarity in a two-layer phosphorylation cascade with a shared phosphatase",
+    "2026-09-20"
+   ],
+   [
+    "10.5281/zenodo.6927946",
+    "Computation files of the paper Polynomial Superlevel Set Representation of the Multistationarity Region of Chemical Reaction Networks",
+    "2022-01-27"
+   ],
+   [
+    "10.5281/zenodo.807678",
+    "Dataset supporting the paper: Symbolic Versus Numerical Computation and Visualization of Parameter Regions for Multistationarity of Biological Networks",
+    "2017-06-23"
+   ],
+   [
+    "10.5281/zenodo.3334808",
+    "Introduction as a factor of plant resources enrichment and increase of species diversity of cultural phytocenoses",
+    "2000-03-01"
+   ],
+   [
+    "10.5281/zenodo.13173472",
+    "Fig. 5 in Examining the sensitivity of molecular species delimitations to the choice of mitochondrial marker",
+    "2016-03-15"
+   ],
+   [
+    "10.5281/zenodo.22861212",
+    "Exactly five positive steady states in a two-ligand T-cell activation model",
+    "2026-09-20"
+   ],
+   [
+    "10.3897/zookeys.678.12886",
+    "Species delimitation of the Hyphydrus ovatus complex in western Palaearctic with an update of species distributions (Coleoptera, Dytiscidae)",
+    "2017-06-06"
+   ],
+   [
+    "10.5281/zenodo.11160930",
+    "wdmartinson/Self-Organization-One-Species: Self-Organization-One-Species-Code-for-Article",
+    "2024-05-09"
+   ],
+   [
+    "10.3897/neobiota.73.80410",
+    "Competitive effects of plant invaders on and their responses to native species assemblages change over time",
+    "2022-04-26"
+   ],
+   [
+    "10.5281/zenodo.15563514",
+    "Ancylosis larissae Bidzilya, Budashkin & Yepishin 2019",
+    "2025-05-27"
+   ],
+   [
+    "10.5091/plecevo.2015.984",
+    "Structure and composition of the liana assemblage of a mixed rain forest in the Congo Basin",
+    "2015-03-10"
+   ],
+   [
+    "10.5281/zenodo.22820896",
+    "A one-species inflow-outflow CRN as a worked embedding and numerical companion to the quotient-typed Scan–Reconfigure metatheory",
+    "2026-09-17"
+   ],
+   [
+    "10.5281/zenodo.22713693",
+    "Mathematica notebook and simulation code for \"The probability of evolutionary rescue with competition: scaling-up from a single species to a community\"",
+    "2026-09-11"
+   ],
+   [
+    "10.5281/zenodo.13312792",
+    "One Species at a Time Podcasts",
+    "2024-08-13"
+   ],
+   [
+    "10.55360/cpn241.ds677",
+    "Drosera filiformis Raf.: One species or two?",
+    "1995"
+   ],
+   [
+    "10.5281/zenodo.16088600",
+    "McConnell's Flycatcher Mionectes macconnelli is more than one species",
+    "2014"
+   ],
+   [
+    "10.5281/zenodo.5469441",
+    "Trachygamasus gracilis",
+    "2013-09-30"
+   ],
+   [
+    "10.58828/nuy00623",
+    "Amanita ochroterrea and Amanita brunneiphylla (Basidiomycota), one species or two?",
+    "2011"
+   ],
+   [
+    "10.1111/j.1096-3642.1851.tb01124.x",
+    "Descriptions of Twenty Species of Columbelle, and One Species of Cyprwa",
+    "1851-01-01"
+   ],
+   [
+    "10.1649/0010-065X(2001)055[0378:CCNTBC]2.0.CO;2",
+    "Carabidae (Coleoptera) New To British Columbia, With One Species New To Canada",
+    "2001-09-30"
+   ],
+   [
+    "10.5281/zenodo.15988417",
+    "Euphilotes ancilla (Lycaenidae) in the Spring Mountains, Nevada: more than one species?",
+    "2008"
+   ],
+   [
+    "10.5061/dryad.v9s4mw6r7",
+    "From antagonism to synergism: extreme differences in stressor interactions in one species",
+    "2021-06-01"
+   ],
+   [
+    "10.5281/zenodo.16936057",
+    "One Species, Many Names: Mitochondrial Evidence Unites Humans, Neanderthals, Denisovans, and Heidelbergensis",
+    "2025-08-24"
+   ]
+  ],
+  "McClure Shiu multistationarity connected": [
+   [
+    "10.3897/zookeys.401.7299.figures33-40",
+    "Figures 33-40 from: Grubbs S, Baumann R, DeWalt R, Tweddale T (2014) A review of the Nearctic genus Prostoia (Ricker) (Plecoptera, Nemouridae), with the description of a new species and a surprising range extension for P. hallasi Kondratieff & Kirchner. ZooKeys 401: 11-30. https://doi.org/10.3897/zookeys.401.7299",
+    "2014-04-14"
+   ],
+   [
+    "10.5281/zenodo.8054335",
+    "FIGURES 85‒92. Prostoia similis. 85 in The Nemourinae (Insecta, Nemouridae) of the eastern Nearctic",
+    "2023-06-19"
+   ],
+   [
+    "10.4122/1.1000000363",
+    "Lattice Boltzmann Simulation of Non-Darcy Flow",
+    "2006-06-18"
+   ],
+   [
+    "10.5281/zenodo.5990220",
+    "Ornithocythere thomai Hobbs & McClure 1983, new species",
+    "2018-07-20"
+   ],
+   [
+    "10.5281/zenodo.5989966",
+    "Ascetocythere jezerinaci Hobbs & McClure 1983",
+    "2018-07-20"
+   ],
+   [
+    "10.5281/zenodo.5989901",
+    "Ankylocythere carpenteri Hobbs & McClure 1983",
+    "2018-07-20"
+   ],
+   [
+    "10.5281/zenodo.17054846",
+    "Computation files of the paper Understanding Multistationarity of Fully Open Reaction Networks",
+    "2025-09-04"
+   ],
+   [
+    "10.5281/zenodo.15556631",
+    "JWST data from McClure et al. (2025)",
+    "2025-05-30"
+   ],
+   [
+    "10.4122/1.1000000401",
+    "Computation of Interfacial Areas, Common Line Lengths and Interfacial Curvatures from Experimentally Derived Data",
+    "2006-06-18"
+   ],
+   [
+    "10.5281/zenodo.22858244",
+    "Path connectedness of multistationarity in a two-layer phosphorylation cascade with a shared phosphatase",
+    "2026-09-20"
+   ],
+   [
+    "10.5281/zenodo.3810421",
+    "Sasajiscymnus tsugae",
+    "2020-04-03"
+   ],
+   [
+    "10.5281/zenodo.6927946",
+    "Computation files of the paper Polynomial Superlevel Set Representation of the Multistationarity Region of Chemical Reaction Networks",
+    "2022-01-27"
+   ],
+   [
+    "10.5281/zenodo.20291316",
+    "Figures 14‒15 in Museum specimens, photographs, and sightings of White-eyed River Martin Pseudochelidon sirintarae",
+    "2024-06-03"
+   ],
+   [
+    "10.5281/zenodo.13671681",
+    "Aulonemia hirtula McClure 1973",
+    "2016-05-27"
+   ],
+   [
+    "10.5281/zenodo.5957490",
+    "Alpheus angulosus McClure 2002",
+    "2018-07-25"
+   ],
+   [
+    "10.5281/zenodo.807678",
+    "Dataset supporting the paper: Symbolic Versus Numerical Computation and Visualization of Parameter Regions for Multistationarity of Biological Networks",
+    "2017-06-23"
+   ],
+   [
+    "10.5281/zenodo.13631286",
+    "Rhipidocladum McClure 1973",
+    "2015-11-25"
+   ],
+   [
+    "10.5281/zenodo.14665445",
+    "Alpheus angulosus McClure 2002",
+    "2023-11-13"
+   ],
+   [
+    "10.5281/zenodo.10022686",
+    "Plant science corpus",
+    "2023-10-19"
+   ],
+   [
+    "10.5281/zenodo.10894387",
+    "Plant science history manuscript GitHub repo",
+    "2024-03-29"
+   ],
+   [
+    "10.6620/ZS.2021.60-71",
+    "Quantifying the Effect of Land-cover Change on the Endangered Farmland Green Treefrog (Zhangixalus arvalis) in an Agricultural Landscape: Implications for Conservation",
+    "2021-12-07"
+   ],
+   [
+    "10.5281/zenodo.10294606",
+    "Blue Ceramic Body Sherd#2",
+    "2020-01-23"
+   ],
+   [
+    "10.5281/zenodo.5151167",
+    "Schizostachyum longinternodium Zheng & Lin & Ni & Xia 2014",
+    "2014-11-05"
+   ],
+   [
+    "10.2475/ajs.s5-4.24.453",
+    "The antimony mines of Shiu Chow, China",
+    "1922-12-01"
+   ],
+   [
+    "10.5281/zenodo.10344073",
+    "Blue glazed ceramic stoneware sherd #1",
+    "2020-01-23"
+   ]
+  ],
+  "\"multistationarity\" connectedness": [
+   [
+    "10.5281/zenodo.22858244",
+    "Path connectedness of multistationarity in a two-layer phosphorylation cascade with a shared phosphatase",
+    "2026-09-20"
+   ],
+   [
+    "10.5281/zenodo.17054846",
+    "Computation files of the paper Understanding Multistationarity of Fully Open Reaction Networks",
+    "2025-09-04"
+   ],
+   [
+    "10.5281/zenodo.6927946",
+    "Computation files of the paper Polynomial Superlevel Set Representation of the Multistationarity Region of Chemical Reaction Networks",
+    "2022-01-27"
+   ],
+   [
+    "10.5281/zenodo.807678",
+    "Dataset supporting the paper: Symbolic Versus Numerical Computation and Visualization of Parameter Regions for Multistationarity of Biological Networks",
+    "2017-06-23"
+   ],
+   [
+    "10.5281/zenodo.23126892",
+    "connectedness: An R Package for Genetic Connectedness in Animal Breeding",
+    "2026-10-03"
+   ],
+   [
+    "10.5281/zenodo.10048891",
+    "e ⋆-connectedness in intuitionistic fuzzy topological spaces",
+    "2021-03-31"
+   ],
+   [
+    "10.5281/zenodo.15046025",
+    "Exploring Dependence Structure between Oil and Biofuel Commodities: Insights from European and North American Markets",
+    "2025-03-18"
+   ],
+   [
+    "10.5281/zenodo.14205988",
+    "Social connectedness and dimensions of emerging adulthood among young adults in India",
+    "2024-04-30"
+   ],
+   [
+    "10.5281/zenodo.163490",
+    "THE IMPACT OF SOCIAL NETWORKING SITES (SNSS)  ON STUDENTS’ SOCIAL INTERACTION",
+    "2016-10-27"
+   ],
+   [
+    "10.5281/zenodo.15038078",
+    "Return connectedness between energy commodities and stock markets: New evidence from 31 energy sector companies in Europe",
+    "2024-09-27"
+   ],
+   [
+    "10.5281/zenodo.23012971",
+    "The Moderating Role of Distress Tolerance in the Relationship Between Social Connectedness and Burnout Among Filipino Young Adult Professionals",
+    "2026-09-28"
+   ],
+   [
+    "10.5281/zenodo.16985395",
+    "SEACO project Ocean Connectedness Psychometic Survey",
+    "2025-08-28"
+   ],
+   [
+    "10.1007/s41980-019-00322-3",
+    "Realcompact and Lindelöf Extensions with Compact Remainder",
+    "2019-12"
+   ],
+   [
+    "10.5281/zenodo.11178592",
+    "Connectedness to Nature, Spirituality, and Resilience among Selected Filipino Adolescents",
+    "2024-05-11"
+   ],
+   [
+    "10.5281/zenodo.14523746",
+    "Teachers perceived effective school management as correlate of their school connectedness in secondary schools in Anambra State",
+    "2024-12-19"
+   ],
+   [
+    "10.1080/15252019.2024.2411243",
+    "Social Media Characteristics and Consumers' Online Brand-Related Activities (COBRAs): The Mediating Role of Time Spent and Emotional Connectedness",
+    "2024-11-01"
+   ],
+   [
+    "10.1007/s13280-022-01744-w",
+    "Country-level factors in a failing relationship with nature: Nature connectedness as a key metric for a sustainable future.",
+    "2022-05-31"
+   ],
+   [
+    "10.5281/zenodo.6619499",
+    "Connectedness to Nature, Grit and Depression Among Selected Filipino Adolescents",
+    "2022-06-07"
+   ],
+   [
+    "10.5281/zenodo.10048775",
+    "r-Fuzzy Rs-compactness and r-fuzzy Rs-connectedness in the sense of Sostak's",
+    "2020-12-31"
+   ],
+   [
+    "10.5281/zenodo.10058159",
+    "Neutrosophic regular semi compactness and connectedness",
+    "2022-10-31"
+   ],
+   [
+    "10.31142/ijtsrd15720",
+    "Generalized b Compactness and Generalized b Connectedness in Topological Spaces",
+    "2018-06-26"
+   ],
+   [
+    "10.5281/zenodo.3825887",
+    "School Connectedness as Correlates of Academic Achievement Among In-School Adolescents in Onitsha Education Zone",
+    "2020-05-13"
+   ],
+   [
+    "10.5281/zenodo.19535663",
+    "An Aristotelian Discussion of the Extent of Isolation Among the Elderly In Kaloleni Sub-Location, Kisumu, Kenya",
+    "2026-04-10"
+   ],
+   [
+    "10.5061/dryad.5t2k7",
+    "Data from: Cumulative early life adversity predicts longevity in wild baboons",
+    "2017-02-17"
+   ],
+   [
+    "10.5281/zenodo.20355016",
+    "Environmental Well-Being in the Digital Era: The Role of Social Media Engagement, Social Connectedness, and Sustainability Awareness",
+    "2026-05-23"
+   ]
+  ]
+ },
+ "github": {
+  "mmislan": {
+   "total": 27,
+   "all": [
+    [
+     "palomar-compartment-division-threshold",
+     "Survival and transience above the compartment-division threshold",
+     "2026-10-18T20:33:03Z"
+    ],
+    [
+     "palomar-endotactic-permanence",
+     "Uniform permanence of endotactic reaction networks with measurable rates",
+     "2026-10-08T22:48:49Z"
+    ],
+    [
+     "palomar-joint-thermodynamic-compatibility",
+     "Joint thermodynamic compatibility of two autocatalytic cores is existential-real complete",
+     "2026-10-21T19:29:50Z"
+    ],
+    [
+     "palomar-lienard-limit-cycles",
+     "Lower bounds for limit cycles of classical Lienard equations",
+     "2026-10-22T00:28:58Z"
+    ],
+    [
+     "palomar-p002-binary-polymer-critical-window",
+     "A nontrivial critical window for RAF emergence in the binary polymer model; Lean formalization.",
+     "2026-10-01T20:39:56Z"
+    ],
+    [
+     "palomar-p003-d-unstable-cores",
+     "A Lean-verified counterexample to D-unstable-core necessity in parameter-rich reaction networks.",
+     "2026-09-24T19:10:19Z"
+    ],
+    [
+     "palomar-p004-optimal-affinity-counterexample",
+     "A two-reaction counterexample to the gross-amplification affinity bound; Lean formalization.",
+     "2026-09-30T13:41:33Z"
+    ],
+    [
+     "palomar-p005-raf-interior-realizability",
+     "Same-ground RAF realizability and the sharp four-reaction threshold; Lean formalization.",
+     "2026-09-25T19:03:20Z"
+    ],
+    [
+     "palomar-p006-type-ii-unistationarity",
+     "Unistationarity of Type II_l autocatalytic cores with positive degradation",
+     "2026-09-25T13:56:12Z"
+    ],
+    [
+     "palomar-p011-modular-autocatalytic-interfaces",
+     "MAF composition, child-selection autocatalytic cores, and degradation regions of linear diluted networks",
+     "2026-09-25T20:10:36Z"
+    ],
+    [
+     "palomar-p012-sparse-raf-exclusion",
+     "Linear-size autocatalytic sets are asymptotically absent in the sparse binary polymer model",
+     "2026-09-25T14:36:52Z"
+    ],
+    [
+     "palomar-p020-raf-abundant-reactions",
+     "Equivalence of RAF abundance and Frankl's union-closed sets conjecture; Lean formalization.",
+     "2026-09-26T13:41:45Z"
+    ],
+    [
+     "palomar-p026-nonnegative-degradation-unistationarity",
+     "Unistationarity of autocatalytic normal forms with nonnegative degradation; Lean formalization.",
+     "2026-09-29T16:27:54Z"
+    ],
+    [
+     "palomar-p029-digraph-support-families",
+     "Intrinsic interval-deletion characterization of digraph support families; Lean formalization.",
+     "2026-09-27T15:16:43Z"
+    ],
+    [
+     "palomar-p036-quotient-channel-raf-limit",
+     "",
+     "2026-10-02T18:25:00Z"
+    ],
+    [
+     "palomar-p038-futile-cycle-child-selections",
+     "Determinants and unstable cores in sequential distributive phosphorylation; Lean formalization.",
+     "2026-09-28T13:29:00Z"
+    ],
+    [
+     "palomar-p046-critical-window-shape-law",
+     "",
+     "2026-10-04T14:32:05Z"
+    ],
+    [
+     "palomar-p064-multisite-phosphorylation-oscillations",
+     "Attracting oscillations in sequential distributive phosphorylation; Lean formalization.",
+     "2026-09-28T14:19:20Z"
+    ],
+    [
+     "palomar-p079-distributive-phosphorylation",
+     "Exact equilibrium and stable-state capacities of distributive phosphorylation",
+     "2026-10-11T18:38:39Z"
+    ],
+    [
+     "palomar-p080-phosphorylation-attainment",
+     "Attainment of 2n-1 positive steady states in sequential distributive phosphorylation",
+     "2026-09-25T14:11:43Z"
+    ],
+    [
+     "palomar-p081-productive-core-np-completeness",
+     "NP-completeness of unconstrained productive autocatalytic core detection; Lean formalization.",
+     "2026-09-29T19:51:40Z"
+    ],
+    [
+     "palomar-p082-acr-zero-divisors",
+     "Zero-divisor criteria for absolute concentration robustness; Lean formalization.",
+     "2026-09-28T15:33:19Z"
+    ],
+    [
+     "palomar-p086-d-stability-conp-hard",
+     "Deciding D-stability is coNP-hard; explicit integer PARTITION reduction in Lean.",
+     "2026-09-29T00:26:17Z"
+    ],
+    [
+     "palomar-p087-d-stability-critical-points",
+     "A critical-point criterion for D-stability in every dimension, formalized in Lean.",
+     "2026-09-29T01:17:21Z"
+    ],
+    [
+     "palomar-quantitative-permanence",
+     "Quantitative permanence and recovery with vanishing reverse rates",
+     "2026-10-11T11:56:48Z"
+    ],
+    [
+     "palomar-shared-resource-realizations",
+     "Realizations and dynamics of shared-resource mass-action systems",
+     "2026-10-10T13:41:02Z"
+    ],
+    [
+     "palomar-template-free-heredity",
+     "Chemical heredity without genetic templates",
+     "2026-10-20T20:53:41Z"
+    ]
+   ]
+  },
+  "ipitchford": {
+   "total": 204,
+   "all": [
+    [
+     ".github",
+     "Account-wide funding and community files for Evidence Press repositories",
+     "2026-10-17T15:52:44Z"
+    ],
+    [
+     "acyclic-spreading-algebraic-extinction",
+     "Candidate: algebraic extinction in acyclic spreading models (successor to algebraic-extinction-compartments) — counterexamples, genericity and support-checkable repairs",
+     "2026-10-25T09:25:07Z"
+    ],
+    [
+     "affine-diversification-fibres",
+     "Unrefereed candidate on sharp partial identification of diversification histories, with executable replay and scoped assurance",
+     "2026-10-27T06:50:18Z"
+    ],
+    [
+     "affine-elementary-symmetric-total-nonnegativity",
+     "Unrefereed single-affine-factor coefficientwise total-nonnegativity proof candidate",
+     "2026-09-07T20:00:12Z"
+    ],
+    [
+     "affinity-karpelevich-threshold",
+     "Candidate (unrefereed): four-state counterexample to the affine Karpelevich conjecture for Markov rate matrices; fails for every n>=4, holds for n<=3",
+     "2026-10-27T11:00:29Z"
+    ],
+    [
+     "aggregation-without-sufficiency",
+     "Anonymous unrefereed preprint on claim-specific aggregation licences and decision-relevant sufficiency",
+     "2026-08-13T06:01:26Z"
+    ],
+    [
+     "algebraic-extinction-compartments",
+     "Research candidate: algebraic extinction and spectral criteria in acyclic compartment models.",
+     "2026-10-20T14:51:29Z"
+    ],
+    [
+     "amplitude-modules-fused-support-bautin-bound",
+     "Anonymous unrefereed theorem candidate on polynomial-phase amplitude modules and an ordinary coefficient-Bautin bound",
+     "2026-09-24T12:00:18Z"
+    ],
+    [
+     "ap4-ramsey-diameter-36",
+     "Proof-carrying candidate for v_{2,4}([37]) = 27",
+     "2026-09-03T18:50:23Z"
+    ],
+    [
+     "assignment-aligned-effective-states",
+     "Research candidate: assignment-aligned effective states in a 2-SAT transformer; scoped empirical audit and reproducibility evidence.",
+     "2026-10-27T06:50:20Z"
+    ],
+    [
+     "biased-small-world-mixing",
+     "Unrefereed fixed-weight four-clock small-world mixing proof candidate with finite exact checks",
+     "2026-09-08T15:30:00Z"
+    ],
+    [
+     "biased-transposition-profile-counterexample",
+     "Candidate proof giving an observable-event counterexample to the Nestoridi–Yan biased-transposition limit-profile conjecture, with exact replay artefacts.",
+     "2026-09-11T12:39:07Z"
+    ],
+    [
+     "bilateral-deficiency",
+     "Unrefereed candidate on bilateral deficiency and independent domination in regular-DIM graphs",
+     "2026-10-27T06:50:23Z"
+    ],
+    [
+     "binary-quadratic-informational-substitutes",
+     "Unrefereed candidate: exact binary quadratic informational substitutes, written proof and rational checks",
+     "2026-10-08T12:35:26Z"
+    ],
+    [
+     "bol-prime-cube-classification",
+     "Centrally nilpotent right Bol loops of prime-cube order: written-proof candidate and exact diagnostics",
+     "2026-10-09T21:26:03Z"
+    ],
+    [
+     "bordered-jacobian-foundations",
+     "Unrefereed candidate: an integral bordered-Jacobian identity for binary-form multiplication, with exact replay and explicit assurance boundaries.",
+     "2026-10-27T06:50:25Z"
+    ],
+    [
+     "bounded-product-transposition-cutoff",
+     "Unrefereed proof candidate: cutoff for bounded product-weight random transpositions, with exact finite diagnostics.",
+     "2026-09-08T14:07:47Z"
+    ],
+    [
+     "bunkbed-flow-obstructions",
+     "Unrefereed candidate: flow-polynomial transfer and an exact local homogeneous bunkbed parameter window; evidence and replay included.",
+     "2026-09-30T14:42:20Z"
+    ],
+    [
+     "casas-alvero-eight-term",
+     "Unrefereed candidate: an eight-term centered sparsity bound for degree-twenty Casas–Alvero polynomials.",
+     "2026-10-28T05:15:15Z"
+    ],
+    [
+     "catenary-placement-classification",
+     "Unrefereed candidate placement criterion for generic local identifiability of catenary compartment models.",
+     "2026-10-27T06:50:27Z"
+    ],
+    [
+     "cayley-weighted-fixed-points",
+     "",
+     "2026-10-12T12:04:36Z"
+    ],
+    [
+     "central-configuration-kernel-rigidity",
+     "Unrefereed candidate: quantitative convex reconstruction and exact kernel-exclusion certificates for central configurations; no exhaustive seven/eight-body classification.",
+     "2026-10-01T05:46:09Z"
+    ],
+    [
+     "certified-commitment-horizons",
+     "Unrefereed candidate: exact-rational commitment-horizon certificates for Wagner-Whitin dynamic lot sizing, with replayable evidence.",
+     "2026-10-27T06:50:29Z"
+    ],
+    [
+     "certified-three-item-jrp-gap",
+     "Candidate exact three-item independent-cap JRP oracle, exact certificates, and logistics evaluation protocol",
+     "2026-10-27T06:50:32Z"
+    ],
+    [
+     "certified-two-item-jrp",
+     "Unrefereed candidate exact theory and certificate system for two-item resource-constrained joint replenishment.",
+     "2026-08-09T01:08:47Z"
+    ],
+    [
+     "cgf-majorisation-counterexample",
+     "Unrefereed candidate: exact suffix counterexample to cyclotomic two-sided majorisation, with analytic positivity and arithmetic replay.",
+     "2026-10-27T06:50:34Z"
+    ],
+    [
+     "claimpack",
+     "Candidate protocol for exact, evidence-bounded scientific claim transfer between research agents",
+     "2026-08-01T19:24:05Z"
+    ],
+    [
+     "compact-cross-compliance-contact",
+     "Matched-interface 3D frictional contact candidate with supporting replay and explicit assurance boundaries",
+     "2026-10-05T21:12:27Z"
+    ],
+    [
+     "compartment-fragmentation-phase-classification",
+     "Critical nonexplosion and phase transitions in finite-catalyst compartment systems",
+     "2026-10-20T16:43:25Z"
+    ],
+    [
+     "complementary-disclosures",
+     "Unrefereed mathematical candidate: complementary disclosures, accounting geometry and bounded-error reports",
+     "2026-10-14T10:55:39Z"
+    ],
+    [
+     "concentratable-entanglement-counterexamples",
+     "Unrefereed candidate: exact counterexamples and sharp repairs for mixed-state concentratable entanglement",
+     "2026-10-13T09:01:53Z"
+    ],
+    [
+     "cooper-spencer-temporal-unimodality",
+     "Unrefereed candidate: exact Cooper–Spencer temporal-unimodality counterexamples with proof and certificates",
+     "2026-09-19T20:32:21Z"
+    ],
+    [
+     "cross-polytope-signaling-dimension-six",
+     "Unrefereed exact computer-assisted candidate: six-dimensional cross-polytope signaling dimension three, with complete coverage and rational simulation certificates.",
+     "2026-10-11T10:12:25Z"
+    ],
+    [
+     "ctln-six-is-minimal",
+     "Exact candidate certificates: six is minimal for stable nonclique CTLN fixed points, with an infinite family and seed phase region",
+     "2026-10-01T19:50:10Z"
+    ],
+    [
+     "cyclicity-loci-exponential-periods",
+     "Unrefereed candidate on fixed-seed cyclicity loci for polynomial exponential periods, with exact replay and an odd-quintic certificate",
+     "2026-08-08T17:39:00Z"
+    ],
+    [
+     "cyclicity-root-span-low-rank",
+     "Anonymous unrefereed candidate on fixed-seed cyclic rank, inverse-root spans, and the low-rank frontier",
+     "2026-08-09T21:59:43Z"
+    ],
+    [
+     "cyclicity-support-fusion-atlas",
+     "Anonymous unrefereed candidate: inverse-root support, Fourier fusion, and a finite exact low-rank atlas through degree 20",
+     "2026-10-27T06:50:36Z"
+    ],
+    [
+     "davies-levitin-lens-conjecture",
+     "Unrefereed candidate: a proof of the Davies–Levitin lens conjecture (Conjecture 5.3, 2014) for the indefinite tridiagonal pencil, with Arb interval certificates",
+     "2026-09-25T18:58:25Z"
+    ],
+    [
+     "davis-yin-gap-sharpness",
+     "Exact finite-horizon gap constants and non-attainment for Davis-Yin splitting",
+     "2026-10-20T16:43:25Z"
+    ],
+    [
+     "debt-disclosure-bounds",
+     "Model-conditional debt-disclosure bounds with exact certificates; unrefereed candidate",
+     "2026-10-27T06:50:38Z"
+    ],
+    [
+     "decision-geometry",
+     "Unrefereed candidate: exact information geometry and anytime certification for triangle-network compatibility; analytic proofs and replayable checks.",
+     "2026-09-26T22:51:45Z"
+    ],
+    [
+     "degree-difference-affine-slices",
+     "CC0 candidate manuscript on degree-difference identities and affine slices, with exact symbolic verification",
+     "2026-08-01T19:19:26Z"
+    ],
+    [
+     "degree-independent-rhombus-criterion",
+     "",
+     "2026-08-31T16:03:55Z"
+    ],
+    [
+     "delayed-cascade-recovery",
+     "Unrefereed candidate: dense planted-set recovery from one SI cascade, with reproducible negative pilot",
+     "2026-10-11T13:47:34Z"
+    ],
+    [
+     "diameter-hitting-time-robustness",
+     "Candidate (unrefereed): counterexamples to Zuckerman's Conjecture 1.16 on hitting-time robustness - cubic and diameter-three graph families",
+     "2026-10-22T20:04:53Z"
+    ],
+    [
+     "dyck-transpositions-n-log-n",
+     "Unrefereed analytic proof candidate for original-clock Dyck transposition mixing; finite producer checks are not formal verification.",
+     "2026-09-06T22:38:49Z"
+    ],
+    [
+     "efx-nine-chores",
+     "Unrefereed nine-chores EFX candidate: exact certificates, semantic audit and replay package",
+     "2026-10-08T09:09:53Z"
+    ],
+    [
+     "erdos-848-all-n",
+     "CC0 unrefereed candidate all-N determination for Erdős Problem 848, with replayable exact certificates and AI-readable evidence maps",
+     "2026-08-01T19:19:26Z"
+    ],
+    [
+     "essential-hurwitz-trace-formula",
+     "Unrefereed candidate: compact essential Hurwitz trace formula, global proof and exact reproducible controls",
+     "2026-09-07T21:52:48Z"
+    ],
+    [
+     "evidence-press-site",
+     "Evidence Press — dependency-free static site for research releases with replayable evidence; home of the Policy Identification Observatory",
+     "2026-10-31T10:40:59Z"
+    ],
+    [
+     "exact-low-length-recht-re-inequalities",
+     "Anonymous CC0 unrefereed candidate on exact low-length Recht–Ré inequalities, with replayable certificates, six-factor balanced families, and a reshuffling metric reversal.",
+     "2026-08-21T03:27:28Z"
+    ],
+    [
+     "exact-smith-invariants-affine-determinant-lines",
+     "Unrefereed candidate: exact Smith invariants and affine determinant lines for binary-form factorisation maps.",
+     "2026-09-24T12:00:25Z"
+    ],
+    [
+     "exotic-affine-spheres-quadratic-cubic",
+     "CC0 unrefereed candidate sequel on exotic affine three-spheres and the quadratic-cubic obstruction, with exact symbolic and finite-field checks",
+     "2026-08-01T19:19:26Z"
+    ],
+    [
+     "extremes-do-not-always-maximise",
+     "Anonymous unrefereed theorem candidate with exact producer-side replay",
+     "2026-08-29T16:34:58Z"
+    ],
+    [
+     "factorial-spikes-fi-noetherianity",
+     "Unrefereed theorem candidate: factorial spikes separate componentwise Noetherianity from FI-Noetherianity",
+     "2026-08-31T11:51:26Z"
+    ],
+    [
+     "fano-plane-spectrum",
+     "Unrefereed computational theorem candidate: homogeneous Fano tensor spectrum and eigencurve certificates",
+     "2026-09-19T21:25:19Z"
+    ],
+    [
+     "ferromagnetic-full-threshold-glauber",
+     "Near-linear worst-start single-site Glauber mixing below the strict heterogeneous ferromagnetic field threshold; unrefereed proof candidate and exact finite diagnostics.",
+     "2026-10-28T00:36:12Z"
+    ],
+    [
+     "field-uniform-spin-chains",
+     "Unrefereed candidate: field-uniform local-charge exclusion, exact spin-1 criterion, rational witnesses and reproducible checks.",
+     "2026-10-17T16:32:34Z"
+    ],
+    [
+     "finite-signal-quadratic-substitutes",
+     "Unrefereed candidate: finite convex certificates for scalar quadratic informational substitutes; analytic proofs and exact finite checks.",
+     "2026-10-15T17:26:25Z"
+    ],
+    [
+     "fisk-toeplitz-deletion-interlacing-through-five",
+     "Anonymous unrefereed finite theorem candidate for Fisk's Toeplitz-minor transform through five positive alphabet entries",
+     "2026-09-01T14:59:18Z"
+    ],
+    [
+     "fixed-correlations-weak-dissipation",
+     "Candidate research release: one fixed time-asymmetric covariance with arbitrarily weak dissipation; the Gaussian spectral value is not a lower bound (unrefereed)",
+     "2026-10-28T06:26:22Z"
+    ],
+    [
+     "fixed-d-toeplitz-obstruction",
+     "Anonymous unrefereed candidate: a fixed-d Toeplitz obstruction for FI_d degree-wise coherence",
+     "2026-09-04T14:37:02Z"
+    ],
+    [
+     "fkk-majority-partitions-candidate",
+     "Unrefereed candidate: sharp majority-partition and weighted certificates for normalized Laplacian gaps; the general FKK conjecture remains open.",
+     "2026-10-13T09:23:03Z"
+    ],
+    [
+     "flat-schmidt-chains",
+     "Unrefereed candidate spectral-gap classification for flat Schmidt-rank-two open chains; exact checks, proofs and AI index",
+     "2026-09-28T22:17:21Z"
+    ],
+    [
+     "fluid-queue-optimal-dispatch",
+     "Candidate (unrefereed): exact optimal dispatching to two fluid queues — closed form, proof of the Xie–Hyytiä–Righter imbalance conjecture, heavy traffic, simulations",
+     "2026-10-26T18:10:44Z"
+    ],
+    [
+     "four-element-rowmotion-candidate",
+     "Unrefereed Evidence Press candidate: a four-element obstruction to birational and piecewise-linear rowmotion periodicity",
+     "2026-08-30T17:08:41Z"
+    ],
+    [
+     "four-point-inductive-cubical-excision",
+     "Anonymous unrefereed candidate: a four-point failure of J+ inductive cubical excision",
+     "2026-08-30T09:59:07Z"
+    ],
+    [
+     "frankl-concavity-obstruction",
+     "Unrefereed candidate: concavity obstruction and repaired support reductions in a Frankl entropy programme; no new Frankl bound.",
+     "2026-08-14T19:43:24Z"
+    ],
+    [
+     "free-fermion-frustration-graphs",
+     "Unrefereed faithful-Pauli graph classification and exact free-sector certificates, with reproducible evidence and explicit assurance boundaries",
+     "2026-09-27T10:35:57Z"
+    ],
+    [
+     "free-parafermion-converse",
+     "Unrefereed all-order canonical free-parafermion converse; written proofs, exact checks and AI index",
+     "2026-09-28T16:03:19Z"
+    ],
+    [
+     "full-e4-polydegree-column",
+     "Anonymous unrefereed candidate: full e=4 Polydegree column, Lean bordered-Jacobian companion, and boundary-norm transfer note.",
+     "2026-10-27T06:50:40Z"
+    ],
+    [
+     "furter-r3-through-299",
+     "Exact computer-assisted proof of Furter's R(3,n) for 1 ≤ n ≤ 299, with replayable evidence and a Universal R(3) Challenge.",
+     "2026-09-24T12:00:28Z"
+    ],
+    [
+     "gaussian-cosine-local-stability",
+     "Unrefereed candidate: full-domain local stability of Gaussian cosine minima, with explicit second variation and reproducible diagnostics.",
+     "2026-10-18T14:06:24Z"
+    ],
+    [
+     "gaussian-pnp-stability",
+     "Candidate (unrefereed): Gaussian-kernel PnP-ISTA/ADMM can be unstable; sharp dimension four for irreducible unit-diagonal kernels; answers Sinha et al. (TSP 2025) open question",
+     "2026-10-27T12:26:39Z"
+    ],
+    [
+     "geometric-graph-entropy",
+     "Candidate (unrefereed): exact entropy coefficient of fixed-radius random geometric graphs; universal vertices and Fourier rank. DOI 10.5281/zenodo.23686157",
+     "2026-10-27T09:20:18Z"
+    ],
+    [
+     "gk-shared-phosphatase-connectedness",
+     "Unrefereed candidate: path connectedness of a shared-phosphatase cascade multistationarity region, with exact certificates",
+     "2026-10-25T09:25:15Z"
+    ],
+    [
+     "hahn-ewens-mixing-theorem",
+     "Unrefereed candidate: full Hahn spectrum and a stationary-average chi-square transition for a stabiliser–Ewens deformation",
+     "2026-08-09T20:14:01Z"
+    ],
+    [
+     "hartree-small-charge-rigidity",
+     "Unrefereed analytic candidate: uniform small-charge rigidity for quartic Hartree shape energy; Anonymous",
+     "2026-10-27T06:50:42Z"
+    ],
+    [
+     "hc4-five-support-structural-reductions",
+     "Unrefereed exact structural-reductions candidate toward quartic HC4 in dimension four",
+     "2026-10-27T06:50:44Z"
+    ],
+    [
+     "hermes-workspace",
+     "Native web workspace for Hermes Agent — chat, terminal, memory, skills, inspector.",
+     "2026-07-27T15:59:45Z"
+    ],
+    [
+     "hidden-architecture-exact-signal",
+     "Candidate: hidden architecture and the thermodynamic cost of an exact stochastic signal (Evidence Press, unrefereed)",
+     "2026-10-28T06:29:53Z"
+    ],
+    [
+     "hidden-dissipation-floor",
+     "Unrefereed mathematical candidate: architecture-independent hidden-dissipation classification and exact observable certificates.",
+     "2026-10-03T09:39:13Z"
+    ],
+    [
+     "hilbert-eight-points-reducedness",
+     "Unrefereed computer-assisted proof candidate: reducedness of Hilb8(A4) in characteristic zero; complete evidence in release assets.",
+     "2026-09-07T12:29:20Z"
+    ],
+    [
+     "hilbert-series-matrix-septic-invariants",
+     "Unrefereed candidate: Hilbert series of invariants of 4×4 and 5×5 matrix tuples (nine certified cases, Berele's conjecture) and a candidate series for plane septics",
+     "2026-09-26T09:42:23Z"
+    ],
+    [
+     "hilbert-series-ternary-forms",
+     "Hilbert series of the SL3-invariants of ternary septics, octics and nonics (Evidence Press, unrefereed candidate v0.2.0)",
+     "2026-10-27T06:50:46Z"
+    ],
+    [
+     "horton-tokunaga-kingman-asymptotics",
+     "Unrefereed candidate: leaf-conditioned Tokunaga order and positive geometric Kingman Horton asymptotics",
+     "2026-10-05T11:36:16Z"
+    ],
+    [
+     "iid-multiunit-prophet-limits",
+     "Unrefereed candidate: fixed-capacity iid prophet limits and certified two-unit bounds",
+     "2026-10-15T20:07:37Z"
+    ],
+    [
+     "inclusion-link-chernoff-concentration",
+     "Unrefereed candidate: inclusion-link spectral bounds and mean-sensitive scalar concentration; written proof and finite diagnostics.",
+     "2026-10-13T20:53:45Z"
+    ],
+    [
+     "infinite-birth-death-thinned-counts",
+     "Research candidate: exact variance and joint functional limits for thinned birth-death counts; analytic proofs and finite exact checks.",
+     "2026-10-18T07:47:14Z"
+    ],
+    [
+     "initialisation-dependent-fixation",
+     "Unrefereed candidate: resolution of Conjecture 2 of Ganesh-Hauert-Valla (noisy weighted voter model): fresh starts strictly help, equilibrium-start formula, sharp error envelope. DOI 10.5281/zenodo.23687032",
+     "2026-10-27T10:36:23Z"
+    ],
+    [
+     "internally-heated-convection-flux-bounds",
+     "Unrefereed fixed-domain infinite-Prandtl heat-flux bounds with supporting replay",
+     "2026-10-27T06:50:48Z"
+    ],
+    [
+     "irreducible-pushforwards-quartic-transitions",
+     "Anonymous unrefereed methods preprint on irreducible pushforwards and constrained quartic transitions; Furter's R(3) remains open.",
+     "2026-08-01T20:02:49Z"
+    ],
+    [
+     "k2p-tree-network-counterexample",
+     "Unrefereed K2P tree-network counterexample: exact finite certificates, scoped written proofs and reproducible checks",
+     "2026-10-05T15:25:21Z"
+    ],
+    [
+     "kagome-aklt-spectral-gap",
+     "Unrefereed computer-assisted kagome AKLT spectral-gap candidate: exact inputs, deterministic validated replay, explicit trust boundaries.",
+     "2026-09-30T21:50:36Z"
+    ],
+    [
+     "katthan-betti-poset-counterexample",
+     "Unrefereed candidate: an exact Betti-poset counterexample for Stanley projective dimension, with certificates and replay.",
+     "2026-10-14T08:53:00Z"
+    ],
+    [
+     "kawasaki-analytic-fast-regimes",
+     "Unrefereed strict-regime global Kawasaki entropy-contraction proof candidate; exact diagnostic package",
+     "2026-10-13T23:27:15Z"
+    ],
+    [
+     "knese-symmetric-multiaffine-agler",
+     "Unrefereed candidate: stable symmetric multiaffine polynomials are Agler denominators in every finite dimension",
+     "2026-10-27T06:50:50Z"
+    ],
+    [
+     "levy-qsd-exponential-moments-restart",
+     "Research candidate: exact exponential moments of interval quasi-stationary laws for Lévy processes; the Garcia et al. ratio-one conjecture fails (C* ≈ 0.850) and idealised QSD restart saturates at budget scale e^{ηL}. DOI 10.5281/zenodo.23545672",
+     "2026-10-26T18:10:46Z"
+    ],
+    [
+     "linear-nonbacktracking-jordan-growth",
+     "Anonymous unrefereed candidate: linear Jordan-block growth in counting non-backtracking graphs, with exact producer controls",
+     "2026-09-05T18:24:16Z"
+    ],
+    [
+     "logarithmic-stenger-matrix-stability",
+     "Candidate (unrefereed, AI-assisted): positive stability of logarithmic Stenger integration matrices; sharp forward boundary, reverse instability and a certified counterexample to Gautschi-Hairer Conjecture 5.3 as worded",
+     "2026-10-26T18:10:49Z"
+    ],
+    [
+     "lotka-volterra-tree-presentations",
+     "Research candidate (unrefereed, AI-assisted): linear coordinate presentations of Lotka–Volterra tree systems and a proof of van der Kamp's tree conjecture (generic parameters). DOI 10.5281/zenodo.23564794",
+     "2026-10-26T18:10:51Z"
+    ],
+    [
+     "lps-structural-reductions",
+     "",
+     "2026-08-25T17:34:30Z"
+    ],
+    [
+     "math",
+     "",
+     "2026-10-08T05:20:00Z"
+    ],
+    [
+     "median-radius-obstructions",
+     "Unrefereed candidate: superexponential strict-improvement distances in median graphs, with exact finite checks.",
+     "2026-09-21T15:30:50Z"
+    ],
+    [
+     "modular-code-obstructions",
+     "Candidate distance obstructions for modular group-algebra codes; exact replay and AI-readable claims.",
+     "2026-09-29T21:14:47Z"
+    ],
+    [
+     "moment-ideals-unbounded-generator-degrees",
+     "Unrefereed candidate: unbounded moment-ideal generator degrees via graph faces, with exact checks and scoped internal review",
+     "2026-09-09T17:35:41Z"
+    ],
+    [
+     "mosaics-and-abrasion-counterexamples",
+     "Exact rational convex-mosaic counterexamples and centroidal abrasion creation; unrefereed candidates with reproducible finite checks.",
+     "2026-10-27T06:50:51Z"
+    ],
+    [
+     "mprk-nonnegative-two-cycles",
+     "Research candidate: nonnegative Runge–Kutta coefficients do not make MPRK schemes globally stable — certified attracting two-cycle of MPRK22(4/7)",
+     "2026-10-26T18:10:53Z"
+    ],
+    [
+     "multiplane-lensing-sparse-bound",
+     "Unrefereed candidate: sparse upper bounds for regular images in multiplane point-mass lenses, with proof and exact replay; sharp maximum remains open.",
+     "2026-10-01T05:58:56Z"
+    ],
+    [
+     "multiple-dispersal-maxima",
+     "Candidate (unrefereed): arbitrarily many population maxima under uniform global dispersal; answers Bai and Li's question. DOI 10.5281/zenodo.23687852",
+     "2026-10-27T11:41:40Z"
+    ],
+    [
+     "negative-square-energy-five-vertex-valley",
+     "Anonymous unrefereed candidate on a minimal strict valley in negative square energy under edge addition",
+     "2026-08-30T05:25:53Z"
+    ],
+    [
+     "noninteger-sliced-wasserstein",
+     "Critical-moment sliced Wasserstein comparison for noninteger powers: candidate proof and diagnostics",
+     "2026-10-11T08:49:04Z"
+    ],
+    [
+     "o01d0-polar-fibre-structural-reductions",
+     "Unrefereed structural reductions, exact falsifications, and executable remaining gates for O-01d0",
+     "2026-08-28T12:20:17Z"
+    ],
+    [
+     "odd-order-one-third-popular-differences",
+     "Anonymous unrefereed candidate on uniformly popular differences in odd cyclic groups",
+     "2026-08-29T12:09:19Z"
+    ],
+    [
+     "orthogonal-tensor-algebraicity",
+     "Unrefereed candidate: algebraicity classification for fixed orthogonal tensor multiplicities; written proofs and finite replay diagnostics.",
+     "2026-10-27T06:50:53Z"
+    ],
+    [
+     "overpartition-congruences-and-towers",
+     "Unrefereed overpartition congruence and tower proof candidates with exact modular-form certificates",
+     "2026-10-12T14:21:27Z"
+    ],
+    [
+     "pagerank-backtracking-nonmonotone",
+     "Candidate: backtracking-weighted PageRank is not coordinatewise monotone — counterexamples to Glover–Jones–Kempton–Oveson Conjectures 3.1 and 3.2, certified census, endpoint tests (unrefereed)",
+     "2026-10-23T00:01:34Z"
+    ],
+    [
+     "pass-and-swap-bounded-swaps",
+     "Research candidate: counterexamples to the Dorsman-Gardner bounded-swap conjecture for pass-and-swap queues, cycle classification, and a proof for bipartite swapping graphs with odd caps. Exact replayable verifiers. DOI 10.5281/zenodo.23515841",
+     "2026-10-26T18:10:55Z"
+    ],
+    [
+     "periodic-regulation-budget-monotonicity",
+     "Candidate: measure-order proof of Gavish–Katriel budget monotonicity for periodic regulation (more budget never removes effort), with limits and the vaccination conjecture",
+     "2026-10-21T16:35:53Z"
+    ],
+    [
+     "perron-minima",
+     "Candidate Perron optimisation with factorised pair interactions: proofs, scoped replay and structural limits",
+     "2026-09-28T12:30:31Z"
+    ],
+    [
+     "pinching-free-normal-cover-critical-exponent",
+     "Unrefereed all-Fuchsian strengthening candidate related to AIM Problem 4.3",
+     "2026-10-27T06:50:55Z"
+    ],
+    [
+     "planar-transport-map-sensitivity-certificates",
+     "Unrefereed candidate: exact sensitivity certificates for planar transport maps (coefficient-box envelope, convergent refinement, three-atom calibration). Creator Anonymous; publisher Evidence Press.",
+     "2026-10-27T06:50:57Z"
+    ],
+    [
+     "pmms-three-agents-eight-goods",
+     "Unrefereed candidate: PMMS allocations for three agents exist up to eight goods (m* = 9); LRAT certificates, clause verifier, replay",
+     "2026-10-27T06:50:59Z"
+    ],
+    [
+     "policy-identification-observatory",
+     "Candidate research infrastructure for deterministic, evidence-bound policy-identification audits",
+     "2026-08-11T07:35:13Z"
+    ],
+    [
+     "polydegree-full-e3-column",
+     "Anonymous unrefereed candidate proof package for the full e=3 Polydegree Conjecture column",
+     "2026-08-12T19:59:40Z"
+    ],
+    [
+     "potts-censoring-counterexample",
+     "Unrefereed exact finite-horizon ferromagnetic Potts censoring counterexample candidate, with proof and reproducible certificates",
+     "2026-10-17T16:32:14Z"
+    ],
+    [
+     "primitive-su-primitivity",
+     "Unrefereed candidate: uniform primitivity of the specified SU(2n) superconducting series",
+     "2026-10-11T14:42:56Z"
+    ],
+    [
+     "processor-sharing-freshness",
+     "Research candidate: information freshness near saturation in processor-sharing queues.",
+     "2026-10-20T14:50:41Z"
+    ],
+    [
+     "prophet-over-time-limit",
+     "Unrefereed candidate: limiting iid prophet inequality over time with certified bounds and deterministic near-optimality",
+     "2026-10-17T22:12:45Z"
+    ],
+    [
+     "ptolemaic-negative-type",
+     "Unrefereed analytic proof candidate: sharp negative type of finite Ptolemaic metrics, with scoped replay and explicit assurance boundaries.",
+     "2026-10-25T09:25:17Z"
+    ],
+    [
+     "ptolemaic-split-stability",
+     "Unrefereed candidate: sharp local Ptolemaic split stability, exact certificates and critical-exponent sensitivity",
+     "2026-09-27T17:29:12Z"
+    ],
+    [
+     "pure-tensor-analytic-rank-counterexample",
+     "Unrefereed candidate: a pure-tensor counterexample to one literal unnormalised analytic-rank tensorization inequality",
+     "2026-08-30T21:18:30Z"
+    ],
+    [
+     "quadratic-mass-action-sharpness",
+     "Unrefereed mathematical candidate: sharp positive-equilibrium counts in quadratic mass-action networks, with exact proofs and replay.",
+     "2026-10-04T22:07:12Z"
+    ],
+    [
+     "quartic-inverse-coefficients",
+     "Unrefereed candidate: uniform quartic boundary interlacing and R3-dependent structural affine intersection classification.",
+     "2026-09-12T16:21:16Z"
+    ],
+    [
+     "random-reshuffling-baseline-policy",
+     "Anonymous unrefereed candidate on exact value certificates and common-Hessian ordering hardness for random reshuffling",
+     "2026-08-02T15:33:54Z"
+    ],
+    [
+     "rbm-nonnegative-logarithmic-mixing",
+     "Uniform logarithmic alternating-scan mixing with nonnegative interactions and biases; unrefereed candidate with exact product sharpness checks",
+     "2026-10-14T03:19:21Z"
+    ],
+    [
+     "rbm31-exact-kl-radius",
+     "Unrefereed exact RBM(3,1) KL radius candidate, continuous convex-cover certificate and constructive witnesses",
+     "2026-10-17T16:32:30Z"
+    ],
+    [
+     "rbm43-eight-point-obstruction",
+     "Unrefereed candidate: a finite certificate of nonuniversality for classical real binary RBM(4,3).",
+     "2026-09-06T19:07:45Z"
+    ],
+    [
+     "reducible-incidence-divisors-affine-slices",
+     "CC0 unrefereed candidate on reducible incidence divisors and affine slices of binary-form factorisation spaces, with exact audit artefacts",
+     "2026-08-01T19:19:26Z"
+    ],
+    [
+     "regular-heptagon-octagon-local-minimality",
+     "Candidate certificate-backed local minimality of the regular heptagon and octagon; reproducible residual checks and explicit assurance boundaries.",
+     "2026-09-30T17:18:42Z"
+    ],
+    [
+     "renewal-quantum-resetting-equilibration",
+     "Candidate (unrefereed): renewal resetting of quantum dynamics - complete-reset classification, jump-channel reduction under (W), critical time scales. DOI 10.5281/zenodo.23580221",
+     "2026-10-22T23:25:03Z"
+    ],
+    [
+     "reverse-reaction-attracting-oscillations",
+     "Exact counterexample to reverse-reaction deletion preserving absence of attracting oscillations",
+     "2026-10-18T05:51:59Z"
+    ],
+    [
+     "rfim-unbounded-fields-entropy",
+     "Unrefereed RFIM continuous-time entropy-dissipation candidate with unbounded fields and explicit assurance scope",
+     "2026-10-18T12:39:48Z"
+    ],
+    [
+     "robust-gaussian-inverse-estimation",
+     "Uniform robust-risk bounds and jitter implementation for Gaussian inverse estimation",
+     "2026-10-18T05:51:59Z"
+    ],
+    [
+     "s6-extension-results-candidate",
+     "Unrefereed Evidence Press candidate: extensions around a claimed complex structure on S6; global source construction unverified.",
+     "2026-08-24T17:49:28Z"
+    ],
+    [
+     "seven-cycle-fourth-power-upper112",
+     "Unrefereed candidate: 108 <= alpha(C7 strong power 4) <= 112, with exact certificates and scoped auxiliary results; exact value unresolved.",
+     "2026-10-05T14:16:51Z"
+    ],
+    [
+     "seymour-second-neighbourhood-2delta3",
+     "Unrefereed candidate: Seymour's second neighbourhood conjecture at order 2δ+3 — structure, a certified 18-vertex lower bound, and a refutation of DeVos's conjecture as recorded in Sullivan's survey",
+     "2026-09-24T21:44:53Z"
+    ],
+    [
+     "sfs-bottleneck-audit",
+     "Executed audit (unrefereed candidate): universal class rejection of nine published human SFS datasets under the frozen pre-registered identifiability protocol.",
+     "2026-08-11T19:59:58Z"
+    ],
+    [
+     "sfs-bottleneck-audit-protocol",
+     "Pre-registered protocol (unrefereed candidate): certified SFS identifiability audit of the 930-813 kya human bottleneck claim. Frozen before any real data contact.",
+     "2026-08-11T20:00:00Z"
+    ],
+    [
+     "sfs-identifiability-audit",
+     "Unrefereed candidate: exact finite-SFS identification boundary, certified bounds, and a setting-conditional linked audit; producer-replayed, not independently reproduced.",
+     "2026-08-20T12:42:41Z"
+    ],
+    [
+     "sharp-bilagrangian-smoothness",
+     "Unrefereed proof candidate: sharp smoothness of reduced bi-Lagrangian Grassmannians; written proof and exact finite replay.",
+     "2026-09-12T13:09:27Z"
+    ],
+    [
+     "sharp-four-factor-cohen-macaulay-obstruction",
+     "Anonymous unrefereed candidate: sharp four-factor Cohen–Macaulay obstruction with exact replay",
+     "2026-09-04T12:31:01Z"
+    ],
+    [
+     "sharp-local-minor-ratios",
+     "",
+     "2026-09-07T22:36:03Z"
+    ],
+    [
+     "sharp-logconcave-moment-comparison",
+     "Unrefereed computer-assisted theorem candidate: sharp Lp-L2 moment comparison for centred log-concave laws, equality cases and qualitative stability.",
+     "2026-10-15T21:46:50Z"
+    ],
+    [
+     "sharp-quartic-hadamard-powers",
+     "Unrefereed candidate: sharp ordinary coefficient powers of positive-coefficient real-rooted quartics; written proof and scoped exact replay",
+     "2026-09-05T14:08:35Z"
+    ],
+    [
+     "sharp-rank-three-chollet-order-five",
+     "Exact proof package for sharp rank-three Chollet inequalities in order five",
+     "2026-10-26T18:11:03Z"
+    ],
+    [
+     "sharp-shannon-window-law",
+     "Unrefereed research candidate: sharp shape-parameter law for sinh and Kaiser-Bessel regularised Shannon sampling, corrected alias-inclusive error bound (Evidence Press). DOI 10.5281/zenodo.23533711",
+     "2026-10-26T18:10:57Z"
+    ],
+    [
+     "signed-kuramoto-positive-networks",
+     "Research candidate (unrefereed): exact realisation of signed Kuramoto networks by positive ones; stable non-manifold equilibria; status of Sclosa's Conjecture 1.3",
+     "2026-10-27T13:18:21Z"
+    ],
+    [
+     "sis-reconstruction-continuation",
+     "Fixed-dimensional continuation, dimension-free obstruction and Holder replacement for network SIS epidemics",
+     "2026-10-21T04:55:19Z"
+    ],
+    [
+     "six-dimensional-zonoid-counterexample",
+     "Unrefereed candidate: exact six-dimensional counterexample to cross-polytope maximality in zonoid approximation",
+     "2026-09-08T12:32:54Z"
+    ],
+    [
+     "small-exponent-percolation",
+     "Unrefereed candidate: first critical-mean-degree correction and uniform kernel extensions for long-range bond percolation",
+     "2026-10-11T08:10:28Z"
+    ],
+    [
+     "smooth-point-certificates-polydegree-containments",
+     "Unrefereed candidate on Jacobian smooth-point certificates for Polydegree containments",
+     "2026-10-27T06:51:01Z"
+    ],
+    [
+     "spectrally-negative-resetting-extremes",
+     "Candidate research release: fixed-horizon extremes of spectrally negative Lévy processes with Poisson resetting (Evidence Press)",
+     "2026-10-27T11:35:21Z"
+    ],
+    [
+     "square-maximises-dirichlet-ratio-quadrilaterals",
+     "Unrefereed candidate: computer-assisted proof that the square maximises λ₂/λ₁ (Dirichlet Laplacian) among all quadrilaterals, convex or not. Paper, certificates, verifiers, replay receipts. DOI 10.5281/zenodo.23109314",
+     "2026-10-27T06:51:03Z"
+    ],
+    [
+     "stable-power-concavity-gaussian-boundary",
+     "Unrefereed proof candidate: sharp Gaussian-boundary power concavity of symmetric stable densities, with finite interval certificate. DOI 10.5281/zenodo.22659265.",
+     "2026-09-08T11:56:09Z"
+    ],
+    [
+     "stable-random-radial-profile",
+     "Smooth random radial profiles for isotropic Kac polynomials: written-proof candidate and scoped diagnostics",
+     "2026-10-11T04:53:17Z"
+    ],
+    [
+     "state-contingent-comparability",
+     "Exact conditional comparability tests and implementable bounds for state-contingent sovereign debt",
+     "2026-10-28T00:36:10Z"
+    ],
+    [
+     "steady-stream-power-landscapes",
+     "Unrefereed analytical candidate: coupled steady landscapes, local uniqueness, radial theory and conditional channel audit",
+     "2026-10-06T04:37:58Z"
+    ],
+    [
+     "stocks-are-not-flows",
+     "Reproducible identification audit of investor pressure and tenure change in England, 2008–2019.",
+     "2026-09-24T12:00:39Z"
+    ],
+    [
+     "sun-circular-primitive-permutation",
+     "Unrefereed computer-assisted candidate: Sun circular primitive-permutation classification with one exception",
+     "2026-10-12T03:20:04Z"
+    ],
+    [
+     "sun-hou-primitive-sum-circle",
+     "Unrefereed computer-assisted candidate: finite closure of the Sun-Hou primitive adjacent-sum conjecture",
+     "2026-10-12T02:02:54Z"
+    ],
+    [
+     "symmetric-unimodality-free-convolution",
+     "Unrefereed analytic proof candidate: symmetric unimodality under free additive convolution; scoped symbolic checks and internal editorial records.",
+     "2026-09-07T20:09:25Z"
+    ],
+    [
+     "symmetry-respecting-tree-torsors",
+     "Unrefereed candidate: equivariant critical-group torsor criterion and generalized-theta classification",
+     "2026-09-08T08:34:56Z"
+    ],
+    [
+     "szollosi-mub-exclusion",
+     "Unrefereed certificate-backed candidate excluding the closed Szollosi family from MUB quadruplets in dimension six; full problem remains conditional.",
+     "2026-09-30T06:47:47Z"
+    ],
+    [
+     "tcell-exactly-five",
+     "Unrefereed candidate: exactly five positive equilibria in a two-ligand T-cell model; exact certificate and scoped proof.",
+     "2026-09-20T16:52:05Z"
+    ],
+    [
+     "tetrahedral-moment-stokes-elements",
+     "Candidate: a moment obstruction and minimal-degree polynomial nonconforming Stokes elements on tetrahedra (answers the Balazi–Allaire–Jolivet–Omnes quintic question). Unrefereed, AI-assisted.",
+     "2026-10-22T13:28:18Z"
+    ],
+    [
+     "thermal-cumulant-sign-counterexamples",
+     "Candidate: exact three-state counterexamples to Ptaszyński's thermal heat-current cumulant sign conjectures, with positive bounds (Evidence Press, unrefereed)",
+     "2026-10-27T12:16:15Z"
+    ],
+    [
+     "thermal-ordering-concave-baths",
+     "Research candidate: thermal ordering under Markovian relaxation - a finite-time criterion and its limits (Evidence Press, unrefereed)",
+     "2026-10-28T06:51:44Z"
+    ],
+    [
+     "theta-graphs-c3-e-positive",
+     "Unrefereed candidate: e-positivity of theta graphs with a three-edge shortest path; exact internal checks and weighted-group proof.",
+     "2026-10-12T08:37:10Z"
+    ],
+    [
+     "three-coloured-paths-partial-results",
+     "Unrefereed partial-results candidate for AIM-COMBINATORICS-0050; parent problem unresolved",
+     "2026-09-08T08:00:52Z"
+    ],
+    [
+     "three-copy-werner-undistillability",
+     "Three-copy qutrit Werner undistillability: mathematical candidate, exact certificate and scoped review evidence",
+     "2026-10-04T09:56:32Z"
+    ],
+    [
+     "three-gaussian-projection-counterexample",
+     "Unrefereed candidate: projection convex-order tests fail for three centred Gaussian components.",
+     "2026-10-10T15:24:25Z"
+    ],
+    [
+     "tree-network-separation",
+     "Unrefereed candidate: sharp rank bounds and all-parameter tree-network separation, with exact checks and explicit scope.",
+     "2026-10-04T16:54:09Z"
+    ],
+    [
+     "triangulated-graph-product-picard",
+     "Unrefereed candidate: integral ridge and full tropical Picard groups of graph products",
+     "2026-09-08T08:41:04Z"
+    ],
+    [
+     "two-class-transposition-profiles",
+     "Unrefereed candidate: full two-class random-transposition profiles and vanishing-bias crossover",
+     "2026-09-12T15:20:21Z"
+    ],
+    [
+     "two-colour-overpartition-congruences",
+     "Exact modular certificates and parameter families for two-colour overpartitions; unrefereed candidate",
+     "2026-10-12T15:25:52Z"
+    ],
+    [
+     "two-host-dormancy-oscillations",
+     "Written-proof candidate: exact counterexamples and local stable oscillations in a two-host dormancy model",
+     "2026-10-18T07:47:51Z"
+    ],
+    [
+     "txgraffiti-conjecture3-resolution",
+     "Unrefereed certificate-backed candidate resolution of TxGraffiti Conjecture 15/3",
+     "2026-08-08T15:18:16Z"
+    ],
+    [
+     "txgraffiti-order48-successor",
+     "Anonymous unrefereed certificate-backed 48-vertex successor candidate for TxGraffiti Conjecture 15/3",
+     "2026-08-24T15:40:41Z"
+    ],
+    [
+     "unbounded-bns-component-orbits",
+     "Anonymous unrefereed candidate: a linearly growing free-by-cyclic family with unbounded BNS component-orbit count",
+     "2026-08-31T09:38:09Z"
+    ],
+    [
+     "uniform-split-reliability",
+     "Unrefereed candidate: uniform split-reliability classification, exact finite certificates and explicit all-order cone intervals",
+     "2026-10-27T06:51:05Z"
+    ],
+    [
+     "unique-equilibrium-lsi-separation",
+     "",
+     "2026-10-14T07:22:13Z"
+    ],
+    [
+     "unlinked-gamma-regression",
+     "Unrefereed candidate: exact fixed-dictionary Gamma identifiability, finite coefficient fibers and optimal cumulant order",
+     "2026-09-20T13:15:05Z"
+    ],
+    [
+     "waiting-time-entropy-bound-counterexamples",
+     "Research candidate: counterexamples to the Maier et al. (2024) waiting-time upper bound on entropy production in periodically driven Markov networks",
+     "2026-10-26T18:10:59Z"
+    ],
+    [
+     "wales-20mph-attribution-manuscript",
+     "Companion manuscript (unrefereed candidate) for the Evidence Press Wales 20 mph casualty attribution audit — constructive non-identification result",
+     "2026-10-12T20:59:04Z"
+    ],
+    [
+     "wales-20mph-policy-analysis",
+     "Evidence Press policy-identification audit of the Wales default 20 mph casualty attribution claim",
+     "2026-08-11T20:03:03Z"
+    ],
+    [
+     "wardrop-smooth-route-regimes",
+     "Research candidate (unrefereed): smoothness within and across Wardrop route regimes; smooth route activations, minimal five-link BPR example, slope comparison and genericity",
+     "2026-10-22T10:40:29Z"
+    ],
+    [
+     "weniger-delta-nonreal-poles",
+     "Candidate (unrefereed): nonreal poles of Weniger's delta transformation for Stieltjes series - a finite-order classification refuting Borghi's 2026 conjecture",
+     "2026-10-23T21:27:38Z"
+    ],
+    [
+     "when-a-unique-answer-is-not-an-identified-answer",
+     "Unrefereed Evidence Press candidate on selector provenance and identification across APC, epidemics, sign-restricted SVARs, and aerosol–ECS.",
+     "2026-08-11T16:24:07Z"
+    ],
+    [
+     "wilhelm-heinrich-large-gain",
+     "Unrefereed candidate: convex attractor geometry, exact stability formulas and explicit large-gain uniqueness for the Wilhelm-Heinrich oscillator.",
+     "2026-10-27T06:51:07Z"
+    ],
+    [
+     "williamson-order-transfer",
+     "Research candidate: Williamson low-storage order transfer through six and a conditional order-seven criterion.",
+     "2026-10-20T14:48:58Z"
+    ],
+    [
+     "wishart-reachable-noise",
+     "Unrefereed candidate: reachable-noise existence classification for operator-valued Wishart processes",
+     "2026-09-22T07:28:33Z"
+    ],
+    [
+     "wmy5-graded-obstructions",
+     "Exact graded-compression and affine-Hessian obstructions for the five-variable weak Markus-Yamabe problem",
+     "2026-10-26T18:11:01Z"
+    ],
+    [
+     "z20-cochromatic",
+     "CC0 candidate proofs for z(20)=6 and VR2(K4)=20, with replayable certificates and AI-readable indexes",
+     "2026-10-27T06:51:09Z"
+    ]
+   ]
+  },
+  "repo_search": {
+   "multistationarity region connected": "[]\n",
+   "one-species multistationarity": "[]\n",
+   "McClure Shiu multistationarity": "[]\n",
+   "multistationarity connectedness": "[]\n"
+  },
+  "code_search": {
+   "\"multistationarity region\" \"one-species\"": "pw/crnt-connectivity\tpython/crnt_lab.py\npw/crnt-connectivity\tREADME.md\n",
+   "multistationarity McClure": "pw/crnt-connectivity\tREADME.md\npw/crnt-connectivity\tpython/crnt_lab.py\nehijano/rss_fetch\trss_data/q-bio.MN/2024-04-07_q-bio.MN.xml\nehijano/rss_fetch\trss_data/math.DS/2024-04-07_math.DS.xml\n",
+   "multistationarity \"one-species\" connected": "pw/crnt-connectivity\tREADME.md\npw/crnt-connectivity\tpython/crnt_verify_pro.py\npw/crnt-connectivity\tpython/crnt_lab.py\nrick-stevens-ai/Pure-Thought\treviews/COMPLETE-REVIEW.md\n"
+  },
+  "pw_crnt_connectivity": {
+   "repo": "[\"pw/crnt-connectivity\",\"Verification code + Lean 4 formalization: one-species reaction-network multistationarity regions are connected for r\\u003c=5 (resolves McClure-Shiu arXiv:2303.03960 §6)\",\"2026-06-25T07:18:49Z\",\"2026-09-09T14:19:34Z\"]\n",
+   "commits": "fd6b1fc7e27e35cd1853627944c0c29e2d0762b8\t2026-09-09T14:19:24Z\n78190c417da71a2eaeed0d13d9167c19826678ac\t2026-09-07T10:11:16Z\n49b7a4e51112159707cb2fe0851f06bc9f8937de\t2026-06-25T07:18:48Z\n"
+  }
+ }
+}

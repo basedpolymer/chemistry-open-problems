@@ -1,0 +1,32 @@
+PASS base: exactly five distinct reactant complexes ['0', 'A+B', 'A+C', 'B+C', 'R']
+PASS base: all complexes at most bimolecular 
+PASS base: dim S = 3 
+PASS base: S-perp spanned by (1,1,0,0) 
+PASS base: r-dot = 1 - r 
+PASS base: a-dot + b-dot = 0 
+   positive equilibria [(4, 5, 1/5, 1), (6, 3, 1/3, 1), (8, 1, 1, 1)]
+PASS base: exact equilibria in a+b=9 by Groebner basis 
+    (4, 5, 1/5, 1) char poly coefficients (1689/5, 9364/5, 1536) real roots [-332.17594, -4.6240555, -1.0000000]
+    (6, 3, 1/3, 1) char poly coefficients (207, -562, -768) real roots [-209.66302, -1.0000000, 3.6630208]
+PASS base: (6, 3, 1/3, 1) has a positive real eigenvalue 
+PASS base: (6, 3, 1/3, 1) nondegenerate 
+    (8, 1, 1, 1) char poly coefficients (113, 1648, 1536) real roots [-96.000000, -16.000000, -1.0000000]
+PASS base: stable, unstable, stable 
+PASS coupled: exactly five distinct reactant complexes ['0', 'A+B', 'A+C', 'B+C', 'R']
+PASS coupled: all complexes at most bimolecular 
+PASS coupled: dim S = 3 
+PASS coupled: S-perp spanned by (1,1,0,0) 
+PASS coupled: r-dot = 1 - r 
+PASS coupled: a-dot + b-dot = 0 
+   positive equilibria [(4, 5, 1/5, 1), (6, 3, 1/3, 1), (8, 1, 1, 1)]
+PASS coupled: exact equilibria in a+b=9 by Groebner basis 
+    (4, 5, 1/5, 1) char poly coefficients (1689/5, 9364/5, 1536) real roots [-332.17594, -4.6240555, -1.0000000]
+    (6, 3, 1/3, 1) char poly coefficients (207, -562, -768) real roots [-209.66302, -1.0000000, 3.6630208]
+PASS coupled: (6, 3, 1/3, 1) has a positive real eigenvalue 
+PASS coupled: (6, 3, 1/3, 1) nondegenerate 
+    (8, 1, 1, 1) char poly coefficients (113, 1648, 1536) real roots [-96.000000, -16.000000, -1.0000000]
+PASS coupled: stable, unstable, stable 
+PASS positive equilibrium in every class a+b=T 
+PASS msolve: exactly three positive solutions, boxes contain P1, P2, P3 3 real solutions in all
+PASS 200 of 200 nearby rate vectors keep 3 equilibria, 2 stable (floating point) 200
+RESULT PASS

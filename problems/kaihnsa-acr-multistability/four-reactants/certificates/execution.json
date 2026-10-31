@@ -1,0 +1,48 @@
+{
+  "utc": "2026-10-31T11:45:34.622089+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "numpy": "2.5.4",
+    "sympy": "1.14.0"
+  },
+  "results": [
+    {
+      "script": "certify_sources.py",
+      "passed": true,
+      "exit_code": 0,
+      "pass_lines": 6,
+      "seconds": 4.794
+    },
+    {
+      "script": "certify_subspaces.py",
+      "passed": true,
+      "exit_code": 0,
+      "pass_lines": 21,
+      "seconds": 30.317
+    },
+    {
+      "script": "certify_normal_forms.py",
+      "passed": true,
+      "exit_code": 0,
+      "pass_lines": 94,
+      "seconds": 4.104
+    },
+    {
+      "script": "certify_five_example.py",
+      "passed": true,
+      "exit_code": 0,
+      "pass_lines": 27,
+      "seconds": 2.273
+    }
+  ],
+  "total_pass_lines": 148,
+  "sha256": {
+    "scripts/certify_sources.py": "c36d1f884c84f4e0511c1fa83ba13f1bc06f2ebd1fd9b5c80b530acce71eef0e",
+    "scripts/certify_subspaces.py": "0223d48f3387966af2e1d8fe7c2fb5e855c03a6a15debddd58ffa41927b0e40e",
+    "scripts/certify_normal_forms.py": "ad534eaaa07393899bb254f161e36b09d50750eb1658ffb174f0867a98cdc665",
+    "scripts/certify_five_example.py": "fc3e519f8db0df551455ee8e958d12d26ada0c20ea8bc98fa29b414662451a0d",
+    "paper.tex": "2de6edaed8a7a18961185be2b1079f49eab61fb920e3750694febabab6d8ac07"
+  },
+  "independent_verification": false
+}

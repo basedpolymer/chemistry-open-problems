@@ -1,0 +1,34 @@
+PASS S3: computed orbits equal the table in the manuscript 11 forms
+   spans per form [2, 2, 4, 4, 4, 8, 8, 8, 8, 8, 8]
+PASS S7: computed orbits equal the table in the manuscript 5 forms
+   spans per form [2, 4, 4, 6, 6]
+PASS S9: computed orbits equal the table in the manuscript 3 forms
+   spans per form [6, 24, 24]
+PASS S3/0: curve, D = mu L', mu has one sign on sampled domain mu = -T*t*(-U + t), signs {1}
+PASS S3/1: curve, D = mu L', mu has one sign on sampled domain mu = -(-U + t)*(-T*t + 2*q - 2*t**2), signs {-1}
+PASS S3/2: curve, D = mu L', mu has one sign on sampled domain mu = -(-T*t + q - t**2)*(-2*U*t + q + t**2)/(2*t), signs {-1}
+PASS S3/3: curve, D = mu L', mu has one sign on sampled domain mu = -(-U + t)*(-T*t + q - t**2), signs {-1}
+PASS S3/4: curve, D = mu L', mu has one sign on sampled domain mu = -(-T*t + q - t**2)*(-U*t + q + t**2)/t, signs {-1}
+PASS S3/5: curve, D = mu L', mu has one sign on sampled domain mu = -(-U + 2*t)*(-T*t + q - t**2), signs {-1}
+PASS S3/6: curve, D = mu L', mu has one sign on sampled domain mu = -(-2*U + t)*(-2*T*t + 2*q - t**2)/4, signs {-1}
+PASS S3/7: curve, D = mu L', mu has one sign on sampled domain mu = t*(-T*U + T*t + p), signs {-1}
+PASS S3/8: curve, D = mu L', mu has one sign on sampled domain mu = -(-T + t)*(-U*t + p), signs {-1}
+PASS S3/9: curve, D = mu L', mu has one sign on sampled domain mu = t*(-V + t)*(a0**2 + p)/(2*a0), signs {-1}
+PASS S3/10: curve, D = mu L', mu has one sign on sampled domain mu = t*(-V + t)*(a0**2 + p)/a0, signs {-1}
+PASS S7/0: curve, D = mu L', mu has one sign on sampled domain mu = -t*(-U + t)*(-T - U + t), signs {1}
+PASS S7/1: curve, D = mu L', mu has one sign on sampled domain mu = t*(-U + t)*(T*q + q*t - 2*t**2)/q, signs {-1}
+PASS S7/2: curve, D = mu L', mu has one sign on sampled domain mu = t*(2*T*q + q*t - t**2)*(-2*U*q + q*t + t**2)/(4*q**2), signs {-1}
+PASS S7/3: curve, D = mu L', mu has one sign on sampled domain mu = -U*t*(T*q + t**2)/q, signs {-1}
+PASS S7/4: curve, D = mu L', mu has one sign on sampled domain mu = U*t*(-T*q + U**2 + q*t)/q, signs {-1}
+PASS S9/0: curve, D = mu L', mu has one sign on sampled domain mu = -V*t*(-T + t)*(U + t), signs {1}
+PASS S9/1: curve, D = mu L', mu has one sign on sampled domain mu = t*(2*T*V - V*t + q*t)*(-2*U*V + V*t + q*t)/(4*V), signs {-1}
+PASS S9/2: curve, D = mu L', mu has one sign on sampled domain mu = -T*U*t*(T*U - V*p + p*t)/p, signs {1}
+PASS S3: a strictly concave, b concave 
+PASS S3: a strictly concave, b concave 
+PASS S3: a strictly concave, b concave 
+PASS S3: a strictly concave, b concave 
+PASS S3: a strictly concave, b concave 
+PASS S3: a strictly concave, b concave 
+PASS S7: A strictly concave, B concave 
+PASS S7: A strictly concave, B concave 
+RESULT PASS

@@ -1,0 +1,1657 @@
+{
+  "date": "2026-10-31T09:16:59.833419+00:00",
+  "queries": {
+    "openalex_citing": {
+      "url": "https://api.openalex.org/works?filter=cites:W4390503227&per-page=100",
+      "status": "ok",
+      "result": {
+        "count": 4,
+        "items": [
+          {
+            "title": "Absolute concentration robustness: Algebra and geometry",
+            "year": 2024,
+            "doi": "https://doi.org/10.1016/j.jsc.2024.102398"
+          },
+          {
+            "title": "Multistability of small zero-one reaction networks",
+            "year": 2025,
+            "doi": "https://doi.org/10.1007/s00285-025-02306-w"
+          },
+          {
+            "title": "An Efficient Algorithm for Determining the Equivalence of Zero-one Reaction Networks",
+            "year": 2025,
+            "doi": "https://doi.org/10.1145/3747199.3747571"
+          },
+          {
+            "title": "Some results about the structural properties of the Wnt pathway, its steady states and its non-associative commutative algebra",
+            "year": 2025,
+            "doi": "https://doi.org/10.1093/imammb/dqaf008"
+          }
+        ]
+      }
+    },
+    "openalex_topic": {
+      "url": "https://api.openalex.org/works?search=absolute%20concentration%20robustness%20multistability&per-page=50",
+      "status": "ok",
+      "result": {
+        "count": 1166,
+        "items": [
+          {
+            "title": "A Canonical Model of Multistability and Scale-Invariance in Biological Systems",
+            "year": 2012,
+            "doi": "https://doi.org/10.1371/journal.pcbi.1002634"
+          },
+          {
+            "title": "Prevalence of Multistationarity and Absolute Concentration Robustness in Reaction Networks",
+            "year": 2023,
+            "doi": "https://doi.org/10.1137/23m1549316"
+          },
+          {
+            "title": "Multistability and regime shifts in microbial communities explained by competition for essential nutrients",
+            "year": 2019,
+            "doi": "https://doi.org/10.7554/elife.49720"
+          },
+          {
+            "title": "Absolute concentration robustness and multistationarity in reaction networks: Conditions for coexistence",
+            "year": 2024,
+            "doi": "https://doi.org/10.1017/s0956792523000335"
+          },
+          {
+            "title": "Laser chimeras as a paradigm for multistable patterns in complex systems",
+            "year": 2015,
+            "doi": "https://doi.org/10.1038/ncomms8752"
+          },
+          {
+            "title": "ACRE: Absolute concentration robustness exploration in module-based combinatorial networks",
+            "year": 2017,
+            "doi": "https://doi.org/10.1093/synbio/ysx001"
+          },
+          {
+            "title": "A computational method for the investigation of multistable systems and its application to genetic switches",
+            "year": 2016,
+            "doi": "https://doi.org/10.1186/s12918-016-0375-z"
+          },
+          {
+            "title": "Multistability of small zero-one reaction networks",
+            "year": 2025,
+            "doi": "https://doi.org/10.1007/s00285-025-02306-w"
+          },
+          {
+            "title": "Multistability analysis in networks of positive loop motifs",
+            "year": 2025,
+            "doi": null
+          },
+          {
+            "title": "Obstruction of Absolute Concentration Robustness by Conservation Laws in Non-Redundant Zero-One Networks",
+            "year": 2026,
+            "doi": "https://doi.org/10.48550/arxiv.2604.14592"
+          },
+          {
+            "title": "Theoretical and computational tools to model multistable gene regulatory networks",
+            "year": 2023,
+            "doi": "https://doi.org/10.1088/1361-6633/acec88"
+          },
+          {
+            "title": "Bistability, Absolute Concentration Robustness, and Hysteresis in Dual-Site Futile Cycles with Bifunctional Enzymes",
+            "year": 2026,
+            "doi": "https://doi.org/10.48550/arxiv.2605.11389"
+          },
+          {
+            "title": "Synthesis of Multistable Equilibrium Compliant Mechanisms.",
+            "year": 2008,
+            "doi": null
+          },
+          {
+            "title": "Overcurvature induced multistability of linked conical frusta: how a \u2018bendy straw\u2019 holds its shape",
+            "year": 2018,
+            "doi": "https://doi.org/10.1039/c8sm01355a"
+          },
+          {
+            "title": "Extreme multistability and phase synchronization in a heterogeneous bi-neuron Rulkov network with memristive electromagnetic induction",
+            "year": 2022,
+            "doi": "https://doi.org/10.1007/s11571-022-09866-3"
+          },
+          {
+            "title": "Bimodal moment-by-moment coupling in perceptual multistability",
+            "year": 2024,
+            "doi": "https://doi.org/10.1167/jov.24.5.16"
+          },
+          {
+            "title": "Quasineutral multistability in an epidemiological-like model for defective-helper betacoronavirus infection in cell cultures",
+            "year": 2024,
+            "doi": "https://doi.org/10.1016/j.apm.2024.115673"
+          },
+          {
+            "title": "Microbial mutualism generates multistable and oscillatory growth dynamics",
+            "year": 2022,
+            "doi": "https://doi.org/10.1101/2022.04.19.488807"
+          },
+          {
+            "title": "A Unified Control of Cellular Differentiation: From Temporal Multistability to Spatial Pattern Formation in Gene Regulatory Networks",
+            "year": 2026,
+            "doi": "https://doi.org/10.64898/2026.04.04.699778"
+          },
+          {
+            "title": "Extending Levelt\u2019s Propositions to perceptual multistability involving interocular grouping",
+            "year": 2017,
+            "doi": "https://doi.org/10.1016/j.visres.2016.12.017"
+          },
+          {
+            "title": "A Bayesian framework for cue integration in multistable grouping: Proximity, collinearity, and orientation priors in zigzag lattices",
+            "year": 2008,
+            "doi": "https://doi.org/10.1167/8.7.33"
+          },
+          {
+            "title": "Multistable Composite Laminate Grids as a Design Tool for Soft Reconfigurable Multirotors",
+            "year": 2024,
+            "doi": "https://doi.org/10.1002/aisy.202400356"
+          },
+          {
+            "title": "Self-adaptable mechanical ceramic fibrous aerogels from prestressed topology and multistable constraints",
+            "year": 2025,
+            "doi": "https://doi.org/10.1038/s41467-025-62164-4"
+          },
+          {
+            "title": "Robustness of Competing Climatic States",
+            "year": 2022,
+            "doi": "https://doi.org/10.1175/jcli-d-21-0148.1"
+          },
+          {
+            "title": "Data-driven discovery and control of multistable nonlinear systems and hysteresis via structured Neural ODEs",
+            "year": 2026,
+            "doi": "https://doi.org/10.48550/arxiv.2603.27024"
+          },
+          {
+            "title": "Contribution to digital microrobotics : modeling, design and fabrication of curved beams, U-shaped actuators and multistable microrobots",
+            "year": 2015,
+            "doi": "https://doi.org/10.70675/f93fd9a2zf057z45edza085z45a5250a9dd3"
+          },
+          {
+            "title": "DARPP-32 Is a Robust Integrator of Dopamine and Glutamate Signals",
+            "year": 2006,
+            "doi": "https://doi.org/10.1371/journal.pcbi.0020176"
+          },
+          {
+            "title": "Structurally robust biological networks",
+            "year": 2011,
+            "doi": "https://doi.org/10.1186/1752-0509-5-74"
+          },
+          {
+            "title": "Robust Transient Dynamics and Brain Functions",
+            "year": 2011,
+            "doi": "https://doi.org/10.3389/fncom.2011.00024"
+          },
+          {
+            "title": "Cramer-Rao bound and absolute sensitivity in chemical reaction networks",
+            "year": 2024,
+            "doi": "https://doi.org/10.48550/arxiv.2401.06987"
+          },
+          {
+            "title": "Potential Energy Landscape and Robustness of a Gene Regulatory Network: Toggle Switch",
+            "year": 2007,
+            "doi": "https://doi.org/10.1371/journal.pcbi.0030060"
+          },
+          {
+            "title": "Turing patterns are common but not robust",
+            "year": 2018,
+            "doi": "https://doi.org/10.1101/352302"
+          },
+          {
+            "title": "In vitro implementation of robust gene regulation in a synthetic biomolecular integral controller",
+            "year": 2019,
+            "doi": "https://doi.org/10.1038/s41467-019-13626-z"
+          },
+          {
+            "title": "Emergence of cooperative bistability and robustness of gene regulatory networks",
+            "year": 2020,
+            "doi": "https://doi.org/10.1371/journal.pcbi.1007969"
+          },
+          {
+            "title": "Robustness for biochemical networks: Step-by-step approach",
+            "year": 2024,
+            "doi": "https://doi.org/10.1016/j.tcs.2024.114934"
+          },
+          {
+            "title": "Robustness and parameter geography in post-translational modification systems",
+            "year": 2020,
+            "doi": "https://doi.org/10.1371/journal.pcbi.1007573"
+          },
+          {
+            "title": "Mutational Robustness of Gene Regulatory Networks",
+            "year": 2012,
+            "doi": "https://doi.org/10.1371/journal.pone.0030591"
+          },
+          {
+            "title": "Robustness in spatially driven bistability in signaling systems",
+            "year": 2020,
+            "doi": "https://doi.org/10.1038/s41598-020-62412-1"
+          },
+          {
+            "title": "Role of tristability in the robustness of the differentiation mechanism",
+            "year": 2025,
+            "doi": "https://doi.org/10.1371/journal.pone.0316666"
+          },
+          {
+            "title": "Characterizing and controlling the inflammatory network during influenza A virus infection",
+            "year": 2014,
+            "doi": "https://doi.org/10.1038/srep03799"
+          },
+          {
+            "title": "Oscillatory Protein Expression Dynamics Endows Stem Cells with Robust Differentiation Potential",
+            "year": 2011,
+            "doi": "https://doi.org/10.1371/journal.pone.0027232"
+          },
+          {
+            "title": "Robust and resource-optimal dynamic pattern formation of Min proteins in vivo",
+            "year": 2025,
+            "doi": "https://doi.org/10.1038/s41567-025-02878-w"
+          },
+          {
+            "title": "Boltzmann maps for networks of chemical reactions and the multi-stability problem",
+            "year": 2009,
+            "doi": "https://doi.org/10.3934/nhm.2009.4.501"
+          },
+          {
+            "title": "Global stability properties of the climate: Melancholia states, invariant measures, and phase transitions",
+            "year": 2020,
+            "doi": "https://doi.org/10.1088/1361-6544/ab86cc"
+          },
+          {
+            "title": "Robust Control Approaches for Synchronization of Biochemical Oscillators",
+            "year": 2011,
+            "doi": "https://doi.org/10.5772/15965"
+          },
+          {
+            "title": "Burning embers: towards more transparent and robust climate-change risk assessments",
+            "year": 2020,
+            "doi": "https://doi.org/10.1038/s43017-020-0088-0"
+          },
+          {
+            "title": "Robust and resource-optimal dynamic pattern formation of Min proteins in vivo",
+            "year": 2023,
+            "doi": "https://doi.org/10.1101/2023.08.15.553443"
+          },
+          {
+            "title": "Integrating Extrinsic and Intrinsic Cues into a Minimal Model of Lineage Commitment for Hematopoietic Progenitors",
+            "year": 2009,
+            "doi": "https://doi.org/10.1371/journal.pcbi.1000518"
+          },
+          {
+            "title": "Robustness and resilience of dynamical networks in biology and epidemiology",
+            "year": 2025,
+            "doi": "https://doi.org/10.1561/260000003"
+          },
+          {
+            "title": "The Generic Geometry of Steady State Varieties",
+            "year": 2026,
+            "doi": "https://doi.org/10.1137/25m1731289"
+          }
+        ]
+      }
+    },
+    "semantic_scholar": {
+      "url": "https://api.semanticscholar.org/graph/v1/paper/ARXIV:2307.04186?fields=title,citations.title,citations.year,citations.url",
+      "status": "ok",
+      "result": {
+        "paperId": "46e06f045bd51917ea480a04f4a1cc5435aedd17",
+        "title": "Absolute concentration robustness and multistationarity in reaction networks: Conditions for coexistence",
+        "citations": [
+          {
+            "paperId": "d90d3c208e7c4e5febf9997a63c566772aeef3fa",
+            "url": "http://www.semanticscholar.org/paper/d90d3c208e7c4e5febf9997a63c566772aeef3fa",
+            "title": "Combinatorics of degeneracy in vertical systems",
+            "year": 2026
+          },
+          {
+            "paperId": "52099a0e51ddc203ffaffc5e1de0efcc010c345e",
+            "url": "http://www.semanticscholar.org/paper/52099a0e51ddc203ffaffc5e1de0efcc010c345e",
+            "title": "An effective criterion for multiple positive zeros of vertically parametrized polynomial systems",
+            "year": 2025
+          },
+          {
+            "paperId": "33f8531d59b533730b83713cefb1fca77a18c09b",
+            "url": "http://www.semanticscholar.org/paper/33f8531d59b533730b83713cefb1fca77a18c09b",
+            "title": "An Efficient Algorithm for Determining the Equivalence of Zero-one Reaction Networks",
+            "year": 2025
+          },
+          {
+            "paperId": "1459e3e287f9106938e22202954d30ba4d9a1b50",
+            "url": "http://www.semanticscholar.org/paper/1459e3e287f9106938e22202954d30ba4d9a1b50",
+            "title": "Degeneracy of Two-Dimensional Zero-One Reaction Networks with up to Three Species",
+            "year": 2025
+          },
+          {
+            "paperId": "23e9d387ba73b3746acc81670255916c469a36ed",
+            "url": "http://www.semanticscholar.org/paper/23e9d387ba73b3746acc81670255916c469a36ed",
+            "title": "Information geometry of chemical reaction networks: Cramer-Rao bound and absolute sensitivity revisited",
+            "year": 2025
+          },
+          {
+            "paperId": "2874f949a8d17f80a6fafe8e4b8e9c16125e762f",
+            "url": "http://www.semanticscholar.org/paper/2874f949a8d17f80a6fafe8e4b8e9c16125e762f",
+            "title": "Determining the Equivalence of Small Zero-one Reaction Networks",
+            "year": 2025
+          },
+          {
+            "paperId": "37758459cc7b68a8fee2f59601da2d932e5a8a16",
+            "url": "http://www.semanticscholar.org/paper/37758459cc7b68a8fee2f59601da2d932e5a8a16",
+            "title": "Stability in Reaction Network Models via an Extension of the Next Generation Matrix Method",
+            "year": 2024
+          },
+          {
+            "paperId": "d60dca1033a5e73efdedfd48ea8e416ca17c0e53",
+            "url": "http://www.semanticscholar.org/paper/d60dca1033a5e73efdedfd48ea8e416ca17c0e53",
+            "title": "Multistability of small zero-one reaction networks",
+            "year": 2024
+          },
+          {
+            "paperId": "01c33d02b77ebefd14623e6d9b3177388e658890",
+            "url": "http://www.semanticscholar.org/paper/01c33d02b77ebefd14623e6d9b3177388e658890",
+            "title": "Multistability of Bi-Reaction Networks",
+            "year": 2024
+          },
+          {
+            "paperId": "9e0615e8d13111e50a0b218fcdb210c8bff61dea",
+            "url": "http://www.semanticscholar.org/paper/9e0615e8d13111e50a0b218fcdb210c8bff61dea",
+            "title": "Cramer-Rao bound and absolute sensitivity in chemical reaction networks",
+            "year": 2024
+          },
+          {
+            "paperId": "40a160afba99adf58a86e413c1150e7bcaa29ccd",
+            "url": "http://www.semanticscholar.org/paper/40a160afba99adf58a86e413c1150e7bcaa29ccd",
+            "title": "Absolute concentration robustness: Algebra and geometry",
+            "year": 2023
+          }
+        ]
+      }
+    },
+    "zenodo": {
+      "url": "https://zenodo.org/api/records?q=%22absolute%20concentration%20robustness%22%20multistability&size=100",
+      "status": "unavailable",
+      "error": "HTTP Error 400: BAD REQUEST"
+    },
+    "github_topic": {
+      "url": "https://api.github.com/search/repositories?q=%22absolute%20concentration%20robustness%22&per_page=100",
+      "status": "ok",
+      "result": {
+        "count": 7,
+        "items": [
+          {
+            "name": "ramzan1990/ACRE",
+            "description": "Absolute Concentration Robustness Exploration (ACRE)",
+            "url": "https://github.com/ramzan1990/ACRE"
+          },
+          {
+            "name": "mmislan/palomar-p082-acr-zero-divisors",
+            "description": "Zero-divisor criteria for absolute concentration robustness; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p082-acr-zero-divisors"
+          },
+          {
+            "name": "HyukpyoHong/DynamicACR",
+            "description": "Codes for searching reaction networks with / without (dynamic) absolute concentration robustness.",
+            "url": "https://github.com/HyukpyoHong/DynamicACR"
+          },
+          {
+            "name": "HyukpyoHong/asymptoticACR",
+            "description": "Codes for reproducing figures in a paper introducing the notion of asymptotic absolute concentration robustness (asymptotic ACR).",
+            "url": "https://github.com/HyukpyoHong/asymptoticACR"
+          },
+          {
+            "name": "pvnlubenia/ACORNS",
+            "description": "MATLAB code to determine the species with absolute concentration robustness of a chemical reaction network of Shinar-Feinberg type",
+            "url": "https://github.com/pvnlubenia/ACORNS"
+          },
+          {
+            "name": "morn-phil/ACORNS",
+            "description": "MATLAB code to determine the species with absolute concentration robustness of a chemical reaction network of Shinar-Feinberg type",
+            "url": "https://github.com/morn-phil/ACORNS"
+          },
+          {
+            "name": "pvnlubenia/ACORNS-Octave-",
+            "description": "Octave code for absolute concentration robustness of networks of Shinar-Feinberg type [acr.m is placed on this page as a preview of the code; the same file is included in ACORNS-Octave-.zip]",
+            "url": "https://github.com/pvnlubenia/ACORNS-Octave-"
+          }
+        ]
+      }
+    },
+    "github_four": {
+      "url": "https://api.github.com/search/repositories?q=%22four%20reactant%22&per_page=100",
+      "status": "ok",
+      "result": {
+        "count": 0,
+        "items": []
+      }
+    },
+    "formal_conjectures": {
+      "url": "https://api.github.com/repos/google-deepmind/formal-conjectures/git/trees/main?recursive=1",
+      "status": "ok",
+      "result": {
+        "truncated": false,
+        "matching_paths": []
+      }
+    },
+    "mmislan_1": {
+      "url": "https://api.github.com/users/mmislan/repos?per_page=100&page=1",
+      "status": "ok",
+      "result": {
+        "count": 27,
+        "items": [
+          {
+            "name": "mmislan/palomar-compartment-division-threshold",
+            "description": "Survival and transience above the compartment-division threshold",
+            "url": "https://github.com/mmislan/palomar-compartment-division-threshold"
+          },
+          {
+            "name": "mmislan/palomar-endotactic-permanence",
+            "description": "Uniform permanence of endotactic reaction networks with measurable rates",
+            "url": "https://github.com/mmislan/palomar-endotactic-permanence"
+          },
+          {
+            "name": "mmislan/palomar-joint-thermodynamic-compatibility",
+            "description": "Joint thermodynamic compatibility of two autocatalytic cores is existential-real complete",
+            "url": "https://github.com/mmislan/palomar-joint-thermodynamic-compatibility"
+          },
+          {
+            "name": "mmislan/palomar-lienard-limit-cycles",
+            "description": "Lower bounds for limit cycles of classical Lienard equations",
+            "url": "https://github.com/mmislan/palomar-lienard-limit-cycles"
+          },
+          {
+            "name": "mmislan/palomar-p002-binary-polymer-critical-window",
+            "description": "A nontrivial critical window for RAF emergence in the binary polymer model; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p002-binary-polymer-critical-window"
+          },
+          {
+            "name": "mmislan/palomar-p003-d-unstable-cores",
+            "description": "A Lean-verified counterexample to D-unstable-core necessity in parameter-rich reaction networks.",
+            "url": "https://github.com/mmislan/palomar-p003-d-unstable-cores"
+          },
+          {
+            "name": "mmislan/palomar-p004-optimal-affinity-counterexample",
+            "description": "A two-reaction counterexample to the gross-amplification affinity bound; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p004-optimal-affinity-counterexample"
+          },
+          {
+            "name": "mmislan/palomar-p005-raf-interior-realizability",
+            "description": "Same-ground RAF realizability and the sharp four-reaction threshold; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p005-raf-interior-realizability"
+          },
+          {
+            "name": "mmislan/palomar-p006-type-ii-unistationarity",
+            "description": "Unistationarity of Type II_l autocatalytic cores with positive degradation",
+            "url": "https://github.com/mmislan/palomar-p006-type-ii-unistationarity"
+          },
+          {
+            "name": "mmislan/palomar-p011-modular-autocatalytic-interfaces",
+            "description": "MAF composition, child-selection autocatalytic cores, and degradation regions of linear diluted networks",
+            "url": "https://github.com/mmislan/palomar-p011-modular-autocatalytic-interfaces"
+          },
+          {
+            "name": "mmislan/palomar-p012-sparse-raf-exclusion",
+            "description": "Linear-size autocatalytic sets are asymptotically absent in the sparse binary polymer model",
+            "url": "https://github.com/mmislan/palomar-p012-sparse-raf-exclusion"
+          },
+          {
+            "name": "mmislan/palomar-p020-raf-abundant-reactions",
+            "description": "Equivalence of RAF abundance and Frankl's union-closed sets conjecture; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p020-raf-abundant-reactions"
+          },
+          {
+            "name": "mmislan/palomar-p026-nonnegative-degradation-unistationarity",
+            "description": "Unistationarity of autocatalytic normal forms with nonnegative degradation; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p026-nonnegative-degradation-unistationarity"
+          },
+          {
+            "name": "mmislan/palomar-p029-digraph-support-families",
+            "description": "Intrinsic interval-deletion characterization of digraph support families; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p029-digraph-support-families"
+          },
+          {
+            "name": "mmislan/palomar-p036-quotient-channel-raf-limit",
+            "description": null,
+            "url": "https://github.com/mmislan/palomar-p036-quotient-channel-raf-limit"
+          },
+          {
+            "name": "mmislan/palomar-p038-futile-cycle-child-selections",
+            "description": "Determinants and unstable cores in sequential distributive phosphorylation; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p038-futile-cycle-child-selections"
+          },
+          {
+            "name": "mmislan/palomar-p046-critical-window-shape-law",
+            "description": null,
+            "url": "https://github.com/mmislan/palomar-p046-critical-window-shape-law"
+          },
+          {
+            "name": "mmislan/palomar-p064-multisite-phosphorylation-oscillations",
+            "description": "Attracting oscillations in sequential distributive phosphorylation; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p064-multisite-phosphorylation-oscillations"
+          },
+          {
+            "name": "mmislan/palomar-p079-distributive-phosphorylation",
+            "description": "Exact equilibrium and stable-state capacities of distributive phosphorylation",
+            "url": "https://github.com/mmislan/palomar-p079-distributive-phosphorylation"
+          },
+          {
+            "name": "mmislan/palomar-p080-phosphorylation-attainment",
+            "description": "Attainment of 2n-1 positive steady states in sequential distributive phosphorylation",
+            "url": "https://github.com/mmislan/palomar-p080-phosphorylation-attainment"
+          },
+          {
+            "name": "mmislan/palomar-p081-productive-core-np-completeness",
+            "description": "NP-completeness of unconstrained productive autocatalytic core detection; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p081-productive-core-np-completeness"
+          },
+          {
+            "name": "mmislan/palomar-p082-acr-zero-divisors",
+            "description": "Zero-divisor criteria for absolute concentration robustness; Lean formalization.",
+            "url": "https://github.com/mmislan/palomar-p082-acr-zero-divisors"
+          },
+          {
+            "name": "mmislan/palomar-p086-d-stability-conp-hard",
+            "description": "Deciding D-stability is coNP-hard; explicit integer PARTITION reduction in Lean.",
+            "url": "https://github.com/mmislan/palomar-p086-d-stability-conp-hard"
+          },
+          {
+            "name": "mmislan/palomar-p087-d-stability-critical-points",
+            "description": "A critical-point criterion for D-stability in every dimension, formalized in Lean.",
+            "url": "https://github.com/mmislan/palomar-p087-d-stability-critical-points"
+          },
+          {
+            "name": "mmislan/palomar-quantitative-permanence",
+            "description": "Quantitative permanence and recovery with vanishing reverse rates",
+            "url": "https://github.com/mmislan/palomar-quantitative-permanence"
+          },
+          {
+            "name": "mmislan/palomar-shared-resource-realizations",
+            "description": "Realizations and dynamics of shared-resource mass-action systems",
+            "url": "https://github.com/mmislan/palomar-shared-resource-realizations"
+          },
+          {
+            "name": "mmislan/palomar-template-free-heredity",
+            "description": "Chemical heredity without genetic templates",
+            "url": "https://github.com/mmislan/palomar-template-free-heredity"
+          }
+        ]
+      }
+    },
+    "mmislan_2": {
+      "url": "https://api.github.com/users/mmislan/repos?per_page=100&page=2",
+      "status": "ok",
+      "result": {
+        "count": 0,
+        "items": []
+      }
+    },
+    "mmislan_3": {
+      "url": "https://api.github.com/users/mmislan/repos?per_page=100&page=3",
+      "status": "ok",
+      "result": {
+        "count": 0,
+        "items": []
+      }
+    },
+    "mmislan_4": {
+      "url": "https://api.github.com/users/mmislan/repos?per_page=100&page=4",
+      "status": "ok",
+      "result": {
+        "count": 0,
+        "items": []
+      }
+    },
+    "ipitchford_1": {
+      "url": "https://api.github.com/users/ipitchford/repos?per_page=100&page=1",
+      "status": "ok",
+      "result": {
+        "count": 100,
+        "items": [
+          {
+            "name": "ipitchford/.github",
+            "description": "Account-wide funding and community files for Evidence Press repositories",
+            "url": "https://github.com/ipitchford/.github"
+          },
+          {
+            "name": "ipitchford/acyclic-spreading-algebraic-extinction",
+            "description": "Candidate: algebraic extinction in acyclic spreading models (successor to algebraic-extinction-compartments) \u2014 counterexamples, genericity and support-checkable repairs",
+            "url": "https://github.com/ipitchford/acyclic-spreading-algebraic-extinction"
+          },
+          {
+            "name": "ipitchford/affine-diversification-fibres",
+            "description": "Unrefereed candidate on sharp partial identification of diversification histories, with executable replay and scoped assurance",
+            "url": "https://github.com/ipitchford/affine-diversification-fibres"
+          },
+          {
+            "name": "ipitchford/affine-elementary-symmetric-total-nonnegativity",
+            "description": "Unrefereed single-affine-factor coefficientwise total-nonnegativity proof candidate",
+            "url": "https://github.com/ipitchford/affine-elementary-symmetric-total-nonnegativity"
+          },
+          {
+            "name": "ipitchford/affinity-karpelevich-threshold",
+            "description": "Candidate (unrefereed): four-state counterexample to the affine Karpelevich conjecture for Markov rate matrices; fails for every n>=4, holds for n<=3",
+            "url": "https://github.com/ipitchford/affinity-karpelevich-threshold"
+          },
+          {
+            "name": "ipitchford/aggregation-without-sufficiency",
+            "description": "Anonymous unrefereed preprint on claim-specific aggregation licences and decision-relevant sufficiency",
+            "url": "https://github.com/ipitchford/aggregation-without-sufficiency"
+          },
+          {
+            "name": "ipitchford/algebraic-extinction-compartments",
+            "description": "Research candidate: algebraic extinction and spectral criteria in acyclic compartment models.",
+            "url": "https://github.com/ipitchford/algebraic-extinction-compartments"
+          },
+          {
+            "name": "ipitchford/amplitude-modules-fused-support-bautin-bound",
+            "description": "Anonymous unrefereed theorem candidate on polynomial-phase amplitude modules and an ordinary coefficient-Bautin bound",
+            "url": "https://github.com/ipitchford/amplitude-modules-fused-support-bautin-bound"
+          },
+          {
+            "name": "ipitchford/ap4-ramsey-diameter-36",
+            "description": "Proof-carrying candidate for v_{2,4}([37]) = 27",
+            "url": "https://github.com/ipitchford/ap4-ramsey-diameter-36"
+          },
+          {
+            "name": "ipitchford/assignment-aligned-effective-states",
+            "description": "Research candidate: assignment-aligned effective states in a 2-SAT transformer; scoped empirical audit and reproducibility evidence.",
+            "url": "https://github.com/ipitchford/assignment-aligned-effective-states"
+          },
+          {
+            "name": "ipitchford/biased-small-world-mixing",
+            "description": "Unrefereed fixed-weight four-clock small-world mixing proof candidate with finite exact checks",
+            "url": "https://github.com/ipitchford/biased-small-world-mixing"
+          },
+          {
+            "name": "ipitchford/biased-transposition-profile-counterexample",
+            "description": "Candidate proof giving an observable-event counterexample to the Nestoridi\u2013Yan biased-transposition limit-profile conjecture, with exact replay artefacts.",
+            "url": "https://github.com/ipitchford/biased-transposition-profile-counterexample"
+          },
+          {
+            "name": "ipitchford/bilateral-deficiency",
+            "description": "Unrefereed candidate on bilateral deficiency and independent domination in regular-DIM graphs",
+            "url": "https://github.com/ipitchford/bilateral-deficiency"
+          },
+          {
+            "name": "ipitchford/binary-quadratic-informational-substitutes",
+            "description": "Unrefereed candidate: exact binary quadratic informational substitutes, written proof and rational checks",
+            "url": "https://github.com/ipitchford/binary-quadratic-informational-substitutes"
+          },
+          {
+            "name": "ipitchford/bol-prime-cube-classification",
+            "description": "Centrally nilpotent right Bol loops of prime-cube order: written-proof candidate and exact diagnostics",
+            "url": "https://github.com/ipitchford/bol-prime-cube-classification"
+          },
+          {
+            "name": "ipitchford/bordered-jacobian-foundations",
+            "description": "Unrefereed candidate: an integral bordered-Jacobian identity for binary-form multiplication, with exact replay and explicit assurance boundaries.",
+            "url": "https://github.com/ipitchford/bordered-jacobian-foundations"
+          },
+          {
+            "name": "ipitchford/bounded-product-transposition-cutoff",
+            "description": "Unrefereed proof candidate: cutoff for bounded product-weight random transpositions, with exact finite diagnostics.",
+            "url": "https://github.com/ipitchford/bounded-product-transposition-cutoff"
+          },
+          {
+            "name": "ipitchford/bunkbed-flow-obstructions",
+            "description": "Unrefereed candidate: flow-polynomial transfer and an exact local homogeneous bunkbed parameter window; evidence and replay included.",
+            "url": "https://github.com/ipitchford/bunkbed-flow-obstructions"
+          },
+          {
+            "name": "ipitchford/casas-alvero-eight-term",
+            "description": "Unrefereed candidate: an eight-term centered sparsity bound for degree-twenty Casas\u2013Alvero polynomials.",
+            "url": "https://github.com/ipitchford/casas-alvero-eight-term"
+          },
+          {
+            "name": "ipitchford/catenary-placement-classification",
+            "description": "Unrefereed candidate placement criterion for generic local identifiability of catenary compartment models.",
+            "url": "https://github.com/ipitchford/catenary-placement-classification"
+          },
+          {
+            "name": "ipitchford/cayley-weighted-fixed-points",
+            "description": null,
+            "url": "https://github.com/ipitchford/cayley-weighted-fixed-points"
+          },
+          {
+            "name": "ipitchford/central-configuration-kernel-rigidity",
+            "description": "Unrefereed candidate: quantitative convex reconstruction and exact kernel-exclusion certificates for central configurations; no exhaustive seven/eight-body classification.",
+            "url": "https://github.com/ipitchford/central-configuration-kernel-rigidity"
+          },
+          {
+            "name": "ipitchford/certified-commitment-horizons",
+            "description": "Unrefereed candidate: exact-rational commitment-horizon certificates for Wagner-Whitin dynamic lot sizing, with replayable evidence.",
+            "url": "https://github.com/ipitchford/certified-commitment-horizons"
+          },
+          {
+            "name": "ipitchford/certified-three-item-jrp-gap",
+            "description": "Candidate exact three-item independent-cap JRP oracle, exact certificates, and logistics evaluation protocol",
+            "url": "https://github.com/ipitchford/certified-three-item-jrp-gap"
+          },
+          {
+            "name": "ipitchford/certified-two-item-jrp",
+            "description": "Unrefereed candidate exact theory and certificate system for two-item resource-constrained joint replenishment.",
+            "url": "https://github.com/ipitchford/certified-two-item-jrp"
+          },
+          {
+            "name": "ipitchford/cgf-majorisation-counterexample",
+            "description": "Unrefereed candidate: exact suffix counterexample to cyclotomic two-sided majorisation, with analytic positivity and arithmetic replay.",
+            "url": "https://github.com/ipitchford/cgf-majorisation-counterexample"
+          },
+          {
+            "name": "ipitchford/claimpack",
+            "description": "Candidate protocol for exact, evidence-bounded scientific claim transfer between research agents",
+            "url": "https://github.com/ipitchford/claimpack"
+          },
+          {
+            "name": "ipitchford/compact-cross-compliance-contact",
+            "description": "Matched-interface 3D frictional contact candidate with supporting replay and explicit assurance boundaries",
+            "url": "https://github.com/ipitchford/compact-cross-compliance-contact"
+          },
+          {
+            "name": "ipitchford/compartment-fragmentation-phase-classification",
+            "description": "Critical nonexplosion and phase transitions in finite-catalyst compartment systems",
+            "url": "https://github.com/ipitchford/compartment-fragmentation-phase-classification"
+          },
+          {
+            "name": "ipitchford/complementary-disclosures",
+            "description": "Unrefereed mathematical candidate: complementary disclosures, accounting geometry and bounded-error reports",
+            "url": "https://github.com/ipitchford/complementary-disclosures"
+          },
+          {
+            "name": "ipitchford/concentratable-entanglement-counterexamples",
+            "description": "Unrefereed candidate: exact counterexamples and sharp repairs for mixed-state concentratable entanglement",
+            "url": "https://github.com/ipitchford/concentratable-entanglement-counterexamples"
+          },
+          {
+            "name": "ipitchford/cooper-spencer-temporal-unimodality",
+            "description": "Unrefereed candidate: exact Cooper\u2013Spencer temporal-unimodality counterexamples with proof and certificates",
+            "url": "https://github.com/ipitchford/cooper-spencer-temporal-unimodality"
+          },
+          {
+            "name": "ipitchford/cross-polytope-signaling-dimension-six",
+            "description": "Unrefereed exact computer-assisted candidate: six-dimensional cross-polytope signaling dimension three, with complete coverage and rational simulation certificates.",
+            "url": "https://github.com/ipitchford/cross-polytope-signaling-dimension-six"
+          },
+          {
+            "name": "ipitchford/ctln-six-is-minimal",
+            "description": "Exact candidate certificates: six is minimal for stable nonclique CTLN fixed points, with an infinite family and seed phase region",
+            "url": "https://github.com/ipitchford/ctln-six-is-minimal"
+          },
+          {
+            "name": "ipitchford/cyclicity-loci-exponential-periods",
+            "description": "Unrefereed candidate on fixed-seed cyclicity loci for polynomial exponential periods, with exact replay and an odd-quintic certificate",
+            "url": "https://github.com/ipitchford/cyclicity-loci-exponential-periods"
+          },
+          {
+            "name": "ipitchford/cyclicity-root-span-low-rank",
+            "description": "Anonymous unrefereed candidate on fixed-seed cyclic rank, inverse-root spans, and the low-rank frontier",
+            "url": "https://github.com/ipitchford/cyclicity-root-span-low-rank"
+          },
+          {
+            "name": "ipitchford/cyclicity-support-fusion-atlas",
+            "description": "Anonymous unrefereed candidate: inverse-root support, Fourier fusion, and a finite exact low-rank atlas through degree 20",
+            "url": "https://github.com/ipitchford/cyclicity-support-fusion-atlas"
+          },
+          {
+            "name": "ipitchford/davies-levitin-lens-conjecture",
+            "description": "Unrefereed candidate: a proof of the Davies\u2013Levitin lens conjecture (Conjecture 5.3, 2014) for the indefinite tridiagonal pencil, with Arb interval certificates",
+            "url": "https://github.com/ipitchford/davies-levitin-lens-conjecture"
+          },
+          {
+            "name": "ipitchford/davis-yin-gap-sharpness",
+            "description": "Exact finite-horizon gap constants and non-attainment for Davis-Yin splitting",
+            "url": "https://github.com/ipitchford/davis-yin-gap-sharpness"
+          },
+          {
+            "name": "ipitchford/debt-disclosure-bounds",
+            "description": "Model-conditional debt-disclosure bounds with exact certificates; unrefereed candidate",
+            "url": "https://github.com/ipitchford/debt-disclosure-bounds"
+          },
+          {
+            "name": "ipitchford/decision-geometry",
+            "description": "Unrefereed candidate: exact information geometry and anytime certification for triangle-network compatibility; analytic proofs and replayable checks.",
+            "url": "https://github.com/ipitchford/decision-geometry"
+          },
+          {
+            "name": "ipitchford/degree-difference-affine-slices",
+            "description": "CC0 candidate manuscript on degree-difference identities and affine slices, with exact symbolic verification",
+            "url": "https://github.com/ipitchford/degree-difference-affine-slices"
+          },
+          {
+            "name": "ipitchford/degree-independent-rhombus-criterion",
+            "description": null,
+            "url": "https://github.com/ipitchford/degree-independent-rhombus-criterion"
+          },
+          {
+            "name": "ipitchford/delayed-cascade-recovery",
+            "description": "Unrefereed candidate: dense planted-set recovery from one SI cascade, with reproducible negative pilot",
+            "url": "https://github.com/ipitchford/delayed-cascade-recovery"
+          },
+          {
+            "name": "ipitchford/diameter-hitting-time-robustness",
+            "description": "Candidate (unrefereed): counterexamples to Zuckerman's Conjecture 1.16 on hitting-time robustness - cubic and diameter-three graph families",
+            "url": "https://github.com/ipitchford/diameter-hitting-time-robustness"
+          },
+          {
+            "name": "ipitchford/dyck-transpositions-n-log-n",
+            "description": "Unrefereed analytic proof candidate for original-clock Dyck transposition mixing; finite producer checks are not formal verification.",
+            "url": "https://github.com/ipitchford/dyck-transpositions-n-log-n"
+          },
+          {
+            "name": "ipitchford/efx-nine-chores",
+            "description": "Unrefereed nine-chores EFX candidate: exact certificates, semantic audit and replay package",
+            "url": "https://github.com/ipitchford/efx-nine-chores"
+          },
+          {
+            "name": "ipitchford/erdos-848-all-n",
+            "description": "CC0 unrefereed candidate all-N determination for Erd\u0151s Problem 848, with replayable exact certificates and AI-readable evidence maps",
+            "url": "https://github.com/ipitchford/erdos-848-all-n"
+          },
+          {
+            "name": "ipitchford/essential-hurwitz-trace-formula",
+            "description": "Unrefereed candidate: compact essential Hurwitz trace formula, global proof and exact reproducible controls",
+            "url": "https://github.com/ipitchford/essential-hurwitz-trace-formula"
+          },
+          {
+            "name": "ipitchford/evidence-press-site",
+            "description": "Evidence Press \u2014 dependency-free static site for research releases with replayable evidence; home of the Policy Identification Observatory",
+            "url": "https://github.com/ipitchford/evidence-press-site"
+          },
+          {
+            "name": "ipitchford/exact-low-length-recht-re-inequalities",
+            "description": "Anonymous CC0 unrefereed candidate on exact low-length Recht\u2013R\u00e9 inequalities, with replayable certificates, six-factor balanced families, and a reshuffling metric reversal.",
+            "url": "https://github.com/ipitchford/exact-low-length-recht-re-inequalities"
+          },
+          {
+            "name": "ipitchford/exact-smith-invariants-affine-determinant-lines",
+            "description": "Unrefereed candidate: exact Smith invariants and affine determinant lines for binary-form factorisation maps.",
+            "url": "https://github.com/ipitchford/exact-smith-invariants-affine-determinant-lines"
+          },
+          {
+            "name": "ipitchford/exotic-affine-spheres-quadratic-cubic",
+            "description": "CC0 unrefereed candidate sequel on exotic affine three-spheres and the quadratic-cubic obstruction, with exact symbolic and finite-field checks",
+            "url": "https://github.com/ipitchford/exotic-affine-spheres-quadratic-cubic"
+          },
+          {
+            "name": "ipitchford/extremes-do-not-always-maximise",
+            "description": "Anonymous unrefereed theorem candidate with exact producer-side replay",
+            "url": "https://github.com/ipitchford/extremes-do-not-always-maximise"
+          },
+          {
+            "name": "ipitchford/factorial-spikes-fi-noetherianity",
+            "description": "Unrefereed theorem candidate: factorial spikes separate componentwise Noetherianity from FI-Noetherianity",
+            "url": "https://github.com/ipitchford/factorial-spikes-fi-noetherianity"
+          },
+          {
+            "name": "ipitchford/fano-plane-spectrum",
+            "description": "Unrefereed computational theorem candidate: homogeneous Fano tensor spectrum and eigencurve certificates",
+            "url": "https://github.com/ipitchford/fano-plane-spectrum"
+          },
+          {
+            "name": "ipitchford/ferromagnetic-full-threshold-glauber",
+            "description": "Near-linear worst-start single-site Glauber mixing below the strict heterogeneous ferromagnetic field threshold; unrefereed proof candidate and exact finite diagnostics.",
+            "url": "https://github.com/ipitchford/ferromagnetic-full-threshold-glauber"
+          },
+          {
+            "name": "ipitchford/field-uniform-spin-chains",
+            "description": "Unrefereed candidate: field-uniform local-charge exclusion, exact spin-1 criterion, rational witnesses and reproducible checks.",
+            "url": "https://github.com/ipitchford/field-uniform-spin-chains"
+          },
+          {
+            "name": "ipitchford/finite-signal-quadratic-substitutes",
+            "description": "Unrefereed candidate: finite convex certificates for scalar quadratic informational substitutes; analytic proofs and exact finite checks.",
+            "url": "https://github.com/ipitchford/finite-signal-quadratic-substitutes"
+          },
+          {
+            "name": "ipitchford/fisk-toeplitz-deletion-interlacing-through-five",
+            "description": "Anonymous unrefereed finite theorem candidate for Fisk's Toeplitz-minor transform through five positive alphabet entries",
+            "url": "https://github.com/ipitchford/fisk-toeplitz-deletion-interlacing-through-five"
+          },
+          {
+            "name": "ipitchford/fixed-correlations-weak-dissipation",
+            "description": "Candidate research release: one fixed time-asymmetric covariance with arbitrarily weak dissipation; the Gaussian spectral value is not a lower bound (unrefereed)",
+            "url": "https://github.com/ipitchford/fixed-correlations-weak-dissipation"
+          },
+          {
+            "name": "ipitchford/fixed-d-toeplitz-obstruction",
+            "description": "Anonymous unrefereed candidate: a fixed-d Toeplitz obstruction for FI_d degree-wise coherence",
+            "url": "https://github.com/ipitchford/fixed-d-toeplitz-obstruction"
+          },
+          {
+            "name": "ipitchford/fkk-majority-partitions-candidate",
+            "description": "Unrefereed candidate: sharp majority-partition and weighted certificates for normalized Laplacian gaps; the general FKK conjecture remains open.",
+            "url": "https://github.com/ipitchford/fkk-majority-partitions-candidate"
+          },
+          {
+            "name": "ipitchford/flat-schmidt-chains",
+            "description": "Unrefereed candidate spectral-gap classification for flat Schmidt-rank-two open chains; exact checks, proofs and AI index",
+            "url": "https://github.com/ipitchford/flat-schmidt-chains"
+          },
+          {
+            "name": "ipitchford/fluid-queue-optimal-dispatch",
+            "description": "Candidate (unrefereed): exact optimal dispatching to two fluid queues \u2014 closed form, proof of the Xie\u2013Hyyti\u00e4\u2013Righter imbalance conjecture, heavy traffic, simulations",
+            "url": "https://github.com/ipitchford/fluid-queue-optimal-dispatch"
+          },
+          {
+            "name": "ipitchford/four-element-rowmotion-candidate",
+            "description": "Unrefereed Evidence Press candidate: a four-element obstruction to birational and piecewise-linear rowmotion periodicity",
+            "url": "https://github.com/ipitchford/four-element-rowmotion-candidate"
+          },
+          {
+            "name": "ipitchford/four-point-inductive-cubical-excision",
+            "description": "Anonymous unrefereed candidate: a four-point failure of J+ inductive cubical excision",
+            "url": "https://github.com/ipitchford/four-point-inductive-cubical-excision"
+          },
+          {
+            "name": "ipitchford/frankl-concavity-obstruction",
+            "description": "Unrefereed candidate: concavity obstruction and repaired support reductions in a Frankl entropy programme; no new Frankl bound.",
+            "url": "https://github.com/ipitchford/frankl-concavity-obstruction"
+          },
+          {
+            "name": "ipitchford/free-fermion-frustration-graphs",
+            "description": "Unrefereed faithful-Pauli graph classification and exact free-sector certificates, with reproducible evidence and explicit assurance boundaries",
+            "url": "https://github.com/ipitchford/free-fermion-frustration-graphs"
+          },
+          {
+            "name": "ipitchford/free-parafermion-converse",
+            "description": "Unrefereed all-order canonical free-parafermion converse; written proofs, exact checks and AI index",
+            "url": "https://github.com/ipitchford/free-parafermion-converse"
+          },
+          {
+            "name": "ipitchford/full-e4-polydegree-column",
+            "description": "Anonymous unrefereed candidate: full e=4 Polydegree column, Lean bordered-Jacobian companion, and boundary-norm transfer note.",
+            "url": "https://github.com/ipitchford/full-e4-polydegree-column"
+          },
+          {
+            "name": "ipitchford/furter-r3-through-299",
+            "description": "Exact computer-assisted proof of Furter's R(3,n) for 1 \u2264 n \u2264 299, with replayable evidence and a Universal R(3) Challenge.",
+            "url": "https://github.com/ipitchford/furter-r3-through-299"
+          },
+          {
+            "name": "ipitchford/gaussian-cosine-local-stability",
+            "description": "Unrefereed candidate: full-domain local stability of Gaussian cosine minima, with explicit second variation and reproducible diagnostics.",
+            "url": "https://github.com/ipitchford/gaussian-cosine-local-stability"
+          },
+          {
+            "name": "ipitchford/gaussian-pnp-stability",
+            "description": "Candidate (unrefereed): Gaussian-kernel PnP-ISTA/ADMM can be unstable; sharp dimension four for irreducible unit-diagonal kernels; answers Sinha et al. (TSP 2025) open question",
+            "url": "https://github.com/ipitchford/gaussian-pnp-stability"
+          },
+          {
+            "name": "ipitchford/geometric-graph-entropy",
+            "description": "Candidate (unrefereed): exact entropy coefficient of fixed-radius random geometric graphs; universal vertices and Fourier rank. DOI 10.5281/zenodo.23686157",
+            "url": "https://github.com/ipitchford/geometric-graph-entropy"
+          },
+          {
+            "name": "ipitchford/gk-shared-phosphatase-connectedness",
+            "description": "Unrefereed candidate: path connectedness of a shared-phosphatase cascade multistationarity region, with exact certificates",
+            "url": "https://github.com/ipitchford/gk-shared-phosphatase-connectedness"
+          },
+          {
+            "name": "ipitchford/hahn-ewens-mixing-theorem",
+            "description": "Unrefereed candidate: full Hahn spectrum and a stationary-average chi-square transition for a stabiliser\u2013Ewens deformation",
+            "url": "https://github.com/ipitchford/hahn-ewens-mixing-theorem"
+          },
+          {
+            "name": "ipitchford/hartree-small-charge-rigidity",
+            "description": "Unrefereed analytic candidate: uniform small-charge rigidity for quartic Hartree shape energy; Anonymous",
+            "url": "https://github.com/ipitchford/hartree-small-charge-rigidity"
+          },
+          {
+            "name": "ipitchford/hc4-five-support-structural-reductions",
+            "description": "Unrefereed exact structural-reductions candidate toward quartic HC4 in dimension four",
+            "url": "https://github.com/ipitchford/hc4-five-support-structural-reductions"
+          },
+          {
+            "name": "ipitchford/hermes-workspace",
+            "description": "Native web workspace for Hermes Agent \u2014 chat, terminal, memory, skills, inspector.",
+            "url": "https://github.com/ipitchford/hermes-workspace"
+          },
+          {
+            "name": "ipitchford/hidden-architecture-exact-signal",
+            "description": "Candidate: hidden architecture and the thermodynamic cost of an exact stochastic signal (Evidence Press, unrefereed)",
+            "url": "https://github.com/ipitchford/hidden-architecture-exact-signal"
+          },
+          {
+            "name": "ipitchford/hidden-dissipation-floor",
+            "description": "Unrefereed mathematical candidate: architecture-independent hidden-dissipation classification and exact observable certificates.",
+            "url": "https://github.com/ipitchford/hidden-dissipation-floor"
+          },
+          {
+            "name": "ipitchford/hilbert-eight-points-reducedness",
+            "description": "Unrefereed computer-assisted proof candidate: reducedness of Hilb8(A4) in characteristic zero; complete evidence in release assets.",
+            "url": "https://github.com/ipitchford/hilbert-eight-points-reducedness"
+          },
+          {
+            "name": "ipitchford/hilbert-series-matrix-septic-invariants",
+            "description": "Unrefereed candidate: Hilbert series of invariants of 4\u00d74 and 5\u00d75 matrix tuples (nine certified cases, Berele's conjecture) and a candidate series for plane septics",
+            "url": "https://github.com/ipitchford/hilbert-series-matrix-septic-invariants"
+          },
+          {
+            "name": "ipitchford/hilbert-series-ternary-forms",
+            "description": "Hilbert series of the SL3-invariants of ternary septics, octics and nonics (Evidence Press, unrefereed candidate v0.2.0)",
+            "url": "https://github.com/ipitchford/hilbert-series-ternary-forms"
+          },
+          {
+            "name": "ipitchford/horton-tokunaga-kingman-asymptotics",
+            "description": "Unrefereed candidate: leaf-conditioned Tokunaga order and positive geometric Kingman Horton asymptotics",
+            "url": "https://github.com/ipitchford/horton-tokunaga-kingman-asymptotics"
+          },
+          {
+            "name": "ipitchford/iid-multiunit-prophet-limits",
+            "description": "Unrefereed candidate: fixed-capacity iid prophet limits and certified two-unit bounds",
+            "url": "https://github.com/ipitchford/iid-multiunit-prophet-limits"
+          },
+          {
+            "name": "ipitchford/inclusion-link-chernoff-concentration",
+            "description": "Unrefereed candidate: inclusion-link spectral bounds and mean-sensitive scalar concentration; written proof and finite diagnostics.",
+            "url": "https://github.com/ipitchford/inclusion-link-chernoff-concentration"
+          },
+          {
+            "name": "ipitchford/infinite-birth-death-thinned-counts",
+            "description": "Research candidate: exact variance and joint functional limits for thinned birth-death counts; analytic proofs and finite exact checks.",
+            "url": "https://github.com/ipitchford/infinite-birth-death-thinned-counts"
+          },
+          {
+            "name": "ipitchford/initialisation-dependent-fixation",
+            "description": "Unrefereed candidate: resolution of Conjecture 2 of Ganesh-Hauert-Valla (noisy weighted voter model): fresh starts strictly help, equilibrium-start formula, sharp error envelope. DOI 10.5281/zenodo.23687032",
+            "url": "https://github.com/ipitchford/initialisation-dependent-fixation"
+          },
+          {
+            "name": "ipitchford/internally-heated-convection-flux-bounds",
+            "description": "Unrefereed fixed-domain infinite-Prandtl heat-flux bounds with supporting replay",
+            "url": "https://github.com/ipitchford/internally-heated-convection-flux-bounds"
+          },
+          {
+            "name": "ipitchford/irreducible-pushforwards-quartic-transitions",
+            "description": "Anonymous unrefereed methods preprint on irreducible pushforwards and constrained quartic transitions; Furter's R(3) remains open.",
+            "url": "https://github.com/ipitchford/irreducible-pushforwards-quartic-transitions"
+          },
+          {
+            "name": "ipitchford/k2p-tree-network-counterexample",
+            "description": "Unrefereed K2P tree-network counterexample: exact finite certificates, scoped written proofs and reproducible checks",
+            "url": "https://github.com/ipitchford/k2p-tree-network-counterexample"
+          },
+          {
+            "name": "ipitchford/kagome-aklt-spectral-gap",
+            "description": "Unrefereed computer-assisted kagome AKLT spectral-gap candidate: exact inputs, deterministic validated replay, explicit trust boundaries.",
+            "url": "https://github.com/ipitchford/kagome-aklt-spectral-gap"
+          },
+          {
+            "name": "ipitchford/katthan-betti-poset-counterexample",
+            "description": "Unrefereed candidate: an exact Betti-poset counterexample for Stanley projective dimension, with certificates and replay.",
+            "url": "https://github.com/ipitchford/katthan-betti-poset-counterexample"
+          },
+          {
+            "name": "ipitchford/kawasaki-analytic-fast-regimes",
+            "description": "Unrefereed strict-regime global Kawasaki entropy-contraction proof candidate; exact diagnostic package",
+            "url": "https://github.com/ipitchford/kawasaki-analytic-fast-regimes"
+          },
+          {
+            "name": "ipitchford/knese-symmetric-multiaffine-agler",
+            "description": "Unrefereed candidate: stable symmetric multiaffine polynomials are Agler denominators in every finite dimension",
+            "url": "https://github.com/ipitchford/knese-symmetric-multiaffine-agler"
+          },
+          {
+            "name": "ipitchford/levy-qsd-exponential-moments-restart",
+            "description": "Research candidate: exact exponential moments of interval quasi-stationary laws for L\u00e9vy processes; the Garcia et al. ratio-one conjecture fails (C* \u2248 0.850) and idealised QSD restart saturates at budget scale e^{\u03b7L}. DOI 10.5281/zenodo.23545672",
+            "url": "https://github.com/ipitchford/levy-qsd-exponential-moments-restart"
+          },
+          {
+            "name": "ipitchford/linear-nonbacktracking-jordan-growth",
+            "description": "Anonymous unrefereed candidate: linear Jordan-block growth in counting non-backtracking graphs, with exact producer controls",
+            "url": "https://github.com/ipitchford/linear-nonbacktracking-jordan-growth"
+          },
+          {
+            "name": "ipitchford/logarithmic-stenger-matrix-stability",
+            "description": "Candidate (unrefereed, AI-assisted): positive stability of logarithmic Stenger integration matrices; sharp forward boundary, reverse instability and a certified counterexample to Gautschi-Hairer Conjecture 5.3 as worded",
+            "url": "https://github.com/ipitchford/logarithmic-stenger-matrix-stability"
+          }
+        ]
+      }
+    },
+    "ipitchford_2": {
+      "url": "https://api.github.com/users/ipitchford/repos?per_page=100&page=2",
+      "status": "ok",
+      "result": {
+        "count": 100,
+        "items": [
+          {
+            "name": "ipitchford/lotka-volterra-tree-presentations",
+            "description": "Research candidate (unrefereed, AI-assisted): linear coordinate presentations of Lotka\u2013Volterra tree systems and a proof of van der Kamp's tree conjecture (generic parameters). DOI 10.5281/zenodo.23564794",
+            "url": "https://github.com/ipitchford/lotka-volterra-tree-presentations"
+          },
+          {
+            "name": "ipitchford/lps-structural-reductions",
+            "description": null,
+            "url": "https://github.com/ipitchford/lps-structural-reductions"
+          },
+          {
+            "name": "ipitchford/math",
+            "description": null,
+            "url": "https://github.com/ipitchford/math"
+          },
+          {
+            "name": "ipitchford/median-radius-obstructions",
+            "description": "Unrefereed candidate: superexponential strict-improvement distances in median graphs, with exact finite checks.",
+            "url": "https://github.com/ipitchford/median-radius-obstructions"
+          },
+          {
+            "name": "ipitchford/modular-code-obstructions",
+            "description": "Candidate distance obstructions for modular group-algebra codes; exact replay and AI-readable claims.",
+            "url": "https://github.com/ipitchford/modular-code-obstructions"
+          },
+          {
+            "name": "ipitchford/moment-ideals-unbounded-generator-degrees",
+            "description": "Unrefereed candidate: unbounded moment-ideal generator degrees via graph faces, with exact checks and scoped internal review",
+            "url": "https://github.com/ipitchford/moment-ideals-unbounded-generator-degrees"
+          },
+          {
+            "name": "ipitchford/mosaics-and-abrasion-counterexamples",
+            "description": "Exact rational convex-mosaic counterexamples and centroidal abrasion creation; unrefereed candidates with reproducible finite checks.",
+            "url": "https://github.com/ipitchford/mosaics-and-abrasion-counterexamples"
+          },
+          {
+            "name": "ipitchford/mprk-nonnegative-two-cycles",
+            "description": "Research candidate: nonnegative Runge\u2013Kutta coefficients do not make MPRK schemes globally stable \u2014 certified attracting two-cycle of MPRK22(4/7)",
+            "url": "https://github.com/ipitchford/mprk-nonnegative-two-cycles"
+          },
+          {
+            "name": "ipitchford/multiplane-lensing-sparse-bound",
+            "description": "Unrefereed candidate: sparse upper bounds for regular images in multiplane point-mass lenses, with proof and exact replay; sharp maximum remains open.",
+            "url": "https://github.com/ipitchford/multiplane-lensing-sparse-bound"
+          },
+          {
+            "name": "ipitchford/multiple-dispersal-maxima",
+            "description": "Candidate (unrefereed): arbitrarily many population maxima under uniform global dispersal; answers Bai and Li's question. DOI 10.5281/zenodo.23687852",
+            "url": "https://github.com/ipitchford/multiple-dispersal-maxima"
+          },
+          {
+            "name": "ipitchford/negative-square-energy-five-vertex-valley",
+            "description": "Anonymous unrefereed candidate on a minimal strict valley in negative square energy under edge addition",
+            "url": "https://github.com/ipitchford/negative-square-energy-five-vertex-valley"
+          },
+          {
+            "name": "ipitchford/noninteger-sliced-wasserstein",
+            "description": "Critical-moment sliced Wasserstein comparison for noninteger powers: candidate proof and diagnostics",
+            "url": "https://github.com/ipitchford/noninteger-sliced-wasserstein"
+          },
+          {
+            "name": "ipitchford/o01d0-polar-fibre-structural-reductions",
+            "description": "Unrefereed structural reductions, exact falsifications, and executable remaining gates for O-01d0",
+            "url": "https://github.com/ipitchford/o01d0-polar-fibre-structural-reductions"
+          },
+          {
+            "name": "ipitchford/odd-order-one-third-popular-differences",
+            "description": "Anonymous unrefereed candidate on uniformly popular differences in odd cyclic groups",
+            "url": "https://github.com/ipitchford/odd-order-one-third-popular-differences"
+          },
+          {
+            "name": "ipitchford/orthogonal-tensor-algebraicity",
+            "description": "Unrefereed candidate: algebraicity classification for fixed orthogonal tensor multiplicities; written proofs and finite replay diagnostics.",
+            "url": "https://github.com/ipitchford/orthogonal-tensor-algebraicity"
+          },
+          {
+            "name": "ipitchford/overpartition-congruences-and-towers",
+            "description": "Unrefereed overpartition congruence and tower proof candidates with exact modular-form certificates",
+            "url": "https://github.com/ipitchford/overpartition-congruences-and-towers"
+          },
+          {
+            "name": "ipitchford/pagerank-backtracking-nonmonotone",
+            "description": "Candidate: backtracking-weighted PageRank is not coordinatewise monotone \u2014 counterexamples to Glover\u2013Jones\u2013Kempton\u2013Oveson Conjectures 3.1 and 3.2, certified census, endpoint tests (unrefereed)",
+            "url": "https://github.com/ipitchford/pagerank-backtracking-nonmonotone"
+          },
+          {
+            "name": "ipitchford/pass-and-swap-bounded-swaps",
+            "description": "Research candidate: counterexamples to the Dorsman-Gardner bounded-swap conjecture for pass-and-swap queues, cycle classification, and a proof for bipartite swapping graphs with odd caps. Exact replayable verifiers. DOI 10.5281/zenodo.23515841",
+            "url": "https://github.com/ipitchford/pass-and-swap-bounded-swaps"
+          },
+          {
+            "name": "ipitchford/periodic-regulation-budget-monotonicity",
+            "description": "Candidate: measure-order proof of Gavish\u2013Katriel budget monotonicity for periodic regulation (more budget never removes effort), with limits and the vaccination conjecture",
+            "url": "https://github.com/ipitchford/periodic-regulation-budget-monotonicity"
+          },
+          {
+            "name": "ipitchford/perron-minima",
+            "description": "Candidate Perron optimisation with factorised pair interactions: proofs, scoped replay and structural limits",
+            "url": "https://github.com/ipitchford/perron-minima"
+          },
+          {
+            "name": "ipitchford/pinching-free-normal-cover-critical-exponent",
+            "description": "Unrefereed all-Fuchsian strengthening candidate related to AIM Problem 4.3",
+            "url": "https://github.com/ipitchford/pinching-free-normal-cover-critical-exponent"
+          },
+          {
+            "name": "ipitchford/planar-transport-map-sensitivity-certificates",
+            "description": "Unrefereed candidate: exact sensitivity certificates for planar transport maps (coefficient-box envelope, convergent refinement, three-atom calibration). Creator Anonymous; publisher Evidence Press.",
+            "url": "https://github.com/ipitchford/planar-transport-map-sensitivity-certificates"
+          },
+          {
+            "name": "ipitchford/pmms-three-agents-eight-goods",
+            "description": "Unrefereed candidate: PMMS allocations for three agents exist up to eight goods (m* = 9); LRAT certificates, clause verifier, replay",
+            "url": "https://github.com/ipitchford/pmms-three-agents-eight-goods"
+          },
+          {
+            "name": "ipitchford/policy-identification-observatory",
+            "description": "Candidate research infrastructure for deterministic, evidence-bound policy-identification audits",
+            "url": "https://github.com/ipitchford/policy-identification-observatory"
+          },
+          {
+            "name": "ipitchford/polydegree-full-e3-column",
+            "description": "Anonymous unrefereed candidate proof package for the full e=3 Polydegree Conjecture column",
+            "url": "https://github.com/ipitchford/polydegree-full-e3-column"
+          },
+          {
+            "name": "ipitchford/potts-censoring-counterexample",
+            "description": "Unrefereed exact finite-horizon ferromagnetic Potts censoring counterexample candidate, with proof and reproducible certificates",
+            "url": "https://github.com/ipitchford/potts-censoring-counterexample"
+          },
+          {
+            "name": "ipitchford/primitive-su-primitivity",
+            "description": "Unrefereed candidate: uniform primitivity of the specified SU(2n) superconducting series",
+            "url": "https://github.com/ipitchford/primitive-su-primitivity"
+          },
+          {
+            "name": "ipitchford/processor-sharing-freshness",
+            "description": "Research candidate: information freshness near saturation in processor-sharing queues.",
+            "url": "https://github.com/ipitchford/processor-sharing-freshness"
+          },
+          {
+            "name": "ipitchford/prophet-over-time-limit",
+            "description": "Unrefereed candidate: limiting iid prophet inequality over time with certified bounds and deterministic near-optimality",
+            "url": "https://github.com/ipitchford/prophet-over-time-limit"
+          },
+          {
+            "name": "ipitchford/ptolemaic-negative-type",
+            "description": "Unrefereed analytic proof candidate: sharp negative type of finite Ptolemaic metrics, with scoped replay and explicit assurance boundaries.",
+            "url": "https://github.com/ipitchford/ptolemaic-negative-type"
+          },
+          {
+            "name": "ipitchford/ptolemaic-split-stability",
+            "description": "Unrefereed candidate: sharp local Ptolemaic split stability, exact certificates and critical-exponent sensitivity",
+            "url": "https://github.com/ipitchford/ptolemaic-split-stability"
+          },
+          {
+            "name": "ipitchford/pure-tensor-analytic-rank-counterexample",
+            "description": "Unrefereed candidate: a pure-tensor counterexample to one literal unnormalised analytic-rank tensorization inequality",
+            "url": "https://github.com/ipitchford/pure-tensor-analytic-rank-counterexample"
+          },
+          {
+            "name": "ipitchford/quadratic-mass-action-sharpness",
+            "description": "Unrefereed mathematical candidate: sharp positive-equilibrium counts in quadratic mass-action networks, with exact proofs and replay.",
+            "url": "https://github.com/ipitchford/quadratic-mass-action-sharpness"
+          },
+          {
+            "name": "ipitchford/quartic-inverse-coefficients",
+            "description": "Unrefereed candidate: uniform quartic boundary interlacing and R3-dependent structural affine intersection classification.",
+            "url": "https://github.com/ipitchford/quartic-inverse-coefficients"
+          },
+          {
+            "name": "ipitchford/random-reshuffling-baseline-policy",
+            "description": "Anonymous unrefereed candidate on exact value certificates and common-Hessian ordering hardness for random reshuffling",
+            "url": "https://github.com/ipitchford/random-reshuffling-baseline-policy"
+          },
+          {
+            "name": "ipitchford/rbm-nonnegative-logarithmic-mixing",
+            "description": "Uniform logarithmic alternating-scan mixing with nonnegative interactions and biases; unrefereed candidate with exact product sharpness checks",
+            "url": "https://github.com/ipitchford/rbm-nonnegative-logarithmic-mixing"
+          },
+          {
+            "name": "ipitchford/rbm31-exact-kl-radius",
+            "description": "Unrefereed exact RBM(3,1) KL radius candidate, continuous convex-cover certificate and constructive witnesses",
+            "url": "https://github.com/ipitchford/rbm31-exact-kl-radius"
+          },
+          {
+            "name": "ipitchford/rbm43-eight-point-obstruction",
+            "description": "Unrefereed candidate: a finite certificate of nonuniversality for classical real binary RBM(4,3).",
+            "url": "https://github.com/ipitchford/rbm43-eight-point-obstruction"
+          },
+          {
+            "name": "ipitchford/reducible-incidence-divisors-affine-slices",
+            "description": "CC0 unrefereed candidate on reducible incidence divisors and affine slices of binary-form factorisation spaces, with exact audit artefacts",
+            "url": "https://github.com/ipitchford/reducible-incidence-divisors-affine-slices"
+          },
+          {
+            "name": "ipitchford/regular-heptagon-octagon-local-minimality",
+            "description": "Candidate certificate-backed local minimality of the regular heptagon and octagon; reproducible residual checks and explicit assurance boundaries.",
+            "url": "https://github.com/ipitchford/regular-heptagon-octagon-local-minimality"
+          },
+          {
+            "name": "ipitchford/renewal-quantum-resetting-equilibration",
+            "description": "Candidate (unrefereed): renewal resetting of quantum dynamics - complete-reset classification, jump-channel reduction under (W), critical time scales. DOI 10.5281/zenodo.23580221",
+            "url": "https://github.com/ipitchford/renewal-quantum-resetting-equilibration"
+          },
+          {
+            "name": "ipitchford/reverse-reaction-attracting-oscillations",
+            "description": "Exact counterexample to reverse-reaction deletion preserving absence of attracting oscillations",
+            "url": "https://github.com/ipitchford/reverse-reaction-attracting-oscillations"
+          },
+          {
+            "name": "ipitchford/rfim-unbounded-fields-entropy",
+            "description": "Unrefereed RFIM continuous-time entropy-dissipation candidate with unbounded fields and explicit assurance scope",
+            "url": "https://github.com/ipitchford/rfim-unbounded-fields-entropy"
+          },
+          {
+            "name": "ipitchford/robust-gaussian-inverse-estimation",
+            "description": "Uniform robust-risk bounds and jitter implementation for Gaussian inverse estimation",
+            "url": "https://github.com/ipitchford/robust-gaussian-inverse-estimation"
+          },
+          {
+            "name": "ipitchford/s6-extension-results-candidate",
+            "description": "Unrefereed Evidence Press candidate: extensions around a claimed complex structure on S6; global source construction unverified.",
+            "url": "https://github.com/ipitchford/s6-extension-results-candidate"
+          },
+          {
+            "name": "ipitchford/seven-cycle-fourth-power-upper112",
+            "description": "Unrefereed candidate: 108 <= alpha(C7 strong power 4) <= 112, with exact certificates and scoped auxiliary results; exact value unresolved.",
+            "url": "https://github.com/ipitchford/seven-cycle-fourth-power-upper112"
+          },
+          {
+            "name": "ipitchford/seymour-second-neighbourhood-2delta3",
+            "description": "Unrefereed candidate: Seymour's second neighbourhood conjecture at order 2\u03b4+3 \u2014 structure, a certified 18-vertex lower bound, and a refutation of DeVos's conjecture as recorded in Sullivan's survey",
+            "url": "https://github.com/ipitchford/seymour-second-neighbourhood-2delta3"
+          },
+          {
+            "name": "ipitchford/sfs-bottleneck-audit",
+            "description": "Executed audit (unrefereed candidate): universal class rejection of nine published human SFS datasets under the frozen pre-registered identifiability protocol.",
+            "url": "https://github.com/ipitchford/sfs-bottleneck-audit"
+          },
+          {
+            "name": "ipitchford/sfs-bottleneck-audit-protocol",
+            "description": "Pre-registered protocol (unrefereed candidate): certified SFS identifiability audit of the 930-813 kya human bottleneck claim. Frozen before any real data contact.",
+            "url": "https://github.com/ipitchford/sfs-bottleneck-audit-protocol"
+          },
+          {
+            "name": "ipitchford/sfs-identifiability-audit",
+            "description": "Unrefereed candidate: exact finite-SFS identification boundary, certified bounds, and a setting-conditional linked audit; producer-replayed, not independently reproduced.",
+            "url": "https://github.com/ipitchford/sfs-identifiability-audit"
+          },
+          {
+            "name": "ipitchford/sharp-bilagrangian-smoothness",
+            "description": "Unrefereed proof candidate: sharp smoothness of reduced bi-Lagrangian Grassmannians; written proof and exact finite replay.",
+            "url": "https://github.com/ipitchford/sharp-bilagrangian-smoothness"
+          },
+          {
+            "name": "ipitchford/sharp-four-factor-cohen-macaulay-obstruction",
+            "description": "Anonymous unrefereed candidate: sharp four-factor Cohen\u2013Macaulay obstruction with exact replay",
+            "url": "https://github.com/ipitchford/sharp-four-factor-cohen-macaulay-obstruction"
+          },
+          {
+            "name": "ipitchford/sharp-local-minor-ratios",
+            "description": null,
+            "url": "https://github.com/ipitchford/sharp-local-minor-ratios"
+          },
+          {
+            "name": "ipitchford/sharp-logconcave-moment-comparison",
+            "description": "Unrefereed computer-assisted theorem candidate: sharp Lp-L2 moment comparison for centred log-concave laws, equality cases and qualitative stability.",
+            "url": "https://github.com/ipitchford/sharp-logconcave-moment-comparison"
+          },
+          {
+            "name": "ipitchford/sharp-quartic-hadamard-powers",
+            "description": "Unrefereed candidate: sharp ordinary coefficient powers of positive-coefficient real-rooted quartics; written proof and scoped exact replay",
+            "url": "https://github.com/ipitchford/sharp-quartic-hadamard-powers"
+          },
+          {
+            "name": "ipitchford/sharp-rank-three-chollet-order-five",
+            "description": "Exact proof package for sharp rank-three Chollet inequalities in order five",
+            "url": "https://github.com/ipitchford/sharp-rank-three-chollet-order-five"
+          },
+          {
+            "name": "ipitchford/sharp-shannon-window-law",
+            "description": "Unrefereed research candidate: sharp shape-parameter law for sinh and Kaiser-Bessel regularised Shannon sampling, corrected alias-inclusive error bound (Evidence Press). DOI 10.5281/zenodo.23533711",
+            "url": "https://github.com/ipitchford/sharp-shannon-window-law"
+          },
+          {
+            "name": "ipitchford/signed-kuramoto-positive-networks",
+            "description": "Research candidate (unrefereed): exact realisation of signed Kuramoto networks by positive ones; stable non-manifold equilibria; status of Sclosa's Conjecture 1.3",
+            "url": "https://github.com/ipitchford/signed-kuramoto-positive-networks"
+          },
+          {
+            "name": "ipitchford/sis-reconstruction-continuation",
+            "description": "Fixed-dimensional continuation, dimension-free obstruction and Holder replacement for network SIS epidemics",
+            "url": "https://github.com/ipitchford/sis-reconstruction-continuation"
+          },
+          {
+            "name": "ipitchford/six-dimensional-zonoid-counterexample",
+            "description": "Unrefereed candidate: exact six-dimensional counterexample to cross-polytope maximality in zonoid approximation",
+            "url": "https://github.com/ipitchford/six-dimensional-zonoid-counterexample"
+          },
+          {
+            "name": "ipitchford/small-exponent-percolation",
+            "description": "Unrefereed candidate: first critical-mean-degree correction and uniform kernel extensions for long-range bond percolation",
+            "url": "https://github.com/ipitchford/small-exponent-percolation"
+          },
+          {
+            "name": "ipitchford/smooth-point-certificates-polydegree-containments",
+            "description": "Unrefereed candidate on Jacobian smooth-point certificates for Polydegree containments",
+            "url": "https://github.com/ipitchford/smooth-point-certificates-polydegree-containments"
+          },
+          {
+            "name": "ipitchford/spectrally-negative-resetting-extremes",
+            "description": "Candidate research release: fixed-horizon extremes of spectrally negative L\u00e9vy processes with Poisson resetting (Evidence Press)",
+            "url": "https://github.com/ipitchford/spectrally-negative-resetting-extremes"
+          },
+          {
+            "name": "ipitchford/square-maximises-dirichlet-ratio-quadrilaterals",
+            "description": "Unrefereed candidate: computer-assisted proof that the square maximises \u03bb\u2082/\u03bb\u2081 (Dirichlet Laplacian) among all quadrilaterals, convex or not. Paper, certificates, verifiers, replay receipts. DOI 10.5281/zenodo.23109314",
+            "url": "https://github.com/ipitchford/square-maximises-dirichlet-ratio-quadrilaterals"
+          },
+          {
+            "name": "ipitchford/stable-power-concavity-gaussian-boundary",
+            "description": "Unrefereed proof candidate: sharp Gaussian-boundary power concavity of symmetric stable densities, with finite interval certificate. DOI 10.5281/zenodo.22659265.",
+            "url": "https://github.com/ipitchford/stable-power-concavity-gaussian-boundary"
+          },
+          {
+            "name": "ipitchford/stable-random-radial-profile",
+            "description": "Smooth random radial profiles for isotropic Kac polynomials: written-proof candidate and scoped diagnostics",
+            "url": "https://github.com/ipitchford/stable-random-radial-profile"
+          },
+          {
+            "name": "ipitchford/state-contingent-comparability",
+            "description": "Exact conditional comparability tests and implementable bounds for state-contingent sovereign debt",
+            "url": "https://github.com/ipitchford/state-contingent-comparability"
+          },
+          {
+            "name": "ipitchford/steady-stream-power-landscapes",
+            "description": "Unrefereed analytical candidate: coupled steady landscapes, local uniqueness, radial theory and conditional channel audit",
+            "url": "https://github.com/ipitchford/steady-stream-power-landscapes"
+          },
+          {
+            "name": "ipitchford/stocks-are-not-flows",
+            "description": "Reproducible identification audit of investor pressure and tenure change in England, 2008\u20132019.",
+            "url": "https://github.com/ipitchford/stocks-are-not-flows"
+          },
+          {
+            "name": "ipitchford/sun-circular-primitive-permutation",
+            "description": "Unrefereed computer-assisted candidate: Sun circular primitive-permutation classification with one exception",
+            "url": "https://github.com/ipitchford/sun-circular-primitive-permutation"
+          },
+          {
+            "name": "ipitchford/sun-hou-primitive-sum-circle",
+            "description": "Unrefereed computer-assisted candidate: finite closure of the Sun-Hou primitive adjacent-sum conjecture",
+            "url": "https://github.com/ipitchford/sun-hou-primitive-sum-circle"
+          },
+          {
+            "name": "ipitchford/symmetric-unimodality-free-convolution",
+            "description": "Unrefereed analytic proof candidate: symmetric unimodality under free additive convolution; scoped symbolic checks and internal editorial records.",
+            "url": "https://github.com/ipitchford/symmetric-unimodality-free-convolution"
+          },
+          {
+            "name": "ipitchford/symmetry-respecting-tree-torsors",
+            "description": "Unrefereed candidate: equivariant critical-group torsor criterion and generalized-theta classification",
+            "url": "https://github.com/ipitchford/symmetry-respecting-tree-torsors"
+          },
+          {
+            "name": "ipitchford/szollosi-mub-exclusion",
+            "description": "Unrefereed certificate-backed candidate excluding the closed Szollosi family from MUB quadruplets in dimension six; full problem remains conditional.",
+            "url": "https://github.com/ipitchford/szollosi-mub-exclusion"
+          },
+          {
+            "name": "ipitchford/tcell-exactly-five",
+            "description": "Unrefereed candidate: exactly five positive equilibria in a two-ligand T-cell model; exact certificate and scoped proof.",
+            "url": "https://github.com/ipitchford/tcell-exactly-five"
+          },
+          {
+            "name": "ipitchford/tetrahedral-moment-stokes-elements",
+            "description": "Candidate: a moment obstruction and minimal-degree polynomial nonconforming Stokes elements on tetrahedra (answers the Balazi\u2013Allaire\u2013Jolivet\u2013Omnes quintic question). Unrefereed, AI-assisted.",
+            "url": "https://github.com/ipitchford/tetrahedral-moment-stokes-elements"
+          },
+          {
+            "name": "ipitchford/thermal-cumulant-sign-counterexamples",
+            "description": "Candidate: exact three-state counterexamples to Ptaszy\u0144ski's thermal heat-current cumulant sign conjectures, with positive bounds (Evidence Press, unrefereed)",
+            "url": "https://github.com/ipitchford/thermal-cumulant-sign-counterexamples"
+          },
+          {
+            "name": "ipitchford/thermal-ordering-concave-baths",
+            "description": "Research candidate: thermal ordering under Markovian relaxation - a finite-time criterion and its limits (Evidence Press, unrefereed)",
+            "url": "https://github.com/ipitchford/thermal-ordering-concave-baths"
+          },
+          {
+            "name": "ipitchford/theta-graphs-c3-e-positive",
+            "description": "Unrefereed candidate: e-positivity of theta graphs with a three-edge shortest path; exact internal checks and weighted-group proof.",
+            "url": "https://github.com/ipitchford/theta-graphs-c3-e-positive"
+          },
+          {
+            "name": "ipitchford/three-coloured-paths-partial-results",
+            "description": "Unrefereed partial-results candidate for AIM-COMBINATORICS-0050; parent problem unresolved",
+            "url": "https://github.com/ipitchford/three-coloured-paths-partial-results"
+          },
+          {
+            "name": "ipitchford/three-copy-werner-undistillability",
+            "description": "Three-copy qutrit Werner undistillability: mathematical candidate, exact certificate and scoped review evidence",
+            "url": "https://github.com/ipitchford/three-copy-werner-undistillability"
+          },
+          {
+            "name": "ipitchford/three-gaussian-projection-counterexample",
+            "description": "Unrefereed candidate: projection convex-order tests fail for three centred Gaussian components.",
+            "url": "https://github.com/ipitchford/three-gaussian-projection-counterexample"
+          },
+          {
+            "name": "ipitchford/tree-network-separation",
+            "description": "Unrefereed candidate: sharp rank bounds and all-parameter tree-network separation, with exact checks and explicit scope.",
+            "url": "https://github.com/ipitchford/tree-network-separation"
+          },
+          {
+            "name": "ipitchford/triangulated-graph-product-picard",
+            "description": "Unrefereed candidate: integral ridge and full tropical Picard groups of graph products",
+            "url": "https://github.com/ipitchford/triangulated-graph-product-picard"
+          },
+          {
+            "name": "ipitchford/two-class-transposition-profiles",
+            "description": "Unrefereed candidate: full two-class random-transposition profiles and vanishing-bias crossover",
+            "url": "https://github.com/ipitchford/two-class-transposition-profiles"
+          },
+          {
+            "name": "ipitchford/two-colour-overpartition-congruences",
+            "description": "Exact modular certificates and parameter families for two-colour overpartitions; unrefereed candidate",
+            "url": "https://github.com/ipitchford/two-colour-overpartition-congruences"
+          },
+          {
+            "name": "ipitchford/two-host-dormancy-oscillations",
+            "description": "Written-proof candidate: exact counterexamples and local stable oscillations in a two-host dormancy model",
+            "url": "https://github.com/ipitchford/two-host-dormancy-oscillations"
+          },
+          {
+            "name": "ipitchford/txgraffiti-conjecture3-resolution",
+            "description": "Unrefereed certificate-backed candidate resolution of TxGraffiti Conjecture 15/3",
+            "url": "https://github.com/ipitchford/txgraffiti-conjecture3-resolution"
+          },
+          {
+            "name": "ipitchford/txgraffiti-order48-successor",
+            "description": "Anonymous unrefereed certificate-backed 48-vertex successor candidate for TxGraffiti Conjecture 15/3",
+            "url": "https://github.com/ipitchford/txgraffiti-order48-successor"
+          },
+          {
+            "name": "ipitchford/unbounded-bns-component-orbits",
+            "description": "Anonymous unrefereed candidate: a linearly growing free-by-cyclic family with unbounded BNS component-orbit count",
+            "url": "https://github.com/ipitchford/unbounded-bns-component-orbits"
+          },
+          {
+            "name": "ipitchford/uniform-split-reliability",
+            "description": "Unrefereed candidate: uniform split-reliability classification, exact finite certificates and explicit all-order cone intervals",
+            "url": "https://github.com/ipitchford/uniform-split-reliability"
+          },
+          {
+            "name": "ipitchford/unique-equilibrium-lsi-separation",
+            "description": null,
+            "url": "https://github.com/ipitchford/unique-equilibrium-lsi-separation"
+          },
+          {
+            "name": "ipitchford/unlinked-gamma-regression",
+            "description": "Unrefereed candidate: exact fixed-dictionary Gamma identifiability, finite coefficient fibers and optimal cumulant order",
+            "url": "https://github.com/ipitchford/unlinked-gamma-regression"
+          },
+          {
+            "name": "ipitchford/waiting-time-entropy-bound-counterexamples",
+            "description": "Research candidate: counterexamples to the Maier et al. (2024) waiting-time upper bound on entropy production in periodically driven Markov networks",
+            "url": "https://github.com/ipitchford/waiting-time-entropy-bound-counterexamples"
+          },
+          {
+            "name": "ipitchford/wales-20mph-attribution-manuscript",
+            "description": "Companion manuscript (unrefereed candidate) for the Evidence Press Wales 20 mph casualty attribution audit \u2014 constructive non-identification result",
+            "url": "https://github.com/ipitchford/wales-20mph-attribution-manuscript"
+          },
+          {
+            "name": "ipitchford/wales-20mph-policy-analysis",
+            "description": "Evidence Press policy-identification audit of the Wales default 20 mph casualty attribution claim",
+            "url": "https://github.com/ipitchford/wales-20mph-policy-analysis"
+          },
+          {
+            "name": "ipitchford/wardrop-smooth-route-regimes",
+            "description": "Research candidate (unrefereed): smoothness within and across Wardrop route regimes; smooth route activations, minimal five-link BPR example, slope comparison and genericity",
+            "url": "https://github.com/ipitchford/wardrop-smooth-route-regimes"
+          },
+          {
+            "name": "ipitchford/weniger-delta-nonreal-poles",
+            "description": "Candidate (unrefereed): nonreal poles of Weniger's delta transformation for Stieltjes series - a finite-order classification refuting Borghi's 2026 conjecture",
+            "url": "https://github.com/ipitchford/weniger-delta-nonreal-poles"
+          },
+          {
+            "name": "ipitchford/when-a-unique-answer-is-not-an-identified-answer",
+            "description": "Unrefereed Evidence Press candidate on selector provenance and identification across APC, epidemics, sign-restricted SVARs, and aerosol\u2013ECS.",
+            "url": "https://github.com/ipitchford/when-a-unique-answer-is-not-an-identified-answer"
+          },
+          {
+            "name": "ipitchford/wilhelm-heinrich-large-gain",
+            "description": "Unrefereed candidate: convex attractor geometry, exact stability formulas and explicit large-gain uniqueness for the Wilhelm-Heinrich oscillator.",
+            "url": "https://github.com/ipitchford/wilhelm-heinrich-large-gain"
+          }
+        ]
+      }
+    },
+    "ipitchford_3": {
+      "url": "https://api.github.com/users/ipitchford/repos?per_page=100&page=3",
+      "status": "ok",
+      "result": {
+        "count": 4,
+        "items": [
+          {
+            "name": "ipitchford/williamson-order-transfer",
+            "description": "Research candidate: Williamson low-storage order transfer through six and a conditional order-seven criterion.",
+            "url": "https://github.com/ipitchford/williamson-order-transfer"
+          },
+          {
+            "name": "ipitchford/wishart-reachable-noise",
+            "description": "Unrefereed candidate: reachable-noise existence classification for operator-valued Wishart processes",
+            "url": "https://github.com/ipitchford/wishart-reachable-noise"
+          },
+          {
+            "name": "ipitchford/wmy5-graded-obstructions",
+            "description": "Exact graded-compression and affine-Hessian obstructions for the five-variable weak Markus-Yamabe problem",
+            "url": "https://github.com/ipitchford/wmy5-graded-obstructions"
+          },
+          {
+            "name": "ipitchford/z20-cochromatic",
+            "description": "CC0 candidate proofs for z(20)=6 and VR2(K4)=20, with replayable certificates and AI-readable indexes",
+            "url": "https://github.com/ipitchford/z20-cochromatic"
+          }
+        ]
+      }
+    },
+    "ipitchford_4": {
+      "url": "https://api.github.com/users/ipitchford/repos?per_page=100&page=4",
+      "status": "ok",
+      "result": {
+        "count": 0,
+        "items": []
+      }
+    }
+  }
+}

@@ -1,0 +1,974 @@
+{
+ "date": "2026-10-31",
+ "queries": [
+  {
+   "name": "openalex:On a conjecture of DeLaVina and Waller",
+   "url": "https://api.openalex.org/works?per-page=15&search=On%20a%20conjecture%20of%20DeLaVina%20and%20Waller",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": "error"
+   }
+  },
+  {
+   "name": "openalex:Wiener index diameter 2d+1 cycle conjecture",
+   "url": "https://api.openalex.org/works?per-page=15&search=Wiener%20index%20diameter%202d%2B1%20cycle%20conjecture",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": "error"
+   }
+  },
+  {
+   "name": "openalex:maximum Wiener index graphs given diameter order 2d+1",
+   "url": "https://api.openalex.org/works?per-page=15&search=maximum%20Wiener%20index%20graphs%20given%20diameter%20order%202d%2B1",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": "error"
+   }
+  },
+  {
+   "name": "openalex:DeLaVina Waller conjecture Wiener index",
+   "url": "https://api.openalex.org/works?per-page=15&search=DeLaVina%20Waller%20conjecture%20Wiener%20index",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": "error"
+   }
+  },
+  {
+   "name": "openalex-citers:10.37236/757",
+   "url": "https://api.openalex.org/works/https://doi.org/10.37236/757",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W2128329057\",\"doi\":\"https://doi.org/10.37236/757\",\"title\":\"Spanning Trees with Many Leaves and Average Distance\",\"display_name\":\"Spanning Trees with Many Leaves and Average"
+   }
+  },
+  {
+   "name": "openalex-citers:10.26493/1855-3974.3077.63a",
+   "url": "https://api.openalex.org/works/https://doi.org/10.26493/1855-3974.3077.63a",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W4391927848\",\"doi\":\"https://doi.org/10.26493/1855-3974.3077.63a\",\"title\":\"Selected topics on Wiener index\",\"display_name\":\"Selected topics on Wiener index\",\"publication_yea"
+   }
+  },
+  {
+   "name": "openalex-citers:10.48550/arXiv.2605.24855",
+   "url": "https://api.openalex.org/works/https://doi.org/10.48550/arXiv.2605.24855",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W7162404246\",\"doi\":\"https://doi.org/10.48550/arxiv.2605.24855\",\"title\":\"On a conjecture of DeLaVi\\u00f1a and Waller\",\"display_name\":\"On a conjecture of DeLaVi\\u00f1a and Wa"
+   }
+  },
+  {
+   "name": "openalex-citers:10.1002/jgt.3190080102",
+   "url": "https://api.openalex.org/works/https://doi.org/10.1002/jgt.3190080102",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W1983321303\",\"doi\":\"https://doi.org/10.1002/jgt.3190080102\",\"title\":\"On the sum of all distances in a graph or digraph\",\"display_name\":\"On the sum of all distances in a gra"
+   }
+  },
+  {
+   "name": "openalex-citers:10.1017/S0004972718000163",
+   "url": "https://api.openalex.org/works/https://doi.org/10.1017/S0004972718000163",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W2800729019\",\"doi\":\"https://doi.org/10.1017/s0004972718000163\",\"title\":\"ON THE TOTAL DISTANCE AND DIAMETER OF GRAPHS\",\"display_name\":\"ON THE TOTAL DISTANCE AND DIAMETER OF "
+   }
+  },
+  {
+   "name": "openalex-citers:10.1016/j.amc.2019.03.025",
+   "url": "https://api.openalex.org/works/https://doi.org/10.1016/j.amc.2019.03.025",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W2928031422\",\"doi\":\"https://doi.org/10.1016/j.amc.2019.03.025\",\"title\":\"Graphs with a given diameter that maximise the Wiener index\",\"display_name\":\"Graphs with a given dia"
+   }
+  },
+  {
+   "name": "openalex-citers:10.5281/zenodo.22015516",
+   "url": "https://api.openalex.org/works/https://doi.org/10.5281/zenodo.22015516",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W7203882583\",\"doi\":\"https://doi.org/10.5281/zenodo.22015516\",\"title\":\"The DeLaVi\\u00f1a\\u2013Waller conjecture on the Wiener index\",\"display_name\":\"The DeLaVi\\u00f1a\\u2013W"
+   }
+  },
+  {
+   "name": "openalex-citers:10.5281/zenodo.22015517",
+   "url": "https://api.openalex.org/works/https://doi.org/10.5281/zenodo.22015517",
+   "summary": {
+    "error": "JSONDecodeError('Expecting value: line 1 column 1 (char 0)')",
+    "status": 200,
+    "body": "{\"id\":\"https://openalex.org/W7203882583\",\"doi\":\"https://doi.org/10.5281/zenodo.22015516\",\"title\":\"The DeLaVi\\u00f1a\\u2013Waller conjecture on the Wiener index\",\"display_name\":\"The DeLaVi\\u00f1a\\u2013W"
+   }
+  },
+  {
+   "name": "semanticscholar:arXiv:2605.24855",
+   "url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2605.24855/citations?fields=title,year,externalIds&limit=200",
+   "summary": []
+  },
+  {
+   "name": "semanticscholar:DOI:10.37236/757",
+   "url": "https://api.semanticscholar.org/graph/v1/paper/DOI:10.37236/757/citations?fields=title,year,externalIds&limit=200",
+   "summary": [
+    {
+     "title": "Average Local Independence and the Spanning-Tree Leaf Number: A Proof of Graffiti.pc Conjecture 2",
+     "year": 2026,
+     "ids": {
+      "ArXiv": "2607.24020",
+      "CorpusId": 290625687
+     }
+    },
+    {
+     "title": "On a conjecture of DeLaVi\\~na and Waller",
+     "year": 2026,
+     "ids": {
+      "ArXiv": "2605.24855",
+      "CorpusId": 288670670
+     }
+    },
+    {
+     "title": "New results on Wiener index of trees with a given diameter",
+     "year": 2025,
+     "ids": {
+      "ArXiv": "2507.17885",
+      "DOI": "10.2989/16073606.2026.2718457",
+      "CorpusId": 280017523
+     }
+    },
+    {
+     "title": "Graphs with a given conditional diameter that maximize the Wiener index",
+     "year": 2024,
+     "ids": {
+      "ArXiv": "2402.15778",
+      "DOI": "10.3934/math.2024770",
+      "CorpusId": 267938415
+     }
+    }
+   ]
+  },
+  {
+   "name": "arxiv:au:\"Liu_Mingchang\" AND all:\"Wiener\"",
+   "url": "http://export.arxiv.org/api/query?max_results=30&sortBy=submittedDate&sortOrder=descending&search_query=au%3A%22Liu_Mingchang%22%20AND%20all%3A%22Wiener%22",
+   "summary": []
+  },
+  {
+   "name": "arxiv:all:\"DeLaVina\" AND all:\"Wiener index\"",
+   "url": "http://export.arxiv.org/api/query?max_results=30&sortBy=submittedDate&sortOrder=descending&search_query=all%3A%22DeLaVina%22%20AND%20all%3A%22Wiener%20index%22",
+   "summary": []
+  },
+  {
+   "name": "arxiv:abs:\"Wiener index\" AND abs:\"diameter\" AND abs:\"cycle\" AND abs:\"conjecture\"",
+   "url": "http://export.arxiv.org/api/query?max_results=30&sortBy=submittedDate&sortOrder=descending&search_query=abs%3A%22Wiener%20index%22%20AND%20abs%3A%22diameter%22%20AND%20abs%3A%22cycle%22%20AND%20abs%3A%22conjecture%22",
+   "summary": []
+  },
+  {
+   "name": "arxiv:ti:\"Wiener index\" AND ti:\"diameter\"",
+   "url": "http://export.arxiv.org/api/query?max_results=30&sortBy=submittedDate&sortOrder=descending&search_query=ti%3A%22Wiener%20index%22%20AND%20ti%3A%22diameter%22",
+   "summary": [
+    {
+     "id": "http://arxiv.org/abs/2507.17885v2",
+     "published": "2025-07-23",
+     "title": "New results on the Wiener index of trees with a given diameter"
+    },
+    {
+     "id": "http://arxiv.org/abs/2402.15778v2",
+     "published": "2024-02-24",
+     "title": "Graphs with a given conditional diameter that maximize the Wiener index"
+    },
+    {
+     "id": "http://arxiv.org/abs/1510.03126v1",
+     "published": "2015-10-12",
+     "title": "The Terminal Wiener Index of Trees with Diameter or Maximum Degree"
+    },
+    {
+     "id": "http://arxiv.org/abs/1105.5838v1",
+     "published": "2011-05-29",
+     "title": "On the Wiener index and Laplacian coefficients of graphs with given diameter or radius"
+    }
+   ]
+  },
+  {
+   "name": "arxiv:all:\"average distance\" AND all:\"diameter\" AND all:\"2d+1\"",
+   "url": "http://export.arxiv.org/api/query?max_results=30&sortBy=submittedDate&sortOrder=descending&search_query=all%3A%22average%20distance%22%20AND%20all%3A%22diameter%22%20AND%20all%3A%222d%2B1%22",
+   "summary": []
+  },
+  {
+   "name": "arxiv:all:\"DeLaVina-Waller\"",
+   "url": "http://export.arxiv.org/api/query?max_results=30&sortBy=submittedDate&sortOrder=descending&search_query=all%3A%22DeLaVina-Waller%22",
+   "summary": []
+  },
+  {
+   "name": "arxiv:all:\"DeLaVina and Waller\"",
+   "url": "http://export.arxiv.org/api/query?max_results=30&sortBy=submittedDate&sortOrder=descending&search_query=all%3A%22DeLaVina%20and%20Waller%22",
+   "summary": []
+  },
+  {
+   "name": "zenodo:\"DeLaViña–Waller\"",
+   "url": "https://zenodo.org/api/records?size=25&q=%22DeLaVi%C3%B1a%E2%80%93Waller%22",
+   "summary": {
+    "total": 1,
+    "hits": [
+     {
+      "title": "The DeLaViña–Waller conjecture on the Wiener index",
+      "date": "2026-08-19",
+      "doi": "10.5281/zenodo.22015517"
+     }
+    ]
+   }
+  },
+  {
+   "name": "zenodo:\"DeLaVina-Waller\"",
+   "url": "https://zenodo.org/api/records?size=25&q=%22DeLaVina-Waller%22",
+   "summary": {
+    "total": 0,
+    "hits": []
+   }
+  },
+  {
+   "name": "zenodo:\"Wiener index\" DeLaViña",
+   "url": "https://zenodo.org/api/records?size=25&q=%22Wiener%20index%22%20DeLaVi%C3%B1a",
+   "summary": {
+    "total": 82,
+    "hits": [
+     {
+      "title": "Wiener index and applications in the Neutrosophic graphs",
+      "date": "2021-10-07",
+      "doi": "10.5281/zenodo.5553515"
+     },
+     {
+      "title": "Fig. 5 in Combining morphological and metabarcoding approaches reveals the freshwater eukaryotic phytoplankton community",
+      "date": "2020-03-10",
+      "doi": "10.5281/zenodo.15856762"
+     },
+     {
+      "title": "Figure 4 in Macroinvertebrate communities along the Velika Morava River",
+      "date": "2015-02-27",
+      "doi": "10.5281/zenodo.13202972"
+     },
+     {
+      "title": "Figure 3 in Food habits of the barn owl Tyto alba in the National Reserve Pampa del Tamarugal, Atacama Desert, North Chile",
+      "date": "2006-06-12",
+      "doi": "10.5281/zenodo.5230098"
+     },
+     {
+      "title": "Figure 4 from: Iida T, Soga M, Koike S (2016) Effects of an increase in population of sika deer on beetle communities in deciduous forests. ZooKeys 625: 67-85. https://doi.org/10.3897/zookeys.625.9116",
+      "date": "2016-10-19",
+      "doi": "10.3897/zookeys.625.9116.figure4"
+     },
+     {
+      "title": "Data from: A global meta-analyses of the response of multi-taxa diversity to grazing intensity in grasslands",
+      "date": "2019-10-21",
+      "doi": "10.5061/dryad.2fqz612k0"
+     },
+     {
+      "title": "Data from: Impacts of grazing by different large herbivores in grassland depend on plant species diversity",
+      "date": "2016-04-20",
+      "doi": "10.5061/dryad.t441k"
+     },
+     {
+      "title": "BRAIN Journal - Optimization Problems on Threshold Graphs",
+      "date": "2010-07-07",
+      "doi": "10.5281/zenodo.1036727"
+     },
+     {
+      "title": "Exploiting Molecular Graph Sparsity for Efficient Computation of Chemical Descriptors: Algorithms Implementation",
+      "date": "2026-06-16",
+      "doi": "10.5281/zenodo.20716240"
+     },
+     {
+      "title": "New calculation of the Wiener index for some particular graphs",
+      "date": "2024-03-19",
+      "doi": "10.5281/zenodo.10837724"
+     },
+     {
+      "title": "Fig. 3. Average a in Influence of a tropical marina on nearshore fish communities during a harmful algal bloom event",
+      "date": "2017-09-14",
+      "doi": "10.5281/zenodo.5357868"
+     },
+     {
+      "title": "Data from: Why does the complexity of functionally equivalent signals vary across closely related species?",
+      "date": "2022-05-06",
+      "doi": "10.5061/dryad.k98sf7m81"
+     },
+     {
+      "title": "On the study of Szeged Index and Wiener Index for monocyclic graphs from geodesic topological matrices†",
+      "date": "2003-05-31",
+      "doi": "10.5281/zenodo.5839682"
+     },
+     {
+      "title": "Data from: Parallelism in adaptive radiations of experimental Escherichia coli populations",
+      "date": "2015-12-04",
+      "doi": "10.5061/dryad.1pf8t"
+     },
+     {
+      "title": "A Study on Iterated Line Graphs",
+      "date": "2026-05-31",
+      "doi": "10.5281/zenodo.20476767"
+     },
+     {
+      "title": "Community Structure and Diversity Indices of Lepidopteran Moths Chalisgaon, Maharashtra, India",
+      "date": "2026-02-28",
+      "doi": "10.5281/zenodo.18796700"
+     },
+     {
+      "title": "A Proof of Written on the Wall II Conjecture 100",
+      "date": "2026-08-13",
+      "doi": "10.5281/zenodo.21914031"
+     },
+     {
+      "title": "On the Szeged Index of monocyclic graphs",
+      "date": "2000-09-30",
+      "doi": "10.5281/zenodo.5870841"
+     },
+     {
+      "title": "Energy supply security in the EU: Benchmarking diversity and dependence of primary energy",
+      "date": "2017-12-01",
+      "doi": "10.1016/j.apenergy.2017.07.010"
+     },
+     {
+      "title": "Data from: Size of dominant diatom species can alter their evenness",
+      "date": "2016-06-10",
+      "doi": "10.5061/dryad.k247v"
+     },
+     {
+      "title": "Agriculture from Areas Facing Natural or Other Specific Constraints (ANCs) in Poland, Its Characteristics, Directions of Changes and Challenges in the Context of the European Green Deal",
+      "date": "2022-09-20",
+      "doi": "10.3390/su141911828"
+     },
+     {
+      "title": "Design a Gaussian mixture-based clustering model for enhancing accuracy and robustness in smart homes",
+      "date": "2026-09-01",
+      "doi": "10.11591/ijict.v15i3.pp1047-1057"
+     },
+     {
+      "title": "Structure of summer bat assemblages in forests in European Russia",
+      "date": "2016",
+      "doi": "10.5281/zenodo.13424775"
+     },
+     {
+      "title": "Data from: Conservative species drive biomass productivity in tropical dry forests",
+      "date": "2017-01-15",
+      "doi": "10.5061/dryad.4gv37"
+     },
+     {
+      "title": "Data from: Avoiding erroneous citations in ecological research: read before you apply",
+      "date": "2017-04-20",
+      "doi": "10.5061/dryad.9m808"
+     }
+    ]
+   }
+  },
+  {
+   "name": "zenodo:DeLaVina Waller conjecture",
+   "url": "https://zenodo.org/api/records?size=25&q=DeLaVina%20Waller%20conjecture",
+   "summary": {
+    "total": 16243,
+    "hits": [
+     {
+      "title": "A Proof of Written on the Wall II Conjecture 100",
+      "date": "2026-08-13",
+      "doi": "10.5281/zenodo.21914031"
+     },
+     {
+      "title": "Burmacompsocus Nel & Waller 2007",
+      "date": "2017-12-31",
+      "doi": "10.5281/zenodo.5455655"
+     },
+     {
+      "title": "Decatopectinini Waller 1986",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305903"
+     },
+     {
+      "title": "Pectinina Waller 1978",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305871"
+     },
+     {
+      "title": "Laevichlamys Waller 1993",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305937"
+     },
+     {
+      "title": "Amusiini Thiele 1934",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305925"
+     },
+     {
+      "title": "Mesopeplini Waller 2006",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305899"
+     },
+     {
+      "title": "Burmacompsocus perreaui Nel & Waller 2007",
+      "date": "2017-12-31",
+      "doi": "10.5281/zenodo.5455659"
+     },
+     {
+      "title": "Palliolum Monterosato 1884",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305895"
+     },
+     {
+      "title": "Small-Pox.",
+      "date": "1871-10-01",
+      "doi": "10.1016/s0140-6736(02)62494-8"
+     },
+     {
+      "title": "Laboratory Method of Making a Self-Starting Siphon",
+      "date": "1918-05-01",
+      "doi": "10.1111/j.1949-8594.1918.tb03835.x"
+     },
+     {
+      "title": "Sinnamarides undetermined",
+      "date": "2023-05-23",
+      "doi": "10.5281/zenodo.7982725"
+     },
+     {
+      "title": "Dimya fimbricostata H. E. Vokes 1979",
+      "date": "2024-07-30",
+      "doi": "10.5281/zenodo.13211100"
+     },
+     {
+      "title": "Laevichlamys Waller 1993",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305939"
+     },
+     {
+      "title": "Mimachlamydini Waller 1993",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305954"
+     },
+     {
+      "title": "Mortality of Parturient Women.",
+      "date": "1864-03-01",
+      "doi": "10.1016/s0140-6736(02)59170-4"
+     },
+     {
+      "title": "Secondary Effects of Railway Accidents.",
+      "date": "1862-02-01",
+      "doi": "10.1016/s0140-6736(02)58628-1"
+     },
+     {
+      "title": "On the Chemical and General Effects of the Practice of Interment in Vaults and Catacombs.",
+      "date": "1851-08-01",
+      "doi": "10.1016/s0140-6736(02)34989-4"
+     },
+     {
+      "title": "Botulopsis Reis 1926",
+      "date": "2007-12-31",
+      "doi": "10.5281/zenodo.6250499"
+     },
+     {
+      "title": "Paragorgia arborea",
+      "date": "2020-11-13",
+      "doi": "10.5281/zenodo.4425925"
+     },
+     {
+      "title": "Andreas Benedikt Waller (w1464)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11606340"
+     },
+     {
+      "title": "Pectinidae Rafinesque 1815",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305891"
+     },
+     {
+      "title": "Bestimmung der Jodzahl nach Waller",
+      "date": "1901-06-01",
+      "doi": "10.1007/bf01357053"
+     },
+     {
+      "title": "Spathochlamys benedicti",
+      "date": "2024-07-30",
+      "doi": "10.5281/zenodo.13237249"
+     },
+     {
+      "title": "Juxtamusium Iredale 1939",
+      "date": "2018-05-23",
+      "doi": "10.5281/zenodo.5305919"
+     }
+    ]
+   }
+  },
+  {
+   "name": "zenodo:Wiener index diameter cycle conjecture 2d+1",
+   "url": "https://zenodo.org/api/records?size=25&q=Wiener%20index%20diameter%20cycle%20conjecture%202d%2B1",
+   "summary": {
+    "total": 1595890,
+    "hits": [
+     {
+      "title": "Wiener index and applications in the Neutrosophic graphs",
+      "date": "2021-10-07",
+      "doi": "10.5281/zenodo.5553515"
+     },
+     {
+      "title": "Exploiting Molecular Graph Sparsity for Efficient Computation of Chemical Descriptors: Algorithms Implementation",
+      "date": "2026-06-16",
+      "doi": "10.5281/zenodo.20716240"
+     },
+     {
+      "title": "Weighted Vertex PI Index and Polynomial of Some Planar Graphs",
+      "date": "2023-09-01",
+      "doi": "10.5281/zenodo.8307835"
+     },
+     {
+      "title": "Fig. 5 in Combining morphological and metabarcoding approaches reveals the freshwater eukaryotic phytoplankton community",
+      "date": "2020-03-10",
+      "doi": "10.5281/zenodo.15856762"
+     },
+     {
+      "title": "Anton Dehmal (d1313)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11589330"
+     },
+     {
+      "title": "Anton Johann Kleps (k2770)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11595573"
+     },
+     {
+      "title": "Figure 4 in Composition and structure of soil fauna community in the Dexing Copper Mine tailings pool after revegetation",
+      "date": "2018-01-29",
+      "doi": "10.5281/zenodo.13228194"
+     },
+     {
+      "title": "Figure 2. Shannon–Wiener curve. X in Microbial diversity of ticks and a novel typhus group Rickettsia species (Rickettsiales bacterium Ac37b) in Inner Mongolia, China",
+      "date": "2023-12-12",
+      "doi": "10.5281/zenodo.12524517"
+     },
+     {
+      "title": "BRAIN Journal - Optimization Problems on Threshold Graphs",
+      "date": "2010-07-07",
+      "doi": "10.5281/zenodo.1036727"
+     },
+     {
+      "title": "Figure 4 in Macroinvertebrate communities along the Velika Morava River",
+      "date": "2015-02-27",
+      "doi": "10.5281/zenodo.13202972"
+     },
+     {
+      "title": "Figure 4 in Temporal patterns of the calanoid copepod community in Veliko Jezero, an isolated marine lake (South Adriatic Sea): links to a larger-scale climate changes",
+      "date": "2015-06-30",
+      "doi": "10.5281/zenodo.4002229"
+     },
+     {
+      "title": "Wiener Klinik, VIII. und IX. Heft, August-September 1882. Zur Aetiologie der acuten Exantheme",
+      "date": "1883-08-01",
+      "doi": "10.1055/s-0029-1197364"
+     },
+     {
+      "title": "BRAIN. Broad Research in Artificial Intelligence and Neuroscience - A Hybrid Approach for CT-MR Brain Image Denoising Using PSO-Optimised Non-Local Means and Wiener Filtering",
+      "date": "2024-12-01",
+      "doi": "10.70594/brain/15.4/7"
+     },
+     {
+      "title": "Fig. 5 in Echinoderes galadrielae Grzelak & Sørensen 2022, sp. nov.",
+      "date": "2022-12-31",
+      "doi": "10.5281/zenodo.10659269"
+     },
+     {
+      "title": "Data from: Conservative species drive biomass productivity in tropical dry forests",
+      "date": "2017-01-15",
+      "doi": "10.5061/dryad.4gv37"
+     },
+     {
+      "title": "Efficacy of Ultrasonographic Inferior Venacaval Collapsibility Index and Caval-Aorta Index for Averting Spinal Anaesthesia Induced Hypotension: A Randomised Controlled Trial",
+      "date": "2024-11-30",
+      "doi": "10.5281/zenodo.14251392"
+     },
+     {
+      "title": "Figure 2 in Catch composition of trawl fisheries in Mersin Bay with emphasis on catch biodiversity",
+      "date": "2016-03-02",
+      "doi": "10.5281/zenodo.13200852"
+     },
+     {
+      "title": "Providing Oral Health Education to Adolescents with Peer-Assisted Learning",
+      "date": "2020-08-18",
+      "doi": "10.5281/zenodo.21734725"
+     },
+     {
+      "title": "Fig. 3 in Fig. 1 in Fig. 5 in Cymonomus curvirostris Sakai 1965",
+      "date": "2017-07-20",
+      "doi": "10.5281/zenodo.12824788"
+     },
+     {
+      "title": "Figure 3 in Food habits of the barn owl Tyto alba in the National Reserve Pampa del Tamarugal, Atacama Desert, North Chile",
+      "date": "2006-06-12",
+      "doi": "10.5281/zenodo.5230098"
+     },
+     {
+      "title": "Data from: Impacts of grazing by different large herbivores in grassland depend on plant species diversity",
+      "date": "2016-04-20",
+      "doi": "10.5061/dryad.t441k"
+     },
+     {
+      "title": "Systématique Index",
+      "date": "1996",
+      "doi": "10.5281/zenodo.16201643"
+     },
+     {
+      "title": "Data from: Avoiding erroneous citations in ecological research: read before you apply",
+      "date": "2017-04-20",
+      "doi": "10.5061/dryad.9m808"
+     },
+     {
+      "title": "Figure 4 from: Iida T, Soga M, Koike S (2016) Effects of an increase in population of sika deer on beetle communities in deciduous forests. ZooKeys 625: 67-85. https://doi.org/10.3897/zookeys.625.9116",
+      "date": "2016-10-19",
+      "doi": "10.3897/zookeys.625.9116.figure4"
+     },
+     {
+      "title": "Ferdinand Hell (h3092)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11593375"
+     }
+    ]
+   }
+  },
+  {
+   "name": "zenodo:Wiener index DeLaVina",
+   "url": "https://zenodo.org/api/records?size=25&q=Wiener%20index%20DeLaVina",
+   "summary": {
+    "total": 124855,
+    "hits": [
+     {
+      "title": "Wiener index and applications in the Neutrosophic graphs",
+      "date": "2021-10-07",
+      "doi": "10.5281/zenodo.5553515"
+     },
+     {
+      "title": "Fig. 5 in Combining morphological and metabarcoding approaches reveals the freshwater eukaryotic phytoplankton community",
+      "date": "2020-03-10",
+      "doi": "10.5281/zenodo.15856762"
+     },
+     {
+      "title": "Anton Dehmal (d1313)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11589330"
+     },
+     {
+      "title": "Anton Johann Kleps (k2770)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11595573"
+     },
+     {
+      "title": "Figure 4 in Composition and structure of soil fauna community in the Dexing Copper Mine tailings pool after revegetation",
+      "date": "2018-01-29",
+      "doi": "10.5281/zenodo.13228194"
+     },
+     {
+      "title": "Figure 2. Shannon–Wiener curve. X in Microbial diversity of ticks and a novel typhus group Rickettsia species (Rickettsiales bacterium Ac37b) in Inner Mongolia, China",
+      "date": "2023-12-12",
+      "doi": "10.5281/zenodo.12524517"
+     },
+     {
+      "title": "BRAIN Journal - Optimization Problems on Threshold Graphs",
+      "date": "2010-07-07",
+      "doi": "10.5281/zenodo.1036727"
+     },
+     {
+      "title": "Figure 4 in Macroinvertebrate communities along the Velika Morava River",
+      "date": "2015-02-27",
+      "doi": "10.5281/zenodo.13202972"
+     },
+     {
+      "title": "Figure 4 in Temporal patterns of the calanoid copepod community in Veliko Jezero, an isolated marine lake (South Adriatic Sea): links to a larger-scale climate changes",
+      "date": "2015-06-30",
+      "doi": "10.5281/zenodo.4002229"
+     },
+     {
+      "title": "Wiener Klinik, VIII. und IX. Heft, August-September 1882. Zur Aetiologie der acuten Exantheme",
+      "date": "1883-08-01",
+      "doi": "10.1055/s-0029-1197364"
+     },
+     {
+      "title": "BRAIN. Broad Research in Artificial Intelligence and Neuroscience - A Hybrid Approach for CT-MR Brain Image Denoising Using PSO-Optimised Non-Local Means and Wiener Filtering",
+      "date": "2024-12-01",
+      "doi": "10.70594/brain/15.4/7"
+     },
+     {
+      "title": "Fig. 5 in Echinoderes galadrielae Grzelak & Sørensen 2022, sp. nov.",
+      "date": "2022-12-31",
+      "doi": "10.5281/zenodo.10659269"
+     },
+     {
+      "title": "Figure 2 in Catch composition of trawl fisheries in Mersin Bay with emphasis on catch biodiversity",
+      "date": "2016-03-02",
+      "doi": "10.5281/zenodo.13200852"
+     },
+     {
+      "title": "Providing Oral Health Education to Adolescents with Peer-Assisted Learning",
+      "date": "2020-08-18",
+      "doi": "10.5281/zenodo.21734725"
+     },
+     {
+      "title": "Fig. 3 in Fig. 1 in Fig. 5 in Cymonomus curvirostris Sakai 1965",
+      "date": "2017-07-20",
+      "doi": "10.5281/zenodo.12824788"
+     },
+     {
+      "title": "Figure 3 in Food habits of the barn owl Tyto alba in the National Reserve Pampa del Tamarugal, Atacama Desert, North Chile",
+      "date": "2006-06-12",
+      "doi": "10.5281/zenodo.5230098"
+     },
+     {
+      "title": "Data from: Impacts of grazing by different large herbivores in grassland depend on plant species diversity",
+      "date": "2016-04-20",
+      "doi": "10.5061/dryad.t441k"
+     },
+     {
+      "title": "Exploiting Molecular Graph Sparsity for Efficient Computation of Chemical Descriptors: Algorithms Implementation",
+      "date": "2026-06-16",
+      "doi": "10.5281/zenodo.20716240"
+     },
+     {
+      "title": "Systématique Index",
+      "date": "1996",
+      "doi": "10.5281/zenodo.16201643"
+     },
+     {
+      "title": "Data from: Avoiding erroneous citations in ecological research: read before you apply",
+      "date": "2017-04-20",
+      "doi": "10.5061/dryad.9m808"
+     },
+     {
+      "title": "Figure 4 from: Iida T, Soga M, Koike S (2016) Effects of an increase in population of sika deer on beetle communities in deciduous forests. ZooKeys 625: 67-85. https://doi.org/10.3897/zookeys.625.9116",
+      "date": "2016-10-19",
+      "doi": "10.3897/zookeys.625.9116.figure4"
+     },
+     {
+      "title": "Ferdinand Hell (h3092)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11593375"
+     },
+     {
+      "title": "Diagnostik und Technik bei gerichtlichen Obductionen u. s. w., zum pracuschen Gebrauch am Sectiontische und als Repetitorium für die gerichjsärztlrche Prüfung mit 6 Tafelm",
+      "date": "1882-04-01",
+      "doi": "10.1055/s-0029-1196489"
+     },
+     {
+      "title": "Henrik Stowasser (s5436)",
+      "date": "2024-06-12",
+      "doi": "10.5281/zenodo.11604359"
+     },
+     {
+      "title": "Data from: A global meta-analyses of the response of multi-taxa diversity to grazing intensity in grasslands",
+      "date": "2019-10-21",
+      "doi": "10.5061/dryad.2fqz612k0"
+     }
+    ]
+   }
+  },
+  {
+   "name": "zenodo:\"Wiener index\" \"diameter\" conjecture proof cycle maximum",
+   "url": "https://zenodo.org/api/records?size=25&q=%22Wiener%20index%22%20%22diameter%22%20conjecture%20proof%20cycle%20maximum",
+   "summary": {
+    "total": 277889,
+    "hits": [
+     {
+      "title": "Wiener index and applications in the Neutrosophic graphs",
+      "date": "2021-10-07",
+      "doi": "10.5281/zenodo.5553515"
+     },
+     {
+      "title": "A Proof of Written on the Wall II Conjecture 100",
+      "date": "2026-08-13",
+      "doi": "10.5281/zenodo.21914031"
+     },
+     {
+      "title": "Small diameter does not control hitting-time robustness",
+      "date": "2026-10-22",
+      "doi": "10.5281/zenodo.23575572"
+     },
+     {
+      "title": "Proof of Collatz Conjecture: The Traps, a Flowchart, Their IDs (Number Identification), a Table or Summary, Collatz Conjecture Inequality and Analysis",
+      "date": "2022-07-18",
+      "doi": "10.5281/zenodo.6856709"
+     },
+     {
+      "title": "Exploiting Molecular Graph Sparsity for Efficient Computation of Chemical Descriptors: Algorithms Implementation",
+      "date": "2026-06-16",
+      "doi": "10.5281/zenodo.20716240"
+     },
+     {
+      "title": "On The 3n ± p Generalization of Collatz Conjecture: Scaling, symmetry, invariant classes, cycle equations, and research problems",
+      "date": "2026-10-08",
+      "doi": "10.5281/zenodo.23249527"
+     },
+     {
+      "title": "Proof of the Collatz Conjecture",
+      "date": "2026-02-12",
+      "doi": "10.5281/zenodo.18623576"
+     },
+     {
+      "title": "Fig. 5 in Combining morphological and metabarcoding approaches reveals the freshwater eukaryotic phytoplankton community",
+      "date": "2020-03-10",
+      "doi": "10.5281/zenodo.15856762"
+     },
+     {
+      "title": "Data from: Conservative species drive biomass productivity in tropical dry forests",
+      "date": "2017-01-15",
+      "doi": "10.5061/dryad.4gv37"
+     },
+     {
+      "title": "Supplement to Proof of the Four-Color Theorem",
+      "date": "2024-10-01",
+      "doi": "10.5281/zenodo.22949950"
+     },
+     {
+      "title": "Fixed-Radius Neighbourhoods in Three-Dimensional Unit-Cube Graphs",
+      "date": "2026-10-26",
+      "doi": "10.5281/zenodo.23637200"
+     },
+     {
+      "title": "Verification scripts for: A five-species counterexample to the Hofbauer-Kon-Saito conjecture on qualitative permanence",
+      "date": "2026-10-28",
+      "doi": "10.5281/zenodo.23744054"
+     },
+     {
+      "title": "Data from: Size of dominant diatom species can alter their evenness",
+      "date": "2016-06-10",
+      "doi": "10.5061/dryad.k247v"
+     },
+     {
+      "title": "Packing Dijoins in 5-Chordal Digraphs: A Weighted Min–Max Theorem and a Strongly Polynomial Algorithm",
+      "date": "2026-07-29",
+      "doi": "10.5281/zenodo.21695426"
+     },
+     {
+      "title": "Figure 4 in Macroinvertebrate communities along the Velika Morava River",
+      "date": "2015-02-27",
+      "doi": "10.5281/zenodo.13202972"
+     },
+     {
+      "title": "An algorithm to measure unsymmetrical circle shape of intravascular ultrasound image using image processing techniques",
+      "date": "2021-02-01",
+      "doi": "10.11591/eei.v10i1.2694"
+     },
+     {
+      "title": "Regarding the Berge Problem",
+      "date": "2023-09-01",
+      "doi": "10.59324/ejtas.2023.1(5).130"
+     },
+     {
+      "title": "A NUMERICAL VERIFICATION OF THE STRONG GOLDBACH CONJECTURE UP TO 9 × 10 18",
+      "date": "2023-12-15",
+      "doi": "10.5281/zenodo.10391440"
+     },
+     {
+      "title": "Shibabdella wulingensis Tang & Liu 2025, gen. nov. et sp. nov.",
+      "date": "2025-06-20",
+      "doi": "10.5281/zenodo.15707575"
+     },
+     {
+      "title": "A Direct Analytic Proof of the Scott–Vogelius Inf–Sup Conjecture on Three-Dimensional Freudenthal Meshes",
+      "date": "2026-09-03",
+      "doi": "10.5281/zenodo.22286974"
+     },
+     {
+      "title": "Data from: The size at reproduction of canopy tree species in central Africa",
+      "date": "2017-11-22",
+      "doi": "10.5061/dryad.8t026"
+     },
+     {
+      "title": "Data from: Smooth muscle regional contribution to vaginal wall function",
+      "date": "2019-06-18",
+      "doi": "10.5061/dryad.98bb788"
+     },
+     {
+      "title": "Figure 3 in Food habits of the barn owl Tyto alba in the National Reserve Pampa del Tamarugal, Atacama Desert, North Chile",
+      "date": "2006-06-12",
+      "doi": "10.5281/zenodo.5230098"
+     },
+     {
+      "title": "A proof of Collatz conjecture using pyramid fractions",
+      "date": "2024",
+      "doi": "10.5281/zenodo.10586630"
+     },
+     {
+      "title": "A Rigorous Spectral Proof of the Hodge Conjecture:  Complete Algebraic Cycle Construction",
+      "date": "2025-09-19",
+      "doi": "10.5281/zenodo.17157599"
+     }
+    ]
+   }
+  },
+  {
+   "name": "zenodo:2605.24855",
+   "url": "https://zenodo.org/api/records?size=25&q=2605.24855",
+   "summary": {
+    "total": 0,
+    "hits": []
+   }
+  },
+  {
+   "name": "github-user:ipitchford",
+   "url": "ipitchford",
+   "summary": {
+    "repos": 204,
+    "matches": [
+     "txgraffiti-conjecture3-resolution\tUnrefereed certificate-backed candidate resolution of TxGraffiti Conjecture 15/3",
+     "txgraffiti-order48-successor\tAnonymous unrefereed certificate-backed 48-vertex successor candidate for TxGraffiti Conjecture 15/3"
+    ]
+   }
+  },
+  {
+   "name": "github-user:mmislan",
+   "url": "mmislan",
+   "summary": {
+    "repos": 27,
+    "matches": []
+   }
+  },
+  {
+   "name": "github-search:Wiener index DeLaVina",
+   "url": "Wiener index DeLaVina",
+   "summary": "[]\n"
+  },
+  {
+   "name": "github-search:DeLaVina Waller conjecture",
+   "url": "DeLaVina Waller conjecture",
+   "summary": "[]\n"
+  },
+  {
+   "name": "github-search:Wiener index diameter conjecture cycle",
+   "url": "Wiener index diameter conjecture cycle",
+   "summary": "[]\n"
+  },
+  {
+   "name": "github-search:2605.24855",
+   "url": "2605.24855",
+   "summary": "[]\n"
+  },
+  {
+   "name": "github-search:delavina-waller",
+   "url": "delavina-waller",
+   "summary": "[{\"description\":\"Independent verification of the counterexample family to Graffiti Conjecture 6 (DeLaViña–Fajtlowicz–Waller 2005) — from-definitions checker, exact arithmetic, byte-reproducible results\",\"fullName\":\"ZestyWombat854/graffiti-conjecture-6-verification\",\"updatedAt\":\"2026-08-13T21:38:10Z\"}]\n"
+  },
+  {
+   "name": "github-code:2605.24855",
+   "url": "2605.24855",
+   "summary": "[{\"path\":\"rss_data/math.CO/2026-05-25_math.CO.xml\",\"repository\":{\"id\":\"MDEwOlJlcG9zaXRvcnk3NjcyMTIwNjY=\",\"isFork\":false,\"isPrivate\":false,\"nameWithOwner\":\"ehijano/rss_fetch\",\"url\":\"https://github.com/ehijano/rss_fetch\"}},{\"path\":\"data/ETH-USD.csv\",\"repository\":{\"id\":\"MDEwOlJlcG9zaXRvcnk4NTA4NjAxODY=\",\"isFork\":false,\"isPrivate\":false,\"nameWithOwner\":\"mbsuraj/InvestmentsResearch\",\"url\":\"https://github.com/mbsuraj/InvestmentsResearch\"}},{\"path\":\"WhalesIntent/Intent/data/price_cache/eth.csv\",\"repository\":{\"id\":\"MDEwOlJlcG9zaXRvcnkxMTE4MjgyNzYx\",\"isFork\":false,\"isPrivate\":false,\"nameWithOwner\":\"FirstBML/Whale-Movement-Based-Price-Direction-Generator-V2\",\"url\":\"https://github.com/FirstBML/Whale-Movement-Based-Price-Direction-Generator-V2\"}},{\"path\":\"src/logfiles/TuneLeftElbowP/elbow_left_D-s10-u0_F400_ctrlOnly_elbow_left/P50000I0D0/F_elbow_P50000I0D0_s10d367_400.svg\",\"repository\":{\"id\":\"MDEwOlJlcG9zaXRvcnk0MjYxNzI1NTU=\",\"isFork\":false,\"isPrivate\":false,\"nameWithOwner\":\"Roboy/mujoco_roboy\",\"url\":\"https://github.com/Roboy/mujoco_roboy\"}}]\n"
+  },
+  {
+   "name": "github-code:\"DeLaVina\" Wiener",
+   "url": "\"DeLaVina\" Wiener",
+   "summary": "[]\n"
+  },
+  {
+   "name": "github-code:\"Conjecture 7\" \"Wiener\" DeLaVina",
+   "url": "\"Conjecture 7\" \"Wiener\" DeLaVina",
+   "summary": "[]\n"
+  },
+  {
+   "name": "formal-conjectures:Wiener",
+   "url": "repo:google-deepmind/formal-conjectures",
+   "summary": "[{\"path\":\"FormalConjecturesForMathlib/Combinatorics/SimpleGraph/WienerIndex.lean\"},{\"path\":\"FormalConjecturesForMathlib.lean\"},{\"path\":\"FormalConjectures/WrittenOnTheWallII/Test.lean\"}]\n"
+  }
+ ]
+}

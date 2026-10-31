@@ -1,0 +1,116 @@
+[
+  {
+    "structure": "S3",
+    "form": 0,
+    "determinant_factor": "-T",
+    "scalar": "-q + t*(U - t)"
+  },
+  {
+    "structure": "S3",
+    "form": 1,
+    "determinant_factor": "t",
+    "scalar": "-p + (U - t)*(T - 2*q/t + 2*t)"
+  },
+  {
+    "structure": "S3",
+    "form": 2,
+    "determinant_factor": "t",
+    "scalar": "-p + (T - q/t + t)*(U - q/(2*t) - t/2)"
+  },
+  {
+    "structure": "S3",
+    "form": 3,
+    "determinant_factor": "t",
+    "scalar": "-p + (U - t)*(T - q/t + t)"
+  },
+  {
+    "structure": "S3",
+    "form": 4,
+    "determinant_factor": "t",
+    "scalar": "-p + (T - q/t + t)*(U - q/t - t)"
+  },
+  {
+    "structure": "S3",
+    "form": 5,
+    "determinant_factor": "t",
+    "scalar": "-p + (U - 2*t)*(T - q/t + t)"
+  },
+  {
+    "structure": "S3",
+    "form": 6,
+    "determinant_factor": "t",
+    "scalar": "-p + (U - t/2)*(T - q/t + t/2)"
+  },
+  {
+    "structure": "S3",
+    "form": 7,
+    "determinant_factor": "T",
+    "scalar": "-q + t*(U - t - p/T)"
+  },
+  {
+    "structure": "S3",
+    "form": 8,
+    "determinant_factor": "t",
+    "scalar": "-q + (T - t)*(U - p/t)"
+  },
+  {
+    "structure": "S3",
+    "form": 9,
+    "determinant_factor": "(a**2 + p)/(2*a)",
+    "scalar": "-q + t*(V - t)"
+  },
+  {
+    "structure": "S3",
+    "form": 10,
+    "determinant_factor": "(a**2 + p)/a",
+    "scalar": "-q + t*(V - t)"
+  },
+  {
+    "structure": "S7",
+    "form": 0,
+    "determinant_factor": "T + U - t",
+    "scalar": "-q*(-U + t) + t**2"
+  },
+  {
+    "structure": "S7",
+    "form": 1,
+    "determinant_factor": "q",
+    "scalar": "-(-T*U*q*t**3 + T*q*t**2 - U*q*t**2 + 2*U*t + p*t + q*t - 2)/(q*t)"
+  },
+  {
+    "structure": "S7",
+    "form": 2,
+    "determinant_factor": "q",
+    "scalar": "-(-4*T*U*q**2*t**4 + 2*T*q**2*t**3 + 2*T*q*t**2 - 2*U*q**2*t**3 + 2*U*q*t**2 + 4*p*q*t**2 + q**2*t**2 - 1)/(4*q**2*t**2)"
+  },
+  {
+    "structure": "S7",
+    "form": 3,
+    "determinant_factor": "-q",
+    "scalar": "T*U + t**2*(U - p)/q"
+  },
+  {
+    "structure": "S7",
+    "form": 4,
+    "determinant_factor": "-q",
+    "scalar": "-U**2*p/q + t*(T - U**2/q - t)"
+  },
+  {
+    "structure": "S9",
+    "form": 0,
+    "determinant_factor": "-T + t",
+    "scalar": "V*(U + t) - q*t"
+  },
+  {
+    "structure": "S9",
+    "form": 1,
+    "determinant_factor": "V",
+    "scalar": "-p*t + (T + t*(-1 + q/V)/2)*(U - t*(1 + q/V)/2)"
+  },
+  {
+    "structure": "S9",
+    "form": 2,
+    "determinant_factor": "-p",
+    "scalar": "-T*U*q/p + t*(-T*U/p + V - t)"
+  }
+]

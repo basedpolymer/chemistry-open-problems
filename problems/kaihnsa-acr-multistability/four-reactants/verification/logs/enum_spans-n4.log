@@ -1,0 +1,53 @@
+T0 counts (433, 220, 182, 23, 3, 5, 0) forms 0 LP disagreements 0 automorphisms 4
+PASS T0 exact cone test agrees with LP
+T1 counts (389, 180, 166, 31, 4, 4, 4) forms 2 LP disagreements 0 automorphisms 2
+PASS T1 exact cone test agrees with LP
+T2 counts (403, 208, 145, 43, 3, 4, 0) forms 0 LP disagreements 0 automorphisms 2
+PASS T2 exact cone test agrees with LP
+T3 counts (429, 217, 171, 23, 1, 3, 14) forms 2 LP disagreements 0 automorphisms 2
+PASS T3 exact cone test agrees with LP
+T4 counts (403, 208, 145, 43, 2, 3, 2) forms 1 LP disagreements 0 automorphisms 2
+PASS T4 exact cone test agrees with LP
+T5 counts (418, 240, 105, 69, 1, 3, 0) forms 0 LP disagreements 0 automorphisms 4
+PASS T5 exact cone test agrees with LP
+T6 counts (410, 215, 135, 39, 0, 1, 20) forms 6 LP disagreements 0 automorphisms 2
+PASS T6 exact cone test agrees with LP
+T7 counts (389, 180, 166, 29, 3, 4, 7) forms 3 LP disagreements 0 automorphisms 2
+PASS T7 exact cone test agrees with LP
+T8 counts (433, 220, 182, 19, 2, 4, 6) forms 2 LP disagreements 0 automorphisms 2
+PASS T8 exact cone test agrees with LP
+T9 counts (403, 208, 145, 35, 1, 3, 11) forms 5 LP disagreements 0 automorphisms 2
+PASS T9 exact cone test agrees with LP
+T10 counts (429, 217, 171, 19, 0, 3, 19) forms 8 LP disagreements 0 automorphisms 2
+PASS T10 exact cone test agrees with LP
+T11 counts (451, 222, 177, 31, 4, 1, 16) forms 5 LP disagreements 0 automorphisms 4
+PASS T11 exact cone test agrees with LP
+T12 counts (452, 219, 197, 29, 1, 0, 6) forms 3 LP disagreements 0 automorphisms 2
+PASS T12 exact cone test agrees with LP
+T13 counts (452, 219, 197, 33, 3, 0, 0) forms 0 LP disagreements 0 automorphisms 2
+PASS T13 exact cone test agrees with LP
+T14 counts (404, 184, 169, 48, 3, 0, 0) forms 0 LP disagreements 0 automorphisms 2
+PASS T14 exact cone test agrees with LP
+T15 counts (404, 184, 169, 38, 1, 0, 12) forms 10 LP disagreements 0 automorphisms 1
+PASS T15 exact cone test agrees with LP
+T16 counts (377, 162, 159, 49, 1, 0, 6) forms 4 LP disagreements 0 automorphisms 1
+PASS T16 exact cone test agrees with LP
+T17 counts (389, 180, 166, 27, 2, 3, 11) forms 6 LP disagreements 0 automorphisms 2
+PASS T17 exact cone test agrees with LP
+T18 counts (659, 436, 208, 8, 7, 0, 0) forms 0 LP disagreements 0 automorphisms 6
+PASS T18 exact cone test agrees with LP
+T19 counts (452, 219, 197, 33, 3, 0, 0) forms 0 LP disagreements 0 automorphisms 1
+PASS T19 exact cone test agrees with LP
+T20 counts (496, 280, 183, 30, 3, 0, 0) forms 0 LP disagreements 0 automorphisms 2
+PASS T20 exact cone test agrees with LP
+T21 counts (452, 219, 197, 31, 1, 0, 4) forms 2 LP disagreements 0 automorphisms 2
+PASS T21 exact cone test agrees with LP
+T22 counts (404, 184, 169, 48, 3, 0, 0) forms 0 LP disagreements 0 automorphisms 1
+PASS T22 exact cone test agrees with LP
+T23 counts (377, 162, 159, 50, 1, 0, 5) forms 3 LP disagreements 0 automorphisms 1
+PASS T23 exact cone test agrees with LP
+T24 counts (429, 217, 171, 37, 1, 0, 3) forms 2 LP disagreements 0 automorphisms 1
+PASS T24 exact cone test agrees with LP
+T25 counts (410, 215, 135, 55, 1, 0, 4) forms 1 LP disagreements 0 automorphisms 2
+PASS T25 exact cone test agrees with LP
+RESULT PASS

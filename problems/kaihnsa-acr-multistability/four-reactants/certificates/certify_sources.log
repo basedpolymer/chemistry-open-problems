@@ -1,0 +1,6 @@
+PASS n=4: all 26 source types have at most three distinct exponents
+PASS n=5: exactly 8 specified source types
+PASS n=6: exactly 1 specified source types
+PASS n=7: exactly 0 specified source types
+PASS n=8: exactly 0 specified source types
+PASS exhaustive source classification completed in 3.0s

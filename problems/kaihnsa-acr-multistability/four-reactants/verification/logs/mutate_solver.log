@@ -1,0 +1,27 @@
+PASS mutant "drop S3 form 4": KILLED FAIL every surviving conservation space has a proved normal form
+PASS mutant "alter a coefficient of S3 form 8": KILLED FAIL every surviving conservation space has a proved normal form
+PASS mutant "spurious extra S7 form": KILLED FAIL S7: exactly 6 remaining normal forms
+PASS mutant "drop S9 form 2": KILLED FAIL every surviving conservation space has a proved normal form
+PASS mutant "wrong sources for S3": KILLED FAIL every surviving conservation space has a proved normal form
+PASS mutant "dual cone test rejects everything": KILLED FAIL S3: exactly 11 remaining normal forms
+PASS mutant "injectivity test disabled": KILLED FAIL every surviving conservation space has a proved normal form
+PASS mutant "kinetic test disabled": KILLED FAIL every surviving conservation space has a proved normal form
+PASS mutant "membership keeps fewer reactions": KILLED FAIL S3: exactly 11 remaining normal forms
+PASS mutant "products restricted to molecularity one": KILLED FAIL n=4: all 26 source types have at most three distinct exponents
+PASS mutant "expected S type altered": KILLED FAIL n=5: exactly 8 specified source types
+PASS mutant "n=4 type count altered": KILLED FAIL n=4: all 26 source types have at most three distinct exponents
+PASS mutant "n=4 exponent bound tightened": KILLED FAIL n=4 has at most three distinct toric exponents, including zero
+PASS mutant "wrong determinant factor S3/0": KILLED FAIL S3/0: determinant factor -T (up to fixed orientation)
+PASS mutant "wrong curve S3/8": KILLED FAIL S3/8: scalar curve remains in its compatibility class
+PASS mutant "wrong curve S7/0": KILLED FAIL S7/0: one binomial vanishes identically along the scalar curve
+PASS mutant "wrong S9/1 multiplier": KILLED FAIL S9/1: determinant factor V (up to fixed orientation)
+PASS mutant "wrong scalar equation S7/4": KILLED FAIL S7/4: remaining equation has positive scalar factor (-T*q*t + U**2*p + U**2*t + q*t**
+PASS mutant "rate 64 to 63 in the example": KILLED FAIL mass-action equations derived from the reactions
+PASS mutant "rate 5 to 6 in the example": KILLED FAIL mass-action equations derived from the reactions
+PASS mutant "trimolecular product in the example": KILLED FAIL all sources and products at most bimolecular; all rates positive
+PASS mutant "wrong equilibrium": KILLED FAIL equilibrium 2: exact residual zero
+PASS mutant "wrong trace": KILLED FAIL equilibrium 2: exact planar trace -205 and determinant -768
+PASS mutant "saddle claimed stable": KILLED FAIL equilibrium 2: saddle
+PASS mutant "dual cone test disabled (never rejects)": SURVIVED as expected, see flux_redundancy.py
+PASS one flipped label in a copy of subspaces.json is caught by compare_solver.py
+RESULT PASS (24/24 mutants killed, 1 explained survivor)

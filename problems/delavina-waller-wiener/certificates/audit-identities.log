@@ -1,0 +1,29 @@
+PASS (7.4) A identity, eps=0
+PASS (9.1) A/(2s) identity, eps=0
+PASS (7.4) A identity, eps=1
+PASS (9.1) A/(2s) identity, eps=1
+PASS E(k-E)=rho(rho+eps)-q(q+eps), eps=0
+PASS E(k-E)=rho(rho+eps)-q(q+eps), eps=1
+PASS (4.2) p - w^2 identity
+PASS Lemma 4.1: -270 q p'' expression
+PASS Lemma 4.1: 540 q^3 p''' expression
+PASS (4.8) p(1/2)=79/162
+PASS (4.8) p'(1/2)=163/270
+PASS (4.8) p''(1/2)=-233/270
+PASS (4.5) d^2 p(1/(2d))
+PASS B_d(1) = 2d
+PASS p''(1/(2d))/4 evaluation
+PASS 151/3240 constant
+PASS Lemma A.1 assembly
+PASS Lemma A.1: (d/12+4/3)^2 - 4d/9 = (d-16)^2/144
+PASS (4.9) coefficients are p(1/2), -p'(1/2), p''(1/2)/2
+PASS Prop 8.2: A
+PASS Prop 8.2: deficit r(2r+3)/3
+PASS Prop 8.3: F_path
+PASS Prop 8.3: F_exc
+PASS Prop 8.3: Phi
+PASS Prop 8.3: total
+PASS Prop 8.3: W(C_{4k+5}) formula
+PASS Prop 8.3: deficit
+PASS Prop 8.3: F_exc is the max over attachment depth, kappa<=12
+ALL PASS

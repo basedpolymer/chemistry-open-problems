@@ -1,0 +1,26 @@
+PASS S1: enumerated 4333 distinct rank-three reaction spans
+PASS S1: every enumerated span classified exactly once
+PASS S1: no noninjective nondegenerate cases remain
+PASS S1: bounded exact integer arithmetic
+S1 {'missing-source': 2965, 'injective': 169, 'kinetic-degenerate': 39, 'no-positive-flux': 1126, 'class-degenerate': 34}
+PASS S2: enumerated 4287 distinct rank-three reaction spans
+PASS S2: every enumerated span classified exactly once
+PASS S2: no noninjective nondegenerate cases remain
+PASS S2: bounded exact integer arithmetic
+S2 {'missing-source': 3161, 'injective': 301, 'kinetic-degenerate': 37, 'no-positive-flux': 782, 'class-degenerate': 6}
+PASS S3: enumerated 4333 distinct rank-three reaction spans
+PASS S3: every enumerated span classified exactly once
+PASS S3: exactly 11 remaining normal forms
+PASS S3: bounded exact integer arithmetic
+S3 {'missing-source': 2965, 'injective': 129, 'kinetic-degenerate': 43, 'no-positive-flux': 1126, 'normal-form': 64, 'class-degenerate': 6}
+PASS S7: enumerated 4397 distinct rank-three reaction spans
+PASS S7: every enumerated span classified exactly once
+PASS S7: exactly 5 remaining normal forms
+PASS S7: bounded exact integer arithmetic
+S7 {'missing-source': 3050, 'injective': 231, 'class-degenerate': 32, 'no-positive-flux': 1042, 'normal-form': 22, 'kinetic-degenerate': 20}
+PASS S9: enumerated 23035 distinct rank-three reaction spans
+PASS S9: every enumerated span classified exactly once
+PASS S9: exactly 3 remaining normal forms
+PASS S9: bounded exact integer arithmetic
+S9 {'missing-source': 17734, 'injective': 569, 'class-degenerate': 144, 'no-positive-flux': 4442, 'kinetic-degenerate': 92, 'normal-form': 54}
+PASS completed in 28.7s; certificates/subspaces.json written

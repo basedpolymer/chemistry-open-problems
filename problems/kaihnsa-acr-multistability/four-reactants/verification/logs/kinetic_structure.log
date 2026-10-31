@@ -1,0 +1,6 @@
+S1 {'excluded by Rado': 39, 'failing subset of size 2': 25, 'failing subset of size 3': 14}
+S2 {'excluded by Rado': 37, 'failing subset of size 2': 15, 'failing subset of size 3': 22}
+S3 {'excluded by Rado': 43, 'failing subset of size 2': 27, 'failing subset of size 3': 16, 'surviving span satisfies Rado': 64}
+S7 {'excluded by Rado': 20, 'failing subset of size 2': 10, 'failing subset of size 3': 10, 'surviving span satisfies Rado': 22}
+S9 {'excluded by Rado': 92, 'failing subset of size 2': 44, 'failing subset of size 3': 48, 'surviving span satisfies Rado': 54}
+RESULT PASS

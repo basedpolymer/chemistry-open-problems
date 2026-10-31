@@ -1,0 +1,6 @@
+PASS S1 242 spans labelled identically; totals of the two early filters equal
+PASS S2 344 spans labelled identically; totals of the two early filters equal
+PASS S3 242 spans labelled identically; totals of the two early filters equal
+PASS S7 305 spans labelled identically; totals of the two early filters equal
+PASS S9 859 spans labelled identically; totals of the two early filters equal
+RESULT PASS

@@ -1,0 +1,6 @@
+S1 spans rejected by the flux test, relabelled: {'injective': 920, 'class-degenerate': 58, 'kinetic-degenerate': 148}
+S2 spans rejected by the flux test, relabelled: {'injective': 688, 'kinetic-degenerate': 94}
+S3 spans rejected by the flux test, relabelled: {'injective': 408, 'kinetic-degenerate': 718}
+S7 spans rejected by the flux test, relabelled: {'class-degenerate': 44, 'injective': 793, 'kinetic-degenerate': 205}
+S9 spans rejected by the flux test, relabelled: {'injective': 3196, 'class-degenerate': 416, 'kinetic-degenerate': 830}
+RESULT PASS: the positive-flux exclusion is redundant for the proof

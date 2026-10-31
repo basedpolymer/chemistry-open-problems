@@ -1,0 +1,25 @@
+n=3: 141 labelled source sets, 31 orbits under S_n
+n=4: 358 labelled source sets, 26 orbits under S_n
+n=5: 315 labelled source sets, 8 orbits under S_n
+n=6: 90 labelled source sets, 1 orbits under S_n
+n=7: 0 labelled source sets, 0 orbits under S_n
+n=8: 0 labelled source sets, 0 orbits under S_n
+PASS no type with 7 species 
+PASS no type with 8 species 
+PASS one type with 6 species 
+PASS eight types with 5 species 
+PASS 26 types with 4 species found 26
+PASS n=4: at most 3 distinct kernel entries, incl. 0 max 3
+PASS n=4: kernel is one-dimensional 
+PASS n=3: toric set is a singleton 141 sets with an ACR coordinate
+PASS S1 is a retained type with ACR E got E
+PASS S2 is a retained type with ACR E got E
+PASS S3 is a retained type with ACR E got E
+PASS S4 is a retained type with ACR C got C
+PASS S5 is a retained type with ACR CD got CD
+PASS S6 is a retained type with ACR D got D
+PASS S7 is a retained type with ACR D got D
+PASS S8 is a retained type with ACR D got D
+PASS S9 is a retained type with ACR E got E
+PASS S-table hits every orbit exactly once (n=5,6) 
+RESULT PASS

@@ -1,0 +1,94 @@
+PASS S3/0: scalar curve remains in its compatibility class
+PASS S3/0: one binomial vanishes identically along the scalar curve
+PASS S3/0: remaining equation has positive scalar factor 1
+PASS S3/0: determinant factor -T (up to fixed orientation)
+PASS S3/1: scalar curve remains in its compatibility class
+PASS S3/1: one binomial vanishes identically along the scalar curve
+PASS S3/1: remaining equation has positive scalar factor 1
+PASS S3/1: determinant factor t (up to fixed orientation)
+PASS S3/1: concavity coefficients
+PASS S3/1: exact second derivatives
+PASS S3/2: scalar curve remains in its compatibility class
+PASS S3/2: one binomial vanishes identically along the scalar curve
+PASS S3/2: remaining equation has positive scalar factor 1
+PASS S3/2: determinant factor t (up to fixed orientation)
+PASS S3/2: concavity coefficients
+PASS S3/2: exact second derivatives
+PASS S3/3: scalar curve remains in its compatibility class
+PASS S3/3: one binomial vanishes identically along the scalar curve
+PASS S3/3: remaining equation has positive scalar factor 1
+PASS S3/3: determinant factor t (up to fixed orientation)
+PASS S3/3: concavity coefficients
+PASS S3/3: exact second derivatives
+PASS S3/4: scalar curve remains in its compatibility class
+PASS S3/4: one binomial vanishes identically along the scalar curve
+PASS S3/4: remaining equation has positive scalar factor 1
+PASS S3/4: determinant factor t (up to fixed orientation)
+PASS S3/4: concavity coefficients
+PASS S3/4: exact second derivatives
+PASS S3/5: scalar curve remains in its compatibility class
+PASS S3/5: one binomial vanishes identically along the scalar curve
+PASS S3/5: remaining equation has positive scalar factor 1
+PASS S3/5: determinant factor t (up to fixed orientation)
+PASS S3/5: concavity coefficients
+PASS S3/5: exact second derivatives
+PASS S3/6: scalar curve remains in its compatibility class
+PASS S3/6: one binomial vanishes identically along the scalar curve
+PASS S3/6: remaining equation has positive scalar factor 1
+PASS S3/6: determinant factor t (up to fixed orientation)
+PASS S3/6: concavity coefficients
+PASS S3/6: exact second derivatives
+PASS S3/7: scalar curve remains in its compatibility class
+PASS S3/7: one binomial vanishes identically along the scalar curve
+PASS S3/7: remaining equation has positive scalar factor 1
+PASS S3/7: determinant factor T (up to fixed orientation)
+PASS S3/8: scalar curve remains in its compatibility class
+PASS S3/8: one binomial vanishes identically along the scalar curve
+PASS S3/8: remaining equation has positive scalar factor 1
+PASS S3/8: determinant factor t (up to fixed orientation)
+PASS S3/8: positive denominator leaves a quadratic
+PASS S3/9: scalar curve remains in its compatibility class
+PASS S3/9: one binomial vanishes identically along the scalar curve
+PASS S3/9: remaining equation has positive scalar factor 1
+PASS S3/9: determinant factor (a**2 + p)/(2*a) (up to fixed orientation)
+PASS S3/10: scalar curve remains in its compatibility class
+PASS S3/10: one binomial vanishes identically along the scalar curve
+PASS S3/10: remaining equation has positive scalar factor 1
+PASS S3/10: determinant factor (a**2 + p)/a (up to fixed orientation)
+PASS S7/0: scalar curve remains in its compatibility class
+PASS S7/0: one binomial vanishes identically along the scalar curve
+PASS S7/0: remaining equation has positive scalar factor 1
+PASS S7/0: determinant factor T + U - t (up to fixed orientation)
+PASS S7/1: scalar curve remains in its compatibility class
+PASS S7/1: one binomial vanishes identically along the scalar curve
+PASS S7/1: remaining equation has positive scalar factor t**(-2)
+PASS S7/1: determinant factor q (up to fixed orientation)
+PASS S7/1: concavity coefficients
+PASS S7/1: exact second derivatives
+PASS S7/2: scalar curve remains in its compatibility class
+PASS S7/2: one binomial vanishes identically along the scalar curve
+PASS S7/2: remaining equation has positive scalar factor t**(-2)
+PASS S7/2: determinant factor q (up to fixed orientation)
+PASS S7/2: concavity coefficients
+PASS S7/2: exact second derivatives
+PASS S7/3: scalar curve remains in its compatibility class
+PASS S7/3: one binomial vanishes identically along the scalar curve
+PASS S7/3: remaining equation has positive scalar factor 1
+PASS S7/3: determinant factor -q (up to fixed orientation)
+PASS S7/4: scalar curve remains in its compatibility class
+PASS S7/4: one binomial vanishes identically along the scalar curve
+PASS S7/4: remaining equation has positive scalar factor 1
+PASS S7/4: determinant factor -q (up to fixed orientation)
+PASS S9/0: scalar curve remains in its compatibility class
+PASS S9/0: one binomial vanishes identically along the scalar curve
+PASS S9/0: remaining equation has positive scalar factor 1
+PASS S9/0: determinant factor -T + t (up to fixed orientation)
+PASS S9/1: scalar curve remains in its compatibility class
+PASS S9/1: one binomial vanishes identically along the scalar curve
+PASS S9/1: remaining equation has positive scalar factor 1
+PASS S9/1: determinant factor V (up to fixed orientation)
+PASS S9/2: scalar curve remains in its compatibility class
+PASS S9/2: one binomial vanishes identically along the scalar curve
+PASS S9/2: remaining equation has positive scalar factor 1
+PASS S9/2: determinant factor -p (up to fixed orientation)
+PASS all 19 normal forms have exact determinant identities

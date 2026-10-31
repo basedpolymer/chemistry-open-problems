@@ -1,0 +1,18 @@
+403 surviving spans, 12 attempts each; 325 kinetic-degenerate spans
+   class with 0 equilibria, 0 stable: 9
+   class with 1 equilibria, 0 stable: 176
+   class with 1 equilibria, 1 stable: 462
+   class with 2 equilibria, 0 stable: 25
+   class with 2 equilibria, 1 stable: 1708
+   networks: 797
+   newton limit on the boundary (not a positive equilibrium): 140
+   newton zeros: 4075
+   no positive flux: 846
+   no source cover: 3118
+   positive-dimensional class: 11
+   rank N < 3: 41
+   rank of subset < 3: 34
+kinetic-degenerate control, rank of the aggregated matrix under random positive fluxes: {'rank 2': 1280, 'rank 1': 20}
+PASS no class with more than two equilibria or two stable ones; ACR never moved 0
+PASS kinetic-degenerate spans: rank N < 3 for all sampled positive fluxes
+RESULT PASS

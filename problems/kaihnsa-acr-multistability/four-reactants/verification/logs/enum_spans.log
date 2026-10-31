@@ -1,0 +1,27 @@
+S1 counts (4333, 2965, 1126, 169, 34, 39, 0) forms 0 LP disagreements 0 automorphisms 8
+PASS S1 matches manuscript table
+PASS S1 exact cone test agrees with LP
+S2 counts (4287, 3161, 782, 301, 6, 37, 0) forms 0 LP disagreements 0 automorphisms 8
+PASS S2 matches manuscript table
+PASS S2 exact cone test agrees with LP
+S3 counts (4333, 2965, 1126, 129, 6, 43, 64) forms 11 LP disagreements 0 automorphisms 8
+PASS S3 matches manuscript table
+PASS S3 number of normal forms
+PASS S3 exact cone test agrees with LP
+S4 counts (4343, 2799, 1275, 196, 29, 21, 23) forms 7 LP disagreements 0 automorphisms 2
+PASS S4 exact cone test agrees with LP
+S5 counts (5183, 3546, 1457, 112, 56, 12, 0) forms 0 LP disagreements 0 automorphisms 4
+PASS S5 exact cone test agrees with LP
+S6 counts (4343, 2799, 1275, 183, 20, 18, 48) forms 19 LP disagreements 0 automorphisms 2
+PASS S6 exact cone test agrees with LP
+S7 counts (4397, 3050, 1042, 231, 32, 20, 22) forms 5 LP disagreements 0 automorphisms 2
+PASS S7 matches manuscript table
+PASS S7 number of normal forms
+PASS S7 exact cone test agrees with LP
+S8 counts (4703, 3100, 1360, 173, 26, 2, 42) forms 6 LP disagreements 0 automorphisms 2
+PASS S8 exact cone test agrees with LP
+S9 counts (23035, 17734, 4442, 569, 144, 92, 54) forms 3 LP disagreements 0 automorphisms 8
+PASS S9 matches manuscript table
+PASS S9 number of normal forms
+PASS S9 exact cone test agrees with LP
+RESULT PASS

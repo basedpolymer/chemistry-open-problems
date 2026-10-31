@@ -1,0 +1,27 @@
+PASS exactly five distinct reactant complexes
+PASS exactly eight complexes
+PASS all sources and products at most bimolecular; all rates positive
+PASS stoichiometric dimension is three
+PASS the only independent conservation law is a+b
+PASS mass-action equations derived from the reactions
+PASS global ACR: every positive equilibrium has r=1
+PASS all equilibria in a+b=9: cubic factors exactly
+PASS equilibrium 1: exact residual zero
+PASS equilibrium 1: positive and in the same class
+PASS equilibrium 1: exact planar trace -1684/5 and determinant 1536
+PASS equilibrium 1: third eigenvalue is -1
+PASS equilibrium 1: exponentially stable
+PASS equilibrium 2: exact residual zero
+PASS equilibrium 2: positive and in the same class
+PASS equilibrium 2: exact planar trace -206 and determinant -768
+PASS equilibrium 2: third eigenvalue is -1
+PASS equilibrium 2: saddle
+PASS equilibrium 3: exact residual zero
+PASS equilibrium 3: positive and in the same class
+PASS equilibrium 3: exact planar trace -112 and determinant 1536
+PASS equilibrium 3: third eigenvalue is -1
+PASS equilibrium 3: exponentially stable
+PASS optional coupled variant: c-dot gains r-1 only
+PASS coupled variant retains five sources and dimension three
+PASS coupling preserves every restricted characteristic polynomial
+PASS five-source upper bound certified in exact arithmetic

@@ -1,0 +1,6 @@
+stats {'read': 853, 'diam': 387, 'used': 197, 'skipped_no_midpoint': 13} smallest slack in (7.6): 0.0
+PASS d=3: Lemma 7.1, (7.2), (7.3), (7.6) on 197 graphs, failures=0
+stats {'read': 261080, 'diam': 19320, 'used': 14986, 'skipped_no_midpoint': 66} smallest slack in (7.6): 0.0
+PASS d=4: Lemma 7.1, (7.2), (7.3), (7.6) on 14986 graphs, failures=0
+stats {'read': 468239, 'diam': 153360, 'used': 100846, 'skipped_no_midpoint': 9200} smallest slack in (7.6): 0.0
+PASS d=5: Lemma 7.1, (7.2), (7.3), (7.6) on 100846 graphs, failures=0
