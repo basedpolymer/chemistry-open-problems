@@ -3,9 +3,9 @@
 <!-- plain-words:start -->
 **The question.** Does the spectrum of a fullerene’s dual graph identify the isomer? Bille, Buchstaber and Spodarev conjectured how far it does.
 
-**The answer.** Infinite families of different fullerenes with identical dual spectra are proved for n ≡ 2, 20 (mod 24); several conjectures are checked up to n = 138; one claim is false in its literal form.
+**The answer.** Different fullerenes with identical dual spectra exist for every even n ≥ 60 (see [all-n/](all-n/)); the remaining conjectures are checked up to n = 170; one claim is false in its literal form.
 
-**How.** Exhaustive exact enumeration, plus a construction that rotates a cap on the thinnest nanotube. Not yet verified.
+**How.** Exhaustive exact enumeration, and an identity between the two colour classes of a triangulation with degrees 4 and 6. Not yet verified.
 
 <p align="center"><img src="../../figures/fullerene-dual-spectrum.svg" alt="A fullerene, its dual graph and its spectrum" width="720"></p>
 
@@ -19,12 +19,14 @@
 - arXiv Conjecture 1(a) (the dual's spectrum determines the isomer, n ≠ 44): **false — already corrected in print
   by the authors themselves** (journal version, Nov 2020, Table 1); smallest counterexample, separately
   certified here: **C42:6 / C42:22** (n = 42; none for n < 42).
-- Published Conjecture 1(b) (T_n-cospectral isomers exist for every n ≥ 60): **partial result** — exact
-  exhaustive verification for 60 ≤ n ≤ N and a **proof for the infinite classes n ≡ 2, 20 (mod 24)**
-  (cap rotation on the thinnest nanotube; this also proves Fowler's 2005 announcement of infinite families).
+- Published Conjecture 1(b) (T_n-cospectral isomers exist for every n ≥ 60): **proved for every even n ≥ 60, see
+  [all-n/result.md](all-n/result.md)** (preliminary). Colour twins of a triangulation with degrees 4 and 6 are cospectral, and
+  one helical family gives non-isomorphic pairs at every such n. They account for 882 of the 890 cospectral classes with
+  n ≤ 138; the other 8 are the cap rotations of this folder (classes n ≡ 2, 20 mod 24).
 - Published Conjecture 1(a) (T_n^6 determined by its spectrum): **false in the literal sense** (C34:2, T^6 = C6 ∪ K1);
   in the restricted sense (within C_n isomers) finite verification n ≤ N.
-- Published 1(c), 1(d): **finite verification** n ≤ N (no counterexample).
+- Published 1(c), 1(d): **finite verification** (no counterexample for n ≤ 170, see [all-n/result.md](all-n/result.md));
+  for n ≥ 60, read as "one spectrum separates all isomers", (d) is equivalent to (c). Both stay open.
 - Conjecture 3 of arXiv:2410.19322 (J. Chem. Inf. Model. 2025, Open Problem 4: (α,β)-characters determine the dual):
   **false for α = β** (C44:72 / C44:80, signless-Laplacian-cospectral duals) — solved (preliminary), pending a
   check of the JCIM wording (NEEDS.md).

@@ -229,8 +229,13 @@ and the exact value probably has no closed form accessible by the same method.
 <a id="c3"></a>
 ### Fullerene duals, Conjecture 1(c) and 1(d)
 
-Only a counterexample looks reachable: scans find none up to n = 138, and part (d) may reduce to part (c). A run on the whole
-conjecture is in progress in [all-n/](../problems/fullerene-dual-cospectral/all-n/); read its final report before starting.
+Only a counterexample looks reachable. One run proved part (b) and left these two open; read
+[all-n/result.md](../problems/fullerene-dual-cospectral/all-n/result.md) first (not verified).
+
+- For n ≥ 60, read as "one spectrum separates all isomers", (d) is equivalent to (c): both say that σ(T⁶) is injective.
+- The exhaustive scan covers n ≤ 170, and exact T⁶-cospectral classes occur only at n = 32, 36, 40, 52.
+- A(T⁶) − D is exactly cospectral for colour twins, so T⁶ misses only by a potential on the flanking hexagons. This is the
+  place to look for a mechanism.
 
 ## Attempted, unresolved
 

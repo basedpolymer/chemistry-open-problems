@@ -377,3 +377,9 @@ progress journal. Global topology ordering remains unresolved.
   in W, and taking ab = x(x² − 3x + 1) splits the denominators into coprime factors small enough to solve it. First graphs:
   1772 vertices with more than 2/3 good, 2277 with exactly 2/3. Solver: Claude Opus 5.5 (effort not recorded). 209
   exact checks PASS, including direct Laplacian checks that use no formula of the paper; no separate verification yet.
+- Result 22 extended, still a partial result: published Conjecture 1(b) of Bille–Buchstaber–Spodarev is proved for every even
+  n ≥ 60. In a plane triangulation with degrees 4 and 6, the two colour classes of faces give fullerene duals with the
+  same characteristic polynomial, and one helical family gives non-isomorphic pairs at every such n. These colour twins
+  account for 882 of the 890 cospectral classes up to n = 138; the other 8 are cap rotations. 1(c) and 1(d), equivalent for
+  n ≥ 60, stay open; the scan now covers n ≤ 170. Solver: Claude Opus 5.5 (effort not recorded). No manuscript, no
+  separate verification.
