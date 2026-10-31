@@ -7,3 +7,15 @@ PASS family beta=1/100 b=2 s=2 gadget K_64 j=17 y: cut vertex, not good
 PASS family beta=1/100 b=2 s=2 gadget K_64 j=17 clique: not good (18.7 s)
 PASS family beta=1/100 b=2 s=2 gadget K_64 j=17 leaf: not good (18.0 s)
 PASS family beta=1/100 b=2 s=2 gadget K_10 j=1 y: cut vertex, not good
+PASS family beta=1/100 b=2 s=2 gadget K_10 j=1 clique: not good (18.1 s)
+PASS family beta=1/100 b=2 s=2 gadget K_10 j=1 leaf: not good (16.9 s)
+PASS family beta=1/100 b=2 s=2 gadget K_14 j=1 y: cut vertex, not good
+PASS family beta=1/100 b=2 s=2 gadget K_14 j=1 clique: not good (16.3 s)
+PASS family beta=1/100 b=2 s=2 gadget K_14 j=1 leaf: not good (16.6 s)
+PASS family beta=1/100 b=2 s=2 gadget K_22 j=0 y: not good (16.1 s)
+PASS family beta=1/100 b=2 s=2 gadget K_22 j=0 clique: not good (16.6 s)
+PASS family beta=1/100 b=2 s=2 gadget K_6 j=1 y: cut vertex, not good
+PASS family beta=1/100 b=2 s=2 gadget K_6 j=1 clique: not good (16.1 s)
+PASS family beta=1/100 b=2 s=2 gadget K_6 j=1 leaf: not good (16.9 s)
+PASS family beta=1/100 b=2 s=2 tree leaf: not good (17.1 s)
+summary: 19 PASS, 0 FAIL

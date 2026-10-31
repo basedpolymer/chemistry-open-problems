@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""check_examples.py -- complete good set of the explicit graphs E1-E4 of paper.tex, exact rationals, via Lemma 1.
+"""check_examples.py -- complete good set of the explicit graphs E1-E4 of paper.tex, exact rationals, via Lemma 3.
 
 check_direct.py tests these graphs on the actual Laplacian, one vertex per class.  Here every vertex type is covered:
 for G = H_{a,b} + W the script evaluates, with exact fractions,
@@ -8,7 +8,7 @@ for G = H_{a,b} + W the script evaluates, with exact fractions,
    root w and every vertex y carrying leaves, inner tree vertices: cut vertices, never good
    vertex z of a branch Z of W, not a cut vertex: Delta = delta_Z(z) - m_R rho_Z(z) + Rt_R(w), with m_R = n - 1 - m_Z,
    Rt_R(w) = Rt_H(w) + T - T_Z; delta_Z and rho_Z are computed by brute force on Z (exact), each type once.
-The tree of Lemma 5 is handled leaf by leaf.
+The tree of Lemma 8 is handled leaf by leaf.
 
 Output: K(G) = the ab block vertices for E1-E4 and the exact proportion.
 Runtime: 1 min, one core.  Environment: Fedora 44 under WSL, Python 3.12, python-flint 0.6, networkx 3.

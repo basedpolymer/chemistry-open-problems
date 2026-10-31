@@ -1,0 +1,9 @@
+E4: n=3735 edges=3982341, 2820 block vertices, proportion 2820/3735, Kf(G) = 84496053399/72709  (159.3 s)
+PASS E4 block: good (147.4 s)
+PASS E4 hub: not good (176.1 s)
+PASS E4 root: cut vertex, not good
+PASS E4 gadget K_4 j=0 y: not good (154.1 s)
+PASS E4 gadget K_4 j=0 clique: not good (147.8 s)
+PASS E4 gadget K_9 j=0 y: not good (136.1 s)
+PASS E4 gadget K_9 j=0 clique: not good (153.2 s)
+PASS E4 gadget K_7 j=2 y: cut vertex, not good

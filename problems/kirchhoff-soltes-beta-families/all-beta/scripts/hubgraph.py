@@ -4,7 +4,7 @@ The graph H(N; b_1, ..., b_a): a clique K_N (the "base"); the base is split into
 and a set C of "hubless" vertices; each block has a hub h_i adjacent to the b_i vertices of B_i and to nothing else.
 Write a = number of hubs, a' = a + |C| (blocks plus hubless vertices), Y = sum 1/b_i.
 
-Closed forms proved in paper.tex, Lemma 3:
+Closed forms proved in paper.tex, Lemma 5:
     Kf(H) = Y (N+1)(N+a-1)/N + (N+a-2) + (1+a')(1-a)/(N+1) + a(a'-2)/N
     Rt_H(c) = 2 + Y + (Y+a+a'-2)/N - (1+a')/(N+1)     (c hubless)
 
@@ -94,7 +94,7 @@ def hub_graph(blocks, hubless=0):
 
 
 def tree_depth_data(l, t):
-    """Lemma 5: a rooted tree with l non-root vertices and sum of depths t, l <= t <= l(l+1)/2.
+    """Lemma 8: a rooted tree with l non-root vertices and sum of depths t, l <= t <= l(l+1)/2.
     Returns (k, e): a path of k vertices at depths 1..k, the other l-k at depth 1, except one at depth 1+e (0 <= e < k)."""
     if l == 0:
         assert t == 0
@@ -109,7 +109,7 @@ def tree_depth_data(l, t):
 
 
 def add_tree(G, root, l, t, tag='t'):
-    """Attach the tree of Lemma 5 at root; returns the list of its non-root vertices."""
+    """Attach the tree of Lemma 8 at root; returns the list of its non-root vertices."""
     if l == 0:
         return []
     k, e = tree_depth_data(l, t)
@@ -146,7 +146,7 @@ def add_gadget(G, root, c, j, tag):
 # ---- the construction of Theorem 1 ----------------------------------------------------------------------------------
 
 def q_list(b, s):
-    """x = b(b-1)s and the pairwise coprime moduli Q_0, ..., Q_4 of Lemma 6."""
+    """x = b(b-1)s and the pairwise coprime moduli Q_0, ..., Q_4 of Lemma 9."""
     x = b*(b-1)*s
     Q = [b*b*(b-1)*x*(x-2), x*x-3*x+1, x*x-2*x-1, x*x-x-1, x-1]
     return x, Q

@@ -83,7 +83,7 @@ limits of the check and the PDFs to supply.
 | [Uniqueness of the Brownian coagulation similarity profile](problems/brownian-coagulation-profile-uniqueness/) (Smoluchowski equation, full Brownian kernel) | Aggregation kinetics | Uniqueness at fixed mass of the self-similar profile for K(x,y) = 2 + (x/y)^(1/3) + (y/x)^(1/3) |
 | Knotting probability of random-jump heptagons (Geisz–Peterson–Shonkwiler, [arXiv:2609.24860](https://arxiv.org/abs/2609.24860), §5) | Polymer physics (ring polymers) | Exact knot probabilities for seven uniform points on the sphere joined cyclically; unlike n = 6, the convex hull no longer determines the knot type |
 | Conjectures 1(c) and 1(d) on fullerene duals for every n (Bille–Buchstaber–Spodarev 2021) | Mathematical chemistry | Verified for n ≤ 138 only |
-| [Randić index and radius](candidates/README.md#d1) (Fajtlowicz 1988; Cygan–Pilipczuk–Škrekovski 2012) | Mathematical chemistry | R(G) ≥ r(G) − 1 for maximum degree above 4; GPT-6-Astra run in progress |
+| [Randić index and radius](candidates/README.md#d1) (Cygan–Pilipczuk–Škrekovski, MATCH 2012, Conj. 1.1) | Mathematical chemistry | R(G) ≥ r(G) − 1 for maximum degree above 4; one GPT-6-Astra run, no resolution |
 
 ## Layout
 

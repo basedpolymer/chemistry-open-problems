@@ -39,7 +39,7 @@ Feasibility means the chance of a *complete* resolution by a very strong AI with
 | C | [Brownian similarity profile uniqueness](#c1) | Aggregation kinetics | very low | proof | no |
 | C | [Random-jump heptagons](#c2) | Polymer physics | low | exact value | no |
 | C | [Fullerene duals, Conjecture 1(c) and 1(d)](#c3) | Mathematical chemistry | low | counterexample | no |
-| now | [Randić index and radius](#d1) | Mathematical chemistry | low-medium | proof | yes |
+| C | [Randić index and radius](#d1) (one run, unresolved) | Mathematical chemistry | low | proof | no |
 
 ## PDFs to supply
 
@@ -49,13 +49,13 @@ read, and the only ones needed before work starts.
 | Priority | DOI | Reference | Used for |
 |---|---|---|---|
 | 1 | [10.1021/ci000164z](https://doi.org/10.1021/ci000164z) | Gutman, Vidović, J. Chem. Inf. Comput. Sci. 41 (2001) | A5, exact statement of the conjecture |
-| 1 | [10.1016/0012-365X(88)90199-9](https://doi.org/10.1016/0012-365X(88)90199-9) | Fajtlowicz, Discrete Math. 72 (1988) | D1, exact statement (run in progress) |
-| 1 | [10.1016/S0012-365X(99)00206-X](https://doi.org/10.1016/S0012-365X(99)00206-X) | Caporossi, Hansen, Discrete Math. 212 (2000) | D1, exact statement (run in progress) |
 | 2 | [10.1016/0009-2509(94)e0091-4](https://doi.org/10.1016/0009-2509(94)e0091-4) | Li, Chem. Eng. Sci. 49 (1994) | B2, priority check for the isothermal case |
 | 2 | [10.1137/0152067](https://doi.org/10.1137/0152067) | Retzloff, Chan, Chicone, Papick, SIAM J. Appl. Math. 52 (1992) | B2, the case n = 2 (abstract read only) |
 | 2 | [10.1016/0362-546X(82)90015-3](https://doi.org/10.1016/0362-546X(82)90015-3) | Chicone, Retzloff, Nonlinear Anal. 6 (1982) | B3, the bound 15 |
 | 2 | [10.1016/0022-247X(87)90003-5](https://doi.org/10.1016/0022-247X(87)90003-5) | Retzloff, Chan, Mohamed, J. Math. Anal. Appl. 124 (1987) | B3, the bound attained for two reactions |
 | 2 | [10.1007/s10910-013-0193-0](https://doi.org/10.1007/s10910-013-0193-0) | Graver, Hartung, Souid, J. Math. Chem. 51 (2013) | B5, original question |
+| 3 | [10.1016/0012-365X(88)90199-9](https://doi.org/10.1016/0012-365X(88)90199-9) | Fajtlowicz, Discrete Math. 72 (1988) | D1, history of the statement only |
+| 3 | [10.1016/S0012-365X(99)00206-X](https://doi.org/10.1016/S0012-365X(99)00206-X) | Caporossi, Hansen, Discrete Math. 212 (2000) | D1, history of the statement only |
 
 For the verification of result 14, also useful: Grisvard, *Elliptic Problems in Nonsmooth Domains*,
 [10.1137/1.9781611972030](https://doi.org/10.1137/1.9781611972030), Theorem 3.2.1.2 (its exact statement is cited, not read).
@@ -232,14 +232,27 @@ and the exact value probably has no closed form accessible by the same method.
 Only a counterexample looks reachable: scans find none up to n = 138, and part (d) may reduce to part (c). A run on the whole
 conjecture is in progress in [all-n/](../problems/fullerene-dual-cospectral/all-n/); read its final report before starting.
 
-## In progress
+## Attempted, unresolved
 
 <a id="d1"></a>
 ### Randić index and radius
 
-R(G) ≥ r(G) − 1 for every connected graph (Fajtlowicz, Graffiti, as restated by Caporossi and Hansen). Known for maximum
-degree at most 4 (Cygan, Pilipczuk, Škrekovski). A GPT-6-Astra run started on 31 October; its files are in
-[problems/randic-radius-conjecture/](../problems/randic-radius-conjecture/). Read arXiv:2309.11613.
+- **Statement.** R(G) ≥ r(G) − 1 for every connected graph: Conjecture 1.1 of Cygan, Pilipczuk, Škrekovski, MATCH 67 (2012)
+  451–466 (open access), who prove it for maximum degree at most 4. Stronger form: R(G) ≥ r(G) except for even paths, attributed
+  to Caporossi and Hansen by Deng, Tang, Zhang, Filomat 29 (2015), doi:10.2298/FIL1506369D,
+  [arXiv:1210.2543](https://arxiv.org/abs/1210.2543). The failing paths are exactly P₄, P₆, …, with R − r = √2 − 3/2.
+- **Status.** Open on 31 October 2026 (bounded check). Read Doig, arXiv:2309.11613, and chapter 12 of Farmer's 2024 thesis (UNC
+  Greensboro), which depends on an unproved conjecture.
+- **One GPT-6-Astra run (xhigh), no resolution.** Its checks are in
+  [verify_obstructions.py](../problems/randic-radius-conjecture/scripts/verify_obstructions.py) and its full notes in a
+  git-ignored `PROGRESS.md` in that folder. None of this is verified.
+  - Works: contracting a closed neighbourhood N[v] lowers the radius by at most one, for every v.
+  - Missing: a vertex whose contraction always lowers R by at least 1 when the maximum degree is at least 3. With the metric
+    lemma, the paths and the cycles, this would give R ≥ r + √2 − 3/2 by induction.
+  - Refuted, with explicit graphs: choosing a vertex of maximum degree, even a unique one (R can increase); choosing the largest
+    incident weight; spanning trees with at most 2R internal vertices; a block estimate R ≥ diameter.
+- **Next attack.** A global argument that selects or averages contractions, or a different weighting. More local rules or
+  more small graphs are not a demonstrated route, so a further run is worthwhile only with a new idea.
 
 ## Rejected during scouting
 

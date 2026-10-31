@@ -5,7 +5,7 @@ For a graph G = H_{a,b} + W (W glued at the hubless vertex w) this script builds
 and Kf(G - v) exactly (python-flint fmpq_mat inverse of the grounded Laplacian).  No closed form of the paper is used.
 
 A gadget is (c, j): K_c glued at w with j pendant leaves on one vertex of K_c.  A filler is (c, y): y copies of K_c glued
-at w.  The tree is (l, t) of Lemma 5.
+at w.  The tree is (l, t) of Lemma 8.
 
 usage: check_direct.py small            K(G) computed vertex by vertex on 8 small graphs: K(G) = the block vertices
        check_direct.py family           a graph produced by the proof (beta = 1/100, b = 2, s = 2, n = 2000), one vertex per class

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""check_formulas.py -- certificates for Lemmas 1-6 of paper.tex (exact arithmetic, PASS/FAIL, exit code 1 on failure).
+"""check_formulas.py -- certificates for Lemmas 3-9 of paper.tex (exact arithmetic, PASS/FAIL, exit code 1 on failure).
 
- F1  resistances R1-R8 (Lemma 2) against brute force on random graphs H(N; b_1..b_a), hubless vertices included
- F2  Kf and Rt of a hubless vertex (Lemma 3) against brute force, random graphs
- F3  delta, rho (Lemma 4): symbolic identity of rational functions in (a, b), and brute force on (a, b) grid
- F4  delta_h, rho_h (Lemma 4): the same
- F5  splice lemma (Lemma 1): random rooted graphs, brute force
- F6  gadget and clique data (Lemma 5): m, T, rho, delta of K_c with j leaves, brute force
- F7  tree lemma (Lemma 5): every (l, t) with l <= 45, by building the tree
- F8  factorisation identities and pairwise coprimality of Q_0..Q_4 (Lemma 6), symbolic and on a grid
+ F1  resistances of Lemma 4 (labelled R1-R8 below) against brute force on random graphs H(N; b_1..b_a), hubless vertices included
+ F2  Kf and Rt of a hubless vertex (Lemma 5) against brute force, random graphs
+ F3  delta, rho (Lemma 6): symbolic identity of rational functions in (a, b), and brute force on (a, b) grid
+ F4  delta_h, rho_h (Lemma 6): the same
+ F5  splice lemma (Lemma 3): random rooted graphs, brute force
+ F6  gadget and clique data (Lemma 8): m, T, rho, delta of K_c with j leaves, brute force
+ F7  tree lemma (Lemma 8): every (l, t) with l <= 45, by building the tree
+ F8  factorisation identities and pairwise coprimality of Q_0..Q_4 (Lemma 9), symbolic and on a grid
 
 Runtime: about 60 s, one core.  Environment: Fedora 44 under WSL, Python 3.12, sympy 1.14, python-flint 0.6, networkx 3.
 """

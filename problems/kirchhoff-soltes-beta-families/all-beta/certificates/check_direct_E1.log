@@ -1,0 +1,24 @@
+E1: n=1772 edges=708985, 1188 block vertices, proportion 1188/1772, Kf(G) = 4067813199199/7782005  (12.7 s)
+PASS E1 block: good (20.0 s)
+PASS E1 hub: not good (11.9 s)
+PASS E1 root: cut vertex, not good
+PASS E1 gadget K_5 j=2 y: cut vertex, not good
+PASS E1 gadget K_5 j=2 clique: not good (22.9 s)
+PASS E1 gadget K_5 j=2 leaf: not good (12.5 s)
+PASS E1 gadget K_7 j=6 y: cut vertex, not good
+PASS E1 gadget K_7 j=6 clique: not good (13.9 s)
+PASS E1 gadget K_7 j=6 leaf: not good (13.0 s)
+PASS E1 gadget K_11 j=7 y: cut vertex, not good
+PASS E1 gadget K_11 j=7 clique: not good (16.7 s)
+PASS E1 gadget K_11 j=7 leaf: not good (16.3 s)
+PASS E1 gadget K_17 j=8 y: cut vertex, not good
+PASS E1 gadget K_17 j=8 clique: not good (21.1 s)
+PASS E1 gadget K_17 j=8 leaf: not good (15.3 s)
+PASS E1 gadget K_29 j=18 y: cut vertex, not good
+PASS E1 gadget K_29 j=18 clique: not good (22.5 s)
+PASS E1 gadget K_29 j=18 leaf: not good (14.1 s)
+PASS E1 gadget K_41 j=10 y: cut vertex, not good
+PASS E1 gadget K_41 j=10 clique: not good (23.5 s)
+PASS E1 gadget K_41 j=10 leaf: not good (13.3 s)
+PASS E1 tree leaf: not good (15.2 s)
+summary: 22 PASS, 0 FAIL

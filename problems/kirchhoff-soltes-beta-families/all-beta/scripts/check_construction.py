@@ -6,9 +6,9 @@ and also 7 times that s, the script executes the construction and checks:
 
  C1  counts: m = m_F + m_g + l, n = N + a + m, ab/n = p/r
  C2  T = tau, i.e. Delta_G(v) = delta - m rho + T = 0 for a block vertex v, with delta and rho recomputed from the general
-     closed forms of Lemma 3 (not from the partial fractions)
- C3  the conditions of Lemma 5: 0 <= j_i < Q_i, l <= t <= l(l+1)/2
- C4  Delta_G(h) = delta_h - m rho_h + T > 0 for a hub h (recomputed from Lemma 3)
+     closed forms of Lemma 5 (not from the partial fractions)
+ C3  the conditions of Lemma 8: 0 <= j_i < Q_i, l <= t <= l(l+1)/2
+ C4  Delta_G(h) = delta_h - m rho_h + T > 0 for a hub h (recomputed from Lemma 5)
  C5  Delta_G(z) > 0 for every other non-cut vertex type z of W:
      filler K_{2B}, gadget clique vertices, gadget leaves, tree leaves
  C6  the moduli are pairwise coprime and the denominator of tau divides their product
@@ -33,7 +33,7 @@ def verify(c):
     # C1
     m_F = B*k*(2*B-1)
     ok1 = m == m_F+c['m_g']+l and n == N+a+m and Fr(a*b, n) == Fr(p, r) and m >= 1
-    # C2: recompute delta, rho from Lemma 3
+    # C2: recompute delta, rho from Lemma 5
     Y = Fr(a, b)
     d = kf_closed(N, a, a+1, Y)-kf_closed(N-1, a, a+1, Y+Fr(1, B))
     rh = rt_hubless_closed(N-1, a, a+1, Y+Fr(1, B))-rt_hubless_closed(N, a, a+1, Y)

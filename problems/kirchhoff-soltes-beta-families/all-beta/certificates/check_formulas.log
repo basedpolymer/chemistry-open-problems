@@ -1,0 +1,14 @@
+PASS F1 resistances R1-R8 on 1800 random pairs
+PASS F2 Kf and Rt(hubless) closed forms on 118 random graphs
+PASS F3 delta identity (rational functions in a, b)
+PASS F3 rho identity (rational functions in a, b)
+PASS F4 delta_h identity
+PASS F4 rho_h identity
+PASS F3-F4 delta, rho, delta_h, rho_h against brute force on 25 pairs (a, b)
+PASS F5 splice lemma on 798 random (B, W, v)
+PASS F6 gadget K_{2q} + j leaves: m, T, rho, delta on 42 cases
+PASS F6 K_c: delta = 1, rho = -2/(c(c-1)), 3 <= c <= 11
+PASS F7 rooted trees with l non-root vertices and depth sum t: all 15226 pairs, l <= 45
+PASS F8 factorisations of x(x^2-3x+1), +1, +2
+PASS F8 Q_0..Q_4 pairwise coprime, denominators of delta and rho divide D, on 959 pairs (b, s)
+summary: 13 PASS, 0 FAIL

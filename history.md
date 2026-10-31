@@ -367,5 +367,7 @@ progress journal. Global topology ordering remains unresolved.
   for n ≥ 200. Observed but not proved: positivity of ⟨u P_a u P_b u⟩ on the whole quadrant. Solver: Claude Opus 5.5
   (effort not recorded). Certificates PASS (`all-times/logs/`); no separate verification yet.
 - Candidate problems renewed: scouting and a novelty sweep (Claude Sonnet 5.5, effort medium) give 14 open candidates,
-  documented with attacks and the PDFs to supply in `candidates/README.md`. Started: GPT-6-Astra (xhigh) run on the
-  Randić–radius conjecture.
+  documented with attacks and the PDFs to supply in `candidates/README.md`.
+- GPT-6-Astra (xhigh), one run on the Randić–radius conjecture: no resolution. A metric lemma on contracting closed
+  neighbourhoods is proved, and several auxiliary bounds are refuted by explicit graphs (`scripts/verify_obstructions.py`).
+  Not verified. Summary in `candidates/README.md`.

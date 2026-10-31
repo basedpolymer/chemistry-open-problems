@@ -1,2 +1,29 @@
 E2: n=2277 edges=1156720, 1518 block vertices, proportion 1518/2277, Kf(G) = 1134673709326253/1314329940  (41.8 s)
 PASS E2 block: good (42.2 s)
+PASS E2 hub: not good (39.8 s)
+PASS E2 root: cut vertex, not good
+PASS E2 gadget K_4 j=0 y: not good (37.3 s)
+PASS E2 gadget K_4 j=0 clique: not good (36.9 s)
+PASS E2 gadget K_9 j=2 y: cut vertex, not good
+PASS E2 gadget K_9 j=2 clique: not good (38.0 s)
+PASS E2 gadget K_9 j=2 leaf: not good (37.2 s)
+PASS E2 gadget K_5 j=3 y: cut vertex, not good
+PASS E2 gadget K_5 j=3 clique: not good (41.3 s)
+PASS E2 gadget K_5 j=3 leaf: not good (42.7 s)
+PASS E2 gadget K_49 j=3 y: cut vertex, not good
+PASS E2 gadget K_49 j=3 clique: not good (43.3 s)
+PASS E2 gadget K_49 j=3 leaf: not good (43.6 s)
+PASS E2 gadget K_11 j=9 y: cut vertex, not good
+PASS E2 gadget K_11 j=9 clique: not good (43.9 s)
+PASS E2 gadget K_11 j=9 leaf: not good (41.5 s)
+PASS E2 gadget K_19 j=10 y: cut vertex, not good
+PASS E2 gadget K_19 j=10 clique: not good (40.0 s)
+PASS E2 gadget K_19 j=10 leaf: not good (37.3 s)
+PASS E2 gadget K_23 j=6 y: cut vertex, not good
+PASS E2 gadget K_23 j=6 clique: not good (39.8 s)
+PASS E2 gadget K_23 j=6 leaf: not good (38.6 s)
+PASS E2 gadget K_31 j=23 y: cut vertex, not good
+PASS E2 gadget K_31 j=23 clique: not good (37.8 s)
+PASS E2 gadget K_31 j=23 leaf: not good (37.9 s)
+PASS E2 tree leaf: not good (38.5 s)
+summary: 27 PASS, 0 FAIL

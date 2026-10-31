@@ -1,0 +1,38 @@
+=== Zenodo, full listing, keyword filter on title + description ===
+   2026-10-30 23791004 On the Probabilities of Spacetime: A Statistical Topography via Maximum Entropy ['Soltes, Julian']
+   2026-07-13 21342374 Aerospace Electromagnetic Pulse Vulnerability: Rapid Assessment and Optimization ['Soltes, Julian']
+-- Soltes total 26 retrieved 26
+   2026-10-30 23791004 On the Probabilities of Spacetime: A Statistical Topography via Maximum Entropy ['Soltes, Julian']
+   2026-07-13 21342374 Aerospace Electromagnetic Pulse Vulnerability: Rapid Assessment and Optimization ['Soltes, Julian']
+-- Šoltés total 24 retrieved 24
+   2026-10-30 23791004 On the Probabilities of Spacetime: A Statistical Topography via Maximum Entropy ['Soltes, Julian']
+   2026-09-18 22831642 Code and data for Certified local realization of first-order-flat routing in a transmission-line network ['Malkoç, Muhammed']
+   2026-07-13 21342374 Aerospace Electromagnetic Pulse Vulnerability: Rapid Assessment and Optimization ['Soltes, Julian']
+   2026-06-30 20829157 DEVELOPMENT AND NUMERICAL EVALUATION OF A NEW STRAIN-BASED FOUR-NODE FINITE ELEMENT FOR KIRCHHOFF PLATE ANALYS ['Academic Journal of Manufacturing Engineering']
+-- Soltes Kirchhoff total 624 retrieved 100
+   2026-10-30 23791004 On the Probabilities of Spacetime: A Statistical Topography via Maximum Entropy ['Soltes, Julian']
+   2026-09-18 22831642 Code and data for Certified local realization of first-order-flat routing in a transmission-line network ['Malkoç, Muhammed']
+   2026-07-13 21342374 Aerospace Electromagnetic Pulse Vulnerability: Rapid Assessment and Optimization ['Soltes, Julian']
+   2026-06-30 20829157 DEVELOPMENT AND NUMERICAL EVALUATION OF A NEW STRAIN-BASED FOUR-NODE FINITE ELEMENT FOR KIRCHHOFF PLATE ANALYS ['Academic Journal of Manufacturing Engineering']
+-- Šoltés Kirchhoff total 622 retrieved 100
+   2026-10-30 23807001 FElupe: Finite element analysis for continuum mechanics of solid bodies ['Dutzler, Andreas', 'Leitner, Martin']
+-- Soltes Wiener index total 124892 retrieved 100
+   2019-11-09 3533923 Connected Decycling Number of P_m× P_n* ['Sajid Hussain', 'Shahid Hussain']
+-- "Wiener index" "vertex removal" total 90 retrieved 90
+   2026-06-28 21004317 The Graph-Theoretic Ontology of EET: Constraint Network as the Discrete Syntax of Existence ['Yang, Hongpu']
+-- "resistance distance" "vertex deletion" total 44 retrieved 44
+   2026-08-17 21977553 The Human Interactome Vulnerability Atlas: Exact Genome-Scale Node-Loss Mapping Reveals Degree-Confounded Canc ['Picón, José']
+   2026-06-29 21023394 The Shifted Spectral Diversity Functional on Graphs:Analytic Properties, Extremal Theory, and Stochastic Dynam ['Ou, Ruocun']
+-- "Kirchhoff index" "good vertex" total 11 retrieved 11
+   2026-08-17 21977553 The Human Interactome Vulnerability Atlas: Exact Genome-Scale Node-Loss Mapping Reveals Degree-Confounded Canc ['Picón, José']
+   2026-06-29 21023394 The Shifted Spectral Diversity Functional on Graphs:Analytic Properties, Extremal Theory, and Stochastic Dynam ['Ou, Ruocun']
+-- "Kirchhoff index" "deleting a vertex" total 19 retrieved 19
+   2026-08-17 21977553 The Human Interactome Vulnerability Atlas: Exact Genome-Scale Node-Loss Mapping Reveals Degree-Confounded Canc ['Picón, José']
+   2026-06-29 21023394 The Shifted Spectral Diversity Functional on Graphs:Analytic Properties, Extremal Theory, and Stochastic Dynam ['Ou, Ruocun']
+-- "Kirchhoff index" "vertex deleted" total 16 retrieved 16
+-- "Kirchhoff index" conjecture graph proportion total 77287 retrieved 100
+-- "Kirchhoff index" "open problem" total 1929 retrieved 100
+=== Semantic Scholar search ===
+ERR Kirchhoff index Soltes problem HTTP Error 429: 
+ERR graphs preserving Kirchhoff index vertex removal HTTP Error 429: 
+ERR good vertices Kirchhoff index proportion HTTP Error 429: 
