@@ -66,3 +66,23 @@ Retrieved 24 October 2026. Third-party PDFs and texts are stored locally in `cer
   repository matching "skew" or "dispersion"); Zenodo searches ("taylor dispersion skewness", "geometric skewness",
   "passive scalar skewness polygon", "Aminian Camassa McLaughlin"): nothing relevant. Web searches: nothing.
 * Conclusion: to our knowledge the sign claims for regular polygons with n >= 4 were not proved before.
+
+## Novelty check for the all-times statement (31 October 2026, `all-times/`)
+
+Question: is the claim "all other polygons possess positive skewness at all times" (arXiv abstract of source 2) proved or
+refuted anywhere?
+
+* Semantic Scholar citation list of source 1 (8 works, titles read): the list of 24 October above, plus *Dispersion of solute in a
+  fluid layer sandwiched between two anisotropic porous layers* (doi:10.1111/sapm.70160, 2025, title only) and the journal version
+  of arXiv:2508.18262. None concerns the sign of the skewness in regular polygons.
+* arXiv API, 31 Oct 2026: `"skewness" AND "taylor dispersion"`, `"geometric skewness"`, author Camassa with `skewness`: the only related
+  items are source 2, arXiv:1802.03340 and *Persisting asymmetry in the probability distribution function for a random
+  advection-diffusion equation in impermeable channels* (2020, title only). Nothing newer on this question.
+* Web searches ("skewness Taylor dispersion regular polygon duct positive at all times proof"; "passive scalar skewness ... third
+  moment Neumann heat semigroup torsion function"): only sources 1-4 and their talks.
+* AI campaigns: GitHub `mmislan` and `ipitchford` (no repository name matching skew, dispers, taylor), `gh search repos "taylor
+  dispersion skewness"` (nothing relevant), Zenodo API (`"taylor dispersion" skewness`; `skewness polygon dispersion`: nothing relevant).
+* Conclusion: to our knowledge the finite-time claim was neither proved nor refuted before `all-times/`.
+
+Additional tool cited in `all-times/paper.tex`: F. Johansson, *Arb: efficient arbitrary-precision midpoint-radius interval
+arithmetic*, IEEE Trans. Comput. 66 (2017) 1281-1292, doi:10.1109/TC.2017.2690633 (library documentation used, paper not re-read).

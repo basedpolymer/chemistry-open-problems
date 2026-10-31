@@ -1,0 +1,188 @@
+=== OpenAlex ===
+https://openalex.org/W4413802645 0 Šoltés problem for the Kirchhoff index of a graph
+citers meta 0
+-- Kirchhoff Šoltés 45
+   2026-09-18 High growth as a double-edged sword:Burden of expectations, strategic choices, and the long-run perf
+   2026-03-03 Gescheiterte Ehen zwischen Versöhnung und Scheidung im evangelischen Württemberg des 17. und 18. Jah
+   2025-08-29 Šoltés problem for the Kirchhoff index of a graph
+   2025-06-23 Graphs that preserve Kirchhoff index after the removal of a vertex
+   2024-09-01 Outer membrane protein assembly mediated by BAM-SurA complexes
+   2024-06-06 Solution to a conjecture on resistance distances of block tower graphs
+   2024-02-27 Insights into Gastrointestinal Redox Dysregulation in a Rat Model of Alzheimer’s Disease and the Ass
+   2024-01-01 Das Große Concert, die Freimaurer und Johann Sebastian Bach
+-- Kirchhoff Soltes 45
+   2026-09-18 High growth as a double-edged sword:Burden of expectations, strategic choices, and the long-run perf
+   2026-03-03 Gescheiterte Ehen zwischen Versöhnung und Scheidung im evangelischen Württemberg des 17. und 18. Jah
+   2025-08-29 Šoltés problem for the Kirchhoff index of a graph
+   2025-06-23 Graphs that preserve Kirchhoff index after the removal of a vertex
+   2024-09-01 Outer membrane protein assembly mediated by BAM-SurA complexes
+   2024-06-06 Solution to a conjecture on resistance distances of block tower graphs
+   2024-02-27 Insights into Gastrointestinal Redox Dysregulation in a Rat Model of Alzheimer’s Disease and the Ass
+   2024-01-01 Das Große Concert, die Freimaurer und Johann Sebastian Bach
+-- Kirchhoff index good vertices 1708
+   2026-10-24 AI-supervised adaptive PID control of a DC motor drive using a bounded feedforward neural network un
+   2026-10-21 Long-time dynamics of viscous Gröbli triangles
+   2026-10-16 Integer Reachability in Data VASS
+   2026-10-16 The Kemeny-Braess Paradox in Random Graphs
+   2026-10-07 Valorization of sugar industry byproducts for cost-effective Chlorella vulgaris MU-22 production: as
+   2026-10-07 Unified Network Spectroscopy: Inferring Reduced Biological Dynamics from Fluctuations under Structur
+   2026-10-05 Mixture of Directed Graphical Models for Discrete Spatial Random Fields
+   2026-10-03 Mitigating Over-squashing without Rewiring: A Sheaf Effective Resistance Perspective
+-- Kirchhoff index vertex removal preserving 280
+   2026-10-20 Computing the Wiener Index of Some Chemical Molecules from Shortest-Path Distance Matrices: A Pendan
+   2026-10-12 Norm-resolvent asymptotics for the Neumann Laplacian on periodic resonant thin structures
+   2026-09-28 The Sombor deletion correction term: extremal structure, exact coincidence classification, and the i
+   2026-09-27 Mean-temperature-induced resonance translation and attenuation-depth response in a long-period fibre
+   2026-09-27 Smooth Isotropic Covariance Functions on Metric Graphs via Polyharmonic Resistance Distances
+   2026-09-26 Constraints Are Graphs, Not Chains: Exact Decoding for Diffusion Language Models
+   2026-09-25 Generalized Harmonic Measures: Synchronized Approximation, Representation and Quantitative Measure R
+   2026-09-23 Typical properties of countable graphs: flows and bridges
+=== Crossref ===
+10.1515/ebr.potokchaim 2026-08-17T10:44:42Z Potok, Chaim
+10.1515/ebr.mozarabs 2022-04-12T13:52:00Z Mozarabs
+10.1515/ebr.lawrencejacob 2019-10-30T10:58:55Z Lawrence, Jacob
+10.1163/9789004393240_002 2019-02-13T05:58:12Z Modern Jewish Art
+10.1515/ebr.nationallegionofdecency 2022-04-12T13:52:00Z National Legion of Decency
+10.1515/ebr.munchedvard 2022-04-12T13:52:00Z Munch, Edvard
+10.1515/ebr.chagallmarc 2019-10-17T09:29:46Z Chagall, Marc
+10.1515/ebr.mecca 2021-06-24T07:41:37Z Mecca
+10.1515/ebr.martinisimone 2019-10-30T10:53:30Z Martini, Simone
+10.1515/ebr.madernocarlo 2019-10-30T10:53:50Z Maderno, Carlo
+10.1515/ebr.liebermannmax 2019-10-25T08:41:31Z Liebermann, Max
+10.1515/ebr.lorrainclaude 2019-10-25T08:43:50Z Lorrain, Claude
+10.1163/9789004393240 2019-02-13T05:58:12Z Modern Jewish Art
+10.1515/ebr.klimtgustav 2019-10-30T10:58:35Z Klimt, Gustav
+10.1515/ebr.chirho 2019-10-25T08:46:22Z Chi-Rho
+is-referenced-by-count 0
+=== arXiv ===
+-- all:"Kirchhoff" AND all:"Soltes"
+-- all:"Kirchhoff index" AND all:"good vertices"
+   2026-09-12 http://arxiv.org/abs/2609.13751v1 Soltés problem for the Kirchhoff index of a graph
+-- all:"Kirchhoff index" AND all:"vertex removal"
+-- all:"resistance distance" AND all:"Soltes"
+-- all:"Kirchhoff index" AND all:"vertex deletion"
+-- all:"Kirchhoff index" AND all:"removal of a vertex"
+-- all:"Soltes"
+   2026-07-21 http://arxiv.org/abs/2607.21637v1 Quasi-Monte Carlo Initialization for Meta-Reinforcement Learning
+   2025-11-17 http://arxiv.org/abs/2511.13843v4 QUASAR: An Evolutionary Algorithm to Accelerate High-Dimensional Numerical Optimization
+   2025-11-11 http://arxiv.org/abs/2511.07836v6 Hyperellipsoid Density Sampling: Exploitative Sequences to Accelerate High-Dimensional Numerical Opt
+   2025-06-05 http://arxiv.org/abs/2506.04575v3 Are LLMs Stable Formal Logic Translators in Logical Reasoning Across Linguistically Diversified Text
+=== Zenodo ===
+-- +Kirchhoff +Soltes total 0
+-- +Kirchhoff +"good vertices" total 0
+-- "Kirchhoff index" vertex deletion unchanged total 59258
+   2026-10-31 23835149 MoYUYao666/gap-susceptibility: v2.7 - reference corpus for the RS-VLM survey ['MoYUYao666']
+   2026-10-31 23834961 Replication package and Online Appendix for: Explaining the Decline of Natural Wealth per Capita: A  ['Leogrande, Angelo', 'Magazzino, Cosimo']
+   2026-10-31 23834638 Data and reproducible analyses of myxomycete plasmodial antagonism against Fusarium oxysporum f. sp. ['Gangl, Johann']
+   2026-10-31 23399505 Acacia koa individual-tree growth and yield data and prediction functions (Hawaii, 1949-2025) ['Weiskittel, Aaron R.', 'Sprecher, Irene']
+   2026-10-31 23833844 Aalto-Electric-Drives/motulator: Release 0.22.1 ['Marko Hinkkanen', 'JoonaKukkonen']
+   2026-10-31 23833219 GeoAI-THM Studio v0.1.1: an agent that builds and runs verified subsurface heat, flow, deformation a ['Park, Eungyu', 'Kim, Taeyu']
+   2026-10-31 23833164 Finite sampling total variation: exact one-pair identity and general repeated-population bound ['Alexander Richard Towell']
+   2026-10-31 23831908 One-Reference Material Retrieval: Code and Numerical Results ['Yan, Yihan', 'Xu, Zihao']
+   2026-10-31 23832459 Data and code for: Auditing confidence in species delimitation methods, and a calibrated alternative ['Ghanem, Haitham', 'Daou, Riham']
+   2026-10-31 23832464 OpenSemanticLab/docker-compose-osl-wiki: v2.2.6 ['Simon Stier', 'Andreas Räder']
+   2026-10-30 23831195 k - anologue Augmented Zagreb Index ['T. V. ASHA']
+   2026-10-31 23828667 CabbageRowSeg: A Cross-Row Cabbage Instance Segmentation Dataset from Repeated Field Observations ['Nguyen, Quoc Truong', 'Pham, Manh Thang']
+-- beta-Kirchhoff total 11869
+   2026-10-29 23832656 Preventive effect of Dinoprostone (Prostaglandin E2) on testosterone-induced prostatic hyperplasia i ['Aldhalmi, Ahmed Khalid', 'Abdul-Hussein, Bahaa Ameen']
+   2026-05-12 23831842 THE INFLUENCE OF MOTIVATION, DISCIPLINE, AND WORK COMPETENCE ON EMPLOYEE PERFORMANCE AT THE BAWASLU  ['Elisa Rusmayanti Sianturi', 'Sapta Pratama Sembiring']
+   2026-10-30 23809762 Beta-cell function and its trajectories in a multi-ethnic population with type 2 diabetes: a hospita ['Raghosing, Shanti', 'Agyemang, Charles']
+   2026-10-30 23809698 radot OpenGATE validation data: patient p142 (Lu-177, Y-90, I-131, Ac-225 dose rates) ['Sarrut, David']
+   2026-10-01 23793899 Design and In vitro Evaluation of Nifedipine Propranolol Hydrochloride Sustained Release Matrix Tabl ['Sheeba Naaz*1 and Hemant Bhardwaj2']
+   2026-10-30 23794238 STORMS checklist for "Gut-bacterial SN-38 reactivation is host-gated by substrate delivery, not a co ['Kaczmarczyk, Mariusz', 'Podsiadło, Konrad']
+   2026-10-30 23787909 Electrochemical-Dielectric Theoretical  Framework for Multimodal Cellular Triage: Physics-Informed E ['Vivas, Daniel', 'Duque, Jose']
+   2026-10-29 23771748 Data for "Syndromes of multidimensional beta diversity change in invaded metacommunities" (Version v ['Annis, William Kendall', 'Thompson, Lily M.']
+   2026-10-29 23782412 Linked collectors and determiners for: OSAC North American Hepialidae -beta version. ['Bionomia']
+   2026-10-29 23779868 harvardinformatics/stola: Initial beta release ['danielle-khost']
+   2026-10-29 23778605 Linked collectors and determiners for: Análisis de las relaciones entre las diversidades alfa, beta  ['Bionomia']
+   2026-10-29 23775543 Structural and Functional Illumination of the Human Dark Proteome (Trilogy II): Cryptic Tetrahedral  ['Chappell, Corey']
+-- "Soltes problem" total 0
+-- Soltes total 26
+   2026-10-30 23791004 On the Probabilities of Spacetime: A Statistical Topography via Maximum Entropy ['Soltes, Julian']
+   2026-10-25 23647366 QUASAR optimization experimental trials ['Soltes, Julian']
+   2026-09-23 22912484 Hizmet in Western Europe ['Weller, Paul']
+   2026-07-13 21342374 Aerospace Electromagnetic Pulse Vulnerability: Rapid Assessment and Optimization ['Soltes, Julian']
+   2026-07-09 21285618 hdim-opt: Python package for high-dimensional numerical optimization ['Soltes, Julian']
+   2026-05-31 20477837 START Final Workshop Presentations (19 May 2026): Thermoelectric Tetrahedrites from Secondary Raw Ma ['START project', 'Neves, Filipe']
+   2025-05-19 20427583 Deliverable D2.3 – Delivery of suitable concentrates to WP3 ['de Oliveira, Daniel', 'Morais, Igor']
+   2025-05-19 20427264 Deliverable D2.2 – Treatment and separation of suitable minerals: Physical separation of key mineral ['de Oliveira, Daniel', 'Morais, Igor']
+   2025-05-19 20426028 Deliverable D2.1 – List of mineralogically suitable mine waste sites and sampling and treatment prot ['de Oliveira, Daniel', 'Morais, Igor']
+   2021-09-05 18453593 Theorising Syncretism: An African Framework for Religious Adaptation in the Kenyan Diaspora, ['Githinji, Kamau', 'Adhiambo, Fatuma']
+   2024-11-27 14242689 Earnings conference calls and annual reports, similar or different information? ['Meirkulov, Kurmanbek', 'Pavlides, Nicole']
+   2022-09-30 13328010 Assessment of Pre-Operative Factors Predicting Difficult Laparoscopic Cholecystectomy at a Tertiary  ['Mohamed Ashraf Ali', 'Mohammad Nehal Ahmad']
+-- Šoltés total 24
+   2026-10-30 23791004 On the Probabilities of Spacetime: A Statistical Topography via Maximum Entropy ['Soltes, Julian']
+   2026-10-25 23647366 QUASAR optimization experimental trials ['Soltes, Julian']
+   2026-07-13 21342374 Aerospace Electromagnetic Pulse Vulnerability: Rapid Assessment and Optimization ['Soltes, Julian']
+   2026-07-09 21285618 hdim-opt: Python package for high-dimensional numerical optimization ['Soltes, Julian']
+   2026-05-31 20477837 START Final Workshop Presentations (19 May 2026): Thermoelectric Tetrahedrites from Secondary Raw Ma ['START project', 'Neves, Filipe']
+   2025-05-19 20427583 Deliverable D2.3 – Delivery of suitable concentrates to WP3 ['de Oliveira, Daniel', 'Morais, Igor']
+   2025-05-19 20427264 Deliverable D2.2 – Treatment and separation of suitable minerals: Physical separation of key mineral ['de Oliveira, Daniel', 'Morais, Igor']
+   2025-05-19 20426028 Deliverable D2.1 – List of mineralogically suitable mine waste sites and sampling and treatment prot ['de Oliveira, Daniel', 'Morais, Igor']
+   2026-03-30 19365183 Green guardians: Mosses as potential low-cost biomonitors of air pollution in urban Chicago ['Campbell, Thomas', 'Gwilliam III, Gilbert F.']
+   2025-09-30 17131983 Mszaki miasta Świętochłowice (Wyżyna Śląska, Polska) – ekologia i rozmieszczenie ['Barbara Fojcik']
+   2024-06-18 12177534 Genetic and morphological differences among relict marginal occurrences of Stenobothrus eurasius (Or ['Kenyeres, Zoltán', 'Bauer, Norbert']
+   2023-10-07 10514325 Využitie MMP-9 ako biomarkera  v skríningu kolorektálneho karcinómu / Use of MMP-9 as a biomarker in ['Kička, Miloš', 'Radoňak, Jozef']
+-- "Kirchhoff index" "rook graph" total 10
+   2026-09-29 23622186 Finiteness thresholds and surface bounds for graph Jacobians ['Nifa, Anass']
+   2026-09-28 23017630 Reproducibility materials for Greedy Kirchhoff-Index Augmentation ['Malkawi, Ghassan']
+   2026-09-07 22644312 Exact Spectral Masses, Spectral Isolation, and Vacuum Resistance ['Aksman, Michael']
+   2026-10-24 23615151 Binary mutually orthogonal frequency squares of order n ≡ 2 (mod 4): at most (n−2)^2 + 1 ['Nyam-Osor, Uchral']
+   2026-09-25 22949607 On the graph-theoretic, spectral, and topological analysis of the Seven Bridges of Königsberg ['Athar, Tanver', 'Taha Tanver, Athar']
+   2026-08-17 21977553 The Human Interactome Vulnerability Atlas: Exact Genome-Scale Node-Loss Mapping Reveals Degree-Confo ['Picón, José']
+   2026-08-04 21785184 Ware's Law: A Universal Scaling Relation m² ∼ χ⁻¹ in Quantum Decoherence, Large Language Models, and ['Ware, Leroy']
+   2026-06-29 21023394 The Shifted Spectral Diversity Functional on Graphs:Analytic Properties, Extremal Theory, and Stocha ['Ou, Ruocun']
+   2019-05-25 3228730 Spectra of a New Join in Duplication Graph ['Kumar, K. Reji', 'Varghese, Renny P.']
+   2014-10-02 1096731 Some New Bounds for a Real Power of the Normalized Laplacian Eigenvalues ['Ayşe Dilek Maden']
+-- "Kirchhoff index" "vertex removal" total 18
+   2026-09-29 23622186 Finiteness thresholds and surface bounds for graph Jacobians ['Nifa, Anass']
+   2026-09-28 23017630 Reproducibility materials for Greedy Kirchhoff-Index Augmentation ['Malkawi, Ghassan']
+   2026-09-07 22644312 Exact Spectral Masses, Spectral Isolation, and Vacuum Resistance ['Aksman, Michael']
+   2014-08-12 10454119 Note on Odd/Odd Vertex Removal Games on Bipartite Graphs ['Krüger, O.']
+   2023-01-23 7559540 SuperHyperGirth Type-Results on extreme SuperHyperGirth theory and (Neutrosophic) SuperHyperGraphs T ['Henry Garrett']
+   2023-01-22 7559490 Neutrosophic SuperHyperGraphs Warns Hyper Landmark of neutrosophic SuperHyperGirth In Super Type-Ver ['Henry Garrett']
+   2023-01-17 7544871 Extreme SuperHyperClique as the Firm Scheme of Confrontation under Cancer's Recognition as the Model ['Henry Garrett']
+   2023-01-16 7541203 Uncertainty On The Act And Effect Of Cancer Alongside The Foggy Positions Of Cells Toward Neutrosoph ['Henry Garrett']
+   2023-01-16 7539638 Neutrosophic Version Of Separates Groups Of Cells In Cancer's Recognition On Neutrosophic SuperHyper ['Henry Garrett']
+   2026-09-25 22949607 On the graph-theoretic, spectral, and topological analysis of the Seven Bridges of Königsberg ['Athar, Tanver', 'Taha Tanver, Athar']
+   2026-08-17 21977553 The Human Interactome Vulnerability Atlas: Exact Genome-Scale Node-Loss Mapping Reveals Degree-Confo ['Picón, José']
+   2026-08-04 21785184 Ware's Law: A Universal Scaling Relation m² ∼ χ⁻¹ in Quantum Decoherence, Large Language Models, and ['Ware, Leroy']
+-- "Kirchhoff index" Soltes graphs proportion total 46773
+   2026-10-31 23835124 自主生長式車房與可擴展居住空間極限 32/90 AUTONOMOUSLY EXPANDABLE MOBILE HOMES AND ADAPTIVE LIVING SPACES AT THE LIMIT ['33']
+   2026-10-31 23834638 Data and reproducible analyses of myxomycete plasmodial antagonism against Fusarium oxysporum f. sp. ['Gangl, Johann']
+   2026-10-31 23834642 pyrosm: A Python library for reading and writing OpenStreetMap PBF data with GeoDataFrames ['Tenkanen, Henrikki']
+   2026-10-31 23834570 amaltawfik/spicy: spicy 0.14.0 ['Amal Tawfik']
+   2026-10-31 23830895 Fuzzy prerequisite knowledge graphs for neural knowledge tracing: when the graph helps, what it shou ['Truong, Hai Bang']
+   2026-10-31 23830575 YoussefSSoliman/Structural-Signatures-of-Discourse-Relations-in-Pretrained-Transformer-Attention-Gra ['Youssef S. Soliman']
+   2026-10-31 23829550 Pediatric GLP-1 Receptor Agonist Adverse Event Phenotype Framework: Preliminary Terminology and Cand ['Wang, Sherry Yun']
+   2022-12-30 23829989 PREDICTING PATIENT RECORD MATCHES USING DEMOGRAPHIC COMPARISON PATTERNS IN A GERMAN CANCER REGISTRY  ['Divya Vishwanath & Paul Johnson Asamoah']
+   2026-10-31 23828822 Two Latent Types on Arbitrary Covers ['VINAY, AWASTHI']
+   2026-10-31 23826875 Round-Trip Refinement: A Training-Free Sampler for Next-Concept Language Models ['Khoury, Pierre']
+   2026-10-31 23826889 Spatial Clustering of Hepatitis A in South Korea, 2020-2024: Nationwide Bayesian Analysis of Socioec ['Kim, Seongdae', 'Chun, Byung Chul']
+   2026-10-31 23826870 WAYS TO IMPROVE MANAGEMENT EFFICIENCY THROUGH ARTIFICIAL INTELLIGENCE TECHNOLOGIES ["Mardiev, Bunyod Sirojiddin o'g'li", 'Amanova, Lola Baydulla qizi']
+-- Gottwald Kirchhoff Soltes total 903
+   2026-10-30 23791004 On the Probabilities of Spacetime: A Statistical Topography via Maximum Entropy ['Soltes, Julian']
+   2026-10-23 23759162 From species traits to protection goals: Individual-based modeling for ecological risk assessment ac ['Galic, Nika']
+   2026-10-25 23647366 QUASAR optimization experimental trials ['Soltes, Julian']
+   2026-09-29 23622186 Finiteness thresholds and surface bounds for graph Jacobians ['Nifa, Anass']
+   2026-10-23 23592983 Preview of the TeraGram dataset ['Golovin, Anastasia', 'Mohr, Sebastian']
+   2026-10-21 23545390 Spatiotemporal Gaussian-Process Emulation of Climate-Computer Model Biases Under Sparse Upper-Air Ra ['Khattabi, Mustapha El', 'Fassi, Abdelhak Bouzoubaa El']
+   2026-10-21 23545235 Evaluation of Concept-Probe Temporal-Stability Audits for Computer Vision Agriculture Disease Classi ['Farah, Abdi-Basid Idriss', 'Guedi, Amina Hassan']
+   2026-10-21 23545203 Evaluation of Concept-Probe Compositional-Generalization Audits for Computer Vision Agriculture Dise ['Nangolo, Tangeni', 'Shikongo, Loide']
+   2026-10-21 23544979 Benchmarking Data-Drift Detection Latency for Computer Agriculture Disease Classifiers Under Gradual ['Koyamba-Ndoumba, Gervais', 'Ngbale-Kondjo, Sylvie']
+   2026-10-21 23544149 Uncertainty-Calibrated Evidential Segmentation for Computer Agriculture Crop-Disease Triage Under An ['Haddou, Amina Aït Ben', 'Ouazzani, Youssef El']
+   2026-10-21 23543587 Label Noise-Robust Ordinal Regression for Artificial Intelligence Agriculture Pest Severity Grading  ['Kariuki-Mwangi, Njeri Muthoni']
+   2026-10-21 23543535 Weakly-Supervised Millet Rust Severity Estimation for Artificial Intelligence Agriculture Under Spar ['Woldeyes, Meron Tadesse', 'Bekele, Selamawit Girma']
+-- "Problem 4" Kirchhoff total 677
+   2026-09-29 23622186 Finiteness thresholds and surface bounds for graph Jacobians ['Nifa, Anass']
+   2026-10-24 23619729 THE FORGOTTEN BIT LAW: A FUNCTORIAL COHOMOLOGICAL OBSTRUCTION TO STATELESS BINARY TENSOR COMPRESSION ['Mehennaoui, Sami']
+   2026-10-22 23573783 Gradient-Flow Renormalization Group as a Common-Potential Game: A Rigorous Equivalence Between Asymp ['Mehennaoui, Sami']
+   2026-10-21 23545390 Spatiotemporal Gaussian-Process Emulation of Climate-Computer Model Biases Under Sparse Upper-Air Ra ['Khattabi, Mustapha El', 'Fassi, Abdelhak Bouzoubaa El']
+   2026-10-21 23541466 Physics-Informed Network Reshaping (PINR) for Western Grid Resilience ['Sundstrom, Andrew']
+   2026-10-20 23510961 THE PUNCTURED TENSOR: HOLONOMY, TERNARY TORSORS, AND THE CONTEXTUAL STRUCTURE OF 2-TO-1 GAMES ['Mehennaoui, Sami']
+   2026-10-18 23448867 Two-level-neural-surrogate v1.0: code and figure data for "Two-level neural surrogate for thin-walle ['Ning, Wei']
+   2026-10-17 23441946 Evenness from Simplicity in the Truncated Weil Quadratic Form and Conditional Spectral Criteria for  ['Mehennaoui, Sami']
+   2026-10-17 23441727 Logarithmic Heat Asymptotics, Zeta Singularities, and Index Stability for Infinite-Order Operators w ['Mehennaoui, Sami']
+   2026-10-17 23440445 Fine Structure of Spectral Asymptotics for Infinite-Order Pseudodifferential Operators with Second-O ['Mehennaoui, Sami']
+   2026-10-12 23307327 Bilişsel Frekansların Elektromanyetik Işık Spektrumuna Dönüştürülmesinde Bilişsel, Fotonik Rezonans  ['ÖZDAL, Mehmet Akif']
+   2026-10-10 23286781 The Mark of Cognition After Control: Reconstructive Addressability and the Boundary Between Adaptive ['Hunt, Treasure A.']

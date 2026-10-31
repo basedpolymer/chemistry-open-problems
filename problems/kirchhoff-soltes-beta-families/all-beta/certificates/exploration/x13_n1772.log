@@ -1,0 +1,15 @@
+n 1772 edges 708985
+Kf(G) time 13.628694295883179 Kf denominators digits 7
+block good Delta~  19.4
+hub not good Delta~  11.3
+root cut vertex
+gadget 0 K_5, j=2, y cut vertex
+gadget 0 K_5, j=2, clique not good Delta~  18.4
+gadget 0 K_5, j=2, leaf not good Delta~  11.9
+gadget 1 K_7, j=6, y cut vertex
+gadget 1 K_7, j=6, clique not good Delta~  10.5
+gadget 1 K_7, j=6, leaf not good Delta~  11.0
+gadget 2 K_11, j=7, y cut vertex
+gadget 2 K_11, j=7, clique not good Delta~  13.4
+gadget 2 K_11, j=7, leaf not good Delta~  12.1
+gadget 3 K_17, j=8, y cut vertex

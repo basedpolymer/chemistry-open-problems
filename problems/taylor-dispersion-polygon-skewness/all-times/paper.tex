@@ -1,0 +1,533 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{Taylor dispersion in regular polygonal ducts: the sign of the skewness at all times}
+\newcommand*{\PaperTitlePlain}{Taylor dispersion in regular polygonal ducts: the sign of the skewness at all times}
+\newcommand*{\PaperShortTitle}{Skewness in regular polygonal ducts at all times}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 31 October 2026 \textperiodcentered{} preliminary, not yet verified}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort not recorded) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{Taylor dispersion, skewness, regular polygon, Neumann heat semigroup, torsion function, interval arithmetic}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\DeclareRobustCommand*{\avg}[1]{\langle #1\rangle}
+\DeclareRobustCommand*{\norm}[1]{\lVert #1\rVert}
+\DeclareRobustCommand*{\bdnorm}[1]{\lVert #1\rVert_{\partial}}
+\DeclareRobustCommand*{\dualnorm}[1]{\lVert #1\rVert_{*}}
+\DeclareRobustCommand*{\ut}{\tilde u}
+\DeclareRobustCommand*{\dd}{\mathop{}\!\mathrm{d}}
+\DeclareRobustCommand*{\Pg}{P_n}
+\DeclareRobustCommand*{\sg}{\mathrm{e}^{s\Delta}}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Aminian, Camassa and McLaughlin claimed from finite-element computations that among regular polygonal ducts the
+equilateral triangle is the only one whose solute skewness changes sign, ``all other polygons possess positive
+skewness at all times'', adding that this ``cannot be proved on finite times''. We prove the claim. For every regular
+\(n\)-gon with \(n\ge4\), every Péclet number and every time, the skewness of a cross-sectionally uniform release with
+symmetric longitudinal profile is strictly positive; the same holds for the disk, and for the equilateral triangle
+the skewness changes sign exactly once. The proof has four parts. An identity writes the third moment as
+\(K(\tau)=2\int_0^\tau\langle u\,A(s)A(\tau-s)\rangle\dd s\), where \(u\) is the mean-free Poiseuille profile and \(A\)
+is the time integral of the Neumann heat flow of \(u\). A maximum-principle argument, valid on every convex section,
+gives an explicit lower bound for \(K\) that is positive on \(0<\tau\le0.015\) for all \(n\) at once, even though
+\(\langle u^3\rangle\to0\) as \(n\to\infty\). A modal approximation of \(A\) with an a-posteriori energy estimate certifies
+\(K>0\) on \([0.015,\infty)\) in ball arithmetic for \(4\le n\le199\). For \(n\ge200\) the same estimate is applied
+with Bessel modes and closed-form disk data, with errors bounded uniformly in \(n\). The paper also collects the
+long- and short-time results of the same problem.
+\end{paperabstract}
+
+\section*{The question}
+
+M.~Aminian, R.~Camassa and R.~M.~McLaughlin~\autocite{ACM2018,ACM2017} study a passive tracer released uniformly across
+a straight duct in pressure-driven flow. The sign of the skewness of its cross-sectionally averaged distribution
+says whether the tracer is front- or back-loaded. The abstract of the arXiv version (v1--v3) says:
+\begin{openquote}
+``Interestingly, the equilateral triangle is the only regular polygon with this property, all other polygons possess
+positive skewness at all times, although this cannot cannot be proved on finite times due to the lack of closed form
+flow solutions for such geometries.''
+\end{openquote}
+``This property'' means positive short-time and negative long-time skewness. The published abstract weakens the
+sentence to ``The equilateral triangle appears to be the only regular polygon with this property---all others possess
+positive skewness at all times.'' The evidence in the source is finite-element computation of the two asymptotic
+coefficients for finitely many \(n\). An earlier stage of the present work~\autocite{Result14} settled the two
+asymptotic signs (\zcref{thm:ends}). The sign at intermediate times was open.
+
+Let \(\Omega\) be the section, \(\ut\) the Poiseuille profile (\(-\Delta\ut=2\), \(\ut=0\) on \(\partial\Omega\)),
+\(u=\ut-\avg{\ut}\), and \(P_s=\sg\) the Neumann heat semigroup on \(\Omega\). Put
+\begin{equation}\label{eq:K}
+A(s)=\int_0^sP_ru\dd r,\qquad K(\tau)=2\int_0^\tau\avg{u\,A(s)\,A(\tau-s)}\dd s .
+\end{equation}
+By \zcref{prop:moments}, the third central moment of the release is \(\mu_3(\tau)=\kappa_3+3\mathrm{Pe}^3K(\tau)\),
+where \(\kappa_3\) is the third cumulant of the initial longitudinal profile, and \(\mu_2(\tau)>0\). So for a symmetric
+longitudinal profile, in particular a plane source, the sign of the skewness is the sign of \(K(\tau)\) for every
+Péclet number.
+
+\begin{theorem}\label{thm:main}
+For every integer \(n\ge4\) and the regular \(n\)-gon, \(K(\tau)>0\) for all \(\tau>0\). Hence the skewness is strictly
+positive at all times, for every Péclet number and every cross-sectionally uniform release with symmetric longitudinal
+profile. The same holds for the disk.
+\end{theorem}
+
+\begin{theorem}\label{thm:triangle}
+For the equilateral triangle \(K\) has exactly one zero \(\tau^*\) on \((0,\infty)\), simple, with \(K>0\) before and
+\(K<0\) after; \(\tau^*\in[1.17,1.25]\) in the time unit \(a^2/\kappa\), \(a\) the inradius.
+\end{theorem}
+
+\begin{theorem}[note=the two ends]\label{thm:ends}
+Let \(g\) be the mean-free solution of \(-\Delta g=u\), \(\partial_ng=0\). Then
+\(K(\tau)=2\avg{ug^2}\tau+O(1)\) as \(\tau\to\infty\) and \(K(\tau)=\avg{u^3}\tau^3/3+O(\tau^{7/2})\) as \(\tau\to0\), and
+\begin{enumerate}
+\item \(\avg{ug^2}=-7101/476476000<0\) for \(n=3\), and \(\avg{ug^2}>0\) for every \(n\ge4\) and for the disk;
+\item \(\avg{u^3}=27/19250\) for \(n=3\) (inradius 1), \(\avg{u^3}>0\) for every \(n\ge4\), \(\avg{u^3}=0\) for the disk, and
+\(\avg{u^3}=\tan^4(\pi/n)/360+O(\tan^5(\pi/n))\).
+\end{enumerate}
+\end{theorem}
+
+In the notation of the source \(2\avg{ug^2}=\avg{ug_2}\), see~\eqref{eq:Sinf}. The certified quantities behind \zcref{thm:main} reprove item~1 of \zcref{thm:ends}
+independently of~\autocite{Result14}. \zcref{sec:table} gives enclosures of all entries of Table~1 of the source.
+
+\begin{remark}
+\zcref{thm:main} needs \(\kappa_3=0\). For a non-symmetric longitudinal profile
+\(\mu_3=\kappa_3+3\mathrm{Pe}^3K\), and the sign depends on the data. The results concern the moments of the
+Aris hierarchy, exactly as in the source.
+\end{remark}
+
+\section{Exact formulas}\label{sec:formulas}
+
+Throughout, \(\Pg\) is the regular \(n\)-gon with apothem \(1\) and side \(\{x=1,\ |y|\le t\}\), \(t=\tan(\pi/n)\),
+\(R=\sec(\pi/n)=\sqrt{1+t^2}\), \(|\Pg|=nt\), \(|\partial\Pg|=2nt\). For a section \(\Omega\) we write
+\(\avg f=|\Omega|^{-1}\int_\Omega f\), \(\norm f^2=\avg{f^2}\), \(\bdnorm f^2=|\Omega|^{-1}\oint_{\partial\Omega}f^2\).
+Further \(c=\avg{\ut}\), \(u=\ut-c\), \(m=-\partial_n\ut\ge0\) (with \(|\Omega|^{-1}\oint m=2\)). All statements are
+invariant under dilations, with \(\tau\) scaling like a length squared. We write \(g\) for the function \(g_1\) of the
+source and \(\mathcal T(f,h)=\avg{ufh}\).
+
+The tracer solves \(T_\tau+\mathrm{Pe}\,uT_x=\Delta_3T\) in \(\mathbb R\times\Omega\), \(\partial_nT=0\),
+\(T(x,\cdot,0)=\varrho(x)\), \(\varrho\ge0\), \(\int\varrho=1\), with finite moments, and
+\(\int x\varrho=0\) after a translation. The moments \(c_p(\cdot,\tau)=\int x^pT\dd x\) solve the Aris hierarchy
+\(\partial_\tau c_p=\Delta c_p+p(p-1)c_{p-2}+p\,\mathrm{Pe}\,uc_{p-1}\), \(\partial_nc_p=0\), \(c_p(0)=\int x^p\varrho\)~\autocite{Aris1956}.
+
+\begin{proposition}\label{prop:moments}
+\(\mu_2(\tau)>0\) and \(\mu_3(\tau)=\kappa_3+3\mathrm{Pe}^3K(\tau)\) with \(K\) as in~\eqref{eq:K}. Moreover, with
+\(G(a,b)=\avg{u\,P_au\,P_bu}\),
+\begin{equation}\label{eq:KG}
+K(\tau)=2\iint_{a,b\ge0,\ a+b\le\tau}(\tau-a-b)\,G(a,b)\dd a\dd b ,
+\end{equation}
+\(A(s)=g-P_sg\), and \(K(\tau)=2\avg{ug^2}\tau+O(1)\) as \(\tau\to\infty\). If \(g_2\) is the mean-free solution of
+\(-\Delta g_2=2(ug-\avg{ug})\), \(\partial_ng_2=0\), then \(\avg{ug_2}=2\avg{ug^2}\) and
+\begin{equation}\label{eq:Sinf}
+\tau^{1/2}\mathrm{Sk}(\tau)\to\frac{3\mathrm{Pe}^3\avg{ug_2}}{(2+2\mathrm{Pe}^2\avg{ug})^{3/2}}\ ,
+\end{equation}
+which is equation~(17) of the source.
+\end{proposition}
+\begin{proof}
+\(c_0=1\), \(c_1=\mathrm{Pe}\,A\), \(\avg{c_1}=0\). Next \(c_2=\int x^2\varrho+2\tau+\mathrm{Pe}^2S\) with
+\(S'=\Delta S+2uA\), \(S(0)=0\). Hence \(\mu_2'=2+2\mathrm{Pe}^2\avg{uA}\) with
+\(\avg{uA(s)}=\int_0^s\norm{P_{r/2}u}^2\dd r\ge0\), so \(\mu_2>0\). Further \(\frac{\dd}{\dd\tau}\avg{c_3}=6\avg{c_1}+3\mathrm{Pe}\avg{uc_2}
+=3\mathrm{Pe}^3\avg{uS}\). By Duhamel and self-adjointness, \(\avg{uS(\sigma)}=2\int_0^\sigma\avg{A'(\sigma-s)\,u\,A(s)}\dd s\).
+Integrating over \(\sigma\in[s,\tau]\) with \(A(0)=0\) gives~\eqref{eq:K}, and~\eqref{eq:KG} follows by inserting
+\(A(s)=\int_0^sP_ru\dd r\): for \(r+q\le\tau\) the variable \(s\) runs over an interval of length \(\tau-r-q\).
+Spectrally \(A(s)=g-P_sg\). Insert this into~\eqref{eq:K}. The terms containing \(P_sg\) stay bounded because of the
+spectral gap: \(\int_0^\tau|\mathcal T(g,P_sg)|\dd s\) is bounded, and \(|\mathcal T(P_sg,P_{\tau-s}g)|\le C\mathrm e^{-\nu\tau}\).
+So \(K=2\avg{ug^2}\tau+O(1)\). For small \(\tau\), \(\norm{P_au-u}\le0.64\sqrt a\norm{\nabla u}\) spectrally and \(u\) is bounded, so \(|G(a,b)-\avg{u^3}|\le C(\sqrt a+\sqrt b)\) and~\eqref{eq:KG} gives \(K=\avg{u^3}\tau^3/3+O(\tau^{7/2})\). Testing the two weak forms against \(g_2\) and \(g\) gives
+\(\avg{ug_2}=\avg{\nabla g\cdot\nabla g_2}=2\avg{ug^2}\); and \(\mu_2\sim(2+2\mathrm{Pe}^2\avg{ug})\tau\).
+\end{proof}
+
+\section{Tools}\label{sec:tools}
+
+Let \(V\) be the space of \(D_n\)-invariant, mean-free functions in \(H^1(\Pg)\). Such a function is determined by its
+restriction to the half-sector \(T=\{0\le y\le tx,\ x\le1\}\), a right triangle of diameter \(R\), and its restriction
+is mean-free on \(T\). The functions \(u\), \(g\), \(P_su\), \(P_sg\), \(A(s)\) lie in \(V\). Payne--Weinberger on the convex set
+\(T\)~\autocite{PayneWeinberger1960,Bebendorf2003} gives
+\begin{equation}\label{eq:PW}
+\norm\varphi\le C_P\norm{\nabla\varphi},\quad C_P=\frac R\pi,\qquad \norm{P_s\varphi}\le\mathrm e^{-\nu s}\norm\varphi,\quad
+\nu=\frac{\pi^2}{R^2}\qquad(\varphi\in V).
+\end{equation}
+Since \(x\cdot n=1\) on \(\partial\Pg\), \(\bdnorm\varphi^2=\avg{\operatorname{div}(x\varphi^2)}=2\norm\varphi^2+2\avg{\varphi\,x\cdot\nabla\varphi}\), so
+\begin{equation}\label{eq:trace}
+\bdnorm\varphi\le\tau_{\mathrm{tr}}\norm{\nabla\varphi},\qquad\tau_{\mathrm{tr}}^2=2C_P^2+2RC_P .
+\end{equation}
+For \(R_*\in L^2\), \(b\in L^2(\partial\Pg)\) the functional \(\ell(\varphi)=\avg{R_*\varphi}+|\Pg|^{-1}\oint b\varphi\) on
+\(V\) has dual norm \(\dualnorm\ell=\sup_{\varphi\in V}|\ell(\varphi)|/\norm{\nabla\varphi}\le C_P\norm{R_*-\avg{R_*}}+\tau_{\mathrm{tr}}\bdnorm b\).
+
+\begin{lemma}\label{lem:harmonic}
+Let \(E\in H^2(\Pg)\) be harmonic. Then \(\norm E^2\le\frac{1+R}2\bdnorm E^2\) and
+\(\bdnorm{\partial_nE}\le(t+R)\bdnorm{\partial_sE}\).
+\end{lemma}
+\begin{proof}
+\(\ut\in H^2(\Pg)\) by convexity~\autocite{Grisvard1985}. Green's identities give
+\(2\int E^2=-2\int\ut|\nabla E|^2+\oint E^2m\). On a side, \(\ut\le(1-x)(x+R)\) by the maximum principle, so \(m\le1+R\).
+The second bound is the Rellich identity: the field \((x\cdot\nabla E)\nabla E-\frac12|\nabla E|^2x\) is divergence-free. With
+\(x\cdot n=1\) and \(x\cdot\nabla E=\partial_nE+\sigma\partial_sE\), \(|\sigma|\le t\), on a side, this gives
+\(X^2\le Y^2+2tXY\) for \(X=\bdnorm{\partial_nE}\), \(Y=\bdnorm{\partial_sE}\).
+\end{proof}
+
+\begin{lemma}[note=cell problem]\label{lem:cell}
+Let \(\ut_H\) be a \(D_n\)-invariant polynomial with \(-\Delta\ut_H=2\), and \(g_H\) a \(D_n\)-invariant polynomial with
+\(-\Delta g_H=\ut_H-\avg{\ut_H}\). Then
+\[
+\norm{g-(g_H-\avg{g_H})}\le C_P\Bigl(C_P\bigl(\tfrac{1+R}2\bigr)^{1/2}\bdnorm{\ut_H}+\tau_{\mathrm{tr}}\bdnorm{\partial_ng_H}\Bigr).
+\]
+\end{lemma}
+\begin{proof}
+\(E=\ut-\ut_H\) is harmonic, in \(H^2\), and equals \(-\ut_H\) on \(\partial\Pg\). For \(w=g-g_H+\avg{g_H}\in V\) and \(\varphi\in V\),
+\(\avg{\nabla w\cdot\nabla\varphi}=\avg{(E-\avg E)\varphi}-|\Pg|^{-1}\oint\varphi\,\partial_ng_H\). Use~\eqref{eq:PW},~\eqref{eq:trace} and
+\zcref{lem:harmonic}.
+\end{proof}
+
+\begin{lemma}[note=modal approximation of \(A\)]\label{lem:modal}
+Let \(\hat g\in V\), \(\psi_1,\dots,\psi_M\in V\), \(\mu_k>0\), \(d_k\in\mathbb R\), and let
+\(\ell_k(\varphi)=\avg{\nabla\psi_k\cdot\nabla\varphi}-\mu_k\avg{\psi_k\varphi}\) on \(V\). Put
+\(\tilde A(s)=\hat g-\sum_kd_k\mathrm e^{-\mu_ks}\psi_k\). If \(\norm{g-\hat g}\le\omega\), \(\norm{\hat g-\sum_kd_k\psi_k}\le\rho\) and
+\(L_1=\sum_k|d_k|\dualnorm{\ell_k}(2\mu_k)^{-1/2}\), then
+\[
+\norm{A(s)-\tilde A(s)}\le\Delta_0:=2\omega+\rho+L_1\qquad(s\ge0).
+\]
+\end{lemma}
+\begin{proof}
+\(y(s)=P_sg-\sum_kd_k\mathrm e^{-\mu_ks}\psi_k\) satisfies \(\avg{y'\varphi}+\avg{\nabla y\cdot\nabla\varphi}=-\sum_kd_k\mathrm e^{-\mu_ks}\ell_k(\varphi)\)
+on \(V\). With \(\varphi=y\), \(\frac{\dd}{\dd s}\norm y^2\le-2\norm{\nabla y}^2+2\ell(s)\norm{\nabla y}\le\ell(s)^2\), where
+\(\ell(s)=\sum_k|d_k|\mathrm e^{-\mu_ks}\dualnorm{\ell_k}\). By Minkowski's inequality \(\int_0^\infty\ell^2\le L_1^2\), so
+\(\norm{y(s)}\le\norm{y(0)}+L_1\le\omega+\rho+L_1\). Finally \(A(s)-\tilde A(s)=(g-\hat g)-y(s)\).
+\end{proof}
+
+\begin{lemma}[note=comparison]\label{lem:compare}
+In the setting of \zcref{lem:modal} let \(w\) be bounded with \(\norm w_\infty\le U\), \(\norm{u-w}_\infty\le o\), and
+\(\tilde K(\tau)=2\int_0^\tau\avg{w\tilde A(s)\tilde A(\tau-s)}\dd s\). Then \(|K(\tau)-\tilde K(\tau)|\le\mathcal E(\tau)\), where
+\[
+\mathcal E(\tau)=2U\bigl(2\Delta_0\min(\tfrac12\tau^2\norm u,\tau\norm g)+\Delta_0^2\tau\bigr)+2o\min(\tfrac16\tau^3\norm u^2,\tau\norm g^2).
+\]
+\end{lemma}
+\begin{proof}
+\(\norm{A(s)}\le\min(s\norm u,\norm g)\) by the spectral theorem. With \(e=A-\tilde A\),
+\(\avg{uA(s)A(s')}-\avg{w\tilde A(s)\tilde A(s')}=\avg{(u-w)A(s)A(s')}+\avg{we(s)A(s')}+\avg{w\tilde A(s)e(s')}\) and
+\(\norm{\tilde A}\le\norm A+\Delta_0\). Integrate.
+\end{proof}
+
+If \(\tilde A(s)=\sum_{k=0}^MD_k\mathrm e^{-\mu_ks}\psi_k\) with \(\mu_0=0\), \(\psi_0=\hat g\), \(D_0=1\), \(D_k=-d_k\), and
+\(W_{kl}=D_kD_l\avg{w\psi_k\psi_l}\), then
+\begin{equation}\label{eq:Ktilde}
+\tilde K(\tau)=2\sum_{k,l=0}^MW_{kl}E_{kl}(\tau),\qquad E_{kl}(\tau)=\int_0^\tau\mathrm e^{-\mu_ka-\mu_l(\tau-a)}\dd a .
+\end{equation}
+Writing \(E_{kl}=\tau\int_0^1\mathrm e^{-\tau(\theta\mu_k+(1-\theta)\mu_l)}\dd\theta\) and using
+\(\sup_{x\ge0}(3x^2+x^3)\mathrm e^{-x}<3\) gives \(|\partial_\tau^3E_{kl}|\le3\tau^{-2}\). So
+\begin{equation}\label{eq:Taylor}
+|\tilde K'''(\tau)|\le6\tau^{-2}\sum_{k,l}|W_{kl}|,
+\end{equation}
+and \(0\le E_{kl}\le1/\max(\mu_k,\mu_l)\) for \((k,l)\ne(0,0)\), so that \(\tilde K(\tau)\ge2W_{00}\tau-C_1\) with
+\(C_1=2\sum_{(k,l)\ne(0,0)}|W_{kl}|/\max(\mu_k,\mu_l)\).
+
+\section{Short times, uniformly in the section}\label{sec:short}
+
+In this section \(\Omega\) is any bounded convex polygon or the disk. Let \(F(s)=\avg{uP_su}\). This is the only place
+where the boundary layer is treated, and no discretisation enters.
+
+\begin{lemma}\label{lem:layer}
+\(\Gamma_s:=P_su-u+2s\ge0\) and \(\avg{\Gamma_s}=2s\). Moreover \(\Lambda(s):=\avg{\ut\,\Gamma_s}\) satisfies
+\[
+F(s)=\avg{u^2}-2cs+\Lambda(s),\qquad \Lambda(s)=\int_0^s|\Omega|^{-1}\oint_{\partial\Omega}m\,P_r\ut\dd\sigma\dd r .
+\]
+\end{lemma}
+\begin{proof}
+For \(\varphi\in H^1\) Green's identity gives \(\avg{\nabla u\cdot\nabla\varphi}=2\avg\varphi-|\Omega|^{-1}\oint m\varphi\). So
+\(\avg{\partial_s\Gamma_s\,\varphi}+\avg{\nabla\Gamma_s\cdot\nabla\varphi}=|\Omega|^{-1}\oint m\varphi\), \(\Gamma_0=0\). Since \(m\ge0\),
+testing with the negative part gives \(\Gamma_s\ge0\); testing with \(\varphi=1\) gives the mean. Next
+\(\avg{\ut\Gamma_s}=\avg{uP_su}+c\avg{P_su}-\avg{\ut u}+2sc=F(s)-\avg{u^2}+2cs\). Finally
+\(F'(r)=-\avg{\nabla u\cdot\nabla P_ru}=|\Omega|^{-1}\oint mP_ru=|\Omega|^{-1}\oint mP_r\ut-2c\).
+\end{proof}
+
+\begin{lemma}[note=barrier]\label{lem:barrier}
+Let \(d\) be the distance to \(\partial\Omega\) and suppose \(\ut\le\bar m\,d+\beta\) on \(\Omega\). Then
+\(\Lambda(s)\le\frac{8}{3\sqrt\pi}\bar m\,s^{3/2}+2\beta s\).
+\end{lemma}
+\begin{proof}
+Let \(Z(y,r)=\mathbb E|y+\sqrt{2r}\,N|\), \(N\) standard normal. It solves \(Z_r=Z_{yy}\), with \(Z(y,0)=|y|\), \(Z_y(0,r)=0\),
+\(Z_y\ge0\) on \(y\ge0\), and \(Z(0,r)=2\sqrt{r/\pi}\). Put \(\zeta(x,r)=Z(d(x),r)\). For \(\varphi\ge0\) in \(H^1(\Omega)\) we get
+\(\avg{\zeta_r\varphi}+\avg{\nabla\zeta\cdot\nabla\varphi}=\avg{\nabla d\cdot\nabla(Z_y(d,r)\varphi)}\ge0\): the function
+\(Z_y(d,r)\varphi\) is non-negative and vanishes on \(\partial\Omega\), and \(d\) is concave. So \(\zeta\) is a supersolution and
+\(P_rd\le\zeta\), in particular \(P_rd\le2\sqrt{r/\pi}\) on \(\partial\Omega\). Then \(P_r\ut\le\bar m\,2\sqrt{r/\pi}+\beta\) on
+\(\partial\Omega\). Insert this in \zcref{lem:layer}, using \(|\Omega|^{-1}\oint m=2\).
+\end{proof}
+
+\begin{proposition}\label{prop:G}
+With \(E:=c^2-\avg{u^2}\), for all \(a,b\ge0\),
+\[
+G(a,b)\ge\avg{u^3}+2E(a+b)+4abc-(c+2b)\Lambda(a)-(c+2a)\Lambda(b)-c\Lambda(a+b).
+\]
+\end{proposition}
+\begin{proof}
+\(G(a,b)=\avg{\ut P_auP_bu}-cF(a+b)\). Write \(P_au=u-2a+\Gamma_a\) and expand. Since \(\ut\ge0\) and \(\Gamma\ge0\):
+\(\avg{\ut\Gamma_a\Gamma_b}\ge0\); \(\avg{\ut(u-2a)\Gamma_b}=\avg{\ut^2\Gamma_b}-(c+2a)\Lambda(b)\ge-(c+2a)\Lambda(b)\), and likewise with
+\(a,b\) exchanged; and \(\avg{\ut(u-2a)(u-2b)}=\avg{u^3}+c\avg{u^2}-2(a+b)\avg{u^2}+4abc\). Finally use
+\(F(a+b)=\avg{u^2}-2c(a+b)+\Lambda(a+b)\).
+\end{proof}
+
+\begin{proposition}\label{prop:short}
+Let \(\avg{u^3}\ge0\), \(\Lambda(s)\le Ls^{3/2}+Bs\), and let \(\tau_0>0\) satisfy
+\begin{equation}\label{eq:S}
+S(\tau_0):=\frac{E-cB}3-\frac8{35}cL\tau_0^{1/2}-\frac{128}{3465}L\tau_0^{3/2}-\frac B{15}\tau_0>0 .
+\end{equation}
+Then \(K(\tau)\ge\frac13\avg{u^3}\tau^3+S(\tau_0)\tau^4>0\) on \((0,\tau_0]\).
+\end{proposition}
+\begin{proof}
+By~\eqref{eq:KG} and \zcref{prop:G}, integrate against \(2(\tau-a-b)\ge0\) on the triangle. Dirichlet integrals give the
+weights \(2\iint(\tau-a-b)=\tau^3/3\), \(2\iint(\tau-a-b)(a+b)=\tau^4/6\), \(2\iint(\tau-a-b)4ab=\tau^5/15\),
+\(2\iint(\tau-a-b)a^{3/2}=\frac{16}{315}\tau^{9/2}\), \(2\iint(\tau-a-b)(a+b)^{3/2}=\frac8{63}\tau^{9/2}\),
+\(2\iint(\tau-a-b)ba^{3/2}=\frac{32}{3465}\tau^{11/2}\). Thus
+\[
+K\ge\tfrac13\avg{u^3}\tau^3+\tfrac13(E-cB)\tau^4+\tfrac c{15}\tau^5-\tfrac8{35}cL\tau^{9/2}-\tfrac{128}{3465}L\tau^{11/2}-\tfrac B{15}\tau^5,
+\]
+and \(S(\tau)\) decreases in \(\tau\).
+\end{proof}
+
+\begin{remark}\label{rem:E}
+So \(K=\frac13\avg{u^3}\tau^3+\frac13E\tau^4+O(\tau^{9/2})\). For the triangle (inradius 1), \(E=9/100-27/700=9/175\), which
+reproduces the coefficient in equation~(14) of the source, \(\mu_3\sim\frac{27}{19250}\mathrm{Pe}^3\tau^3+\frac9{175}\mathrm{Pe}^3\tau^4\). For
+the disk \(E=1/24\), so \(K\sim\tau^4/72\). The point of \zcref{prop:short} is that \(E\) stays near \(1/24\) as \(n\to\infty\) while
+\(\avg{u^3}\to0\): the window \((0,\tau_0]\) does not shrink.
+\end{remark}
+
+For a polynomial \(\ut_L\) with \(-\Delta\ut_L=2\) on \(\Pg\) let \(\theta_-\le\ut_L\le\theta_+\) on \(\partial\Pg\) and let \(\bar m\)
+bound \(|\nabla\ut_L|\) on \(\partial\Pg\); then \(|\nabla\ut_L|\le\bar m\) on \(\Pg\), as \(|\nabla\ut_L|^2\) is subharmonic. The maximum
+principle gives \(\ut\le\ut_L-\theta_-\) and \(\ut_L\le\theta_++\bar md\), so \zcref{lem:barrier} applies with
+\(\beta=\theta_+-\theta_-\). Also \(c\) and \(\norm u\) are enclosed by the corresponding quantities of \(\ut_L\), within
+\(\theta_+-\theta_-\).
+
+\section{The third moment}\label{sec:u3}
+
+\begin{proposition}\label{prop:u3}
+\(\avg{u^3}>0\) for every \(n\ge3\).
+\end{proposition}
+For \(n=3\) the value is \(27/19250\) (\zcref{sec:triangle}). For \(n\ge4\) we use the following.
+
+\begin{lemma}\label{lem:Hsmall}
+On \(\Pg\) let \(Y=\frac12(1-r^2)+t^2/6\) and \(H=\ut-Y\). Then \(H\) is harmonic, \(H=\sigma^2/2-t^2/6\) on the side at arclength
+\(\sigma\) from its midpoint, \(-t^2/6\le H\le t^2/3\), and \(H_c=H-\avg H\) satisfies
+\(\norm{H_c}^2\le\frac{t^4}{16}\bigl(\frac1{n+1}+\frac43t^2\bigr)\).
+\end{lemma}
+\begin{proof}
+On the unit circle, inside \(\Pg\), \(|H-t^2/12|\le t^2/4\) by the maximum principle. There \(H=\beta_0+\sum_{k\ge1}\beta_kr^{nk}\cos(nk\theta)\),
+so \(\frac12\sum\beta_k^2\le t^4/16\), and the circular mean of \((H-\beta_0)^2\) at radius \(r\le1\) is at most
+\(r^{2n}t^4/16\). Integrating, \(\int_{r<1}(H-\beta_0)^2\le\frac{\pi}{n+1}\frac{t^4}{16}\). On \(\Pg\setminus\{r<1\}\), of area
+\(nt-\pi\le nt\cdot t^2/3\), \(|H-\beta_0|\le t^2/2\). Divide by \(|\Pg|=nt\ge\pi\), and note \(\norm{H_c}\le\norm{H-\beta_0}\).
+\end{proof}
+
+Let \(Y_c=Y-\avg Y=\frac14+\frac{t^2}{12}-\frac{r^2}2\), \(\phi=Y_c^2-\avg{Y_c^2}\), \(\Phi\) the radial polynomial with
+\(-\Delta\Phi=\phi\), and \(\varrho_\Phi=\Phi-\text{(mean of }\Phi\text{ on the side)}\) on \(\partial\Pg\). Since \(u=Y_c+H_c\), Green's identity gives
+\[
+\avg{u^3}=M(t)+\frac3{|\Pg|}\oint\varrho_\Phi\,\partial_nH+3\avg{Y_cH_c^2}+\avg{H_c^3},
+\qquad M(t)=\avg{Y_c^3}-\frac3{|\Pg|}\oint H\,\partial_n\Phi=\frac{t^4}{360}+\frac{19t^6}{7560},
+\]
+the last equality being an exact polynomial identity. By \zcref{lem:harmonic}, \(|\frac3{|\Pg|}\oint\varrho_\Phi\partial_nH|\le6(t+R)t^5(q(t)/3)^{1/2}\), where
+\(\int_0^t\varrho_\Phi^2=t^9q(t)\), \(q(0)=1/4082400\). By \zcref{lem:Hsmall} and \(1/(n+1)\le t/\pi\),
+\(|3\avg{Y_cH_c^2}+\avg{H_c^3}|\le(\frac34+\frac54t^2+\frac12t^2)\frac{t^4}{16}(\frac t\pi+\frac43t^2)\). In interval arithmetic the
+resulting lower bound for \(\avg{u^3}/t^4\) is at least \(1.06\cdot10^{-3}\) on \((0,\tan(\pi/40)]\) (\texttt{u3\_uniform.py}), so \(\avg{u^3}>0\) for
+\(n\ge40\). The same bounds give \(\avg{u^3}=t^4/360+O(t^5)\). The script \texttt{sg\_uniform.py} of~\autocite{Result14}, based on an explicit Fourier approximant of \(H\), gives a second proof for \(n\ge140\).
+
+For \(4\le n\le150\), let \(\ut_N\) be a polynomial with \(-\Delta\ut_N=2\), \(E=\ut-\ut_N\), \(f=E-\avg E\), \(u_N=\ut_N-\avg{\ut_N}\), and
+\(\Phi\) a polynomial with \(-\Delta\Phi=u_N^2-\avg{u_N^2}\). Then
+\(\avg{u^3}=\avg{u_N^3}+3|\Pg|^{-1}\oint(\Phi\partial_nE+\ut_N\partial_n\Phi)+3\avg{u_Nf^2}+\avg{f^3}\), and \zcref{lem:harmonic} bounds the
+last terms and the term containing \(\partial_nE\). The script \texttt{sg\_certify.py} of~\autocite{Result14} evaluates this in ball
+arithmetic; we re-ran it for this paper, and all \(147\) cases pass.
+
+\section{Certified computation: \texorpdfstring{\(4\le n\le199\)}{4 <= n <= 199}}\label{sec:finite}
+
+Fix \(\tau_0=0.015\). For each \(n\) the script \texttt{finite\_n.py} checks~\eqref{eq:S} and \(K>0\) on \([\tau_0,\infty)\).
+
+\paragraph{Exact integration.} Let \(p=x^2+y^2\), \(q=\operatorname{Re}(x+\mathrm iy)^n\). Every \(D_n\)-invariant polynomial is a polynomial in \(p,q\). For a
+homogeneous function \(F_d\) of degree \(d\), cone coordinates on \(T\) give
+\(\avg{F_d}=\frac2{d+2}\frac1t\int_0^tF_d(1,\sigma)\dd\sigma\). The integrand is a polynomial in \(\sigma\), integrated exactly by Gauss--Legendre
+rules with ball enclosures of nodes and weights. Thus all moments \(\avg{p^aq^k}\) are enclosed, and products reduce to these
+moments. Also \(\Delta(p^aq^k)=4a(a+nk)p^{a-1}q^k+n^2k(k-1)p^{a+n-1}q^{k-2}\), and on the side \(\partial_xp=2\),
+\(\partial_xq=n\operatorname{Re}(1+\mathrm i\sigma)^{n-1}\). All arithmetic is in Arb~\autocite{Arb} through python-flint, at 3000 or 5000 bits.
+
+\paragraph{Approximants.} With \(h_k=\operatorname{Re}((x+\mathrm iy)/R)^{nk}\) we take
+\(\ut_H=\frac12(1-p)+\sum_{k=0}^{K_H}a_kh_k\) and
+\(g_H=\frac{p^2}{32}+\beta p+\sum_{k=1}^{K_H}(\gamma_kp+b_k)h_k\), with \(\gamma_k=-a_k/(4(1+nk))\), \(\beta=-\frac14(\frac12-\avg{\ut_H}+a_0)\), so that
+\(-\Delta g_H=\ut_H-\avg{\ut_H}\) exactly. The coefficients are dyadic numbers from floating-point least squares on the side.
+\zcref{lem:cell} involves only one-dimensional integrals, so \(K_H=24\) to \(40\) is cheap. A second pair \((\ut_L,g_L)\) of the same form,
+with \(K_L\le8\), enters all two-dimensional integrals; \(\norm{g_H-g_L}\) is computed from the Gram matrix of the functions
+\(p\), \(ph_k\), \(h_k\) by the cone formula. So \(\omega=\norm{g-g_L}\) is enclosed, with \(\hat g=g_L-\avg{g_L}\). We take \(w=\ut_L-\avg{\ut_L}\)
+in \zcref{lem:compare}; then \(o=\theta_+-\theta_-\), and \(U\) comes from a grid of \(T\) plus the Lipschitz bound.
+
+\paragraph{Modes.} On the span of the scaled monomials \((p/R^2)^a(q/R^n)^k\) with (\(k=0\), \(a\le A_0\)) or
+(\(1\le k\le K_q\), \(a\le A_1\)) we compute Gram and stiffness matrices in ball arithmetic, a Cholesky factor, and the Ritz pairs in
+double precision. We keep the \(M\) pairs with \(\mu_k\le800\) and subtract means; \(\mu_k,d_k\) and the coefficients are exact binary
+numbers. How they were found is irrelevant for rigour. Then \(\dualnorm{\ell_k}\le C_P\norm{R_k-\avg{R_k}}+\tau_{\mathrm{tr}}\bdnorm{\partial_n\psi_k}\) with
+\(R_k=-\Delta\psi_k-\mu_k\psi_k\), and \(\rho\), \(L_1\), \(\Delta_0\) of \zcref{lem:modal} and the matrix \(W_{kl}\) of~\eqref{eq:Ktilde} are enclosed.
+
+\paragraph{The inequality.} On the grid \(\tau_{j+1}=1.02\,\tau_j\) (for \(\tau_j<0.2\)), \(\tau_{j+1}=1.1\,\tau_j\) (beyond), from \(\tau_0\) to \(40\), the
+script encloses \(\tilde K,\tilde K',\tilde K''\) at \(\tau_j\) and verifies, with the bound~\eqref{eq:Taylor} on \(\tilde K'''\) and \(\mathcal E\) increasing,
+that the lower Taylor bound on \([\tau_j,\tau_{j+1}]\) exceeds \(\mathcal E(\tau_{j+1})\). For \(\tau\ge40\) it verifies
+\((2W_{00}-e_1)40>C_1\), with \(e_1\tau\ge\mathcal E(\tau)\) the linear bound of \zcref{lem:compare}. In particular \(2W_{00}-e_1>0\) gives \(\avg{ug^2}>0\).
+
+\begin{proposition}\label{prop:finite}
+For every \(4\le n\le200\), \(K>0\) on \([0.015,\infty)\) and \(S(0.015)>0\).
+\end{proposition}
+
+\zcref{tab:finite} shows sample data. The smallest value of \((\text{lower bound}-\mathcal E)/\tilde K\) over all \(n\) and grid points is
+attained at \(\tau_0\); the minimum over all \(n\) is \(0.29\), at \(n=21\). The smallest \(S(	au_0)\) is \(1.3\cdot10^{-4}\), at \(n=4\). The table gives \(\tilde K(\tau_0)\) and \(\mathcal E\) at the next grid point.
+
+\begin{table}
+\centering
+\small
+\input{table-finite}
+\caption{Certificates of \zcref{prop:finite}, sample of \(n\). All numbers are rounded to the digits shown, \(\tau_0=0.015\).
+Full data: \texttt{certificates/finite\_4\_200.json}.}
+\label{tab:finite}
+\end{table}
+
+\section{All \texorpdfstring{\(n\ge200\)}{n >= 200} and the disk}\label{sec:large}
+
+Now rescale \(\Pg\) to area \(\pi\): call it \(\mathcal P\), with apothem \(a\), \(a^2=\arctan(t)/t\), and circumradius \(v=aR\). The alternating
+series of \(\arctan\) gives \(1-t^2/3\le a^2\le1-t^2/3+t^4/5\) and \(v^2\le1+\frac23t^2\). Time scales by \(a^2\). Let \(j_k\) be positive zeros of \(J_1\),
+\(\mu_k=j_k^2\), \(\psi_k(r)=J_0(j_kr)/J_0(j_k)\), and on the unit disk \(D\)
+\[
+\bar u=\tfrac14-\tfrac12r^2,\qquad g_0=\tfrac1{32}r^4-\tfrac1{16}r^2+\tfrac1{48},\qquad -\Delta g_0=\bar u,\quad g_0'(1)=0,\quad\avg{g_0}_D=0.
+\]
+\begin{lemma}[note=disk data]\label{lem:disk}
+In \(L^2(D)\) with the average product, the \(\psi_k\) are orthonormal, \(\avg{\bar u\psi_k}_D=-2/\mu_k\), \(\avg{g_0\psi_k}_D=-2/\mu_k^2\),
+\(\avg{g_0^2}_D=1/11520\), \(\avg{\bar ug_0^2}_D=1/184320\), and
+\[
+\avg{\bar u\psi_k^2}_D=\frac1{12},\quad\avg{\bar u\psi_k\psi_l}_D=-\frac{2(\mu_k+\mu_l)}{(\mu_k-\mu_l)^2}\ (k\ne l),\quad
+\avg{\bar ug_0\psi_k}_D=\frac{\mu_k^2+96\mu_k-1728}{48\mu_k^3}.
+\]
+\end{lemma}
+\begin{proof}
+For a radial polynomial \(f\), Green's identity with \(\psi_k(1)=1\), \(\psi_k'(1)=0\) gives \(\avg{f\psi_k}_D=\mu_k^{-1}(2f'(1)-\avg{\psi_k\Delta f}_D)\),
+which terminates. For the products, let \(E=\int_0^1r^2\psi_l\psi_k'\dd r\), \(F=\int_0^1r^2\psi_k\psi_l'\dd r\) with \(k\ne l\). Integration by parts gives \(E+F=1\). Multiplying
+the two Bessel equations by \(r^2\psi_l'\), \(r^2\psi_k'\) and adding gives \(\mu_kF+\mu_lE=0\). Also \((\mu_k-\mu_l)2\int_0^1r^3\psi_k\psi_l\dd r=4(E-F)\). So
+\(\avg{r^2\psi_k\psi_l}_D=4(\mu_k+\mu_l)/(\mu_k-\mu_l)^2\). The Pohozaev identity \(\int_0^1r^4\psi_k'(\psi_k''+\psi_k'/r+\mu_k\psi_k)\dd r=0\) gives
+\(\avg{r^2\psi_k^2}_D=1/3\).
+\end{proof}
+
+With \(D_0=1\), \(\psi_0=g_0\), \(\mu_0=0\), \(D_k=2/\mu_k^2\), \(M=12\), let \(W_{kl}=D_kD_l\avg{\bar u\psi_k\psi_l}_D\) and define \(K_D\) by~\eqref{eq:Ktilde}. This is a
+fixed function, independent of \(n\). On \(\mathcal P\) we use \(\hat g=g_0-\avg{g_0}\) and \(\psi_k-\avg{\psi_k}\), with averages over \(\mathcal P\). Set \(x=t^2\).
+
+\begin{lemma}\label{lem:largeerrors}
+On \(\mathcal P\), let \(C_P=v/\pi\), \(\tau_{\mathrm{tr}}^2=(2C_P^2+2vC_P)/a\). The following bounds hold, every right-hand side being increasing in \(t\):
+\begin{enumerate}
+\item \(H=\ut-\frac12(1-r^2)\) is harmonic, its oscillation on \(\mathcal P\) is at most \(x/2\), and \(\norm{H_c}\le\frac x4(t/\pi+\frac43x)^{1/2}\);
+\item the flux of \(g_0\) is \(e_0=\frac a8(r^2-1)\) on the side, and \(\bdnorm{e_0}^2\le x^2Q/32\), where \(Q=\frac{A^2}5+\frac23A(\zeta-\frac13)+(\zeta-\frac13)^2\), \(A=a^2=1-\frac x3+x\zeta\),
+\(0\le\zeta\le x/5\);
+\item \(\omega:=\norm{g-\hat g}\le C_P(C_P\norm{H_c}+\tau_{\mathrm{tr}}\bdnorm{e_0})\);
+\item the flux of \(\psi_k\) satisfies \(|\partial_n\psi_k|\le16\,\Psi_k|e_0|\), where \(\Psi_k=\sup|\Psi''|\) over \([a^2,v^2]\), \(\Psi(r^2)=\psi_k(r)\); so \(\dualnorm{\ell_k}\le16\tau_{\mathrm{tr}}\Psi_k\bdnorm{e_0}\);
+\item with \(\zeta_M=g_0-\sum_{k\le M}d_k\psi_k\), \(d_k=-2/\mu_k^2\): \(\rho^2\le\frac1{11520}-\sum_{k\le M}d_k^2+\frac x3\sup_{[1,v]}\zeta_M^2\);
+\item for radial Lipschitz \(f\): \(|\avg f_{\mathcal P}-\avg f_D|\le w_1\operatorname{Lip}f\), \(w_1=x^2/6\); and \(\avg{\bar u}_{\mathcal P}=-\bar b/2\), \(0\le\bar b=\frac12(a^2(1+\frac x3)-1)\le x^2/20\).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(1) As in \zcref{lem:Hsmall}, on \(\mathcal P\), with inscribed circle of radius \(a\). The wall values of \(H\) are \(\frac12(r^2-1)\). (2) \(g_0'=r(r^2-1)/8\), and on the
+side \(\partial_x=(a/r)\partial_r\); then integrate. (3) \zcref{lem:cell}'s proof: here \(u-(\bar u-\avg{\bar u})=H_c\) and \(\avg{\nabla(g-\hat g)\cdot\nabla\varphi}=\avg{H_c\varphi}-|\mathcal P|^{-1}\oint e_0\varphi\).
+(4) \(\partial_n\psi_k=2a\Psi'(r^2)\) and \(\Psi'(1)=0\), so \(|\partial_n\psi_k|\le2a\Psi_k|r^2-1|=16\Psi_k|e_0|\); \(\psi_k\) solves the Helmholtz equation exactly, so \(\ell_k\) is only the boundary term.
+(5) \(\avg{\zeta_M^2}_D=\avg{g_0^2}_D-\sum d_k^2\), by orthonormality; and \(|\mathcal P\setminus D|\le\pi(1-a^2)\le\pi x/3\). (6) The laws of \(r\) under \(\mathcal P\) and \(D\) agree on
+\([0,a]\) and their distribution functions differ by at most \(1-a^2\le x/3\) on \([a,v]\), with \(v-a\le x/2\).
+\end{proof}
+
+\begin{proposition}\label{prop:large}
+For \(N=200\), every \(n\ge N\), and \(\hat\tau_0=0.0149\): \(K_n>0\) on \([\hat\tau_0,\infty)\) in the time unit of \(\mathcal P\), and \(S(0.015)>0\) in the apothem-\(1\) frame. The same holds for the disk.
+\end{proposition}
+\begin{proof}
+By \zcref{lem:modal,lem:compare} with \(w=\bar u-\avg{\bar u}_{\mathcal P}\), \(U=\frac14+\frac x3+\frac{\bar b}2\), \(o=x/2\), and by \zcref{lem:largeerrors}(6), which replaces averages over \(\mathcal P\) by averages over \(D\),
+\[
+K_n(\tau)\ge K_D(\tau)-\mathcal E(\tau)-r_W\tau,\qquad r_W=2\bigl(w_1(vF^2+4UFL)+\tfrac12\bar bF^2\bigr),
+\]
+where \(F\ge\sup|f_s|\), \(L\ge\sup|f_s'|\) on \([0,v]\) for \(f_s=g_0-\sum_kd_k\mathrm e^{-\mu_ks}\psi_k\); we use \(|J_0|\le1\), \(|J_1|\le1/\sqrt2\). For the term \(r_W\), note
+\(\avg{w\tilde A_a\tilde A_b}_{\mathcal P}\) differs from \(\avg{\bar uf_af_b}_D\) by at most \(w_1\operatorname{Lip}(\bar uf_af_b)+\frac{\bar b}2F^2+2w_1LUF\).
+All constants are increasing in \(t\); \texttt{uniform.py} evaluates them at \(t=\tan(\pi/200)\): \(\omega\le4.2\cdot10^{-6}\), \(L_1\le1.6\cdot10^{-6}\), \(\rho\le1.9\cdot10^{-6}\), and checks the
+inequality on the grid of \zcref{sec:finite} and for \(\tau\ge40\). At \(\hat\tau_0\): \(K_D=3.06\cdot10^{-10}\), error \(2.06\cdot10^{-10}\). For the disk, \(t=0\), all errors vanish except the truncation \(\rho\le1.1\cdot10^{-6}\).
+In the apothem-\(1\) frame, for \(S\): \(H'=\ut-Y\) has \(-x/6\le H'\le x/3\), so \(c\in[\frac14-\frac x{12},\frac14+\frac{5x}{12}]\), \(\norm{\ut}\le\norm Y+x/3\), \(E=2c^2-\norm{\ut}^2\), and \(\ut\le Rd+x/2\) because \(Y\le x/6+Rd\); so
+\(\bar m=R\), \(\beta=x/2\).
+\end{proof}
+
+\begin{proof}[of \zcref{thm:main}]
+Let \(n\ge4\). \(\avg{u^3}>0\) by \zcref{prop:u3}. By \zcref{prop:short} with \zcref{prop:finite} (\(n\le199\)) or \zcref{prop:large} (\(n\ge200\)), \(K>0\) on \((0,0.015]\) in the apothem-\(1\) frame. On
+\([0.015,\infty)\) use \zcref{prop:finite}; for \(n\ge200\), \zcref{prop:large} covers \(\tau\ge\hat\tau_0/a^2\), and \(\hat\tau_0/a^2\le0.015\) since \(a^2\ge1-t^2/3\). The disk is the same with \(\avg{u^3}=0\), \(\bar m=1\), \(\beta=0\), \(c=\frac14\), \(E=\frac1{24}\).
+\end{proof}
+
+\section{The equilateral triangle}\label{sec:triangle}
+
+For \(n=3\), \(R=2\), and everything except the modes is an exact polynomial in \(p\) and \(q=\operatorname{Re}(x+\mathrm iy)^3\):
+\(\ut=\frac12(1-p)+\frac16(1-q)\), \(c=\frac3{10}\), \(\avg{u^2}=\frac{27}{700}\), \(\avg{u^3}=\frac{27}{19250}\), \(-\frac3{10}\le u\le\frac{11}{30}\), and
+\[
+g=-\frac{p^3}{960}+\frac{p^2}{32}-\frac{11p}{120}+\frac{pq}{96}+\frac{q^2}{480}+\text{const},\qquad\avg{ug}=\frac9{1540},\quad\avg{ug^2}=-\frac{7101}{476476000}.
+\]
+So \(\omega=o=0\). The long-time coefficient in the normalisation of the source is \(3\avg{ug_2}/(2\avg{ug})^{3/2}=-789\sqrt{770}/309400=-0.0707623\dots\), and the geometric skewness is
+\(\avg{u^3}/\avg{u^2}^{3/2}=4\sqrt{21}/99\).
+
+For derivatives: with \(e=A-\tilde A\) one has
+\(K'-\tilde K'=2\int_0^\tau\avg{ue(s)(P_{\tau-s}u+\tilde A'(\tau-s))}\dd s+2\avg{u\tilde A(0)e(\tau)}\), by differentiating the identity of \zcref{lem:compare}. So, by~\eqref{eq:PW},
+\begin{equation}\label{eq:Kprime}
+|K'-\tilde K'|\le2U\Delta_0\Bigl(\frac{\norm u}\nu+\sum_k|d_k|\norm{\psi_k}+\rho\Bigr).
+\end{equation}
+\begin{proof}[of \zcref{thm:triangle}]
+\zcref{prop:short} with \(\bar m=\frac32\), \(\beta=0\), \(L=8\cdot\frac32/(3\sqrt\pi)\): the function
+\(h(x)=\frac13\avg{u^3}+\frac E3x^2-\frac8{35}cLx^3-\frac{128}{3465}Lx^5\), \(x=\sqrt\tau\), increases and then decreases, and \(h(0),h(\sqrt{0.025})>0\); so \(K>0\) on \((0,0.025]\). With
+\(35\) Ritz modes (\(\mu_k\le400\), \(\rho+L_1\le1.5\cdot10^{-5}\)), \texttt{triangle.py} verifies \(K>0\) on \([0.025,1]\), \(K'<0\) on \([1,1.6]\) by~\eqref{eq:Kprime}, \(K<0\) on \([1.6,\infty)\), and locates the zero.
+\end{proof}
+
+\section{Table 1 of the source}\label{sec:table}
+
+\zcref{tab:source} compares the printed values (arXiv v3; circumradius 1) with enclosures from~\autocite{Result14}, script \texttt{table1.py}, re-run for this paper. All printed values agree up to rounding, except the arXiv-only
+\(S^G_{100}=8.6\cdot10^{-7}\), about 3\% too large; it does not appear in the published table.
+
+\begin{table}
+\centering
+\small
+\begin{tabular}{rllll}
+\toprule
+\(n\) & long-time coefficient, source & enclosure & \(S^G\), source & enclosure \\
+\midrule
+3 & \(-0.035\) & \(-789\sqrt{770}/618800=-0.0353812\) & 0.185 & \(4\sqrt{21}/99=0.1851546\)\\
+4 & 0.139 & \([0.13849,0.13856]\) & 0.0813 & \([0.081294,0.081297]\)\\
+5 & 0.194 & \([0.19390,0.19429]\) & 0.042 & \([0.042262,0.042270]\)\\
+6 & 0.215 & \([0.21474,0.21603]\) & 0.024 & \([0.024264,0.024274]\)\\
+7 & 0.225 & \([0.22384,0.22699]\) & 0.0149 & \([0.014939,0.014955]\)\\
+8 & 0.231 & \([0.22903,0.23281]\) & 0.0097 & \([0.0097036,0.0097168]\)\\
+20 & 0.243 & \([0.23937,0.24655]\) & \(3.97\cdot10^{-4}\) & \([3.9611,3.9832]\cdot10^{-4}\)\\
+100 & 0.245 & \([0.24384,0.24589]\) & \(8.6\cdot10^{-7}\) & \([8.3475,8.3971]\cdot10^{-7}\)\\
+\(\infty\) & 0.245 & \(\sqrt6/10=0.2449490\) & 0 & 0\\
+\bottomrule
+\end{tabular}
+\caption{Long-time coefficient \(3\avg{ug_2}/(2\avg{ug})^{3/2}\) and geometric skewness \(S^G=\avg{u^3}/\avg{u^2}^{3/2}\), circumradius 1.}
+\label{tab:source}
+\end{table}
+
+\section{Computer verification and limitations}\label{sec:computer}
+
+All scripts are in \texttt{all-times/scripts/} unless noted, print PASS or FAIL per claim, and exit non-zero on failure.
+Environment: Python 3.12, python-flint 0.9.0 (Arb), numpy, scipy, sympy, under WSL Fedora. \texttt{run\_all.sh} runs everything; logs are in \texttt{all-times/logs/}.
+
+\begin{center}
+\small
+\begin{tabular}{lp{7.9cm}l}
+\toprule
+script & claim & time \\
+\midrule
+\texttt{run\_finite.py 4 200} & \zcref{prop:finite}, using \texttt{finite\_n.py}, \texttt{modal\_lib.py} & 45 min on 3 cores \\
+\texttt{uniform.py 200}, \texttt{uniform.py 0} & \zcref{prop:large}, large \(n\) and the disk & 10 s \\
+\texttt{u3\_uniform.py 40} & \(\avg{u^3}>0\), \(n\ge40\) & 5 s \\
+\texttt{../scripts/sg\_certify.py 4 150} & \(\avg{u^3}>0\), \(4\le n\le150\) & 15 min \\
+\texttt{../scripts/sg\_uniform.py 140 6} & \(\avg{u^3}>0\), \(n\ge140\), second proof & 5 s \\
+\texttt{triangle.py} & \zcref{thm:triangle} & 2 min \\
+\texttt{../scripts/triangle\_exact.py}, \texttt{table1.py} & exact triangle values, \zcref{tab:source} & 5 min \\
+\texttt{numerics\_check.py} & floating-point cross-checks, not a certificate & 3 min \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Cross-checks.} For the square, \(K\) from the exact lattice sum \(G(a,b)=\sum_{\xi,\eta\in\mathbb Z^2}\hat u_\xi\hat u_\eta\hat u_{\xi+\eta}\mathrm e^{-\pi^2(|\xi|^2a+|\eta|^2b)}\) agrees with the
+Galerkin value to four digits at \(\tau=0.015\) (\(8.20\cdot10^{-10}\)), and with the certified \(\tilde K\). The law in \zcref{rem:E} is confirmed numerically and against equation~(14) of the source.
+
+\paragraph{Trusted base.} Payne--Weinberger constant~\autocite{PayneWeinberger1960,Bebendorf2003}; \(H^2\) regularity on convex polygons~\autocite{Grisvard1985}; the spectral theorem for the Neumann Laplacian; Green's identities;
+Arb and python-flint for ball arithmetic; sympy for exact rational identities. Floating point only chooses coefficients.
+
+\paragraph{Limitations.} The proof is computer-assisted and has not been verified independently. The window \(\tau_0=0.015\) and the threshold \(N=200\) are technical. Numerics suggest more than we prove:
+\(G(a,b)>0\) on the whole quadrant for every \(n\ge4\), so that \(K\) is convex (and \(\avg{ue_1^2}>0\) for the first invariant eigenfunction, already in the square, where it is about \(+0.023\)); we did not prove this.
+The monotonicity in \(n\) suggested by Table~1 of the source is not addressed, nor are the unimodality and median statements of the source.
+
+\paperreferences
+\end{document}

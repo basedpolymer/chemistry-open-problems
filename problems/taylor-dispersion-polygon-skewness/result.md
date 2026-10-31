@@ -23,8 +23,8 @@ Throughout, `P_n` is the regular n-gon with **apothem (inradius) 1**, centred at
 | **Thm C** (short time) | geometric skewness `S^G_n = <u^3>/<u^2>^{3/2} > 0` for **every** n >= 3 (n = 3: `4 sqrt(21)/99`, exact); moreover `<u^3> = t^4/360 + O(t^5)` (explicit two-sided bounds), so `S^G_n ~ (8 sqrt(3)/15) tan^4(pi/n) ~ 90.0/n^4` | computer-assisted: 4 <= n <= 150 and all n >= 140 |
 | Thm D (finite times, partial) | explicit certified windows `(0, t0]` and `[T1, inf)` on which the sign of `Sk(tau)` is proved, for n = 3, 4, 5, 6, 8 (Section 7) | computer-assisted |
 
-What remains open: the sign of `Sk(tau)` for intermediate times `t0 < tau < T1` (the paper's claim
-"positive skewness at all times" for n >= 4), for every n; see Section 10.
+Intermediate times `t0 < tau < T1` were left open at this stage; they are settled in `all-times/` (positive at all times for
+every n >= 4, exactly one sign change for n = 3).
 
 ## 1. The source and the open statement
 

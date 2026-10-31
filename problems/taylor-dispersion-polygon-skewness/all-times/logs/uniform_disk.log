@@ -1,0 +1,10 @@
+N=0 t=0.000000 ||H_c||<=0.000e+00 ||e0||<=0.000e+00 omega=0.000e+00 L1=0.000e+00 rho=1.042e-06 Delta0=1.042e-06 F=0.0484 Lip=0.1392 rateW=0.000e+00
+PASS: N=0: short-time condition on (0,0.015] holds uniformly, S >= 3.2574e-03
+   tau=0.0149 K_D=3.0587e-10 err=1.738e-11 margin/K=0.932
+   tau=0.0329 K_D=4.7382e-09 err=8.469e-11 margin/K=0.981
+   tau=0.07264 K_D=5.7193e-08 err=4.129e-10 margin/K=0.992
+   tau=0.1604 K_D=4.6520e-07 err=1.588e-09 margin/K=0.997
+   tau=2.934 K_D=3.0185e-05 err=3.133e-08 margin/K=0.996
+PASS: disk: K > 0 on [0.0149, 40] (188 grid points), worst margin/K = (0.9319780253075316, 0.0149, 3.058663946309082e-10, 1.7375929987100246e-11)
+PASS: disk: K > 0 on [40, infinity)
+PASS (all claims)

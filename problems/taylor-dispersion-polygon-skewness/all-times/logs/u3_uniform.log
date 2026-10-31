@@ -1,0 +1,4 @@
+PASS: M(t) = t^4/360 + 19 t^6/7560 exactly
+   min F on (0, tan(pi/40)] >= 1.0629e-03  (F(0) = 0.00278)
+PASS: <u^3> > 0 for all n >= 40
+PASS (all claims)

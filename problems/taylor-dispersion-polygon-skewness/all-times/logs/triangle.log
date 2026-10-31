@@ -1,0 +1,23 @@
+g = -1/960 p^3 + 1/32 p^2 + -11/120 p + 0 q + 1/96 p q + 1/480 q^2 + const
+   moments amax=68 kmax=18 nodes=97 [0.4s]
+   gram+chol N=215 [39.5s]
+   T matrix NU=215 [11.6s]
+   interior residuals NR=227 [5.9s]
+   flux residuals m2=73 [1.6s]
+PASS: exact means: <ut> = 3/10
+PASS: <u^2> = 27/700
+M=35 mu_1=4.3865 mu_M=399.2 rho=1.279e-05 L1=1.248e-06 Delta0=1.404e-05
+PASS: Ritz functions have norm <= 1.001 (1.000000)
+PASS: K > 0 on (0,0.025]: h(0) = 4.675e-04 > 0, h(sqrt(tau0)) >= 2.762e-04 > 0
+PASS: K > 0 on [0.025,1.0] (worst margin/K 0.795)
+PASS: K' < 0 on [1.0,1.6] (largest upper bound 0.000e+00)
+PASS: K(1.0) > 0
+   K~(tau1) = 4.816479528732628e-06  err  7.046417874875789e-07
+PASS: K(1.6) < 0
+   K~(tau2) = -1.0686733218217277e-05  err  1.1274268599801263e-06
+PASS: K < 0 on [1.6,40]
+PASS: K < 0 on [40, infinity): slope + e1 < 0
+PASS: the zero lies in [1.1758, 1.2434]
+   slope 2<u g^2> = -2.980633e-05 (exact 2*(-7101/476476000) = -2.980633e-05), e1=7.046e-07, C1=1.161e-04
+[67s]
+PASS (all claims)

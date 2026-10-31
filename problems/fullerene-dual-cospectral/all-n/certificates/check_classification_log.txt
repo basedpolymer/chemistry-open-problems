@@ -1,0 +1,3 @@
+PASS  K1 colour twins: 882 of 890 classes, with N_b^T N_b = N_w^T N_w
+PASS  K2 the remaining classes are the cap rotations of Theorem 2, n = [44, 50, 68, 74, 92, 98, 116, 122]
+PASS  K3 in no class are the two T^6 graphs cospectral

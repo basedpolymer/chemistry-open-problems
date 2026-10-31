@@ -1,0 +1,10 @@
+n=3 (exact): kappa(R=1) = -789 sqrt(770)/618800 = -0.03538 (paper -0.035), S^G = 4 sqrt(21)/99 = 0.18515 (paper 0.185)
+n=  4: kappa(R=1) in [0.13849, 0.13856] (paper 0.139) AGREES;  S^G in [0.081294, 0.081297] (paper 0.0813) AGREES
+n=  5: kappa(R=1) in [0.19390, 0.19429] (paper 0.194) AGREES;  S^G in [0.042262, 0.04227] (paper 0.042) AGREES
+n=  6: kappa(R=1) in [0.21474, 0.21603] (paper 0.215) AGREES;  S^G in [0.024264, 0.024274] (paper 0.024) AGREES
+n=  7: kappa(R=1) in [0.22384, 0.22699] (paper 0.225) AGREES;  S^G in [0.014939, 0.014955] (paper 0.0149) AGREES
+n=  8: kappa(R=1) in [0.22903, 0.23281] (paper 0.231) AGREES;  S^G in [0.0097036, 0.0097168] (paper 0.0097) AGREES
+n= 20: kappa(R=1) in [0.23937, 0.24655] (paper 0.243) AGREES;  S^G in [0.00039611, 0.00039832] (paper 3.97e-4) AGREES
+n=100: kappa(R=1) in [0.24384, 0.24589] (paper 0.245) AGREES;  S^G in [8.3475e-07, 8.3971e-07] (paper 8.6e-7) DIFFERS
+Some printed values of the paper lie outside the rigorous enclosures (see DIFFERS above).
+PASS: all enclosures computed

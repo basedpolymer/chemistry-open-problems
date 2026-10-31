@@ -3,20 +3,21 @@
 <!-- plain-words:start -->
 **The question.** A tracer released in a pipe flow spreads along the pipe; its profile is skewed forward or backward. Aminian, Camassa and McLaughlin claimed from simulations that the equilateral triangle is the only regular polygonal pipe whose long-time skewness becomes negative.
 
-**The answer.** Proved: negative for the triangle and positive for every polygon with n ≥ 4 sides at long times; positive for all at short times. “At all times” is only proved on certified time windows.
+**The answer.** Proved: negative for the triangle and positive for every polygon with n ≥ 4 sides at long times; positive for all at short times. The claim “at all times” is also true: see [all-times/](all-times/).
 
 **How.** The long-time sign reduces to one integral. It is computed exactly for the triangle and bounded rigorously (interval arithmetic) for the other polygons. Not yet verified by a second agent.
 
 <p align="center"><img src="../../figures/taylor-skewness.svg" alt="Skewness sign by duct shape and time" width="720"></p>
 
-<p align="center"><sub>Short times: positive for every shape. Long times: negative only for the triangle. In between, the sign is proved only on windows.</sub></p>
+<p align="center"><sub>Short times: positive for every shape. Long times: negative only for the triangle. The intermediate times are settled in all-times/.</sub></p>
 
 <!-- plain-words:end -->
 
 **Attribution.** Solver: Claude Opus 5.5. Verification: pending.
 
-**Status: solved (preliminary)** for the long-time and short-time signs (computer-assisted proofs, not yet
-verified); **partial result** for the "all times" claim.
+**Status: solved (preliminary)** (computer-assisted proofs, not yet verified). The long-time and short-time signs are treated
+here. The "all times" claim for every n ≥ 4, for every Péclet number, is proved in [all-times/](all-times/), whose
+[manuscript](all-times/paper.pdf) covers the whole result.
 
 ## Original statement
 
@@ -69,7 +70,7 @@ number the long-time sign is the sign of `∫ u g1²`.
 * **Finite times (partial).** For symmetric cross-sectionally uniform releases, the sign of `Sk(τ)` does not depend on
   Pe. Certified windows: n = 3: `Sk > 0` for `τ ≤ 3.27·10⁻³`, `Sk < 0` for `τ ≥ 371`; n = 4: `Sk > 0` for
   `τ ≤ 5.29·10⁻⁴` and for `τ ≥ 32`; similar for n = 5, 6, 8 (time unit: apothem²/κ). The sign at intermediate times
-  (the claim "at all times") remains open.
+  is settled in [all-times/](all-times/): positive at all times for every n ≥ 4, exactly one sign change for n = 3.
 * Rigorous enclosures of Table 1 of the paper (n = 4, 5, 6, 7, 8, 20, 100) agree with all printed values except
   the arXiv-only `S^G_100 = 8.6·10⁻⁷`; the certified value lies in `[8.348, 8.397]·10⁻⁷`.
 

@@ -1,0 +1,11 @@
+N=200 t=0.015709 ||H_c||<=4.504e-06 ||e0||<=1.301e-05 omega=4.251e-06 L1=1.590e-06 rho=1.852e-06 Delta0=1.194e-05 F=0.0484 Lip=0.1392 rateW=1.917e-10
+PASS: N=200: short-time condition on (0,0.015] holds uniformly, S >= 3.1831e-03
+PASS: N=200: (1 - t^2/3) tau0 >= tauhat0 with tau0 = 0.015
+   tau=0.0149 K_D=3.0587e-10 err=2.062e-10 margin/K=0.314
+   tau=0.0329 K_D=4.7382e-09 err=1.013e-09 margin/K=0.785
+   tau=0.07264 K_D=5.7193e-08 err=5.104e-09 margin/K=0.910
+   tau=0.1604 K_D=4.6520e-07 err=2.177e-08 margin/K=0.953
+   tau=2.934 K_D=3.0185e-05 err=4.294e-07 margin/K=0.983
+PASS: all n >= 200: K > 0 on [0.0149, 40] (188 grid points), worst margin/K = (0.31447845864534707, 0.0149, 3.058663946309082e-10, 2.0624829612821078e-10)
+PASS: all n >= 200: K > 0 on [40, infinity)
+PASS (all claims)

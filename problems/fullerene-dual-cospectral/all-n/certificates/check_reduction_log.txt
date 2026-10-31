@@ -1,0 +1,4 @@
+PASS  R1 n = 34: 1 isomer(s) with T^6 = C6 + K1, cospectral with the (connected) subdivided claw
+PASS  R2 T^5(T_b(L)) and T^5(T_w(L)) isomorphic, L = 20..60
+PASS  R3 tr A^5 of the hexagon graphs differ, L = 20..60; difference for L >= 25: [-20]
+PASS  R4 A(T_b^6) - D_b and A(T_w^6) - D_w cospectral through B_hh, L = 20..60
