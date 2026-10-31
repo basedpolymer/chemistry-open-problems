@@ -10,6 +10,7 @@ verification-request.md
 codex-*.md
 # Third-party sources (copyrighted PDFs, page images, extracted text, web snapshots): kept locally only
 **/certificates/sources/
+**/sources/
 FINAL-REPORT.md
 # Compiled helper binaries
 problems/kirchhoff-soltes-problem/scripts/kscheck
