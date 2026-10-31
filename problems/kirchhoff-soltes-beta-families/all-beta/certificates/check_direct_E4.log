@@ -7,3 +7,19 @@ PASS E4 gadget K_4 j=0 clique: not good (147.8 s)
 PASS E4 gadget K_9 j=0 y: not good (136.1 s)
 PASS E4 gadget K_9 j=0 clique: not good (153.2 s)
 PASS E4 gadget K_7 j=2 y: cut vertex, not good
+PASS E4 gadget K_7 j=2 clique: not good (136.3 s)
+PASS E4 gadget K_7 j=2 leaf: not good (127.9 s)
+PASS E4 gadget K_13 j=9 y: cut vertex, not good
+PASS E4 gadget K_13 j=9 clique: not good (128.4 s)
+PASS E4 gadget K_13 j=9 leaf: not good (144.0 s)
+PASS E4 gadget K_17 j=3 y: cut vertex, not good
+PASS E4 gadget K_17 j=3 clique: not good (136.8 s)
+PASS E4 gadget K_17 j=3 leaf: not good (138.1 s)
+PASS E4 gadget K_31 j=25 y: cut vertex, not good
+PASS E4 gadget K_31 j=25 clique: not good (138.7 s)
+PASS E4 gadget K_31 j=25 leaf: not good (137.7 s)
+PASS E4 gadget K_47 j=34 y: cut vertex, not good
+PASS E4 gadget K_47 j=34 clique: not good (135.4 s)
+PASS E4 gadget K_47 j=34 leaf: not good (125.2 s)
+PASS E4 tree leaf: not good (124.6 s)
+summary: 23 PASS, 0 FAIL

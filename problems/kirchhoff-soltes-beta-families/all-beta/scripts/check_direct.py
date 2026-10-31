@@ -11,7 +11,7 @@ usage: check_direct.py small            K(G) computed vertex by vertex on 8 smal
        check_direct.py family           a graph produced by the proof (beta = 1/100, b = 2, s = 2, n = 2000), one vertex per class
        check_direct.py E1 | E2 | E3 | E4    the explicit examples of the paper, one vertex per class
        check_direct.py E3quick          E3, only block vertex, hub and root
-Runtime: small 3 min; family 5 min; E1 8 min; E2 12 min; E4 25 min; E3 several hours (E3quick 25 min), one core.
+Runtime: small 3 min; family 5 min; E1 8 min; E2 20 min; E4 1.5 h; E3 several hours (E3quick 25 min), one core.
 Environment: Fedora 44 under WSL, Python 3.12, python-flint 0.6, networkx 3.
 """
 import os, sys, time

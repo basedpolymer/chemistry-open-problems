@@ -3,7 +3,7 @@
 <!-- plain-words:start -->
 **The question.** Build infinite families of graphs in which at least a fraction β of the vertices are “good” (deleting them leaves the Kirchhoff index unchanged).
 
-**The answer.** The source paper already covered β < 2/3. New: every rational β < 2/3 occurs as an exact fraction, and a barrier theorem explains why splice constructions stop at 2/3. β ≥ 2/3 remains open.
+**The answer.** Every rational β below 1 is reached exactly, by infinitely many graphs: see [all-beta/](all-beta/). This folder holds the earlier stage: exact fractions below 2/3, and a barrier theorem explaining why splice constructions with small branches stop at 2/3. β = 1 remains open.
 
 **How.** Explicit families and exact computations.
 
@@ -17,10 +17,10 @@
 
 **Attribution.** Solver and literature sub-agent: Claude Opus 5.5. Verification: pending.
 
-**Status: partial result** (preliminary; verification pending). Problem 4 of the source is **still open for every
-rational β ∈ [2/3, 1)**. The source's own construction already settles it for β < 2/3. We prove exact-proportion
-results on (0, 2/3) and a barrier theorem explaining why splice constructions stop at 2/3, and we give a 2-connected
-near miss.
+**Status: solved (preliminary) for every rational β < 1, in [all-beta/](all-beta/), whose
+[manuscript](all-beta/paper.pdf) awaits verification.** This folder is the earlier stage. The source's own construction
+settles β < 2/3. Here we prove exact-proportion results on (0, 2/3) and a barrier theorem explaining why splice
+constructions with small branches stop at 2/3, and we give a 2-connected near miss.
 
 ## Problem
 
@@ -89,8 +89,8 @@ Novelty check (25 Oct 2026, details in `references.md`):
      proportion 10/13. There is no integer solution for 3 ≤ b ≤ 200, 1 ≤ c ≤ b. A finite graph with more than 2/3 good
      vertices (other than C₅) would already be new.
 
-**What is not proved.**
-- Problem 4 for β ∈ [2/3, 1), including whether any infinite series reaches proportion ≥ 2/3.
+**What is not proved at this stage.**
+- Problem 4 for β ∈ [2/3, 1), including whether any infinite series reaches proportion ≥ 2/3: settled in [all-beta/](all-beta/).
 - The barrier for branches with ≥ 10 vertices (mixtures), or ≥ 11 vertices (single gadget type).
 - That the rook branch has only finitely many integer points (expected; Puiseux argument only).
 - The floating-point explorations are evidence only: cographs, blow-ups, joins with vertex-transitive graphs, theta

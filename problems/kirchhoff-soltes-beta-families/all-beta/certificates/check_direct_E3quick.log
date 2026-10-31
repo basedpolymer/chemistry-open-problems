@@ -1,0 +1,5 @@
+E3: n=5952 edges=9975060, 4464 block vertices, proportion 4464/5952, Kf(G) = 13136791975389493/4450762008  (472.4 s)
+PASS E3 block: good (477.0 s)
+PASS E3 hub: not good (468.9 s)
+PASS E3 root: cut vertex, not good
+summary: 3 PASS, 0 FAIL

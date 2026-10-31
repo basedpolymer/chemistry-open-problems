@@ -67,8 +67,8 @@ vertex (hub) adjacent to the b vertices of each block. G = H_{a,b} ⊕ W, where 
 |---|---|---|---|---|---|---|
 | E1 | 396, 3 | (5,2) (7,6) (11,7) (17,8) (29,18) (41,10) | (32,94) | 1772 | 297/443 ≈ 0.6704 | one vertex per class |
 | E2 | 506, 3 | (4,0) (9,2) (5,3) (49,3) (11,9) (19,10) (23,6) (31,23) | (53,133) | 2277 | exactly 2/3 | one vertex per class |
-| E3 | 1116, 4 | (64,30) (27,6) (5,3) (7,6) (11,3) (19,12) (29,4) (31,12) (47,2) | (62,114) | 5952 | exactly 3/4 | E3_STATUS |
-| E4 | 705, 4 | (4,0) (9,0) (7,2) (13,9) (17,3) (31,25) (47,34) | (15,43) | 3735 | 188/249 ≈ 0.7550 | E4_STATUS |
+| E3 | 1116, 4 | (64,30) (27,6) (5,3) (7,6) (11,3) (19,12) (29,4) (31,12) (47,2) | (62,114) | 5952 | exactly 3/4 | block vertex, hub, root |
+| E4 | 705, 4 | (4,0) (9,0) (7,2) (13,9) (17,3) (31,25) (47,34) | (15,43) | 3735 | 188/249 ≈ 0.7550 | one vertex per class |
 
 **Not proved or not done.**
 - β = 1 (Problem 3 of the source) is not addressed.
@@ -88,9 +88,9 @@ python check_examples.py                 # complete K(G) of E1-E4               
 python check_direct.py small             # K(G) vertex by vertex, 8 graphs, n = 24 to 400       (3 min)
 python check_direct.py family            # graph built by the proof: beta = 1/100, n = 2000     (5 min)
 python check_direct.py E1                # n = 1772, one vertex per class                       (8 min)
-python check_direct.py E2                # n = 2277, one vertex per class                       (15 min)
-python check_direct.py E4                # n = 3735, one vertex per class                       (1 h)
-python check_direct.py E3quick           # n = 5952, block vertex, hub, root                    (30 min)
+python check_direct.py E2                # n = 2277, one vertex per class                       (20 min)
+python check_direct.py E4                # n = 3735, one vertex per class                       (1.5 h)
+python check_direct.py E3quick           # n = 5952, block vertex, hub, root                    (25 min)
 cd ../../../..
 py -3 templates/build_tex.py problems/kirchhoff-soltes-beta-families/all-beta/paper.tex
 ```

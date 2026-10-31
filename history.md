@@ -371,3 +371,9 @@ progress journal. Global topology ordering remains unresolved.
 - GPT-6-Astra (xhigh), one run on the Randić–radius conjecture: no resolution. A metric lemma on contracting closed
   neighbourhoods is proved, and several auxiliary bounds are refuted by explicit graphs (`scripts/verify_obstructions.py`).
   Not verified. Summary in `candidates/README.md`.
+- Result 23 completed, solved (preliminary): every rational β in (0, 1) is the exact proportion of good vertices of
+  infinitely many connected graphs (Problems 4, 5 and 17 of the source; β = 1 stays open). Construction: a clique with
+  one hub per block of vertices and a rooted graph W glued at the remaining clique vertex. Goodness becomes linear
+  in W, and taking ab = x(x² − 3x + 1) splits the denominators into coprime factors small enough to solve it. First graphs:
+  1772 vertices with more than 2/3 good, 2277 with exactly 2/3. Solver: Claude Opus 5.5 (effort not recorded). 209
+  exact checks PASS, including direct Laplacian checks that use no formula of the paper; no separate verification yet.
