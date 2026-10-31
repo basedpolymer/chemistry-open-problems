@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """check_construction.py -- runs the proof of Theorem 1 of paper.tex on many values of beta, exact rational arithmetic.
 
-For beta = p/r, block size b (minimal with b(r-p) > p, also b+1 and b+5) and the smallest admissible multiple s of p,
-and also a much larger s, the script executes the construction and checks:
+For beta = p/r, block size b (minimal with b(r-p) > p, also b+1 and b+5), the first admissible s among p, 2p, 4p, ...,
+and also 7 times that s, the script executes the construction and checks:
 
  C1  counts: m = m_F + m_g + l, n = N + a + m, ab/n = p/r
  C2  T = tau, i.e. Delta_G(v) = delta - m rho + T = 0 for a block vertex v, with delta and rho recomputed from the general
@@ -84,11 +84,11 @@ for (p, r) in betas:
         bmin += 1
     for b in (bmin, bmin+1, bmin+5):
         s = p
-        while True:
+        while True:                      # doubling: a small admissible s, not necessarily the smallest
             c = construct(p, r, b, s)
             if c is not None:
                 break
-            s += p
+            s *= 2
         for ss in (s, 7*s):
             c = construct(p, r, b, ss)
             if c is None:

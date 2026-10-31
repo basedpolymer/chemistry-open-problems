@@ -360,3 +360,9 @@ progress journal. Global topology ordering remains unresolved.
   theorem, the table, the corollaries on dimension and reactant complexes, the open questions and the closing section
   were adapted. The verified texts stay in `archive/` and `four-reactants/`. Merge: Claude Opus 5.5 (effort not
   recorded). The merged text has not been verified yet.
+- Result 14 completed, solved (preliminary): the claim of Aminian–Camassa–McLaughlin holds at all times. For every
+  regular n-gon with n ≥ 4 and for the disk, K(τ) > 0 for all τ > 0, so the skewness is positive at every time and every
+  Péclet number; for n = 3, K has exactly one zero τ* ∈ [1.17, 1.25]. Short times come from an analytic bound uniform in
+  n (τ ≤ 0.015), later times from ball-arithmetic modal estimates for 4 ≤ n ≤ 200 and a Bessel comparison with the disk
+  for n ≥ 200. Observed but not proved: positivity of ⟨u P_a u P_b u⟩ on the whole quadrant. Solver: Claude Opus 5.5
+  (effort not recorded). Certificates PASS (`all-times/logs/`); no separate verification yet.

@@ -203,8 +203,10 @@ In the setting of \zcref{lem:modal} let \(w\) be bounded with \(\norm w_\infty\l
 \end{lemma}
 \begin{proof}
 \(\norm{A(s)}\le\min(s\norm u,\norm g)\) by the spectral theorem. With \(e=A-\tilde A\),
-\(\avg{uA(s)A(s')}-\avg{w\tilde A(s)\tilde A(s')}=\avg{(u-w)A(s)A(s')}+\avg{we(s)A(s')}+\avg{w\tilde A(s)e(s')}\) and
-\(\norm{\tilde A}\le\norm A+\Delta_0\). Integrate.
+\[
+\avg{uA(s)A(s')}-\avg{w\tilde A(s)\tilde A(s')}=\avg{(u-w)A(s)A(s')}+\avg{we(s)A(s')}+\avg{w\tilde A(s)e(s')},
+\]
+and \(\norm{\tilde A}\le\norm A+\Delta_0\). Integrate.
 \end{proof}
 
 If \(\tilde A(s)=\sum_{k=0}^MD_k\mathrm e^{-\mu_ks}\psi_k\) with \(\mu_0=0\), \(\psi_0=\hat g\), \(D_0=1\), \(D_k=-d_k\), and
