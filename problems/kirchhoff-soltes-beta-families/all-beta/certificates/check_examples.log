@@ -1,0 +1,21 @@
+PASS E1: Delta(block vertex) = 0 (a=396, b=3, m=187, n=1772, T=1263443127/7782005)
+PASS E1: Delta(hub) = 886.1142109263615 > 0
+PASS E1: Delta != 0 on all non-cut gadget vertices
+PASS E1: Delta != 0 on tree leaves (depths [1, 8, 11])
+E1: K(G) = the 1188 block vertices of 1772, proportion 297/443 = 0.67043
+PASS E2: Delta(block vertex) = 0 (a=506, b=3, m=252, n=2277, T=137912578961/657164970)
+PASS E2: Delta(hub) = 1138.6323482481118 > 0
+PASS E2: Delta != 0 on all non-cut gadget vertices
+PASS E2: Delta != 0 on tree leaves (depths [1, 3, 13])
+E2: K(G) = the 1518 block vertices of 2277, proportion 2/3 = 0.66667
+PASS E3: Delta(block vertex) = 0 (a=1116, b=4, m=371, n=5952, T=57678096943289/267045720480)
+PASS E3: Delta(hub) = 1983.9630623349842 > 0
+PASS E3: Delta != 0 on all non-cut gadget vertices
+PASS E3: Delta != 0 on tree leaves (depths [1, 8, 10])
+E3: K(G) = the 4464 block vertices of 5952, proportion 3/4 = 0.75000
+PASS E4: Delta(block vertex) = 0 (a=705, b=4, m=209, n=3735, T=5435875085/40571622)
+PASS E4: Delta(hub) = 1244.9472035018402 > 0
+PASS E4: Delta != 0 on all non-cut gadget vertices
+PASS E4: Delta != 0 on tree leaves (depths [1, 8])
+E4: K(G) = the 2820 block vertices of 3735, proportion 188/249 = 0.75502
+summary: 16 PASS, 0 FAIL

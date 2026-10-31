@@ -62,13 +62,28 @@ are merged in the table above and keep their numbers:
 
 ## Candidate problems
 
-Shortlisted, no result yet; statements checked against the sources and the literature on 27 Oct 2026.
+Shortlisted, no result yet; literature checked on 31 Oct 2026. [candidates/](candidates/README.md) gives the attacks, the
+limits of the check and the PDFs to supply.
 
 | Problem (source) | Field | What is open |
 |---|---|---|
+| [Rigorous Hopf bifurcation in the Becker–Döring bubblelator](candidates/README.md#a1) (Niethammer–Pego–Schlichting–Velázquez, [arXiv:2102.06751](https://arxiv.org/abs/2102.06751)) | Nucleation kinetics | A Hopf theorem for this infinite-delay model; transversality and nonresonance are only numerical in the source |
+| [Quadratic trimolecular (2, 4, 2) networks](candidates/README.md#a2) (Banaji–Boros–Hofbauer, Nonlinear Dyn. 2024, §7) | Reaction networks | At most one limit cycle for the 91 remaining networks; homoclinic orbits in seven networks |
+| [Mixed-mechanism dual phosphorylation](candidates/README.md#a3) (Conradi–Mincheva–Shiu, Bull. Math. Biol. 2019, §6) | Reaction networks | Whether a locally stable steady state is always globally stable |
+| [Complexity of the multistage minimum utility cost problem](candidates/README.md#a4) (Letsios et al., [arXiv:1909.12328](https://arxiv.org/abs/1909.12328), §6.4) | Chemical engineering (heat integration) | Polynomial or NP-hard |
+| [Maximal energy of bicyclic graphs](candidates/README.md#a5) (Gutman–Vidović 2001; Gao et al., Discrete Appl. Math. 2024) | Mathematical chemistry | The case of two odd cycles |
+| [Unimodality of TAC(E)](candidates/README.md#b1) (Chang–Bagajewicz, AIChE J. 2020) | Chemical engineering (heat integration) | Whether total annualized cost is unimodal in utility energy for a fixed minimal network |
+| [n CSTRs in series, 3ⁿ steady states](candidates/README.md#b2) (Bisbis, thesis, 1987) | Chemical engineering (reactors) | Maximum number of steady states for n ≥ 3 |
+| [Fifteen solutions for three consecutive reactions](candidates/README.md#b3) (Berdouzi, thesis, 1987) | Chemical engineering (reactors) | Whether the Chicone–Retzloff bound of 15 is attained |
+| [Wiener index of orientations](candidates/README.md#b4) (Knor–Škrekovski–Tepeh, Ars Math. Contemp. 2024, §4) | Mathematical chemistry | Conjectures 4.3 and 4.5 |
+| [Clar–Fries question for benzenoids](candidates/README.md#b5) (Fenton–Hartung, Art Discrete Appl. Math. 2026) | Mathematical chemistry | Open for benzenoids, answered for fullerenes |
+| [Minimal order of explosive endotactic networks](candidates/README.md#b6) (Xu, [arXiv:2409.05340](https://arxiv.org/abs/2409.05340), Rem. 4.8) | Stochastic reaction networks | The exact order; between 2 and 10 |
+| [Gelation threshold at homogeneity 1](candidates/README.md#b7) (Fournier, C. R. Math. 2025, §3) | Aggregation kinetics | Gelation for α in (1, 2] |
+| [Nondegeneracy conjecture](candidates/README.md#b8) (Joshi–Shiu, SIADS 2017, Conj. 2.3) | Reaction networks | Whether finite positive capacity equals nondegenerate capacity |
 | [Uniqueness of the Brownian coagulation similarity profile](problems/brownian-coagulation-profile-uniqueness/) (Smoluchowski equation, full Brownian kernel) | Aggregation kinetics | Uniqueness at fixed mass of the self-similar profile for K(x,y) = 2 + (x/y)^(1/3) + (y/x)^(1/3) |
 | Knotting probability of random-jump heptagons (Geisz–Peterson–Shonkwiler, [arXiv:2609.24860](https://arxiv.org/abs/2609.24860), §5) | Polymer physics (ring polymers) | Exact knot probabilities for seven uniform points on the sphere joined cyclically; unlike n = 6, the convex hull no longer determines the knot type |
 | Conjectures 1(c) and 1(d) on fullerene duals for every n (Bille–Buchstaber–Spodarev 2021) | Mathematical chemistry | Verified for n ≤ 138 only |
+| [Randić index and radius](candidates/README.md#d1) (Fajtlowicz 1988; Cygan–Pilipczuk–Škrekovski 2012) | Mathematical chemistry | R(G) ≥ r(G) − 1 for maximum degree above 4; GPT-6-Astra run in progress |
 
 ## Layout
 

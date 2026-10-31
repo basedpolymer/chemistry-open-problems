@@ -4,3 +4,6 @@ PASS a=5 b=2 n=40: K(G) = the 10 block vertices (computed for all n vertices)
 PASS a=6 b=2 n=52: K(G) = the 12 block vertices (computed for all n vertices)
 PASS a=7 b=2 n=63: K(G) = the 14 block vertices (computed for all n vertices)
 PASS a=8 b=2 n=80: K(G) = the 16 block vertices (computed for all n vertices)
+PASS a=43 b=3 n=399: K(G) = the 129 block vertices (computed for all n vertices)
+PASS a=36 b=3 n=400: K(G) = the 108 block vertices (computed for all n vertices)
+summary: 8 PASS, 0 FAIL

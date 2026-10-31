@@ -366,3 +366,6 @@ progress journal. Global topology ordering remains unresolved.
   n (τ ≤ 0.015), later times from ball-arithmetic modal estimates for 4 ≤ n ≤ 200 and a Bessel comparison with the disk
   for n ≥ 200. Observed but not proved: positivity of ⟨u P_a u P_b u⟩ on the whole quadrant. Solver: Claude Opus 5.5
   (effort not recorded). Certificates PASS (`all-times/logs/`); no separate verification yet.
+- Candidate problems renewed: scouting and a novelty sweep (Claude Sonnet 5.5, effort medium) give 14 open candidates,
+  documented with attacks and the PDFs to supply in `candidates/README.md`. Started: GPT-6-Astra (xhigh) run on the
+  Randić–radius conjecture.
