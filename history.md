@@ -415,3 +415,14 @@ progress journal. Global topology ordering remains unresolved.
   stopped at its usage limit after writing the manuscript and certificates; README, credits, compilation and re-run of the
   exact checks (all PASS): Claude Opus 5.5 (xhigh), who also re-derived the identity and the two-stage and one-stage
   arguments by hand. No separate verification yet. Candidate A4 removed.
+- Result 34 added, **solved (preliminary)**: a rigorous Hopf bifurcation theorem for the Becker–Döring bubblelator limit
+  model of Niethammer, Pego, Schlichting and Velázquez (SIAM J. Appl. Math. 2022), whose §§1.4 and 3 say no such theorem
+  had been proven for a model of this type. Theorem A: under three conditions on one explicit integral G, a Lyapunov–Schmidt
+  reduction on periodic functions (no phase space for the infinite delay is needed) gives a unique branch of periodic
+  solutions at an explicit critical removal rate, with the source's direction formulas; a fourth condition gives the
+  stability change of the steady state. Theorem B: the conditions hold for size-independent removal (β = 0) at every exponent
+  ν > 0, analytically, with η₂ < 0 certified for all ν. Theorems C, D: certified in Arb at all 1111 points of the source's grid
+  (β ∈ {0, 0.1, …, 10}, eleven ν) and at the 11 crossings of the source's Table 1 (β = 3). Not covered: β > 0 between grid
+  points, orbital stability, the full Becker–Döring system. Two remarks on the source: its change of variables drops factors
+  (1 − α), and the κ₂ column of its Table 1 equals η₂/4 in every row, against its formula (3.23). Solver: Claude Opus 5.5
+  (xhigh); no separate verification yet. Candidate A1 removed.

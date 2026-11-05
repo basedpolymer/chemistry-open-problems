@@ -1,0 +1,4 @@
+PASS Hopf hypotheses (H1)-(H4) at 1111/1111 grid points
+PASS eta_2 < 0 (supercritical direction) at 1111/1111 grid points
+runtime 186 s
+EXIT 0

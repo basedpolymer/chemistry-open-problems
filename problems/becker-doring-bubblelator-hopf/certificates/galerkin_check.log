@@ -1,0 +1,4 @@
+PASS beta=0 nu=1: Galerkin eta2=-0.06250002 kappa2=-0.08333334, certified -0.06250000 -0.08333333
+PASS beta=3 nu=0: Galerkin eta2=-0.43548170 kappa2=-0.10842897, certified -0.43548182 -0.10842900
+PASS beta=0.5 nu=1: Galerkin eta2=-0.11992939 kappa2=-0.09765083, certified -0.11992936 -0.09765083
+EXIT 0

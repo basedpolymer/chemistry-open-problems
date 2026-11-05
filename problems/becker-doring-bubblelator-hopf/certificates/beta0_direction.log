@@ -1,0 +1,12 @@
+PASS B0-1 nu=1/9 eta2 = [-0.0349371271191 +/- 1.82e-14] (closed form [-0.0349371271191 +/- 1.82e-14])
+PASS B0-1 nu=1/2 eta2 = [-0.0505856168600 +/- 1.71e-14] (closed form [-0.0505856168600 +/- 1.71e-14])
+PASS B0-1 nu=1/1 eta2 = [-0.0625000000000 +/- 1e-17] (closed form [-0.0625000000000 +/- 3e-18])
+PASS B0-1 nu=9/1 eta2 = [-0.103450926097 +/- 2.38e-13] (closed form [-0.103450926097 +/- 2.38e-13])
+PASS B0-2a omega in [0, 0.05] (nu >= 30.4) accepted boxes=1, eta2 in [-0.12269, -0.10814]
+PASS B0-2b omega in [0.05, pi/2 - 0.05] accepted boxes=56, eta2 in [-0.16185, -0.00104]
+PASS B0-2c eps = pi/2 - omega in [0, 0.05] (nu <= 0.033) accepted boxes=1, eta2 in [-0.03439, -0.02336]
+PASS B0-2d regions cover (0, pi/2) 
+PASS B0-3 limits nu->0: [-0.02777777778 +/- 2.23e-12] (=-1/36), nu->oo: [-0.1181690114 +/- 1.84e-11] (=1/(10pi)-3/20)
+summary: eta2 enclosure over all nu > 0 within [-0.16185, -0.00104]
+ALL PASS
+EXIT 0

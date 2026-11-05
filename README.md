@@ -10,7 +10,7 @@ manuscript, and scripts that re-check every computational claim.
 
 Effort is *xhigh* unless a problem's README says otherwise.
 
-- **Claude Opus 5.5** (Anthropic): orchestration; results 1–3, 5–9, 11–25, 27 and 32; editing and
+- **Claude Opus 5.5** (Anthropic): orchestration; results 1–3, 5–9, 11–25, 27, 32 and 34; editing and
   verification of results 4 and 10; verification of results 14 and 29; completion of the deliverables of result 33; literature audits of results 30 and 31.
 - **GPT-6-Astra** (OpenAI; effort *high* for result 26): results 4, 10, 26, 28, 29 and 33; contributions to results 8,
   11, 12, 17, 20 and 25.
@@ -53,9 +53,10 @@ Effort is *xhigh* unless a problem's README says otherwise.
 | 31 | [Connectedness of multistationarity regions, one species](problems/mcclure-shiu-one-species-connectedness/) (McClure–Shiu, J. Symbolic Comput. 2024, §6) | Reaction networks | Connected for four and five reactions, per White's unrefereed preprint (7 Sep 2026): the region splits only with exactly three two-way sources. Our audit found no error and adds a second proof of the key step | [already solved](problems/mcclure-shiu-one-species-connectedness/README.md) (literature audit), *not yet verified* |
 | 32 | [Steady states of n cooled CSTRs in series](problems/cstr-series-3n-steady-states/) (Bisbis, PhD thesis, Univ. Missouri 1987, conjecture) | Chemical engineering (reactors) | Conjecture true: at most 3ⁿ steady states, at most 2ⁿ stable, and both bounds are attained for every n and every ε = RT₀/E > 0 by n identical reactors with explicit parameters (extreme temperatures); attainment in the exponential limit ε = 0 not covered | [solved](problems/cstr-series-3n-steady-states/paper.pdf), *not yet verified* |
 | 33 | [Complexity of the multistage minimum utility cost problem](problems/multistage-min-utility-cost-complexity/) (Letsios et al., Comput. Chem. Eng. 2020, §6.4) | Chemical engineering (heat integration) | Strongly NP-hard, already with two stages and for zero utility, once temperature-approach constraints are added (SYNHEAT stage-boundary or counter-current version); with one stage the counter-current version is an LP and the boundary version is NP-complete. The printed model omits these constraints and is then trivial | [solved](problems/multistage-min-utility-cost-complexity/paper.pdf), *not yet verified* |
+| 34 | [Rigorous Hopf bifurcation in the Becker–Döring bubblelator](problems/becker-doring-bubblelator-hopf/) (Niethammer–Pego–Schlichting–Velázquez, SIAM J. Appl. Math. 2022, §§1.4, 3) | Nucleation kinetics | Hopf theorem proved for the infinite-delay limit model: a unique branch of periodic solutions at an explicit critical removal rate, supercritical, with the stability change. Hypotheses proved for size-independent removal at every exponent, and certified in ball arithmetic at all 1111 points of the source's grid and at its 11 crossings for β = 3; between grid points for β > 0 not covered | [solved](problems/becker-doring-bubblelator-hopf/paper.pdf), *not yet verified* |
 
 <!-- overlaps:start -->
-**Results that overlap.** The 33 numbered results form 26 separate pieces of work. Rows 2 and 13, 8 and 25, 27 and 29
+**Results that overlap.** The 34 numbered results form 27 separate pieces of work. Rows 2 and 13, 8 and 25, 27 and 29
 are merged in the table above and keep their numbers:
 
 <p align="center"><img src="figures/overlaps-map.svg" alt="Map of overlaps between the 31 results" width="760"></p>
@@ -69,7 +70,6 @@ limits of the check and the PDFs to supply.
 
 | Problem (source) | Field | What is open |
 |---|---|---|
-| [Rigorous Hopf bifurcation in the Becker–Döring bubblelator](candidates/README.md#a1) (Niethammer–Pego–Schlichting–Velázquez, [arXiv:2102.06751](https://arxiv.org/abs/2102.06751)) | Nucleation kinetics | A Hopf theorem for this infinite-delay model; transversality and nonresonance are only numerical in the source |
 | [Quadratic trimolecular (2, 4, 2) networks](candidates/README.md#a2) (Banaji–Boros–Hofbauer, Nonlinear Dyn. 2024, §7) | Reaction networks | At most one limit cycle for the 91 remaining networks; homoclinic orbits in seven networks |
 | [Mixed-mechanism dual phosphorylation](candidates/README.md#a3) (Conradi–Mincheva–Shiu, Bull. Math. Biol. 2019, §6) | Reaction networks | Whether a locally stable steady state is always globally stable |
 | [Maximal energy of bicyclic graphs](candidates/README.md#a5) (Gutman–Vidović 2001; Gao et al., Discrete Appl. Math. 2024) | Mathematical chemistry | The case of two odd cycles |

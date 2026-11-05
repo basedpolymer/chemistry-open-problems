@@ -1,0 +1,21 @@
+wrote certificates/table_grid.tex
+compared 909 (beta, nu) points with the source data files
+  Re_ghat1_1 max relative deviation 2.69e-08 at beta=8 nu=3/2
+  abs_L2     max relative deviation 1.86e-07 at beta=0 nu=1/4
+  eta0       max relative deviation 1.47e-07 at beta=0 nu=1/4
+  eta2       max relative deviation 6.91e-07 at beta=1/10 nu=1/9
+  kappa0     max relative deviation 1.47e-07 at beta=0 nu=1/4
+  kappa2     max relative deviation 2.27e-07 at beta=1/10 nu=1/9
+PASS certified values agree with the source floating-point values to 1e-6
+Table 1 of the source (nu=0, beta=3), 11 certified crossings:
+  eta0       max relative deviation 2.09e-08
+  eta2       max relative deviation 7.84e-07
+  kappa0     max relative deviation 2.45e-09
+  vartheta0  max relative deviation 5.32e-09
+  Re_ghat1_1 max relative deviation 2.25e-07
+  kappa2: certified value vs source column vs source theta2/4 (rows 1-4):
+    1  [-0.10842900 +/- 2.69e-9]  -0.1088704556  -0.1088704556
+    2  [-0.067696645 +/- 7.54e-11]  -0.0675478772  -0.0675478772
+    3  [-0.085351677 +/- 3.42e-10]  -0.0853507398  -0.0853507398
+    4  [-0.082840519 +/- 3.32e-10]  -0.0828407455  -0.0828407455
+  NOTE the source column kappa2 equals theta2/(beta+1) = theta2/4 in every row: True; formula (3.23) gives the certified values instead

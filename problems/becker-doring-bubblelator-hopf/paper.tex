@@ -1,0 +1,387 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{A rigorous Hopf bifurcation in the Becker--Döring bubblelator limit model}
+\newcommand*{\PaperTitlePlain}{A rigorous Hopf bifurcation in the Becker-Doering bubblelator limit model}
+\newcommand*{\PaperShortTitle}{Hopf bifurcation in the Becker--Döring bubblelator}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 5 November 2026 \textperiodcentered{} preliminary}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{Becker--Döring equations, bubblelator, Hopf bifurcation, infinite delay, Lyapunov--Schmidt reduction, ball arithmetic}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\providecommand{\T}{}
+\renewcommand{\T}{\mathbb{T}}
+\newcommand{\vth}{\vartheta}
+\newcommand{\gh}{\hat g}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+Niethammer, Pego, Schlichting and Velázquez derived a limit model for the Becker--Döring equations with injection of monomers and removal of large clusters (the ``bubblelator''). Time-periodic solutions of this model solve a scalar integro-differential equation with infinite delay. The authors gave a formal Hopf bifurcation analysis, checked transversality and nonresonance numerically, and wrote that a rigorous Hopf bifurcation theorem had not yet been proven for a model of this type. We prove one. A Lyapunov--Schmidt reduction on spaces of periodic functions, which sidesteps the phase-space problem of infinite delay, shows that three conditions on the explicit function $G_{\beta,\nu}(\lambda)=\int_0^\infty e^{-z^{\beta+1}/(\beta+1)-\lambda z}z^\nu\,dz$ produce a unique smooth branch of periodic solutions, and gives the direction of bifurcation by the formula of the source. A fourth condition makes the bifurcation point the first loss of linear stability. For size-independent removal ($\beta=0$) all conditions are proved analytically for every $\nu>0$, and the bifurcation goes in the supercritical direction ($\eta_2<0$: the orbits exist where the steady state is unstable) for every $\nu>0$, by a certified interval computation that includes the limits $\nu\to0$ and $\nu\to\infty$. For size-dependent removal the conditions and the supercritical direction are certified in Arb ball arithmetic at all 1111 parameter points with $\beta\in\{0,0.1,\dots,10\}$ and eleven values of $\nu$: the source's nine values $\alpha=0.1,\dots,0.9$ and the physical values $\alpha=1/3,2/3$. This is the grid on which the source computed. For $\nu=0$, $\beta=3$ the first eleven bifurcation points of the source's Table~1 are certified, with alternating stability of the steady state. Orbital stability of the bifurcating orbits and the full Becker--Döring system are not treated.
+\end{paperabstract}
+
+\section{The question}\label{sec:question}
+
+Niethammer, Pego, Schlichting and Velázquez~\autocite{NPSV2022} add a constant source $S$ of monomers and a removal $Rk^r n_k$ of clusters of size $k\ge2$ to the Becker--Döring equations. In a near-critical regime they derive by formal asymptotics the limit model (their (1.12)--(1.14))
+\begin{equation}\label{eq:limit}
+\begin{gathered}
+\partial_\tau u=1-\int_0^\infty x^\alpha f(x,\tau)\,dx,\\
+\partial_\tau f+\partial_x(x^\alpha f)=-\eta\,x^r f\quad(x>0),\qquad
+x^\alpha f(x,\tau)\to e^{u(\tau)}\quad(x\to0),
+\end{gathered}
+\end{equation}
+for a rescaled monomer excess $u$ and a density $f$ of supercritical clusters, with $\alpha\in[0,1)$, $r\ge0$ and a rescaled removal rate $\eta>0$. With $\nu=\alpha/(1-\alpha)$ and $\beta=r/(1-\alpha)$, solutions defined for all times reduce to their equation~(3.7),
+\begin{equation}\label{eq:E}\tag{E$_\eta$}
+u'(\tau)=1-\int_0^\infty e^{u(\tau-z)}\exp\Bigl(-\frac{\eta}{\beta+1}z^{\beta+1}\Bigr)z^\nu\,dz,
+\end{equation}
+a scalar equation with infinite delay (see \zcref{sec:reduction} for a normalisation remark). In \S1.4 (arXiv v2, p.~4) the source states:
+\begin{openquote}
+``To our knowledge, a mathematically rigorous Hopf bifurcation theorem has been proven only for finite delay horizons.''
+\end{openquote}
+and at the beginning of \S3 (p.~13):
+\begin{openquote}
+``To our knowledge, a rigorous Hopf bifurcation theorem has not yet been proven for a model of this type, though it seems plausible that one might extend existing methods for retarded functional differential equations with finite delays (RFDE) which are based upon rescaling to fix the temporal period and Lyapunov-Schmidt reduction [18, 12].''
+\end{openquote}
+The source then argues ``by formal means'': it computes the characteristic equation $\vth\lambda+G_{\beta,\nu}(\lambda)=0$, gives the criteria (3.14)--(3.15) for a transversal crossing, derives by a formal expansion the direction coefficients (3.22)--(3.23), proves transversality analytically only for $\beta=0$ (\S4.1), and verifies transversality and the nonresonance condition (3.28) numerically on a grid (\S4.2, Appendix~C, Tables~2--3; ``The transversality condition (3.15) and nonresonance condition (3.28) are verified numerically in the Appendix C'').
+
+General Hopf theorems for equations with infinite delay and fading memory do exist~\autocite{Staffans1987}; what is missing is a proof for this model, with the hypotheses checked. The present paper supplies it. The proof below is self-contained: it uses only the implicit function theorem on spaces of periodic functions, the route suggested by the source, which goes back to Crandall and Rabinowitz~\autocite{CrandallRabinowitz1977}.
+
+\section{Results}\label{sec:results}
+
+Throughout, $\beta\ge0$ and $\nu\ge0$ are fixed. Put
+\[
+G(\lambda)=G_{\beta,\nu}(\lambda)=\int_0^\infty \exp\Bigl(-\frac{z^{\beta+1}}{\beta+1}-\lambda z\Bigr)z^\nu\,dz,\qquad
+H(t)=\operatorname{Re}G(it)\quad(t\in\R),
+\]
+so that $G(0)=(\beta+1)^{(\nu-\beta)/(\beta+1)}\Gamma\bigl(\frac{\nu+1}{\beta+1}\bigr)$ and $H'(t)=\operatorname{Im}G_{\beta,\nu+1}(it)$. For $t_0>0$ consider the conditions
+\begin{description}
+\item[(H1)] $H(t_0)=0$ and $\operatorname{Im}G(it_0)<0$; put $\vth_0=-\operatorname{Im}G(it_0)/t_0>0$;
+\item[(H2)] $H'(t_0)\neq0$;
+\item[(H3)] $\vth_0\,ikt_0+G(ikt_0)\neq0$ for every integer $k\ge2$;
+\item[(H4)] for every $t>0$, $t\ne t_0$: if $H(t)=0$ then $-\operatorname{Im}G(it)<\vth_0t$.
+\end{description}
+(H4) implies (H3). Under (H1) define the critical removal rate, frequency and the auxiliary numbers
+\begin{equation}\label{eq:crit}
+\eta_0=\Bigl(\frac{\vth_0}{G(0)}\Bigr)^{\beta+1},\qquad
+\kappa_0=\frac{t_0\vth_0}{G(0)},\qquad
+\mu_0=\frac{1}{(\beta+1)t_0^{\beta+1}},\qquad
+\delta_0=t_0^{\nu+2}\vth_0 .
+\end{equation}
+Let $\gh_j(k)=\int_0^\infty e^{-iky}(-y^{\beta+1})^jy^\nu e^{-\mu_0y^{\beta+1}}dy$ and $\ell(k)=ik\delta_0+\gh_0(k)$. If (H1)--(H3) hold, define $\mu_2,\delta_2,\eta_2,\kappa_2$ by
+\begin{gather}
+\mu_2\operatorname{Re}\gh_1(1)=-\frac{\delta_0^2\operatorname{Re}\gh_0(2)}{4|\ell(2)|^2},\qquad
+\delta_2+\mu_2\operatorname{Im}\gh_1(1)=-\frac{\delta_0}{4}+\frac{\delta_0^2(2\delta_0+\operatorname{Im}\gh_0(2))}{4|\ell(2)|^2},\label{eq:mu2}\\
+\eta_2=(\nu+2)\frac{\mu_2}{\mu_0}+(\beta+1)\frac{\delta_2}{\delta_0},\qquad
+\kappa_2=\frac{\nu+1}{\beta+1}\,\frac{\mu_2}{\mu_0}+\frac{\delta_2}{\delta_0}.\label{eq:eta2}
+\end{gather}
+These are the source's formulas (3.22)--(3.23); here they are theorems (\zcref{prop:direction}).
+
+\begin{theorem}[Hopf bifurcation for \eqref{eq:E}]\label{thm:A}
+Assume (H1)--(H3) at $t_0>0$, and let $u_0(\eta)$ denote the constant solution of \eqref{eq:E}.
+\begin{enumerate}
+\item\label{A:roots} $\pm i\kappa_0$ are simple roots of the characteristic function of \eqref{eq:E} linearised at $u_0(\eta_0)$, and the root $\lambda(\eta)$ continuing $i\kappa_0$ satisfies $\sgn\operatorname{Re}\frac{d\lambda}{d\eta}(\eta_0)=\sgn H'(t_0)\neq0$. No $ik\kappa_0$, $k\in\Z\setminus\{\pm1\}$, is a root.
+\item\label{A:branch} There are $\varepsilon_0>0$ and even $C^\infty$ functions $\eta(\varepsilon)$, $\kappa(\varepsilon)$ on $(-\varepsilon_0,\varepsilon_0)$ with $\eta(0)=\eta_0$, $\kappa(0)=\kappa_0$, and for $0<\varepsilon<\varepsilon_0$ a non-constant $C^\infty$ solution $u_\varepsilon$ of $(\mathrm E_{\eta(\varepsilon)})$ of minimal period $2\pi/\kappa(\varepsilon)$ with
+\[
+\sup_{\tau\in\R}\bigl|u_\varepsilon(\tau)-u_0(\eta(\varepsilon))-\varepsilon\cos(\kappa(\varepsilon)\tau)\bigr|\le C\varepsilon^2 .
+\]
+\item\label{A:unique} There is $\rho>0$ such that every periodic solution $u$ of \eqref{eq:E} with period $p$ and $|\eta-\eta_0|+|2\pi/p-\kappa_0|+\|u-u_0(\eta)\|_{C^1(\R)}<\rho$ is either constant or a time translate of some $u_\varepsilon$, $0<\varepsilon<\varepsilon_0$, and then $(\eta,2\pi/p)=(\eta(\varepsilon),\kappa(\varepsilon))$.
+\item\label{A:direction} $\eta(\varepsilon)=\eta_0(1+\eta_2\varepsilon^2+O(\varepsilon^4))$ and $\kappa(\varepsilon)=\kappa_0(1+\kappa_2\varepsilon^2+O(\varepsilon^4))$. In particular, if $\eta_2<0$, then for $\eta$ close to $\eta_0$ small periodic solutions near $u_0$ with frequency near $\kappa_0$ exist exactly when $\eta<\eta_0$, and there is one orbit for each such $\eta$.
+\item\label{A:stab} If in addition (H4) holds and $H'(t_0)<0$, then for every $\eta>\eta_0$ all characteristic roots have negative real part, and for $\eta$ slightly below $\eta_0$ exactly two roots (a complex conjugate pair) have positive real part. Thus $\eta_0$ is the largest removal rate at which the steady state loses linear stability.
+\end{enumerate}
+\end{theorem}
+
+The same holds for the limit model~\eqref{eq:limit} itself, after the change of normalisation explained in \zcref{prop:reduction}: the critical rate in the variables of~\eqref{eq:limit} is $\eta_0/(1-\alpha)^\beta$, the frequency is $\kappa_0$, and $f$ is given along characteristics by~\eqref{eq:f}.
+
+\begin{theorem}[size-independent removal, $\beta=0$]\label{thm:B}
+Let $\beta=0$ and $\nu>0$. The Hopf points are exactly $t_j=\tan\omega_j$ with $\omega_j=\frac{\pi(1+4j)}{2(\nu+1)}$, $0\le j<\nu/4$, at
+\[
+\eta_j=\frac{\cos^{\nu+2}\omega_j}{\sin\omega_j},\qquad \kappa_j=\cos^{\nu+1}\omega_j .
+\]
+At each of them (H1)--(H3) hold and $H'(t_j)<0$, so \zcref{thm:A} applies; (H4) holds at $t_0$. The direction coefficient at the first (largest) point $\eta_0$ satisfies $\eta_2<0$ for every $\nu>0$, with $\eta_2\to-1/36$ as $\nu\to0$ and $\eta_2\to\frac1{10\pi}-\frac3{20}$ as $\nu\to\infty$. Hence, for every $\alpha\in(0,1)$ and $r=0$, the steady state is linearly stable for $\eta>\eta_0$, unstable for $\eta$ slightly below $\eta_0$, and periodic solutions bifurcate into $\eta<\eta_0$.
+\end{theorem}
+
+\begin{theorem}[certified grid, $\beta>0$]\label{thm:C}
+Let $\nu\in\{\frac19,\frac14,\frac37,\frac12,\frac23,1,\frac32,2,\frac73,4,9\}$ (that is $\alpha\in\{0.1,0.2,0.3,\frac13,0.4,0.5,0.6,\frac23,0.7,0.8,0.9\}$) and $\beta\in\{0,\frac1{10},\frac2{10},\dots,10\}$. At each of these 1111 points $H$ has a zero $t_0$ in an explicit interval of width at most $2^{-39}\max(t_0,1)$ at which (H1), (H2) with $H'(t_0)<0$, (H4) and $\eta_2<0$ hold. By (H4), $\eta_0$ is the largest removal rate at which a characteristic root lies on the imaginary axis. Consequently all conclusions of \zcref{thm:A}, including part~(5), hold, and the bifurcation is in the direction $\eta<\eta_0$. Enclosures of $\eta_0,\kappa_0,\eta_2,\kappa_2$ are listed in \texttt{certificates/grid\_results.csv}; a selection is in \zcref{tab:grid}.
+\end{theorem}
+
+\begin{theorem}[$\nu=0$, $\beta=3$]\label{thm:D}
+For $\nu=0$, $\beta=3$, $H$ has exactly $17$ zeros in $(0,27.77]$, all simple, $H'$ alternates in sign starting with $H'(t_1)<0$, and $\operatorname{Im}G(it_j)<0$. The values $\vth_j=-\operatorname{Im}G(it_j)/t_j$ decrease strictly for $j=1,\dots,11$, and for $\vth\ge\vth_{11}$ the only purely imaginary roots of $\vth\lambda+G(\lambda)$ are $\pm it_j$ at $\vth=\vth_j$, $j\le 11$. At each of the eleven points (H1)--(H3) hold, (H4) holds at $t_1$, and $\eta_2<0$. The steady state is linearly stable for $\eta>\eta_{(1)}$, and the number of characteristic roots in the right half-plane alternates between $2$ and $0$ on the successive intervals between $\eta_{(1)}>\eta_{(2)}>\dots>\eta_{(11)}$.
+\end{theorem}
+
+\section{The limit model as an equation with infinite delay}\label{sec:reduction}
+
+\begin{proposition}\label{prop:reduction}
+Let $u\in C(\R)$ be bounded and define, for $x>0$ and $\tau\in\R$, $a=x^{1-\alpha}/(1-\alpha)$ and
+\begin{equation}\label{eq:f}
+x^\alpha f(x,\tau)=e^{u(\tau-a)}\exp\Bigl(-\eta\,(1-\alpha)^\beta\frac{a^{\beta+1}}{\beta+1}\Bigr).
+\end{equation}
+Then $f$ solves the transport equation and the boundary condition of~\eqref{eq:limit} along characteristics, and it is the only such solution defined for all $\tau\in\R$. The first equation of~\eqref{eq:limit} holds if and only if $\tilde u=u+\nu\log(1-\alpha)$ solves $(\mathrm E_{\tilde\eta})$ with $\tilde\eta=(1-\alpha)^\beta\eta$.
+\end{proposition}
+
+\begin{proof}
+The characteristics of $\partial_\tau f+\partial_x(x^\alpha f)$ are $dx/d\tau=x^\alpha$, that is $x^{1-\alpha}/(1-\alpha)=\tau-\sigma$ for the characteristic leaving $x=0$ at time $\sigma$. Along it, $F=x^\alpha f$ satisfies $dF/d\tau=-\eta x^rF$. Since $x^r=((1-\alpha)(\tau-\sigma))^\beta$, integration from $\sigma=\tau-a$ gives~\eqref{eq:f}. Every backward characteristic reaches $x=0$ in finite time, so a solution defined for all times is determined by its boundary values. Finally $x=((1-\alpha)a)^{1/(1-\alpha)}$ gives $dx=((1-\alpha)a)^\nu da$ and
+\begin{align*}
+\int_0^\infty x^\alpha f\,dx&=(1-\alpha)^\nu\int_0^\infty e^{u(\tau-a)}\exp\Bigl(-\tilde\eta\frac{a^{\beta+1}}{\beta+1}\Bigr)a^\nu\,da\\
+&=\int_0^\infty e^{\tilde u(\tau-a)}\exp\Bigl(-\tilde\eta\frac{a^{\beta+1}}{\beta+1}\Bigr)a^\nu\,da.\qedhere
+\end{align*}
+\end{proof}
+
+\begin{remark}[normalisation]\label{rem:normalisation}
+The source's change of variables (3.1) produces the transport speed $1-\alpha$ and the boundary value $e^u/(1-\alpha)$, which (3.3)--(3.4) omit. By \zcref{prop:reduction} the omission only rescales $\eta$ by $(1-\alpha)^\beta$ and shifts $u$ by a constant. Its equation (3.7), on which its whole Hopf analysis and all its figures and tables rest, is exactly \eqref{eq:E}. We keep its $\eta$; for $r=0$ the two normalisations agree. The direction coefficients $\eta_2,\kappa_2$, being relative, are the same in both.
+\end{remark}
+
+\paragraph{Steady states and characteristic function.} Put $k_\eta(z)=z^\nu\exp(-\eta z^{\beta+1}/(\beta+1))$ and $m(\eta)=\int_0^\infty k_\eta=\eta^{-(\nu+1)/(\beta+1)}G(0)$. The constant solution is $u_0(\eta)=-\log m(\eta)$. Linearising \eqref{eq:E} at $u_0$ gives $w'(\tau)=-m(\eta)^{-1}\int_0^\infty k_\eta(z)w(\tau-z)\,dz$, with exponential solutions $e^{\lambda\tau}$ exactly at the roots of
+\begin{equation}\label{eq:char}
+\chi_\eta(\lambda)=\lambda+\frac{1}{m(\eta)}\int_0^\infty k_\eta(z)e^{-\lambda z}dz
+=\frac{\vth\lambda'+G(\lambda')}{G(0)},\qquad
+\lambda=\eta^{\frac1{\beta+1}}\lambda',\ \ \vth=\eta^{\frac1{\beta+1}}G(0).
+\end{equation}
+The function $G$ is entire if $\beta>0$ and holomorphic in $\operatorname{Re}\lambda>-1$ if $\beta=0$, and $|G(\lambda)|\le G(0)$, $|G'(\lambda)|\le G_{\beta,\nu+1}(0)$ for $\operatorname{Re}\lambda\ge0$. A purely imaginary root $\lambda'=it$, $t>0$, occurs exactly when $H(t)=0$ and $\vth=-\operatorname{Im}G(it)/t>0$; $\lambda'=0$ is never a root.
+
+\begin{lemma}[source, \S3.1]\label{lem:large}
+If $\vth>G_{\beta,\nu+1}(0)$, then $\vth\lambda+G(\lambda)\neq0$ for $\operatorname{Re}\lambda\ge0$.
+\end{lemma}
+\begin{proof}
+If $\vth\lambda+G(\lambda)=0$ with $\operatorname{Re}\lambda\ge0$, then $\lambda\ne0$ and $\vth=\operatorname{Re}\frac{G(0)-G(\lambda)}{\lambda}-G(0)\operatorname{Re}\frac1\lambda\le\bigl|\int_0^1G'(s\lambda)ds\bigr|\le G_{\beta,\nu+1}(0)$.
+\end{proof}
+
+\section{A Hopf theorem for \texorpdfstring{\eqref{eq:E}}{(E)}}\label{sec:hopf}
+
+\subsection{Periodic reformulation}
+Let $\kappa>0$ and let $u$ be a $2\pi/\kappa$-periodic $C^1$ solution of \eqref{eq:E}. Put
+\begin{gather*}
+U(s)=u(s/\kappa)-u_0(\eta),\qquad v=e^U-1,\\
+\mu=\frac{\eta}{(\beta+1)\kappa^{\beta+1}},\qquad
+\delta=\kappa^{\nu+2}m(\eta),\qquad g_\mu(y)=y^\nu e^{-\mu y^{\beta+1}}.
+\end{gather*}
+Since $e^{u_0}m=1$, \eqref{eq:E} reads $\kappa U'(s)=-e^{u_0}\int_0^\infty k_\eta(z)(e^{U(s-\kappa z)}-1)dz$; the substitution $y=\kappa z$ and $k_\eta(y/\kappa)=\kappa^{-\nu}g_\mu(y)$ turn it into $\delta U'=-g_\mu*v$, i.e.
+\begin{equation}\label{eq:F}
+F(v,\delta,\mu):=\delta v'+(1+v)(g_\mu*v)=0,\qquad (g_\mu*v)(s)=\int_0^\infty g_\mu(y)v(s-y)\,dy,
+\end{equation}
+for the $2\pi$-periodic function $v>-1$. Conversely every $2\pi$-periodic $C^1$ solution $v>-1$ of~\eqref{eq:F} gives a $2\pi/\kappa$-periodic solution $u(\tau)=u_0(\eta)+\log(1+v(\kappa\tau))$ of \eqref{eq:E}, where
+\begin{equation}\label{eq:Psi}
+\kappa=\frac{\delta\,((\beta+1)\mu)^{\frac{\nu+1}{\beta+1}}}{G(0)},\qquad
+\eta=(\beta+1)\mu\kappa^{\beta+1}=\frac{(\beta+1)^{\nu+2}\mu^{\nu+2}\delta^{\beta+1}}{G(0)^{\beta+1}} .
+\end{equation}
+The map $(\kappa,\eta)\mapsto(\delta,\mu)$ is a real-analytic diffeomorphism of $(0,\infty)^2$ with inverse~\eqref{eq:Psi}. Fourier coefficients are $\hat v(k)=\frac1{2\pi}\int_0^{2\pi}v(s)e^{-iks}ds$, and by Fubini $(g_\mu*v)^\wedge(k)=\gh_\mu(k)\hat v(k)$ with $\gh_\mu(k)=\int_0^\infty g_\mu(y)e^{-iky}dy$.
+
+\begin{lemma}\label{lem:scaling}
+At $(\delta_0,\mu_0)$ from~\eqref{eq:crit} one has $\gh_{\mu_0}(k)=t_0^{\nu+1}G(ikt_0)$, hence $\ell(k)=t_0^{\nu+1}\bigl(\vth_0\,ikt_0+G(ikt_0)\bigr)$, and
+\[
+\operatorname{Re}\partial_\mu\gh_\mu(1)\big|_{\mu_0}=-t_0^{\nu+\beta+3}H'(t_0).
+\]
+Thus (H1), (H2), (H3) are equivalent to: (A1) $\ell(1)=0$; (A2) $\operatorname{Re}\gh_1(1)\ne0$; (A3) $\ell(k)\neq0$ for $k\ge2$. Moreover $(\delta_0,\mu_0)$ corresponds to $(\kappa_0,\eta_0)$ under~\eqref{eq:Psi}.
+\end{lemma}
+\begin{proof}
+The first identity is the substitution $y=t_0z$ together with $\mu_0t_0^{\beta+1}=1/(\beta+1)$, and the formula for $\ell(k)$ follows from $\delta_0=t_0^{\nu+2}\vth_0$. For the last one, integrate $\frac{d}{dy}[y^{\nu+1}e^{-\mu y^{\beta+1}}]e^{-iy}$ by parts (the boundary terms vanish):
+\[
+(\nu+1)\gh_\mu(1)+(\beta+1)\mu\,\partial_\mu\gh_\mu(1)=i\int_0^\infty y^{\nu+1}e^{-\mu y^{\beta+1}}e^{-iy}dy .
+\]
+At $\mu_0$, $\gh_{\mu_0}(1)=-i\delta_0$ is imaginary under (H1); the right side equals $i\,t_0^{\nu+2}G_{\beta,\nu+1}(it_0)$, whose real part is $-t_0^{\nu+2}H'(t_0)$. Taking real parts and using $(\beta+1)\mu_0=t_0^{-\beta-1}$ gives the claim. The correspondence of the critical points is a direct substitution into~\eqref{eq:Psi}.
+\end{proof}
+
+\subsection{Functional setting}
+Let $\T=\R/2\pi\Z$, $X=H^1(\T;\R)$, $Y=L^2(\T;\R)$. For $\mu>0$, $g_\mu\in L^1(0,\infty)$ and $C_\mu v=g_\mu*v$ is bounded on $Y$ and on $X$ with norm at most $\|g_\mu\|_{L^1}$ (Minkowski's inequality); it commutes with translations and with $d/ds$.
+
+\begin{lemma}\label{lem:smooth}
+$F:X\times(0,\infty)^2\to Y$ in~\eqref{eq:F} is $C^\infty$, $F(0,\delta,\mu)=0$, and $D_vF(0,\delta,\mu)=L(\delta,\mu)=\delta\,d/ds+C_\mu$ is the Fourier multiplier $\ell(k;\delta,\mu)=ik\delta+\gh_\mu(k)$. $F$ is equivariant: $F(v(\cdot+\sigma),\delta,\mu)=F(v,\delta,\mu)(\cdot+\sigma)$.
+\end{lemma}
+\begin{proof}
+For $0<\mu_1\le\mu$, $|\partial_\mu^jg_\mu(y)|=y^{j(\beta+1)+\nu}e^{-\mu y^{\beta+1}}\le y^{j(\beta+1)+\nu}e^{-\mu_1y^{\beta+1}}\in L^1$, so $\mu\mapsto g_\mu\in L^1(0,\infty)$ is $C^\infty$ by dominated convergence and the mean value theorem, hence so is $\mu\mapsto C_\mu\in\mathcal B(Y)$. The map $(v,\delta)\mapsto\delta v'$ is bilinear and bounded $X\times\R\to Y$, and $(v,w)\mapsto vw$ is bilinear and bounded $X\times Y\to Y$ because $\|v\|_\infty\le c\|v\|_{H^1}$. The rest is immediate.
+\end{proof}
+
+\subsection{Lyapunov--Schmidt reduction}
+Let $P$ be the projection onto the modes $k=\pm1$ (on $X$ and on $Y$) and $Q=I-P$.
+
+\begin{proposition}\label{prop:LS}
+Assume (A1)--(A3) at $(\delta_0,\mu_0)$. There are $r_0>0$, a neighbourhood $\mathcal U$ of $(0,\delta_0,\mu_0)$ in $X\times\R^2$, and $C^\infty$ maps $r\mapsto(W(r),\delta^*(r),\mu^*(r))$ on $(-r_0,r_0)$, with $W(0)=0$, $PW(r)=0$, $\delta^*,\mu^*$ even, $\delta^*(0)=\delta_0$, $\mu^*(0)=\mu_0$, such that
+\begin{enumerate}
+\item $v_r=r(e^{is}+e^{-is})+W(r)=2r\cos s+W(r)$ solves $F(v_r,\delta^*(r),\mu^*(r))=0$, and $\|W(r)\|_X=O(r^2)$;
+\item every solution $(v,\delta,\mu)\in\mathcal U$ of $F=0$ has either $v=0$, or $v=v_r(\cdot+\sigma)$ for some $r\in(0,r_0)$, $\sigma\in\R$, and $(\delta,\mu)=(\delta^*(r),\mu^*(r))$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\emph{Step 1: the range equation.} Since $|\gh_{\mu_0}(k)|\le\|g_{\mu_0}\|_{L^1}$, $|\ell(k)|\ge|k|\delta_0/2$ for $|k|\ge2\|g_{\mu_0}\|_{L^1}/\delta_0$, and (A3) together with $\ell(0)=\gh_{\mu_0}(0)>0$ and $\ell(-k)=\overline{\ell(k)}$ shows that $\ell(k)\ne0$ for all $k\ne\pm1$. Hence $\sup_{k\neq\pm1}(1+|k|)/|\ell(k)|<\infty$ and $QL(\delta_0,\mu_0):QX\to QY$ is an isomorphism, with inverse the multiplier $1/\ell(k)$. Write $v=ae^{is}+\bar ae^{-is}+w$, $a\in\C$, $w\in QX$. The implicit function theorem applied to $QF(ae^{is}+\bar ae^{-is}+w,\delta,\mu)=0$ at $(0,0,\delta_0,\mu_0)$ gives a $C^\infty$ solution $w=W(a,\delta,\mu)$ on a set $\{|a|<a_0,|\delta-\delta_0|<\rho,|\mu-\mu_0|<\rho\}$, unique in $\{\|w\|_X<\rho_w\}$. Since $F(0,\delta,\mu)=0$, $W(0,\delta,\mu)=0$; differentiating at $a=0$ and using $QLe^{\pm is}=0$ gives $D_aW(0,\delta,\mu)=0$, so $W=O(|a|^2)$. As translations are isometries of $X$ that multiply $\hat v(1)$ by $e^{i\sigma}$ and commute with $P$, uniqueness gives $W(e^{i\sigma}a,\delta,\mu)=W(a,\delta,\mu)(\cdot+\sigma)$.
+
+\emph{Step 2: the bifurcation equation.} Let $\Phi(a,\delta,\mu)$ be the coefficient of $e^{is}$ in $F(ae^{is}+\bar ae^{-is}+W(a,\delta,\mu),\delta,\mu)$; the coefficient of $e^{-is}$ is its conjugate. Equivariance gives $\Phi(e^{i\sigma}a,\cdot)=e^{i\sigma}\Phi(a,\cdot)$. For real $r$, $\Phi(0,\delta,\mu)=0$, so $\Phi(r,\delta,\mu)=r\Psi(r,\delta,\mu)$ with $\Psi=\int_0^1\partial_r\Phi(\theta r,\delta,\mu)d\theta$ of class $C^\infty$, and $\Psi(0,\delta,\mu)=\ell(1;\delta,\mu)=i\delta+\gh_\mu(1)$ because $D_aW(0)=0$. By (A1) $\Psi(0,\delta_0,\mu_0)=0$, and the real Jacobian of $(\delta,\mu)\mapsto i\delta+\gh_\mu(1)$ at $(\delta_0,\mu_0)$ has determinant $-\operatorname{Re}\gh_1(1)\ne0$ by (A2). The implicit function theorem gives $C^\infty$ functions $(\delta^*,\mu^*)(r)$, $|r|<r_0$, with $\Psi(r,\delta,\mu)=0$ near $(0,\delta_0,\mu_0)$ if and only if $(\delta,\mu)=(\delta^*(r),\mu^*(r))$. Since $\Phi(-r)=\Phi(e^{i\pi}r)=-\Phi(r)$, $\Psi$ is even in $r$, and so are $\delta^*,\mu^*$. Put $W(r)=W(r,\delta^*(r),\mu^*(r))$.
+
+\emph{Step 3: all small solutions.} Take $\mathcal U$ so small that $(\hat v(1),Qv,\delta,\mu)$ lies in the domains above. If $F(v,\delta,\mu)=0$, then $Qv=W(\hat v(1),\delta,\mu)$. If $\hat v(1)=0$ then $v=W(0,\delta,\mu)=0$. Otherwise $\hat v(1)=re^{i\sigma}$ with $r>0$; the translate $v(\cdot-\sigma)$ has first coefficient $r$, so $\Psi(r,\delta,\mu)=0$, $(\delta,\mu)=(\delta^*(r),\mu^*(r))$ and $v(\cdot-\sigma)=v_r$.
+\end{proof}
+
+\paragraph{Regularity.} A solution $v\in H^1\subset C(\T)$ of~\eqref{eq:F} has $v'=-(1+v)(g_\mu*v)/\delta\in C(\T)$; inductively $v\in C^m$ implies $g_\mu*v\in C^m$ and $v\in C^{m+1}$, so $v\in C^\infty$.
+
+\subsection{Direction of bifurcation}
+\begin{proposition}\label{prop:direction}
+Under (A1)--(A3), with $\varepsilon=2r$, $\delta^*=\delta_0+\delta_2\varepsilon^2+O(\varepsilon^4)$ and $\mu^*=\mu_0+\mu_2\varepsilon^2+O(\varepsilon^4)$, where $\mu_2,\delta_2$ are given by~\eqref{eq:mu2}. The corresponding $(\kappa,\eta)$ satisfy $\eta=\eta_0(1+\eta_2\varepsilon^2+O(\varepsilon^4))$, $\kappa=\kappa_0(1+\kappa_2\varepsilon^2+O(\varepsilon^4))$ with~\eqref{eq:eta2}.
+\end{proposition}
+\begin{proof}
+The map $\varepsilon\mapsto(v_{\varepsilon/2},\delta^*,\mu^*)\in X\times\R^2$ is $C^\infty$, and $\delta^*,\mu^*$ are even, so $v=\varepsilon v_1+\varepsilon^2v_2+\varepsilon^3v_3+O(\varepsilon^4)$ in $X$ with $v_1=\cos s$ and $Pv_j=0$ for $j\ge2$, and $C_{\mu^*}=C_0+\mu_2\varepsilon^2C_1+O(\varepsilon^4)$ in $\mathcal B(Y)$, where $C_j$ is convolution with $g_j=\partial_\mu^jg_\mu|_{\mu_0}$. Expanding the identity $F(v,\delta^*,\mu^*)=0$ (a $C^\infty$ function of $\varepsilon$) and writing $L=L(\delta_0,\mu_0)$:
+\begin{gather*}
+\varepsilon:\ Lv_1=0;\qquad
+\varepsilon^2:\ Lv_2+v_1C_0v_1=0;\\
+\varepsilon^3:\ Lv_3+\delta_2v_1'+\mu_2C_1v_1+v_2C_0v_1+v_1C_0v_2=0 .
+\end{gather*}
+By (A1), $C_0\cos s=\operatorname{Re}(\gh_0(1)e^{is})=\delta_0\sin s$, so $v_1C_0v_1=\frac{\delta_0}2\sin2s$ and $v_2=\hat v_2(2)e^{2is}+\text{c.c.}$ with $\hat v_2(2)=\frac{i\delta_0}{4\ell(2)}$ ($\ell(\pm2)\ne0$ by (A3)). The coefficient of $e^{is}$ in the $\varepsilon^3$ equation vanishes for $Lv_3$ (since $\ell(1)=0$) and gives
+\[
+\tfrac12\bigl(i\delta_2+\mu_2\gh_1(1)\bigr)+\tfrac12\hat v_2(2)\,\overline{\gh_0(1)}+\tfrac12\gh_0(2)\hat v_2(2)=0 .
+\]
+Since $\overline{\gh_0(1)}=i\delta_0$ and $i\delta_0+\gh_0(2)=\ell(2)-i\delta_0$, this is
+\[
+i\delta_2+\mu_2\gh_1(1)+\frac{i\delta_0}{4}+\frac{\delta_0^2}{4\ell(2)}=0 .
+\] Real and imaginary parts are~\eqref{eq:mu2}. Finally~\eqref{eq:Psi} gives $\eta/\eta_0=(\mu/\mu_0)^{\nu+2}(\delta/\delta_0)^{\beta+1}$ and $\kappa/\kappa_0=(\delta/\delta_0)(\mu/\mu_0)^{(\nu+1)/(\beta+1)}$, whence~\eqref{eq:eta2}.
+\end{proof}
+
+\subsection{Characteristic roots}
+\begin{proposition}\label{prop:roots}
+Assume (H1), (H2). Then $it_0$ is a simple root of $\vth_0\lambda+G(\lambda)$ and its continuation $\lambda'(\vth)$ satisfies $\operatorname{Re}\frac{d\lambda'}{d\vth}(\vth_0)=t_0H'(t_0)/|\vth_0+G'(it_0)|^2$. If also (H4) holds, then for $\vth>\vth_0$ the equation $\vth\lambda+G(\lambda)=0$ has no root with $\operatorname{Re}\lambda\ge0$, and if moreover $H'(t_0)<0$ it has exactly two roots with $\operatorname{Re}\lambda>0$ for $\vth$ slightly below $\vth_0$.
+\end{proposition}
+\begin{proof}
+Write $\Lambda(\lambda,\vth)=\vth\lambda+G(\lambda)$. Since $\frac{d}{dt}G(it)=iG'(it)$, $H'(t)=-\operatorname{Im}G'(it)$, so $\operatorname{Im}\partial_\lambda\Lambda(it_0,\vth_0)=-H'(t_0)\neq0$: the root is simple. Then $\frac{d\lambda'}{d\vth}=-it_0/\partial_\lambda\Lambda$, whose real part is $-t_0\operatorname{Im}\partial_\lambda\Lambda/|\partial_\lambda\Lambda|^2=t_0H'(t_0)/|\partial_\lambda\Lambda|^2$.
+
+Let $N(\vth)$ be the number of roots in $\operatorname{Re}\lambda>0$. All roots with $\operatorname{Re}\lambda\ge0$ satisfy $|\lambda|\le G(0)/\vth$. By (H4), for $\vth>\vth_0$ there is no root on $i\R$: a root $it$ ($t>0$; $t<0$ is the conjugate case and $\lambda=0$ is impossible) needs $H(t)=0$ and $-\operatorname{Im}G(it)=\vth t>\vth_0t$, excluded by (H4) for $t\ne t_0$, and at $t=t_0$ the value of $\vth$ is $\vth_0$. On a compact interval $[a,b]\subset(\vth_0,\infty)$, choose $M>G(0)/a$; there are no roots on the boundary of the half disc $\{\operatorname{Re}\lambda>0,|\lambda|<M\}$, so by the argument principle $N$ is continuous, hence constant, on $(\vth_0,\infty)$. By \zcref{lem:large}, $N=0$ for large $\vth$, so $N=0$ on $(\vth_0,\infty)$. At $\vth_0$ there is no root with $\operatorname{Re}\lambda>0$ (by Hurwitz's theorem it would persist for $\vth$ slightly above $\vth_0$), and by (H4) the only imaginary roots are $\pm it_0$, both simple. By Hurwitz's theorem, for $\vth$ close to $\vth_0$ the roots in the closed half disc lie in small discs around $\pm it_0$, one in each, namely $\lambda'(\vth)$ and $\overline{\lambda'(\vth)}$. If $H'(t_0)<0$, $\operatorname{Re}\lambda'(\vth)>0$ for $\vth<\vth_0$ close to $\vth_0$, so $N=2$.
+\end{proof}
+
+\begin{proof}[Proof of \zcref{thm:A}]
+\emph{Part (1).} By~\eqref{eq:char}, the roots of $\chi_\eta$ are $\lambda=(\vth/G(0))\lambda'$, where $\vth=\eta^{1/(\beta+1)}G(0)$ is increasing in $\eta$; at $\eta_0$ the root $\lambda'=it_0$ gives $\lambda=i\kappa_0$. Since $d\lambda/d\vth=\lambda'/G(0)+(\vth/G(0))\,d\lambda'/d\vth$ and $\lambda'$ is imaginary, \zcref{prop:roots} gives the sign. A root $ik\kappa_0$ with $k\ge2$ would mean $\ell(k)=0$ (\zcref{lem:scaling}), excluded by (H3); $k=0$ is excluded since $\chi_\eta(0)=1$, and negative $k$ by conjugation.
+
+\emph{Parts (2)--(3).} \zcref{lem:scaling} turns (H1)--(H3) into (A1)--(A3). Apply \zcref{prop:LS} and transport the result by~\eqref{eq:Psi}: $\eta(\varepsilon),\kappa(\varepsilon)$ are the images of $(\delta^*,\mu^*)(\varepsilon/2)$, and $u_\varepsilon(\tau)=u_0(\eta(\varepsilon))+\log(1+v_{\varepsilon/2}(\kappa(\varepsilon)\tau))$. Since $v_{\varepsilon/2}=\varepsilon\cos s+O(\varepsilon^2)$ in $X\subset C(\T)$, the estimate follows. The minimal period of $v_{\varepsilon/2}$ is $2\pi$, because its first Fourier coefficient is $\varepsilon/2\ne0$. If $u$ is a periodic solution as in part~(3), then $v(s)=e^{u(s/\kappa)-u_0(\eta)}-1$, $\kappa=2\pi/p$, has small $C^1(\T)$ norm, hence small $X$ norm, and $(\delta,\mu)$ is close to $(\delta_0,\mu_0)$, so part~(2) of \zcref{prop:LS} applies.
+
+\emph{Part (4)} is \zcref{prop:direction}. If $\eta_2<0$, then $\varepsilon\mapsto\eta(\varepsilon)$ is strictly decreasing on $(0,\varepsilon_1)$ for some $\varepsilon_1>0$, which with part~(3) gives the last statement.
+
+\emph{Part (5)} is \zcref{prop:roots} transported by~\eqref{eq:char}; (H4) implies (H3) because a root $ikt_0$ at $\vth_0$ would be a zero $t=kt_0\ne t_0$ of $H$ with $-\operatorname{Im}G(it)=\vth_0t$.
+\end{proof}
+
+\begin{remark}
+\zcref{thm:A} concerns existence, uniqueness and direction. Orbital stability of $u_\varepsilon$ needs a phase space for \eqref{eq:E} and a centre manifold or Floquet theory with infinite delay (fading-memory spaces~\autocite{Staffans1987,HinoMurakamiNaito1991}, or the sun-star framework~\autocite{DiekmannGyllenberg2012}); we do not prove it. The source expects stability when $\eta_2<0$ at the largest bifurcation point, by analogy with ordinary and finite-delay equations~\autocite{DiekmannEtAl1995}.
+\end{remark}
+
+\section{Size-independent removal: proof of \texorpdfstring{\zcref{thm:B}}{Theorem B}}\label{sec:beta0}
+
+For $\beta=0$, $G(\lambda)=\Gamma(N)(1+\lambda)^{-N}$ with $N=\nu+1$ (source, \S4.1). Then $H(t)=\Gamma(N)(1+t^2)^{-N/2}\cos(N\arctan t)$ and $-\operatorname{Im}G(it)=\Gamma(N)(1+t^2)^{-N/2}\sin(N\arctan t)$.
+
+\emph{Hopf points.} $H(t)=0$ and $\operatorname{Im}G(it)<0$ mean $N\arctan t\equiv\pi/2\pmod{2\pi}$, i.e.\ $\arctan t=\omega_j$ with $\omega_j<\pi/2$, i.e.\ $0\le4j<\nu$. With $t_j=\tan\omega_j$, $(1+t_j^2)^{-1/2}=\cos\omega_j$, so $\vth_j=\Gamma(N)\cos^{N+1}\omega_j/\sin\omega_j$ and, since $G(0)=\Gamma(N)$, \eqref{eq:crit} gives the stated $\eta_j,\kappa_j$.
+
+\emph{(H2).} $H'(t_j)=-N\Gamma(N)(1+t_j^2)^{-N/2-1}\sin(N\arctan t_j)=-N\Gamma(N)\cos^{N+2}\omega_j<0$.
+
+\emph{(H3), (H4).} At any imaginary root $it$ for the value $\vth$, $|G(it)|=\vth t$, i.e.\ $\Gamma(N)(1+t^2)^{-N/2}=\vth t$; the left side decreases and the right side increases in $t$, so for a given $\vth$ there is at most one $t>0$. This gives (H3) at every $t_j$. For (H4) at $t_0$: if $H(t)=0$ and $t\neq t_0$, either $\operatorname{Im}G(it)>0$ and $-\operatorname{Im}G(it)<0<\vth_0t$, or $t=t_j$ with $j\ge1$, so $t>t_0$ and $-\operatorname{Im}G(it)=\Gamma(N)(1+t^2)^{-N/2}<\Gamma(N)(1+t_0^2)^{-N/2}=\vth_0t_0<\vth_0t$.
+
+\emph{Direction at $\eta_0$.} Write $\omega=\omega_0=\pi/(2N)$, $s=\sin\omega$, $c=\cos\omega$. Here $\mu_0=\cot\omega$, $\gh_\mu(k)=\Gamma(N)(\mu+ik)^{-N}$, and $\cot\omega+i=e^{i\omega}/s$, $\cot\omega+2i=(c+2is)/s$, $e^{-iN\omega}=-i$. Hence $\delta_0=\Gamma(N)s^N$, $\gh_0(2)=\Gamma(N)s^NA$ with $A=(c+2is)^{-N}$ (principal power), and $\gh_1(1)=-N\Gamma(N)(\mu_0+i)^{-N-1}=N\Gamma(N)s^{N+1}(s+ic)$, so $\operatorname{Re}\gh_1(1)>0$ for every $\nu>0$. Inserting these into~\eqref{eq:mu2}--\eqref{eq:eta2} and using $(N+1)\tan\omega-Nsc=\tan\omega\,(1+Ns^2)$:
+
+\begin{proposition}\label{prop:beta0eta2}
+For $\beta=0$, with $D=|2i+A|^2$,
+\[
+\eta_2=-\frac{\operatorname{Re}A}{c}\,\frac{1+Ns^2}{4NsD}-\frac14+\frac{2+\operatorname{Im}A}{4D},\qquad
+\kappa_2=-\frac{\operatorname{Re}A\,\tan\omega}{4D}-\frac14+\frac{2+\operatorname{Im}A}{4D}.
+\]
+For $\nu=1$: $\eta_2=-1/16$, $\kappa_2=-1/12$.
+\end{proposition}
+
+\begin{lemma}\label{lem:beta0sign}
+$\eta_2<0$ for every $\nu>0$; $\eta_2\to-1/36$ as $\nu\to0$ and $\eta_2\to\frac1{10\pi}-\frac3{20}$ as $\nu\to\infty$.
+\end{lemma}
+\begin{proof}[Proof (computer-assisted, script \texttt{01\_beta0\_direction.py})]
+Parametrise by $\omega\in(0,\pi/2)$, $N=\pi/(2\omega)$. On $[0.05,\pi/2-0.05]$ the formula is evaluated in ball arithmetic on 56 subintervals (adaptive bisection), each giving an enclosure in $(-\infty,0)$. Near the ends the formula has removable singularities, which we remove explicitly.
+
+\emph{$\omega\in[0,0.05]$ ($\nu\ge30.4$).} $Ns=\frac\pi2\operatorname{sinc}\omega$, $Ns^2=Ns\cdot s$, and $A=\exp(-N\log(c+2is))$ with $N\log(c+2is)=\frac\pi4\,3s\operatorname{sinc}\omega\,\mathrm{Lg}(3s^2)+i\pi\operatorname{tanc}\omega\operatorname{atanc}(2\tan\omega)$, where $\operatorname{sinc}x=\frac{\sin x}x$, $\operatorname{tanc}x=\frac{\tan x}x$, $\mathrm{Lg}(y)=\frac{\log(1+y)}y$, $\operatorname{atanc}x=\frac{\arctan x}x$, all extended by $1$ at $0$. These are monotone ($\operatorname{sinc}$ decreasing on $[0,\pi]$, $\operatorname{tanc}$ increasing on $[0,\pi/2)$, $\mathrm{Lg}$ and $\operatorname{atanc}$ decreasing on $[0,\infty)$), so their ranges on an interval are given by the endpoint values.
+
+\emph{$\epsilon=\pi/2-\omega\in[0,0.05]$ ($\nu\le0.033$).} Then $N=(1-2\epsilon/\pi)^{-1}$, $c=\sin\epsilon$, $s=\cos\epsilon$, $c+2is=2i(\cos\epsilon-\frac i2\sin\epsilon)$, and $A=-i\,2^{-N}e^W$ with $\operatorname{Re}W=-\frac N2\log(1-\frac34\sin^2\epsilon)$ and $\operatorname{Im}W=q\epsilon$, $q=-N\bigl(1-\frac12\operatorname{tanc}\epsilon\operatorname{atanc}(\frac12\tan\epsilon)\bigr)$ (using $(N-1)\pi/2=N\epsilon$). Thus $\operatorname{Re}A/c=2^{-N}e^{\operatorname{Re}W}\operatorname{sinc}(q\epsilon)\,q/\operatorname{sinc}\epsilon$ is regular at $\epsilon=0$.
+
+In both end regions a single ball evaluation over the whole region already lies in $(-\infty,0)$; the values at the end points give the two limits (at $\epsilon=0$: $N=1$, $q=-\frac12$, $A=-\frac i2$, $\operatorname{Re}A/c=-\frac14$, $D=\frac94$, $\eta_2=\frac1{18}-\frac1{12}$). The closed form was also checked against the general integral-based routine of \zcref{sec:certified} at $\nu=\frac19,\frac12,1,9$.
+\end{proof}
+
+This proves \zcref{thm:B}, with \zcref{prop:roots} for the stability statements.
+
+\section{Certified verification for \texorpdfstring{$\beta>0$}{beta>0}}\label{sec:certified}
+
+\subsection{Enclosing \texorpdfstring{$G$}{G}}
+\begin{lemma}\label{lem:ray}
+Let $\lambda$ lie in the closed first quadrant and $0<\varphi$, $(\beta+1)\varphi<\pi/2$. Then
+\[
+G_{\beta,\nu}(\lambda)=e^{-i(\nu+1)\varphi}\int_0^\infty \exp\Bigl(-\frac{r^{\beta+1}e^{-i(\beta+1)\varphi}}{\beta+1}-\lambda re^{-i\varphi}\Bigr)r^\nu\,dr,
+\]
+and the integrand is bounded by $r^\nu e^{-cr^{\beta+1}}$, $c=\cos((\beta+1)\varphi)/(\beta+1)>0$. Consequently, for $0<\epsilon<1<R$,
+\[
+\Bigl|\int_0^\epsilon\Bigr|\le\frac{\epsilon^{\nu+1}}{\nu+1},\qquad
+\Bigl|\int_R^\infty\Bigr|\le\frac{c^{-s}\,\Gamma(s,cR^{\beta+1})}{\beta+1},\quad s=\frac{\nu+1}{\beta+1}.
+\]
+\end{lemma}
+\begin{proof}
+The integrand $\exp(-z^{\beta+1}/(\beta+1)-\lambda z)z^\nu$ (principal powers) is holomorphic in the slit plane. For $z=re^{-i\theta}$, $0\le\theta\le\varphi$, $\operatorname{Re}(\lambda z)=r(\operatorname{Re}\lambda\cos\theta+\operatorname{Im}\lambda\sin\theta)\ge0$ and $\operatorname{Re}z^{\beta+1}=r^{\beta+1}\cos((\beta+1)\theta)\ge(\beta+1)cr^{\beta+1}$, so on the arc $|z|=R$ the integrand is at most $R^\nu e^{-cR^{\beta+1}}$ and on the small arc at most $\epsilon^\nu$. Cauchy's theorem in the sector and $R\to\infty$, $\epsilon\to0$ give the formula, and the bounds follow by integrating the majorant.
+\end{proof}
+
+We take for $\varphi$ the double-precision number nearest to $0.75/(\beta+1)$ (the program checks $c>0$ in ball arithmetic). The integral is split into the dyadic pieces $[2^{-k-1},2^{-k}]$, $1\le k<K$, where $K$ is chosen so that $2^{-K(\nu+1)}/(\nu+1)$ is below the target tolerance, and the pieces $[\frac12,1],[1,2],[2,4],\dots,[\cdot,R]$. Each piece is computed by the rigorous Gauss--Legendre integrator of Arb~\autocite{Johansson2017,Johansson2018}, called through python-flint, with the branch-cut-aware (``analytic'') versions of $r^{\beta+1}$ and $r^\nu$ that the integrator requires. Parameters may be balls: if $t$ ranges over a ball, the output encloses $G(it)$ for every $t$ in it. Precision is 128 bits, the tolerance $2^{-70}$ ($2^{-90}$ in \zcref{sec:odd}). For $\beta=0$ the routine was checked against the closed form, and against the source's values (\zcref{subsec:compare}).
+
+\subsection{The certificate at one parameter point}\label{subsec:cert}
+For $\beta,\nu$ (exact rationals, enclosed in balls) and an interval $T=[t_{\mathrm{lo}},t_{\mathrm{hi}}]$ found by a floating-point search (not part of the proof), script \texttt{03\_certify\_grid.py} checks:
+\begin{description}
+\item[(C1)] $H(t_{\mathrm{lo}})>0>H(t_{\mathrm{hi}})$;
+\item[(C2)] $H'<0$ on $T'=[t_{\mathrm{lo}}-d,t_{\mathrm{hi}}+d]$ (16 sub-balls; $d$ starts at $0.05\,t_{\mathrm{mid}}$ and is halved on failure);
+\item[(C3)] $\operatorname{Im}G(it)<0$ for $t\in T$; let $\underline\vth$ be a lower bound of $-\operatorname{Im}G(iT)/T$;
+\item[(C4)] with $T_{\max}=G(0)/\underline\vth$: $G(0)-2^{-20}G_{\beta,\nu+1}(0)>0$, and $(2^{-20},T_{\max}]\setminus T'$ is covered by 128 intervals, bisected when needed, on each of which either $\operatorname{Re}G(it)$ has constant sign or $\sup(-\operatorname{Im}G(it))<\underline\vth\cdot\inf t$;
+\item[(C5)] enclosures of $\operatorname{Re}\gh_1(1)$, $|\ell(2)|$, $\eta_0,\kappa_0,\eta_2,\kappa_2$ from~\eqref{eq:crit}--\eqref{eq:eta2} with $t\in T$, via \zcref{lem:scaling}; $\operatorname{Re}\gh_1(1)>0$, $\ell(2)\ne0$, and the sign of $\eta_2$.
+\end{description}
+\emph{Why these suffice.} By (C1) and (C2), $H$ has exactly one zero $t_0$ in $T'$, it lies in $T$, and $H'(t_0)<0$: this is (H2) and the zero part of (H1); (C3) gives the rest of (H1). For (H4), let $t\neq t_0$ with $H(t)=0$. If $t\le2^{-20}$: $|G(it)-G(0)|\le tG_{\beta,\nu+1}(0)$, so $H(t)>0$, impossible. If $t\in T'$: impossible. If $t$ lies in a scanned interval $J$: $H\ne0$ on $J$ unless $-\operatorname{Im}G(it)<\underline\vth\inf J\le\vth_0t$. If $t>T_{\max}$: $-\operatorname{Im}G(it)\le|G(it)|\le G(0)<\underline\vth t\le\vth_0t$. Every enclosure in (C5) contains the value at the true $t_0$ because $t_0\in T$.
+
+\subsection{Results}\label{subsec:compare}
+All 1111 points of \zcref{thm:C} pass (C1)--(C5) with $\eta_2<0$; this proves \zcref{thm:C}. The run takes about three minutes on eight cores. \zcref{tab:grid} lists a selection. The enclosures agree with the floating-point values of the source (the two data files of its arXiv source give $\eta_0,\eta_2,\kappa_0,\kappa_2,\operatorname{Re}\gh_1(1),|\ell(2)|$ for its nine values of $\nu$ and $\beta=0,0.1,\dots,10$): over these 909 points the largest relative deviation is $7\cdot10^{-7}$ (script \texttt{05\_compare\_source.py}), consistent with floating-point quadrature.
+
+\input{certificates/table_grid.tex}
+
+\section{The case \texorpdfstring{$\nu=0$, $\beta=3$}{nu=0, beta=3}: proof of \texorpdfstring{\zcref{thm:D}}{Theorem D}}\label{sec:odd}
+
+For $\nu=0$ and odd $\beta$ the source finds infinitely many crossings, with $H$ decaying super-exponentially. At the eleventh zero, $|H'|\approx10^{-8}$, and a plain ball evaluation over a $t$-interval cannot resolve the sign of $H$, because its overestimation is of order $1$ times the width. We therefore use, for $\beta=3$,
+\[
+H(t)=\frac12\int_{\R}e^{-y^4/4-ity}dy=\frac12\int_{\R}e^{-(x-ic)^4/4-it(x-ic)}dx,\qquad c=\tfrac12t_c^{1/3},
+\]
+(Cauchy's theorem; the shifted line passes through the saddle points $t^{1/3}e^{-i\pi/6}$ and $t^{1/3}e^{-5i\pi/6}$), and the same for $H'$ with the factor $-iy$. On this line the integrand has the size of $H$ itself, so the enclosures have small relative error. For $|x|\ge X\ge\sqrt{12}\,c$, $\operatorname{Re}(x-ic)^4\ge x^4/2$, so the tails are at most $e^{-tc}(1+c/X)\,2e^{-X^4/8}X^{-(3-m)}$ ($m=0,1$ for $H,H'$). Script \texttt{04\_odd\_beta3.py} certifies: 17 zeros in $(0,T_{\mathrm{scan}}]$, $T_{\mathrm{scan}}=27.77$, by sign changes and a constant sign of $H'$ around each zero; that $H$ has no other zero there, by the centred form $H(J)\subset H(m)+H'(J)[-w/2,w/2]$ on the gaps; $\operatorname{Im}G(it_j)<0$; that $\vth_1>\dots>\vth_{11}$ and $\vth_j<\vth_{11}$ for $j=12,\dots,17$; and $T_{\mathrm{scan}}^2\vth_{11}>2$. For $\nu=0$ an integration by parts gives $G(it)=\frac1{it}\bigl(1+\int_0^\infty e^{-ity}\phi'(y)dy\bigr)$ with $\phi$ decreasing from $\phi(0)=1$, so $|G(it)|\le2/t$, and no imaginary root with $\vth\ge\vth_{11}$ has $t>T_{\mathrm{scan}}$ ($\vth t\ge\vth_{11}T_{\mathrm{scan}}>2/T_{\mathrm{scan}}$). This gives the root picture of \zcref{thm:D}, (H3) at every $t_j$ ($j\le 11$), and (H4) at $t_1$. The argument of \zcref{prop:roots}, applied between consecutive $\vth_j$, gives the alternation of $N(\vth)$ between $0$ and $2$, since the crossing directions $\sgn H'(t_j)$ alternate. The values are in \zcref{tab:odd}; $\eta_2<0$ at every crossing.
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{rllll}
+\toprule
+$j$ & $\eta_{(j)}$ & $\kappa_{(j)}$ & $\eta_2$ & $\operatorname{Re}\gh_1(1)$\\
+\midrule
+1 & $2.309572392\cdot10^{-3}$ & $0.5353315585$ & $-0.43548182$ & $76.112489$\\
+2 & $5.283502051\cdot10^{-7}$ & $0.1293368539$ & $-0.27019151$ & $-728.17050$\\
+3 & $9.258695924\cdot10^{-8}$ & $0.1188537500$ & $-0.34140296$ & $981.31501$\\
+4 & $1.143390290\cdot10^{-8}$ & $0.08941878885$ & $-0.33136298$ & $-670.81795$\\
+5 & $2.802774565\cdot10^{-9}$ & $0.07537569842$ & $-0.33354598$ & $323.96458$\\
+6 & $8.699904338\cdot10^{-10}$ & $0.06507324666$ & $-0.33321575$ & $-126.62050$\\
+7 & $3.288440931\cdot10^{-10}$ & $0.05763377403$ & $-0.33330649$ & $42.917776$\\
+8 & $1.422225926\cdot10^{-10}$ & $0.05190101582$ & $-0.33330715$ & $-13.129710$\\
+9 & $6.818335235\cdot10^{-11}$ & $0.04734503300$ & $-0.33331673$ & $3.7179564$\\
+10 & $3.541935337\cdot10^{-11}$ & $0.04362387789$ & $-0.3333211$ & $-0.9911355$\\
+11 & $1.962498289\cdot10^{-11}$ & $0.04052039391$ & $-0.333324$ & $0.2517176$\\
+\bottomrule
+\end{tabular}
+\caption{The eleven certified crossings for $\nu=0$, $\beta=3$ (midpoints; all enclosures have radius below $10^{-6}$ relative, see \texttt{certificates/odd\_beta3.csv}).}\label{tab:odd}
+\end{table}
+
+\section{Scope and remarks on the source}\label{sec:scope}
+\begin{itemize}
+\item \emph{Model.} Everything concerns the limit model~\eqref{eq:limit}, equivalently \eqref{eq:E}, in which the source observes the oscillations. The derivation of~\eqref{eq:limit} from the Becker--Döring system with injection and depletion is formal in the source, and a Hopf theorem for that infinite system is not attempted here.
+\item \emph{Parameters.} For $\beta=0$ the result covers every $\nu>0$. For $\beta>0$ it covers the 1111 grid points of \zcref{thm:C}, which include all values of $\beta$ in the source's Tables~2--3 and Figures~3--4 for its nine values of $\nu$, and the eleven crossings of its Table~1. Between grid points the hypotheses are expected to hold by continuity, but this is not proved. A centred-form version of the certificate over $\beta$-boxes works for small $\nu$, but for large $\nu$ the ball evaluation of the oscillatory integrals with a ball-valued $\beta$ overestimates the $\beta$-dependence by factors of $10^2$ to $10^4$ (at $\nu=9$, boxes of width $2\cdot10^{-4}$ were still needed), so a cover of the whole interval $[0,10]$ would need higher-order Taylor forms. This was not carried out.
+\item \emph{Stability.} Part~(5) of \zcref{thm:A} concerns the characteristic roots of the steady state. Nonlinear stability of the steady state for $\eta>\eta_0$ and orbital stability of the bifurcating orbits are not proved.
+\item \emph{Normalisation.} See \zcref{rem:normalisation}: in the variables of~\eqref{eq:limit} the critical rate is $\eta_0/(1-\alpha)^\beta$.
+\item \emph{Table~1 of the source.} Its column $\kappa_2$ equals $\eta_2/4=\eta_2/(\beta+1)$ in every row, which disagrees with its own formula (3.23). For example, at the first crossing the certified value is $\kappa_2=-0.10842900\pm3\cdot10^{-9}$, whereas Table~1 gives $-0.10887$. A floating-point Fourier--Galerkin continuation of the branch (\texttt{06\_galerkin\_check.py}, not part of the proof) agrees with the certified values: $\kappa_2\approx-0.108429$. Its $\eta_2$ values and those of the main data files agree with ours.
+\end{itemize}
+
+\section{Computer verification}\label{sec:computer}
+All scripts are in \texttt{scripts/} and use Python~3 with python-flint~0.9 (Arb). Each prints \texttt{PASS}/\texttt{FAIL} per claim and exits non-zero on failure. Scripts 01, 03 and 04 were run under WSL Fedora and again under Windows (Python 3.12, python-flint 0.9.0), with identical outcomes; the logs are in \texttt{certificates/}.
+\begin{description}
+\item[\texttt{bdhopf.py}] Enclosures of $G$ (\zcref{lem:ray}), of $H,H'$ on the saddle line for $\beta=3$, and of the Hopf quantities~\eqref{eq:crit}--\eqref{eq:eta2}.
+\item[\texttt{certify\_lib.py}] Checks (C1)--(C5) of \zcref{subsec:cert}.
+\item[\texttt{01\_beta0\_direction.py}] \zcref{lem:beta0sign} and the consistency check of \zcref{prop:beta0eta2} (one minute).
+\item[\texttt{02\_search\_grid.py}] Floating-point search of the intervals $T$ (exploration; writes \texttt{certificates/grid\_tintervals.csv}).
+\item[\texttt{03\_certify\_grid.py}] \zcref{thm:C}: (C1)--(C5) at the 1111 points (3 to 20 minutes on 8 cores, depending on the load); writes \texttt{certificates/grid\_results.csv}.
+\item[\texttt{04\_odd\_beta3.py}] \zcref{thm:D} (about 2 minutes).
+\item[\texttt{05\_compare\_source.py}] Comparison with the source's data files and the table of \zcref{tab:grid} (not part of the proof).
+\item[\texttt{06\_galerkin\_check.py}] Floating-point continuation of the branch at small amplitude (not part of the proof).
+\end{description}
+
+\paperreferences
+\end{document}

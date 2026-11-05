@@ -23,7 +23,6 @@ Feasibility means the chance of a *complete* resolution by a very strong AI with
 
 | Tier | Problem | Field | Feasibility | Expected form | PDF needed |
 |---|---|---|---|---|---|
-| A | [Rigorous Hopf bifurcation in the Becker–Döring bubblelator](#a1) | Nucleation kinetics | medium-high | theorem + certified computation | no |
 | A | [Quadratic trimolecular (2, 4, 2) networks](#a2) | Reaction networks | medium | per-network theorems, or two limit cycles | no |
 | A | [Mixed-mechanism dual phosphorylation](#a3) | Reaction networks | medium | counterexample | no |
 | A | [Maximal energy of bicyclic graphs, two odd cycles](#a5) | Mathematical chemistry | medium, long | proof + interval checks | yes |
@@ -62,15 +61,7 @@ not needed.
 <a id="a1"></a>
 ### Rigorous Hopf bifurcation in the Becker–Döring bubblelator
 
-- **Statement.** Prove a Hopf bifurcation theorem for the Becker–Döring model with injection of monomers and depletion of
-  large clusters, in which the source verifies transversality and nonresonance only numerically (its appendix C).
-- **Source.** Niethammer, Pego, Schlichting, Velázquez, *Oscillations in a Becker–Döring model with injection and depletion*,
-  SIAM J. Appl. Math., [arXiv:2102.06751](https://arxiv.org/abs/2102.06751) §§1.4, 3, 4.2. The source says that such a theorem
-  has not yet been proven for a model of this type, which is weaker wording than "open problem".
-- **Status.** Open. No citing work claims rigour. Read arXiv:2508.07884 (injection and fragmentation, no Hopf).
-- **Attack.** Reduce to a Volterra-type equation with infinite delay; certify the eigenvalue crossing and the sign of the
-  first Lyapunov coefficient in interval arithmetic. The experience of results 8 and 25 helps, but their model is finite in
-  a way this one is not, and the infinite-delay functional setting is the main risk.
+Solved on 5 November 2026 (preliminary): [result 34](../problems/becker-doring-bubblelator-hopf/).
 
 <a id="a2"></a>
 ### Quadratic trimolecular (2, 4, 2) networks
