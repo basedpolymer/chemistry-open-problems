@@ -26,7 +26,7 @@ Feasibility means the chance of a *complete* resolution by a very strong AI with
 | A | [Rigorous Hopf bifurcation in the Becker–Döring bubblelator](#a1) | Nucleation kinetics | medium-high | theorem + certified computation | no |
 | A | [Quadratic trimolecular (2, 4, 2) networks](#a2) | Reaction networks | medium | per-network theorems, or two limit cycles | no |
 | A | [Mixed-mechanism dual phosphorylation](#a3) | Reaction networks | medium | counterexample | no |
-| A | [Complexity of the multistage minimum utility cost problem](#a4) | Chemical engineering | medium | NP-hardness or an algorithm | no |
+| A | [Complexity of the multistage minimum utility cost problem](#a4) (one run, model audit) | Chemical engineering | medium | NP-hardness or an algorithm | yes |
 | A | [Maximal energy of bicyclic graphs, two odd cycles](#a5) | Mathematical chemistry | medium, long | proof + interval checks | yes |
 | B | [Unimodality of TAC(E)](#b1) | Chemical engineering | medium-high | counterexample or theorem | no |
 | B | [n CSTRs in series, 3ⁿ steady states](#b2) | Chemical engineering | medium-high (construction) | construction; upper bound harder | yes |
@@ -49,6 +49,7 @@ read, and the only ones needed before work starts.
 | Priority | DOI | Reference | Used for |
 |---|---|---|---|
 | 1 | [10.1021/ci000164z](https://doi.org/10.1021/ci000164z) | Gutman, Vidović, J. Chem. Inf. Comput. Sci. 41 (2001) | A5, exact statement of the conjecture |
+| 1 | [10.1016/j.compchemeng.2019.106599](https://doi.org/10.1016/j.compchemeng.2019.106599) | Letsios et al., Comput. Chem. Eng. 132 (2020) | A4, the corrected equation (5); the arXiv version is degenerate |
 | 2 | [10.1016/0009-2509(94)e0091-4](https://doi.org/10.1016/0009-2509(94)e0091-4) | Li, Chem. Eng. Sci. 49 (1994) | B2, priority check for the isothermal case |
 | 2 | [10.1137/0152067](https://doi.org/10.1137/0152067) | Retzloff, Chan, Chicone, Papick, SIAM J. Appl. Math. 52 (1992) | B2, the case n = 2 (abstract read only) |
 | 2 | [10.1016/0362-546X(82)90015-3](https://doi.org/10.1016/0362-546X(82)90015-3) | Chicone, Retzloff, Nonlinear Anal. 6 (1982) | B3, the bound 15 |
@@ -116,6 +117,12 @@ not needed.
 - **Status.** Open; none of its nine citers settles it.
 - **Attack.** Reduction from pooling, 3-Partition or bin packing through the bilinear mixing terms, or a convex
   reformulation. Fix the model first: "multistage" must be read exactly as in the paper.
+- **One GPT-6-Astra run (xhigh), 5 November 2026, no resolution.** Model audit in
+  [its folder](../problems/multistage-min-utility-cost-complexity/references.md), not verified. Equation (5) of the arXiv
+  version cannot be taken literally: with its printed signs (5j, 5k) every feasible point exchanges no heat, and with the signs
+  reversed the optimum is the trivial max(E_H − E_C, 0) bound, because no temperature-approach constraint is stated. With
+  approach constraints added, one stage is an LP and two stages can do strictly better (exact rational example); a direct
+  3-Partition gadget fails. The intended model must be read in the journal version (DOI below) before a new attack.
 
 <a id="a5"></a>
 ### Maximal energy of bicyclic graphs, two odd cycles

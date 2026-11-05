@@ -1,0 +1,614 @@
+{
+  "arithmetic": "exact rational, fractions.Fraction",
+  "scope": "model audit and examples; NOT a resolution of the open problem",
+  "checks": [
+    {
+      "claim": "336 exact examples: printed zero-transfer witness and sign-only energy optimum",
+      "passed": true
+    },
+    {
+      "claim": "sign-only repair permits heat from inlet 1 to inlet 2 at zero utility",
+      "passed": true
+    },
+    {
+      "claim": "that witness violates both physical endpoint inequalities",
+      "passed": true
+    },
+    {
+      "claim": "printed monotonicity rejects the same nonzero heat transfer",
+      "passed": true
+    },
+    {
+      "claim": "3-Partition promise holds for (4,4,4,4,4,6), B=13",
+      "passed": true
+    },
+    {
+      "claim": "all 64 subsets checked: no partition into two bins of capacity 13",
+      "passed": true
+    },
+    {
+      "claim": "fractional heat splitting gives the failed packing gadget zero utility",
+      "passed": true
+    },
+    {
+      "claim": "one-stage LP exact vertex enumeration: maximum recovery 42/5",
+      "passed": true
+    },
+    {
+      "claim": "one-stage upper bound 42/5 also has an exact nonnegative dual certificate",
+      "passed": true
+    },
+    {
+      "claim": "one-stage optimum lifts to the bilinear constraints; utility 16/5",
+      "passed": true
+    },
+    {
+      "claim": "two-stage rational witness satisfies all repaired balances and active approaches",
+      "passed": true
+    },
+    {
+      "claim": "two stages attain zero utility, strictly better than one stage",
+      "passed": true
+    }
+  ],
+  "witnesses": {
+    "uphill_heat_counterexample": {
+      "instance": {
+        "hot": [
+          [
+            "1",
+            "1",
+            "0"
+          ]
+        ],
+        "cold": [
+          [
+            "1",
+            "2",
+            "3"
+          ]
+        ],
+        "stages": 1
+      },
+      "solution": {
+        "h": [
+          [
+            "1",
+            "0"
+          ]
+        ],
+        "c": [
+          [
+            "3",
+            "2"
+          ]
+        ],
+        "fh": [
+          [
+            [
+              "1"
+            ]
+          ]
+        ],
+        "fc": [
+          [
+            [
+              "1"
+            ]
+          ]
+        ],
+        "a": [
+          [
+            [
+              "0"
+            ]
+          ]
+        ],
+        "b": [
+          [
+            [
+              "3"
+            ]
+          ]
+        ],
+        "q": [
+          [
+            [
+              "1"
+            ]
+          ]
+        ],
+        "cu": [
+          "0"
+        ],
+        "hu": [
+          "0"
+        ],
+        "cost_unit_prices": "0"
+      }
+    },
+    "packing_obstruction": {
+      "instance": {
+        "hot": [
+          [
+            "4",
+            "1",
+            "0"
+          ],
+          [
+            "4",
+            "1",
+            "0"
+          ],
+          [
+            "4",
+            "1",
+            "0"
+          ],
+          [
+            "4",
+            "1",
+            "0"
+          ],
+          [
+            "4",
+            "1",
+            "0"
+          ],
+          [
+            "6",
+            "1",
+            "0"
+          ]
+        ],
+        "cold": [
+          [
+            "13",
+            "0",
+            "1"
+          ],
+          [
+            "13",
+            "0",
+            "1"
+          ]
+        ],
+        "stages": 1
+      },
+      "solution": {
+        "h": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        "c": [
+          [
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "0"
+          ]
+        ],
+        "fh": [
+          [
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "3",
+              "3"
+            ]
+          ]
+        ],
+        "fc": [
+          [
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "3",
+              "3"
+            ]
+          ]
+        ],
+        "a": [
+          [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ]
+        ],
+        "b": [
+          [
+            [
+              "1",
+              "1"
+            ],
+            [
+              "1",
+              "1"
+            ],
+            [
+              "1",
+              "1"
+            ],
+            [
+              "1",
+              "1"
+            ],
+            [
+              "1",
+              "1"
+            ],
+            [
+              "1",
+              "1"
+            ]
+          ]
+        ],
+        "q": [
+          [
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "2",
+              "2"
+            ],
+            [
+              "3",
+              "3"
+            ]
+          ]
+        ],
+        "cu": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hu": [
+          "0",
+          "0"
+        ],
+        "cost_unit_prices": "0"
+      },
+      "items": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        6
+      ],
+      "bin_capacity": 13,
+      "subsets_checked": 64
+    },
+    "stage_separation": {
+      "one_stage": {
+        "instance": {
+          "hot": [
+            [
+              "1",
+              "10",
+              "0"
+            ]
+          ],
+          "cold": [
+            [
+              "1",
+              "8",
+              "10"
+            ],
+            [
+              "1",
+              "0",
+              "8"
+            ]
+          ],
+          "stages": 1
+        },
+        "solution": {
+          "h": [
+            [
+              "10",
+              "8/5"
+            ]
+          ],
+          "c": [
+            [
+              "42/5",
+              "8"
+            ],
+            [
+              "8",
+              "0"
+            ]
+          ],
+          "fh": [
+            [
+              [
+                "1/5",
+                "4/5"
+              ]
+            ]
+          ],
+          "fc": [
+            [
+              [
+                "1",
+                "1"
+              ]
+            ]
+          ],
+          "a": [
+            [
+              [
+                "8",
+                "0"
+              ]
+            ]
+          ],
+          "b": [
+            [
+              [
+                "42/5",
+                "8"
+              ]
+            ]
+          ],
+          "q": [
+            [
+              [
+                "2/5",
+                "8"
+              ]
+            ]
+          ],
+          "cu": [
+            "8/5"
+          ],
+          "hu": [
+            "8/5",
+            "0"
+          ],
+          "cost_unit_prices": "16/5"
+        },
+        "lp_vertices": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "8"
+          ],
+          [
+            "2/5",
+            "8"
+          ],
+          [
+            "2",
+            "0"
+          ]
+        ]
+      },
+      "two_stage": {
+        "instance": {
+          "hot": [
+            [
+              "1",
+              "10",
+              "0"
+            ]
+          ],
+          "cold": [
+            [
+              "1",
+              "8",
+              "10"
+            ],
+            [
+              "1",
+              "0",
+              "8"
+            ]
+          ],
+          "stages": 2
+        },
+        "solution": {
+          "h": [
+            [
+              "10",
+              "8",
+              "0"
+            ]
+          ],
+          "c": [
+            [
+              "10",
+              "8",
+              "8"
+            ],
+            [
+              "8",
+              "8",
+              "0"
+            ]
+          ],
+          "fh": [
+            [
+              [
+                "1",
+                "0"
+              ]
+            ],
+            [
+              [
+                "0",
+                "1"
+              ]
+            ]
+          ],
+          "fc": [
+            [
+              [
+                "1",
+                "1"
+              ]
+            ],
+            [
+              [
+                "1",
+                "1"
+              ]
+            ]
+          ],
+          "a": [
+            [
+              [
+                "8",
+                "10"
+              ]
+            ],
+            [
+              [
+                "8",
+                "0"
+              ]
+            ]
+          ],
+          "b": [
+            [
+              [
+                "10",
+                "8"
+              ]
+            ],
+            [
+              [
+                "8",
+                "8"
+              ]
+            ]
+          ],
+          "q": [
+            [
+              [
+                "2",
+                "0"
+              ]
+            ],
+            [
+              [
+                "0",
+                "8"
+              ]
+            ]
+          ],
+          "cu": [
+            "0"
+          ],
+          "hu": [
+            "0",
+            "0"
+          ],
+          "cost_unit_prices": "0"
+        }
+      }
+    }
+  }
+}
