@@ -42,7 +42,8 @@ Feasibility means the chance of a *complete* resolution by a very strong AI with
 
 ## PDFs to supply
 
-Put them in `candidates/sources/` (git-ignored), named by first author and year. These are the only sources no agent could
+Put them in `candidates/sources/` (git-ignored), named by first author and year. The list for the whole repository is in
+[NEEDS.md](../NEEDS.md). These are the only sources no agent could
 read, and the only ones needed before work starts.
 
 | Priority | DOI | Reference | Used for |
