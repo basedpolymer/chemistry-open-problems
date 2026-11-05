@@ -10,7 +10,7 @@ manuscript, and scripts that re-check every computational claim.
 
 Effort is *xhigh* unless a problem's README says otherwise.
 
-- **Claude Opus 5.5** (Anthropic): orchestration; results 1–3, 5–9, 11–25 and 27; editing and
+- **Claude Opus 5.5** (Anthropic): orchestration; results 1–3, 5–9, 11–25, 27 and 32; editing and
   verification of results 4 and 10; verification of results 14 and 29; literature audits of results 30 and 31.
 - **GPT-6-Astra** (OpenAI; effort *high* for result 26): results 4, 10, 26, 28 and 29; contributions to results 8,
   11, 12, 17, 20 and 25.
@@ -51,9 +51,10 @@ Effort is *xhigh* unless a problem's README says otherwise.
 | 28 | [Gelation time for coagulation with particle emission](problems/klobusicky-rakauskas-emission-gelation/) (Klobusicky–Rakauskas, [arXiv:2604.14076](https://arxiv.org/abs/2604.14076), 2026, §7, conjecture) | Aggregation kinetics | Conjecture true: from identical k-clusters with emission of ℓ particles per collision, gelation occurs exactly at t = k/(2k − ℓ) (2/3 for dimers); explicit unique solution up to that time | [**solved**](problems/klobusicky-rakauskas-emission-gelation/paper.pdf) |
 | 30 | [DeLaViña–Waller conjecture on the Wiener index](problems/delavina-waller-wiener/) (Electron. J. Combin. 2008, Conjecture 7) | Mathematical chemistry | True per Liu's unrefereed preprint (Zenodo, 19 Aug 2026): the cycle maximizes W at order 2d + 1 and diameter d ≥ 3. Our audit found no error and checks every graph up to 11 vertices | [already solved](problems/delavina-waller-wiener/README.md) (literature audit), *not yet verified* |
 | 31 | [Connectedness of multistationarity regions, one species](problems/mcclure-shiu-one-species-connectedness/) (McClure–Shiu, J. Symbolic Comput. 2024, §6) | Reaction networks | Connected for four and five reactions, per White's unrefereed preprint (7 Sep 2026): the region splits only with exactly three two-way sources. Our audit found no error and adds a second proof of the key step | [already solved](problems/mcclure-shiu-one-species-connectedness/README.md) (literature audit), *not yet verified* |
+| 32 | [Steady states of n cooled CSTRs in series](problems/cstr-series-3n-steady-states/) (Bisbis, PhD thesis, Univ. Missouri 1987, conjecture) | Chemical engineering (reactors) | Conjecture true: at most 3ⁿ steady states, at most 2ⁿ stable, and both bounds are attained for every n and every ε = RT₀/E > 0 by n identical reactors with explicit parameters (extreme temperatures); attainment in the exponential limit ε = 0 not covered | [solved](problems/cstr-series-3n-steady-states/paper.pdf), *not yet verified* |
 
 <!-- overlaps:start -->
-**Results that overlap.** The 31 numbered results form 24 separate pieces of work. Rows 2 and 13, 8 and 25, 27 and 29
+**Results that overlap.** The 32 numbered results form 25 separate pieces of work. Rows 2 and 13, 8 and 25, 27 and 29
 are merged in the table above and keep their numbers:
 
 <p align="center"><img src="figures/overlaps-map.svg" alt="Map of overlaps between the 31 results" width="760"></p>
@@ -73,7 +74,6 @@ limits of the check and the PDFs to supply.
 | [Complexity of the multistage minimum utility cost problem](candidates/README.md#a4) (Letsios et al., [arXiv:1909.12328](https://arxiv.org/abs/1909.12328), §6.4) | Chemical engineering (heat integration) | Polynomial or NP-hard |
 | [Maximal energy of bicyclic graphs](candidates/README.md#a5) (Gutman–Vidović 2001; Gao et al., Discrete Appl. Math. 2024) | Mathematical chemistry | The case of two odd cycles |
 | [Unimodality of TAC(E)](candidates/README.md#b1) (Chang–Bagajewicz, AIChE J. 2020) | Chemical engineering (heat integration) | Whether total annualized cost is unimodal in utility energy for a fixed minimal network |
-| [n CSTRs in series, 3ⁿ steady states](candidates/README.md#b2) (Bisbis, thesis, 1987) | Chemical engineering (reactors) | Maximum number of steady states for n ≥ 3 |
 | [Fifteen solutions for three consecutive reactions](candidates/README.md#b3) (Berdouzi, thesis, 1987) | Chemical engineering (reactors) | Whether the Chicone–Retzloff bound of 15 is attained |
 | [Wiener index of orientations](candidates/README.md#b4) (Knor–Škrekovski–Tepeh, Ars Math. Contemp. 2024, §4) | Mathematical chemistry | Conjectures 4.3 and 4.5 |
 | [Clar–Fries question for benzenoids](candidates/README.md#b5) (Fenton–Hartung, Art Discrete Appl. Math. 2026) | Mathematical chemistry | Open for benzenoids, answered for fullerenes |

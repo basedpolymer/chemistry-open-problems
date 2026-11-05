@@ -1,0 +1,16 @@
+PASS n=1 eps=1/20: 3 steady states (expected 3), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=2 (expected 2)  [0.0 s]
+PASS n=2 eps=1/20: 9 steady states (expected 9), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=4 (expected 4)  [0.1 s]
+PASS n=3 eps=1/20: 27 steady states (expected 27), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=8 (expected 8)  [0.2 s]
+PASS n=4 eps=1/20: 81 steady states (expected 81), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=16 (expected 16)  [0.6 s]
+PASS n=5 eps=1/20: 243 steady states (expected 243), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=32 (expected 32)  [2.2 s]
+PASS n=6 eps=1/20: 729 steady states (expected 729), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=64 (expected 64)  [7.1 s]
+PASS n=1 eps=1: 3 steady states (expected 3), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=2 (expected 2)  [0.0 s]
+PASS n=2 eps=1: 9 steady states (expected 9), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=4 (expected 4)  [0.1 s]
+PASS n=3 eps=1: 27 steady states (expected 27), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=8 (expected 8)  [0.2 s]
+PASS n=4 eps=1: 81 steady states (expected 81), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=16 (expected 16)  [0.7 s]
+PASS n=1 eps=5: 3 steady states (expected 3), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=2 (expected 2)  [0.0 s]
+PASS n=2 eps=5: 9 steady states (expected 9), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=4 (expected 4)  [0.1 s]
+PASS n=3 eps=5: 27 steady states (expected 27), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=8 (expected 8)  [0.2 s]
+PASS n=4 eps=5: 81 steady states (expected 81), all Krawczyk-verified=True, pairwise disjoint=True, stability certified=True, stable=16 (expected 16)  [0.8 s]
+
+SUMMARY: ALL PASS (0 failure(s))

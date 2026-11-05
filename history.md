@@ -396,3 +396,12 @@ progress journal. Global topology ordering remains unresolved.
   resolution. Equation (5) of arXiv v1 forces zero heat exchange as printed. The journal version, supplied on request, corrects the
   monotonicity signs but still has no temperature-approach constraint, so taken literally its optimum is the trivial
   max(E_H − E_C, 0) bound. A second Astra run on the physical model (with approach constraints) is in progress.
+- Result 32 added, **solved (preliminary)**: Bisbis's conjecture (PhD thesis, Univ. Missouri 1987, Ch. II, p. 27) on n
+  exothermic first-order CSTRs in series, each with its own jacket. At most 3ⁿ steady states and at most 2ⁿ stable ones for
+  all parameters (series structure, at most three states per reactor, middle state a saddle); both bounds attained for every
+  n and every ε = RT₀/E > 0 by n identical reactors with explicit parameters, through a window lemma and five inequalities
+  independent of n and ε. Interval (Krawczyk) certificates on the thesis's own equations for n ≤ 6 at ε = 1/20 (729 states,
+  64 stable) and n ≤ 4 at ε = 1 and 5. Outer states need not be stable (two certified one-reactor examples). Limits: the
+  attaining temperatures are far outside practice, and attainment in the exponential limit ε = 0 is not covered. Varma (1980)
+  proves 2ⁿ⁺¹ − 1 for adiabatic or isothermal reactors, a different setting; Li (1994) and two older papers were checked
+  through abstracts only. Solver: Claude Opus 5.5 (effort xhigh); no separate verification yet. Candidate B2 removed.

@@ -29,7 +29,6 @@ Feasibility means the chance of a *complete* resolution by a very strong AI with
 | A | [Complexity of the multistage minimum utility cost problem](#a4) (one run, model audit) | Chemical engineering | medium | NP-hardness or an algorithm | yes |
 | A | [Maximal energy of bicyclic graphs, two odd cycles](#a5) | Mathematical chemistry | medium, long | proof + interval checks | yes |
 | B | [Unimodality of TAC(E)](#b1) | Chemical engineering | medium-high | counterexample or theorem | no |
-| B | [n CSTRs in series, 3ⁿ steady states](#b2) | Chemical engineering | medium-high (construction) | construction; upper bound harder | yes |
 | B | [Fifteen solutions for three consecutive reactions](#b3) | Chemical engineering | medium | certified parameter set | yes |
 | B | [Wiener index of orientations](#b4) | Mathematical chemistry | medium (search) | counterexample | no |
 | B | [Clar–Fries question for benzenoids](#b5) | Mathematical chemistry | medium (search) | counterexample | yes |
@@ -50,8 +49,6 @@ read, and the only ones needed before work starts.
 |---|---|---|---|
 | 1 | [10.1021/ci000164z](https://doi.org/10.1021/ci000164z) | Gutman, Vidović, J. Chem. Inf. Comput. Sci. 41 (2001) | A5, exact statement of the conjecture |
 | 1 | [10.1016/j.compchemeng.2019.106599](https://doi.org/10.1016/j.compchemeng.2019.106599) | Letsios et al., Comput. Chem. Eng. 132 (2020) | A4, the corrected equation (5); the arXiv version is degenerate |
-| 2 | [10.1016/0009-2509(94)e0091-4](https://doi.org/10.1016/0009-2509(94)e0091-4) | Li, Chem. Eng. Sci. 49 (1994) | B2, priority check for the isothermal case |
-| 2 | [10.1137/0152067](https://doi.org/10.1137/0152067) | Retzloff, Chan, Chicone, Papick, SIAM J. Appl. Math. 52 (1992) | B2, the case n = 2 (abstract read only) |
 | 2 | [10.1016/0362-546X(82)90015-3](https://doi.org/10.1016/0362-546X(82)90015-3) | Chicone, Retzloff, Nonlinear Anal. 6 (1982) | B3, the bound 15 |
 | 2 | [10.1016/0022-247X(87)90003-5](https://doi.org/10.1016/0022-247X(87)90003-5) | Retzloff, Chan, Mohamed, J. Math. Anal. Appl. 124 (1987) | B3, the bound attained for two reactions |
 | 2 | [10.1007/s10910-013-0193-0](https://doi.org/10.1007/s10910-013-0193-0) | Graver, Hartung, Souid, J. Math. Chem. 51 (2013) | B5, original question |
@@ -148,13 +145,7 @@ not needed.
 <a id="b2"></a>
 ### n CSTRs in series, 3ⁿ steady states
 
-- **Statement.** For n exothermic first-order CSTRs in series, each with its own jacket, the maximum number of steady states is
-  3ⁿ, of which at most 2ⁿ are stable. Proved for n = 1, 2.
-- **Source.** Bisbis, PhD thesis, Univ. Missouri 1987, doi:10.32469/10355/98283, Ch. II, p. 27 (open access).
-- **Caveat.** A remark in a thesis, not a published conjecture. Li (1994) claims the analogue for isothermal sequences; it is a
-  different model and has not been read. A review (PMC11614366) quotes a related count with garbled wording.
-- **Attack.** Compose the multivalued maps of one stage; compute the images of the fold curves exactly; construct 27 states for
-  n = 3 or find an obstruction. The construction is more accessible than the upper bound.
+Solved on 5 November 2026 (preliminary): [result 32](../problems/cstr-series-3n-steady-states/).
 
 <a id="b3"></a>
 ### Fifteen solutions for three consecutive reactions

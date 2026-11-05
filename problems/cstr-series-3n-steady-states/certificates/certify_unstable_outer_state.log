@@ -1,0 +1,12 @@
+PASS Example 1: phi has decided signs on the grid, 3 sign changes, phi(10^6) < 0
+PASS Example 1: three Krawczyk-verified steady states, types ['sink', 'saddle', 'unstable focus'] (expected ['sink', 'saddle', 'unstable focus'])
+     theta = -0.12788356592  y = 0.080817465111  tr = [-2.45070348167 +/- 4.76e-12]  det = [1.62654987135 +/- 2.89e-12]  -> sink
+     theta = 2.396821543333  y = 0.459523231499  tr = [2.47844350837 +/- 2.55e-12]  det = [-1.77800693724 +/- 4.09e-12]  -> saddle
+     theta = 4.925673971211  y = 0.838851095681  tr = [1.59598382300 +/- 2.70e-12]  det = [7.81489795408 +/- 2.79e-12]  -> unstable focus
+PASS Example 2: phi has decided signs on the grid, 3 sign changes, phi(10^6) < 0
+PASS Example 2: three Krawczyk-verified steady states, types ['unstable node', 'saddle', 'unstable node'] (expected ['unstable node', 'saddle', 'unstable node'])
+     theta = 1.345580537144  y = 0.327449440762  tr = [1.13713901369 +/- 3.11e-12]  det = [0.297246299540 +/- 4.51e-13]  -> unstable node
+     theta = 1.774424923917  y = 0.413218318116  tr = [2.75424105239 +/- 7.92e-13]  det = [-0.233184321454 +/- 4.99e-13]  -> saddle
+     theta = 2.696899339077  y = 0.597713201148  tr = [5.43747437619 +/- 2.42e-12]  det = [0.991469388004 +/- 1.08e-13]  -> unstable node
+
+SUMMARY: ALL PASS (0 failure(s))

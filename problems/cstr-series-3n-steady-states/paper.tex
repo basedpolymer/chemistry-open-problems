@@ -1,0 +1,426 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+
+\newcommand*{\PaperTitle}{\(n\) cooled CSTRs in series: \(3^n\) steady states, \(2^n\) of them stable}
+\newcommand*{\PaperTitlePlain}{n cooled CSTRs in series: 3^n steady states, 2^n of them stable}
+\newcommand*{\PaperShortTitle}{\(3^n\) steady states in \(n\) CSTRs in series}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 5 November 2026 \textperiodcentered{} solved (preliminary, verification pending)}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Verification: pending}
+\newcommand*{\PaperKeywords}{continuous stirred tank reactor, CSTR cascade, steady-state multiplicity, stability, Arrhenius kinetics, interval arithmetic}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+
+\newcommand*{\Da}{\mathrm{Da}_0}
+\newcommand*{\eps}{\varepsilon}
+
+\begin{document}
+\makepapertitle
+
+\begin{paperabstract}
+In his 1987 thesis on two continuous stirred tank reactors (CSTRs) in series with a first-order exothermic
+reaction, each with its own cooling jacket, B.~Y. Bisbis showed that two reactors can have nine steady states and
+conjectured that \(n\) reactors have at most \(3^n\) steady states, at most \(2^n\) of them stable. We prove the
+conjecture for the model of the thesis, with Arrhenius kinetics and \(\eps=RT_0/E>0\). The upper bounds hold for all
+parameter values, and also in the exponential limit \(\eps=0\): one reactor has at most three steady states for any
+feed, the Jacobian of the cascade is block lower triangular, and the middle state of a reactor with three states is a
+saddle. The bounds are attained for every \(n\) and every \(\eps>0\). For \(n\) identical reactors (equal volumes, equal
+jackets, equal coolant temperature) we give explicit parameter values with exactly \(3^n\) steady states, all
+hyperbolic, of which exactly \(2^n\) are asymptotically stable. The construction uses the bounded Arrhenius factor.
+The Damköhler number at infinite temperature is \(k_0V/F=1/(4n)\), so a reactor converts less than \(1/(4n+1)\) of
+the reactant it receives, even when ignited, and at least \(e^{-1/4}\) of the feed reaches the last reactor. Strong
+cooling makes each reactor almost insensitive to the temperature of its feed. The proof reduces to five
+elementary inequalities, checked in ball arithmetic. Interval certificates (Krawczyk test on the original equations)
+confirm the \(3^n\) states and the \(2^n\) stable ones for \(n\le 6\). Two certified one-reactor examples show that the
+outer states need not be stable: three states with an unstable upper focus, and three states that are all unstable.
+The parameters that attain \(3^n\) are far from practical operation: ignited reactors run above \(3E/R\). The
+exponential limit \(\eps=0\), which the thesis uses in its numerical example, is not covered by the construction.
+\end{paperabstract}
+
+\section*{The question}
+
+B.~Y. Bisbis, \emph{On the steady states and dynamic behavior of two CSTR's in series}, PhD thesis, University of
+Missouri--Columbia, December 1987, supervisor P.~C.-H. Chan~\autocite{Bisbis1987}. We read the thesis in full (open
+access). Chapter~II proves, with the sequential singularity theory of Dangelmayr and
+Stewart~\autocite{DangelmayrStewart1984,DangelmayrStewart1985}, that two reactors can have nine steady states, and gives
+a numerical example with \(\eps=0\). The concluding remarks of Chapter~II (p.~27) state:
+\begin{openquote}
+``For the case of n - CSTR's in series, one may conjecture that reiteration of the same methods used here, along with
+an induction reasoning, would lead to the following : The maximum possible number of steady states is \(3^n\), of which
+at most only \(2^n\) are stable, the rest unstable.''
+\end{openquote}
+The abstract repeats that ``some global statements about maximum multiplicity in the case of n - CSTR's in series are
+made''. On the parameters (p.~29): ``we have the same reaction taking place in both reactors and therefore kinetic
+parameters such as B, \(\Da\) and \(\eps\) are chosen only once. [\ldots] The rest of the parameters \(\alpha\),
+\(\eta_1\), \(\eta_2\), \(\beta_1\) and \(\beta_2\) may be chosen independently''. The residence time \(\tau\) is also
+common, since one flow rate passes through all reactors.
+
+\paragraph{The model.} The thesis writes the balances of reactor \(i\) with volume \(V_i\), jacket coefficient
+\(u_ia_i\) and coolant temperature \(T_{ci}\) (eqs.~(1)--(4)) and the dimensionless form (eqs.~(5)--(8), p.~4; the scaling of Uppal, Ray and Poore~\autocite{UppalRayPoore1976}) with
+\(\theta_i=\frac{E}{RT_0}\frac{T_i-T_0}{T_0}\), \(y_i=(c_{A0}-c_{Ai})/c_{A0}\), \(\eps=RT_0/E\),
+\(B=(-\Delta H)c_{A0}/(\eps\rho C_pT_0)\), \(\eta_i=\frac{E}{RT_0}\frac{T_{ci}-T_0}{T_0}\), \(\Da=k_0e^{-1/\eps}t_r\),
+\(\tau=V_1/(Ft_r)\), \(\alpha=V_2/V_1\). The \(n\)-reactor version is, for \(k=1,\dots,n\),
+\begin{equation}\label{eq:model}
+\begin{aligned}
+\frac{dy_k}{dt}&=\frac{y_{k-1}-y_k}{\alpha_k}+\Da\tau(1-y_k)E(\theta_k),\\
+\frac{d\theta_k}{dt}&=\frac{\theta_{k-1}-\theta_k}{\alpha_k}+\Da\tau B(1-y_k)E(\theta_k)
+-\frac{\beta_k\tau}{\alpha_k}(\theta_k-\eta_k),
+\end{aligned}
+\qquad E(\theta)=\exp\Bigl(\frac{\theta}{1+\eps\theta}\Bigr),
+\end{equation}
+with \(y_0=\theta_0=0\) (fresh feed at \(T_0\)), \(\alpha_1=1\) and \(\alpha_k=V_k/V_1\). For \(n=2\) this is eqs.~(5)--(8)
+of the thesis verbatim. The parameters are \(\eps>0\), \(B>0\), \(\Da>0\), \(\tau>0\) (common), and \(\alpha_k>0\),
+\(\beta_k\ge0\), \(\eta_k>-1/\eps\) (per reactor; the last condition says \(T_{ck}>0\)). The phase space is
+\(\{(y_k,\theta_k)_{k\le n}:\ 1+\eps\theta_k>0\}\), that is, positive absolute temperatures. A steady state is an
+equilibrium of~\eqref{eq:model}. \emph{Stable} means stable in the sense of Lyapunov.
+For the upper bounds we also allow \(\eps=0\), \(E(\theta)=e^\theta\), \(\theta_k,\eta_k\in\mathbb R\) (the
+Frank-Kamenetskii approximation, used in the numerical example of the thesis).
+
+\begin{remark}[note={on \(\beta_k\)}]
+The thesis lists \(\beta_i=u_ia_it_r/(V_i\rho C_p)\), whereas eq.~(8) as printed corresponds to normalising by
+\(V_1\). With the other convention, \(\beta_k\tau/\alpha_k\) becomes \(\beta_k\tau\) in~\eqref{eq:model}. Nothing below
+depends on this: in \zcref{thm:upper} only the number \(b_k\ge0\) defined in~\eqref{eq:reduced} matters (it is
+\(\alpha_k\beta_k\tau\) with the other convention), and the construction of \zcref{thm:family} has \(\alpha_k=1\), where
+both conventions agree.
+\end{remark}
+
+\paragraph{Prior work.} Varma~\autocite{Varma1980} gave the bound \(2^{n+1}-1\) steady states, at most \(n+1\) stable,
+for \(n\) reactors in series, ``for the adiabatic and the isothermal occurrence of the reaction'' according
+to~\autocite{Bisbis1987} (see also~\autocite{GalanicsSzalai2024}). In those cases each reactor has a single state
+variable. We have not read~\autocite{Varma1980}, which is paywalled. Svoronos, Aris and
+Stephanopoulos~\autocite{Svoronos1982} studied two identical tanks in the infinite-activation-energy approximation
+(\(\eps=0\), according to~\autocite{Bisbis1987}); their abstract reports up to seven steady states for a given
+Damköhler number, at most three of them stable. Kubíček et al.~\autocite{Kubicek1980} studied two nonadiabatic
+reactors numerically. Bisbis~\autocite{Bisbis1987} and Retzloff, Chan, Chicone and Papick~\autocite{Retzloff1992} proved that
+nine states occur for two jacketed reactors. Li~\autocite{Li1994} treats isothermal reactions in two CSTRs; his
+abstract (paraphrased in secondary sources) extends the count to \(3^N\) states, \(2^N\) stable, for \(N\) isothermal
+reactors. That is a different model, without energy balance. We found no proof, for any \(n\ge3\), that \(3^n\)
+states are attained in the jacketed nonisothermal model.
+
+\begin{theorem}[note={main result}]\label{thm:main}
+\begin{enumerate}
+\item For every \(n\ge1\) and all parameter values (\(\eps\ge0\)), system~\eqref{eq:model} has at most \(3^n\) steady
+states, and at most \(2^n\) of them are stable (\zcref{thm:upper}).
+\item For every \(n\ge1\) and every \(\eps>0\), put \(m=\max\{1,\eps\}\) and
+\begin{gather*}
+B=\frac{6400\,n\,m}{\eps^2},\qquad \Da=\frac{e^{-1/\eps}}{4n},\qquad \tau=1,\\
+\alpha_k=1,\qquad \beta_k=200m-1,\qquad \eta_k=\frac{1-20\eps}{20\eps^2}\qquad(k=1,\dots,n).
+\end{gather*}
+Then~\eqref{eq:model} has exactly \(3^n\) steady states. All are hyperbolic; exactly \(2^n\) are asymptotically
+stable, and the other \(3^n-2^n\) are unstable, each with a positive real eigenvalue (\zcref{thm:family}).
+\item Outer steady states need not be stable: there are parameters with \(n=1\) and three steady states of which only
+one is stable, and parameters with three steady states none of which is stable (\zcref{prop:unstable}).
+\end{enumerate}
+\end{theorem}
+In physical units, the family of part~2 has identical reactors with \(k_0V/F=1/(4n)\), \(UA/(F\rho C_p)=200m-1\),
+coolant temperature \(T_c=E/(20R)\) and adiabatic temperature rise \((-\Delta H)c_{A0}/(\rho C_p)=6400\,n\,m\,E/R\). The
+feed temperature \(T_0=\eps E/R\) is arbitrary. For \(\eps=1/20\) the coolant is at the feed temperature
+(\(\eta_k=0\)).
+
+\section{One reactor}\label{sec:one}
+
+Fix a reactor \(k\) and its inlet \((y_{k-1},\theta_{k-1})\), and write \(c_{k-1}=1-y_{k-1}\). Set
+\begin{equation}\label{eq:reduced}
+D_k=\alpha_k\Da\tau,\quad b_k=\beta_k\tau,\quad \lambda_k=\frac1{1+b_k}\in(0,1],\quad
+g_k(\theta)=\frac{D_kE(\theta)}{1+D_kE(\theta)},
+\end{equation}
+\begin{equation}\label{eq:phi}
+\varphi_k(\theta)=\lambda_k\theta_{k-1}+(1-\lambda_k)\eta_k+\lambda_kBc_{k-1}\,g_k(\theta)-\theta .
+\end{equation}
+
+\begin{lemma}[note={reduction}]\label{lem:reduction}
+Let \(c_{k-1}>0\). The pair \((y_k,\theta_k)\) makes the right-hand side of reactor \(k\) in~\eqref{eq:model} vanish
+if and only if \(\varphi_k(\theta_k)=0\) and \(1-y_k=c_{k-1}/(1+D_kE(\theta_k))\). In particular \(0<1-y_k\le c_{k-1}\)
+at a steady state, and the steady states of~\eqref{eq:model} are the sequences obtained by choosing, for
+\(k=1,\dots,n\) in turn, a zero \(\theta_k\) of \(\varphi_k\) (which depends on the choices for reactors \(1,\dots,k-1\)).
+\end{lemma}
+\begin{proof}
+Multiply the first equation by \(\alpha_k\): it vanishes iff \(c_{k-1}-c_k=D_kc_kE(\theta_k)\) with \(c_k=1-y_k\), that
+is \(c_k=c_{k-1}/(1+D_kE)\). On this curve, \(\alpha_k\) times the second equation equals \((1+b_k)\varphi_k(\theta_k)\)
+(check A2 of \texttt{check\_model\_algebra.py}). Since \(c_0=1\), induction gives \(c_k>0\) for all \(k\).
+\end{proof}
+
+\begin{lemma}[note={at most three states}]\label{lem:three}
+Let \(B>0\), \(c_{k-1}>0\), \(\eps\ge0\). Then \(\varphi_k\) has at most three zeros on \(I=\{\theta:1+\eps\theta>0\}\).
+If it has three zeros \(\theta^1<\theta^2<\theta^3\), then \(\varphi_k'(\theta^1)<0\), \(\varphi_k'(\theta^2)>0\) and
+\(\varphi_k'(\theta^3)<0\).
+\end{lemma}
+\begin{proof}
+Write \(g=g_k\). A direct computation (checks A4) gives
+\[
+g'=\frac{g(1-g)}{(1+\eps\theta)^2}>0,\qquad
+g''=\frac{g(1-g)}{(1+\eps\theta)^4}\,s(\theta),\qquad s(\theta)=1-2g(\theta)-2\eps(1+\eps\theta).
+\]
+The function \(s\) is strictly decreasing on \(I\), because \(g\) is strictly increasing and \(\eps(1+\eps\theta)\) is
+nondecreasing. So \(g''>0\) on an interval \(I_-\) (possibly empty) and \(g''<0\) on the complementary interval \(I_+\)
+to its right, up to at most one point. Since \(\varphi_k''=\lambda_kBc_{k-1}g''\), the derivative \(\varphi_k'\) is
+strictly increasing on \(I_-\) and strictly decreasing on \(I_+\). It has at most two zeros, and by Rolle's theorem
+\(\varphi_k\) has at most three.
+
+Suppose there are three zeros. By Rolle, \(\varphi_k'\) vanishes at some \(\xi_1\in(\theta^1,\theta^2)\) and some
+\(\xi_2\in(\theta^2,\theta^3)\). These are its only zeros, so \(\varphi_k'(\theta^j)\ne0\) and \(\varphi_k\) changes
+sign at each \(\theta^j\). Since \(g<1\), \(\varphi_k(\theta)\to-\infty\) as \(\theta\to\infty\). Hence
+\(\varphi_k<0\) on \((\theta^3,\infty)\), \(\varphi_k>0\) on \((\theta^2,\theta^3)\) and \(\varphi_k<0\) on
+\((\theta^1,\theta^2)\), and the signs of \(\varphi_k'(\theta^j)\) follow.
+\end{proof}
+
+\begin{lemma}[note={linearisation}]\label{lem:jac}
+Order the variables as \((y_1,\theta_1,\dots,y_n,\theta_n)\). The Jacobian of~\eqref{eq:model} is block lower
+triangular with \(2\times2\) diagonal blocks \(J_k\); the block of reactor \(k\) depends only on
+\((y_k,\theta_k)\) and the parameters. At a steady state, with \(\mathcal E_k=D_kE(\theta_k)\),
+\begin{align*}
+\alpha_k^2\det J_k&=-(1+\mathcal E_k)(1+b_k)\,\varphi_k'(\theta_k),\\
+\alpha_k\operatorname{tr}J_k&=(1+\mathcal E_k)(1+b_k)\Bigl(\varphi_k'(\theta_k)-\lambda_k+\frac{\mathcal E_k}{1+\mathcal E_k}\Bigr).
+\end{align*}
+Hence the eigenvalues of the Jacobian are those of the blocks, and
+\begin{enumerate}
+\item if \(\varphi_k'(\theta_k)>0\), then \(J_k\) has a positive and a negative real eigenvalue;
+\item \(J_k\) is Hurwitz (both eigenvalues with negative real part) if and only if
+\(\varphi_k'(\theta_k)<\min\{0,\ \lambda_k-\mathcal E_k/(1+\mathcal E_k)\}\).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Reactor \(k\) involves only \((y_{k-1},\theta_{k-1},y_k,\theta_k)\), which gives the block structure (check A7 for
+\(n=3\)). The two identities are checks A3. A real \(2\times2\) matrix is Hurwitz iff its determinant is positive and
+its trace negative, and has real eigenvalues of opposite signs iff its determinant is negative.
+\end{proof}
+
+\section{Upper bounds}\label{sec:upper}
+
+\begin{theorem}[note={upper bounds}]\label{thm:upper}
+Let \(n\ge1\), \(\eps\ge0\), \(B,\Da,\tau,\alpha_k>0\), \(\beta_k\ge0\), \(\eta_k\in\mathbb R\).
+\begin{enumerate}
+\item System~\eqref{eq:model} has at most \(3^n\) steady states.
+\item A steady state at which \(\varphi_k'(\theta_k)>0\) for some \(k\) has a positive real eigenvalue, so it is
+unstable. At most \(2^n\) steady states satisfy \(\varphi_k'(\theta_k)\le0\) for all \(k\). Hence at most \(2^n\) steady
+states are stable.
+\item If there are exactly \(3^n\) steady states, then exactly \(3^n-2^n\) of them have a reactor with
+\(\varphi_k'(\theta_k)>0\), and these are unstable.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+By \zcref{lem:reduction}, the steady states form a rooted tree of depth \(n\). A node at depth \(k-1\) is a steady
+state of reactors \(1,\dots,k-1\); its children are the zeros of the corresponding \(\varphi_k\). By
+\zcref{lem:three} every node has at most three children, so there are at most \(3^n\) leaves. This proves part~1.
+
+If \(\varphi_k'(\theta_k)>0\), then \(J_k\) has a positive eigenvalue (\zcref{lem:jac}), hence so has the full
+Jacobian, and a steady state at which the Jacobian has an eigenvalue with positive real part is unstable (Lyapunov;
+see~\autocite[§2.9]{Perko2001}). Every node has at most two children with \(\varphi_k'\le0\): if it has three
+children, the middle one has \(\varphi_k'>0\) by \zcref{lem:three}. So at most \(2^n\) leaves have
+\(\varphi_k'\le0\) along the whole path, which proves part~2. If there are \(3^n\) leaves, every node has exactly three
+children, exactly two of them with \(\varphi_k'<0\), and exactly \(2^n\) paths avoid the middle child; this proves
+part~3.
+\end{proof}
+
+\begin{remark}
+The upper bound uses only that each reactor has at most three steady states for every feed, and the triangular
+structure. The same proof applies if the reactors differ in any per-reactor parameter, and for \(\eps=0\).
+\end{remark}
+
+\begin{proposition}[note={outer states can be unstable}]\label{prop:unstable}
+Take \(n=1\), \(\eps=1/20\), \(\tau=1\).
+\begin{enumerate}
+\item For \(B=20\), \(\Da=1/10\), \(\beta_1=2\), \(\eta_1=-1\) there are exactly three steady states,
+\(\theta\approx-0.1279\), \(2.3968\), \(4.9257\): a hyperbolic sink, a saddle, and an unstable focus (trace
+\(\approx1.596\), determinant \(\approx7.815\)).
+\item For \(B=30\), \(\Da=69/500\), \(\beta_1=5\), \(\eta_1=-7/20\) there are exactly three steady states,
+\(\theta\approx1.3456\), \(1.7744\), \(2.6969\): an unstable node, a saddle, and an unstable node. No steady state is
+stable.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Computer-assisted (\texttt{certify\_unstable\_outer\_state.py}). For each example, ball arithmetic shows three sign
+changes of \(\varphi_1\) on a grid of step \(1/32\), so by \zcref{lem:three} there are exactly three zeros. Each steady
+state is then verified by a Krawczyk test in \((y,\theta)\), and the trace, determinant and discriminant of \(J_1\) are
+enclosed on the verified box; their signs give the stated types. The enclosures are in
+\texttt{certificates/unstable\_outer\_state.json}.
+\end{proof}
+
+So the two outer states of a reactor can both be unstable. The bound \(2^n\) is therefore not reached merely because
+there are \(3^n\) steady states. \zcref{thm:family} shows that it is reached.
+
+\section{Attainment for every \texorpdfstring{\(n\)}{n}}\label{sec:attain}
+
+From now on \(\eps>0\). We use the reduced temperature \(z=RT/E=\eps(1+\eps\theta)>0\), so that
+\(E(\theta)=e^{1/\eps}e^{-1/z}\), and the reduced concentration \(c=1-y\). For reactor \(k\) set
+\[
+K_k=D_ke^{1/\eps}=\frac{k_0V_k}F,\quad \Delta=\eps^2B=\frac{R\,(-\Delta H)c_{A0}}{E\rho C_p},\quad
+z_{c,k}=\eps(1+\eps\eta_k)=\frac{RT_{ck}}E>0 .
+\]
+\(K_k\) is the Damköhler number at infinite temperature and \(\Delta\) the adiabatic temperature rise in units of
+\(E/R\). The inlet of reactor \(k\) is \((c_{k-1},z_{k-1})\), with \((c_0,z_0)=(1,\eps)\).
+
+\begin{lemma}[note={reduced variables}]\label{lem:zform}
+With \(k(z)=K_ke^{-1/z}\) and
+\[
+F_k(z)=\lambda_kz_{k-1}+(1-\lambda_k)z_{c,k}+\lambda_k\Delta c_{k-1}\,\frac{k(z)}{1+k(z)}-z ,
+\]
+one has \(F_k(z)=\eps^2\varphi_k(\theta)\) and \(F_k'(z)=\varphi_k'(\theta)\) for \(z=\eps(1+\eps\theta)\). The outlet
+of a steady state of reactor \(k\) is \(c_k=c_{k-1}/(1+k(z_k))\). Moreover, with \(X_k=\lambda_k\Delta K_k\) and
+\(\psi(z)=e^{-1/z}/z^2\),
+\[
+F_k'(z)=X_kc_{k-1}\frac{\psi(z)}{(1+k(z))^2}-1 .
+\]
+\end{lemma}
+\begin{proof}
+Substitution (checks A1 and A5).
+\end{proof}
+
+Note that \(\psi'(z)=e^{-1/z}z^{-4}(1-2z)\) (check A6). So \(\psi\) increases on \((0,1/2]\) and decreases on
+\([1/2,\infty)\). Also \(k/(1+k)<K_k/(1+K_k)\) and \(e^{-1/z}/(1+K_ke^{-1/z})=1/(e^{1/z}+K_k)<1/(1+K_k)\) for all
+\(z>0\).
+
+\begin{lemma}[note={window lemma}]\label{lem:window}
+Fix a reactor with parameters \(\lambda\in(0,1)\), \(K>0\), \(z_c>0\), \(\Delta>0\), and put \(X=\lambda\Delta K\).
+Let \(0<a<1/2<b\), \(0<c_-\le1\) and \(\zeta_+>0\) satisfy
+\begin{align}
+&\lambda\zeta_++z_c+Xe^{-1/a}<a, \tag{W1}\label{W1}\\
+&Xc_-e^{-1/b}>(1+K)\,b, \tag{W2}\label{W2}\\
+&(1+K)X\psi(a)<1\quad\text{and}\quad(1+K)X\psi(b)<1. \tag{W3}\label{W3}
+\end{align}
+Then for every inlet \((c,\zeta)\) with \(c_-\le c\le1\) and \(0<\zeta\le\zeta_+\):
+\begin{enumerate}
+\item the reactor has exactly three steady states, with temperatures \(z_L\in(0,a)\), \(z_M\in(a,b)\) and
+\(z_H\in(b,\infty)\);
+\item at \(z_L\) and \(z_H\) the block \(J\) is Hurwitz; at \(z_M\) it has real eigenvalues of opposite signs;
+\item every outlet satisfies \(c_-/(1+K)\le c/(1+K)<c_{\mathrm{out}}<c\le1\) and
+\(0<z_{\mathrm{out}}<\lambda\zeta_++(1-\lambda)z_c+X/(1+K)\).
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Write \(F(z)=\lambda\zeta+(1-\lambda)z_c+Xc\,e^{-1/z}/(1+Ke^{-1/z})-z\), which is \(F_k\) of \zcref{lem:zform}
+(since \(\lambda\Delta c\,k/(1+k)=Xc\,e^{-1/z}/(1+Ke^{-1/z})\)).
+
+\emph{Signs.} As \(z\to0^+\), \(F(z)\to\lambda\zeta+(1-\lambda)z_c>0\). At \(z=a\), using \(c\le1\),
+\(\zeta\le\zeta_+\) and \((1-\lambda)z_c\le z_c\), \(F(a)\le\lambda\zeta_++z_c+Xe^{-1/a}-a<0\) by~\eqref{W1}. At
+\(z=b\), using \(c\ge c_-\) and \(1+Ke^{-1/b}<1+K\), \(F(b)>Xc_-e^{-1/b}/(1+K)-b>0\) by~\eqref{W2}. For
+\(z\ge z^*:=\lambda\zeta_++(1-\lambda)z_c+X/(1+K)\), \(F(z)<z^*-z\le0\). So \(F\) has a zero in each of \((0,a)\),
+\((a,b)\) and \((b,z^*)\). By \zcref{lem:three} and \zcref{lem:zform} there are no others. This proves part~1 and the
+bound on \(z_{\mathrm{out}}\).
+
+\emph{Stability.} At \(z_L<a<1/2\), \(\psi(z_L)<\psi(a)\); at \(z_H>b>1/2\), \(\psi(z_H)<\psi(b)\). For
+\(z\in\{z_L,z_H\}\), \zcref{lem:zform} and~\eqref{W3} give
+\[
+F'(z)+1=Xc\frac{\psi(z)}{(1+k)^2}\le X\psi(z)<\frac1{1+K}<\frac1{1+k}.
+\]
+Hence \(F'(z)<-k/(1+k)<\lambda-k/(1+k)\) and \(F'(z)<0\). By \zcref{lem:jac}(2) (with \(\mathcal E=k\) and
+\(\varphi'=F'\)) the block is Hurwitz. At \(z_M\), \(F'(z_M)>0\) by \zcref{lem:three}, and \zcref{lem:jac}(1)
+applies.
+
+\emph{Outlet concentration.} \(c_{\mathrm{out}}=c/(1+k)\) with \(0<k<K\).
+\end{proof}
+
+\begin{theorem}[note={cascade design}]\label{thm:family}
+Let \(n\ge1\) and \(\eps>0\). Suppose all \(n\) reactors have the same \(\lambda\in(0,1)\), \(K>0\), \(z_c>0\) (and
+\(\Delta>0\) is common). Suppose that \eqref{W1}--\eqref{W3} hold with
+\[
+c_-=(1+K)^{-(n-1)},\qquad \zeta_+\ge\max\Bigl\{\eps,\ \frac{z_c+X/(1+K)}{1-\lambda}\Bigr\}.
+\]
+Then~\eqref{eq:model} has exactly \(3^n\) steady states, labelled by the words \(w\in\{L,M,H\}^n\), where the
+letter \(w_k\) says in which window of \zcref{lem:window} the temperature of reactor \(k\) lies. All are hyperbolic. The
+\(2^n\) states with \(w\in\{L,H\}^n\) are asymptotically stable. The other \(3^n-2^n\) states have a positive real
+eigenvalue and are unstable. In particular this holds for the parameters of \zcref{thm:main}(2).
+\end{theorem}
+\begin{proof}
+\emph{Induction.} We show, for \(k=0,\dots,n\), that the steady states of the subsystem formed by reactors
+\(1,\dots,k\) are in bijection with \(\{L,M,H\}^k\), and that every outlet satisfies \((1+K)^{-k}\le c_k\le1\) and
+\(0<z_k\le\zeta_+\). For \(k=0\) the only ``outlet'' is the feed \((1,\eps)\), and \(\eps\le\zeta_+\). Suppose the claim
+holds for some \(k<n\). Every inlet \((c_k,z_k)\) of reactor \(k+1\) has \(c_k\ge(1+K)^{-k}\ge c_-\) and
+\(0<z_k\le\zeta_+\). By \zcref{lem:window} reactor \(k+1\) has exactly three steady states, one in each window, so
+each word of length \(k\) extends in exactly three ways. The new outlets satisfy \(c_{k+1}\ge c_k/(1+K)\ge(1+K)^{-k-1}\)
+and
+\[
+z_{k+1}<\lambda\zeta_++(1-\lambda)z_c+\frac X{1+K}\le\lambda\zeta_++(1-\lambda)\zeta_+=\zeta_+ .
+\]
+Distinct words give distinct states: at the first letter where two words differ, the temperatures of that reactor lie
+in disjoint windows. By \zcref{lem:reduction} every steady state arises in this way.
+
+\emph{Stability.} By \zcref{lem:jac} the spectrum of the Jacobian is the union of the spectra of the blocks
+\(J_k\). By \zcref{lem:window}(2), every block is Hurwitz when \(w_k\in\{L,H\}\), and has real eigenvalues of opposite
+signs when \(w_k=M\). So all \(3^n\) states are hyperbolic. If \(w\in\{L,H\}^n\), the state is a hyperbolic sink,
+hence asymptotically stable~\autocite[§2.9]{Perko2001}. Otherwise it has a positive real eigenvalue and is unstable.
+
+\emph{The explicit family.} The parameters of \zcref{thm:main}(2) give, through \zcref{lem:zform},
+\[
+K=\frac1{4n},\quad \lambda=\frac1{200m},\quad z_c=\frac1{20},\quad \Delta=6400\,n\,m,\quad X=\lambda\Delta K=8 .
+\]
+(For instance \(z_c=\eps+\eps^2\eta_k=\eps+(1-20\eps)/20\).) Take \(a=3/20\), \(b=3\) and \(\zeta_+=\max\{\eps,9\}\).
+Then \(\lambda\le1/200\), \(1+K\le5/4\), and \(\lambda\zeta_+=\max\{\eps,9\}/(200\max\{1,\eps\})\le9/200\). Also
+\((1+K)^n\le e^{1/4}\), because \(n\log(1+\frac1{4n})\le\frac14\). The hypotheses then follow from five numerical
+facts, independent of \(n\) and \(\eps\) (\texttt{check\_construction\_inequalities.py}, ball arithmetic):
+\begin{align*}
+&\zeta_+\ \ge\ 9\ \ge\ \frac{1/20+8}{1-1/200}=8.0905\ldots\ \ge\ \frac{z_c+X/(1+K)}{1-\lambda},\\
+&\text{(W1)}\quad \lambda\zeta_++z_c+Xe^{-1/a}\le\tfrac9{200}+\tfrac1{20}+8e^{-20/3}=0.10518\ldots<\tfrac3{20},\\
+&\text{(W2)}\quad Xc_-e^{-1/b}\ge\frac{8e^{-1/3}}{(1+K)^{n-1}},\\
+&\phantom{\text{(W2)}}\quad 8e^{-1/3}=5.7322\ldots>3e^{1/4}=3.8520\ldots\ge(1+K)^n\,b,\\
+&\text{(W3)}\quad (1+K)X\psi(\tfrac3{20})\le\tfrac54\cdot8\cdot\tfrac{400}9e^{-20/3}=0.5656\ldots<1,\\
+&\phantom{\text{(W3)}}\quad (1+K)X\psi(3)\le\tfrac54\cdot\tfrac89e^{-1/3}=0.7961\ldots<1.
+\end{align*}
+For (W2), multiply the second inequality by \((1+K)^{-(n-1)}\) and combine it with the first.
+\end{proof}
+
+\begin{remark}[note={what the states look like}]
+In the family of \zcref{thm:main}(2), a reactor in state \(L\) runs below \(3E/(20R)\) and converts less than
+\(Ke^{-20/3}<10^{-3}/n\) of its inlet reactant. In state \(M\) it runs between \(3E/(20R)\) and \(3E/R\). In state
+\(H\) it runs between \(3E/R\) and \(9E/R\). In every state it converts less than \(K/(1+K)=1/(4n+1)\) of what it
+receives, so the whole cascade converts less than \(1-e^{-1/4}\approx22\%\) of the feed. For \(n=3\), \(\eps=1/20\),
+the certificate gives, for example, \(\theta_1\approx6.6\times10^{-6}\) (\(T\approx T_0\)) in state \(L\) and
+\(\theta_1\approx2557.5\) (\(T=T_0(1+\eps\theta_1)\approx129\,T_0\)) in state \(H\). These parameters are a mathematical construction, far
+from any practical operating range. Two features carry it. First, the Arrhenius factor is bounded
+(\(k(T)\le k_0\)), so a small \(k_0V/F\) caps the conversion of an ignited reactor; the S-shape of the heat release
+then comes from the inflection of \(e^{-E/RT}\), which lies at \(T=E/(2R)\). Second, strong cooling (\(\lambda\) small) makes each
+reactor almost insensitive to the temperature of its feed.
+\end{remark}
+
+\begin{remark}[note={the exponential limit \(\eps=0\)}]
+The construction needs \(\eps>0\). With \(E(\theta)=e^\theta\), an ignited reactor leaves unconverted only the
+fraction \(1/(1+D_ke^{\theta_k})\) of its feed, which is not bounded below as \(\theta_k\) grows; on the upper branch
+it is even below one half (\(g_k>1/2\) where \(g_k''<0\)). So downstream reactors receive very different amounts of
+reactant depending on which upstream reactors are ignited. \zcref{thm:upper} holds for \(\eps=0\). We do not know whether \(3^n\) is attained for
+\(\eps=0\) and \(n\ge3\). The thesis's numerical example for \(n=2\) has \(\eps=0\), but its conjecture concerns the
+model with \(\eps=RT_0/E\), which is positive.
+\end{remark}
+
+\begin{remark}[note={identical tanks}]
+The family uses identical tanks. For two identical tanks with \(\eps=0\), Svoronos, Aris and
+Stephanopoulos~\autocite{Svoronos1982} report at most seven steady states (for a given Damköhler number), at most three stable. For \(\eps>0\) and
+\(n=2\), \zcref{thm:family} gives nine, four of them stable, already with identical tanks.
+\end{remark}
+
+\section{Computer verification}\label{sec:verif}
+
+Environment: Fedora 44 under WSL, Python 3.12, SymPy 1.14, python-flint 0.9 (Arb ball arithmetic). From the folder of
+this problem:
+\begin{center}
+\footnotesize
+\begin{tabular}{p{4.6cm}p{8.0cm}l}
+script & claims (PASS/FAIL, exit code) & time\\ \hline
+\texttt{check\_model\_algebra.py} & SymPy identities: reduced variables (\zcref{lem:reduction,lem:zform}), \(g''\) and
+\(G''\) factorisations (\zcref{lem:three}), \(\det\) and trace of \(J_k\) (\zcref{lem:jac}), block triangular structure
+for \(n=3\), \(\psi'\) & 30 s\\
+\texttt{check\_construction\_\allowbreak inequalities.py} & the numerical facts in the proof of \zcref{thm:family} (Arb), the
+reductions on samples, thesis parameters for \(n=3,4\) & 3 s\\
+\texttt{certify\_cascades.py} & for \(\eps=1/20\), \(n\le6\), and \(\eps\in\{1,5\}\), \(n\le4\): \(3^n\) steady states
+isolated reactor by reactor, each verified by a Krawczyk test on~\eqref{eq:model} in the variables
+\((y_k,\theta_k)\), boxes pairwise disjoint, block traces and determinants enclosed; \(2^n\) stable & 15 s\\
+\texttt{certify\_unstable\_\allowbreak outer\_state.py} & \zcref{prop:unstable} & 2 s
+\end{tabular}
+\end{center}
+The certificate for \(n=3\) and \(n=4\) with \(\eps=1/20\) lists every steady state (word, enclosures of
+\(y_k,\theta_k\), box radius, traces and determinants of the diagonal blocks) in
+\texttt{certificates/cascade\_n3\_eps1\_20.json} and \texttt{cascade\_n4\_eps1\_20.json}. With \(\eps=1/20\), the
+thesis parameters are \(B=7\,680\,000\) (\(n=3\)) and \(10\,240\,000\) (\(n=4\)), \(\Da=e^{-20}/(4n)\), \(\tau=1\),
+\(\alpha_k=1\), \(\beta_k=199\), \(\eta_k=0\). The certificates illustrate \zcref{thm:family}; its proof does not
+depend on them. The Krawczyk test works on the equations of the thesis, not on the reduced variables, so it also
+checks the reduction independently.
+
+\paragraph{Limitations.} The upper bounds and the construction are proved for the model~\eqref{eq:model} as written in
+the thesis: first-order kinetics, equal heat capacities, no wall or jacket dynamics. The attaining parameters are
+extreme (ignited states above \(3E/R\), adiabatic rise \(6400\,n\,m\,E/R\)). Whether \(3^n\) states occur within
+realistic ranges (bounded \(B\), small \(\eps\), temperatures below \(E/R\)) is not addressed, nor is the case
+\(\eps=0\). Varma~\autocite{Varma1980}, Kubíček et al.~\autocite{Kubicek1980}, Retzloff et
+al.~\autocite{Retzloff1992} and Li~\autocite{Li1994} were checked through abstracts and citing works only.
+
+\paperreferences
+\end{document}

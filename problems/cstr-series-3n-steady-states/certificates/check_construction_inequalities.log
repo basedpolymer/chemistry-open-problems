@@ -1,0 +1,19 @@
+PASS W0  (1/20 + 8)/(1 - 1/200) = [8.090452261 +/- 3.07e-10] <= 9
+PASS W1  9/200 + 1/20 + 8 e^{-20/3} = [0.1051810704 +/- 1.08e-11] < 3/20
+PASS W2  8 e^{-1/3} = [5.732250485 +/- 4.10e-10] > 3 e^{1/4} = [3.852076250 +/- 6.33e-11]
+PASS W3a (5/4) 8 psi(3/20) = [0.5656150228 +/- 1.77e-11] < 1
+PASS W3b (5/4) 8 psi(3) = [0.7961459006 +/- 3.76e-11] < 1
+PASS W3c window points satisfy 0 < a < 1/2 < b (psi increasing on (0,1/2], decreasing on [1/2,oo))
+PASS R1  (1 + 1/(4n))^n <= e^{1/4} for n = 1..2000 (proof: n log(1+x/n) <= x)
+PASS R2  lambda*zeta_+ <= 9/200, lambda <= 1/200, zeta_+ >= eps (exact, sample eps in [1/1000, 1000])
+PASS R3  (W2),(W3) in their original n-dependent form for n in {1,2,3,4,10,100,2000}
+
+Thesis parameters (Bisbis eqs. (5)-(8), all reactors identical, tau = 1, alpha_k = 1):
+  n=3 eps=1/20: B=7680000, Da0=e^{-1/eps}/12=[1.7176280e-10 +/- 1.87e-18], beta_k=199, eta_k=0
+  n=3 eps=1: B=19200, Da0=e^{-1/eps}/12=[0.030656620 +/- 9.77e-11], beta_k=199, eta_k=-19/20
+  n=3 eps=5: B=3840, Da0=e^{-1/eps}/12=[0.068227563 +/- 2.44e-10], beta_k=999, eta_k=-99/500
+  n=4 eps=1/20: B=10240000, Da0=e^{-1/eps}/16=[1.2882210e-10 +/- 1.41e-18], beta_k=199, eta_k=0
+  n=4 eps=1: B=25600, Da0=e^{-1/eps}/16=[0.022992465 +/- 7.33e-11], beta_k=199, eta_k=-19/20
+  n=4 eps=5: B=5120, Da0=e^{-1/eps}/16=[0.051170672 +/- 6.74e-11], beta_k=999, eta_k=-99/500
+
+SUMMARY: ALL PASS (0 failure(s))

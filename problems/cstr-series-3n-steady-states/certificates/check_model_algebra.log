@@ -1,0 +1,23 @@
+PASS A1a  E((z-eps)/eps^2) = exp(1/eps - 1/z)
+PASS A1b  alpha*f_y = -(c_in - c - k c),  k = K exp(-1/z)
+PASS A1c  alpha*eps^2*f_th = z_in - z + Delta k c - b (z - z_c)
+PASS A1d  mass balance <=> c = c_in/(1+k)
+PASS A1e  on c = c_in/(1+k): energy equation = (1+b) F(z)
+PASS A2a  alpha*f_y vanishes on y = 1 - c_in/(1+D E)
+PASS A2b  alpha*f_th = (1+b) phi(theta) on that curve
+PASS A3a  det(alpha J) = -(1+DE)(1+b) phi'(theta) at a steady state
+PASS A3b  tr(alpha J) = (1+DE)(1+b)(phi' - lambda + DE/(1+DE)) at a steady state
+PASS A4a  g' = g(1-g)/(1+eps theta)^2
+PASS A4b  g'' = g(1-g)(1+eps theta)^-4 [1 - 2g - 2 eps (1+eps theta)]
+PASS A4c  eps = 0: g'' = g(1-g)(1-2g)
+PASS A5a  F(z) = eps^2 phi(theta) with z = eps + eps^2 theta
+PASS A5b  F'(z) = phi'(theta)
+PASS A5c  F'(z) = X c_in psi(z)/(1+k)^2 - 1,  X = lambda Delta K
+PASS A6a  G''(z) = k z^-4 (1+k)^-3 [1 - 2z - k(1+2z)]
+PASS A6b  psi'(z) = exp(-1/z) z^-4 (1 - 2z)
+PASS A6c  e^{-1/z}/(1+K e^{-1/z}) = 1/(e^{1/z}+K)
+PASS A7a  n=3 Jacobian: every entry above the 2x2 diagonal blocks is identically 0
+PASS A7b  n=3 Jacobian: sub-diagonal blocks are (1/alpha_k) I
+PASS A7c  n=3 Jacobian: diagonal block k equals the one-reactor block J/alpha_k
+
+SUMMARY: ALL PASS (0 failure(s))
