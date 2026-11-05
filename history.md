@@ -405,3 +405,13 @@ progress journal. Global topology ordering remains unresolved.
   attaining temperatures are far outside practice, and attainment in the exponential limit ε = 0 is not covered. Varma (1980)
   proves 2ⁿ⁺¹ − 1 for adiabatic or isothermal reactors, a different setting; Li (1994) and two older papers were checked
   through abstracts only. Solver: Claude Opus 5.5 (effort xhigh); no separate verification yet. Candidate B2 removed.
+- Result 33 added, **solved (preliminary)**: complexity of the multistage minimum utility cost problem (Letsios et al.,
+  Comput. Chem. Eng. 2020, §6.4), after the journal version was supplied. The printed QCQP (5) has no temperature-approach
+  constraint and its optimum is the closed-form max(E_H − E_C, 0) bound. With approach constraints, in the SYNHEAT
+  stage-boundary form or the counter-current exchanger form, deciding zero utility is strongly NP-hard for every fixed number
+  of stages ≥ 2 (reduction from 3-Partition; an exact identity on squared temperatures forces zero mixing variance and zero
+  approach slack in the equality case). One stage: counter-current is an LP, stage-boundary is strongly NP-complete. The
+  boundary model is in NP, the counter-current model in ∃ℝ. Solver and manuscript: GPT-6-Astra (xhigh), whose second run
+  stopped at its usage limit after writing the manuscript and certificates; README, credits, compilation and re-run of the
+  exact checks (all PASS): Claude Opus 5.5 (xhigh), who also re-derived the identity and the two-stage and one-stage
+  arguments by hand. No separate verification yet. Candidate A4 removed.

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Exact checks for the PARTIAL model audit, not a solution of the open problem.
+"""Exact checks for the historical model audit and the literal-model theorem.
 
 Environment: Python 3.12+ standard library (tested with Windows Python 3.14).
 Runtime: <1 second. Run: python scripts/verify_model_audit.py
 All arithmetic is fractions.Fraction; no floating-point optimizer is used.
 Each assertion is reported PASS/FAIL; any failure causes a nonzero exit.
-General arguments are in PROGRESS.md. These finite checks corroborate them.
+General arguments are now in paper.tex. These finite checks corroborate them.
 
 The source's (5m) index j in H is explicitly normalized to j in C and
 F_i^H,F_j^C are identified with the given F_i,F_j. 'printed' retains the
-printed <= signs in (5j,k); 'repaired' reverses them. 'physical' additionally
+arXiv v1 <= signs in (5j,k); 'repaired' uses the journal's >= signs. 'physical' additionally
 checks both zero-approach endpoint inequalities for q>0. The latter is an
-explicit extension, NOT asserted to be the complete source model.
+explicit extension, not an assertion that the source printed those constraints.
 """
 from fractions import Fraction as F
 from itertools import combinations, product

@@ -1,0 +1,565 @@
+\RequirePackage{pdfmanagement}
+\SetKeys[document/metadata]{pdfversion=1.7, pdfstandard=A-2u, lang=en-GB}
+\input{preamble/pdfA-compliance/glyphtounicode}
+\documentclass[11pt,a4paper]{report}
+\newcommand*{\PaperTitle}{The complexity of multistage minimum utility cost}
+\newcommand*{\PaperTitlePlain}{The complexity of multistage minimum utility cost}
+\newcommand*{\PaperShortTitle}{Multistage minimum utility cost}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 5 November 2026 \textperiodcentered{} preliminary}
+\newcommand*{\PaperCredits}{Solver and manuscript: GPT-6-Astra (effort xhigh) \textperiodcentered{} Deliverables completed: Claude Opus 5.5 (effort xhigh) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperKeywords}{heat exchanger networks, utility minimization, strong NP-hardness, 3-Partition, stream mixing}
+\input{chemop-preamble}
+\addbibresource{references.bib}
+\newcommand{\CC}{\mathsf{C}}
+\newcommand{\BB}{\mathsf{B}}
+\newcommand{\NN}{\mathsf{N}}
+\newcommand{\ER}{\exists\mathbb{R}}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\begin{document}
+\makepapertitle
+\begin{paperabstract}
+Letsios et al. ask whether minimum utility cost in a multistage heat-exchanger
+superstructure is polynomial-time solvable or NP-hard. We distinguish their
+displayed journal equations, which omit temperature-approach constraints, from
+two physical completions: approaches at the mixed stage boundaries and at the
+actual counter-current exchanger endpoints. The displayed equations have a
+closed-form optimum. Both physical completions are strongly NP-hard, even with
+exactly two stages, all stream pairs permitted, unit utility prices and the
+question of zero utility. A quadratic temperature identity forces every mixing
+variance and every exchanger approach slack to vanish in the reduction. This
+makes each hot stream choose a bin in a 3-Partition instance. Padding proves
+hardness for every fixed number of stages at least two. With one stage the
+counter-current version is an LP, whereas the boundary version is strongly
+NP-complete. The boundary decision problem is in NP; the counter-current
+problem is in the existential theory of the reals, and we do not establish its
+general membership in NP. Exact symbolic and rational checks corroborate the
+proofs; floating-point optimization is not used as a certificate.
+\end{paperabstract}
+
+\section*{The question and the model correction}
+Dimitrios Letsios, Radu Baltean-Lugojan, Francesco Ceccon, Miten Mistry,
+Johannes Wiebe and Ruth Misener, \emph{Approximation algorithms for process
+systems engineering}, \emph{Computers \& Chemical Engineering} 132 (2020),
+106599, DOI 10.1016/j.compchemeng.2019.106599, state in Section 6.4,
+journal page 10 \autocite{Letsios2020}:
+\begin{openquote}
+``The complexity of the multistage minimum utility cost problem is an intriguing open question.''
+\end{openquote}
+The supplied journal PDF was checked visually. Its inequalities (5j,k) have the
+correct decreasing signs, unlike arXiv v1. Equation (5m) still indexes cold
+streams by the hot set; we necessarily read that index as the cold set.
+No constraint in the display compares a hot temperature to a cold temperature.
+Thus a physical interpretation requires an explicit additional assumption.
+Our answer is for the two completions defined below, not a claim that the
+missing constraints were printed in the source.
+
+\begin{theorem}\label{thm:main}
+For each fixed integer $r\geq2$, deciding whether the minimum utility cost is
+zero in the $r$-stage counter-current model $\CC$ is strongly NP-hard.
+This holds with positive integer stream capacities, all hot--cold pairs
+available, both utility prices equal to one, and a minimum approach fixed to
+either zero or any prescribed nonnegative rational constant. Temperatures
+can be positive integers when the fixed approach is an integer, and have
+constant denominators for any other fixed rational approach. The same
+restrictions give strong NP-hardness
+for the stage-boundary model $\BB$. Consequently, both problems are strongly
+NP-hard when the stage count is part of the input, in unary or binary.
+
+For $\BB$, the decision problem with any rational cost threshold is in NP
+and hence strongly NP-complete. For $\CC$ it is in $\ER$; no general NP
+membership assertion is made. For one stage, $\CC$ is polynomial-time
+solvable and $\BB$ is strongly NP-complete.
+\end{theorem}
+
+\section{Exact formulation and input encoding}
+Let $I,J$ be nonempty hot and cold stream sets, of sizes $n,s$. The given
+positive heat-capacity flow rates are $F_i,G_j$. Given temperatures satisfy
+$H_i\geq\underline H_i\geq0$ and $\overline C_j\geq C_j\geq0$:
+hot stream $i$ must cool from $H_i$ to $\underline H_i$, and cold stream $j$
+must heat from $C_j$ to $\overline C_j$. The stage count is $\ell\geq1$.
+Unless explicitly fixed, it is an input integer. All numerical data, including
+the common utility prices $c_{\rm CU},c_{\rm HU}\geq0$, minimum approach
+$\delta\geq0$, and decision threshold, are binary-encoded rationals.
+Our main reductions fix $\ell$ and both prices; they do not encode complexity
+in a large rational denominator or in the number of stages.
+
+Index boundaries by $k=0,\ldots,\ell$. Hot streams move from boundary 0 to
+$\ell$, and cold streams move in the opposite direction. Their mixed
+temperatures are $h_{ik},c_{jk}$. Stage $k\in\{1,\ldots,\ell\}$ has variables
+$f_{ijk},g_{ijk}$ for the hot and cold branch capacities, $a_{ijk},b_{ijk}$
+for their respective outlet temperatures, and $q_{ijk}$ for exchanged heat.
+These are real decision variables, all nonnegative. Branches split from one
+mixed inlet and mix again before the next stage; there is no cross-stream
+material mixing. All pairs $(i,j)$ are available in every stage.
+The base equations, denoted $\NN$, are the journal's (5), with only the
+necessary cold-index normalization and notation changes:
+\begin{align}
+ h_{i0}&=H_i,& h_{i\ell}&\geq\underline H_i,&
+ c_{j\ell}&=C_j,&c_{j0}&\leq\overline C_j,\label{eq:ends}\\
+ h_{i,k-1}&\geq h_{ik},&&c_{j,k-1}\geq c_{jk},\label{eq:mono}\\
+ \sum_j f_{ijk}&=F_i,&&\sum_i g_{ijk}=G_j,\label{eq:split}\\
+ q_{ijk}&=f_{ijk}(h_{i,k-1}-a_{ijk})
+          =g_{ijk}(b_{ijk}-c_{jk}),\label{eq:heat}\\
+ F_i h_{ik}&=\sum_j f_{ijk}a_{ijk},&&
+ G_j c_{j,k-1}=\sum_i g_{ijk}b_{ijk}.\label{eq:mix}
+\end{align}
+The nonnegative end utilities and objective are
+\begin{equation}\label{eq:obj}
+ U_i=F_i(h_{i\ell}-\underline H_i),\qquad
+ V_j=G_j(\overline C_j-c_{j0}),\qquad
+ \min\ c_{\rm CU}\sum_i U_i+c_{\rm HU}\sum_j V_j.
+\end{equation}
+Zero-heat branches may carry bypass flow. There is no minimum positive heat
+duty, match-count restriction, exchanger-area bound, pressure-drop term,
+capital charge, or intermediate utility. End utilities are available without
+capacity restrictions. These assumptions isolate the source's utility-cost
+problem from total annual cost and minimum matches.
+
+Stages here are ordered structural positions, not prescribed temperature
+intervals. Their boundary temperatures are optimized. In particular, the
+fixed temperature-interval transshipment model discussed separately in the
+source is not being substituted for this model.
+
+\subsection{The two physical completions}
+Model $\CC$ adds, for every $q_{ijk}>0$, the counter-current endpoint constraints
+\begin{equation}\label{eq:C}
+ h_{i,k-1}\geq b_{ijk}+\delta,\qquad
+ a_{ijk}\geq c_{jk}+\delta.
+\end{equation}
+Model $\BB$ instead adds, for every $q_{ijk}>0$, the stage-boundary constraints
+\begin{equation}\label{eq:B}
+ h_{i,k-1}\geq c_{j,k-1}+\delta,\qquad
+ h_{ik}\geq c_{jk}+\delta.
+\end{equation}
+An implication is imposed only on heat-carrying matches; it does not forbid
+unheated bypass branches between temperature-incompatible streams.
+Yee--Grossmann SYNHEAT uses the stage-boundary version. The public GAMS
+implementation explicitly activates both boundary comparisons with its match
+binary and sets the approach variable's lower bound to the prescribed minimum
+\autocite{Yee1990,GAMS}. For non-isothermal mixing the actual exchanger outlets
+are the relevant endpoints. The contemporary OpenHENS implementation displays
+exactly those two branch comparisons, alongside its isothermal boundary
+alternative \autocite{OpenHENS}. We use these sources to fix the approach
+constraints, not their additional area objectives or design restrictions.
+
+Adding $\delta$ to every cold temperature transforms either set of approach
+constraints to its zero-approach version and leaves the heat balances
+unchanged. This is the usual temperature shift mentioned in the source.
+Conversely, all our hardness instances for $\delta=0$ become instances for any
+fixed $\delta>0$ by adding $\delta$ to every hot temperature. A further common
+translation makes all absolute temperatures strictly positive.
+
+Summing the branch equations gives the stage balances
+\begin{equation}\label{eq:stage}
+ R_{ik}:=\sum_jq_{ijk}=F_i(h_{i,k-1}-h_{ik}),\qquad
+ S_{jk}:=\sum_iq_{ijk}=G_j(c_{j,k-1}-c_{jk}).
+\end{equation}
+Write $E_H=\sum_iF_i(H_i-\underline H_i)$,
+$E_C=\sum_jG_j(\overline C_j-C_j)$ and $Q=\sum_{ijk}q_{ijk}$.
+The objective equals
+\begin{equation}\label{eq:Qobj}
+ c_{\rm CU}E_H+c_{\rm HU}E_C-(c_{\rm CU}+c_{\rm HU})Q.
+\end{equation}
+
+\begin{lemma}[note=Isothermal lifting]\label{lem:lift}
+Any nonnegative $q,h,c$ satisfying the endpoint and stage balances can be
+lifted to $\NN$. If they satisfy the active boundary comparisons, they can be
+lifted simultaneously to $\BB$ and $\CC$.
+\end{lemma}
+\begin{proof}
+In each stage set $a_{ijk}=h_{ik}$ and $b_{ijk}=c_{j,k-1}$.
+When $R_{ik}>0$ set $f_{ijk}=F_iq_{ijk}/R_{ik}$; when $R_{ik}=0$ use any
+nonnegative row summing to $F_i$. Likewise, when $S_{jk}>0$ set
+$g_{ijk}=G_jq_{ijk}/S_{jk}$, and otherwise use any column summing to $G_j$.
+Equations \eqref{eq:heat} and \eqref{eq:mix} follow immediately from
+\eqref{eq:stage}. On active matches, \eqref{eq:C} becomes \eqref{eq:B}.
+\end{proof}
+Thus $\BB$ and $\CC$ are compared through their feasible $(q,h,c)$ projections;
+an arbitrary non-isothermal assignment satisfying $\BB$ need not itself
+satisfy $\CC$. This distinction is important in applying the next proof to
+$\BB$.
+
+\section{The displayed journal equations have a closed-form optimum}
+\begin{theorem}\label{thm:literal}
+For every $\ell\geq1$, the optimum of $\NN$ is
+\begin{equation}\label{eq:literal}
+ c_{\rm CU}\max(E_H-E_C,0)+c_{\rm HU}\max(E_C-E_H,0).
+\end{equation}
+An optimal rational solution can be constructed in polynomial time, using
+only one nonidle stage.
+\end{theorem}
+\begin{proof}
+The stage balances imply $Q\leq\min(E_H,E_C)$, giving the lower bound in
+\eqref{eq:literal}. Greedily transport heat from hot supplies
+$F_i(H_i-\underline H_i)$ to cold demands $G_j(\overline C_j-C_j)$, with no
+pair restrictions, until one side is exhausted. Let $q_{ij}$ be this
+transportation matrix, $R_i$ its row sums and $S_j$ its column sums. In stage 1
+set $h_{i1}=H_i-R_i/F_i$, $c_{j0}=C_j+S_j/G_j$ and $c_{j1}=C_j$.
+Use the lift in \zcref{lem:lift}; repeat these post-stage temperatures through
+all later, idle stages. Then $Q=\min(E_H,E_C)$. All entries have polynomial
+rational bit length. A binary-encoded large $\ell$ is represented by this
+one active stage and repeated idle stages, rather than exponentially many
+explicit entries.
+\end{proof}
+For example, one capacity-one hot stream $1\to0$ and one capacity-one cold
+stream $10\to11$ have zero utility in $\NN$: the exchanger transfers one heat
+unit uphill in temperature. Thus \eqref{eq:literal} is a model correction,
+not a resolution of the intended physical question.
+
+\section{A quadratic identity that removes fractional mixing}
+We first take $\delta=0$. For a single exchanger abbreviate its hot inlet and
+outlet to $h,a$ and its cold outlet and inlet to $b,c$. Its balances imply
+\begin{equation}\label{eq:single}
+ f(h^2-a^2)-g(b^2-c^2)=q\bigl[(h-b)+(a-c)\bigr].
+\end{equation}
+For each stage define the nonnegative mixing variances
+\begin{equation}\label{eq:var}
+ W^H_k=\sum_{ij}f_{ijk}(a_{ijk}-h_{ik})^2,\qquad
+ W^C_k=\sum_{ij}g_{ijk}(b_{ijk}-c_{j,k-1})^2.
+\end{equation}
+\begin{lemma}[note=Quadratic budget and equality case]\label{lem:quad}
+Every feasible $\CC$ solution satisfies
+\begin{align}
+ &\sum_i F_i(H_i^2-h_{i\ell}^2)
+ -\sum_j G_j(c_{j0}^2-C_j^2)\notag\\
+ &\quad=\sum_{kij}q_{ijk}
+ \bigl[(h_{i,k-1}-b_{ijk})+(a_{ijk}-c_{jk})\bigr]
+ +\sum_k(W^H_k+W^C_k)\ \geq0.\label{eq:budget}
+\end{align}
+If the left side is zero, every positive-flow branch exits at its stream's
+mixed outlet temperature, and every active exchanger satisfies
+\begin{equation}\label{eq:interval}
+ h_{i,k-1}=c_{j,k-1},\qquad h_{ik}=c_{jk}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Weighted variance and \eqref{eq:mix} give
+$\sum_j f_{ijk}a_{ijk}^2=F_i h_{ik}^2+
+\sum_j f_{ijk}(a_{ijk}-h_{ik})^2$, with the analogous cold identity.
+Substitute these in the sum of \eqref{eq:single}. The difference of mixed
+hot and cold quadratic drops in each stage equals the exchanger terms plus
+both variances. Summing stages telescopes to \eqref{eq:budget}.
+Every term on the right is nonnegative by \eqref{eq:C}; for $q=0$ the
+exchanger term is zero regardless of unused temperatures. Zero total forces
+zero variances. For $q>0$, both branch capacities are positive by
+\eqref{eq:heat}, so $a=h_{ik}$ and $b=c_{j,k-1}$; both nonnegative approach
+slacks also vanish. These statements imply \eqref{eq:interval}.
+\end{proof}
+The identity is algebraic; it is not an unproved appeal to entropy or an
+assumption of isothermal mixing. It forces that mixing property on the
+particular instances constructed next.
+
+\section{Strong NP-hardness with two stages}
+Start from 3-Partition: $3m$ positive integers $a_1,\ldots,a_{3m}$ and $B$
+satisfy
+\begin{equation}\label{eq:3p}
+ B/4<a_i<B/2,\qquad \sum_i a_i=mB.
+\end{equation}
+The question is whether they can be partitioned into $m$ triples of sum $B$.
+This is strongly NP-complete \autocite{GareyJohnson}.
+Set $T=m+1$, $\ell=2$, $\delta=0$, both utility prices to one, and the cost
+threshold to zero. Introduce the following streams:
+\begin{center}
+\begin{tabular}{llll}
+\hline
+Stream & Capacity & Inlet & Target\\
+\hline
+Hot item $i$ & $a_i$ & $T$ & $0$\\
+Cold upper $U_j$, $1\leq j\leq m$ & $B$ & $j$ & $T$\\
+Cold lower $V_j$, $1\leq j\leq m$ & $B$ & $0$ & $j$\\
+\hline
+\end{tabular}
+\end{center}
+There are no forbidden matches or bounds on their number. Energy and
+quadratic temperature budgets agree exactly:
+\begin{align}
+ E_H=E_C&=mBT,\label{eq:equalenergy}\\
+ \sum_i a_iT^2&=\sum_{j=1}^m B\bigl[(T^2-j^2)+j^2\bigr]=mBT^2.
+ \label{eq:equalsquare}
+\end{align}
+
+\begin{lemma}\label{lem:reduction}
+The constructed $\CC$ instance has zero utility if and only if the
+3-Partition instance is a YES instance. The equivalence also holds for $\BB$.
+\end{lemma}
+\begin{proof}
+Suppose first that $\CC$ has zero utility. Positive utility prices force every
+stream to reach its prescribed target, so \eqref{eq:equalsquare} makes the
+left side of \eqref{eq:budget} zero. Every active match consequently obeys
+\eqref{eq:interval}.
+
+No $U_j$ can receive heat in stage 2: its inlet there is $j>0$, whereas every
+hot stream's outlet there is 0. These cannot be equal as required by
+\eqref{eq:interval}. Hence $c_{U_j,1}=j$ and the entire heat $B(T-j)$ is
+received in stage 1. Similarly, no $V_j$ can receive heat in stage 1:
+its outlet there is its target $j<T$, whereas every hot inlet there is $T$.
+Thus $c_{V_j,1}=j$ and its entire heat $Bj$ is received in stage 2.
+
+Let $x_i=h_{i1}$. If $x_i<T$, hot stream $i$ releases positive heat in stage 1
+and must meet some $U_j$, forcing $x_i=j$. If instead $x_i=T$, it releases
+positive heat in stage 2 and must meet some $V_j$, forcing $T=j$, impossible.
+Therefore every $x_i$ belongs to $\{1,\ldots,m\}$. For $x_i=j$, the only
+possible active partners are $U_j$ in stage 1 and $V_j$ in stage 2.
+The stage-1 balance of $U_j$ now gives
+\begin{equation}\label{eq:bins}
+ (T-j)\sum_{i:x_i=j}a_i=B(T-j),\qquad
+ \sum_{i:x_i=j}a_i=B.
+\end{equation}
+The strict bounds in \eqref{eq:3p} force exactly three items in every group.
+No fractional assignment to distinct bins survives the equality case.
+
+Conversely, let $S_1,\ldots,S_m$ be a partition with capacity $B$ per group.
+For $i\in S_j$ set its hot temperatures to $(T,j,0)$, exchange
+$a_i(T-j)$ with $U_j$ in stage 1 and $a_i j$ with $V_j$ in stage 2.
+Cold temperatures are $(T,j,j)$ for $U_j$ and $(j,j,0)$ for $V_j$.
+These are exact stage balances and satisfy both boundary comparisons with
+equality. The isothermal lift supplies every branch flow and outlet
+temperature, including idle cold bypasses. Thus both $\BB$ and $\CC$ have
+zero utility. Finally, any zero-utility $\BB$ solution can be lifted to a
+$\CC$ solution with the same stage heat and temperatures by
+\zcref{lem:lift}, proving the reverse implication for $\BB$ as well.
+\end{proof}
+The transformation uses $3m$ hot streams and $2m$ cold streams; its largest
+temperature is $m+1$ and its capacities are $a_i$ or $B$. It is polynomial
+and preserves polynomial bounds on numerical magnitudes, proving strong
+NP-hardness. On this restricted family the zero-utility decision problem is
+itself strongly NP-complete, since a bin partition is a polynomial witness.
+This last statement does not establish NP membership for arbitrary $\CC$
+instances.
+
+\subsection{Every fixed larger number of stages}
+Fix $r\geq2$, put $p=r-2$ and $A=mB$. Raise every hot inlet to $T+p$ and add
+the following $p$ cold streams, leaving $U_j,V_j$ unchanged:
+\begin{equation}\label{eq:padding}
+ D_t:\quad \hbox{capacity }A,\quad T+t-1\ \longrightarrow\ T+t,
+ \qquad t=1,\ldots,p.
+\end{equation}
+Use exactly $r$ stages. Their energy and squared-temperature increments
+telescope, so both equalities in \eqref{eq:equalenergy}--\eqref{eq:equalsquare}
+remain true with the new hot inlet $T+p$.
+In a zero-utility solution, every positive hot temperature drop must exactly
+coincide with an interval of some cold stream by \eqref{eq:interval}.
+It therefore lies within that cold stream's full inlet-to-target interval.
+No cold interval crosses any of the boundaries
+$T,T+1,\ldots,T+p-1$. Each hot stream needs at least one nonzero stage in
+each of the $p$ upper bands to descend to $T$. It needs at least two more
+stages to descend from $T$ to 0, because no cold stream spans that whole
+interval. There are only $p+2$ stages. Hence every hot stream uses exactly
+one full drop in each upper band, in decreasing order, followed by exactly
+the two stages of the original construction. There are no idle or additional
+partial drops. The argument of \zcref{lem:reduction} applies to these last two stages.
+Conversely all hot streams can traverse each added band together, supplying
+the capacity-$A$ dummy cold stream, before executing the partition witness.
+This proves hardness for each fixed $r$; adding $\delta$ to hot temperatures
+proves it for any fixed nonnegative approach. With $\delta>0$ the witness
+has genuinely positive physical endpoint differences, so the reduction does
+not require a zero-driving-force exchanger in physical temperature coordinates.
+
+\section{One stage distinguishes the two models}
+\subsection{A polynomial LP for the counter-current version}
+For $\ell=1$, let $D_{ij}=H_i-C_j-\delta$. Delete pairs with $D_{ij}\leq0$.
+The exact feasible heat projection of $\CC$ is
+\begin{align}
+ q_{ij}&\geq0,&
+ \sum_jq_{ij}&\leq F_i(H_i-\underline H_i),&
+ \sum_iq_{ij}&\leq G_j(\overline C_j-C_j),\label{eq:LPheat}\\
+ \sum_{j:D_{ij}>0}\frac{q_{ij}}{D_{ij}}&\leq F_i,&&
+ \sum_{i:D_{ij}>0}\frac{q_{ij}}{D_{ij}}\leq G_j.\label{eq:LPflow}
+\end{align}
+Indeed, \eqref{eq:C} and \eqref{eq:heat} imply $q_{ij}\leq f_{ij}D_{ij}$
+and $q_{ij}\leq g_{ij}D_{ij}$. Summing proves necessity. Conversely start
+both branch capacities at $q_{ij}/D_{ij}$ on retained pairs and at zero
+elsewhere. Allocate unused hot capacity arbitrarily within each row and
+unused cold capacity within each column, independently, to meet their split
+sums. On positive flow define $a_{ij}=H_i-q_{ij}/f_{ij}$ and
+$b_{ij}=C_j+q_{ij}/g_{ij}$; for zero flow choose its inlet temperature.
+The capacity lower bounds guarantee \eqref{eq:C}, and the mixed temperatures
+and utility bounds follow from \eqref{eq:LPheat}. Maximize $\sum q_{ij}$ in
+this rational LP, or use \eqref{eq:Qobj} directly. This proves polynomial
+solvability, including construction of an optimal network.
+
+\subsection{Strong NP-hardness of one-stage boundary approaches}
+Use the same 3-Partition data. Give each hot stream capacity $a_i$ and range
+$m\to0$; give cold stream $j=0,\ldots,m-1$ capacity $B$ and range $j\to m$.
+Then $E_H=m^2B$, $E_C=Bm(m+1)/2$. At unit prices the threshold
+$L_0=E_H-E_C=Bm(m-1)/2$ is attained only if all cold demands are met.
+
+Suppose $\BB$ attains this threshold. For each hot stream with positive heat,
+let $r_i$ be the largest cold inlet index among its active partners; put
+$r_i=m$ if it is idle. Let $x_r=\sum_{i:r_i=r}a_i$. Boundary feasibility
+forces its hot outlet to be at least $r_i$, so total recovered heat is at
+most $\sum_{r<m}(m-r)x_r$. Consequently
+\begin{equation}\label{eq:loss}
+ L:=\sum_{r=0}^m r x_r\leq E_H-E_C=L_0.
+\end{equation}
+For each $k=1,\ldots,m-1$, all cold streams with inlet at least $k$ must draw
+from hot streams classified $r\geq k$. Their demand and an upper bound on
+their supply are
+\begin{equation}\label{eq:suffix}
+ D_k=B\sum_{j=k}^{m-1}(m-j),\qquad
+ S_k=\sum_{r=k}^{m-1}(m-r)x_r,\qquad S_k\geq D_k.
+\end{equation}
+Use strictly positive multipliers
+\begin{equation}
+ \lambda_k=\frac{k}{m-k}-\frac{k-1}{m-k+1}
+           =\frac{m}{(m-k)(m-k+1)}.
+\end{equation}
+Telescoping gives
+$\sum_k\lambda_k S_k=\sum_{r=1}^{m-1}r x_r$ and
+$\sum_k\lambda_k D_k=L_0$. Together with \eqref{eq:loss}, these imply
+$x_m=0$ and equality in every suffix constraint. Successive differences of
+\eqref{eq:suffix} give $x_r=B$ for $r=1,\ldots,m-1$; total capacity gives
+$x_0=B$. Thus the items are partitioned into $m$ bins of capacity $B$ and
+hence into triples. Conversely, assigning each partition group entirely to
+its cold stream attains the threshold and obeys the boundary approaches.
+The construction is strong and uses one stage.
+
+These models really differ. For example hot $(F,H,\underline H)=(1,10,0)$
+and cold streams $(G,C,\overline C)=(1,8,10),(1,0,8)$ have one-stage
+maximum recovery $42/5$ in $\CC$, but only 8 in $\BB$, at $\delta=0$.
+For $\CC$, the LP inequalities $q_1/2+q_2/10\leq1$ and $q_2\leq8$ give
+the sharp bound $q_1+q_2\leq42/5$, attained at $(2/5,8)$.
+For $\BB$, positive heat to the high cold stream forces the mixed hot
+outlet to be at least 8, so total recovery is at most 2; omitting that match
+permits exactly 8. With two stages both attain 10, by traversing $10\to8\to0$.
+
+\section{Decision complexity and the encoding of the stage count}
+For fixed or unary $\ell$, the projected $\BB$ problem is a union of
+polynomial-size rational polyhedra: guess the set of permitted active matches,
+fix $q=0$ off that set, and impose \eqref{eq:B} on it. Zero heat on a guessed
+match is harmless. The remaining equations are \eqref{eq:stage}, bounds and
+the cost threshold. A nonempty rational polyhedron has a rational feasible
+point with polynomial bit length, giving NP membership. The lifting lemma
+recovers the original branch variables without increasing that bound
+superpolynomially. The reductions therefore give strong NP-completeness.
+
+For $\CC$, the active implications can instead be written as polynomial
+inequalities
+\begin{equation}
+ q_{ijk}(h_{i,k-1}-b_{ijk}-\delta)\geq0,\qquad
+ q_{ijk}(a_{ijk}-c_{jk}-\delta)\geq0.
+\end{equation}
+Together with the bilinear equations, these give an existential formula over
+the reals of polynomial size. This proves membership in $\ER$ for fixed or
+unary stage counts. Bilinearity alone is not a proof of NP membership, and
+we do not claim that all feasible instances have small rational witnesses.
+
+For completeness the following stage bound removes an exponential expansion
+when $\ell$ is encoded in binary. It uses the absence of forbidden matches
+and of extra design restrictions in our precise model.
+\begin{lemma}[note=Compression of the number of stages]\label{lem:compress}
+Any terminal mixed temperatures achievable by $\CC$ or $\BB$ with any number
+of stages are achievable by both models with at most $2(n+s)-1$ stages.
+\end{lemma}
+\begin{proof}
+Shift cold temperatures by $\delta$ to take $\delta=0$; denote the attained
+hot ends by $x_i$ and cold ends by $y_j$. Put $\phi_\theta(t)=\max(t-\theta,0)$.
+Every feasible solution necessarily satisfies, for all real $\theta$,
+\begin{equation}\label{eq:cut}
+ A(\theta):=\sum_iF_i[\phi_\theta(H_i)-\phi_\theta(x_i)]
+ \ \geq\
+ D(\theta):=\sum_jG_j[\phi_\theta(y_j)-\phi_\theta(C_j)].
+\end{equation}
+To see this for $\CC$, an active exchanger has $a\geq c$ and $h\geq b$.
+The uniform points $(1-u)a+uh$ dominate $(1-u)c+ub$ for $0\leq u\leq1$.
+Since $\phi_\theta'$ is nondecreasing, the average derivative on $[a,h]$
+is at least that on $[c,b]$. Multiplying by $q=f(h-a)=g(b-c)$ gives
+$f[\phi_\theta(h)-\phi_\theta(a)]\geq
+g[\phi_\theta(b)-\phi_\theta(c)]$.
+The zero-heat case contributes zero. Convexity and the mixing equations add
+nonnegative Jensen gaps for both hot and cold mixing, exactly as in
+\zcref{lem:quad}. Sum and telescope to obtain \eqref{eq:cut}.
+For $\BB$ use the isothermal lift first. Total recovered hot and cold heats
+are equal by energy conservation.
+
+Sort the distinct numbers among $H_i,x_i,y_j,C_j$ in decreasing order.
+There are at most $2(n+s)$ such numbers. Use one stage per consecutive pair
+$u>v$. Prescribe each cold stream's boundaries in that stage by clipping
+$u,v$ to its range $[C_j,y_j]$. Thus any cold stream active in this interval
+has outlet $u$, inlet $v$, and demand $G_j(u-v)$.
+
+Process the intervals downwards. Before the interval $(v,u)$, a hot stream
+with $H_i\geq u$ has current temperature $p_i\geq\max(x_i,u)$, by induction;
+all other hot streams remain at their inlets. The available capacity to
+release heat in this interval is
+\begin{equation}
+ F_i[p_i-\max(x_i,v)]
+\end{equation}
+for the former streams, and zero for the latter. The total of these
+capacities is $A(v)-D(u)$: earlier intervals have consumed exactly $D(u)$,
+and streams not yet eligible have no supply above $v$ because no inlet
+lies strictly between consecutive endpoints. By \eqref{eq:cut}, it is at
+least $D(v)-D(u)$, the current cold demand. Choose any transportation of
+that demand within the available row capacities. Lower each hot temperature
+by its allocated heat divided by $F_i$. On each active match its previous
+temperature is at least $u$ and its next temperature is at least $v$, so
+both boundary approaches hold. This also proves the induction invariant
+for the next interval.
+
+At the bottom all cold streams have reached their required $y_j$. Equality
+of total hot and cold heat, and the lower bounds $p_i\geq x_i$, force every
+hot stream to reach $x_i$. Apply the isothermal lift in each stage. The
+construction uses at most $2(n+s)-1$ stages and proves the claim. If no
+temperature interval exists, one idle stage suffices.
+\end{proof}
+Idle stages can always be inserted. Therefore, for the decision problem we
+may replace a binary-encoded $\ell$ by
+$\min\{\ell,2(n+s)-1\}$. If $\ell$ is below this bound nothing changes;
+otherwise \zcref{lem:compress} preserves exactly the attainable terminal
+temperatures and costs. The NP and $\ER$ memberships above consequently
+hold for binary stage encoding too. This compression does not make two
+stages equivalent to an unrestricted number of stages: the explicit example
+above and the reductions retain their stage restrictions.
+
+For these models minima are attained. Bound all boundary temperatures by
+their stream endpoints. All branch flows and heats are then bounded.
+In $\CC$, an active branch temperature lies between nonnegative stream
+inlets and a global maximum inlet/target temperature by the approaches;
+when $q=0$, any positive flow has its inlet temperature, and a zero-flow
+temperature can be set to that inlet. Hence one may restrict all branch
+temperatures to a compact box. The polynomial implication formulation is
+closed. For $\BB$ the bounded projected feasible set is a finite union of
+closed polyhedra and the lifting lemma applies. In particular, the
+zero-utility decision in the reduction is about an attained optimum, not
+an unattained infimum.
+
+\section{Exact checks, exploration and limitations}
+The proofs above stand independently of all computation.
+\texttt{scripts/verify\_reduction.py} uses SymPy polynomial expansion and
+Python rational arithmetic to check the exchanger and mixing identities,
+the endpoint budgets, 36 full witnesses with stages 2--5 and approaches
+$0,1,3/2$, five explicit equality-case enumerations, and every sorted two-bin
+3-Partition promise instance with $7\leq B\leq16$ (21 instances, 18 YES and
+3 NO). All equations, nonnegativity and both active approach versions are
+checked on each saved witness. The negative finite enumerations use the
+equality lemma to reduce the feasible paths to a finite set; they are not
+independent nonlinear infeasibility certificates. The script also checks
+the one-stage boundary proof's multiplier identities for $2\leq m\leq12$.
+The JSON certificate contains exact fractions, not rounded solver output.
+
+\texttt{scripts/verify\_model\_audit.py} retains the earlier exact audit,
+including the literal model construction, the arXiv sign defect, and the
+one-stage LP example. Its historical mode name \texttt{repaired} refers to
+the arXiv signs; those signs are already correct in the journal.
+\texttt{scripts/explore\_physical.py} implements a floating-point SCIP MILP
+for $\BB$ and a nonconvex quadratic model for $\CC$. The small stage-gap and
+initial one-stage experiments met their numerical expectations. The three
+new counter-current potential-gadget runs reached their 20-second time
+limits without settling the target values, including the YES instance;
+their logs explicitly say FAIL for an unresolved numerical expectation.
+They do not contradict or certify a theorem. Exact witnesses and the
+algebraic proof replace those solver inferences.
+
+The result settles the polynomial-versus-NP-hard question for the two
+explicit physical completions, while the source's literal display is easy.
+It does not assert hardness for every possible engineering superstructure,
+for bounded numbers of streams, or for unrestricted stage counts chosen
+without a supplied stage budget. General NP membership of $\CC$ remains
+unproved here; strong NP-hardness does not depend on that membership.
+The bounded novelty audit found no previous resolution, but its citation
+coverage was incomplete and several citing works were screened only by
+metadata or abstracts. Detailed sources and access limitations are recorded
+in \texttt{references.md}. Independent verification of this preliminary
+argument is pending.
+\paperreferences
+\end{document}

@@ -1,0 +1,11 @@
+PASS exchanger quadratic identity as a polynomial consequence of heat balances
+PASS mixing variance identity as a polynomial consequence of mixing and split sums
+PASS exact interval enumeration agrees with subset partition: [4, 4, 5, 4, 4, 5], B=13
+PASS exact interval enumeration agrees with subset partition: [4, 4, 4, 4, 4, 6], B=13
+PASS exact interval enumeration agrees with subset partition: [2, 2, 2], B=3
+PASS exact interval enumeration agrees with subset partition: [1, 2, 1, 2], B=3
+PASS exact interval enumeration agrees with subset partition: [2, 3, 4, 2, 3, 4, 2, 3, 4], B=9
+PASS all gadget energy and quadratic budgets balance for stages 2,3,4,5
+PASS 36 complete rational zero-utility witnesses satisfy every equation and both approach versions
+PASS exhaustive two-bin promise sweep: 21 instances (18 YES, 3 NO)
+PASS one-stage boundary suffix identities for bin counts 2 through 12

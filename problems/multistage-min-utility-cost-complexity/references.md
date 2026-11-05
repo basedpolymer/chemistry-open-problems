@@ -1,7 +1,18 @@
 # Sources and bounded novelty audit
 
 Audit: 5 November 2026, Europe/Paris. Solver: GPT-6-Astra (effort xhigh).
-**Outcome: partial model audit; no claim to have resolved the intended open problem.**
+**Outcome (updated after the journal version was read):** the literal journal model has a closed-form optimum; both
+physical completions with temperature-approach constraints are strongly NP-hard (see paper.tex). The first part of the
+audit below was written before the journal PDF was available.
+
+0. **Journal version, read in full for §§6.1–6.4 and §7** (supplied on 5 November 2026; local copy in
+   `certificates/sources/journal/`, git-ignored). Equation (5), journal p. 10, checked on a rendering of the page:
+   (5j) and (5k) have the decreasing signs (corrected relative to arXiv v1); (5m) still indexes cold streams by H;
+   no constraint compares a hot temperature with a cold one. Open sentence, §6.4, p. 10: "The complexity of the
+   multistage minimum utility cost problem is an intriguing open question." Future direction 5, p. 11: "Because of
+   stream mixing, the problem exhibits commonalities with pooling. However, no hardness reduction formalizes this
+   insight of domain experts."
+
 
 ## Primary sources read
 
@@ -149,18 +160,6 @@ physical variant needs information not supplied by the preprint.
 
 ## Files and reproduction
 
-- `PROGRESS.md` (git-ignored): source quote, complete limited proofs, model audit,
-  missing work, and next idea. No `paper.tex`, `paper.pdf`, or solved README was made.
-- `NEEDS.md`: journal DOI and precise model question.
-- `scripts/verify_model_audit.py`: deterministic exact arithmetic; all 12 reported
-  claims pass. Finite examples are corroboration, not the general proof.
-- `certificates/exact-checks.json`: full rational witnesses, LP vertices, PASS results.
-- `scripts/novelty_audit.py`, `novelty_followup.py`, `novelty_zenodo_topics.py`:
-  read-only, network-dependent audit scripts. Request failures print FAIL and exit
-  nonzero; this is separate from mathematical verification.
-- `scripts/inspect_audit.py`: concise display of the saved API audit.
-- `certificates/novelty-api.json`, `novelty-followup.json`, `zenodo-identifier.json`,
-  `zenodo-topics.json`: successful responses and access failures.
-
-The source-to-equation comparison was done by the solver, not an independent
-verifier. No independent verification is claimed.
+See README.md. `certificates/novelty-api.json` (2.6 MB) and `certificates/zenodo-topics.json` are kept locally only
+(git-ignored); the saved queries are reproducible with `scripts/novelty_audit.py` and `scripts/novelty_zenodo_topics.py`.
+The source-to-equation comparison was done by the solver, not by an independent verifier.
