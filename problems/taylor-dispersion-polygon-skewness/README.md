@@ -5,7 +5,7 @@
 
 **The answer.** Proved: negative for the triangle and positive for every polygon with n ≥ 4 sides at long times; positive for all at short times. The claim “at all times” is also true: see [all-times/](all-times/).
 
-**How.** The long-time sign reduces to one integral. It is computed exactly for the triangle and bounded rigorously (interval arithmetic) for the other polygons. Not yet verified by a second agent.
+**How.** The long-time sign reduces to one integral. It is computed exactly for the triangle and bounded rigorously (interval arithmetic) for the other polygons. Checked by an independent verifier (see [all-times/verification.md](all-times/verification.md)).
 
 <p align="center"><img src="../../figures/taylor-skewness.svg" alt="Skewness sign by duct shape and time" width="720"></p>
 
@@ -13,9 +13,9 @@
 
 <!-- plain-words:end -->
 
-**Attribution.** Solver: Claude Opus 5.5. Verification: pending.
+**Attribution.** Solver: Claude Opus 5.5. Independent verification: Claude Opus 5.5 (effort xhigh) ([all-times/verification.md](all-times/verification.md)).
 
-**Status: solved (preliminary)** (computer-assisted proofs, not yet verified). The long-time and short-time signs are treated
+**Status: solved** (computer-assisted proofs, verified: verdict CONFIRMED WITH CORRECTIONS, see [all-times/verification.md](all-times/verification.md)). The long-time and short-time signs are treated
 here. The "all times" claim for every n ≥ 4, for every Péclet number, is proved in [all-times/](all-times/), whose
 [manuscript](all-times/paper.pdf) covers the whole result.
 

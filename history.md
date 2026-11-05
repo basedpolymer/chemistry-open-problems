@@ -383,3 +383,16 @@ progress journal. Global topology ordering remains unresolved.
   account for 882 of the 890 cospectral classes up to n = 138; the other 8 are cap rotations. 1(c) and 1(d), equivalent for
   n ≥ 60, stay open; the scan now covers n ≤ 170. Solver: Claude Opus 5.5 (effort not recorded). No manuscript, no
   separate verification.
+
+## 5 November 2026
+
+- Result 14 (skewness in regular-polygon ducts, all times) **verified**: CONFIRMED WITH CORRECTIONS (Claude Opus 5.5, effort
+  xhigh, fresh context); status now **solved**. All certificates re-run (197/197 finite-n cases, uniform n ≥ 200 bound,
+  triangle), code of the deciding scripts audited line by line, and an independent finite-element computation for n = 3, 4, 21
+  and the disk agrees within the certified bounds. No claim changed. Corrections: ω ≤ 4.3·10⁻⁶ instead of 4.2·10⁻⁶ in the text
+  (the script used the exact value), a two-sided asymptotic remark reduced to what is proved, "every Péclet number" made "every
+  Pe > 0", a complete list of the uses of H² regularity, and an elementary replacement for the cited Grisvard theorem.
+- Candidate A4 (complexity of the multistage minimum utility cost problem, Letsios et al. 2020): one GPT-6-Astra run (xhigh), no
+  resolution. Equation (5) of arXiv v1 forces zero heat exchange as printed. The journal version, supplied on request, corrects the
+  monotonicity signs but still has no temperature-approach constraint, so taken literally its optimum is the trivial
+  max(E_H − E_C, 0) bound. A second Astra run on the physical model (with approach constraints) is in progress.

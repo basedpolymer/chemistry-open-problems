@@ -58,10 +58,6 @@ read, and the only ones needed before work starts.
 | 3 | [10.1016/0012-365X(88)90199-9](https://doi.org/10.1016/0012-365X(88)90199-9) | Fajtlowicz, Discrete Math. 72 (1988) | D1, history of the statement only |
 | 3 | [10.1016/S0012-365X(99)00206-X](https://doi.org/10.1016/S0012-365X(99)00206-X) | Caporossi, Hansen, Discrete Math. 212 (2000) | D1, history of the statement only |
 
-For the verification of result 14, also useful: Grisvard, *Elliptic Problems in Nonsmooth Domains*,
-[10.1137/1.9781611972030](https://doi.org/10.1137/1.9781611972030), Theorem 3.2.1.2 (its exact statement is cited, not read).
-Details in [the problem's NEEDS.md](../problems/taylor-dispersion-polygon-skewness/NEEDS.md).
-
 Published versions exist for several candidates below, but their arXiv or author copies are free and were read, so they are
 not needed.
 

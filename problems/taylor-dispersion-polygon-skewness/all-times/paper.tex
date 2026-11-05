@@ -6,8 +6,8 @@
 \newcommand*{\PaperTitle}{Taylor dispersion in regular polygonal ducts: the sign of the skewness at all times}
 \newcommand*{\PaperTitlePlain}{Taylor dispersion in regular polygonal ducts: the sign of the skewness at all times}
 \newcommand*{\PaperShortTitle}{Skewness in regular polygonal ducts at all times}
-\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 31 October 2026 \textperiodcentered{} preliminary, not yet verified}
-\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort not recorded) \textperiodcentered{} Independent verification: pending}
+\newcommand*{\PaperSubtitle}{chemistry-open-problems \textperiodcentered{} 31 October 2026 \textperiodcentered{} verified 5 November 2026}
+\newcommand*{\PaperCredits}{Solver: Claude Opus 5.5 (effort not recorded) \textperiodcentered{} Independent verification: Claude Opus 5.5 (effort xhigh)}
 \newcommand*{\PaperKeywords}{Taylor dispersion, skewness, regular polygon, Neumann heat semigroup, torsion function, interval arithmetic}
 \input{chemop-preamble}
 \addbibresource{references.bib}
@@ -28,7 +28,7 @@
 Aminian, Camassa and McLaughlin claimed from finite-element computations that among regular polygonal ducts the
 equilateral triangle is the only one whose solute skewness changes sign, ``all other polygons possess positive
 skewness at all times'', adding that this ``cannot be proved on finite times''. We prove the claim. For every regular
-\(n\)-gon with \(n\ge4\), every Péclet number and every time, the skewness of a cross-sectionally uniform release with
+\(n\)-gon with \(n\ge4\), every Péclet number \(\mathrm{Pe}>0\) and every time, the skewness of a cross-sectionally uniform release with
 symmetric longitudinal profile is strictly positive; the same holds for the disk, and for the equilateral triangle
 the skewness changes sign exactly once. The proof has four parts. An identity writes the third moment as
 \(K(\tau)=2\int_0^\tau\langle u\,A(s)A(\tau-s)\rangle\dd s\), where \(u\) is the mean-free Poiseuille profile and \(A\)
@@ -68,7 +68,7 @@ Péclet number.
 
 \begin{theorem}\label{thm:main}
 For every integer \(n\ge4\) and the regular \(n\)-gon, \(K(\tau)>0\) for all \(\tau>0\). Hence the skewness is strictly
-positive at all times, for every Péclet number and every cross-sectionally uniform release with symmetric longitudinal
+positive at all times, for every Péclet number \(\mathrm{Pe}>0\) and every cross-sectionally uniform release with symmetric longitudinal
 profile. The same holds for the disk.
 \end{theorem}
 
@@ -158,7 +158,14 @@ Let \(E\in H^2(\Pg)\) be harmonic. Then \(\norm E^2\le\frac{1+R}2\bdnorm E^2\) a
 \(\bdnorm{\partial_nE}\le(t+R)\bdnorm{\partial_sE}\).
 \end{lemma}
 \begin{proof}
-\(\ut\in H^2(\Pg)\) by convexity~\autocite{Grisvard1985}. Green's identities give
+\(\ut\in H^2(\Pg)\) by convexity~\autocite{Grisvard1985} (Theorem~3.2.1.2 there: on a bounded convex open set the
+Dirichlet problem for the Laplacian with \(L^2\) data has its solution in \(H^2\cap H^1_0\)). For the polygon an
+elementary argument also suffices: away from the vertices \(\ut\) is smooth up to the open sides by Schwarz reflection;
+at a vertex of opening \(\alpha=\pi(1-2/n)<\pi\), in local polar coordinates \((\varrho,\theta)\), the function
+\(\ut-q\) with \(q=\frac12\varrho^2(\cos(2\theta-\alpha)/\cos\alpha-1)\) (for \(n=4\), where \(\cos\alpha=0\),
+\(q=-\varrho^2\sin^2\theta-\frac2\pi\varrho^2(\log\varrho\sin2\theta+\theta\cos2\theta)\)) is bounded, harmonic and zero on both
+sides, hence equals \(\sum_kc_k\varrho^{k\pi/\alpha}\sin(k\pi\theta/\alpha)\) near the vertex; since \(\pi/\alpha>1\) every term,
+and \(q\), is in \(H^2\) near the vertex. Then \(E\in H^2\) whenever \(\ut-E\) is a polynomial. Green's identities give
 \(2\int E^2=-2\int\ut|\nabla E|^2+\oint E^2m\). On a side, \(\ut\le(1-x)(x+R)\) by the maximum principle, so \(m\le1+R\).
 The second bound is the Rellich identity: the field \((x\cdot\nabla E)\nabla E-\frac12|\nabla E|^2x\) is divergence-free. With
 \(x\cdot n=1\) and \(x\cdot\nabla E=\partial_nE+\sigma\partial_sE\), \(|\sigma|\le t\), on a side, this gives
@@ -286,7 +293,9 @@ and \(S(\tau)\) decreases in \(\tau\).
 \end{proof}
 
 \begin{remark}\label{rem:E}
-So \(K=\frac13\avg{u^3}\tau^3+\frac13E\tau^4+O(\tau^{9/2})\). For the triangle (inradius 1), \(E=9/100-27/700=9/175\), which
+So \(K=\frac13\avg{u^3}\tau^3+\frac13E\tau^4+O(\tau^{9/2})\). (The lower bound is \zcref{prop:short}; for the upper bound use
+the exact expansion in the proof of \zcref{prop:G} with \(\avg{\ut^2\Gamma_b}\le\max\ut\,\Lambda(b)\) and
+\(\avg{\ut\Gamma_a\Gamma_b}\le(2\norm u_\infty+2a)\Lambda(b)\). This remark is not used in the proofs.) For the triangle (inradius 1), \(E=9/100-27/700=9/175\), which
 reproduces the coefficient in equation~(14) of the source, \(\mu_3\sim\frac{27}{19250}\mathrm{Pe}^3\tau^3+\frac9{175}\mathrm{Pe}^3\tau^4\). For
 the disk \(E=1/24\), so \(K\sim\tau^4/72\). The point of \zcref{prop:short} is that \(E\) stays near \(1/24\) as \(n\to\infty\) while
 \(\avg{u^3}\to0\): the window \((0,\tau_0]\) does not shrink.
@@ -444,7 +453,7 @@ K_n(\tau)\ge K_D(\tau)-\mathcal E(\tau)-r_W\tau,\qquad r_W=2\bigl(w_1(vF^2+4UFL)
 \]
 where \(F\ge\sup|f_s|\), \(L\ge\sup|f_s'|\) on \([0,v]\) for \(f_s=g_0-\sum_kd_k\mathrm e^{-\mu_ks}\psi_k\); we use \(|J_0|\le1\), \(|J_1|\le1/\sqrt2\). For the term \(r_W\), note
 \(\avg{w\tilde A_a\tilde A_b}_{\mathcal P}\) differs from \(\avg{\bar uf_af_b}_D\) by at most \(w_1\operatorname{Lip}(\bar uf_af_b)+\frac{\bar b}2F^2+2w_1LUF\).
-All constants are increasing in \(t\); \texttt{uniform.py} evaluates them at \(t=\tan(\pi/200)\): \(\omega\le4.2\cdot10^{-6}\), \(L_1\le1.6\cdot10^{-6}\), \(\rho\le1.9\cdot10^{-6}\), and checks the
+All constants are increasing in \(t\); \texttt{uniform.py} evaluates them at \(t=\tan(\pi/200)\): \(\omega\le4.3\cdot10^{-6}\), \(L_1\le1.6\cdot10^{-6}\), \(\rho\le1.9\cdot10^{-6}\), and checks the
 inequality on the grid of \zcref{sec:finite} and for \(\tau\ge40\). At \(\hat\tau_0\): \(K_D=3.06\cdot10^{-10}\), error \(2.06\cdot10^{-10}\). For the disk, \(t=0\), all errors vanish except the truncation \(\rho\le1.1\cdot10^{-6}\).
 In the apothem-\(1\) frame, for \(S\): \(H'=\ut-Y\) has \(-x/6\le H'\le x/3\), so \(c\in[\frac14-\frac x{12},\frac14+\frac{5x}{12}]\), \(\norm{\ut}\le\norm Y+x/3\), \(E=2c^2-\norm{\ut}^2\), and \(\ut\le Rd+x/2\) because \(Y\le x/6+Rd\); so
 \(\bar m=R\), \(\beta=x/2\).
@@ -534,10 +543,14 @@ G(a,b)=\sum_{\xi,\eta\in\mathbb Z^2}\hat u_\xi\hat u_\eta\hat u_{\xi+\eta}\mathr
 \]
 and the resulting \(K\) agrees with the Galerkin value to four digits at \(\tau=0.015\) (\(8.20\cdot10^{-10}\)), and with the certified \(\tilde K\). The law in \zcref{rem:E} is confirmed numerically and against equation~(14) of the source.
 
-\paragraph{Trusted base.} Payne--Weinberger constant~\autocite{PayneWeinberger1960,Bebendorf2003}; \(H^2\) regularity on convex polygons~\autocite{Grisvard1985}; the spectral theorem for the Neumann Laplacian; Green's identities;
+\paragraph{Trusted base.} Payne--Weinberger constant~\autocite{PayneWeinberger1960,Bebendorf2003}; \(H^2\) regularity on convex polygons~\autocite{Grisvard1985}, or the elementary
+vertex expansion recalled in the proof of \zcref{lem:harmonic} (it is used in \zcref{lem:harmonic}, hence in \zcref{lem:cell} and \zcref{prop:u3}, and for the Green formula
+with the trace \(m\in L^2(\partial\Pg)\) in \zcref{lem:layer}); the spectral theorem for the Neumann Laplacian; Green's identities;
+the bounds \(|J_0|\le1\), \(|J_1|\le1/\sqrt2\);
 Arb and python-flint for ball arithmetic; sympy for exact rational identities. Floating point only chooses coefficients.
 
-\paragraph{Limitations.} The proof is computer-assisted and has not been verified independently. The window \(\tau_0=0.015\) and the threshold \(N=200\) are technical. Numerics suggest more than we prove:
+\paragraph{Limitations.} The proof is computer-assisted. An independent verifier re-derived the arguments, re-ran every certificate and
+cross-checked \(K\) by an independent finite-element computation (\texttt{verification.md}). The window \(\tau_0=0.015\) and the threshold \(N=200\) are technical. Numerics suggest more than we prove:
 \(G(a,b)>0\) on the whole quadrant for every \(n\ge4\), so that \(K\) is convex (and \(\avg{ue_1^2}>0\) for the first invariant eigenfunction, already in the square, where it is about \(+0.023\)); we did not prove this.
 The monotonicity in \(n\) suggested by Table~1 of the source is not addressed, nor are the unimodality and median statements of the source.
 

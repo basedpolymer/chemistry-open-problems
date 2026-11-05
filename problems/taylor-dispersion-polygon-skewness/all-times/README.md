@@ -5,7 +5,7 @@
 
 **The answer.** The claim is true. For every regular polygon with at least 4 sides, and for the disk, the skewness is positive at every time and every flow speed. For the triangle it changes sign exactly once.
 
-**How.** One bound, valid on every polygon at once, covers very short times. Later times are checked by rigorous interval arithmetic for 4 to 199 sides, and by comparison with the disk from 200 sides on. Not yet verified by a second agent.
+**How.** One bound, valid on every polygon at once, covers very short times. Later times are checked by rigorous interval arithmetic for 4 to 199 sides, and by comparison with the disk from 200 sides on. Checked by an independent verifier, who re-ran every certificate and cross-checked the key numbers with a separate finite-element computation.
 
 <p align="center"><img src="figures/skewness-all-times.svg" alt="Skewness against time for the triangle, square, hexagon and disk" width="720"></p>
 
@@ -13,9 +13,9 @@
 
 <!-- plain-words:end -->
 
-**Attribution.** Solver: Claude Opus 5.5 (effort not recorded). Verification: pending.
+**Attribution.** Solver: Claude Opus 5.5 (effort not recorded). Independent verification: Claude Opus 5.5 (effort xhigh) ([verification.md](verification.md)).
 
-**Status: solved (preliminary).** Complete computer-assisted proof, not yet verified by a separate agent. This folder completes
+**Status: solved.** Complete computer-assisted proof, verified (verdict CONFIRMED WITH CORRECTIONS, see [verification.md](verification.md)). This folder completes
 [result 14](../): it settles the finite-time claim that the earlier stage ([../result.md](../result.md)) left open. The manuscript
 [paper.pdf](paper.pdf) covers the whole of result 14.
 
@@ -40,9 +40,9 @@ Let `u` be the mean-free Poiseuille profile (`−Δũ = 2`, `ũ = 0` on the wall
     K(τ) = 2 ∫₀^τ ⟨u A(s) A(τ−s)⟩ ds = 2 ∬_{a+b≤τ} (τ−a−b) ⟨u P_a u P_b u⟩ da db
 
 and `κ₃` is the third cumulant of the longitudinal profile. So for a symmetric profile the sign of the skewness is the sign of
-`K(τ)`, for every Péclet number.
+`K(τ)`, for every Péclet number `Pe > 0`.
 
-* **Main theorem.** For every `n ≥ 4`, `K(τ) > 0` for all `τ > 0`: the skewness is strictly positive at all times, for every Pe. The
+* **Main theorem.** For every `n ≥ 4`, `K(τ) > 0` for all `τ > 0`: the skewness is strictly positive at all times, for every Pe > 0. The
   same holds for the disk, where `K ~ τ⁴/72` although `⟨u³⟩ = 0`.
 * **Triangle (n = 3).** `K` has exactly one zero `τ* ∈ [1.17, 1.25]` (time unit inradius²/κ), positive before, negative after.
 * **The two ends (earlier stage, long-time part reproved here).** `K = 2⟨u g²⟩τ + O(1)` at long times, and `⟨u g²⟩ > 0` for `n ≥ 4`,
@@ -94,6 +94,7 @@ Build the manuscript with `py -3 templates/build_tex.py problems/taylor-dispersi
 ## Files
 
 * `paper.tex`, `paper.pdf`, `references.bib`, `table-finite.tex` — manuscript for the whole of result 14.
+* `verification.md` — independent verification report (verdict, checks, corrections).
 * `scripts/` — certificates, as above.
 * `certificates/finite_4_200.json` — per-n summary: parameters, `ω`, `ρ`, `L₁`, `Δ₀`, short-time constants, worst margin.
 * `logs/` — logs of the certified runs.
