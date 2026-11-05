@@ -16,7 +16,6 @@ None of these is needed for the correctness of a result already claimed; each on
 | [10.1016/0022-0396(87)90171-9](https://doi.org/10.1016/0022-0396(87)90171-9) | O. J. Staffans, J. Differential Equations 70 (1987) 114–151 | `problems/becker-doring-bubblelator-hopf/certificates/sources/` | Result 34: a general Hopf theorem with infinite delay, seen as abstract only; how much of result 34 it already covers |
 | [10.1137/20M1398664](https://doi.org/10.1137/20M1398664) | Niethammer, Pego, Schlichting, Velázquez, SIAM J. Appl. Math. 82 (2022) | same | Result 34: typeset version (arXiv v2 and the NSF accepted manuscript were read) |
 | [10.1016/j.jde.2011.09.038](https://doi.org/10.1016/j.jde.2011.09.038) | O. Diekmann, M. Gyllenberg, J. Differential Equations 252 (2012) | same | Result 34: infinite-delay framework, cited but not read |
-| [10.1007/s11538-019-00580-6](https://doi.org/10.1007/s11538-019-00580-6) | Conradi, Mincheva, Shiu, Bull. Math. Biol. 81 (2019) | `problems/conradi-mincheva-shiu-mixed-phosphorylation/sources/` | Candidate A3 (running): numbering of the conjecture in the published version (6.1 or 6.2) |
 
 ## Priority 2: candidates not yet started
 

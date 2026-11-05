@@ -24,7 +24,6 @@ Feasibility means the chance of a *complete* resolution by a very strong AI with
 | Tier | Problem | Field | Feasibility | Expected form | PDF needed |
 |---|---|---|---|---|---|
 | A | [Quadratic trimolecular (2, 4, 2) networks](#a2) | Reaction networks | medium | per-network theorems, or two limit cycles | no |
-| A | [Mixed-mechanism dual phosphorylation](#a3) | Reaction networks | medium | counterexample | no |
 | A | [Maximal energy of bicyclic graphs, two odd cycles](#a5) | Mathematical chemistry | medium, long | proof + interval checks | yes |
 | B | [Unimodality of TAC(E)](#b1) | Chemical engineering | medium-high | counterexample or theorem | no |
 | B | [Fifteen solutions for three consecutive reactions](#b3) | Chemical engineering | medium | certified parameter set | yes |
@@ -79,17 +78,7 @@ Solved on 5 November 2026 (preliminary): [result 34](../problems/becker-doring-b
 <a id="a3"></a>
 ### Mixed-mechanism dual phosphorylation
 
-- **Statement.** For the network with processive phosphorylation and distributive dephosphorylation (9 species, unique positive
-  steady state per class): if the steady state is locally stable, is it globally stable? A conjecture in the same section
-  says that if it is unstable, the class contains a stable periodic orbit.
-- **Source.** Conradi, Mincheva, Shiu, Bull. Math. Biol. 81 (2019), doi:10.1007/s11538-019-00580-6,
-  [arXiv:1809.02886](https://arxiv.org/abs/1809.02886) §6, pp. 18 and 20. Check the conjecture's number: sources disagree
-  between 6.1 and 6.2.
-- **Status.** Open. Zenodo 10.5281/zenodo.23446981 says itself that it does not resolve this. Read Vassena arXiv:2608.27081 and
-  Feliu, Kaihnsa arXiv:2405.16179.
-- **Attack.** The monomial parametrization of the source's Theorem 3.2 gives the first Lyapunov coefficient along the Hopf
-  surface. A subcritical point gives a counterexample, certified with an interval Poincaré map. The yes direction looks
-  far harder.
+Question answered on 5 November 2026 (preliminary): [result 35](../problems/conradi-mincheva-shiu-mixed-phosphorylation/). Conjecture 6.1 of the same section (an unstable steady state implies a stable periodic orbit) remains open; result 35 gives one certified instance and no counterexample.
 
 <a id="a4"></a>
 ### Complexity of the multistage minimum utility cost problem

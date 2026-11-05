@@ -1,0 +1,6 @@
+PASS E1 det D_y Phi_k(y) != 0 on the box -> U is open  det in [1806.7081 +/- 3.10e-5]
+PASS E2 Gershgorin discs of R^-1 A R in Re < 0 for every (k, y) in the box -> steady state LAS  max right edge of the discs <= [-0.00095694 +/- 2.48e-9]
+PASS E3 totals enclosed  Ktot in [78.666666667 +/- 4.91e-10], Ptot in [3.6261111111 +/- 3.17e-11], Stot in [63.277592593 +/- 8.86e-10]
+PASS E4.0 po_proof_box.cpp compiles  
+PASS E4 stable_mu59: CAPD proof for the whole parameter box  ||I - C DF(X)||_inf <= 0.35145560628810962
+ALL CLAIMS PASS (eps = 1/1000000000000)

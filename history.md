@@ -426,3 +426,13 @@ progress journal. Global topology ordering remains unresolved.
   points, orbital stability, the full Becker–Döring system. Two remarks on the source: its change of variables drops factors
   (1 − α), and the κ₂ column of its Table 1 equals η₂/4 in every row, against its formula (3.23). Solver: Claude Opus 5.5
   (xhigh); no separate verification yet. Candidate A1 removed.
+- Result 35 added, **solved (preliminary)**: the question of Conradi, Mincheva and Shiu (Bull. Math. Biol. 2019, §6, p. 1849)
+  whether a locally stable steady state of the mixed-mechanism dual-phosphorylation network is globally stable is answered
+  no. With rate constants (1,1,1,1,300,1,3,1,1,100) the Hopf bifurcation along the source's monomial parametrisation is
+  subcritical (simple pair ±iω, four other eigenvalues stable, crossing speed and first Lyapunov coefficient certified in Arb
+  after an exact rational sign change of the Hurwitz determinant). At the explicit rational class with totals
+  (236/3, 6527/1800, 341699/5400) the steady state is locally asymptotically stable (exact Hurwitz determinants) and the class
+  contains an orbitally asymptotically stable periodic orbit and a second periodic orbit (CAPD 6.1 rigorous Poincaré map with
+  Krawczyk inclusion); the same holds on an open set of parameters. The conjecture is Conjecture 6.1 in both versions (6.2 is
+  a different statement). Conjecture 6.1 itself is not settled. Solver: Claude Opus 5.5 (xhigh); the orchestrator re-ran the
+  Hopf and CAPD certificates (ALL PASS). No separate verification yet. Candidate A3 removed.

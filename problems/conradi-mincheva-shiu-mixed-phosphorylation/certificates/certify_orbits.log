@@ -1,0 +1,12 @@
+PASS D1 mu=59: x* = phi(1/3,59,1/4) > 0, g(x*) = 0, W x* = totals  x* = (1/3, 59, 59/6, 59/6, 118/675, 1/4, 59/18, 5959/150, 59/600)
+PASS D2 mu=59: det H1..H5 > 0 and b6 > 0 (exact) -> x* locally asymptotically stable  det H5 = 4.398386e+23
+PASS D2b mu=59: certified eigenvalue enclosures of the reduced Jacobian: 0 with Re > 0, 6 with Re < 0  [-60.3252 +/- 2.93e-5] + [+/- 2.38e-12]j [-0.000956948 +/- 9.95e-12] + [-2.24044 +/- 4.72e-6]j [-0.000956948 +/- 9.95e-12] + [2.24044 +/- 4.72e-6]j [-4.16597 +/- 2.91e-6] + [+/- 2.28e-12]j [-88.7841 +/- 3.75e-5] + [+/- 2.42e-12]j [-181.477 +/- 2.56e-4] + [+/- 2.56e-12]j
+PASS D1 mu=60: x* = phi(1/3,60,1/4) > 0, g(x*) = 0, W x* = totals  x* = (1/3, 60, 10, 10, 8/45, 1/4, 10/3, 202/5, 1/10)
+PASS D2 mu=60: det H1..H4 > 0, det H5 < 0, b6 > 0 (exact) -> x* not locally asymptotically stable  det H5 = -2.383309e+24
+PASS D2b mu=60: certified eigenvalue enclosures of the reduced Jacobian: 2 with Re > 0, 4 with Re < 0  [-61.3246 +/- 3.91e-5] + [+/- 1.72e-12]j [0.00470315 +/- 4.01e-9] + [-2.24702 +/- 1.57e-6]j [0.00470315 +/- 4.01e-9] + [2.24702 +/- 1.57e-6]j [-4.16916 +/- 5.00e-7] + [+/- 1.65e-12]j [-88.8123 +/- 2.67e-5] + [+/- 1.74e-12]j [-183.020 +/- 2.59e-5] + [+/- 1.83e-12]j
+PASS D3 po_proof.cpp vector field == P g(x(z)) (symbolic k, totals) with x1 = S - sum z, x2 = K - x3 - x4, x6 = P - x7 - x9  
+PASS D4.0 po_proof.cpp compiles against CAPD  
+PASS D4 unstable_mu59: CAPD proof (periodic orbit)  return time in [2.8291053136575441, 2.829105404485043]
+PASS D4 stable_mu59: CAPD proof (periodic orbit, orbitally asymptotically stable)  return time in [2.9698229822721371, 2.9698230536163495]
+PASS D4 stable_mu60: CAPD proof (periodic orbit, orbitally asymptotically stable)  return time in [3.0991696986892476, 3.0991697773882807]
+ALL CLAIMS PASS

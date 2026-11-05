@@ -1,0 +1,12 @@
+PASS C0 conservation laws W N = 0, W E = 0, P E = I, rank N = 6  
+PASS C1 g(phi(x1,x2,x6)) = 0 identically (symbolic k, x)  
+PASS C2 char.poly(9x9 Jacobian) = lam^3 * char.poly(reduced A(mu))  A(mu) is affine in mu: True
+PASS C3 h = det H5 changes sign on [a,b] (exact rationals)  deg h = 9, b - a = 7.364e-62
+PASS C4 det H1..H4 > 0, b6 > 0, h'(mu) != 0 on [a,b]  h' in [-2.6619e+24 +/- 1.97e+19]
+PASS C5 spectrum at mu0: simple pair +-i*omega0, other 4 eigenvalues in Re < 0  omega0 in [2.24155834764065 +/- 2.76e-15]
+PASS C6 first Lyapunov coefficient l1(mu0) > 0  l1 in [0.000586860833657 +/- 9.86e-18] (normalisation q_5 = 1)
+PASS C7 crossing speed Re lambda'(mu0) > 0  in [0.00569698769645 +/- 2.98e-15]
+PASS C8 totals T(mu) = W phi(x1, mu, x6) as stated  T(mu0) in ([78.8902633521206 +/- 2.64e-14], [3.63570713552851 +/- 2.05e-15], [63.4565009960509 +/- 2.02e-14])
+mu0 in [59.16769751409043022823430 +/- 1.67e-24]
+runtime 2.2 s
+ALL CLAIMS PASS

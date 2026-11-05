@@ -1,0 +1,69 @@
+$ /tmp/cms_params_unstable_mu59.txt 4 39.7266666666667 1 9.3018468136374146 10.241738411048921 0.27738321478011141 3.3981275296917368 39.726666666666659 0.06437810716363121 1e-8 20 existence unstable_mu59
+unstable_mu59: Newton residual 8.9108798943287568e-15, return time 2.8291053590711988
+unstable_mu59: parameter k1 in [1, 1]
+unstable_mu59: parameter k2 in [1, 1]
+unstable_mu59: parameter k3 in [1, 1]
+unstable_mu59: parameter k4 in [1, 1]
+unstable_mu59: parameter k5 in [300, 300]
+unstable_mu59: parameter k6 in [1, 1]
+unstable_mu59: parameter k7 in [3, 3]
+unstable_mu59: parameter k8 in [1, 1]
+unstable_mu59: parameter k9 in [1, 1]
+unstable_mu59: parameter k10 in [100, 100]
+unstable_mu59: parameter K in [78.666666666666657, 78.666666666666671]
+unstable_mu59: parameter P in [3.6261111111111108, 3.6261111111111113]
+unstable_mu59: parameter S in [63.27759259259259, 63.277592592592597]
+unstable_mu59: return time in [2.8291053136575441, 2.829105404485043]
+unstable_mu59: |P(c)-c| <= 9.9104724426979374e-11, box radius (max) 1.1241738562262071e-07
+unstable_mu59: ||I - C DF(X)||_inf <= 0.54220030354575854
+PASS unstable_mu59: Krawczyk K(X) in int X => unique periodic orbit through X
+PASS unstable_mu59: all nine concentrations positive on X
+unstable_mu59: orbit point (section coordinates) X = {[9.301846710620131, 9.3018469166570679],[10.24173829863066, 10.241738523465431],[0.27738320200596694, 0.27738322755363126],[3.3981274857102228, 3.3981275736727738],[39.726666666666702, 39.726666666666702],[0.064378096519918132, 0.06437811780748029]}
+
+$ /tmp/cms_params_stable_mu59.txt 4 39.7266666666667 1 8.4587632302576186 10.736825844458975 0.61088953888630748 3.5188775951492097 39.726666666666659 0.030296490324116965 1e-8 20 stable stable_mu59
+stable_mu59: Newton residual 1.253271862201369e-14, return time 2.9698230179441518
+stable_mu59: parameter k1 in [1, 1]
+stable_mu59: parameter k2 in [1, 1]
+stable_mu59: parameter k3 in [1, 1]
+stable_mu59: parameter k4 in [1, 1]
+stable_mu59: parameter k5 in [300, 300]
+stable_mu59: parameter k6 in [1, 1]
+stable_mu59: parameter k7 in [3, 3]
+stable_mu59: parameter k8 in [1, 1]
+stable_mu59: parameter k9 in [1, 1]
+stable_mu59: parameter k10 in [100, 100]
+stable_mu59: parameter K in [78.666666666666657, 78.666666666666671]
+stable_mu59: parameter P in [3.6261111111111108, 3.6261111111111113]
+stable_mu59: parameter S in [63.27759259259259, 63.277592592592597]
+stable_mu59: return time in [2.9698229822721371, 2.9698230536163495]
+stable_mu59: |P(c)-c| <= 7.7109874041525472e-11, box radius (max) 1.1736825911157212e-07
+stable_mu59: ||I - C DF(X)||_inf <= 0.066779041497712952
+PASS stable_mu59: Krawczyk K(X) in int X => unique periodic orbit through X
+PASS stable_mu59: all nine concentrations positive on X
+stable_mu59: || (S^-1 DP S)^(2^7) ||_inf <= 0.29512975917782552
+PASS stable_mu59: spectral radius of DP < 1 on X => orbitally asymptotically stable
+stable_mu59: orbit point (section coordinates) X = {[8.4587631356692548, 8.4587633248445222],[10.73682572709102, 10.736825961827538],[0.6108895227777793, 0.61088955499557018],[3.518877549960497, 3.5188776403380495],[39.726666666666702, 39.726666666666702],[0.030296480021134442, 0.030296500627064252]}
+
+$ /tmp/cms_params_stable_mu60.txt 4 40.4 1 8.079712138972118 11.105956025633061 0.9576683897984154 3.612820629418942 40.399999999999999 0.020158557767926022 1e-8 20 stable stable_mu60
+stable_mu60: Newton residual 3.6390809281685956e-14, return time 3.0991697380386896
+stable_mu60: parameter k1 in [1, 1]
+stable_mu60: parameter k2 in [1, 1]
+stable_mu60: parameter k3 in [1, 1]
+stable_mu60: parameter k4 in [1, 1]
+stable_mu60: parameter k5 in [300, 300]
+stable_mu60: parameter k6 in [1, 1]
+stable_mu60: parameter k7 in [3, 3]
+stable_mu60: parameter k8 in [1, 1]
+stable_mu60: parameter k9 in [1, 1]
+stable_mu60: parameter k10 in [100, 100]
+stable_mu60: parameter K in [80, 80]
+stable_mu60: parameter P in [3.6833333333333331, 3.6833333333333336]
+stable_mu60: parameter S in [64.344444444444434, 64.344444444444449]
+stable_mu60: return time in [3.0991696986892476, 3.0991697773882807]
+stable_mu60: |P(c)-c| <= 7.4310335662630678e-11, box radius (max) 1.2105956059826894e-07
+stable_mu60: ||I - C DF(X)||_inf <= 0.016896562235590971
+PASS stable_mu60: Krawczyk K(X) in int X => unique periodic orbit through X
+PASS stable_mu60: all nine concentrations positive on X
+stable_mu60: || (S^-1 DP S)^(2^5) ||_inf <= 0.37111596477563363
+PASS stable_mu60: spectral radius of DP < 1 on X => orbitally asymptotically stable
+stable_mu60: orbit point (section coordinates) X = {[8.0797120481749438, 8.0797122297691892],[11.105955904573504, 11.105956146692625],[0.95766837022174267, 0.95766840937511055],[3.6128205832907376, 3.6128206755471508],[40.399999999999999, 40.399999999999999],[0.020158547566340178, 0.020158567969511338]}
